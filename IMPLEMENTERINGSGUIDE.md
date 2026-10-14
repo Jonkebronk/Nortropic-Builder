@@ -1,6 +1,6 @@
 # Implementeringsguide: AI-webbsidebyggare med Claude Code + Google Stitch
 
-> **Status:** Utkast v0.57 (2026-10-14) — levande dokument som vi bygger vidare på.
+> **Status:** Utkast v0.58 (2026-10-14) — levande dokument som vi bygger vidare på.
 > **Planerat:** konsolideringsrunda (slå ihop dubbletter, t.ex. granskarisolering i §5.2/fas 4/fas 6b; skilj grindar från instruktioner och flytta regler enligt placeringsordningen i §8.7; gör **"agenten föreslår, du beslutar"** till en egen princip — den återkommer för `arbetssatt.md`, granskarkriterier, kontroller, `design.md` och `CLAUDE.md`; en möjlig disposition är OS-liknelsen ur OS-videon — `CLAUDE.md` som kärna, MCP som drivrutiner, skills som program, loopar/rutiner som schemaläggare, arbetsflöden som binder ihop) **när videogenomgången är klar** — inte före. **Metod för konsolideringen (Karpathy-videon):** guiden byggs om som wiki ur råmaterialet i `kunskap/raw/` — varje regel spårbar till ett citat, regler med en källa på bänken (§11.11), och motsägelser mellan videor synliga som konflikter.
 > **Källor:**
 > - AI LABS, *"Google Just Fixed AI Design By Releasing This"* (2026-10-13), https://www.youtube.com/watch?v=au2TI8sdq8E — flödet (§1–5)
@@ -62,6 +62,7 @@
 > - Nate Herk, *"Anthropic’s CEO: How to Build a 1 Person Business with Claude"* (2026-09-18), https://www.youtube.com/watch?v=QDsenEcAJIk — automatiserad försäljning och support, standardiserat erbjudande, riskklassade ärenden, utkast i stället för utskick, smal nisch, enhetsekonomi (§15, fas 8b) ⚠️ Darios filter i Nates tolkning
 > - Nate Herk, *"Everything Goldman Sachs Taught Me About AI (In 10 minutes)"* (2026-08-24), https://www.youtube.com/watch?v=ZzHsJW10iq4 — VAULT: verifiera, förstärk, förstå varför, människan i loopen, transparens; tillsyn efter konsekvens, rabattkodsincidenten (§5.2, fas 8a, 8b, 8d, §11.11, §15.2) ⚠️ Goldmans CIO citeras i andra hand
 > - Nate Herk, *"I Deleted All My Claude Skills... And Claude Got Smarter"* (2026-08-12), https://www.youtube.com/watch?v=XNQBCRcwXV4 — klipp ur Boris Chernys intervju hos Y Combinator: rensa var sjätte månad, unhobbling, högre nivå i prompter, verifiering; Nates test utan skills (§8.5, fas 8f, §11.11)
+> - Nate Herk, *"5000 Hours of Building AI in Just 17 Minutes"* (2026-08-04), https://www.youtube.com/watch?v=7WZ6XldxX0U — tolv lärdomar: kvitton, förbud i prompter, verifiering, behörighet i verktygen, eval, stoppet eller läckan, nordstjärna, modellroutning (fas 0, 0b, 8a, 8d, §12, §15.3)
 > - 📄 Anthropic, *Prompting Claude Fable 5.1*, *Prompting Claude Fable 5* och *Effort* (Claude Platform Docs, hämtade 2026-10-14): https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1 · https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5 · https://platform.claude.com/docs/en/build-with-claude/effort
 > **Märkning i dokumentet:**
 > - 🎥 = beskrivet i videon
@@ -234,7 +235,7 @@ Verktyg: REA:s webbläge (§11.11) eller Playwright CLI:s nätverksfångst. Allt
 - Varje gammal URL får en **301-omdirigering** till sin nya motsvarighet, eller ett medvetet beslut i beslutskartan om att den ska bort.
 - **Låst kontroll i fas 7:** ingen gammal URL ger 404.
 
-**4. Före-mått.** Den befintliga sajtens prestanda, förfrågningar och konverteringar mäts *innan* vi bygger om — jämförelsepunkten för värdet för kunden (fas 8a).
+**4. Före-mått.** Den befintliga sajtens prestanda, förfrågningar och konverteringar mäts *innan* vi bygger om — jämförelsepunkten för värdet för kunden (fas 8a) och **baslinjen för nordstjärnan** i briefen. Analysen visar också **var besökare faller bort** (sidor de lämnar, formulär som inte skickas) — underlag till frågan om stoppet eller läckan i intervjun.
 
 **4b. Behålla kundens visuella identitet 🎥 (Stitch-skills-videon) / 🔧:** vill kunden behålla sin identitet kan Stitch **importera designsystemet från en URL** — den läser av sajten och tar fram stil och typografi som `design.md` 🎥. Det blir utgångspunkten för fas 2. Gäller **bara kundens egen sajt**.
 
@@ -258,6 +259,7 @@ Verktyg: REA:s webbläge (§11.11) eller Playwright CLI:s nätverksfångst. Allt
   - Frågor som kräver kunden (t.ex. inloggning hos kundens leverantör) blir `blocked` med en tydlig fråga — inte en gissning.
 - **Beslutskarta 🎥 (Wayfinder) / 🔧:** varje beslut i fas 1 sparas med **motivering** i `sites/<namn>/beslutskarta.md`. Den används i förvaltningen (fas 8) när någon frågar *varför* sajten ser ut som den gör, och av auto loopen (§10.5) för att se vilka beslut som ledde till fel. Besluten hänvisar till källor i kunskapsbasen (§11).
 - **Bygga eller använda befintligt:** funktioner i briefen (bokning, chatt, betalning m.m.) utreds först mot befintliga tjänster, med kostnad i tre lägen — se §11.5.
+- **Stoppet eller läckan — inte bara beställningen 🎥 (5000-timmarsvideon) / 🔧:** *det kunden ber om är nästan aldrig den verkliga begränsningen* 🎥. Kunden säger "vi behöver en ny hemsida", men problemet kan vara att förfrågningar försvinner, att ingen svarar i tid eller att telefonnumret inte syns på mobilen. Intervjun börjar därför med **"Var tappar ni kunder i dag?"** och följer kundens väg från första kontakt till affär. Svaret avgör den primära handlingen och nordstjärnan (nedan). Vid ombyggnad stöds det av fas 0b, steg 4.
 - **Processen bakom den primära handlingen 🎥 (FDE-videon) / 🔧:** en sajt konverterar inte bättre än det som händer *efter* klicket. Intervjun frågar därför också:
   - Vem tar emot formuläret eller bokningen, och hur snabbt svarar de?
   - Vilket system används idag (bokningssystem, CRM, e-post, telefon)? **Bygg på det kunden redan använder** och ändra inte deras arbetssätt mer än nödvändigt 🎥 — en ny tjänst som ingen hos kunden tar till sig ger ingen effekt.
@@ -272,6 +274,7 @@ Verktyg: REA:s webbläge (§11.11) eller Playwright CLI:s nätverksfångst. Allt
   2. Berättelsen steg för steg — kapitel i scrollordning 🎥
   3. Känsla & visuell riktning 🔧
   4. Målgrupp & primär handling 🔧
+  4b. **Nordstjärna 🎥 (5000-timmarsvideon) / 🔧:** *ett* mått med **baslinje, mål och tidsram**, t.ex. *"från 5 till 15 förfrågningar i veckan inom två månader"*, som **kunden godkänner** innan bygget 🎥. Det är projektets mållinje i affärstermer — motsvarigheten till acceptanskriterierna — och det förvaltningsrapporten följer (fas 8a). Baslinjen kommer från fas 0b, steg 4, eller från kundens egna siffror; saknas den mäts den första månaden efter lansering.
   5. Innehåll per kapitel 🔧
   6. Krav: responsivitet, tillgänglighet, prestanda 🔧
   7. Acceptanskriterier — det granskarna mäter mot 🔧
@@ -552,7 +555,7 @@ Vi förvaltar sajterna efter lansering. Byggflödet slutar inte vid publicering 
 | Veckovis | Prestanda (Core Web Vitals), beroenden med kända säkerhetshål, certifikat och domänens utgångsdatum. |
 | Månadsvis | **Säkerhetsgranskning** mot den publicerade sajten, t.ex. med Mantis. Hermes-videon 🎥 kör hela granskningen schemalagt mot den publicerade appen och larmar vid fynd. 🔧 Granskningen körs med läsrätt (8d), och fynd blir ändringar på en egen gren (8c). |
 | Månadsvis | **AEO 🎥:** fråga AI-assistenter (ChatGPT, Claude, Perplexity) det en köpare i kundens bransch skulle fråga — **utan** att nämna kunden — och logga om och var sajten nämns. *Spekulativt tillval (OKF-videon 🎥):* om strukturerad, maskinläsbar kunskap blir viktig för AI-sökning kan kundsajterna publicera en sådan version av sina publika fakta (i stil med `llms.txt` eller OKF), byggd ur faktabasen (§11.8) — bara publika fakta. ⚠️ Prövas och mäts med AEO-kontrollen innan det införs. |
-| Månadsvis | **Värde för kunden 🔧** (idé: FDE-videon 🎥, *sätt en siffra på det*): antal förfrågningar, bokningar eller andra primära handlingar, och konverteringsgrad — jämfört med före lanseringen (vid ombyggnad: före-måttet från fas 0b) och över tid. Det är det som visar att sajten gör sitt jobb och som motiverar förvaltningen. Rapporten har bevis (länk eller skärmdump) som övriga rapporter. ⚠️ Kräver statistikverktyg och kundens samtycke; ingen personinformation i rapporten. *Tillval 🎥 (Nate Herk-videon):* rapporten kan skapas i kundens Docs eller Sheets med [Google Workspace CLI](https://github.com/googleworkspace/cli) (fungerar i Claude Code, över 40 skills) ⚠️. |
+| Månadsvis | **Värde för kunden 🔧** (idé: FDE-videon 🎥, *sätt en siffra på det*): antal förfrågningar, bokningar eller andra primära handlingar, och konverteringsgrad — jämfört med före lanseringen (vid ombyggnad: före-måttet från fas 0b) och över tid. **Nordstjärnan** från briefen står först i rapporten: baslinje, mål, utfall 🎥 (5000-timmarsvideon). Det är det som visar att sajten gör sitt jobb och som motiverar förvaltningen. Rapporten har bevis (länk eller skärmdump) som övriga rapporter. ⚠️ Kräver statistikverktyg och kundens samtycke; ingen personinformation i rapporten. *Tillval 🎥 (Nate Herk-videon):* rapporten kan skapas i kundens Docs eller Sheets med [Google Workspace CLI](https://github.com/googleworkspace/cli) (fungerar i Claude Code, över 40 skills) ⚠️. |
 | Månadsvis | **Sökord och placeringar — tillval 🎥 (Nate Herk-videon):** [OpenSEO](https://github.com/every-app/open-seo) ger riktiga sökorddata, placeringar och bakåtlänkar 🎥. ⚠️ Datan ligger på deras server om man inte driftar verktyget själv — vägs mot kundens integritet (§11.10). Search Console (fas 8g) ger kundens egna sökdata utan tredje part. |
 | Månadsvis | **Ny besökare 🎥:** utforskningstestet (§10.3) körs från början som om sajten vore okänd — döda sidor, trasiga knappar, otydliga instruktioner fotograferas. |
 
@@ -594,7 +597,7 @@ Grok Bot-videon 🎥 bygger på att alla bottar delar samma dator och samma inlo
   | Publicering till produktion | Alla besökare | Ja, med återställning | Ditt godkännande (fas 7) |
   | Svar till en kund | En kund | Nej | Utkast som du godkänner (§15.2) |
   | Mejl till kundens kundlista, nyhetsbrev | Tusentals | **Nej** | **Aldrig av agent.** Agenten har ingen behörighet till kundens utskickstjänster |
-  - *Rabattkoden till 200 000 🎥 (VAULT-videon):* i Nates team tog en självgående agent själv en uppgift från en lista, tolkade den fel och skickade en rabattkod till nästan 200 000 personer på e-postlistan 🎥.
+  - *Rabattkoden 🎥 (VAULT-videon, 5000-timmarsvideon):* i Nates team tog en självgående agent själv en uppgift från en lista, tolkade den fel och skickade en rabattkod till hela e-postlistan 🎥. ⚠️ Siffran skiljer sig mellan videorna — *nästan 200 000* respektive *cirka 150 000* — och båda är från samma kanal, alltså *en* källa. Lärdomen enligt 5000-timmarsvideon: *en regel i prompten är ett förslag; en regel i verktygen är en verklig begränsning* — säg inte "skicka aldrig", ge agenten en nyckel som bara kan skapa utkast 🎥.
 
 **8g. Kopplingar per kund 🔧 (idé: Lovables connector-katalog, som visar t.ex. Google Search Console, Google Maps, Resend och Firecrawl)**
 Förvaltningen blir mätbar på riktigt när den kan läsa kundens data — inte bara att sajten *fungerar*, utan att den *hittas*. I Claude Code motsvaras Lovables connectors av **MCP-servrar, connectors i claude.ai eller direkta API-anrop från skript**.
@@ -1662,6 +1665,8 @@ Dokumentet tar upp Consent Mode v2 och samtyckesbanners, men utgår från kanade
 5. **Läggs in i det versionerade pluginet** (§8.8) och rullas ut stegvis.
 Samma princip som allt annat: *agenten föreslår, du beslutar, sedan låses det*. Skills grundas i hur vi faktiskt arbetar i stället för i hur vi tror att vi arbetar.
 
+**Förbud är erfarenhet i skriftlig form 🎥 (5000-timmarsvideon) / 📄 (Anthropic):** Nate skriver många *"gör inte"* i sina skills — *listan är mina misslyckanden nedskrivna, sådant en nybörjare inte vet att lägga till* 🎥 — och Anthropics dokumentation gör detsamma (*"Don't add features, refactor, or introduce abstractions beyond what the task requires"* 📄, *Prompting Claude Fable 5*). Det krockar inte med *vad, men inte hur* nedan: förbud är **begränsningar** och behålls; det är **arbetsgången** som prövas. Vid konsolideringen blir fallgroparna i §13 en källa till förbud i rätt skill.
+
 **Vad, men inte hur 🎥 (context-videon) / 📄 (Anthropic) / 🔧 — lyft från bänken (v0.54):** andra oberoende källan är Anthropics egen dokumentation: *skills som utvecklats för tidigare modeller är ofta för föreskrivande för Claude Fable 5 och kan försämra kvaliteten; se över dem och överväg att ta bort äldre instruktioner om standardbeteendet är bättre* 📄 (Anthropic, *Prompting Claude Fable 5*). Regeln gäller därmed fullt ut. — i videon kördes samma uppgift med full uppsättning och helt utan. Den fulla gav rätt *varumärke* men sämre *struktur*; den tomma gav bättre struktur och bättre detaljer 🎥. Slutsats: en skill anger **syfte, identitet och begränsningar** (röst, mål, målgrupp, varumärke, vad som inte får hända) — men inte arbetsgången steg för steg, som en kapabel modell ofta klarar bättre själv. Det är samma gräns som mellan grindar och instruktioner (§8.7): brief, faktabas, `design.md` och kriterier är *vad* och behövs; detaljerade procedurer är *hur* och prövas. Testa genom att köra samma uppgift med och utan skillen (safe mode, Caliper).
 
 **Så skrivs beskrivningen 🎥 (skills-videon) / 🔧:** en skill gör **ett** jobb. Beskrivningen säger både *vad* den gör och *när* den ska användas, med de ord en verklig person skulle använda — inte "hjälper med innehåll" utan t.ex. *"Skriver om-oss-texten utifrån kundens faktabas. Använd när sidan Om oss ska skrivas eller uppdateras."* 🎥. Prövas med testet i §8.8.
@@ -1953,10 +1958,12 @@ Du är jurymedlem för ett webbdesignpris. Var sträng.
 151. **En agent som gör återbetalningar, raderingar eller avtalsändringar** i stället för att lämna ett utkast. (1-person-videon)
 152. **Säljutskick utan godkännande**, eller med påståenden utan källa. (1-person-videon)
 153. **En demosajt av en presumtiv kunds sajt** utan deras avtal. (1-person-videon)
-154. **En självgående agent som själv tar och tolkar en uppgift med stor räckvidd** — rabattkoden till 200 000. (VAULT-videon)
+154. **En självgående agent som själv tar och tolkar en uppgift med stor räckvidd** — rabattkoden till hela e-postlistan. (VAULT-videon)
 155. **Massutskick via agent** till kundens kundlista. (VAULT-videon)
 156. **Ändrade priser eller villkor publicerade utan godkännande.** (VAULT-videon)
 157. **Att ta bort hela skills** så att varumärke och kontext försvinner — i stället för bara arbetsgången. (radera-skills-videon)
+158. **Att bygga det kunden beställer utan att leta efter läckan.** (5000-timmarsvideon)
+159. **Att mäta värde utan ett mål som kunden godkänt i förväg** — då finns ingen mållinje att jämföra med. (5000-timmarsvideon)
 
 ---
 
@@ -2040,6 +2047,7 @@ I videon svarar supportagenten på rutinfrågor ur produktguiden. Ärenden om **
 ### 15.3 Kundflödet — att hitta nya kunder 🎥 / 🔧
 I videon hittar Clay företag som passar, Claude kontrollerar offentliga källor, förklarar varför företaget kan vara relevant och skriver ett utkast som **förblir markerat "ej skickat"** tills grundaren godkänt 🎥. *Att hitta ett relevant företag och skriva ett bra meddelande är inte detsamma som att få en kund* 🎥. Hos oss:
 - **Utkast, aldrig utskick.** Agenten skickar inget; varje meddelande godkänns av dig. Samma regel som för all publicering.
+- **Kvitton, inte portfolio 🎥 (5000-timmarsvideon):** *en portfolio säger "jag byggde det här"; ett kvitto säger vad det gjorde för verksamheten* 🎥. Säljmaterialet bygger på **uppmätta nordstjärnor** — baslinje och utfall — från kundsajter (**med kundens samtycke**) och från våra egna exempelsajter. Skärmdumpar av vackra sajter räcker inte; alla bygger dem nu 🎥.
 - **Inga demosajter av en presumtiv kunds sajt.** Redesign görs bara av kundens *egen* sajt efter avtal (fas 0). En säljdemo visar i stället **våra egna exempelsajter**, byggda med flödet.
 - **Varje påstående i utkastet har en källa** (samma regel som för rapporter, §8.6). Ett utskick som påstår något felaktigt om mottagarens sajt skadar förtroendet direkt.
 - ⚠️ **Lagar:** kalla utskick regleras av bl.a. marknadsföringslagen, och kontaktuppgifter till personer är personuppgifter enligt GDPR (§11.10). Vilka utskick som är tillåtna utreds innan flödet används. Inte juridisk rådgivning.
@@ -2144,3 +2152,4 @@ Videons räkneexempel: 499 dollar i månaden kräver 168 betalande kunder för e
 | 2026-10-14 | 0.55 | Utifrån 1-person-videon (Nate Herk): nytt §15 Företaget runt flödet — standardiserade paket som förutsättning för självgående flöde, ärendeagent med riskklassning (rutin, fråga, hög risk; ingen åtgärd vid pengar eller data), kundflöde med utkast och utan demosajter av andras sajter, smärta–person–löfte och smal nisch, enhetsekonomi; ärendeagenten kopplad till fas 8b; Nästa steg blir §16; fallgropar 150–153 |
 | 2026-10-14 | 0.56 | Utifrån VAULT-videon (Nate Herk, Goldman Sachs): principen *kan agenten göra det, anta att den gör det* (§5.2); tillsyn efter konsekvens och räckvidd med tabell, inga massutskick av agent (fas 8d); priser, erbjudanden och juridiska texter som hög risk som aldrig publiceras utan godkännande (§15.2); otydliga ändringsbriefs byggs inte (fas 8b); beslutssiffror att stickprova i rapporter (fas 8a); två nya andra källor på bänken (§11.11); fallgropar 154–156 |
 | 2026-10-14 | 0.57 | Utifrån radera-skills-videon (Nate Herk, Boris Cherny hos Y Combinator): tabell över vad som behålls och vad som prövas vid rensning, halvårsvis rensningsprov även utan modellbyte (§8.5, fas 8f); *lägg ut tänkandet, aldrig förståelsen* (stopp 2); källans sammanhang och emotionell prompting på bänken (§11.11); fallgrop 157 |
+| 2026-10-14 | 0.58 | Utifrån 5000-timmarsvideon (Nate Herk): stoppet eller läckan i intervjun och var besökare faller bort i fas 0b; nordstjärna med baslinje, mål och tidsram som kunden godkänner (brief 4b, fas 8a); kvitton i stället för portfolio (§15.3); förbud som begränsningar vid sidan av *vad, men inte hur* (§12); rabattkodens siffra rättad och markerad som en källa (fas 8d); fallgropar 158–159 |
