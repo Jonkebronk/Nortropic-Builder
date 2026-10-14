@@ -41,6 +41,7 @@ Råmaterial för `kunskap/` och konsolideringen av implementeringsguiden. Rörs 
 | 2026-08-24 | Nate Herk | AI Automation | Everything Goldman Sachs Taught Me About AI (In 10 minutes) | [2026-08-24_ZzHsJW10iq4.md](2026-08-24_ZzHsJW10iq4.md) |
 | 2026-08-25 | Nate Herk | AI Automation | The 3-Step System Behind My $20K/Month AI Agency Retainers | [2026-08-25_DoHPZf7jEQ4.md](2026-08-25_DoHPZf7jEQ4.md) |
 | 2026-08-30 | AI LABS | Hermes Agent Skills That Make It 10x More Powerful | [2026-08-30_WJgxX0Eib6k.md](2026-08-30_WJgxX0Eib6k.md) |
+| 2026-08-31 | Jack Roberts | Insane Claude Design Skills You Actually Need To Build Beautiful Sites | [2026-08-31_pUu4G2lINnk.md](2026-08-31_pUu4G2lINnk.md) |
 | 2026-09-01 | AI LABS | These New Claude Skills Are Actually Insane | [2026-09-01_jyLKRN36-Dc.md](2026-09-01_jyLKRN36-Dc.md) |
 | 2026-09-02 | Nate Herk | AI Automation | How Anthropic ACTUALLY Prompts Fable 5.1 | [2026-09-02_FBVNS1l5Vb8.md](2026-09-02_FBVNS1l5Vb8.md) |
 | 2026-09-03 | AI LABS | Grok Bot Use Cases That Are Actually Insane | [2026-09-03_90pwPVrydHg.md](2026-09-03_90pwPVrydHg.md) |
