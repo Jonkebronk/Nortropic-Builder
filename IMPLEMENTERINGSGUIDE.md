@@ -1,6 +1,6 @@
 # Implementeringsguide: AI-webbsidebyggare med Claude Code + Google Stitch
 
-> **Status:** Utkast v0.51 (2026-10-14) — levande dokument som vi bygger vidare på.
+> **Status:** Utkast v0.52 (2026-10-14) — levande dokument som vi bygger vidare på.
 > **Planerat:** konsolideringsrunda (slå ihop dubbletter, t.ex. granskarisolering i §5.2/fas 4/fas 6b; skilj grindar från instruktioner och flytta regler enligt placeringsordningen i §8.7; gör **"agenten föreslår, du beslutar"** till en egen princip — den återkommer för `arbetssatt.md`, granskarkriterier, kontroller, `design.md` och `CLAUDE.md`; en möjlig disposition är OS-liknelsen ur OS-videon — `CLAUDE.md` som kärna, MCP som drivrutiner, skills som program, loopar/rutiner som schemaläggare, arbetsflöden som binder ihop) **när videogenomgången är klar** — inte före. **Metod för konsolideringen (Karpathy-videon):** guiden byggs om som wiki ur råmaterialet i `kunskap/raw/` — varje regel spårbar till ett citat, regler med en källa på bänken (§11.11), och motsägelser mellan videor synliga som konflikter.
 > **Källor:**
 > - AI LABS, *"Google Just Fixed AI Design By Releasing This"* (2026-10-13), https://www.youtube.com/watch?v=au2TI8sdq8E — flödet (§1–5)
@@ -56,6 +56,7 @@
 > - Nate Herk, *"Anthropic Engineers Just 10x'd Everyone's Claude Code"* (2026-10-08), https://www.youtube.com/watch?v=oz2CwrPV2Rg — minsta möjliga kontext, `/doctor`, vad men inte hur (§8.1, §8.5, §8.8, fas 8f, §12)
 > - Nate Herk, *"I Built Another Andrej Karpathy Using Claude"* (2026-10-05), https://www.youtube.com/watch?v=bvGptCLDhyo — expertmetoden för kunskapsbaser, bänken, förutsäg-kör-jämför (§8.6, §11.4, §11.6, §11.11)
 > - Nate Herk, *"Claude Code Mods Are Game Changers. Set Up These 5 NOW."* (2026-10-02), https://www.youtube.com/watch?v=9hetShMMp2s — mods: andra källan, Goal Meter, Cache Keeper, Collision Guard, Recording Mode (§6.2, §6.4, §6.9)
+> - Nate Herk med Dave Ebbelaar, *"How to Actually Build & Sell Software with AI as a Non-Techie"* (2026-10-02), https://www.youtube.com/watch?v=l8ywUsEJ2XQ — kalibrering av LLM-domare, trappan av insatser, planering mot att se resultatet, säkerhet, arkitektur (§5.4, §9.6, fas 0, 1b, 3, 6b, 6c, 8f, §14)
 > **Märkning i dokumentet:**
 > - 🎥 = beskrivet i videon
 > - 🔧 = eget förslag/utfyllnad (inte från videon)
@@ -205,6 +206,8 @@ Varje fas har: **input → åtgärd → output → grind** (villkor för att gå
 - Google-konto för Search Console, GA4 (villkor), ev. Tag Manager och Business Profile (fas 8g)
 - formulärtjänst och eventuell betalning (villkor, verifiering)
 - personuppgiftsbiträdesavtal med kunden (§11.10)
+- **kundavtal:** ansvar, förvaltningens omfattning, vad som händer vid fel (§5.4, trappan)
+- **starka lösenord och tvåfaktorsautentisering** på alla konton — hosting, GitHub, domänregistrator, Cloudflare, Google 🎥 (Ebbelaar-intervjun)
 Varje punkt är ett `blocked` med en tydlig instruktion; resten gör agenten.
 
 ### Fas 0b — Befintlig sajt (vid ombyggnad) 🎥 idé (kloningsdelen i "4 Ways"-videon) / 🔧
@@ -273,6 +276,10 @@ Verktyg: REA:s webbläge (§11.11) eller Playwright CLI:s nätverksfångst. Allt
 
 ### Fas 1b — Låsta kontroller 🎥 idé / 🔧 variant
 - **Åtgärd:** `write-checks` gör om briefens mätbara acceptanskriterier till körbara tester. Detaljer i §10.3.
+- **⚠️ Är planeringen för tung? 🎥 (Ebbelaar-intervjun):** Dave Ebbelaar: *för ett år sedan var specdriven utveckling standard, men allt eftersom modellerna blir bättre blir planeringen mindre viktig* — han bygger direkt, *ser* resultatet och reagerar, och menar att även Anthropic-ingenjörer sagt att plan mode knappt behövs 🎥. Hans skäl: *man kan inte ge bra feedback förrän man ser resultatet* 🎥. 🔧 Vår bedömning:
+  - Vår planering finns inte främst för att *modellen* behöver en plan, utan för att vi kör **utan att du tittar**: grindar, fakta och kontroller måste finnas *innan* bygget — liksom juridik och kundens godkännande.
+  - Men delar som beskriver *hur* modellen ska bygga kan vara överflödiga (jfr *vad men inte hur*, §12). Och Daves skäl talar för att **få fram något synligt tidigt** — prototyplänken och wireframes prioriteras framför längre specifikationer.
+  - **Avgörs med eval (§9.2):** samma testbriefs körs med full fas 1b och med en **smal variant** (bara syfte, fakta, kontroller och en prototyp); resultat, rundor och kostnad jämförs.
 - **Spritt pass för kantfall 🎥 (ADHD-videon) / 🔧:** agenter hoppar över kantfall och prestandavägar 🎥. Innan kontrollerna visas för dig kör isolerade agenter — var och en med **ett** perspektiv och utan att se de andras resultat — ett pass var: långa texter och tomma tillstånd · långsamt nät · skärmläsare och tangentbord · ovanliga skärmbredder · felaktig inmatning i formulär · reducerad rörelse · **innehåll i värsta fall** (Emils skill `break-ui` 📄: extremt långa namn, saknade bilder, tomma listor). En kritiker sållar förslagen; de som håller blir kontroller du godkänner i stopp 1. (Se §11.7 för metoden.)
 - **Planvy 🎥 idé / 🔧 variant:** orkestreraren öppnar en lokal webbsida som visar **briefen, kapitlen, checkpoints för fas 3 och varje kontroll i en mening** — i enkelt språk, inte som JSON. Shopify-videon 🎥 byggde en sådan vy eftersom en planfil är svår för en människa att läsa.
 - **Tre designriktningar med Inspo 🎥 (Inspo-videon) / 🔧 variant:** innan planvyn öppnas skickar orkestreraren briefen till Inspos `recommend` med **branschfilter** och tema från briefen. Planvyn visar **tre riktningar**, var och en med skärmdumpar från riktiga sajter (dator + mobil), föreslagen palett och typiska komponenter. Du väljer riktning i samma stopp.
@@ -331,6 +338,7 @@ Verktyg: REA:s webbläge (§11.11) eller Playwright CLI:s nätverksfångst. Allt
 - 🎥 Claude lägger ofta till småanimationer på eget initiativ (t.ex. bilder som zoomar). 🔧 Förbjud det i denna fas — animationer hör till fas 5.
 - 🔧 **Stack:** öppet beslut (se §14).
 - **Innehåll skilt från design 📄 ("Websites for Normal People"):** texter och data ligger i egna innehållsfiler (markdown/data), inte inbakade i komponenterna — då blir en omdesign en enda prompt utan att innehållet rörs 📄. Hos oss byggs innehållsfilerna ur faktabasen (§11.8).
+- **Säkerhetsgrunder för vägarna B–D (med databas och backend) 🎥 (Ebbelaar-intervjun):** databas med **radnivåsäkerhet (RLS)** påslagen (videon rekommenderar Supabase för de flesta); hemligheter i miljövariabler, aldrig i koden; **brandvägg eller IP-vitlista** så att backend och databas bara tar emot anrop från den egna frontenden 🎥. ⚠️ Detaljerna beror på stack och hosting — utreds per sajt.
 - **Formulär som inte tappar inskick 📄 ("Websites for Normal People") / 🔧:** formuläret är den primära handlingen; ett tappat inskick är en tappad kund.
   - **Spara först, mejla sedan:** inskicket sparas (databas eller formulärtjänst) *innan* e-post skickas — går e-posten fel finns inskicket kvar 📄.
   - **Spam-skydd** (t.ex. Cloudflare Turnstile 📄 eller motsvarande) — utan att lägga hinder för riktiga besökare.
@@ -478,6 +486,7 @@ Grindarna i fas 4–6 kontrollerar utseende, beteende och berättelse — men in
 - **Shopify 🎥:** två agenter granskar koden mot en nedskriven standard; båda måste godkänna. **Videons variant 🎥:** en **kritiker** som utgår från att koden är fel och letar problem, och en **rättare** som åtgärdar dem. De växlar tills kritikern godkänner.
 - **Vår variant 🔧:** kritiker + rättare, båda som delagenter med ny kontext. Kritikern ser bara koden, briefen och standarden — inte byggarens logg (§5.2).
 - **Mätbar första sållning 🎥 (Anti-Slop, repo-videon) / 🔧:** innan kritikern startar körs regelbaserade kontroller (linter + [Anti-Slop](https://github.com/dmmulroy/anti-slop) för JS/TS ⚠️) som fångar typiska agentmisstag. Rättaren åtgärdar dem först, så att kritikern inte lägger tid på sådant en fast regel kan hitta. Samma princip som i §7.6: billig kontroll först, dyr sedan.
+- **Arkitektur på projektnivå 🎥 (Ebbelaar-intervjun):** kritikern bedömer också **mappstruktur och moduler** — inga kvarlämnade experiment, ingen logik gömd i kod som ser oanvänd ut. Dave rekommenderar **Matt Pococks skill för kodbasarkitektur** (djupa moduler, lokalitet, sömmar), skriven *för att motverka AI-slop och göra kodbaser lättare för AI att navigera* 🎥. Andra oberoende källan till Pococks skills (de tidigare kom från AI LABS). ⚠️ Skillens aktuella namn verifieras ([mattpocock/skills](https://github.com/mattpocock/skills)).
   - **`/simplify` 🎥 (funktionsvideon):** Claude Codes inbyggda kommando granskar återanvändning, förenkling och effektivitet och tar bort kod som inte längre används 🎥. Körs i samma första pass, före kritikern. `/code-review` kan användas som del av kritikerns underlag.
 - **Agent teams — tillval 🎥 (funktionsvideon):** sessioner som **pratar med varandra** (till skillnad från delagenter), körs i tmux bakom en dold flagga 🎥. Kritiker och rättare kan då utbyta fynd och rättningar parallellt i stället för via dokument. Kritikern kommunicerar bara med rättaren — aldrig med byggaren eller dess logg (§5.2). Samma sak går att använda för angripare och försvarare i fas 1b. ⚠️ Drar många tokens; experimentellt.
 - **Standarden** (låst, §10.1) 🔧:
@@ -500,6 +509,7 @@ Guiden har hittills saknat grundläggande sökmotoroptimering. Allt nedan blir *
 | **LocalBusiness-schema** (namn, adress, telefon, öppettider) | Giltig schema.org-markering; värdena stämmer med **faktabasen** (§11.8) |
 | Beskrivande alt-texter | Finns på alla meningsbärande bilder (§11.9) |
 | Inga trasiga länkar | Crawl av hela sajten |
+| **Inga hemligheter i klientkoden** 🎥 (Ebbelaar-intervjun: allt i webbläsaren går att inspektera) | Det byggda paketet (HTML, JS, källkartor) söks igenom efter nyckelformat före publicering; träff = `kritisk` |
 | **Lighthouse 90+** 📄 | Prestanda, tillgänglighet, bästa praxis och SEO ≥ 90 i mobil och dator |
 | Rubrikstruktur | En `h1` per sida, logisk ordning |
 - **Grind:** alla SEO-kontroller går igenom.
@@ -609,6 +619,7 @@ Anthropic kör 20–30 *rutiner* om dagen: återkommande molnjobb på en mening 
 - **Tester för det som saknar tester**, t.ex. hooks och skript, så att *vi* märker när något går sönder.
 - Rutinerna följer samma regler som allt annat: egen gren, PR, ditt godkännande; de ändrar aldrig låsta filer (§10.1).
 - **Byggsystemet som versionerat plugin (§8.8):** en ändring i byggsystemet blir en ny pluginversion, prövas med eval (§9) och rullas sedan ut.
+- **Arkitekturgranskning av förvaltade sajter 🎥 (Ebbelaar-intervjun):** spaghettikod växer i det tysta — experiment lämnar rester, senare raderas en funktion som innehöll logik något annat behövde, och allt slutar fungera efter tre månader 🎥. Hos oss är det **förvaltningens ändringar** som är risken. Varje kvartal (och efter större omdesign) granskas varje sajts kodbas med Pococks arkitekturskill; fynd blir ändringar i kön (fas 8b).
 - **Schemalagd `/doctor` 🎥 (context-videon):** varje månad (oftare om uppsättningen ändras ofta, annars varje kvartal) och **alltid vid ny modell** 🎥. Rekommendationerna läggs fram som förslag som du godkänner eller avslår.
 
 ---
@@ -728,7 +739,13 @@ Shopify-videon 🎥: orkestreraren stannar bara **två gånger** — när planen
 - Därutöver stannar flödet bara vid `blocked` (§5.3).
 - **Ansvaret ligger hos människan 🎥 (ADLC-videon):** man kan inte skylla på modellen när något går fel — ansvaret mot kunden ligger hos dig 🎥. Därför kräver planen, publicering och låsta filer alltid ditt godkännande, och därför loggas varje agent med roll och startare (§10.4).
 
-**Pilotfas 🎥 (FDE-videon) / 🔧:** förtroende tar längre tid än bygget — i videons bankexempel tog bygget 6–8 veckor och piloten ytterligare fyra månader 🎥. De **första sajterna** körs därför med **alla valfria stopp påslagna** (t.ex. designval i fas 2, godkännande av varje rättningsrunda) och med full granskning i varje runda (inget snabbspår, §7.6). Stoppen släpps ett i taget, först när eval (§9) och resultatloggen visar att just det steget är pålitligt. Samma princip gäller redan för auto loopen (§10.5).
+**Pilotfas 🎥 (FDE-videon) / 🔧:** förtroende tar längre tid än bygget — i videons bankexempel tog bygget 6–8 veckor och piloten ytterligare fyra månader 🎥. De **första sajterna** körs därför med **alla valfria stopp påslagna** (t.ex. designval i fas 2, godkännande av varje rättningsrunda) och med full granskning i varje runda (inget snabbspår, §7.6). Stoppen släpps ett i taget, först när eval (§9) och resultatloggen visar att just det steget är pålitligt. Samma princip gäller redan för auto loopen (§10.5). **För granskare av smak är villkoret mätbart:** överensstämmelsen med dina bedömningar över tröskeln (§9.6).
+
+**Trappan av insatser 🎥 (Ebbelaar-intervjun):** Dave Ebbelaar delar in det man bygger i fyra steg där risken ökar: (1) för dig själv, (2) för ditt team eller din organisation, (3) **säljs till företag** — då tillkommer avtal, villkor och skyldigheter kring dataskydd, (4) konsumentprodukt 🎥. *Hoppa inte över steg* 🎥. Arkitekturfel märks och går att rätta, men **ett dataintrång går inte att ta tillbaka** 🎥.
+- 🔧 **Vi står på steg 3** — vi bygger och förvaltar åt företag.
+- **Pilotfasen börjar lägre i trappan:** de första sajterna är dina egna eller pilotsajter utan betalning, innan betalande kunder förlitar sig på flödet.
+- **Kundavtal** utöver biträdesavtalet (§11.10): ansvar, förvaltningens omfattning, vad som händer vid fel (fas 0, onboarding). ⚠️ Inte juridisk rådgivning.
+- Säkerheten är det enda som inte får lösas på rutin (fas 3, fas 6c).
 
 **Uppdelningen människa / modell / regel 🎥 (FDE-videon):** videons steg 2 — *fasta regler blir vanlig mjukvara, omdömesfrågor går till modellen, dyra misstag stannar hos en människa* — är exakt guidens uppdelning: skript och hooks för det mätbara (§7, §10), granskare för omdöme (§5.2), och du för planen, slutgranskningen och publicering. I videons exempel med åtta steg körde fyra självständigt, tre med en människa som kontrollerade och ett förblev mänskligt 🎥.
 
@@ -1255,6 +1272,29 @@ Resultatet sparas som en rad per körning i `evals/resultat/` med guidens versio
 - Ingår två skills: en som intervjuar dig om vad skillen ska åstadkomma och en som skriver och kör testerna. Resultaten sparas i `.caliper/`.
 - **Vår användning 🔧:** innan ett tillval tas in permanent körs en jämförelse med och utan det på en avgränsad uppgift, t.ex. "Hallmark i fas 4: hittar granskningen fler verkliga generiska mönster?". Tillvalet tas bara in om nyttan syns och är värd tokens.
 - ⚠️ Overifierat; kostar API-anrop per körning.
+
+### 9.6 Kalibrering av granskare mot din smak 🎥 (Ebbelaar-intervjun) / 🔧
+Våra viktigaste grindar för **smak** är LLM-domare: berättelsegranskningen, konverteringsspecialisten, den blinda jämförelsen och originalitetskontrollen. Vi har låst deras kriterier och isolerat dem — men **aldrig mätt om de bedömer som du**. En granskare som godkänner det du hade underkänt släpper igenom fel, oavsett isolering.
+
+**Metoden — en LLM som domare, kalibrerad mot en människa 🎥** (Dave Ebbelaar, *"så görs det i verkliga projekt"*):
+1. En människa bedömer ett antal exempel (videon: cirka 100) som bra eller dåligt, med motivering. Tråkigt manuellt arbete — men *det är där smaken fångas* 🎥.
+2. LLM-domaren bedömer samma exempel. **Överensstämmelsen mäts** — t.ex. 50 eller 80 % — som baslinje 🎥.
+3. En loop förbättrar domarens prompt utifrån var den och människan skiljer sig: 75, 80, 90, 95, 99 % 🎥.
+4. **Kalibreringen görs om då och då** mot modelldrift 🎥 — och **alltid vid modellbyte**, eftersom en ny modell kan tolka samma domarprompt annorlunda (Nate Herk i samma samtal 🎥).
+
+**Datan finns redan, utan extra arbete 🔧** — varje beslut du fattar är ett märkt exempel:
+| Ditt beslut | Kalibrerar |
+|---|---|
+| Riktningen du väljer i stopp 1 | Kritikern i spridd idégenerering (§11.7) |
+| Godkännanden och avvisningar i stopp 2 | Specialisterna i fas 6 |
+| Variate-versionen du väljer (§6.8) | Konverterings- och berättelsespecialisten |
+| Visuella diffar du avvisar (fas 8b) | Utseendegranskaren (fas 4) |
+| Missade fynd (§10.5) | Den specialist som missade |
+Besluten sparas med granskarens bedömning av samma sak i `kalibrering/<granskare>.jsonl`.
+
+**Loopen följer våra principer:** förbättringen av en granskares kriterier är ett **förslag** — du godkänner, kriteriet låses på nytt (§10.1). Överensstämmelsen mäts på exempel som inte användes vid förbättringen, så att granskaren inte bara lär sig de exempel den prövats på.
+
+**Villkor för pilotfasen (§5.4):** en granskare får köra **utan ditt stopp** först när överensstämmelsen med dina bedömningar ligger **över en tröskel** (förslag: 90 %) på tillräckligt många exempel. Hittills har det stått "när eval visar att steget är pålitligt" — nu finns ett mått.
 
 ---
 
@@ -1839,12 +1879,16 @@ Du är jurymedlem för ett webbdesignpris. Var sträng.
 136. **Råmaterialet sparas inte** — då går det inte att spåra en regel tillbaka till källan. (Karpathy-videon)
 137. **Cachen kallnar mitt i en lång körning** — hela kontexten måste läsas om till fullt pris. (Mods-videon 2)
 138. **Kundmöte med andra kunders data synlig** på skärmen. (Mods-videon 2)
+139. **Granskare av smak som aldrig kalibrerats mot din bedömning.** (Ebbelaar-intervjun)
+140. **Att hoppa över steg i trappan** — sälja till företag innan flödet prövats på egna sajter. (Ebbelaar-intervjun)
+141. **Hemligheter i klientkoden** — allt i webbläsaren går att inspektera. (Ebbelaar-intervjun)
+142. **Spaghettikod som växer genom förvaltningens ändringar.** (Ebbelaar-intervjun)
 
 ---
 
 ## 14. Öppna frågor (att bestämma tillsammans)
 
-- [ ] **Stack för den byggda sajten:** ren HTML/CSS/JS (närmast Stitch-exporten) eller ett ramverk (t.ex. Astro/Next.js), eventuellt med komponentbibliotek? Underlag (Astryx-videon 🎥 / 🔧):
+- [ ] **Stack för den byggda sajten:** ren HTML/CSS/JS (närmast Stitch-exporten) eller ett ramverk (t.ex. Astro/Next.js), eventuellt med komponentbibliotek? **Välj efter belägg, inte efter vana** 🎥 (Ebbelaar-intervjun: Glido fick byta stack för att de valde det de kände till; att byta språk i efterhand vill man undvika). Underlag (Astryx-videon 🎥 / 🔧):
   | | Ren HTML/CSS (Stitch-export) | Ramverk + komponentbibliotek (t.ex. Astryx, shadcn) |
   |---|---|---|
   | Närhet till designen | Hög — exporten används nästan direkt | Lägre — designen översätts till bibliotekets komponenter |
@@ -1972,3 +2016,4 @@ Du är jurymedlem för ett webbdesignpris. Var sträng.
 | 2026-10-14 | 0.49 | Utifrån context-videon: underlag för rensningen (Thariqs artikel, studien om längre indata, MCP vid behov) och vad `/doctor` gör (§8.5), varning för ärvda `CLAUDE.md` (§8.1), test av skills före utrullning (§8.8), schemalagd `/doctor` (fas 8f), "vad men inte hur" för egna skills (§12) |
 | 2026-10-14 | 0.50 | Utifrån Karpathy-videon: expertmetoden för att bygga `kunskap/` (råmaterial → wiki → regler med citat → körbara granskare, `/ingest`), bänken med krav på två oberoende källor (§11.11), expertgranskare (§11.4), "förutsäg, kör, jämför" (§8.6), metod för konsolideringen. Råmaterialet sparat: 49 videotranskript i `kunskap/raw/videor/` och sammanfattningar av två dokument i `kunskap/raw/dokument/`. Repo: Nortropic-Builder |
 | 2026-10-14 | 0.51 | Utifrån mods-videon 2 (Nate Herk): mods lyfta från bänken med två oberoende källor, levereras i plugins, syns i desktop-appen (§6.2); Goal Meter som förebild och kontext/gränser/kostnad/cacheklocka i flödespanelen (§6.4); nytt §6.9 med Replay Theater, visningsläge för kundmöten, Collision Guard och Blast Radius |
+| 2026-10-14 | 0.52 | Utifrån Ebbelaar-intervjun (Nate Herk): nytt §9.6 Kalibrering av granskare mot din smak (dina beslut som data, mätt överensstämmelse, tröskel som villkor för att släppa stopp); trappan av insatser — vi står på steg 3, pilot på egna sajter, kundavtal (§5.4, fas 0); eval av full mot smal fas 1b; säkerhetsgrunder (inga hemligheter i klientkoden, 2FA, RLS och brandvägg för B–D); arkitekturgranskning med Pococks skill (fas 6b, 8f); stack efter belägg (§14) |
