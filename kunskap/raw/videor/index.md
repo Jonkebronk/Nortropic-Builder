@@ -47,6 +47,7 @@ Råmaterial för `kunskap/` och konsolideringen av implementeringsguiden. Rörs 
 | 2026-09-04 | Nate Herk | AI Automation | GPT-6 Astra FINALLY Kills AI Website Slop | [2026-09-04_QhmhUgccaS0.md](2026-09-04_QhmhUgccaS0.md) |
 | 2026-09-05 | AI LABS | You Are Using Fable 5.1 Wrong (Do This Instead) | [2026-09-05_7au4tWVG8a0.md](2026-09-05_7au4tWVG8a0.md) |
 | 2026-09-08 | AI LABS | Github Top Trending Tool Just Fixed The AI Agent’s Biggest Problem | [2026-09-08_cyIWQHYoUg8.md](2026-09-08_cyIWQHYoUg8.md) |
+| 2026-09-09 | Jack Roberts | I Gave AI 10,000 UI Screens... Then This Happened | [2026-09-09_BYQdA7kMmbA.md](2026-09-09_BYQdA7kMmbA.md) |
 | 2026-09-13 | Nate Herk | AI Automation | Anthropic Engineer Explains: What to Build Instead of AI Agents | [2026-09-13_HIRDzMtuWFk.md](2026-09-13_HIRDzMtuWFk.md) |
 | 2026-09-14 | AI LABS | Insane GitHub Repos That 10x Your Codex And Claude Code Setup | [2026-09-14_Ua0APTMVcb8.md](2026-09-14_Ua0APTMVcb8.md) |
 | 2026-09-18 | AI LABS | Github #1 Trending Skill's Author Just Fixed Claude's Design Problem | [2026-09-18_Ow_z94c3wKk.md](2026-09-18_Ow_z94c3wKk.md) |
