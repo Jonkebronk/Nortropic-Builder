@@ -1,0 +1,23 @@
+# Hemligheter — aldrig i repot (guiden §7.3)
+.env
+.env.*
+*.key
+*.pem
+secrets/
+
+# Beroenden och byggen
+node_modules/
+dist/
+build/
+.next/
+.cache/
+
+# Lokala inställningar
+.claude/settings.local.json
+CLAUDE.local.md
+
+# Operativsystem och editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
