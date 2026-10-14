@@ -22,6 +22,7 @@ Råmaterial för `kunskap/` och konsolideringen av implementeringsguiden. Rörs 
 | 2026-07-03 | AI LABS | Facebook's Release Just Gave Claude Code A New Design System | [2026-07-03_-HEdqzzYKco.md](2026-07-03_-HEdqzzYKco.md) |
 | 2026-07-06 | AI LABS | How To Use Claude Fable 5 Better Than 90% Of The People | [2026-07-06_GM7-ei-4Xc8.md](2026-07-06_GM7-ei-4Xc8.md) |
 | 2026-07-09 | AI LABS | All The Types Of Claude Loops Explained In 13 Minutes | [2026-07-09_8wsM0euQOvc.md](2026-07-09_8wsM0euQOvc.md) |
+| 2026-07-12 | Nate Herk | AI Automation | Claude Code + Clay Makes Lead Generation Actually Fun | [2026-07-12_zyvdl__Ywfk.md](2026-07-12_zyvdl__Ywfk.md) |
 | 2026-07-20 | AI LABS | Fleet Engineering Is Insane... The Next Evolution Of Vibe Coding | [2026-07-20_qxjII6x2yPY.md](2026-07-20_qxjII6x2yPY.md) |
 | 2026-07-22 | AI LABS | This New Skill Finally Solves Thinking For AI Agents | [2026-07-22_m6IXL_YGqBQ.md](2026-07-22_m6IXL_YGqBQ.md) |
 | 2026-07-31 | AI LABS | Claude Code Setup Guide By The Creator Himself | [2026-07-31_pGro_uKt-_M.md](2026-07-31_pGro_uKt-_M.md) |
