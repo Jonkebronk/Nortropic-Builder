@@ -45,6 +45,7 @@ Råmaterial för `kunskap/` och konsolideringen av implementeringsguiden. Rörs 
 | 2026-08-30 | AI LABS | Hermes Agent Skills That Make It 10x More Powerful | [2026-08-30_WJgxX0Eib6k.md](2026-08-30_WJgxX0Eib6k.md) |
 | 2026-08-31 | Jack Roberts | Insane Claude Design Skills You Actually Need To Build Beautiful Sites | [2026-08-31_pUu4G2lINnk.md](2026-08-31_pUu4G2lINnk.md) |
 | 2026-09-01 | AI LABS | These New Claude Skills Are Actually Insane | [2026-09-01_jyLKRN36-Dc.md](2026-09-01_jyLKRN36-Dc.md) |
+| 2026-09-02 | Jack Roberts | Fable 5.1 Just Solved AI Slop... I'm Done | [2026-09-02_X2PARg8ErvY.md](2026-09-02_X2PARg8ErvY.md) |
 | 2026-09-02 | Nate Herk | AI Automation | How Anthropic ACTUALLY Prompts Fable 5.1 | [2026-09-02_FBVNS1l5Vb8.md](2026-09-02_FBVNS1l5Vb8.md) |
 | 2026-09-03 | AI LABS | Grok Bot Use Cases That Are Actually Insane | [2026-09-03_90pwPVrydHg.md](2026-09-03_90pwPVrydHg.md) |
 | 2026-09-04 | Nate Herk | AI Automation | GPT-6 Astra FINALLY Kills AI Website Slop | [2026-09-04_QhmhUgccaS0.md](2026-09-04_QhmhUgccaS0.md) |
