@@ -41,6 +41,7 @@ Råmaterial för `kunskap/` och konsolideringen av implementeringsguiden. Rörs 
 | 2026-09-13 | Nate Herk | AI Automation | Anthropic Engineer Explains: What to Build Instead of AI Agents | [2026-09-13_HIRDzMtuWFk.md](2026-09-13_HIRDzMtuWFk.md) |
 | 2026-09-14 | AI LABS | Insane GitHub Repos That 10x Your Codex And Claude Code Setup | [2026-09-14_Ua0APTMVcb8.md](2026-09-14_Ua0APTMVcb8.md) |
 | 2026-09-18 | AI LABS | Github #1 Trending Skill's Author Just Fixed Claude's Design Problem | [2026-09-18_Ow_z94c3wKk.md](2026-09-18_Ow_z94c3wKk.md) |
+| 2026-09-18 | Nate Herk | AI Automation | Anthropic’s CEO: How to Build a 1 Person Business with Claude | [2026-09-18_QDsenEcAJIk.md](2026-09-18_QDsenEcAJIk.md) |
 | 2026-09-22 | AI LABS | This New Open Source Tool Just Fixed Your Claude Code Workflow | [2026-09-22_CHHEjuNBxoQ.md](2026-09-22_CHHEjuNBxoQ.md) |
 | 2026-09-24 | AI LABS | Shopify Just Released The Greatest AI Coding Workflow Ever | [2026-09-24_bBMp5tLxShQ.md](2026-09-24_bBMp5tLxShQ.md) |
 | 2026-09-28 | AI LABS | Insane Jev Use Cases You Need To Use Right Now | [2026-09-28_2nc_QMuNp18.md](2026-09-28_2nc_QMuNp18.md) |
