@@ -14,6 +14,7 @@ Råmaterial för `kunskap/` och konsolideringen av implementeringsguiden. Rörs 
 | 2026-06-03 | AI LABS | These Claude Workflows Turn Claude Code Into A Whole OS | [2026-06-03_5LnwJyi1il4.md](2026-06-03_5LnwJyi1il4.md) |
 | 2026-06-13 | AI LABS | 4 Ways to Actually Build Stunning Websites with Claude Code | [2026-06-13_HqD5a2Cae60.md](2026-06-13_HqD5a2Cae60.md) |
 | 2026-06-15 | AI LABS | Loop Engineering Totally 10x Hermes agents | [2026-06-15_AQRDjI5owZI.md](2026-06-15_AQRDjI5owZI.md) |
+| 2026-06-15 | Nate Herk | AI Automation | Learn These 6 AI Skills Now (Before Everyone Else Does) | [2026-06-15_3XIGcM7VICc.md](2026-06-15_3XIGcM7VICc.md) |
 | 2026-06-17 | AI LABS | They Finally Fixed Claude Code's Biggest Problem | [2026-06-17_KiTmBtyaeXg.md](2026-06-17_KiTmBtyaeXg.md) |
 | 2026-06-23 | AI LABS | Insane Claude Design Skills You Need To Build Beautiful Websites | [2026-06-23_Ot582-E61ac.md](2026-06-23_Ot582-E61ac.md) |
 | 2026-06-26 | AI LABS | Google Replaced The Karpathy's LLM Wiki | [2026-06-26_k4sMSsMzX2g.md](2026-06-26_k4sMSsMzX2g.md) |
