@@ -18,6 +18,7 @@ Råmaterial för `kunskap/` och konsolideringen av implementeringsguiden. Rörs 
 | 2026-06-23 | AI LABS | Insane Claude Design Skills You Need To Build Beautiful Websites | [2026-06-23_Ot582-E61ac.md](2026-06-23_Ot582-E61ac.md) |
 | 2026-06-26 | AI LABS | Google Replaced The Karpathy's LLM Wiki | [2026-06-26_k4sMSsMzX2g.md](2026-06-26_k4sMSsMzX2g.md) |
 | 2026-06-29 | AI LABS | The Top Claude Code Features We Use | [2026-06-29_ECQA6oOyfIk.md](2026-06-29_ECQA6oOyfIk.md) |
+| 2026-06-29 | Nate Herk | AI Automation | Stanford's Method Turns Claude Into a PHD Level Research Team | [2026-06-29_Tj3018n5MVg.md](2026-06-29_Tj3018n5MVg.md) |
 | 2026-07-03 | AI LABS | Facebook's Release Just Gave Claude Code A New Design System | [2026-07-03_-HEdqzzYKco.md](2026-07-03_-HEdqzzYKco.md) |
 | 2026-07-06 | AI LABS | How To Use Claude Fable 5 Better Than 90% Of The People | [2026-07-06_GM7-ei-4Xc8.md](2026-07-06_GM7-ei-4Xc8.md) |
 | 2026-07-09 | AI LABS | All The Types Of Claude Loops Explained In 13 Minutes | [2026-07-09_8wsM0euQOvc.md](2026-07-09_8wsM0euQOvc.md) |
