@@ -1,6 +1,6 @@
 # Implementeringsguide: AI-webbsidebyggare med Claude Code + Google Stitch
 
-> **Status:** Utkast v0.59 (2026-10-14) — levande dokument som vi bygger vidare på.
+> **Status:** Utkast v0.60 (2026-10-14) — levande dokument som vi bygger vidare på.
 > **Planerat:** konsolideringsrunda (slå ihop dubbletter, t.ex. granskarisolering i §5.2/fas 4/fas 6b; skilj grindar från instruktioner och flytta regler enligt placeringsordningen i §8.7; gör **"agenten föreslår, du beslutar"** till en egen princip — den återkommer för `arbetssatt.md`, granskarkriterier, kontroller, `design.md` och `CLAUDE.md`; en möjlig disposition är OS-liknelsen ur OS-videon — `CLAUDE.md` som kärna, MCP som drivrutiner, skills som program, loopar/rutiner som schemaläggare, arbetsflöden som binder ihop) **när videogenomgången är klar** — inte före. **Metod för konsolideringen (Karpathy-videon):** guiden byggs om som wiki ur råmaterialet i `kunskap/raw/` — varje regel spårbar till ett citat, regler med en källa på bänken (§11.11), och motsägelser mellan videor synliga som konflikter. **Tillägg (STORM-videon, §11.12):** motsägelserna tas fram med linser — byggaren, kunden, säkerheten, ekonomin och skeptikern — och en karta över motsägelser, och varje citat kontrolleras mot sin källa (*bekräftad, rättad, nedgraderad*).
 > **Källor:**
 > - AI LABS, *"Google Just Fixed AI Design By Releasing This"* (2026-10-13), https://www.youtube.com/watch?v=au2TI8sdq8E — flödet (§1–5)
@@ -64,6 +64,7 @@
 > - Nate Herk, *"I Deleted All My Claude Skills... And Claude Got Smarter"* (2026-08-12), https://www.youtube.com/watch?v=XNQBCRcwXV4 — klipp ur Boris Chernys intervju hos Y Combinator: rensa var sjätte månad, unhobbling, högre nivå i prompter, verifiering; Nates test utan skills (§8.5, fas 8f, §11.11)
 > - Nate Herk, *"5000 Hours of Building AI in Just 17 Minutes"* (2026-08-04), https://www.youtube.com/watch?v=7WZ6XldxX0U — tolv lärdomar: kvitton, förbud i prompter, verifiering, behörighet i verktygen, eval, stoppet eller läckan, nordstjärna, modellroutning (fas 0, 0b, 8a, 8d, §12, §15.3)
 > - Nate Herk, *"Stanford's Method Turns Claude Into a PHD Level Research Team"* (2026-06-29), https://www.youtube.com/watch?v=Tj3018n5MVg — research med fem linser, karta över motsägelser, källkontroll, saknad lins (§11.12) ⚠️ egen tolkning av STORM
+> - Nate Herk, *"GPT-6 Astra FINALLY Kills AI Website Slop"* (2026-09-04), https://www.youtube.com/watch?v=QhmhUgccaS0 — Astra som designmodell, rörelse efter målgrupp, djup genom lager, inspiration från godly.design, 21st.dev och Awwwards (§8.6, fas 1, 2, 5, 6) ⚠️ en persons smak
 > - 📄 Shao, Jiang, Kanell, Xu, Khattab & Lam, *"Assisting in Writing Wikipedia-like Articles From Scratch with Large Language Models"* (NAACL 2024), https://arxiv.org/abs/2402.14207 — STORM (§11.12)
 > - 📄 Anthropic, *Prompting Claude Fable 5.1*, *Prompting Claude Fable 5* och *Effort* (Claude Platform Docs, hämtade 2026-10-14): https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1 · https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5 · https://platform.claude.com/docs/en/build-with-claude/effort
 > **Märkning i dokumentet:**
@@ -275,6 +276,7 @@ Verktyg: REA:s webbläge (§11.11) eller Playwright CLI:s nätverksfångst. Allt
   1. Kort sammanfattning (3–5 meningar) 🎥
   2. Berättelsen steg för steg — kapitel i scrollordning 🎥
   3. Känsla & visuell riktning 🔧
+  3b. **Rörelsebudget 🎥 (Astra-videon) / 🔧:** *sparsam*, *måttlig* eller *expressiv*, utifrån **personen** — ålder, ärende, enhet och hur bråttom de har. *En 70-åring som letar medicin och måste scrolla genom en 3D-värld tycker att det är det värsta han sett; en tonåring som köper hörlurar tycker att snurrande 3D är grymt* 🎥. Budgeten styr fas 5 och bedöms i fas 6. `prefers-reduced-motion` gäller oavsett budget.
   4. Målgrupp & primär handling 🔧
   4b. **Nordstjärna 🎥 (5000-timmarsvideon) / 🔧:** *ett* mått med **baslinje, mål och tidsram**, t.ex. *"från 5 till 15 förfrågningar i veckan inom två månader"*, som **kunden godkänner** innan bygget 🎥. Det är projektets mållinje i affärstermer — motsvarigheten till acceptanskriterierna — och det förvaltningsrapporten följer (fas 8a). Baslinjen kommer från fas 0b, steg 4, eller från kundens egna siffror; saknas den mäts den första månaden efter lansering.
   5. Innehåll per kapitel 🔧
@@ -412,6 +414,7 @@ Jämför bygget mot Stitch-designen **och** kontrollerar alla skärmstorlekar.
   - Animera bara `transform` och `opacity`; sparsamt med `will-change`
   - `svh` i stället för `vh` på mobil
   - Ingen scroll-jacking; högst en diskret parallaxeffekt, med fallback
+    - *På bänken — djup genom lager 🎥 (Astra-videon):* Nate menar att det är **separata plan** (text, bakgrund, objekt, förgrund) som ger premiumkänsla utan att bli för mycket 🎥. Delvis i konflikt med regeln ovan, men en persons smak. Prövas med Variate (§6.8) och eval — en effekt mot lager, inom rörelsebudgeten — innan regeln ändras.
   - Teknikval: CSS Scroll-Timeline / IntersectionObserver först, GSAP ScrollTrigger för komplexa tidslinjer
 - 🔧 **Egen gren 🎥 (Opus 5.5-videon):** fas 5 är det mest riskfyllda steget och görs på en egen Git-gren. Den godkända sajten från fas 4 ligger orörd på huvudgrenen tills fas 6 är godkänd; då slås grenarna ihop. Passar med behåll/ångra i §10.4.
 - **Grind:** sajten bygger, inga konsolfel, reduced-motion fungerar
@@ -429,6 +432,7 @@ Jämför bygget mot Stitch-designen **och** kontrollerar alla skärmstorlekar.
 **Variant — rörlig grafik i kod ovanpå video 🎥 (Jack Roberts-videon, *Claude Motion Design*):** genererad video och bilder (t.ex. via Higgsfield) läggs i botten, och **rörlig grafik i kod** — interaktiva sidfötter, en morfande meny, en figur som följer scrollen — läggs ovanpå 🎥. Principer ur videon: *varje rörlig del har ett jobb*, en renderingsfunktion per sektion, och **sömlösa loopar där sista bildrutan är densamma som den första** 🎥.
 - 🔧 **X-ray-läge** — en växel som visar vad som är video och vad som är kod 🎥 — är ett bra arbetsverktyg för granskning och bildstrategin (§11.9), men **får aldrig publiceras** (fas 7, punkt 6).
 - 🔧 Referenskällor i videon: **Refero** och **Mobbin** 🎥 — samma regler som Inspo: beskrivningar till generatorn, originalitetskontroll.
+- **Fler källor, även på komponentnivå 🎥 (Astra-videon) / 🔧:** [godly.design](https://godly.design) för hela sajter, [21st.dev](https://21st.dev) för **enskilda komponenter** (hero, CTA, formulär, knappar) och Awwwards **filtrerat på kategori**, eftersom en e-handel, en restaurang och ett modemärke bör se olika ut 🎥. Komponenter används också i feedback: *"byt den här knappen mot den här komponenten"* (stopp 2, fas 8b). ⚠️ Licensen kontrolleras **per komponent** innan den används; originalitetskontrollen (fas 4) gäller som vanligt. 21st.dev finns som MCP i vår miljö.
 
 **Tillval — UI Skills-MCP 🎥 (Inspo-videon):** ett bibliotek med designskills från olika upphovspersoner ([ibelick/ui-skills](https://github.com/ibelick/ui-skills)). Agenten hittar själv de skills som passar prompten. I videon laddades Emil Kowalskis animationsskill och Meng Tos skill för scrollanimationer. 🔧 Kan komplettera scrollytelling-skillen. ⚠️ Skills som laddas automatiskt utanför vår kontroll gör flödet mindre förutsägbart — välj hellre ut specifika skills och lås dem. (Repo-videon 🎥: som MCP finns verktygen alltid i sessionen; från terminalen måste agenten uttryckligen få veta när den ska använda dem.)
 
@@ -463,7 +467,7 @@ Kontrollerar om sajten faktiskt är **bra**, inte bara korrekt.
 |---|---|---|
 | **Berättelse och tempo** | Flöde mellan kapitlen, animationer som tjänar historien, tempo, överlast, **sömlösa loopar** (inget hack där sista bildrutan möter den första — syns bara på video) | Video eller bildsekvenser av scrollningen |
 | **Fakta och språk** | Faktapåståenden mot faktabasen, tillgjord prosa, läsbarhet, **AI-signaturer i texten** (enligt Wikipedia-guiden i `kunskap/`, §11.3) | Sajtens texter + faktabasen |
-| **Konvertering** | Primär handling, perceptionslagar, Awwwards-kriterier | Skärmdumpar i alla bredder + briefen |
+| **Konvertering** | Primär handling, perceptionslagar, Awwwards-kriterier, **passar rörelsen målgruppen?** (rörelsebudgeten i briefen; *den andra sortens AI-slop är en sajt gjord för någon annan* 🎥 Astra-videon) | Skärmdumpar i alla bredder + briefen |
 | **Jämförelse** | Blind jämförelse mot referenser | Sektioner utan etiketter |
 
 Orkestreraren avslutar med frågan **vilket perspektiv saknas?** (§11.12) 🎥 (STORM-videon).
@@ -1238,6 +1242,7 @@ Varje ny modell beter sig annorlunda i långa körningar utan tillsyn. Uppgifter
 - **Undantag — säkerhetsgranskning:** säkerhetsgranskaren (fas 7 och 8a) kör den **starkaste modellen**. Ett missat säkerhetsfel kostar mer än dyra granskningar. Anthropic beskrev Mythos/Fable som ovanligt stark på att hitta säkerhetsrisker, och videon körde sex säkerhetsagenter parallellt över en plattform och hittade verkliga buggar 🎥.
 
 **Modellval efter kostnad, intelligens och smak 🎥 (Fable 5-videon) / 🔧:** videon routar delagenter med en modellgraf i `CLAUDE.md` (efter Theo) som rangordnar modeller på **kostnad, intelligens och smak** 🎥. Hos oss är *smak* en egen dimension: designriktningar, Stitch-prompter, wireframes och berättelsegranskning kräver smak; kodrättning, kontroller och säkerhet kräver intelligens; rutinuppgifter ska vara billiga. Modellvalet per roll utgår från vilken *sorts* förmåga rollen behöver — och avgörs med eval (§9.5). **Billiga byggare + advisor:** byggare och rättare kan köra en billigare modell och rådfråga en starkare när de kör fast (§5.3) — man betalar för den starka modellen bara när den behövs.
+- **Kandidat i eval — GPT-6 Astra 🎥 (Astra-videon) / 🔧:** Nate Herk kallar OpenAI:s Astra *den nya designkungen* utifrån sajter byggda med en enda prompt och hans Scrollcraft 🎥. ⚠️ Underlaget är tunt: en persons smak, ingen jämförelse på lika villkor, och samma kanal utsåg Fable 5.1 till designkung veckor tidigare. Astra ändrar därför inget i flödet utan prövas **i eval (§9.5)** för rollerna som bygger och animerar (fas 3 och 5), via Codex-pluginet, med samma testbriefs och **blind jämförelse** (fas 6). Stitch förblir designmotorn. Villkor, dataskydd och kostnad hos OpenAI kontrolleras först.
 
 **Tyst modellbyte 🎥:** säkerhetsspärrarna avbryter cirka 60 % mer sällan, men när en spärr slår till byter Claude Code **utan att säga något** till en svagare modell för resten av sessionen. I videon räckte ordet "biological" i en skämtfil i ett spelprojekt. Det finns ingen inställning som undviker det.
 - 🔧 Logga vilken modell som körde varje runda i `resultat.jsonl` (fält `modell`, §10.4).
@@ -1989,6 +1994,9 @@ Du är jurymedlem för ett webbdesignpris. Var sträng.
 161. **Research som blir kundfakta** — branschsammanhang är inte fakta om kunden. (STORM-videon)
 162. **Att aldrig fråga vilket perspektiv som saknas.** (STORM-videon)
 163. **Att tillskriva en tolkning originalets forskningsresultat** — Nates skill är inte STORM. (STORM-videon)
+164. **En rörelsenivå som inte passar målgruppen** — snyggt för fel person är också slop. (Astra-videon)
+165. **Att byta modell efter en enda YouTube-jämförelse.** (Astra-videon)
+166. **Komponenter med okänd licens.** (Astra-videon)
 
 ---
 
@@ -2179,3 +2187,4 @@ Videons räkneexempel: 499 dollar i månaden kräver 168 betalande kunder för e
 | 2026-10-14 | 0.57 | Utifrån radera-skills-videon (Nate Herk, Boris Cherny hos Y Combinator): tabell över vad som behålls och vad som prövas vid rensning, halvårsvis rensningsprov även utan modellbyte (§8.5, fas 8f); *lägg ut tänkandet, aldrig förståelsen* (stopp 2); källans sammanhang och emotionell prompting på bänken (§11.11); fallgrop 157 |
 | 2026-10-14 | 0.58 | Utifrån 5000-timmarsvideon (Nate Herk): stoppet eller läckan i intervjun och var besökare faller bort i fas 0b; nordstjärna med baslinje, mål och tidsram som kunden godkänner (brief 4b, fas 8a); kvitton i stället för portfolio (§15.3); förbud som begränsningar vid sidan av *vad, men inte hur* (§12); rabattkodens siffra rättad och markerad som en källa (fas 8d); fallgropar 158–159 |
 | 2026-10-14 | 0.59 | Utifrån STORM-videon (Nate Herk) och STORM-artikeln (Shao m.fl., NAACL 2024, kontrollerad): nytt §11.12 Research med linser — parallella linser, karta över motsägelser, tillförlitlighet per slutsats, källkontroll, gräns mot kundfakta; *vilket perspektiv saknas?* som allmän regel (fas 6, §11.7, fas 1b); linser i konsolideringsmetoden; fallgropar 160–163 |
+| 2026-10-14 | 0.60 | Utifrån Astra-videon (Nate Herk): GPT-6 Astra som kandidat i eval för bygg- och animationsroller, inte som ändring (§8.6); rörelsebudget i briefen (3b) och kriteriet *passar rörelsen målgruppen?* (fas 6); djup genom lager på bänken (fas 5); godly.design, 21st.dev och Awwwards per kategori som källor, komponenter i feedback, licens per komponent (fas 2); fallgropar 164–166 |
