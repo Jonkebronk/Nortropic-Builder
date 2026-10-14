@@ -44,6 +44,7 @@ Råmaterial för `kunskap/` och konsolideringen av implementeringsguiden. Rörs 
 | 2026-09-28 | AI LABS | Insane Jev Use Cases You Need To Use Right Now | [2026-09-28_2nc_QMuNp18.md](2026-09-28_2nc_QMuNp18.md) |
 | 2026-09-30 | AI LABS | How To Use Claude Code To Build Amazing Sites With Opus 5.5 | [2026-09-30_DP7mgLUKN_U.md](2026-09-30_DP7mgLUKN_U.md) |
 | 2026-10-02 | AI LABS | He Finally 10x Claude Code With This Method | [2026-10-02_qLfSDQ5NGh0.md](2026-10-02_qLfSDQ5NGh0.md) |
+| 2026-10-02 | Nate Herk | AI Automation | Claude Code Mods Are Game Changers. Set Up These 5 NOW. | [2026-10-02_9hetShMMp2s.md](2026-10-02_9hetShMMp2s.md) |
 | 2026-10-05 | AI LABS | You Need To Add This In Your Claude Code Setup Right Now | [2026-10-05_i6Q7bXnWGlM.md](2026-10-05_i6Q7bXnWGlM.md) |
 | 2026-10-05 | Nate Herk | AI Automation | I Built Another Andrej Karpathy Using Claude | [2026-10-05_bvGptCLDhyo.md](2026-10-05_bvGptCLDhyo.md) |
 | 2026-10-07 | AI LABS | This Just Fixed Your Claude Code Setup's Biggest Flaw | [2026-10-07_jlEMo6Dsh9E.md](2026-10-07_jlEMo6Dsh9E.md) |
