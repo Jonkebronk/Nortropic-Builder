@@ -32,6 +32,7 @@ Råmaterial för `kunskap/` och konsolideringen av implementeringsguiden. Rörs 
 | 2026-08-18 | AI LABS | Every Level Of Claude Code Loop Engineering Explained | [2026-08-18_PLyRe6Zk--8.md](2026-08-18_PLyRe6Zk--8.md) |
 | 2026-08-20 | AI LABS | GitHub's #1 Trending Author's New Claude Skill Is Insane | [2026-08-20_c47uqR7XB_c.md](2026-08-20_c47uqR7XB_c.md) |
 | 2026-08-24 | AI LABS | Insane Claude Design Skills You Need To Actually Build Beautiful Sites | [2026-08-24_Ysr7oNDajJI.md](2026-08-24_Ysr7oNDajJI.md) |
+| 2026-08-24 | Nate Herk | AI Automation | Everything Goldman Sachs Taught Me About AI (In 10 minutes) | [2026-08-24_ZzHsJW10iq4.md](2026-08-24_ZzHsJW10iq4.md) |
 | 2026-08-30 | AI LABS | Hermes Agent Skills That Make It 10x More Powerful | [2026-08-30_WJgxX0Eib6k.md](2026-08-30_WJgxX0Eib6k.md) |
 | 2026-09-01 | AI LABS | These New Claude Skills Are Actually Insane | [2026-09-01_jyLKRN36-Dc.md](2026-09-01_jyLKRN36-Dc.md) |
 | 2026-09-02 | Nate Herk | AI Automation | How Anthropic ACTUALLY Prompts Fable 5.1 | [2026-09-02_FBVNS1l5Vb8.md](2026-09-02_FBVNS1l5Vb8.md) |
