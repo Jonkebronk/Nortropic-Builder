@@ -1,6 +1,6 @@
 # Implementeringsguide: AI-webbsidebyggare med Claude Code + Google Stitch
 
-> **Status:** Utkast v0.55 (2026-10-14) — levande dokument som vi bygger vidare på.
+> **Status:** Utkast v0.56 (2026-10-14) — levande dokument som vi bygger vidare på.
 > **Planerat:** konsolideringsrunda (slå ihop dubbletter, t.ex. granskarisolering i §5.2/fas 4/fas 6b; skilj grindar från instruktioner och flytta regler enligt placeringsordningen i §8.7; gör **"agenten föreslår, du beslutar"** till en egen princip — den återkommer för `arbetssatt.md`, granskarkriterier, kontroller, `design.md` och `CLAUDE.md`; en möjlig disposition är OS-liknelsen ur OS-videon — `CLAUDE.md` som kärna, MCP som drivrutiner, skills som program, loopar/rutiner som schemaläggare, arbetsflöden som binder ihop) **när videogenomgången är klar** — inte före. **Metod för konsolideringen (Karpathy-videon):** guiden byggs om som wiki ur råmaterialet i `kunskap/raw/` — varje regel spårbar till ett citat, regler med en källa på bänken (§11.11), och motsägelser mellan videor synliga som konflikter.
 > **Källor:**
 > - AI LABS, *"Google Just Fixed AI Design By Releasing This"* (2026-10-13), https://www.youtube.com/watch?v=au2TI8sdq8E — flödet (§1–5)
@@ -60,6 +60,7 @@
 > - Nate Herk, *"Anthropic Engineer Explains: What to Build Instead of AI Agents"* (2026-09-13), https://www.youtube.com/watch?v=HIRDzMtuWFk — återger Barry Zhang och Mahesh Murag (Anthropic) ⚠️ i andra hand: skills i stället för agenter, skript i skillen, beskrivningar som utlöser rätt skill, orsaksklassning, yttre bevis (fas 3, §8.8, §10.5, §12)
 > - Nate Herk, *"How Anthropic ACTUALLY Prompts Fable 5.1"* (2026-09-02), https://www.youtube.com/watch?v=FBVNS1l5Vb8 — fyra promptvanor ur Anthropics dokumentation (§5.2, §8.6, fas 4, §12)
 > - Nate Herk, *"Anthropic’s CEO: How to Build a 1 Person Business with Claude"* (2026-09-18), https://www.youtube.com/watch?v=QDsenEcAJIk — automatiserad försäljning och support, standardiserat erbjudande, riskklassade ärenden, utkast i stället för utskick, smal nisch, enhetsekonomi (§15, fas 8b) ⚠️ Darios filter i Nates tolkning
+> - Nate Herk, *"Everything Goldman Sachs Taught Me About AI (In 10 minutes)"* (2026-08-24), https://www.youtube.com/watch?v=ZzHsJW10iq4 — VAULT: verifiera, förstärk, förstå varför, människan i loopen, transparens; tillsyn efter konsekvens, rabattkodsincidenten (§5.2, fas 8a, 8b, 8d, §11.11, §15.2) ⚠️ Goldmans CIO citeras i andra hand
 > - 📄 Anthropic, *Prompting Claude Fable 5.1*, *Prompting Claude Fable 5* och *Effort* (Claude Platform Docs, hämtade 2026-10-14): https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1 · https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5 · https://platform.claude.com/docs/en/build-with-claude/effort
 > **Märkning i dokumentet:**
 > - 🎥 = beskrivet i videon
@@ -554,7 +555,7 @@ Vi förvaltar sajterna efter lansering. Byggflödet slutar inte vid publicering 
 | Månadsvis | **Sökord och placeringar — tillval 🎥 (Nate Herk-videon):** [OpenSEO](https://github.com/every-app/open-seo) ger riktiga sökorddata, placeringar och bakåtlänkar 🎥. ⚠️ Datan ligger på deras server om man inte driftar verktyget själv — vägs mot kundens integritet (§11.10). Search Console (fas 8g) ger kundens egna sökdata utan tredje part. |
 | Månadsvis | **Ny besökare 🎥:** utforskningstestet (§10.3) körs från början som om sajten vore okänd — döda sidor, trasiga knappar, otydliga instruktioner fotograferas. |
 
-- **Bevis för varje påstående 🎥:** varje fynd i en rapport ska ha en länk eller skärmdump. Annars får man en rapport som inte går att kontrollera (Grok Bot-videon).
+- **Bevis för varje påstående 🎥:** varje fynd i en rapport ska ha en länk eller skärmdump. Annars får man en rapport som inte går att kontrollera (Grok Bot-videon). **De siffror kunden fattar beslut på** (t.ex. antal förfrågningar, besök och placering i sökningar) markeras särskilt, med källa, så att du kan stickprova just dem innan rapporten skickas 🎥 (VAULT-videon: *kanske är det bara två eller tre siffror som kan ändra beslutet*).
 - **AEO som trend 🔧:** AI-assistenternas svar varierar från dag till dag. Bedöm utvecklingen över flera månader, inte en enskild mätning.
 - **Formulärtest utan att störa kunden 🔧:** testinskick märks som test (t.ex. ett dolt fält eller en testadress) och filtreras bort innan de når kunden. ⚠️ Lösningen beror på formulärtjänsten.
 - **Schemaläggning:** Claude Codes schemalagda agenter eller cron. ⚠️ Molnkörda agenter behöver åtkomst till repot och eventuella nycklar — se behörigheter nedan.
@@ -571,6 +572,7 @@ Vi förvaltar sajterna efter lansering. Byggflödet slutar inte vid publicering 
 - Ändringar som berör **låsta filer** — brief, `design.md`, kontroller — kräver ditt godkännande och ny låsning (🛑 stopp), precis som i fas 1b.
 - Ändringar byggs på en **egen gren**. Publicering kräver ditt godkännande (§5.4) — en förvaltningsagent publicerar aldrig själv.
 - **Kö för ändringar 🎥 (loop-nivåvideon, *feature batch*) / 🔧:** ändringsbriefs samlas i `sites/<namn>/andringar/ko.md` — en tabell med status *att göra / byggs / klar*. Kön körs som en batch, t.ex. över natten, tills inget står i *att göra* eller *byggs*. Varje ändring blir en **egen gren och en egen PR med skärmdumpar som bevis** 🎥, så att du kan godkänna dem en och en. Videons kö med två funktioner tog cirka 3 timmar 🎥.
+  - **En otydlig ändringsbrief byggs inte 🎥 idé (VAULT-videon) / 🔧:** kan briefen tolkas på mer än ett sätt får den utfallet *för lite information* (fas 4) och blir en fråga till kunden via ärendeagenten (§15.2). Agenten gissar inte — kön körs utan tillsyn, och en felaktig tolkning byggs annars ut över natten.
   - **Dubbletter slås ihop först 🎥 idé (dedupe-skillen, Boris-skills-videon):** ändringsönskemål som säger samma sak slås ihop innan kön körs, så att samma ändring inte byggs två gånger.
 - **Tillval — kön som GitHub-ärenden 🎥 (fleet-videon, Symphony):** OpenAI:s Symphony, och en version för Claude Code, kör en bakgrundsprocess som bevakar ärenden med en viss etikett och för varje ärende startar en session, skapar en gren och öppnar en PR 🎥. Kan ersätta `ko.md` om ändringsönskemål ändå hanteras som ärenden. ⚠️ Overifierat; publicering kräver fortfarande ditt godkännande.
 - **Förhör före sammanslagning 🎥 (Fable 5-videon, Thariqs fältguide) / 🔧:** låt modellen *ställa frågor till dig* innan du slår ihop en ändring, så att du faktiskt vet vad som ändrats 🎥. När kön körs över natten och genererar många PR:er riskerar ditt godkännande att bli ett klick utan förståelse — **slentriangodkännande**. Varje PR får därför en kort sammanfattning och **2–3 frågor** om ändringen (t.ex. *"den här ändringen påverkar formuläret — vad händer om fältet lämnas tomt?"*).
@@ -583,6 +585,15 @@ Vi förvaltar sajterna efter lansering. Byggflödet slutar inte vid publicering 
 
 **8d. Behörigheter 🔧**
 Grok Bot-videon 🎥 bygger på att alla bottar delar samma dator och samma inloggningar. Vi gör tvärtom: övervakande agenter får **bara läsrätt** till det de kontrollerar (statistik, felloggar, hosting), inga delade inloggningar och ingen rätt att publicera. Samma princip som §5.2 och §7.3. Förvaltningsagenter som kör schemalagt utan tillsyn är förstahandskandidater för en **sandlåda** (§7.3).
+- **Tillsyn efter konsekvens och räckvidd 🎥 (VAULT-videon) / 🔧:** *tillsynen ska motsvara konsekvensen* 🎥, och *ju fler en handling kan påverka, desto viktigare är stoppet* 🎥. AI fungerar som en megafon: en otydlig instruktion ger ett fel svar i en chatt, men i en självgående agent kan den skicka fel mejl till en hel lista 🎥.
+  | Handling | Räckvidd | Går att ångra? | Tillsyn |
+  |---|---|---|---|
+  | Läsa statistik, köra kontroller | Ingen | Ja | Fritt |
+  | Ändring på staging | Bara du | Ja | Fritt; granskas i grindarna |
+  | Publicering till produktion | Alla besökare | Ja, med återställning | Ditt godkännande (fas 7) |
+  | Svar till en kund | En kund | Nej | Utkast som du godkänner (§15.2) |
+  | Mejl till kundens kundlista, nyhetsbrev | Tusentals | **Nej** | **Aldrig av agent.** Agenten har ingen behörighet till kundens utskickstjänster |
+  - *Rabattkoden till 200 000 🎥 (VAULT-videon):* i Nates team tog en självgående agent själv en uppgift från en lista, tolkade den fel och skickade en rabattkod till nästan 200 000 personer på e-postlistan 🎥.
 
 **8g. Kopplingar per kund 🔧 (idé: Lovables connector-katalog, som visar t.ex. Google Search Console, Google Maps, Resend och Firecrawl)**
 Förvaltningen blir mätbar på riktigt när den kan läsa kundens data — inte bara att sajten *fungerar*, utan att den *hittas*. I Claude Code motsvaras Lovables connectors av **MCP-servrar, connectors i claude.ai eller direkta API-anrop från skript**.
@@ -695,6 +706,8 @@ Låt granskningsskills köras i en **separat delagent** med färsk kontext. En g
 **Granskaren ser inte projektets instruktioner 🎥 (Shopify-videon):** UI-granskarna bedömer *bara* mot prototypen och `design.md`. Hos oss 🔧 läser granskarna varken `CLAUDE.md`, `arbetssatt.md` eller byggarens logg. En granskare som läser instruktionerna bedömer *om byggaren följde dem*; en granskare som bara ser referensen bedömer *om resultatet blev rätt* — och bara det senare är det du bryr dig om.
 
 **Granskaren vet inte vilken runda det är 🎥 (gauntlet-videon) / 🔧:** gauntlet-loopens kritiker saknar minne — den vet inte vem som gjort arbetet eller hur många gånger det redan skickats tillbaka 🎥. En granskare som vet att det är runda 3 av 3 känner trycket att godkänna. Granskaren får därför **varken rundnummer, rundtak eller tidigare granskningsresultat** — bara referensen, kriterierna och det som ska granskas. Rundtaket hanteras av orkestreraren och grindhooken, inte av granskaren.
+
+**Kan agenten göra det, anta att den gör det 🎥 (VAULT-videon):** *"999 gånger gör den det du vill, men den tusende kan bli dålig"* 🎥. Tabellen nedan beskriver därför inte vad en roll *bör* göra, utan vad den *kan* göra. Allt en roll inte behöver ska den inte kunna.
 
 **Behörigheter och modell per roll 🎥 idé (Goal Buddy-videon) / 🔧:** Goal Buddy definierar varje roll med strikt **åtkomstnivå** och **resonemangsnivå** — domaren och spanaren har bara läsrätt, bara arbetaren får skriva, och bara projektledaren får markera något som klart 🎥. Hos oss har reglerna vuxit fram på många ställen; tabellen samlar dem och är facit för agentdefinitionerna:
 | Roll | Läser | Skriver | Modell / effort | Källa i guiden |
@@ -1540,6 +1553,7 @@ Samma princip som bevis per grind (§7.2) och faktabasen (§11.8) — nu för de
 - missade fynd som föreslås bli kriterier (§10.5),
 - regler i `kunskap/`.
 Två videor från samma kanal räknas som *en* källa om den ena bygger på den andra.
+- **Nya andra källor (v0.56, VAULT-videon):** *deterministisk automation där svaret är känt, AI där omdöme behövs* 🎥 (stöder §8.7 och §8.8); *transparens betyder belägg som går att granska — källor, indata, handlingar, antaganden, kontroller — inte modellens dolda tankeprocess* 🎥 (oberoende av Anthropics dokumentation i §10.5).
 
 **REA — Reverse Engineer Anything 🎥:** [morluto/rea](https://github.com/morluto/rea) är en MCP-server som låter agenten inspektera befintlig programvara och spåra hur en funktion fungerar, och svarar **med belägg**. För webbplatser läser den **sidstruktur, skript, nätverksanrop och skärmdumpar** via en Chrome-baserad webbläsare. Installeras med `npx rea-agents setup` (Node 22+). Arbetsgång enligt videon: peka på **en funktion** — välj verktyg efter vad målet är byggt med — läs **sammanfattningen först** (Loom-analysen var över 1 GB) — märk sett/härlett/okänt — bygg om och testa 🎥. Agenten med REA blev i videon *alltid klar senare men gav bättre resultat* 🎥.
 
@@ -1925,6 +1939,9 @@ Du är jurymedlem för ett webbdesignpris. Var sträng.
 151. **En agent som gör återbetalningar, raderingar eller avtalsändringar** i stället för att lämna ett utkast. (1-person-videon)
 152. **Säljutskick utan godkännande**, eller med påståenden utan källa. (1-person-videon)
 153. **En demosajt av en presumtiv kunds sajt** utan deras avtal. (1-person-videon)
+154. **En självgående agent som själv tar och tolkar en uppgift med stor räckvidd** — rabattkoden till 200 000. (VAULT-videon)
+155. **Massutskick via agent** till kundens kundlista. (VAULT-videon)
+156. **Ändrade priser eller villkor publicerade utan godkännande.** (VAULT-videon)
 
 ---
 
@@ -1998,7 +2015,8 @@ I videon svarar supportagenten på rutinfrågor ur produktguiden. Ärenden om **
 |---|---|---|
 | **Rutinändring** | Ny text, ny bild, ändrade öppettider eller priser | Skriver en ändringsbrief i kön (fas 8b); ändrade fakta går till faktabasen (§11.8) |
 | **Fråga** | "Hur ser jag mina besökssiffror?" | Svarar ur **kundens hjälpguide**, en låst sida per paket |
-| **Hög risk** | Fakturor, avtal, uppsägning, begäran om radering eller utdrag av personuppgifter (§11.10), klagomål, ny funktion utanför paketet, stor omdesign | **Utkast till svar + ärendet till dig. Ingen åtgärd.** |
+| **Hög risk** | **Priser, erbjudanden, kampanjer, rabatter och juridiska texter på sajten** (villkor, integritetspolicy; VAULT-videon 🎥), fakturor, avtal, uppsägning, begäran om radering eller utdrag av personuppgifter (§11.10), klagomål, ny funktion utanför paketet, stor omdesign | **Utkast till svar + ärendet till dig. Ingen åtgärd.** |
+- **Priser, erbjudanden och juridiska texter publiceras aldrig utan ditt godkännande** — inte heller när andra stopp har släppts i pilotfasen (§5.4). Ett fel där når alla besökare och kan bli bindande.
 - **Agenten skickar aldrig svar själv** till kunden i pilotfasen; varje svar är ett utkast du godkänner. Rutinsvar kan släppas fritt först enligt samma villkor som stoppen (§5.4, §9.6): mätt överensstämmelse med dina beslut.
 - **Agenten har inga behörigheter** till fakturering, avtal, radering eller kundens konton (§5.2, fas 8d). Riskklassningen är alltså inte bara en instruktion utan en behörighetsgräns (§8.7).
 - Ärendet sparas med klass och ditt beslut, så att klassningen kan kalibreras (§9.6).
@@ -2109,3 +2127,4 @@ Videons räkneexempel: 499 dollar i månaden kräver 168 betalande kunder för e
 | 2026-10-14 | 0.53 | Utifrån skills-videon (Nate Herk om Anthropics skill-skapare): test av att rätt skill utlöses med tre testfrågor och överlappskontroll, upprepad kod lyfts till låsta skript (§8.8); regel för hur beskrivningar skrivs (§12); orsaksklassning process/kontext/regel/kod och att backa först (§10.5); andra källan för yttre bevis vid verifiering (fas 3); fallgropar 143–145 |
 | 2026-10-14 | 0.54 | Utifrån Nate Herks prompting-video, med citaten kontrollerade mot Anthropics dokumentation: promptregel om belägg för varje påstående i rapporter; roller som måste söka kör lägst medium effort och har sökinstruktion (§5.2, §8.6); effortbyte per meddelande behåller cachen; beskärning i utseendegranskningen (fas 4); Anthropic som officiell källa för isolerade granskare (§5.2); *vad, men inte hur* lyft från bänken (§12); att backa = handlingar, inte tänkande (§10.5); fallgropar 146–149 |
 | 2026-10-14 | 0.55 | Utifrån 1-person-videon (Nate Herk): nytt §15 Företaget runt flödet — standardiserade paket som förutsättning för självgående flöde, ärendeagent med riskklassning (rutin, fråga, hög risk; ingen åtgärd vid pengar eller data), kundflöde med utkast och utan demosajter av andras sajter, smärta–person–löfte och smal nisch, enhetsekonomi; ärendeagenten kopplad till fas 8b; Nästa steg blir §16; fallgropar 150–153 |
+| 2026-10-14 | 0.56 | Utifrån VAULT-videon (Nate Herk, Goldman Sachs): principen *kan agenten göra det, anta att den gör det* (§5.2); tillsyn efter konsekvens och räckvidd med tabell, inga massutskick av agent (fas 8d); priser, erbjudanden och juridiska texter som hög risk som aldrig publiceras utan godkännande (§15.2); otydliga ändringsbriefs byggs inte (fas 8b); beslutssiffror att stickprova i rapporter (fas 8a); två nya andra källor på bänken (§11.11); fallgropar 154–156 |
