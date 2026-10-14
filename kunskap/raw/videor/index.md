@@ -40,6 +40,7 @@ Råmaterial för `kunskap/` och konsolideringen av implementeringsguiden. Rörs 
 | 2026-09-01 | AI LABS | These New Claude Skills Are Actually Insane | [2026-09-01_jyLKRN36-Dc.md](2026-09-01_jyLKRN36-Dc.md) |
 | 2026-09-02 | Nate Herk | AI Automation | How Anthropic ACTUALLY Prompts Fable 5.1 | [2026-09-02_FBVNS1l5Vb8.md](2026-09-02_FBVNS1l5Vb8.md) |
 | 2026-09-03 | AI LABS | Grok Bot Use Cases That Are Actually Insane | [2026-09-03_90pwPVrydHg.md](2026-09-03_90pwPVrydHg.md) |
+| 2026-09-04 | Nate Herk | AI Automation | GPT-6 Astra FINALLY Kills AI Website Slop | [2026-09-04_QhmhUgccaS0.md](2026-09-04_QhmhUgccaS0.md) |
 | 2026-09-05 | AI LABS | You Are Using Fable 5.1 Wrong (Do This Instead) | [2026-09-05_7au4tWVG8a0.md](2026-09-05_7au4tWVG8a0.md) |
 | 2026-09-08 | AI LABS | Github Top Trending Tool Just Fixed The AI Agent’s Biggest Problem | [2026-09-08_cyIWQHYoUg8.md](2026-09-08_cyIWQHYoUg8.md) |
 | 2026-09-13 | Nate Herk | AI Automation | Anthropic Engineer Explains: What to Build Instead of AI Agents | [2026-09-13_HIRDzMtuWFk.md](2026-09-13_HIRDzMtuWFk.md) |
