@@ -1,6 +1,6 @@
 # Implementeringsguide: AI-webbsidebyggare med Claude Code + Google Stitch
 
-> **Status:** Utkast v0.54 (2026-10-14) — levande dokument som vi bygger vidare på.
+> **Status:** Utkast v0.55 (2026-10-14) — levande dokument som vi bygger vidare på.
 > **Planerat:** konsolideringsrunda (slå ihop dubbletter, t.ex. granskarisolering i §5.2/fas 4/fas 6b; skilj grindar från instruktioner och flytta regler enligt placeringsordningen i §8.7; gör **"agenten föreslår, du beslutar"** till en egen princip — den återkommer för `arbetssatt.md`, granskarkriterier, kontroller, `design.md` och `CLAUDE.md`; en möjlig disposition är OS-liknelsen ur OS-videon — `CLAUDE.md` som kärna, MCP som drivrutiner, skills som program, loopar/rutiner som schemaläggare, arbetsflöden som binder ihop) **när videogenomgången är klar** — inte före. **Metod för konsolideringen (Karpathy-videon):** guiden byggs om som wiki ur råmaterialet i `kunskap/raw/` — varje regel spårbar till ett citat, regler med en källa på bänken (§11.11), och motsägelser mellan videor synliga som konflikter.
 > **Källor:**
 > - AI LABS, *"Google Just Fixed AI Design By Releasing This"* (2026-10-13), https://www.youtube.com/watch?v=au2TI8sdq8E — flödet (§1–5)
@@ -59,6 +59,7 @@
 > - Nate Herk med Dave Ebbelaar, *"How to Actually Build & Sell Software with AI as a Non-Techie"* (2026-10-02), https://www.youtube.com/watch?v=l8ywUsEJ2XQ — kalibrering av LLM-domare, trappan av insatser, planering mot att se resultatet, säkerhet, arkitektur (§5.4, §9.6, fas 0, 1b, 3, 6b, 6c, 8f, §14)
 > - Nate Herk, *"Anthropic Engineer Explains: What to Build Instead of AI Agents"* (2026-09-13), https://www.youtube.com/watch?v=HIRDzMtuWFk — återger Barry Zhang och Mahesh Murag (Anthropic) ⚠️ i andra hand: skills i stället för agenter, skript i skillen, beskrivningar som utlöser rätt skill, orsaksklassning, yttre bevis (fas 3, §8.8, §10.5, §12)
 > - Nate Herk, *"How Anthropic ACTUALLY Prompts Fable 5.1"* (2026-09-02), https://www.youtube.com/watch?v=FBVNS1l5Vb8 — fyra promptvanor ur Anthropics dokumentation (§5.2, §8.6, fas 4, §12)
+> - Nate Herk, *"Anthropic’s CEO: How to Build a 1 Person Business with Claude"* (2026-09-18), https://www.youtube.com/watch?v=QDsenEcAJIk — automatiserad försäljning och support, standardiserat erbjudande, riskklassade ärenden, utkast i stället för utskick, smal nisch, enhetsekonomi (§15, fas 8b) ⚠️ Darios filter i Nates tolkning
 > - 📄 Anthropic, *Prompting Claude Fable 5.1*, *Prompting Claude Fable 5* och *Effort* (Claude Platform Docs, hämtade 2026-10-14): https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1 · https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5 · https://platform.claude.com/docs/en/build-with-claude/effort
 > **Märkning i dokumentet:**
 > - 🎥 = beskrivet i videon
@@ -559,6 +560,7 @@ Vi förvaltar sajterna efter lansering. Byggflödet slutar inte vid publicering 
 - **Schemaläggning:** Claude Codes schemalagda agenter eller cron. ⚠️ Molnkörda agenter behöver åtkomst till repot och eventuella nycklar — se behörigheter nedan.
 
 **8b. Ändringar**
+- **Ärenden kommer in via ärendeagenten (§15.2)**, som klassar dem: rutinändringar går hit, frågor besvaras ur kundens hjälpguide och högriskärenden går till dig.
 - Kundens önskemål blir en **ändringsbrief** → nya checkpoints → **samma grindar** som vid bygget (§7.2), inklusive de låsta kontrollerna.
 - **Ändrade fakta** (öppettider, priser, personal) uppdateras i kundens faktabas (§11.8) — en fil per faktum. Faktakontrollen hittar sedan varje sida som inte följt med.
 - **Visuell regression mot godkänd baslinje 🎥 (designnivå-videon) / 🔧:** när du godkänt sajten i stopp 2 blir skärmdumparna i alla bredder **baslinjen**. Varje ändring jämförs mot den, och **oavsiktliga visuella förändringar** syns direkt — t.ex. att sidhuvudet flyttat sig när bara öppettiderna skulle ändras. Videon använder Playwright för visuell regression och CLI:t [Vizzly](https://github.com/vizzly-testing/cli), som visar exakt vilka pixlar som ändrats och låter dig **godkänna eller avvisa** varje ändring; avvisade ändringar blir feedback till agenten 🎥 ⚠️. Godkända ändringar uppdaterar baslinjen.
@@ -1919,6 +1921,10 @@ Du är jurymedlem för ett webbdesignpris. Var sträng.
 147. **Visuell granskning av en nedskalad helsidesbild** — detaljfel syns inte utan beskärning. (Anthropics Fable 5.1-guide)
 148. **Statusrapporter utan belägg** i långa körningar. (Anthropics Fable 5-guide)
 149. **Att be modellen återge sitt tänkande** — kan utlösa en vägran; be om handlingar och resultat. (Anthropics Fable 5-guide)
+150. **Skräddarsydda åtaganden som flödet inte klarar** — varje anpassning minskar det som går att återanvända och testa. (1-person-videon)
+151. **En agent som gör återbetalningar, raderingar eller avtalsändringar** i stället för att lämna ett utkast. (1-person-videon)
+152. **Säljutskick utan godkännande**, eller med påståenden utan källa. (1-person-videon)
+153. **En demosajt av en presumtiv kunds sajt** utan deras avtal. (1-person-videon)
 
 ---
 
@@ -1969,10 +1975,57 @@ Du är jurymedlem för ett webbdesignpris. Var sträng.
 - [ ] **Modeller per roll:** vilken modell för planering, bygge respektive granskning?
 - [ ] **Testverktyg för kontrollerna:** Playwright eller annat? (Hänger ihop med skärmdumpsverktyget.) *Förslag (v0.47): **Playwright CLI** för låsta kontroller, utforskningstest, skärmdumpar, visuell regression och video av scrollning.*
 - [ ] **Auto loopens frihet:** hur länge ska du godkänna varje ändring av `arbetssatt.md`?
+- [ ] **Nisch och paket (§15):** vilken bransch och vilka kunder (smärta, person, löfte i `foretag/erbjudande.md`)? Vilka fasta paket, vad ingår i vart och ett och till vilket pris?
 
 ---
 
-## 15. Nästa steg
+## 15. Företaget runt flödet 🎥 (1-person-videon) / 🔧
+
+§1–14 beskriver **maskinen**: hur sajter byggs och förvaltas. Det här avsnittet beskriver **företaget runt maskinen**: erbjudandet, hur kunder och ärenden kommer in, och om ekonomin går ihop. Utgångspunkt: Nate Herks tolkning av ett intervjusvar från Anthropics vd Dario Amodei om enmansföretag. ⚠️ Nate påpekar själv att det inte är en officiell lista utan hans tolkning av exemplen i svaret 🎥.
+
+**Filtret som berör oss 🎥:** *försäljning och kundsupport måste kunna automatiseras utan att upplevelsen blir sämre för kunden*. Det kräver ett erbjudande som är **upprepbart och nästan inte behöver anpassas**, som kunden förstår och får resultat av snabbt 🎥.
+
+### 15.1 Standardiserade paket 🔧
+Ju mer varje kund anpassas, desto mindre av flödet återanvänds: standardkontroller (fas 1b), eval (§9), kunskapsbas (§11), låsta skript (§8.8) och referenssajter. **Ett självgående flöde förutsätter ett standardiserat erbjudande.**
+- Erbjudandet består av **fasta paket** med tydliga gränser för vad som ingår, t.ex. en enkel sajt, en sajt med scrollytelling och förvaltning per månad. ⚠️ Paketens innehåll och priser bestäms av dig (§14).
+- Varje paket har **egna testbriefs i eval-sviten** (§9.2). Ett paket som inte går att eval-testa är inte standardiserat nog.
+- **Önskemål utanför paketen blir offertärenden till dig** (§15.2), inte nya grenar i flödet. Visar samma önskemål sig hos flera kunder kan det bli en del av ett paket, via samma väg som allt annat: förslag, ditt beslut, eval, låsning.
+- Hänger ihop med trappan (§5.4): vi säljer till företag, och ett löfte vi inte kan hålla är värre än ett smalt löfte.
+
+### 15.2 Ärendeagenten — rutin går vidare, risk går till dig 🎥 / 🔧
+I videon svarar supportagenten på rutinfrågor ur produktguiden. Ärenden om **återbetalning och permanent radering av konto** får ett utkast till svar och skickas till grundaren, **utan att något görs** 🎥. *Rutinfrågor flyter på; beslut om pengar och kunddata stannar hos människan* 🎥. Hos oss klassar ärendeagenten varje inkommande ärende från en förvaltningskund:
+| Klass | Exempel | Vad agenten gör |
+|---|---|---|
+| **Rutinändring** | Ny text, ny bild, ändrade öppettider eller priser | Skriver en ändringsbrief i kön (fas 8b); ändrade fakta går till faktabasen (§11.8) |
+| **Fråga** | "Hur ser jag mina besökssiffror?" | Svarar ur **kundens hjälpguide**, en låst sida per paket |
+| **Hög risk** | Fakturor, avtal, uppsägning, begäran om radering eller utdrag av personuppgifter (§11.10), klagomål, ny funktion utanför paketet, stor omdesign | **Utkast till svar + ärendet till dig. Ingen åtgärd.** |
+- **Agenten skickar aldrig svar själv** till kunden i pilotfasen; varje svar är ett utkast du godkänner. Rutinsvar kan släppas fritt först enligt samma villkor som stoppen (§5.4, §9.6): mätt överensstämmelse med dina beslut.
+- **Agenten har inga behörigheter** till fakturering, avtal, radering eller kundens konton (§5.2, fas 8d). Riskklassningen är alltså inte bara en instruktion utan en behörighetsgräns (§8.7).
+- Ärendet sparas med klass och ditt beslut, så att klassningen kan kalibreras (§9.6).
+- **Ärendet är kundens innehåll** och kan innehålla personuppgifter; det hanteras enligt §7.3 och §11.10.
+
+### 15.3 Kundflödet — att hitta nya kunder 🎥 / 🔧
+I videon hittar Clay företag som passar, Claude kontrollerar offentliga källor, förklarar varför företaget kan vara relevant och skriver ett utkast som **förblir markerat "ej skickat"** tills grundaren godkänt 🎥. *Att hitta ett relevant företag och skriva ett bra meddelande är inte detsamma som att få en kund* 🎥. Hos oss:
+- **Utkast, aldrig utskick.** Agenten skickar inget; varje meddelande godkänns av dig. Samma regel som för all publicering.
+- **Inga demosajter av en presumtiv kunds sajt.** Redesign görs bara av kundens *egen* sajt efter avtal (fas 0). En säljdemo visar i stället **våra egna exempelsajter**, byggda med flödet.
+- **Varje påstående i utkastet har en källa** (samma regel som för rapporter, §8.6). Ett utskick som påstår något felaktigt om mottagarens sajt skadar förtroendet direkt.
+- ⚠️ **Lagar:** kalla utskick regleras av bl.a. marknadsföringslagen, och kontaktuppgifter till personer är personuppgifter enligt GDPR (§11.10). Vilka utskick som är tillåtna utreds innan flödet används. Inte juridisk rådgivning.
+- ⚠️ Clay är ett tredjepartsverktyg som videon har en sponsrad länk till 🎥. Prövas enligt urvalskriterierna (§12) som allt annat.
+
+### 15.4 Smärta, person, löfte 🎥 / 🔧
+Nates mall för att bestämma vad som säljs: **smärta** (det mycket specifika problemet), **person** (exakt vem som har det) och **löfte** (hur erbjudandet löser just det problemet för just den personen) 🎥. Han väljer medvetet en **smal nisch**: ett brett löfte blir generiskt, och etablerade konkurrenter har redan kunder och kapital 🎥.
+- 🔧 För oss gör en nisch flödet bättre: kunskapsbasen (§11), standardkontrollerna, referenssajterna och faktafrågorna i intervjun (fas 0) blir djupare för en bransch än för alla.
+- **Vilken nisch är ditt beslut** (§14). Mallen fylls i i `foretag/erbjudande.md`, och paketen (§15.1) och ärendeagentens hjälpguide utgår från den.
+
+### 15.5 Enhetsekonomi 🎥 / 🔧
+Videons räkneexempel: 499 dollar i månaden kräver 168 betalande kunder för en årlig intäkt över 1 miljon dollar, och det första målet är **fem betalande kunder** som ger återkoppling 🎥. 🔧 Hos oss:
+- **Kostnad per byggd sajt och per förvaltningsmånad** mäts ur samma data som eval (§9.3): tokens, antal rundor och tredjepartstjänster. Lägg till hosting och din egen tid i stoppen.
+- Kostnaden ställs mot priset per paket (§15.1). Det visar var marginalen finns och vilka steg som är värda att effektivisera, t.ex. genom att lyfta kod till skript (§8.8) eller sänka effort där eval visar att kvaliteten håller (§8.6).
+- **Värdet för kunden** mäts enligt §9 (*sätt en siffra på värdet*); i förvaltningen är det rapporten med bevis (fas 8a) som kunden betalar för. Videon uttrycker samma sak: *kunden betalar inte för instrumentpanelen utan för beviset* 🎥.
+
+---
+
+## 16. Nästa steg
 
 1. Skapa projektet med ny init (§8.1) och git-initiera det.
 2. Verifiera Stitch-CLI:t (och vid behov Hallmark/Scroll World — läs igenom skills innan installation): installera, kör `stitch --help`, dokumentera de faktiska kommandona här (ersätt ⚠️).
@@ -2055,3 +2108,4 @@ Du är jurymedlem för ett webbdesignpris. Var sträng.
 | 2026-10-14 | 0.52 | Utifrån Ebbelaar-intervjun (Nate Herk): nytt §9.6 Kalibrering av granskare mot din smak (dina beslut som data, mätt överensstämmelse, tröskel som villkor för att släppa stopp); trappan av insatser — vi står på steg 3, pilot på egna sajter, kundavtal (§5.4, fas 0); eval av full mot smal fas 1b; säkerhetsgrunder (inga hemligheter i klientkoden, 2FA, RLS och brandvägg för B–D); arkitekturgranskning med Pococks skill (fas 6b, 8f); stack efter belägg (§14) |
 | 2026-10-14 | 0.53 | Utifrån skills-videon (Nate Herk om Anthropics skill-skapare): test av att rätt skill utlöses med tre testfrågor och överlappskontroll, upprepad kod lyfts till låsta skript (§8.8); regel för hur beskrivningar skrivs (§12); orsaksklassning process/kontext/regel/kod och att backa först (§10.5); andra källan för yttre bevis vid verifiering (fas 3); fallgropar 143–145 |
 | 2026-10-14 | 0.54 | Utifrån Nate Herks prompting-video, med citaten kontrollerade mot Anthropics dokumentation: promptregel om belägg för varje påstående i rapporter; roller som måste söka kör lägst medium effort och har sökinstruktion (§5.2, §8.6); effortbyte per meddelande behåller cachen; beskärning i utseendegranskningen (fas 4); Anthropic som officiell källa för isolerade granskare (§5.2); *vad, men inte hur* lyft från bänken (§12); att backa = handlingar, inte tänkande (§10.5); fallgropar 146–149 |
+| 2026-10-14 | 0.55 | Utifrån 1-person-videon (Nate Herk): nytt §15 Företaget runt flödet — standardiserade paket som förutsättning för självgående flöde, ärendeagent med riskklassning (rutin, fråga, hög risk; ingen åtgärd vid pengar eller data), kundflöde med utkast och utan demosajter av andras sajter, smärta–person–löfte och smal nisch, enhetsekonomi; ärendeagenten kopplad till fas 8b; Nästa steg blir §16; fallgropar 150–153 |
