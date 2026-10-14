@@ -1,6 +1,6 @@
 # Implementeringsguide: AI-webbsidebyggare med Claude Code + Google Stitch
 
-> **Status:** Utkast v0.61 (2026-10-14) — levande dokument som vi bygger vidare på.
+> **Status:** Utkast v0.62 (2026-10-14) — levande dokument som vi bygger vidare på.
 > **Planerat:** konsolideringsrunda (slå ihop dubbletter, t.ex. granskarisolering i §5.2/fas 4/fas 6b; skilj grindar från instruktioner och flytta regler enligt placeringsordningen i §8.7; gör **"agenten föreslår, du beslutar"** till en egen princip — den återkommer för `arbetssatt.md`, granskarkriterier, kontroller, `design.md` och `CLAUDE.md`; en möjlig disposition är OS-liknelsen ur OS-videon — `CLAUDE.md` som kärna, MCP som drivrutiner, skills som program, loopar/rutiner som schemaläggare, arbetsflöden som binder ihop) **när videogenomgången är klar** — inte före. **Metod för konsolideringen (Karpathy-videon):** guiden byggs om som wiki ur råmaterialet i `kunskap/raw/` — varje regel spårbar till ett citat, regler med en källa på bänken (§11.11), och motsägelser mellan videor synliga som konflikter. **Tillägg (STORM-videon, §11.12):** motsägelserna tas fram med linser — byggaren, kunden, säkerheten, ekonomin och skeptikern — och en karta över motsägelser, och varje citat kontrolleras mot sin källa (*bekräftad, rättad, nedgraderad*).
 > **Källor:**
 > - AI LABS, *"Google Just Fixed AI Design By Releasing This"* (2026-10-13), https://www.youtube.com/watch?v=au2TI8sdq8E — flödet (§1–5)
@@ -66,6 +66,8 @@
 > - Nate Herk, *"Stanford's Method Turns Claude Into a PHD Level Research Team"* (2026-06-29), https://www.youtube.com/watch?v=Tj3018n5MVg — research med fem linser, karta över motsägelser, källkontroll, saknad lins (§11.12) ⚠️ egen tolkning av STORM
 > - Nate Herk, *"GPT-6 Astra FINALLY Kills AI Website Slop"* (2026-09-04), https://www.youtube.com/watch?v=QhmhUgccaS0 — Astra som designmodell, rörelse efter målgrupp, djup genom lager, inspiration från godly.design, 21st.dev och Awwwards (§8.6, fas 1, 5, 6) ⚠️ en persons smak
 > - Nate Herk, *"Claude Code + Clay Makes Lead Generation Actually Fun"* (2026-07-12), https://www.youtube.com/watch?v=zyvdl__Ywfk — Clay via MCP, kedja av leverantörer, kontextfiler för säljtexter, personliga utkast (§15.3) ⚠️ sponsrad av Clay
+> - Nate Herk, *"Learn These 6 AI Skills Now (Before Everyone Else Does)"* (2026-06-15), https://www.youtube.com/watch?v=3XIGcM7VICc — smak och omdöme, långa tankstreck som AI-signatur, spara varför (fas 1, fas 6, §9.6); i övrigt karriärråd
+> - 📄 Kunskapsbladet, *Tankstreck* (hämtad 2026-10-14), https://kunskapsbladet.se/sprakfragor/tankstreck/ — med hänvisning till Språkrådets *Svenska skrivregler* (fas 6)
 > - 📄 Shao, Jiang, Kanell, Xu, Khattab & Lam, *"Assisting in Writing Wikipedia-like Articles From Scratch with Large Language Models"* (NAACL 2024), https://arxiv.org/abs/2402.14207 — STORM (§11.12)
 > - 📄 Anthropic, *Prompting Claude Fable 5.1*, *Prompting Claude Fable 5* och *Effort* (Claude Platform Docs, hämtade 2026-10-14): https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1 · https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5 · https://platform.claude.com/docs/en/build-with-claude/effort
 > **Märkning i dokumentet:**
@@ -271,6 +273,7 @@ Verktyg: REA:s webbläge (§11.11) eller Playwright CLI:s nätverksfångst. Allt
   - Svaren förs in i briefen och beslutskartan; okända svar blir dimma-frågor till kunden.
 - **Frågeområden 🎥:** vilken berättelse sajten ska berätta, hur den ska kännas, vad den egentligen är till för.
 - **Frågeområden 🔧 (tillägg):** **bransch** (styr Inspos filter, se fas 1b), målgrupp, primär handling (CTA), innehåll/texter som finns, tonläge, referenssajter, *anti-referenser*, ljust eller mörkt tema, enhetsfördelning (mobil/dator), tillgänglighetskrav, tekniska ramar.
+- **Spara varför, inte bara exemplet 🎥 (sex-färdigheter-videon) / 🔧:** *när något är bra — fråga varför; vad gör det tydligt, vad gör det trovärdigt?* och *har du ändrat fem saker, säg vilka fem och varför* 🎥. Varje referens och anti-referens får fältet `varfor` (en mening om vad som är bra eller fel). Motiveringen följer med till designriktningarna (fas 1b), den spridda idégenereringen (§11.7) och kalibreringen (§9.6).
 - **Referenser som bild eller video 🎥 (designskills-videon) / 🔧:** kunden kan ge referenser som skärmdumpar eller som en **skärminspelning** av en sajt hen gillar. Meng Tos skill *video to super prompt* gör en inspelning till en prompt 🎥. Referenserna sparas i `sites/<namn>/referenser/` och används i fas 1b (Tastemaker) och fas 2.
 - **Bilder 🔧:** intervjun frågar vilka bilder kunden har (foton av personal, lokaler, produkter, arbeten) och vad som saknas. Bildstrategin i §11.9 avgör sedan källa per bild.
 - **Output — struktur för `brief.md`:**
@@ -467,11 +470,13 @@ Kontrollerar om sajten faktiskt är **bra**, inte bara korrekt.
 | Specialist | Bedömer | Underlag |
 |---|---|---|
 | **Berättelse och tempo** | Flöde mellan kapitlen, animationer som tjänar historien, tempo, överlast, **sömlösa loopar** (inget hack där sista bildrutan möter den första — syns bara på video) | Video eller bildsekvenser av scrollningen |
-| **Fakta och språk** | Faktapåståenden mot faktabasen, tillgjord prosa, läsbarhet, **AI-signaturer i texten** (enligt Wikipedia-guiden i `kunskap/`, §11.3) | Sajtens texter + faktabasen |
+| **Fakta och språk** | Faktapåståenden mot faktabasen, tillgjord prosa, läsbarhet, **AI-signaturer i texten** (enligt Wikipedia-guiden i `kunskap/`, §11.3), **svensk typografi** (se nedan) | Sajtens texter + faktabasen |
 | **Konvertering** | Primär handling, perceptionslagar, Awwwards-kriterier, **passar rörelsen målgruppen?** (rörelsebudgeten i briefen; *den andra sortens AI-slop är en sajt gjord för någon annan* 🎥 Astra-videon) | Skärmdumpar i alla bredder + briefen |
 | **Jämförelse** | Blind jämförelse mot referenser | Sektioner utan etiketter |
 
 Orkestreraren avslutar med frågan **vilket perspektiv saknas?** (§11.12) 🎥 (STORM-videon).
+
+**Låst kontroll — inga långa tankstreck i svensk sajttext 🎥 (sex-färdigheter-videon) / 📄 / 🔧:** Nate Herk: *har något jag skickar fem långa tankstreck vet de som känner mig att det inte är jag som skrivit det* 🎥. I **svensk** text är det mer än en AI-signatur: det långa strecket (—, engelskans *em dash*) *används främst i engelskspråkig typografi och är ovanligt i nutida svensk text*; svensk norm är det **korta tankstrecket (–)**, med mellanslag vid inskott (*han kom – lite försent – till mötet*) och utan mellanslag vid intervall (*5–10*, *Stockholm–Göteborg*) 📄 ([Kunskapsbladet](https://kunskapsbladet.se/sprakfragor/tankstreck/), med hänvisning till Språkrådets *Svenska skrivregler*). Kontrollen söker efter `—` i sajtens svenska texter; träff = `hög`. ⚠️ Gäller kundernas sajter, inte guiden. Kontrollera mot *Svenska skrivregler* i original när `kunskap/` byggs (§11.6).
 
 Orkestreraren slår ihop resultaten till `story-review-<runda>.json`. Två sätt att använda flera granskare kombineras: **specialister per aspekt** fångar fler *sorters* fel; **flera oberoende granskare med samma kriterier** (§11.4) fångar fler fel *av samma sort* — det senare kan köras inom en specialist som behöver det.
 - **Kriterier 🎥:** berättelsen flyter mellan kapitlen · varje animation hjälper berättelsen · tempot vid scroll · texterna läses bra · allt bedöms mot `brief.md`
@@ -1346,7 +1351,7 @@ Våra viktigaste grindar för **smak** är LLM-domare: berättelsegranskningen, 
 | Variate-versionen du väljer (§6.8) | Konverterings- och berättelsespecialisten |
 | Visuella diffar du avvisar (fas 8b) | Utseendegranskaren (fas 4) |
 | Missade fynd (§10.5) | Den specialist som missade |
-Besluten sparas med granskarens bedömning av samma sak i `kalibrering/<granskare>.jsonl`.
+Besluten sparas med granskarens bedömning av samma sak i `kalibrering/<granskare>.jsonl`. **Med motivering 🎥 (sex-färdigheter-videon):** varje avvisning och varje ändring du gör i stopp 2 får fältet `varfor`. Kalibreringen blir bättre av motiveringar än av bara ja eller nej — loopen som förbättrar kriterierna ser då *vad* granskaren missade, inte bara *att* den gjorde det.
 
 **Loopen följer våra principer:** förbättringen av en granskares kriterier är ett **förslag** — du godkänner, kriteriet låses på nytt (§10.1). Överensstämmelsen mäts på exempel som inte användes vid förbättringen, så att granskaren inte bara lär sig de exempel den prövats på.
 
@@ -2000,6 +2005,8 @@ Du är jurymedlem för ett webbdesignpris. Var sträng.
 166. **Komponenter med okänd licens.** (Astra-videon)
 167. **Påhittade resultat i säljutskick** — "vi hjälpte nyligen ett företag…" utan kvitto. (Clay-videon)
 168. **Kompletterade personuppgifter utan information enligt artikel 14** och utan avregistrering. (Clay-videon)
+169. **Långa tankstreck (—) i svensk sajttext** — både AI-signatur och typografiskt fel. (sex-färdigheter-videon)
+170. **Referenser och avvisningar utan motivering** — smaken går inte att lära ut utan *varför*. (sex-färdigheter-videon)
 
 ---
 
@@ -2199,3 +2206,4 @@ Videons räkneexempel: 499 dollar i månaden kräver 168 betalande kunder för e
 | 2026-10-14 | 0.59 | Utifrån STORM-videon (Nate Herk) och STORM-artikeln (Shao m.fl., NAACL 2024, kontrollerad): nytt §11.12 Research med linser — parallella linser, karta över motsägelser, tillförlitlighet per slutsats, källkontroll, gräns mot kundfakta; *vilket perspektiv saknas?* som allmän regel (fas 6, §11.7, fas 1b); linser i konsolideringsmetoden; fallgropar 160–163 |
 | 2026-10-14 | 0.60 | Utifrån Astra-videon (Nate Herk): GPT-6 Astra som kandidat i eval för bygg- och animationsroller, inte som ändring (§8.6); rörelsebudget i briefen (3b) och kriteriet *passar rörelsen målgruppen?* (fas 6); djup genom lager på bänken (fas 5); godly.design, 21st.dev och Awwwards per kategori som källor, komponenter i feedback, licens per komponent (fas 5, bredvid Refero och Mobbin); fallgropar 164–166 |
 | 2026-10-14 | 0.61 | Utifrån Clay-videon (Nate Herk, sponsrad av Clay): metod för kundflödet i §15.3 — kedja av leverantörer, företagets kontext i `foretag/`, personlig inledning ur mätbara signaler från den presumtiva kundens offentliga sajt, faktakontroll av utkast mot `foretag/` (videons exempel innehöll ett påhittat resultat), lagkrav preciserade (artikel 14, berättigat intresse, avregistrering); fallgropar 167–168 |
+| 2026-10-14 | 0.62 | Utifrån sex-färdigheter-videon (Nate Herk): låst kontroll mot långa tankstreck i svensk sajttext, med svensk norm (kort tankstreck) kontrollerad mot Kunskapsbladet/Språkrådet (fas 6); fältet `varfor` för referenser (fas 1) och för dina beslut i kalibreringen (§9.6); fallgropar 169–170 |
