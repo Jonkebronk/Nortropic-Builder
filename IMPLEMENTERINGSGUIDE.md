@@ -1,6 +1,6 @@
 # Implementeringsguide: AI-webbsidebyggare med Claude Code + Google Stitch
 
-> **Status:** Utkast v0.56 (2026-10-14) — levande dokument som vi bygger vidare på.
+> **Status:** Utkast v0.57 (2026-10-14) — levande dokument som vi bygger vidare på.
 > **Planerat:** konsolideringsrunda (slå ihop dubbletter, t.ex. granskarisolering i §5.2/fas 4/fas 6b; skilj grindar från instruktioner och flytta regler enligt placeringsordningen i §8.7; gör **"agenten föreslår, du beslutar"** till en egen princip — den återkommer för `arbetssatt.md`, granskarkriterier, kontroller, `design.md` och `CLAUDE.md`; en möjlig disposition är OS-liknelsen ur OS-videon — `CLAUDE.md` som kärna, MCP som drivrutiner, skills som program, loopar/rutiner som schemaläggare, arbetsflöden som binder ihop) **när videogenomgången är klar** — inte före. **Metod för konsolideringen (Karpathy-videon):** guiden byggs om som wiki ur råmaterialet i `kunskap/raw/` — varje regel spårbar till ett citat, regler med en källa på bänken (§11.11), och motsägelser mellan videor synliga som konflikter.
 > **Källor:**
 > - AI LABS, *"Google Just Fixed AI Design By Releasing This"* (2026-10-13), https://www.youtube.com/watch?v=au2TI8sdq8E — flödet (§1–5)
@@ -61,6 +61,7 @@
 > - Nate Herk, *"How Anthropic ACTUALLY Prompts Fable 5.1"* (2026-09-02), https://www.youtube.com/watch?v=FBVNS1l5Vb8 — fyra promptvanor ur Anthropics dokumentation (§5.2, §8.6, fas 4, §12)
 > - Nate Herk, *"Anthropic’s CEO: How to Build a 1 Person Business with Claude"* (2026-09-18), https://www.youtube.com/watch?v=QDsenEcAJIk — automatiserad försäljning och support, standardiserat erbjudande, riskklassade ärenden, utkast i stället för utskick, smal nisch, enhetsekonomi (§15, fas 8b) ⚠️ Darios filter i Nates tolkning
 > - Nate Herk, *"Everything Goldman Sachs Taught Me About AI (In 10 minutes)"* (2026-08-24), https://www.youtube.com/watch?v=ZzHsJW10iq4 — VAULT: verifiera, förstärk, förstå varför, människan i loopen, transparens; tillsyn efter konsekvens, rabattkodsincidenten (§5.2, fas 8a, 8b, 8d, §11.11, §15.2) ⚠️ Goldmans CIO citeras i andra hand
+> - Nate Herk, *"I Deleted All My Claude Skills... And Claude Got Smarter"* (2026-08-12), https://www.youtube.com/watch?v=XNQBCRcwXV4 — klipp ur Boris Chernys intervju hos Y Combinator: rensa var sjätte månad, unhobbling, högre nivå i prompter, verifiering; Nates test utan skills (§8.5, fas 8f, §11.11)
 > - 📄 Anthropic, *Prompting Claude Fable 5.1*, *Prompting Claude Fable 5* och *Effort* (Claude Platform Docs, hämtade 2026-10-14): https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1 · https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5 · https://platform.claude.com/docs/en/build-with-claude/effort
 > **Märkning i dokumentet:**
 > - 🎥 = beskrivet i videon
@@ -637,6 +638,7 @@ Anthropic kör 20–30 *rutiner* om dagen: återkommande molnjobb på en mening 
 - Rutinerna följer samma regler som allt annat: egen gren, PR, ditt godkännande; de ändrar aldrig låsta filer (§10.1).
 - **Byggsystemet som versionerat plugin (§8.8):** en ändring i byggsystemet blir en ny pluginversion, prövas med eval (§9) och rullas sedan ut.
 - **Arkitekturgranskning av förvaltade sajter 🎥 (Ebbelaar-intervjun):** spaghettikod växer i det tysta — experiment lämnar rester, senare raderas en funktion som innehöll logik något annat behövde, och allt slutar fungera efter tre månader 🎥. Hos oss är det **förvaltningens ändringar** som är risken. Varje kvartal (och efter större omdesign) granskas varje sajts kodbas med Pococks arkitekturskill; fynd blir ändringar i kön (fas 8b).
+- **Halvårsvis rensningsprov 🎥 (radera-skills-videon):** baslinjen med och utan uppsättning (§8.5, steg 1–4) körs var sjätte månad, även utan ny modell.
 - **Schemalagd `/doctor` 🎥 (context-videon):** varje månad (oftare om uppsättningen ändras ofta, annars varje kvartal) och **alltid vid ny modell** 🎥. Rekommendationerna läggs fram som förslag som du godkänner eller avslår.
 
 ---
@@ -1154,6 +1156,16 @@ Boris Cherny, som skapade Claude Code: *de flesta använder kapabla modeller på
 4b. **Skriv om skills utifrån den nya modellens promptguide 🎥 ("4 Ways"-videon):** varje modell släpps med en promptguide. Ge Claude guiden och skillen och låt den skriva om skillen för den nya modellen 🎥 — särskilt designskills. Kör eval före och efter; behåll bara om måtten förbättras.
 5. **Grindar rensas aldrig på detta sätt** — de förnyas i stället (§10.3). Se skillnaden i §8.7.
 
+**Vad som behålls och vad som prövas 🎥 (radera-skills-videon) / 🔧:** Nate Herk körde en kopia av sitt repo utan skills och `CLAUDE.md`. Resultatet fick **bättre innehåll** men **tappade varumärket** (sidhuvud, länkar, färger) 🎥. Han tog därför inte bort skillen utan skrev om den: *gör det som du tycker, men med den här bilden i sidhuvudet och de här länkarna* 🎥. Samma utfall som i context-videon (rätt varumärke men sämre struktur med skills, och tvärtom utan), alltså en oberoende iakttagelse av samma sak. Rensningen gör därför skillnad på:
+| Behålls | Prövas att ta bort |
+|---|---|
+| Var saker finns (sökvägar, projekt-id, kundens filer) | Arbetsgången steg för steg |
+| Varumärke, `design.md` och kundens fakta (§11.8) | Formatregler som modellen redan följer |
+| Standarden för vad som är bra (kriterier, referenser) | Korrigeringar för fel som den nya modellen inte längre gör |
+| Hur arbetet verifieras (kontroller, grindar) | |
+
+**Även utan modellbyte — halvårsvis 🎥 (radera-skills-videon):** Boris Cherny: *ta bort din CLAUDE.md, dina skills och dina hooks var sjätte månad och se vad modellen gör — det kan överraska dig* 🎥. Harness och verktyg ändras också mellan modellbyten. Steg 1–4 körs därför **halvårsvis** även utan ny modell (fas 8f).
+
 **Underlag för rensningen 🎥 (context-videon):**
 - Källan är Thariqs artikel *"The New Rules of Context Engineering for Claude 5 generation models"*: Anthropic strök över 80 % av systemprompten **utan mätbar försämring i sina evals**. Principen är *minsta möjliga kontext som ger resultatet* — men **minimal betyder inte kort**: det modellen behöver ska vara kvar 🎥.
 - En studie från 2025 fann att prestandan sjönk med **13,9–85 %** när indata blev längre, även när modellerna kunde hitta den relevanta informationen 🎥.
@@ -1442,7 +1454,7 @@ Vi 🔧 skriver en rad per runda till `sites/<namn>/resultat.jsonl`:
 
 **Gate 4 — din slutgranskning 🎥 (Shopify-videon) / 🔧 variant:** agenter kan inte bedöma sajten ur en människas perspektiv. När fas 6b är klar (🛑 stopp 2) testar du sajten själv.
 - Önskade ändringar blir **nya checkpoints** som går igenom samma grindar som allt annat. För ändringar av en sektion kan du välja mellan versioner direkt i förhandsvisningen med Variate (§6.8).
-- **Förhör före slutgodkännande:** som i fas 8b — en kort sammanfattning av vad som byggts och några frågor om de riskfyllda delarna (formulär, primär handling, tredjepartstjänster), så att ditt slutgodkännande bygger på förståelse.
+- **Förhör före slutgodkännande:** som i fas 8b — en kort sammanfattning av vad som byggts och några frågor om de riskfyllda delarna (formulär, primär handling, tredjepartstjänster), så att ditt slutgodkännande bygger på förståelse. *Lägg ut tänkandet, aldrig förståelsen* 🎥 (radera-skills-videon) — andra formuleringen av principen efter Thariqs fältguide.
 - **Ultra review — manuellt tillval 🎥 (funktionsvideon):** Claude Codes *ultra review* körs i molnet, delas upp i flera grenar med oberoende verifiering av var och en och hittar djupare fel än de lokala granskningarna 🎥. **Den startas av dig och debiteras** — agenten kan inte starta den själv. Passar i stopp 2 eller före publicering för större sajter, inte i det självgående flödet.
 - **Feedback knuten till element, samlad i en runda 🎥 (Claude Design-videon) / 🔧:** Claude Designs kommentarsfunktion skickar **exakt det element** man pekar på tillsammans med kommentaren, och kommentarerna **grupperas** så att allt rättas i en enda omgång 🎥. Hos oss: varje kommentar i slutgranskningen sparas med en **elementreferens** (selektor + skärmdump av elementet) och samlas i en lista; först när du är klar blir hela listan **en** ändringsomgång — inte en runda per kommentar. Det ger exakta ändringar och färre rundor genom grindarna.
 - Din feedback skrivs **direkt** till `arbetssatt.md` under en egen rubrik, *Från slutgranskningar*, och läses av alla agenter innan de börjar arbeta. Den behöver inte vänta på auto loopen — en lärdom från dig är redan bekräftad.
@@ -1553,6 +1565,8 @@ Samma princip som bevis per grind (§7.2) och faktabasen (§11.8) — nu för de
 - missade fynd som föreslås bli kriterier (§10.5),
 - regler i `kunskap/`.
 Två videor från samma kanal räknas som *en* källa om den ena bygger på den andra.
+- **Källans sammanhang 🎥 (radera-skills-videon) / 🔧:** *ta inte råd rakt av* — Boris Cherny och Karpathy talar som personer som bygger harness och arbetar i stora kodbaser, och det gäller inte automatiskt för den som gör kunskapsarbete 🎥. Varje källa märks därför med **sitt sammanhang** (t.ex. *bygger mjukvara*, *kunskapsarbete*, *byrå*, *forskning*), och ett råd väger tyngre när sammanhanget liknar vårt: vi bygger och förvaltar mjukvara åt företag. Används i konsolideringen.
+- **På bänken — emotionell prompting 🎥 (radera-skills-videon):** Nate avslutar mål med *"inte en prototyp, utan testad tio gånger och redo för marknaden i morgon"* och menar att det *verkar* fungera ibland 🎥. En anekdot; prövas i eval innan den används.
 - **Nya andra källor (v0.56, VAULT-videon):** *deterministisk automation där svaret är känt, AI där omdöme behövs* 🎥 (stöder §8.7 och §8.8); *transparens betyder belägg som går att granska — källor, indata, handlingar, antaganden, kontroller — inte modellens dolda tankeprocess* 🎥 (oberoende av Anthropics dokumentation i §10.5).
 
 **REA — Reverse Engineer Anything 🎥:** [morluto/rea](https://github.com/morluto/rea) är en MCP-server som låter agenten inspektera befintlig programvara och spåra hur en funktion fungerar, och svarar **med belägg**. För webbplatser läser den **sidstruktur, skript, nätverksanrop och skärmdumpar** via en Chrome-baserad webbläsare. Installeras med `npx rea-agents setup` (Node 22+). Arbetsgång enligt videon: peka på **en funktion** — välj verktyg efter vad målet är byggt med — läs **sammanfattningen först** (Loom-analysen var över 1 GB) — märk sett/härlett/okänt — bygg om och testa 🎥. Agenten med REA blev i videon *alltid klar senare men gav bättre resultat* 🎥.
@@ -1942,6 +1956,7 @@ Du är jurymedlem för ett webbdesignpris. Var sträng.
 154. **En självgående agent som själv tar och tolkar en uppgift med stor räckvidd** — rabattkoden till 200 000. (VAULT-videon)
 155. **Massutskick via agent** till kundens kundlista. (VAULT-videon)
 156. **Ändrade priser eller villkor publicerade utan godkännande.** (VAULT-videon)
+157. **Att ta bort hela skills** så att varumärke och kontext försvinner — i stället för bara arbetsgången. (radera-skills-videon)
 
 ---
 
@@ -2128,3 +2143,4 @@ Videons räkneexempel: 499 dollar i månaden kräver 168 betalande kunder för e
 | 2026-10-14 | 0.54 | Utifrån Nate Herks prompting-video, med citaten kontrollerade mot Anthropics dokumentation: promptregel om belägg för varje påstående i rapporter; roller som måste söka kör lägst medium effort och har sökinstruktion (§5.2, §8.6); effortbyte per meddelande behåller cachen; beskärning i utseendegranskningen (fas 4); Anthropic som officiell källa för isolerade granskare (§5.2); *vad, men inte hur* lyft från bänken (§12); att backa = handlingar, inte tänkande (§10.5); fallgropar 146–149 |
 | 2026-10-14 | 0.55 | Utifrån 1-person-videon (Nate Herk): nytt §15 Företaget runt flödet — standardiserade paket som förutsättning för självgående flöde, ärendeagent med riskklassning (rutin, fråga, hög risk; ingen åtgärd vid pengar eller data), kundflöde med utkast och utan demosajter av andras sajter, smärta–person–löfte och smal nisch, enhetsekonomi; ärendeagenten kopplad till fas 8b; Nästa steg blir §16; fallgropar 150–153 |
 | 2026-10-14 | 0.56 | Utifrån VAULT-videon (Nate Herk, Goldman Sachs): principen *kan agenten göra det, anta att den gör det* (§5.2); tillsyn efter konsekvens och räckvidd med tabell, inga massutskick av agent (fas 8d); priser, erbjudanden och juridiska texter som hög risk som aldrig publiceras utan godkännande (§15.2); otydliga ändringsbriefs byggs inte (fas 8b); beslutssiffror att stickprova i rapporter (fas 8a); två nya andra källor på bänken (§11.11); fallgropar 154–156 |
+| 2026-10-14 | 0.57 | Utifrån radera-skills-videon (Nate Herk, Boris Cherny hos Y Combinator): tabell över vad som behålls och vad som prövas vid rensning, halvårsvis rensningsprov även utan modellbyte (§8.5, fas 8f); *lägg ut tänkandet, aldrig förståelsen* (stopp 2); källans sammanhang och emotionell prompting på bänken (§11.11); fallgrop 157 |
