@@ -1,6 +1,6 @@
 # Implementeringsguide: AI-webbsidebyggare med Claude Code + Google Stitch
 
-> **Status:** Utkast v0.52 (2026-10-14) — levande dokument som vi bygger vidare på.
+> **Status:** Utkast v0.53 (2026-10-14) — levande dokument som vi bygger vidare på.
 > **Planerat:** konsolideringsrunda (slå ihop dubbletter, t.ex. granskarisolering i §5.2/fas 4/fas 6b; skilj grindar från instruktioner och flytta regler enligt placeringsordningen i §8.7; gör **"agenten föreslår, du beslutar"** till en egen princip — den återkommer för `arbetssatt.md`, granskarkriterier, kontroller, `design.md` och `CLAUDE.md`; en möjlig disposition är OS-liknelsen ur OS-videon — `CLAUDE.md` som kärna, MCP som drivrutiner, skills som program, loopar/rutiner som schemaläggare, arbetsflöden som binder ihop) **när videogenomgången är klar** — inte före. **Metod för konsolideringen (Karpathy-videon):** guiden byggs om som wiki ur råmaterialet i `kunskap/raw/` — varje regel spårbar till ett citat, regler med en källa på bänken (§11.11), och motsägelser mellan videor synliga som konflikter.
 > **Källor:**
 > - AI LABS, *"Google Just Fixed AI Design By Releasing This"* (2026-10-13), https://www.youtube.com/watch?v=au2TI8sdq8E — flödet (§1–5)
@@ -57,6 +57,7 @@
 > - Nate Herk, *"I Built Another Andrej Karpathy Using Claude"* (2026-10-05), https://www.youtube.com/watch?v=bvGptCLDhyo — expertmetoden för kunskapsbaser, bänken, förutsäg-kör-jämför (§8.6, §11.4, §11.6, §11.11)
 > - Nate Herk, *"Claude Code Mods Are Game Changers. Set Up These 5 NOW."* (2026-10-02), https://www.youtube.com/watch?v=9hetShMMp2s — mods: andra källan, Goal Meter, Cache Keeper, Collision Guard, Recording Mode (§6.2, §6.4, §6.9)
 > - Nate Herk med Dave Ebbelaar, *"How to Actually Build & Sell Software with AI as a Non-Techie"* (2026-10-02), https://www.youtube.com/watch?v=l8ywUsEJ2XQ — kalibrering av LLM-domare, trappan av insatser, planering mot att se resultatet, säkerhet, arkitektur (§5.4, §9.6, fas 0, 1b, 3, 6b, 6c, 8f, §14)
+> - Nate Herk, *"Anthropic Engineer Explains: What to Build Instead of AI Agents"* (2026-09-13), https://www.youtube.com/watch?v=HIRDzMtuWFk — återger Barry Zhang och Mahesh Murag (Anthropic) ⚠️ i andra hand: skills i stället för agenter, skript i skillen, beskrivningar som utlöser rätt skill, orsaksklassning, yttre bevis (fas 3, §8.8, §10.5, §12)
 > **Märkning i dokumentet:**
 > - 🎥 = beskrivet i videon
 > - 🔧 = eget förslag/utfyllnad (inte från videon)
@@ -351,7 +352,7 @@ Verktyg: REA:s webbläge (§11.11) eller Playwright CLI:s nätverksfångst. Allt
   - Varje checkpoint byggs av en **ny byggagent** med egen kontext och måste klara sina låsta kontroller innan den räknas som klar.
   - **Överlämningsdokument per checkpoint 🎥 (Handoff, fleet-videon) / 🔧:** byggaren får inte orkestrerarens chatt utan ett **kort överlämningsdokument** som *pekar på* befintliga filer i stället för att kopiera in dem 🎥: brief och relevanta kapitel, `design.md`, `design.functional.md`, checkpointens tillåtna filer, **namnen** på kontrollerna som ska gå igenom (inte testkoden, §10.2), beroenden som redan är klara, och vilka skills som ska användas. Sparas i `sites/<namn>/overlamning/<checkpoint>.md`. Agenten börjar ren och fokuserad.
     - **Spanaren skriver dokumentet 🎥 (Goal Buddy-videon) / 🔧:** i stället för orkestreraren skriver en **spanare** — bara läsrätt, låg effort — överlämningsdokumentet. Den kartlägger checkpointens filer, beroenden och utgångsläge och lägger till ett kompakt **bevis-kvitto** (vilka filer finns, vilka kontroller som fallerar nu) 🎥. Billigt, kan inte ändra något, och håller orkestrerarens kontext ren.
-  - **Status skrivs bara av orkestreraren 🎥 (Unlazy-videon) / 🔧:** byggaren får **aldrig** sätta status. När byggaren säger att den är klar kör orkestreraren checkpointens kontroller själv och skriver `klar` **tillsammans med bevis** (§7.2). Status utan bevis räknas som underkänd.
+  - **Status skrivs bara av orkestreraren 🎥 (Unlazy-videon) / 🔧:** byggaren får **aldrig** sätta status. När byggaren säger att den är klar kör orkestreraren checkpointens kontroller själv och skriver `klar` **tillsammans med bevis** (andra oberoende källan, skills-videon 🎥: *verifiering är inte att Claude läser sitt eget arbete och säger att det ser bra ut* — det kräver bevis utanför utkastet: skärmdump, testresultat, källa; och *din första titt ska vara agentens femte eller sjätte*) (§7.2). Status utan bevis räknas som underkänd.
   - **Storlek 🔧:** Fable-videon 🎥 visar att Fable 5.1 presterar bäst när den får slutföra en hel sak, inte många små steg — vilket krockar med Shopifys uppdelning. Mellanväg: en checkpoint är en **hel meningsfull enhet** (t.ex. ett kapitel eller hela navigeringen), aldrig ett mikrosteg. **Startvärde 🎥 (Unlazy):** varje checkpoint ska motsvara **minst cirka 10 minuters verkligt arbete** — blir delarna mindre är uppdelningen för fin. Eval (§9) justerar gränsen.
   - **Parallellt arbete 🎥 (Unlazy-videon) / 🔧:** Unlazy delade ursprungligen ut en uppgift i taget — efter 3–4 timmar fanns bara en inloggningssida; med tio parallella agenter blev hela appen klar på cirka 2 timmar 🎥. Hos oss: checkpoints vars beroenden är klara och vars **listor över tillåtna filer inte överlappar** körs samtidigt. Typiskt: grundlayouten först (ensam), därefter kapitlen parallellt, sist navigering och formulär. Överlappande fillistor → körs i följd, så att agenterna inte skriver över varandra.
   - **Inga obegränsade agentflottor 🎥 (Boris Cherny-videon) — men avgränsade arbetsflöden är tillåtna 🎥 (OS-videon):** Anthropics Bun-omskrivning med dynamiska arbetsflöden — hundratals agenter i två veckor — kostade cirka 165 000 dollar i API-pris och levererades med 19 trasiga saker som ingen kontroll fångat 🎥. När hundratals agenter går fel förlorar man hela körningen och kan inte se var felet började. Varningen gäller **obegränsade flottor**. Ett **avgränsat** arbetsflöde — fast struktur i kod, strikta scheman, tak för antal agenter, sammanslagning i tur och ordning med kontroller emellan — är tvärtom *mer* förutsägbart än en orkestrerare som bestämmer nästa steg i farten (§5.1). Hos oss: ett fast tak för antal samtidiga agenter (§14), ingen `ultracode` för byggen, och varje agent loggas med roll och startare (§10.4).
@@ -1212,6 +1213,14 @@ När vi bygger och förvaltar många sajter måste byggsystemet vara **identiskt
 - Varje maskin och varje sajtrepo installerar **en angiven version**. En sajt i förvaltning kan ligga kvar på den version den byggdes med tills en uppgradering är prövad.
 - **En ändring i byggsystemet är en ny version** — prövad med eval (§9) innan den rullas ut, och möjlig att rulla tillbaka.
 - **Test av skills före utrullning 🎥 idé (context-videon) / 🔧:** varje version testas automatiskt: varje skill har giltig frontmatter, ett unikt namn och en beskrivning; inga trasiga sökvägar. En skill med felformaterad frontmatter syns aldrig för Claude — och ingen märker det 🎥.
+- **Test av att rätt skill utlöses 🎥 (skills-videon, Nate Herk om Anthropics skill-skapare) / 🔧:** Claude läser bara namn och beskrivning för varje skill tills uppgiften matchar (progressive disclosure); överlappar två beskrivningar får Claude gissa 🎥. *En skill som Claude inte hittar är en skill du inte har* 🎥. Därför ingår i testet av varje version:
+  - **tre testfrågor per skill** 🎥 — en självklar som ska utlösa den, en annorlunda formulerad som också ska det, och en orelaterad som inte får det,
+  - en **överlappskontroll** där alla beskrivningar jämförs parvis; två skills som konkurrerar om samma begäran underkänner versionen,
+  - 🔧 i flödet anropar orkestreraren våra skills med namn, så testet gäller främst skills som ska utlösas av dig eller av en agents fria begäran.
+- **Upprepad kod lyfts till låsta skript 🎥 (skills-videon) / 🔧:** Anthropic-teamet såg Claude skriva i stort sett samma Python-skript varje gång en presentation skulle formateras — dyrt, och resultatet varierade mellan körningar. Skriptet sparades i skillen som *ett verktyg för sitt framtida jag* 🎥 (DRY). Hos oss:
+  - Kod som byggagenten skriver på nytt i varje bygge — konvertering av Stitch-exporten, bildoptimering, formulärkoppling, sitemap, strukturerad data — lyfts in i pluginets `scripts/` och körs i stället för att genereras.
+  - Auto loopen (§10.5) letar efter **liknande kod som återkommer mellan sajter** och föreslår vad som ska lyftas; du godkänner, skriptet låses och skillen pekar på det.
+  - Skillen körs sedan igen och prövas: den ska anropa skriptet, inte skriva ett nytt 🎥. Agentens kreativa arbete läggs på innehåll och design — inte på att lösa samma tekniska problem igen.
 - **Stegvis lansering 🎥 (ADLC-videon) / 🔧:** en ny version körs först på eval-sviten, sedan på **en** riktig sajt (canary), och först därefter på övriga förvaltade sajter. Det skyddar alla sajter från ett fel som eval missat.
 - Samma princip som låsta versioner för andras skills (§12, kriterium 7): vi låser även vår egen.
 - ⚠️ Kontrollera pluginformatet och marknadsplatsfunktionen i den Claude Code-version vi använder.
@@ -1423,6 +1432,16 @@ Vi 🔧 skriver en rad per runda till `sites/<namn>/resultat.jsonl`:
 - Du godkänner förslaget → kriteriet arbetas in i den låsta granskarskillen → ny låsning. Samma mönster som för `arbetssatt.md`: lärdomen *föreslås* automatiskt, men *beslutas* av dig.
 - Kontroller som missats på samma sätt blir nya standardkontroller i fas 1b (fas 8e).
 
+**Orsaksklassning — rätta processen, inte bara utfallet 🎥 (skills-videon) / 🔧:** säger man bara *"rätta det"* blir utfallet rätt men processen förblir trasig 🎥. Varje missat fynd och varje rättelse du gör klassas därför först:
+| Orsak 🎥 | Rättas på minsta hållbara stället 🎥 |
+|---|---|
+| **Processen** var fel | Stegen i skillens `SKILL.md` |
+| **Kontext** saknades (röst, varumärke, exempel) | En referensfil eller kundens faktabas (§11.8) |
+| En **regel** var svag eller saknades | Ett skärpt kriterium eller en kontroll (enligt placeringsordningen, §8.7) |
+| **Koden** var opålitlig | Ett låst skript (§8.8) |
+- **Backa först 🎥:** när en agent missar något — t.ex. inte hittar en fil som finns — ges den inte bara rätt svar. Den ska visa *var den letade och varför den missade*, så att orsaken går att klassa 🎥.
+- Rättelsen är ett förslag som du godkänner (§10.1); samma uppgift körs sedan igen för att pröva rättelsen 🎥.
+
 Auto loopen **föreslår** ett bättre arbetssätt; evalen **visar** om det blev bättre. Utan eval kan en självförbättrande loop gå åt fel håll utan att någon märker det.
 
 ### 10.6 Fler lärdomar ur videon 🎥
@@ -1606,6 +1625,8 @@ Dokumentet tar upp Consent Mode v2 och samtyckesbanners, men utgår från kanade
 Samma princip som allt annat: *agenten föreslår, du beslutar, sedan låses det*. Skills grundas i hur vi faktiskt arbetar i stället för i hur vi tror att vi arbetar.
 
 **Vad, men inte hur 🎥 (context-videon) / 🔧:** i videon kördes samma uppgift med full uppsättning och helt utan. Den fulla gav rätt *varumärke* men sämre *struktur*; den tomma gav bättre struktur och bättre detaljer 🎥. Slutsats: en skill anger **syfte, identitet och begränsningar** (röst, mål, målgrupp, varumärke, vad som inte får hända) — men inte arbetsgången steg för steg, som en kapabel modell ofta klarar bättre själv. Det är samma gräns som mellan grindar och instruktioner (§8.7): brief, faktabas, `design.md` och kriterier är *vad* och behövs; detaljerade procedurer är *hur* och prövas. Testa genom att köra samma uppgift med och utan skillen (safe mode, Caliper).
+
+**Så skrivs beskrivningen 🎥 (skills-videon) / 🔧:** en skill gör **ett** jobb. Beskrivningen säger både *vad* den gör och *när* den ska användas, med de ord en verklig person skulle använda — inte "hjälper med innehåll" utan t.ex. *"Skriver om-oss-texten utifrån kundens faktabas. Använd när sidan Om oss ska skrivas eller uppdateras."* 🎥. Prövas med testet i §8.8.
 
 **Förbehåll 🔧:** videon bygger delvis på systemprompter ur **läckt källkod** för interna Anthropic-skills (Verify, Skillify) 🎥. Sådant material används inte — vi bygger egna varianter utifrån publika verktyg och dokumentation.
 
@@ -1883,6 +1904,9 @@ Du är jurymedlem för ett webbdesignpris. Var sträng.
 140. **Att hoppa över steg i trappan** — sälja till företag innan flödet prövats på egna sajter. (Ebbelaar-intervjun)
 141. **Hemligheter i klientkoden** — allt i webbläsaren går att inspektera. (Ebbelaar-intervjun)
 142. **Spaghettikod som växer genom förvaltningens ändringar.** (Ebbelaar-intervjun)
+143. **Samma kod genereras på nytt i varje bygge** — dyrt och olika varje gång. (Skills-videon)
+144. **Överlappande beskrivningar av skills** — Claude gissar vilken som gäller. (Skills-videon)
+145. **Att rätta utfallet men inte processen** — samma fel kommer tillbaka nästa körning. (Skills-videon)
 
 ---
 
@@ -2017,3 +2041,4 @@ Du är jurymedlem för ett webbdesignpris. Var sträng.
 | 2026-10-14 | 0.50 | Utifrån Karpathy-videon: expertmetoden för att bygga `kunskap/` (råmaterial → wiki → regler med citat → körbara granskare, `/ingest`), bänken med krav på två oberoende källor (§11.11), expertgranskare (§11.4), "förutsäg, kör, jämför" (§8.6), metod för konsolideringen. Råmaterialet sparat: 49 videotranskript i `kunskap/raw/videor/` och sammanfattningar av två dokument i `kunskap/raw/dokument/`. Repo: Nortropic-Builder |
 | 2026-10-14 | 0.51 | Utifrån mods-videon 2 (Nate Herk): mods lyfta från bänken med två oberoende källor, levereras i plugins, syns i desktop-appen (§6.2); Goal Meter som förebild och kontext/gränser/kostnad/cacheklocka i flödespanelen (§6.4); nytt §6.9 med Replay Theater, visningsläge för kundmöten, Collision Guard och Blast Radius |
 | 2026-10-14 | 0.52 | Utifrån Ebbelaar-intervjun (Nate Herk): nytt §9.6 Kalibrering av granskare mot din smak (dina beslut som data, mätt överensstämmelse, tröskel som villkor för att släppa stopp); trappan av insatser — vi står på steg 3, pilot på egna sajter, kundavtal (§5.4, fas 0); eval av full mot smal fas 1b; säkerhetsgrunder (inga hemligheter i klientkoden, 2FA, RLS och brandvägg för B–D); arkitekturgranskning med Pococks skill (fas 6b, 8f); stack efter belägg (§14) |
+| 2026-10-14 | 0.53 | Utifrån skills-videon (Nate Herk om Anthropics skill-skapare): test av att rätt skill utlöses med tre testfrågor och överlappskontroll, upprepad kod lyfts till låsta skript (§8.8); regel för hur beskrivningar skrivs (§12); orsaksklassning process/kontext/regel/kod och att backa först (§10.5); andra källan för yttre bevis vid verifiering (fas 3); fallgropar 143–145 |
