@@ -1,7 +1,7 @@
 # Implementeringsguide: AI-webbsidebyggare med Claude Code + Google Stitch
 
-> **Status:** Utkast v0.58 (2026-10-14) — levande dokument som vi bygger vidare på.
-> **Planerat:** konsolideringsrunda (slå ihop dubbletter, t.ex. granskarisolering i §5.2/fas 4/fas 6b; skilj grindar från instruktioner och flytta regler enligt placeringsordningen i §8.7; gör **"agenten föreslår, du beslutar"** till en egen princip — den återkommer för `arbetssatt.md`, granskarkriterier, kontroller, `design.md` och `CLAUDE.md`; en möjlig disposition är OS-liknelsen ur OS-videon — `CLAUDE.md` som kärna, MCP som drivrutiner, skills som program, loopar/rutiner som schemaläggare, arbetsflöden som binder ihop) **när videogenomgången är klar** — inte före. **Metod för konsolideringen (Karpathy-videon):** guiden byggs om som wiki ur råmaterialet i `kunskap/raw/` — varje regel spårbar till ett citat, regler med en källa på bänken (§11.11), och motsägelser mellan videor synliga som konflikter.
+> **Status:** Utkast v0.59 (2026-10-14) — levande dokument som vi bygger vidare på.
+> **Planerat:** konsolideringsrunda (slå ihop dubbletter, t.ex. granskarisolering i §5.2/fas 4/fas 6b; skilj grindar från instruktioner och flytta regler enligt placeringsordningen i §8.7; gör **"agenten föreslår, du beslutar"** till en egen princip — den återkommer för `arbetssatt.md`, granskarkriterier, kontroller, `design.md` och `CLAUDE.md`; en möjlig disposition är OS-liknelsen ur OS-videon — `CLAUDE.md` som kärna, MCP som drivrutiner, skills som program, loopar/rutiner som schemaläggare, arbetsflöden som binder ihop) **när videogenomgången är klar** — inte före. **Metod för konsolideringen (Karpathy-videon):** guiden byggs om som wiki ur råmaterialet i `kunskap/raw/` — varje regel spårbar till ett citat, regler med en källa på bänken (§11.11), och motsägelser mellan videor synliga som konflikter. **Tillägg (STORM-videon, §11.12):** motsägelserna tas fram med linser — byggaren, kunden, säkerheten, ekonomin och skeptikern — och en karta över motsägelser, och varje citat kontrolleras mot sin källa (*bekräftad, rättad, nedgraderad*).
 > **Källor:**
 > - AI LABS, *"Google Just Fixed AI Design By Releasing This"* (2026-10-13), https://www.youtube.com/watch?v=au2TI8sdq8E — flödet (§1–5)
 > - AI LABS, *"Claude Mods Are Insane… You Need To Try These Right Now"* (2026-10-09), https://www.youtube.com/watch?v=ERNqRK6sMJY — live-visning (§6)
@@ -63,6 +63,8 @@
 > - Nate Herk, *"Everything Goldman Sachs Taught Me About AI (In 10 minutes)"* (2026-08-24), https://www.youtube.com/watch?v=ZzHsJW10iq4 — VAULT: verifiera, förstärk, förstå varför, människan i loopen, transparens; tillsyn efter konsekvens, rabattkodsincidenten (§5.2, fas 8a, 8b, 8d, §11.11, §15.2) ⚠️ Goldmans CIO citeras i andra hand
 > - Nate Herk, *"I Deleted All My Claude Skills... And Claude Got Smarter"* (2026-08-12), https://www.youtube.com/watch?v=XNQBCRcwXV4 — klipp ur Boris Chernys intervju hos Y Combinator: rensa var sjätte månad, unhobbling, högre nivå i prompter, verifiering; Nates test utan skills (§8.5, fas 8f, §11.11)
 > - Nate Herk, *"5000 Hours of Building AI in Just 17 Minutes"* (2026-08-04), https://www.youtube.com/watch?v=7WZ6XldxX0U — tolv lärdomar: kvitton, förbud i prompter, verifiering, behörighet i verktygen, eval, stoppet eller läckan, nordstjärna, modellroutning (fas 0, 0b, 8a, 8d, §12, §15.3)
+> - Nate Herk, *"Stanford's Method Turns Claude Into a PHD Level Research Team"* (2026-06-29), https://www.youtube.com/watch?v=Tj3018n5MVg — research med fem linser, karta över motsägelser, källkontroll, saknad lins (§11.12) ⚠️ egen tolkning av STORM
+> - 📄 Shao, Jiang, Kanell, Xu, Khattab & Lam, *"Assisting in Writing Wikipedia-like Articles From Scratch with Large Language Models"* (NAACL 2024), https://arxiv.org/abs/2402.14207 — STORM (§11.12)
 > - 📄 Anthropic, *Prompting Claude Fable 5.1*, *Prompting Claude Fable 5* och *Effort* (Claude Platform Docs, hämtade 2026-10-14): https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1 · https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5 · https://platform.claude.com/docs/en/build-with-claude/effort
 > **Märkning i dokumentet:**
 > - 🎥 = beskrivet i videon
@@ -463,6 +465,8 @@ Kontrollerar om sajten faktiskt är **bra**, inte bara korrekt.
 | **Fakta och språk** | Faktapåståenden mot faktabasen, tillgjord prosa, läsbarhet, **AI-signaturer i texten** (enligt Wikipedia-guiden i `kunskap/`, §11.3) | Sajtens texter + faktabasen |
 | **Konvertering** | Primär handling, perceptionslagar, Awwwards-kriterier | Skärmdumpar i alla bredder + briefen |
 | **Jämförelse** | Blind jämförelse mot referenser | Sektioner utan etiketter |
+
+Orkestreraren avslutar med frågan **vilket perspektiv saknas?** (§11.12) 🎥 (STORM-videon).
 
 Orkestreraren slår ihop resultaten till `story-review-<runda>.json`. Två sätt att använda flera granskare kombineras: **specialister per aspekt** fångar fler *sorters* fel; **flera oberoende granskare med samma kriterier** (§11.4) fångar fler fel *av samma sort* — det senare kan köras inom en specialist som behöver det.
 - **Kriterier 🎥:** berättelsen flyter mellan kapitlen · varje animation hjälper berättelsen · tempot vid scroll · texterna läses bra · allt bedöms mot `brief.md`
@@ -1651,6 +1655,23 @@ Dokumentet tar upp Consent Mode v2 och samtyckesbanners, men utgår från kanade
 - Integritetspolicy finns och länkas från alla sidor och från formulären.
 - Typsnitt och andra resurser laddas helst från egen domän, så att besökares IP-adresser inte skickas till tredje part i onödan.
 
+### 11.12 Research med linser 📄 (STORM, Shao m.fl., NAACL 2024) / 🎥 (STORM-videon) / 🔧
+Byggflödet har många granskare, men researchen — om branschen, konkurrenterna och vad kunderna söker — har hittills saknat metod. En enda prompt ger en enda vinkel med dess blinda fläckar 🎥.
+
+**Källan:** STORM från Stanford ([arXiv 2402.14207](https://arxiv.org/abs/2402.14207)) skriver Wikipedia-liknande artiklar genom att först hitta **flera perspektiv** och sedan låta dem ställa frågor som besvaras ur källor. I artikelns utvärdering bedömdes en **25 % (absolut) större andel** av STORMs artiklar som välorganiserade, och bredden var 10 % bättre, jämfört med baslinjer 📄 (Shao m.fl., NAACL 2024). ⚠️ Nates skill är **inte** STORM utan en egen tolkning: fem fasta linser, en karta över motsägelser och en granskning efteråt 🎥. Artikelns resultat gäller alltså inte hans variant, och hans jämförelse med Claudes Deep Research är en enda körning med Codex som domare 🎥.
+
+**Vår variant 🔧** — används för branschresearch inför intervjun (fas 0), för nischen (§15.4) och vid ombyggnad (fas 0b):
+1. **Avgränsa ämnet** — är det för vagt ställer skillen först några frågor 🎥.
+2. **Linser parallellt**, var och en som delagent med ny kontext: **slutkunden** som söker tjänsten, **ägaren**, **konkurrenten**, **sökmotorn och AI-assistenten** (SEO/AEO) och **skeptikern**. Linserna anpassas per bransch.
+3. **Karta över motsägelser 🎥:** var är linserna oense, och vilken har starkast belägg?
+4. **Sammanställning** med **tillförlitlighet per slutsats** och vilka linser som stöder respektive ifrågasätter den 🎥.
+5. **Kontroll av varje källa** mot originalet, märkt *bekräftad*, *rättad* eller *nedgraderad* 🎥 — samma märkning som §11.11 (*sett, härlett, okänt*).
+6. **Vilken lins saknas? 🎥** I Nates körning påpekade rapporten själv att *alla fem linser såg saken från ägarens stol — ingen från kundens eller den anställdas* 🎥. Den saknade linsen körs i en ny version.
+
+**Gräns:** researchen ger **sammanhang om branschen**. **Fakta om kunden** — tjänster, priser, personal, öppettider — kommer bara från kunden och faktabasen (§11.8). En slutsats ur researchen förs aldrig in i faktabasen.
+
+**Vilken lins saknas — som allmän regel 🎥 (STORM-videon) / 🔧:** varje granskning med flera perspektiv avslutas med frågan *vilket perspektiv saknas?* — specialisterna i fas 6, spridd idégenerering (§11.7) och granskningen av planen (fas 1b). Svaret loggas; återkommer samma saknade lins kan den bli en ny specialist, via förslag och ditt beslut.
+
 ---
 
 ## 12. Skills att skapa
@@ -1964,6 +1985,10 @@ Du är jurymedlem för ett webbdesignpris. Var sträng.
 157. **Att ta bort hela skills** så att varumärke och kontext försvinner — i stället för bara arbetsgången. (radera-skills-videon)
 158. **Att bygga det kunden beställer utan att leta efter läckan.** (5000-timmarsvideon)
 159. **Att mäta värde utan ett mål som kunden godkänt i förväg** — då finns ingen mållinje att jämföra med. (5000-timmarsvideon)
+160. **Research med en enda prompt** — en vinkel, dess blinda fläckar. (STORM-videon)
+161. **Research som blir kundfakta** — branschsammanhang är inte fakta om kunden. (STORM-videon)
+162. **Att aldrig fråga vilket perspektiv som saknas.** (STORM-videon)
+163. **Att tillskriva en tolkning originalets forskningsresultat** — Nates skill är inte STORM. (STORM-videon)
 
 ---
 
@@ -2153,3 +2178,4 @@ Videons räkneexempel: 499 dollar i månaden kräver 168 betalande kunder för e
 | 2026-10-14 | 0.56 | Utifrån VAULT-videon (Nate Herk, Goldman Sachs): principen *kan agenten göra det, anta att den gör det* (§5.2); tillsyn efter konsekvens och räckvidd med tabell, inga massutskick av agent (fas 8d); priser, erbjudanden och juridiska texter som hög risk som aldrig publiceras utan godkännande (§15.2); otydliga ändringsbriefs byggs inte (fas 8b); beslutssiffror att stickprova i rapporter (fas 8a); två nya andra källor på bänken (§11.11); fallgropar 154–156 |
 | 2026-10-14 | 0.57 | Utifrån radera-skills-videon (Nate Herk, Boris Cherny hos Y Combinator): tabell över vad som behålls och vad som prövas vid rensning, halvårsvis rensningsprov även utan modellbyte (§8.5, fas 8f); *lägg ut tänkandet, aldrig förståelsen* (stopp 2); källans sammanhang och emotionell prompting på bänken (§11.11); fallgrop 157 |
 | 2026-10-14 | 0.58 | Utifrån 5000-timmarsvideon (Nate Herk): stoppet eller läckan i intervjun och var besökare faller bort i fas 0b; nordstjärna med baslinje, mål och tidsram som kunden godkänner (brief 4b, fas 8a); kvitton i stället för portfolio (§15.3); förbud som begränsningar vid sidan av *vad, men inte hur* (§12); rabattkodens siffra rättad och markerad som en källa (fas 8d); fallgropar 158–159 |
+| 2026-10-14 | 0.59 | Utifrån STORM-videon (Nate Herk) och STORM-artikeln (Shao m.fl., NAACL 2024, kontrollerad): nytt §11.12 Research med linser — parallella linser, karta över motsägelser, tillförlitlighet per slutsats, källkontroll, gräns mot kundfakta; *vilket perspektiv saknas?* som allmän regel (fas 6, §11.7, fas 1b); linser i konsolideringsmetoden; fallgropar 160–163 |
