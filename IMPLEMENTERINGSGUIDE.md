@@ -1,6 +1,6 @@
 # Implementeringsguide: AI-webbsidebyggare med Claude Code + Google Stitch
 
-> **Status:** Utkast v0.62 (2026-10-14) — levande dokument som vi bygger vidare på.
+> **Status:** Utkast v0.63 (2026-10-14) — levande dokument som vi bygger vidare på.
 > **Planerat:** konsolideringsrunda (slå ihop dubbletter, t.ex. granskarisolering i §5.2/fas 4/fas 6b; skilj grindar från instruktioner och flytta regler enligt placeringsordningen i §8.7; gör **"agenten föreslår, du beslutar"** till en egen princip — den återkommer för `arbetssatt.md`, granskarkriterier, kontroller, `design.md` och `CLAUDE.md`; en möjlig disposition är OS-liknelsen ur OS-videon — `CLAUDE.md` som kärna, MCP som drivrutiner, skills som program, loopar/rutiner som schemaläggare, arbetsflöden som binder ihop) **när videogenomgången är klar** — inte före. **Metod för konsolideringen (Karpathy-videon):** guiden byggs om som wiki ur råmaterialet i `kunskap/raw/` — varje regel spårbar till ett citat, regler med en källa på bänken (§11.11), och motsägelser mellan videor synliga som konflikter. **Tillägg (STORM-videon, §11.12):** motsägelserna tas fram med linser — byggaren, kunden, säkerheten, ekonomin och skeptikern — och en karta över motsägelser, och varje citat kontrolleras mot sin källa (*bekräftad, rättad, nedgraderad*).
 > **Källor:**
 > - AI LABS, *"Google Just Fixed AI Design By Releasing This"* (2026-10-13), https://www.youtube.com/watch?v=au2TI8sdq8E — flödet (§1–5)
@@ -67,6 +67,7 @@
 > - Nate Herk, *"GPT-6 Astra FINALLY Kills AI Website Slop"* (2026-09-04), https://www.youtube.com/watch?v=QhmhUgccaS0 — Astra som designmodell, rörelse efter målgrupp, djup genom lager, inspiration från godly.design, 21st.dev och Awwwards (§8.6, fas 1, 5, 6) ⚠️ en persons smak
 > - Nate Herk, *"Claude Code + Clay Makes Lead Generation Actually Fun"* (2026-07-12), https://www.youtube.com/watch?v=zyvdl__Ywfk — Clay via MCP, kedja av leverantörer, kontextfiler för säljtexter, personliga utkast (§15.3) ⚠️ sponsrad av Clay
 > - Nate Herk, *"Learn These 6 AI Skills Now (Before Everyone Else Does)"* (2026-06-15), https://www.youtube.com/watch?v=3XIGcM7VICc — smak och omdöme, långa tankstreck som AI-signatur, spara varför (fas 1, fas 6, §9.6); i övrigt karriärråd
+> - Nate Herk, *"How to Build a One Person AI Business (Using Claude Code)"* (2026-08-11), https://www.youtube.com/watch?v=LVAHYV4Xrto — tjänstetrappan, tre hinkar, fyra luckor före bygget, nisch efter kvitton, prissättning (fas 1, §15.1, §15.4, §15.5) ⚠️ statistiken i videon okontrollerad
 > - 📄 Kunskapsbladet, *Tankstreck* (hämtad 2026-10-14), https://kunskapsbladet.se/sprakfragor/tankstreck/ — med hänvisning till Språkrådets *Svenska skrivregler* (fas 6)
 > - 📄 Shao, Jiang, Kanell, Xu, Khattab & Lam, *"Assisting in Writing Wikipedia-like Articles From Scratch with Large Language Models"* (NAACL 2024), https://arxiv.org/abs/2402.14207 — STORM (§11.12)
 > - 📄 Anthropic, *Prompting Claude Fable 5.1*, *Prompting Claude Fable 5* och *Effort* (Claude Platform Docs, hämtade 2026-10-14): https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1 · https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5 · https://platform.claude.com/docs/en/build-with-claude/effort
@@ -283,6 +284,7 @@ Verktyg: REA:s webbläge (§11.11) eller Playwright CLI:s nätverksfångst. Allt
   3b. **Rörelsebudget 🎥 (Astra-videon) / 🔧:** *sparsam*, *måttlig* eller *expressiv*, utifrån **personen** — ålder, ärende, enhet och hur bråttom de har. *En 70-åring som letar medicin och måste scrolla genom en 3D-värld tycker att det är det värsta han sett; en tonåring som köper hörlurar tycker att snurrande 3D är grymt* 🎥. Budgeten styr fas 5 och bedöms i fas 6. `prefers-reduced-motion` gäller oavsett budget.
   4. Målgrupp & primär handling 🔧
   4b. **Nordstjärna 🎥 (5000-timmarsvideon) / 🔧:** *ett* mått med **baslinje, mål och tidsram**, t.ex. *"från 5 till 15 förfrågningar i veckan inom två månader"*, som **kunden godkänner** innan bygget 🎥. Det är projektets mållinje i affärstermer — motsvarigheten till acceptanskriterierna — och det förvaltningsrapporten följer (fas 8a). Baslinjen kommer från fas 0b, steg 4, eller från kundens egna siffror; saknas den mäts den första månaden efter lansering.
+     **Hinken 🎥 (konsult-videon):** nordstjärnan anger också vilken av tre hinkar den hör till — **fler kunder**, **mer värde per kund** eller **lägre kostnad** 🎥. För en sajt är det oftast *fler kunder*; en bokningssida kan vara *lägre kostnad* (färre telefonsamtal). *Går de fyra luckorna — hink, mått, baslinje, mål — inte att fylla i finns inget projekt* 🎥: **utan nordstjärna godkänns ingen brief.**
   5. Innehåll per kapitel 🔧
   6. Krav: responsivitet, tillgänglighet, prestanda 🔧
   7. Acceptanskriterier — det granskarna mäter mot 🔧
@@ -2007,6 +2009,8 @@ Du är jurymedlem för ett webbdesignpris. Var sträng.
 168. **Kompletterade personuppgifter utan information enligt artikel 14** och utan avregistrering. (Clay-videon)
 169. **Långa tankstreck (—) i svensk sajttext** — både AI-signatur och typografiskt fel. (sex-färdigheter-videon)
 170. **Referenser och avvisningar utan motivering** — smaken går inte att lära ut utan *varför*. (sex-färdigheter-videon)
+171. **Att sälja förvaltning utan ett första kvitto** — hoppa inte över steg i tjänstetrappan. (konsult-videon)
+172. **Att välja nisch utan belägg eller erfarenhet** — och sedan försvara valet i månader. (konsult-videon)
 
 ---
 
@@ -2074,6 +2078,14 @@ Ju mer varje kund anpassas, desto mindre av flödet återanvänds: standardkontr
 - **Önskemål utanför paketen blir offertärenden till dig** (§15.2), inte nya grenar i flödet. Visar samma önskemål sig hos flera kunder kan det bli en del av ett paket, via samma väg som allt annat: förslag, ditt beslut, eval, låsning.
 - Hänger ihop med trappan (§5.4): vi säljer till företag, och ett löfte vi inte kan hålla är värre än ett smalt löfte.
 
+**Tjänstetrappan 🎥 (konsult-videon) / 🔧:** Nate beskriver vägen från *vi känner inte varandra* till *jag betalar dig varje månad* som fyra steg — utbildning, granskning, projekt, löpande avtal — där *varje steg förtjänas genom att stå på steget under*; nybörjare fastnar när de försöker sälja löpande avtal utan belägg och förtroende 🎥. Granskningen är *betald kartläggning*: kunden betalar för att du lär dig verksamheten, och leveransen slutar med ett förslag till första projekt 🎥. Hos oss:
+| Steg | Vad | Hur flödet levererar det |
+|---|---|---|
+| **1. Sajtgranskning** (fast pris) | Rapport med belägg + förslag med nordstjärna | Våra låsta kontroller (fas 6c: Lighthouse, mobil, formulär, SEO, tillgänglighet) körs mot kundens sajt, plus genomgången av var kunderna tappas (fas 1) och före-måttet (fas 0b, steg 4). Det mesta är redan automatiserat; du går igenom rapporten. Samma kontroller ger den personliga inledningen i kundflödet (§15.3) — granskningen blir nästa steg efter ett första utkast. |
+| **2. Bygge** | Ett paket (ovan) | Flödet, fas 0–7 |
+| **3. Förvaltning** | Löpande avtal | Fas 8, med nordstjärnan i varje rapport |
+Ett steg säljs bara till den som stått på steget under: ingen förvaltning utan ett levererat bygge, och inget bygge utan nordstjärna. ⚠️ Priser per steg bestäms av dig (§14).
+
 ### 15.2 Ärendeagenten — rutin går vidare, risk går till dig 🎥 / 🔧
 I videon svarar supportagenten på rutinfrågor ur produktguiden. Ärenden om **återbetalning och permanent radering av konto** får ett utkast till svar och skickas till grundaren, **utan att något görs** 🎥. *Rutinfrågor flyter på; beslut om pengar och kunddata stannar hos människan* 🎥. Hos oss klassar ärendeagenten varje inkommande ärende från en förvaltningskund:
 | Klass | Exempel | Vad agenten gör |
@@ -2106,11 +2118,13 @@ I videon hittar Clay företag som passar, Claude kontrollerar offentliga källor
 ### 15.4 Smärta, person, löfte 🎥 / 🔧
 Nates mall för att bestämma vad som säljs: **smärta** (det mycket specifika problemet), **person** (exakt vem som har det) och **löfte** (hur erbjudandet löser just det problemet för just den personen) 🎥. Han väljer medvetet en **smal nisch**: ett brett löfte blir generiskt, och etablerade konkurrenter har redan kunder och kapital 🎥.
 - 🔧 För oss gör en nisch flödet bättre: kunskapsbasen (§11), standardkontrollerna, referenssajterna och faktafrågorna i intervjun (fas 0) blir djupare för en bransch än för alla.
+- **Nisch efter belägg 🎥 (konsult-videon) / 🔧:** här säger Nate emot sin egen 1-person-video: *har du ingen bakgrund i en bransch, håll dig medvetet bred de första 5–10 uppdragen*; nischen blir sedan **den kundtyp där det starkaste kvittot finns** — *vem var kunden, vilken bransch, vilken storlek: det är din nya målkund* 🎥. Undantag där nisch väljs direkt: erfarenhet från branschen, ett nätverk där, eller en verklig passion för den 🎥. Båda videorna är från samma kanal men gäller olika lägen (produkt mot tjänst). Regel för oss: **har du en bransch med erfarenhet eller nätverk, välj den; annars väljs nischen efter de första kvittona (§15.3).**
 - **Vilken nisch är ditt beslut** (§14). Mallen fylls i i `foretag/erbjudande.md`, och paketen (§15.1) och ärendeagentens hjälpguide utgår från den.
 
 ### 15.5 Enhetsekonomi 🎥 / 🔧
 Videons räkneexempel: 499 dollar i månaden kräver 168 betalande kunder för en årlig intäkt över 1 miljon dollar, och det första målet är **fem betalande kunder** som ger återkoppling 🎥. 🔧 Hos oss:
 - **Kostnad per byggd sajt och per förvaltningsmånad** mäts ur samma data som eval (§9.3): tokens, antal rundor och tredjepartstjänster. Lägg till hosting och din egen tid i stoppen.
+- **Priset förankras i alternativet 🎥 (konsult-videon):** jämför med vad kundens nuvarande lösning kostar — förlorade förfrågningar, tid i telefon, en byrås pris — och var beredd att visa *exakt hur priset räknats fram* 🎥.
 - Kostnaden ställs mot priset per paket (§15.1). Det visar var marginalen finns och vilka steg som är värda att effektivisera, t.ex. genom att lyfta kod till skript (§8.8) eller sänka effort där eval visar att kvaliteten håller (§8.6).
 - **Värdet för kunden** mäts enligt §9 (*sätt en siffra på värdet*); i förvaltningen är det rapporten med bevis (fas 8a) som kunden betalar för. Videon uttrycker samma sak: *kunden betalar inte för instrumentpanelen utan för beviset* 🎥.
 
@@ -2207,3 +2221,4 @@ Videons räkneexempel: 499 dollar i månaden kräver 168 betalande kunder för e
 | 2026-10-14 | 0.60 | Utifrån Astra-videon (Nate Herk): GPT-6 Astra som kandidat i eval för bygg- och animationsroller, inte som ändring (§8.6); rörelsebudget i briefen (3b) och kriteriet *passar rörelsen målgruppen?* (fas 6); djup genom lager på bänken (fas 5); godly.design, 21st.dev och Awwwards per kategori som källor, komponenter i feedback, licens per komponent (fas 5, bredvid Refero och Mobbin); fallgropar 164–166 |
 | 2026-10-14 | 0.61 | Utifrån Clay-videon (Nate Herk, sponsrad av Clay): metod för kundflödet i §15.3 — kedja av leverantörer, företagets kontext i `foretag/`, personlig inledning ur mätbara signaler från den presumtiva kundens offentliga sajt, faktakontroll av utkast mot `foretag/` (videons exempel innehöll ett påhittat resultat), lagkrav preciserade (artikel 14, berättigat intresse, avregistrering); fallgropar 167–168 |
 | 2026-10-14 | 0.62 | Utifrån sex-färdigheter-videon (Nate Herk): låst kontroll mot långa tankstreck i svensk sajttext, med svensk norm (kort tankstreck) kontrollerad mot Kunskapsbladet/Språkrådet (fas 6); fältet `varfor` för referenser (fas 1) och för dina beslut i kalibreringen (§9.6); fallgropar 169–170 |
+| 2026-10-14 | 0.63 | Utifrån konsult-videon (Nate Herk): tjänstetrappan sajtgranskning → bygge → förvaltning, där granskningen levereras av våra låsta kontroller (§15.1); hinken (fler kunder, mer värde per kund, lägre kostnad) i nordstjärnan och regeln *utan nordstjärna ingen godkänd brief* (fas 1); nisch efter belägg (§15.4); pris förankrat i alternativet (§15.5); fallgropar 171–172. Videons statistik (IBM, McKinsey, Capgemini, Upwork) används inte — okontrollerad |
