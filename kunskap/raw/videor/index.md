@@ -25,6 +25,7 @@ Råmaterial för `kunskap/` och konsolideringen av implementeringsguiden. Rörs 
 | 2026-07-22 | AI LABS | This New Skill Finally Solves Thinking For AI Agents | [2026-07-22_m6IXL_YGqBQ.md](2026-07-22_m6IXL_YGqBQ.md) |
 | 2026-07-31 | AI LABS | Claude Code Setup Guide By The Creator Himself | [2026-07-31_pGro_uKt-_M.md](2026-07-31_pGro_uKt-_M.md) |
 | 2026-08-04 | AI LABS | Buzz Just Fixed AI Agents... But It Has A Serious Flaw | [2026-08-04_a8tLTd4q-fU.md](2026-08-04_a8tLTd4q-fU.md) |
+| 2026-08-04 | Nate Herk | AI Automation | 5000 Hours of Building AI in Just 17 Minutes | [2026-08-04_7WZ6XldxX0U.md](2026-08-04_7WZ6XldxX0U.md) |
 | 2026-08-07 | AI LABS | This Is How Forward Deployed Engineering Is Actually Done | [2026-08-07_AD-EmZ3v6-g.md](2026-08-07_AD-EmZ3v6-g.md) |
 | 2026-08-10 | AI LABS | This Claude Code Skill make Building 10x Faster | [2026-08-10_b9k-AE4v5yI.md](2026-08-10_b9k-AE4v5yI.md) |
 | 2026-08-12 | AI LABS | How To Use Claude Design To Build Beautiful Sites | [2026-08-12_bBlY5YOsKN8.md](2026-08-12_bBlY5YOsKN8.md) |
