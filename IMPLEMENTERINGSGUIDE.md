@@ -1,6 +1,6 @@
 # Implementeringsguide: AI-webbsidebyggare med Claude Code + Google Stitch
 
-> **Status:** Utkast v0.50 (2026-10-14) — levande dokument som vi bygger vidare på.
+> **Status:** Utkast v0.51 (2026-10-14) — levande dokument som vi bygger vidare på.
 > **Planerat:** konsolideringsrunda (slå ihop dubbletter, t.ex. granskarisolering i §5.2/fas 4/fas 6b; skilj grindar från instruktioner och flytta regler enligt placeringsordningen i §8.7; gör **"agenten föreslår, du beslutar"** till en egen princip — den återkommer för `arbetssatt.md`, granskarkriterier, kontroller, `design.md` och `CLAUDE.md`; en möjlig disposition är OS-liknelsen ur OS-videon — `CLAUDE.md` som kärna, MCP som drivrutiner, skills som program, loopar/rutiner som schemaläggare, arbetsflöden som binder ihop) **när videogenomgången är klar** — inte före. **Metod för konsolideringen (Karpathy-videon):** guiden byggs om som wiki ur råmaterialet i `kunskap/raw/` — varje regel spårbar till ett citat, regler med en källa på bänken (§11.11), och motsägelser mellan videor synliga som konflikter.
 > **Källor:**
 > - AI LABS, *"Google Just Fixed AI Design By Releasing This"* (2026-10-13), https://www.youtube.com/watch?v=au2TI8sdq8E — flödet (§1–5)
@@ -55,6 +55,7 @@
 > - Nate Herk, *"I Tested the Viral Reverse Engineer Anything Skill. What You Need to Know."* (2026-10-13), https://www.youtube.com/watch?v=rL5tw6h78zo — REA, sett/härlett/okänt, teknikbeskrivningar (fas 0b, 1, 2, §11.11, §12)
 > - Nate Herk, *"Anthropic Engineers Just 10x'd Everyone's Claude Code"* (2026-10-08), https://www.youtube.com/watch?v=oz2CwrPV2Rg — minsta möjliga kontext, `/doctor`, vad men inte hur (§8.1, §8.5, §8.8, fas 8f, §12)
 > - Nate Herk, *"I Built Another Andrej Karpathy Using Claude"* (2026-10-05), https://www.youtube.com/watch?v=bvGptCLDhyo — expertmetoden för kunskapsbaser, bänken, förutsäg-kör-jämför (§8.6, §11.4, §11.6, §11.11)
+> - Nate Herk, *"Claude Code Mods Are Game Changers. Set Up These 5 NOW."* (2026-10-02), https://www.youtube.com/watch?v=9hetShMMp2s — mods: andra källan, Goal Meter, Cache Keeper, Collision Guard, Recording Mode (§6.2, §6.4, §6.9)
 > **Märkning i dokumentet:**
 > - 🎥 = beskrivet i videon
 > - 🔧 = eget förslag/utfyllnad (inte från videon)
@@ -755,7 +756,14 @@ En terminal kan rita text, knappar och listor men inte rendera en webbsida. Äve
 - **Bara i terminalen:** mods som ändrar gränssnittet syns inte i VS Code-tillägget.
 - Inbyggda exempel: `diff` och *You Should Know* (avstängd från början). Delade mods finns på claudemod.com.
 
-⚠️ **Overifierat för oss:** användaren kör Claude Code 2.1.281. I en session på den versionen fanns ingen skill med namnet *plugin authoring* i listan. Antingen krävs en nyare version eller så heter skillen något annat. **Första steget är att verifiera att mods finns** (se §15).
+**Lyft från bänken (v0.51) 🎥:** mods har nu **två oberoende källor** (§11.11) — AI LABS och Nate Herks *"Claude Code Mods Are Game Changers"*, som visar Claude-teamets officiella lanseringstweet 🎥. Nytt från den andra källan:
+- Mods **levereras inuti plugins** och installeras med `/plugin` 🎥 — flödespanelen och våra andra mods kan alltså ingå i det versionerade pluginet (§8.8).
+- Mods syns i **Claude Desktop-appen** 🎥. AI LABS sa *terminalen men inte VS Code-tillägget* 🎥. Sammantaget: terminalen och desktop-appen, inte VS Code-tillägget.
+- Mods byggs med vanligt språk; *"hur slår jag på och av den?"* går att fråga efteråt 🎥.
+
+⚠️ **Kvar att kontrollera:** att mods finns i *användarens* version. Användaren körde Claude Code 2.1.281, och i en session på den versionen fanns ingen skill med namnet *plugin authoring*. **Första steget är att verifiera det** (se §15).
+
+**Vilka mods vi bygger — utgå från sessionsloggarna 🎥:** be Claude läsa dina sessionsloggar och föreslå de fem mods som skulle hjälpa dig mest — utifrån vad du faktiskt gör och upprepar 🎥. Samma mönster som auto mode setup och Skillify.
 
 ### 6.3 Förhandsvisning i webbläsaren 🔧
 - Fas 3 startar en dev-server med automatisk omladdning **innan** Claude börjar skriva sajtens filer, och öppnar sidan i webbläsaren. Då syns varje sektion när den skapas.
@@ -787,6 +795,8 @@ Visar flödets tillstånd i en panel bredvid chatten. Läser `state.json` (§5.1
 - **Krav på `state.json`:** fältnamn och faser måste vara stabila. Bestäm formatet *innan* moden byggs — moden är en vy av tillståndet, inte en egen källa.
 - **Status `blocked`:** panelen ska tydligt visa när flödet väntar på användaren (t.ex. godkänd brief, ny Stitch-inloggning).
 - **Fallback utan mods:** samma information i Claude Codes statusrad eller som en lokal HTML-sida som läser `state.json`.
+- **Förebild — Goal Meter 🎥 (mods-videon 2):** en mod som för `/goal` visar fas, uppgiftslista, **procent klart**, förfluten tid och alla sessioner med pågående mål på ett ställe 🎥 — i praktiken vår flödespanel, byggd av någon annan. Bekräftar att idén fungerar.
+- **Kontext, gränser och kostnad 🎥 (Cache Keeper):** panelen visar också kontextens storlek, **5-timmars- och veckogränsen**, kostnaden omräknad till API-pris och **cacheklockan** — efter 60 minuter utan nytt meddelande måste kontexten läsas om till fullt pris 🎥. Fem minuter innan cachen kallnar kommer en varning 🎥. 🔧 För orkestreraren, som lever länge: **gör en överlämning (fas 3, överlämningsdokument) i stället för att låta cachen kallna** mitt i en lång körning.
 
 ### 6.5 Mod 2 — Antagandegranskning 🎥 idé / 🔧 variant
 Videons *Assumption Check* 🎥 visar de små antaganden Claude gör under en uppgift. Användaren markerar varje antagande som rätt eller fel; de felaktiga skickas tillbaka till Claude som en ny prompt, och de rätta behålls. Man kan också skriva en kommentar per antagande.
@@ -811,6 +821,15 @@ Varför den passar ett självgående flöde 🔧: flödet frågar bara vid stora
 | **Prompt Enhancer** — skriver om grova prompter så att de nämner rätt skills | Valfri, för manuell styrning |
 
 **Inbyggd vy: agent dashboard 🎥 (fleet-videon):** `claude agents` öppnar en vy i terminalen med alla sessioner som körs i bakgrunden — man kan gå mellan dem och öppna valfri för att se vad den gör. Sessioner startas i bakgrunden med `claude --bg "<prompt>"`, och en pågående session flyttas dit med `/bg` 🎥. 🔧 Det är en inbyggd vy för att se **byggarna arbeta parallellt** i fas 3, och en fallback om mods inte finns (§6.2). ⚠️ Kontrollera kommandona i den Claude Code-version vi använder.
+
+### 6.9 Fler mods: efterhand, kundmöten och krockar 🎥 (mods-videon 2) / 🔧
+| Mod 🎥 | Vad den gör | Hos oss 🔧 |
+|---|---|---|
+| **Replay Theater** (officiellt exempel) | Spelar upp agentens ändringar steg för steg med diffar | **Live-visning i efterhand.** Det mesta av bygget sker när du inte tittar — över natten, i kön, i förvaltningen. Uppspelningen bygger på commits per runda och `resultat.jsonl` som vi redan sparar |
+| **Recording Mode** | Döljer känsliga uppgifter (e-post, ekonomi) i gränssnittet vid inspelning eller skärmdelning; arbetet påverkas inte 🎥 | **Visningsläge för kundmöten:** när du visar bygget för en kund döljs andra kunders data, personuppgifter i faktabasen och hemligheter. Kopplat till regeln om åtkomst per kund (§7.3, fas 8d) |
+| **Collision Guard** | Före varje ändring: har en **annan chatt rört filen de senaste 30 minuterna**? I så fall väljer du fortsätt, flytta till worktree eller avbryt 🎥 | Extra skydd när du och en förvaltningsagent — eller flera sessioner — arbetar med samma sajt. **Självgående läge:** en hook som blockerar och loggar. **Interaktivt:** mod-frågan |
+| **Blast Radius** (officiellt exempel) | Visar vad som skulle raderas **innan** det raderas 🎥 | Kompletterar skyddshooken (§7.3) i interaktivt arbete |
+| *Next Steps* (Thariq, Anthropic) | Tre förslag på nästa steg efter varje tur 🎥 | Låg relevans för ett självgående flöde |
 
 ### 6.8 Välj mellan versioner direkt i förhandsvisningen — Variate 🎥 (Skills-videon) / 🔧
 [Variate](https://github.com/Nutlope/variate) (samma upphovsperson som Hallmark och Inspo) lägger till en **meny på sidan** där man tar fram flera versioner av **en** sektion, växlar mellan dem medan resten av sidan står still, och skickar sitt val **direkt till agenten** 🎥. Versioner av olika sektioner kan blandas, t.ex. hjälteyta 2 med knapp 3. Fungerar i både Next.js och ren HTML; videon rekommenderar den främst för landningssidor.
@@ -1818,6 +1837,8 @@ Du är jurymedlem för ett webbdesignpris. Var sträng.
 134. **Skills som styr *hur* i detalj** begränsar en kapabel modell. (Context-videon)
 135. **En regel med en enda källa behandlas som säker.** (Karpathy-videon)
 136. **Råmaterialet sparas inte** — då går det inte att spåra en regel tillbaka till källan. (Karpathy-videon)
+137. **Cachen kallnar mitt i en lång körning** — hela kontexten måste läsas om till fullt pris. (Mods-videon 2)
+138. **Kundmöte med andra kunders data synlig** på skärmen. (Mods-videon 2)
 
 ---
 
@@ -1950,3 +1971,4 @@ Du är jurymedlem för ett webbdesignpris. Var sträng.
 | 2026-10-14 | 0.48 | Utifrån REA-videon: nytt §11.11 Underlag med belägg (sett/härlett/okänt) och REA för att förstå referenser; integrationer, spårare och formulärmottagare vid ombyggnad (fas 0b); teknikbeskrivningar av beteende (fas 2); pilot mot Playwright CLI (§12) |
 | 2026-10-14 | 0.49 | Utifrån context-videon: underlag för rensningen (Thariqs artikel, studien om längre indata, MCP vid behov) och vad `/doctor` gör (§8.5), varning för ärvda `CLAUDE.md` (§8.1), test av skills före utrullning (§8.8), schemalagd `/doctor` (fas 8f), "vad men inte hur" för egna skills (§12) |
 | 2026-10-14 | 0.50 | Utifrån Karpathy-videon: expertmetoden för att bygga `kunskap/` (råmaterial → wiki → regler med citat → körbara granskare, `/ingest`), bänken med krav på två oberoende källor (§11.11), expertgranskare (§11.4), "förutsäg, kör, jämför" (§8.6), metod för konsolideringen. Råmaterialet sparat: 49 videotranskript i `kunskap/raw/videor/` och sammanfattningar av två dokument i `kunskap/raw/dokument/`. Repo: Nortropic-Builder |
+| 2026-10-14 | 0.51 | Utifrån mods-videon 2 (Nate Herk): mods lyfta från bänken med två oberoende källor, levereras i plugins, syns i desktop-appen (§6.2); Goal Meter som förebild och kontext/gränser/kostnad/cacheklocka i flödespanelen (§6.4); nytt §6.9 med Replay Theater, visningsläge för kundmöten, Collision Guard och Blast Radius |
