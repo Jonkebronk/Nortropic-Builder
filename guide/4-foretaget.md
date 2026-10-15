@@ -88,7 +88,7 @@ Ett relevant företag och ett bra meddelande är ännu ingen kund 🎥 1-person-
 ## Nischen: smärta, person, löfte
 
 - [N2] **Erbjudandet skrivs som smärta, person och löfte** i `foretag/erbjudande.md` – det specifika problemet, exakt vem som har det, hur erbjudandet löser det. Paketen och hjälpguiden utgår från den; ett brett löfte blir generiskt. 🎥 1-person-videon (en källa – bänken). **Person:** beslutad. **Smärta och löfte**, Claudes förslag: att slippa tänka på hemsidan; *en seriös sajt som syns, gör det lätt att höra av sig och stämmer också om ett år* (`BESLUT.md`, *Innebär*).
-- [N3] **Branschen väljs efter belägg.** Har Johnny erfarenhet eller nätverk i en bransch väljs den; annars hålls bredden inom målgruppen de första 5–10 uppdragen, och branschen blir den där det starkaste kvittot finns (fallgrop 172). 🎥 konsult-videon (säger emot 1-person-videons smala nisch från start; samma kanal). En bransch gör branschmallar (→ `2-2`), stilkit och intervjufrågor djupare 🔧. *Branschen: Öppet – se `guide/bilaga-e-oppna-fragor.md`.*
+- [N3] **Branschen väljs efter belägg.** Har Johnny erfarenhet eller nätverk i en bransch väljs den; annars hålls bredden inom målgruppen de första 5–10 uppdragen, och branschen blir den där det starkaste kvittot finns (fallgrop 172). 🎥 konsult-videon (säger emot 1-person-videons smala nisch från start; samma kanal). En bransch gör branschprofiler (→ `2-2`), stilkit och intervjufrågor djupare 🔧. *Branschen: Öppet – se `guide/bilaga-e-oppna-fragor.md`.*
 
 ## Enhetsekonomi och pris
 
