@@ -253,3 +253,13 @@ Johnny, om att AI-genererade bilder av personer fortfarande inte var tillåtna:
 > Det ska ändras också
 
 **Innebär:** AI-genererade bilder får visa personer, precis som stockbilder (`guide/2-7-innehall.md`, ärlighetsregeln). Två saker består. Den första är att en person som inte hör till kunden aldrig presenteras som kundens personal, kund eller ägare. Den andra är märkningen: en fotorealistisk AI-bild av en person får bildtexten *AI-genererad illustration.*, eftersom AI-förordningen art. 50.4 kräver upplysning sedan 2 augusti 2026. Märkningen är lag och inte en byråregel.
+
+## 2026-10-15: Princip 12 får ny lydelse
+
+**Status:** gäller.
+
+Claude föreslog vid genomläsningen ny lydelse för princip 12 i `guide/README.md`, eftersom den gamla ("AI-text och AI-bilder gör sajten generisk") stred mot besluten om bilder och mot måttstocken. Johnny:
+
+> Ja
+
+**Innebär:** Princip 12 säger nu att karaktären kommer från kundens egna bilder, ord och lokala belägg, och att stock- och AI-bilder är tillåtna men inte bär den. En sajt blir generisk av en första skärm som inte säger vad, var och hur, och av innehåll som kunde höra till vem som helst. Samma svar besvarade också frågan "ska N1 få vara 68 regler": N1 får ha 68 regler, och ingen strykning görs nu.
