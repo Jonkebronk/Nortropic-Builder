@@ -76,3 +76,4 @@ Råmaterial för `kunskap/` och konsolideringen av implementeringsguiden. Rörs 
 | 2026-10-11 | Nate Herk | AI Automation | I Tried 100+ Github Repos for Claude. These 6 Are the Best | [2026-10-11_HhZdNYI4pJs.md](2026-10-11_HhZdNYI4pJs.md) |
 | 2026-10-13 | AI LABS | Google Just Fixed AI Design By Releasing This | [2026-10-13_au2TI8sdq8E.md](2026-10-13_au2TI8sdq8E.md) |
 | 2026-10-13 | Nate Herk | AI Automation | I Tested the Viral Reverse Engineer Anything Skill. What You Need to Know. | [2026-10-13_rL5tw6h78zo.md](2026-10-13_rL5tw6h78zo.md) |
+| 2026-10-14 | Tristen O'Brien | Claude Just Dropped MOTION. (Get Ahead of 95% in 11 Minutes.) | [2026-10-14_yf2OwchM9nw.md](2026-10-14_yf2OwchM9nw.md) |
