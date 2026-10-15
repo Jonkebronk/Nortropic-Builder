@@ -8,7 +8,7 @@ export interface StartInnehall {
   titel: string;
   beskrivning: string;
   foretag: { namn: string; logotyp?: Bild };
-  boka: Lank;
+  boka: Lank & { kort?: string }; // kort: texten i sidhuvudet
   ring: Lank & { nummer: string };
   nav: Lank[];
   forstavy: {
