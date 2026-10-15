@@ -176,3 +176,16 @@ Johnny valde, 13:20, i Claudes frågeformulär efter genomgången av webb-pro oc
 - **Sajttyp:** "Vanlig flersidig sajt" — standardprodukten för första varvet; scrollytelling blir tillval.
 
 **Innebär:** kartans designsätt och sajttyp gäller; guidens ordning (flödet först) gäller. Beslutet 2026-10-13 om små steg står kvar. Claudes tolkning i `principer.md` och `karta/README.md` ("först en sajt, sedan byrån, sist maskinen") ändras av ordningsbeslutet. Underlag: `kunskap/research/2026-10-15_webb-pro-genomgang.md`, `2026-10-15_karta-mot-guide.md`, `2026-10-15_guide-konsolideringsanalys.md`.
+
+## 2026-10-15: Måttstock, tidsbudget och intervjun
+
+**Status:** gäller.
+
+Johnny, 15:52, vid genomläsningen av guiden v1.0:
+
+> ja, jag ska ta fram en måttstock för vad jag anser är bra
+> tidsbudget får vi se, när jag är nöjd med vad vi ybgger.
+>
+> 3. jag intervjuar kunden tillsammans med ai för att få underlaget vi kan bygga med.
+
+**Innebär:** Johnny tar fram måttstocken för vad som är bra; den blir grunden för granskarens kalibrering och för eval. Ingen tidsbudget förrän Johnny är nöjd med det som byggs – tiden mäts bara som underlag. Intervjun görs av Johnny tillsammans med AI:n, som stöd i samtalet; det stämmer med beslutet 2026-10-13 18:05 ("jag intervjuar han utifrån min lokala AI").

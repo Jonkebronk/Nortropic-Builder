@@ -6,15 +6,15 @@
 
 ## 1. Kundens väg (`1-kundens-vag.md`)
 
-*Tidsbudget*
+*Tid*
 
-- **Tiden mäts per steg** – klocktid för hela steget och Johnnys egen tid för sig – i `sites/<namn>/progress.md` (`3-1-orkestrering-och-roller.md`). Johnny sätter budgeten efter den första sajten; till dess stannar flödet och frågar om ett steg tar mer än dubbelt så lång tid som Claude uppskattade innan steget började. 🔧
+- **Tiden mäts per steg** som underlag – klocktid för hela steget och Johnnys egen tid för sig – i `sites/<namn>/progress.md` (`3-1-orkestrering-och-roller.md`). Ingen budget och ingen stoppregel för tid. 🔧
 
 ## 2.1 Strategi (`2-1-strategi.md`)
 
 *Vad byrån gör*
 
-- **En intervjuande AI intervjuar kunden med öppna frågor och utgår från de åtta kärnfrågorna** (avsnittet *Kärnfrågor och intervjuguide*). En fråga i taget. Öppna, icke-ledande frågor om verkliga och nyliga händelser, aldrig hypotetiska. Be om exempel. Föreslå aldrig svar, inte ens ett tema; färdiga svarsalternativ visas bara när kunden väljer bland det vi erbjuder, som paket och tillval (→ `guide/2-2-omfattning.md`). Inget smicker. Våga vara tyst. Kan kunden inte svara, fråga från ett annat håll. "Vet inte" och "längre fram" är giltiga svar och blir *okänt*, aldrig en gissning. Varför: ledande frågor ger kundens gissning om vad vi vill höra. Källa: `BESLUT.md` 2026-10-13, 18:05 och 18:41 (intervjuande AI, öppna frågor); 📄 Geiecke & Jaravel (principerna med egna ord; koden är icke-kommersiellt licensierad), 📄 Hall, *Just Enough Research*, 📄 Mom Test via pm-skills; svarsalternativen och "vet inte" 🔧 (webb-pro `kundintervju.md`). Granskningskriterium för utskriften. Vem som svarar i första varvet är öppet – se `guide/bilaga-e-oppna-fragor.md` (Claudes förslag: en människa som känner verksamheten).
+- **Johnny intervjuar kunden tillsammans med AI:n, med öppna frågor, och utgår från de åtta kärnfrågorna** (`BESLUT.md` 2026-10-15). AI:n håller ordning på frågorna, föreslår följdfrågor och fyller briefen och faktabasen under samtalet; Johnny leder samtalet (avsnittet *Kärnfrågor och intervjuguide*). En fråga i taget. Öppna, icke-ledande frågor om verkliga och nyliga händelser, aldrig hypotetiska. Be om exempel. Föreslå aldrig svar, inte ens ett tema; färdiga svarsalternativ visas bara när kunden väljer bland det vi erbjuder, som paket och tillval (→ `guide/2-2-omfattning.md`). Inget smicker. Våga vara tyst. Kan kunden inte svara, fråga från ett annat håll. "Vet inte" och "längre fram" är giltiga svar och blir *okänt*, aldrig en gissning. Varför: ledande frågor ger kundens gissning om vad vi vill höra. Källa: `BESLUT.md` 2026-10-13, 18:05 och 18:41 (intervjuande AI, öppna frågor); 📄 Geiecke & Jaravel (principerna med egna ord; koden är icke-kommersiellt licensierad), 📄 Hall, *Just Enough Research*, 📄 Mom Test via pm-skills; svarsalternativen och "vet inte" 🔧 (webb-pro `kundintervju.md`). Granskningskriterium för utskriften. Vem som svarar i första varvet är öppet – se `guide/bilaga-e-oppna-fragor.md` (Claudes förslag: en människa som känner verksamheten).
 - **Research före samtalet: läs kundens sajt och Google-profil,** och fråga bara om det som inte står där. Kunden bekräftar förifyllda påståenden, och varje påstående visar sin källa: "Jag ser att ni erbjuder X och Y – stämmer det?" Bara det kunden bekräftat blir ett faktum (→ faktabasen under *Vad som kommer ut*). Varför: förifyllda svar ger tydligare underlag men upplevs som mindre pålitliga när källan inte syns. Källa: 📄 marketingskills `customer-research`, 📄 Paludan m.fl. 2025. Ersätter v0.74:s självintervju (🎥 repo-videon).
 
 *Vad som kommer ut*

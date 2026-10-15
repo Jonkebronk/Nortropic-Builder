@@ -6,7 +6,28 @@
 
 En autonom webbyrå för **otekniska småföretagare som betalar för hemsida och förvaltning så att de slipper tänka på det** (`BESLUT.md` 2026-10-13). Claude Code gör arbetet, Johnny är art director och beslutar. **Förvaltningen är produkten:** en sajt byggs en gång men förvaltas varje månad. Kvaliteten mäts i det kunden behöver – en seriös sajt som syns, gör det lätt att höra av sig och stämmer också om ett år.
 
-Guiden beskriver hur byrån bygger och förvaltar en sajt, lager för lager, och hur flödet som gör arbetet är uppbyggt. Den bygger på 74 videotranskript, två dokument, researchrapporter med primärkällor, kartan som togs fram med Johnny 13–15 oktober och lärdomarna från det tidigare projektet nortropic-webb-pro.
+Guiden beskriver hur byrån bygger och förvaltar en sajt, lager för lager, och hur flödet som gör arbetet är uppbyggt.
+
+**Guiden bygger på kunskapen om hur man bygger och förvaltar webbplatser för kunder och användare** – etablerade metoder, teori och litteratur, normer och lagar, leverantörernas egen dokumentation och forskning. Johnnys utgångspunkt (`BESLUT.md` 2026-10-13): *"utifrån metoder, principer och litteratur, hur bygger man hemsidor och förvaltar de på bästa sätt för kunder och användare"*. Några exempel:
+
+- **Hur en sajt är uppbyggd:** Jesse James Garretts fem plan och Brad Frosts *Atomic Design*.
+- **Användbarhet:** Nielsen, Krug och Nielsen Norman Groups forskning; GOV.UK:s designsystem för formulär och tjänster.
+- **Tillgänglighet:** WCAG 2.2 och EN 301 549.
+- **Sökbarhet:** Googles Search Central och Core Web Vitals.
+- **Förvaltning:** ITIL, SRE och DORA.
+- **Lag:** tillgänglighetslagen, GDPR, lagen om elektronisk kommunikation och EU:s AI-förordning.
+
+**Praktikernas erfarenhet prövas mot den grunden:** 74 videotranskript, två dokument och lärdomarna från webb-pro. En regel blir krav först när den har en norm eller två oberoende primärkällor (*Grind eller instruktion* nedan). Kartan som togs fram med Johnny 13–15 oktober ordnar allt efter hur en webbyrå arbetar, lager för lager.
+
+## Målsättning
+
+Johnnys skäl att börja om (`BESLUT.md` 2026-10-13): *"tiden det tar att bygga en hemsida är alldeles för lång och sen har vi fortfarande inte skapat en sida jag är nöjd med ännu"*. Projektet lyckas när byrån levererar:
+
+1. **Sajter som Johnny anser är bra.** Johnny tar fram **måttstocken** för vad som är bra (`BESLUT.md` 2026-10-15). Den blir grunden för granskarens kalibrering och för eval (`3-2-granskning-och-kalibrering.md`). Tills den finns gäller Johnnys dom, med en kort motivering.
+2. **Kunder som betalar för förvaltningen och stannar kvar** – förvaltningen är produkten (`4-foretaget.md`, `2-9-drift-och-forvaltning.md`).
+3. **Rimlig tid per sajt** – men först när kvaliteten sitter: ingen tidsbudget förrän Johnny är nöjd med det som byggs. Tiden mäts bara som underlag (`1-kundens-vag.md`).
+
+Kundens behov – en seriös sajt som syns, gör det lätt att höra av sig och stämmer också om ett år – är det måttstocken och kontrollerna ska svara mot.
 
 ## Innehåll
 
@@ -49,11 +70,12 @@ Johnnys beslut står ordagrant i `BESLUT.md` och väger tyngst. De som formar gu
 - **Börja om i små steg** (2026-10-13).
 - **Nisch och produkt:** otekniska småföretagare; förvaltningen är produkten (2026-10-13).
 - **Kundens väg:** intervju, research, tre riktningar, kundens val, bygge, Johnnys granskning, lansering (2026-10-13).
-- **En intervjuande AI** tar fram underlaget med kunden (2026-10-13).
+- **Intervjun** tar fram underlaget med kunden – Johnny intervjuar tillsammans med sin AI (2026-10-13, preciserat 2026-10-15).
 - **Två spår:** det finns inte alltid en befintlig sajt (2026-10-13).
 - **Eget bibliotek** av skills, komponenter, teman och animationer, byggt ur en inventering (2026-10-13).
 - **Förvaltningen ingår**, **Claude Design är inte designmotor**, **hosting på Cloudflare** (2026-10-14).
 - **Flödet först; Stitch inom stilkit; Johnny ser riktningarna först, sedan kunden; vanlig flersidig sajt som standard** (2026-10-15).
+- **Johnny tar fram måttstocken för vad som är bra; ingen tidsbudget förrän han är nöjd; Johnny intervjuar kunden tillsammans med AI** (2026-10-15).
 
 Det som fortfarande är öppet står i `bilaga-e-oppna-fragor.md`.
 

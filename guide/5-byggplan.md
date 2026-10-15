@@ -10,7 +10,7 @@
 
 Beslut som behövs först (`bilaga-e-oppna-fragor.md`, avsnitt 1):
 
-1. **Den första verksamheten** och vem som svarar på intervjun.
+1. **Den första verksamheten.** Johnny intervjuar den tillsammans med AI:n (beslut 2026-10-15).
 2. **Publiceras den första sajten?** Om ja: domän, Cloudflare-konto och nycklar är mänskliga klick (`2-2-omfattning.md`).
 3. **Bildkälla** om verksamheten saknar egna foton (`2-7-innehall.md`).
 
@@ -27,21 +27,21 @@ Kontrollskriptet byggs i steg 3 och granskningsmallen i steg 4 – inte i förv�
 Börja nu – lång ledtid:
 
 - **Ansök om API-åtkomst för Google Business Profile.** Bara Johnny kan ansöka; svar inom 14 dagar (`2-9-drift-och-forvaltning.md`).
-- **Bedöm 30–40 skärmdumpar** av sajter som godkänd eller underkänd, med en kort kritik. Det blir den första måttstocken för vad Johnny menar med bra, och granskarens kalibrering i steg 4 (`3-2-granskning-och-kalibrering.md`).
+- **Johnnys måttstock för vad som är bra** (beslut 2026-10-15). Den blir granskarens kalibrering i steg 4 och grunden för eval (`3-2-granskning-och-kalibrering.md`). Att bedöma 30–40 skärmdumpar som godkänd eller underkänd med en kort kritik är ett sätt att ta fram den (kartans förslag).
 - `claude update` – bara om mods ska användas (kräver 2.1.287; `3-5-live-visning.md`).
 
 ## Stegen
 
 | # | Steg | Vad som görs | Johnny ser och dömer | Klart när |
 |---|---|---|---|---|
-| 1 | **Intervju → brief** | De åtta kärnfrågorna med verksamheten; briefen med sex rubriker; `fakta.md` med källa per faktum; sidkartan som tabell i `sites/<namn>/sidkarta.md` | Briefen, faktabasen och sidkartan | Kunden har bekräftat underlaget och Johnny har godkänt briefen |
+| 1 | **Intervju → brief** | Johnny intervjuar verksamheten tillsammans med AI:n utifrån de åtta kärnfrågorna; briefen med sex rubriker; `fakta.md` med källa per faktum; sidkartan som tabell i `sites/<namn>/sidkarta.md` | Briefen, faktabasen och sidkartan | Kunden har bekräftat underlaget och Johnny har godkänt briefen |
 | 2 | **Tre riktningar** | Tre minimala stilkit (färg, typsnitt, avstånd, radie, kort `design.md`) och de sektioner startsidan behöver, en variant var. Stitch används när kiten tas fram, aldrig med kundinnehåll. Riktningarna = **startsidan i tre kit** | De tre riktningarna – stryker eller släpper till kunden | Kunden har valt bland dem Johnny släppt |
 | 3 | **Bygget** | Hela sajten i valt kit: standardsidorna och de sektioner de behöver; kontrollskriptet med de tio N1-kontrollerna (`2-8-teknik-och-kvalitet.md`). Ingen granskare än | Sajten i webbläsaren | De stoppande kontrollerna går igenom, så att sajten är redo för Johnnys dom – och Johnny har dömt den |
 | 4 | **Granskaren** | En delagent med ren kontext och en checklista; dess fynd jämförs med Johnnys egna domar | Granskarens fynd bredvid sin egen dom | Johnny har avgjort vilka fynd som var rätt; avvikelserna loggas i `domar.jsonl` som kalibreringsdata |
 | 5 | **Publicering** (om sajten publiceras) | Cloudflare Workers, förhandsadress bakom Access, `_headers` med grundhuvudena | Förhandsadressen, sedan den publicerade sajten | Johnny har godkänt och sajten är live |
 | 6 | **Förvaltningens första rapport** | Rapporten med nordstjärnan, gjord för hand med Claude | Rapporten | Johnny godkänner den som något kunden skulle betala för |
 
-**I varje steg** mäts tiden i `progress.md` (`1-kundens-vag.md`), och det som gjordes för hand noteras. Det som har gjorts för hand tre gånger blir kandidat till en skill (`bilaga-b-skills.md`).
+**I varje steg** mäts tiden i `progress.md` som underlag – ingen tidsbudget förrän Johnny är nöjd med kvaliteten (`1-kundens-vag.md`), och det som gjordes för hand noteras. Det som har gjorts för hand tre gånger blir kandidat till en skill (`bilaga-b-skills.md`).
 
 ## Därefter – när en verklig sajt kräver det
 

@@ -10,7 +10,7 @@ Johnny, 2026-10-13:
 
 | # | Steg | Vad som händer | Vad Johnny ser och dömer | Lager |
 |---|---|---|---|---|
-| 1 | **Intervju** | En intervjuande AI samtalar med kunden med öppna frågor och fyller briefen och faktabasen. Saknas svar blir det frågor tillbaka till kunden, inte gissningar. | Briefen: stämmer bilden av verksamheten? | `2-1-strategi.md`, `2-7-innehall.md` |
+| 1 | **Intervju** | Johnny intervjuar kunden tillsammans med AI:n, med öppna frågor (beslut 2026-10-15). AI:n föreslår följdfrågor och fyller briefen och faktabasen under samtalet. Saknas svar blir det frågor tillbaka till kunden, inte gissningar. | Briefen: stämmer bilden av verksamheten? | `2-1-strategi.md`, `2-7-innehall.md` |
 | 2 | **Research** | Bransch, konkurrenter, vad kunderna söker, sidkarta (`sites/<namn>/sidkarta.md`) och sökord. Vid ombyggnad: den befintliga sajten fångas och mäts. | Sidkartan och söksträngarna | `2-1`, `2-2-omfattning.md`, `2-3-struktur.md` |
 | 3 | **Tre riktningar** | Startsidan i tre stilkit, ur det egna sektionsbiblioteket. | **Johnny ser riktningarna först och kan stryka** (beslut 2026-10-15) | `2-4-skelett.md`, `2-5-yta.md` |
 | 4 | **Kunden väljer** | Kunden ser de riktningar Johnny släppt och väljer en. | – | `2-5` |
@@ -24,16 +24,13 @@ Johnny, 2026-10-13:
 ## Vem gör vad
 
 - **Kunden:** svarar i intervjun, väljer riktning, godkänner fakta och bilder som bara kunden kan ge, gör de mänskliga klicken (konton, avtal, betalning – `2-2-omfattning.md`).
-- **Johnny:** art director från första minuten. Läser briefen, stryker riktningar, granskar bygget, godkänner publicering, beslutar om nya regler. Alla tillfällen där Johnny behövs står i `3-2-granskning-och-kalibrering.md`.
+- **Johnny:** art director från första minuten. Intervjuar kunden tillsammans med AI:n, läser briefen, stryker riktningar, granskar bygget, godkänner publicering, beslutar om nya regler. Alla tillfällen där Johnny behövs står i `3-2-granskning-och-kalibrering.md`.
 - **Claude:** allt annat – intervju, research, bygge, kontroller, granskning, publicering efter godkännande, förvaltning.
 
-Claudes förslag 2026-10-13, inte beslutat: i första varvet svarar **en människa som verkligen känner verksamheten** på intervjun, inte en AI som spelar kund. Öppet – se `bilaga-e-oppna-fragor.md`.
 
-## Tidsbudget
+## Tid
 
-Johnnys skäl att börja om var att *"tiden det tar att bygga en hemsida är alldeles för lång"* (2026-10-13). Ingen tidigare plan hade en tidsbudget.
+Johnnys skäl att börja om var att *"tiden det tar att bygga en hemsida är alldeles för lång"* (2026-10-13). Men kvaliteten kommer först: **ingen tidsbudget förrän Johnny är nöjd med det som byggs** (`BESLUT.md` 2026-10-15).
 
-- [N1] **Tiden mäts per steg** – klocktid för hela steget och Johnnys egen tid för sig – i `sites/<namn>/progress.md` (`3-1-orkestrering-och-roller.md`). Johnny sätter budgeten efter den första sajten; till dess stannar flödet och frågar om ett steg tar mer än dubbelt så lång tid som Claude uppskattade innan steget började. 🔧
-- [N2] **Budgeten per steg blir ett stoppvillkor** (`3-1`) och en del av eval: en sajt som blir bra men tar för lång tid är inte klar som produkt (`3-2`). 🔧
-
-Öppet: budgeten per sajt – se `bilaga-e-oppna-fragor.md`.
+- [N1] **Tiden mäts per steg** som underlag – klocktid för hela steget och Johnnys egen tid för sig – i `sites/<namn>/progress.md` (`3-1-orkestrering-och-roller.md`). Ingen budget och ingen stoppregel för tid. 🔧
+- [N2] **När Johnny är nöjd med kvaliteten** sätter han en tidsbudget utifrån mätningarna; då kan den bli ett stoppvillkor (`3-1`) och en del av eval (`3-2`). 🔧

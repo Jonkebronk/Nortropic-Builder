@@ -19,13 +19,13 @@ Steg 5 (publicering) och steg 6 (den första rapporten) görs för hand (*Inte s
 
 ### `intervju` – steg 1, lager 1
 
-- **Syfte:** en intervjuande AI tar reda på det som behövs för briefen och de tre riktningarna. (`BESLUT.md` 2026-10-13 18:05, 18:41)
+- **Syfte:** stöd åt Johnny när han intervjuar kunden: håller ordning på kärnfrågorna, föreslår följdfrågor och fyller briefen och faktabasen under samtalet, så att underlaget räcker för de tre riktningarna. (`BESLUT.md` 2026-10-13 18:05, 18:41; 2026-10-15)
 - **In:** samtalet med kunden. Det som redan finns om företaget, till exempel kundens sajt och Google-profil, märkt sett, härlett eller okänt (`guide/README.md`, *Sett, härlett, okänt*).
 - **Ut:** `sites/<namn>/brief.md` med sex rubriker: sammanfattning, nordstjärna, besökare, primär handling, ton och intryck (med rörelsebudgeten) och får inte påstås. `sites/<namn>/fakta.md` med källa per faktum, där varje faktum är bekräftat av kunden (→ `2-7-innehall.md`). En lista över det som saknas, till exempel bilder och texter, som frågor till kunden.
 - **Begränsningar:** de åtta kärnfrågorna, inte hela intervjuguiden. Öppna frågor, en i taget, utan färdiga svarsalternativ. Gissar aldrig ett faktum – frågar. Research om branschen blir aldrig fakta om kunden. Lovar inget om resultat. Sidkartan står inte i briefen.
 - **Underlag:** kärnfrågorna och briefmallen (→ `2-1-strategi.md`).
 - **Destilleras ur:** webb-pros `kunskap/kundintervju.md` och `brief-mall.md`; K1 customer-research, K2 jobs-to-be-done, K3 smb-onboard, K8 Geiecke och Jaravels metod; K7 interview-script och Matt Pococks Grill Me bara kritiskt, eftersom Grill Me intervjuar användaren och inte kunden (→ `2-1-strategi.md`, `bilaga-a-verktyg.md`). Inventeringen: "Det finns ingen färdig AI-intervjuare för småföretagssajter."
-- **Öppet:** vem som svarar i första varvet, om intervjun görs i text eller röst och om skillen överlappar `nortropic-intake` – se `bilaga-e-oppna-fragor.md`, fråga 1.2, 1.7 och 2.5.
+- **Öppet:** om skillen överlappar `nortropic-intake` – se `bilaga-e-oppna-fragor.md`, fråga 2.5.
 - Sidkartan görs i samma steg men utanför utkastet: en tabell i `sites/<namn>/sidkarta.md` (→ `2-3-struktur.md`).
 - Ersätter v0.74:s `brief-interview`.
 
