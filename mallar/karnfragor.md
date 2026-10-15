@@ -19,4 +19,4 @@ AI:n anpassar ordalydelsen. Bokstaven anger ämnet i intervjuguiden och därmed 
 
 **Avslutningen.** Intervjun avslutas med en sammanfattning per avsnitt som kunden kan ändra. Överhoppade svar står som *Inte angivet*. Kunden bekräftar sammanfattningen, och Johnny godkänner briefen och faktabasen innan steg 2 börjar.
 
-**Övningsläget.** Firman vet inte om övningen, så Johnny svarar och bekräftar i kundens ställe där firmans egna källor inte räcker. Hans svar märks `johnny-som-kund` och förväxlas aldrig med det firman själv har sagt. Nordstjärnan får stå som *Inte angivet*, eller så sätter Johnny ett rimligt mål märkt `johnny-som-kund`.
+**Övningsläget.** Firman vet inte om övningen, så Johnny svarar och bekräftar i kundens ställe där firmans egna källor inte räcker. Hans svar märks `johnny-som-kund` och förväxlas aldrig med det firman själv har sagt. Överlåter han intervjun svarar Claude med påhittade men rimliga svar, märkta `claude-som-kund`. Nordstjärnan får stå som *Inte angivet*, eller så sätter Johnny ett rimligt mål märkt `johnny-som-kund`.

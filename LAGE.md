@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-15 kl. 21.40 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-15 kl. 21.47 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Kort
 
@@ -61,12 +61,12 @@ Detaljerna står i `BESLUT.md`.
 ## Nästa steg – på Macen
 
 1. **Den första övningssajten är vald och skapad** i `sites/` ur mallen (Johnny 21:10, `BESLUT.md`). Firmans namn står bara där, i sajtens `progress.md`, som också håller läget.
-2. **Steg 1 pågår** (fullt mandat enligt planen, Johnny 21:25, `BESLUT.md`). Researchen före intervjun var klar kl. 21.30, och intervjun med Johnny i kundens ställe väntar. Läget och fynden står i sajtens `progress.md`.
+2. **Steg 1 är klart för Johnnys dom** (fullt mandat, Johnny 21:25; Claude svarade i kundens ställe, 21:40, `BESLUT.md`). Briefen, faktabasen och sidkartan är klara kl. 21.46. Steg 2 är nästa. Läget och fynden står i sajtens `progress.md`.
 3. **Byggplanens steg 1–6**, med en genomgång efter sajten.
 
 ## Väntar på Johnny
 
-- **Stitch:** MCP-servern är tillagd och ansluten (Johnny omkring 21:34, `BESLUT.md`). Nyckeln ligger i `~/.claude-bygg/.claude.json`. Den syns också i samtalets logg, så Johnny kan byta den när det passar, varefter Claude lägger in den nya. Stitch-CLI:t är inte inloggat, och om MCP-servern räcker i steg 2 är inte prövat.
+- **Stitch:** MCP-servern är tillagd och ansluten (Johnny omkring 21:34, `BESLUT.md`). Nyckeln ligger i `~/.claude-bygg/.claude.json`. Den byts inte (Johnny 21:40). Stitch-CLI:t är inte inloggat, och om MCP-servern räcker i steg 2 är inte prövat.
 - **Läsa sajtens `CLAUDE.md`** i `mallar/sajt/CLAUDE.md`. Claude skrev den med mandatet, och Johnny godkänner ändringar i `CLAUDE.md` (bilaga E 2.3).
 - **Bilaga E:** avsnitt 1 och 2 är avgjorda. 1.8 (integritetspolicy) och 1.9 (betalning) väntar till den första riktiga kunden, och 2.4, 2.7 och 2.8 till förvaltningen. Avsnitt 3 gäller senare nivåer. Avsnitt 4 verifieras under bygget.
 - **Repot är publikt** (Johnny: "det ändrar vi sen"). Måttstockens domar över namngivna firmor pushades med Johnnys godkännande.

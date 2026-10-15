@@ -2,7 +2,7 @@
 
 <!-- Mall ur guide/2-1-strategi.md, *Briefmall*. Ändringar görs där först. Kopieras till sites/<namn>/brief.md. -->
 
-Märkning per påstående: [kund] · [källa: länk, datum] · [antagande]. I övningssajterna dessutom [johnny-som-kund]. Överhoppat: *Inte angivet*.
+Märkning per påstående: [kund] · [källa: länk, datum] · [antagande]. I övningssajterna dessutom [johnny-som-kund] och [claude-som-kund]. Överhoppat: *Inte angivet*.
 
 ## 1. Sammanfattning
 

@@ -78,7 +78,7 @@ Intervjun avslutas med kundens bekräftelse (→ *Kontroll*).
 - [N1] **Faktabasen `sites/<namn>/fakta.md` fylls med det kunden bekräftat,** med källa per faktum (hemvist → `guide/2-7-innehall.md`). Briefen är ett planeringsdokument, inte en faktabas (fallgrop 93). I övningssajterna fylls den med det Johnny bekräftat i kundens ställe (*Övningsläget* nedan).
 - [N2] Beslutskartan (ovan).
 
-**Övningsläget** (`BESLUT.md` 2026-10-15; `5-byggplan.md`, *Övningssajterna*). En firma som inte vet om övningen kan inte bekräfta något, så i övningssajterna bekräftar Johnny i kundens ställe. Uppgifter ur firmans egen sajt och Google-profil räknas som *sett*, med källa. Det Johnny svarar som kund märks `johnny-som-kund`. Inget presenteras som bekräftat av firman. Nordstjärnan får stå som *Inte angivet*, eller så sätter Johnny ett rimligt mål märkt `johnny-som-kund`, så att rapporten i steg 6 kan övas.
+**Övningsläget** (`BESLUT.md` 2026-10-15; `5-byggplan.md`, *Övningssajterna*). En firma som inte vet om övningen kan inte bekräfta något, så i övningssajterna bekräftar Johnny i kundens ställe. Uppgifter ur firmans egen sajt och Google-profil räknas som *sett*, med källa. Det Johnny svarar som kund märks `johnny-som-kund`. Överlåter Johnny intervjun svarar Claude med påhittade men rimliga svar, märkta `claude-som-kund`, och de märks aldrig som firmans (`BESLUT.md` 2026-10-15, *Claude svarar i kundens ställe*). Inget presenteras som bekräftat av firman. Nordstjärnan får stå som *Inte angivet*, eller så sätter Johnny ett rimligt mål märkt `johnny-som-kund`, så att rapporten i steg 6 kan övas.
 
 ### Nordstjärna
 

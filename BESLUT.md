@@ -677,3 +677,18 @@ Johnny, omkring 21:35:
 - Steg 5 övas inte i övningssajterna. Byrån behöver inget Cloudflare-konto för dem.
 - Ansökan om Google Business Profile-API:t görs inte för övningssajterna, utan i god tid före den första riktiga kunden.
 - Claude läser beskedet som att det gäller konton, publicering och API:er. Researchen i firmans publika Google-profil i steg 1 och firmans offentliga betyg i rapporten i steg 6 är kvar (`guide/2-1-strategi.md`, `2-9-drift-och-forvaltning.md`).
+
+## 2026-10-15: Claude svarar i kundens ställe
+
+**Status:** gäller.
+
+Claude bad Johnny svara på intervjufrågorna som Peter och nämnde att Stitch-nyckeln syns i samtalets logg och kan bytas.
+
+Johnny, 21:40:
+
+> vi ska inte byta så glöm det. du kan svara på alla frågor åt mig, det är fiktivt.
+
+**Innebär:**
+- Stitch-nyckeln byts inte.
+- I övningssajterna svarar Claude på intervjufrågorna i kundens ställe, med påhittade men rimliga svar. De märks `claude-som-kund` och förväxlas aldrig med det som är *sett* hos firman eller med Johnnys egna ord (`guide/2-1-strategi.md`, *Övningsläget*; `2-7-innehall.md`).
+- Claude läser beskedet som att det gäller intervjun. Johnnys dom över briefen, faktabasen och sidkartan, som avslutar steg 1, står kvar (`guide/5-byggplan.md`).

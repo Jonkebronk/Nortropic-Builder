@@ -4,7 +4,7 @@
 
 Den enda källan till fakta om firman. Bara *sett* är fakta. Ett *härlett* svar blir en fråga, och branschresearch blir aldrig fakta om firman.
 
-`kalla` per post: `kundens-ord`, `omdome` eller `register`, och i övningssajterna `sett` (firmans sajt eller Google-profil, med länk) och `johnny-som-kund`. Varje post har datum och hur den bekräftades.
+`kalla` per post: `kundens-ord`, `omdome` eller `register`, och i övningssajterna `sett` (firmans sajt eller Google-profil, med länk), `johnny-som-kund` och `claude-som-kund` (påhittat). Varje post har datum och hur den bekräftades.
 
 ## Fakta
 
