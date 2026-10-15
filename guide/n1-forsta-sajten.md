@@ -2,7 +2,7 @@
 
 **Genererad** av `konsolidering/bygg_n1.py` ur `[N1]`-märkningen i guidens filer. Ändra i källfilerna, inte här. Varje punkt står i sin helhet, med källor, i filen under rubriken. Taket är cirka 60 regler och tio automatiska kontroller (`README.md`, *Nivåer*).
 
-74 regler och tabellrader, plus de tio kontrollerna och verktygen nedan.
+75 regler och tabellrader, plus de tio kontrollerna och verktygen nedan.
 
 ## 1. Kundens väg (`1-kundens-vag.md`)
 
@@ -121,6 +121,7 @@
 *Vad byrån gör*
 
 - **Den första rapporten efter lanseringen** (`5-byggplan.md`, steg 6) görs för hand med Claude, utan schemalagda kontroller – med Search Consoles data om egendomen kopplades vid publiceringen (`2-8-teknik-och-kvalitet.md`), annars med det som finns: att sajten svarar, inskicken och Cloudflares analys. En sida på klarspråk: sajten svarar och den primära handlingen fungerar, indexering och första sökdata, nordstjärnans baslinje, ändringar sedan lanseringen. Johnny dömer den innan den går till kunden. 🔧
+- **I övningssajterna övas rapportens form.** En övningssajt bakom Access har inga besökare och indexeras inte. Rapporten tar därför med det som faktiskt finns: att sajten svarar och att den primära handlingen fungerar (N1-kontroll 4), Lighthouse-värdena, ändringarna och tiden per steg. Firmans egna offentliga siffror används som baslinje med källa, t.ex. betyg och antal omdömen i Google-profilen. Det som bara kan mätas efter en riktig lansering står som *mäts efter lansering* och hittas aldrig på. Johnny dömer om rapporten är något en kund skulle betala för (`5-byggplan.md`, *Övningssajterna*; `BESLUT.md` 2026-10-15).
 
 ## 3.1 Orkestrering och roller (`3-1-orkestrering-och-roller.md`)
 
@@ -225,7 +226,7 @@ Tio kontroller, och bara sådana som mäter något kunden märker (konsolidering
 | 1 | `astro build` går igenom utan fel | Stopp | Förutsättning för allt annat: utan bygge finns inget att visa 🔧 |
 | 2 | Inga konsolfel; alla bilder laddas | Rapport | Egen kodstandard 🔧 (v0.74 §10.3). Felen syns för besökaren, men ingen norm kräver det |
 | 3 | Ingen horisontell scroll i 320 CSS-px bredd | Stopp | 📄 WCAG 2.2, 1.4.10 Reflow. Sajter går sönder i mobil när bara datorn granskas (fallgrop 3, 19) |
-| 4 | Den primära handlingen fungerar hela vägen: telefon- eller mejllänken har numret eller adressen ur `fakta.md`; publiceras ett formulär sparar det och mejlar (*Formulär* ovan); **rapport:** branschens kontaktväg och en klickbar `tel:`-länk syns på mobilens första skärm i 375 px utan scroll | Stopp (synligheten: rapport) | Två källor för körbara kontroller (analysen §4.3; 🎥 Loop-videon); att pröva den primära handlingen hela vägen är egen tillämpning 🔧. Kontroller kan gå igenom fast funktionen inte är inkopplad (fallgrop 16). Synligheten: Johnnys måttstock, fråga 1 – ingen norm (`mattstock/mattstock.md`; `BESLUT.md` 2026-10-15) |
+| 4 | Den primära handlingen fungerar hela vägen: telefon- eller mejllänken har numret eller adressen ur `fakta.md`, eller bokningslänken svarar och leder till kundens bokning; publiceras ett formulär sparar det och mejlar (*Formulär* ovan); **rapport:** branschens kontaktväg och en klickbar `tel:`-länk syns på mobilens första skärm i 375 px utan scroll | Stopp (synligheten: rapport) | Två källor för körbara kontroller (analysen §4.3; 🎥 Loop-videon); att pröva den primära handlingen hela vägen är egen tillämpning 🔧. Kontroller kan gå igenom fast funktionen inte är inkopplad (fallgrop 16). Synligheten: Johnnys måttstock, fråga 1 – ingen norm (`mattstock/mattstock.md`; `BESLUT.md` 2026-10-15) |
 | 5 | Varje faktapåstående finns i `fakta.md`; vad som räknas → `2-7-innehall.md`, *Faktabasen* | Stopp, `kritisk` | Låst kontroll, tre källor (analysen §4.3) |
 | 6 | Inga platshållare i produktionsbygget: platshållarmarkeringen ur `2-7` (`[[PLATSHÅLLARE: …]]`), fyllnadstext (*lorem ipsum*, *exempel*, *placeholder*) och bilder märkta som platshållare i faktabasen ger noll träffar | Stopp | En platshållare är ett obekräftat faktum, så kontrollen vilar på faktakontrollens tre källor (analysen §4.3). Publicerade platshållare: fallgrop 181, 🎥 Jack Roberts-videon 3 |
 | 7 | Unik titel och metabeskrivning per sida, `sitemap.xml` finns; en `h1` per sida | Stopp för titel, beskrivning och sitemap; rapport för `h1` | 📄 Google Search Central (unika, beskrivande titlar); 📄 $10K Website Kit, Websites for Normal People (fallgrop 122). En `h1` är egen kodstandard 🔧, inget Google-krav |

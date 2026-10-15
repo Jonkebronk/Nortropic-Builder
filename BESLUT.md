@@ -470,3 +470,13 @@ Johnny:
 > Ja
 
 **Innebär:** Ändringarna är införda i `2-8-teknik-och-kvalitet.md` och `bilaga-c-kontroller.md` (C4). N1 har fortfarande tio kontroller.
+
+## 2026-10-15: Förvaltning – första rapporten övas på formen i övningssajterna
+
+**Status:** gäller.
+
+Claude föreslog vid genomläsningen av `guide/2-9-drift-och-forvaltning.md` att den första rapporten i övningssajterna övas på formen. Den använder det som faktiskt finns: kontroll 4, Lighthouse, ändringar, tid och firmans offentliga siffror som baslinje. Det som bara kan mätas efter en riktig lansering står som *mäts efter lansering* och hittas aldrig på. Johnny:
+
+> Ja
+
+**Innebär:** Regeln är införd i `2-9-drift-och-forvaltning.md` (N1) och i `5-byggplan.md`, steg 6. Alla nio lagren är genomlästa med Johnny.
