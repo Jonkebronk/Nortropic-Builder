@@ -1,0 +1,584 @@
+<title>Johnnys måttstock</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --bg: #f4f2ee;
+    --yta: #ffffff;
+    --yta-2: #ebe8e2;
+    --text: #1d1c1a;
+    --text-2: #5f5b55;
+    --linje: #d9d5cd;
+    --accent: #1f4fd1;
+    --gron: #1d7a46;
+    --gron-yta: #e3f3e9;
+    --rod: #b3261e;
+    --rod-yta: #fbe7e5;
+    --skugga: 0 1px 2px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.06);
+    --topp: 60px;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #161615;
+      --yta: #201f1d;
+      --yta-2: #2a2926;
+      --text: #ecebe8;
+      --text-2: #a8a49d;
+      --linje: #3a3834;
+      --accent: #8fb0ff;
+      --gron: #6fd39a;
+      --gron-yta: #173523;
+      --rod: #ff8a80;
+      --rod-yta: #3d1a17;
+      --skugga: 0 1px 2px rgba(0,0,0,.4);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #161615;
+    --yta: #201f1d;
+    --yta-2: #2a2926;
+    --text: #ecebe8;
+    --text-2: #a8a49d;
+    --linje: #3a3834;
+    --accent: #8fb0ff;
+    --gron: #6fd39a;
+    --gron-yta: #173523;
+    --rod: #ff8a80;
+    --rod-yta: #3d1a17;
+    --skugga: 0 1px 2px rgba(0,0,0,.4);
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  button, textarea { font: inherit; color: inherit; }
+  button { cursor: pointer; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .topp {
+    position: sticky; top: 0; z-index: 5;
+    height: var(--topp);
+    display: flex; align-items: center; gap: 16px;
+    padding: 0 20px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--linje);
+  }
+  .topp h1 { font-size: 17px; margin: 0; white-space: nowrap; }
+  .framsteg { flex: 1; display: flex; align-items: center; gap: 12px; min-width: 0; }
+  .stapel { flex: 1; max-width: 360px; height: 6px; border-radius: 3px; background: var(--yta-2); overflow: hidden; display: flex; }
+  .stapel i { display: block; height: 100%; }
+  .stapel .g { background: var(--gron); }
+  .stapel .u { background: var(--rod); }
+  #raknare { font-size: 13px; color: var(--text-2); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .vy-knapp {
+    border: 1px solid var(--linje); background: var(--yta);
+    border-radius: 8px; padding: 6px 12px; font-size: 14px;
+  }
+
+  .banner {
+    margin: 12px 20px 0; padding: 10px 14px; border-radius: 8px;
+    background: var(--rod-yta); color: var(--text); border: 1px solid var(--rod);
+    font-size: 14px;
+  }
+
+  /* Bedömningsvyn */
+  .bedom {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 300px) 320px;
+    gap: 16px;
+    padding: 16px 20px;
+    align-items: start;
+  }
+  figure { margin: 0; min-width: 0; }
+  figcaption { font-size: 12px; color: var(--text-2); margin-bottom: 6px; letter-spacing: .02em; }
+  .ram {
+    max-height: calc(100vh - var(--topp) - 56px);
+    overflow-y: auto;
+    background: var(--yta);
+    border: 1px solid var(--linje);
+    border-radius: 10px;
+    box-shadow: var(--skugga);
+  }
+  .ram img { display: block; width: 100%; height: auto; }
+  .ram .saknas { padding: 24px; color: var(--text-2); font-size: 14px; }
+
+  .panel {
+    position: sticky; top: calc(var(--topp) + 16px);
+    background: var(--yta);
+    border: 1px solid var(--linje);
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: var(--skugga);
+  }
+  .nr { font-size: 12px; color: var(--text-2); margin: 0 0 4px; font-variant-numeric: tabular-nums; }
+  .panel h2 { font-size: 20px; line-height: 1.25; margin: 0 0 4px; overflow-wrap: anywhere; }
+  #meta { margin: 0 0 8px; color: var(--text-2); font-size: 14px; }
+  #lank { color: var(--accent); font-size: 14px; text-decoration: none; overflow-wrap: anywhere; }
+  #lank:hover { text-decoration: underline; }
+  .domar { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 18px 0 14px; }
+  .domar button {
+    padding: 12px 8px; border-radius: 10px; font-weight: 600;
+    border: 1.5px solid var(--linje); background: var(--yta);
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+  }
+  .domar kbd { font: 11px/1 ui-monospace, monospace; color: var(--text-2); font-weight: 400; }
+  .domar [data-dom="godkand"][aria-pressed="true"] { border-color: var(--gron); background: var(--gron-yta); color: var(--gron); }
+  .domar [data-dom="underkand"][aria-pressed="true"] { border-color: var(--rod); background: var(--rod-yta); color: var(--rod); }
+  .domar button:disabled { opacity: .5; cursor: not-allowed; }
+  label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+  textarea {
+    width: 100%; resize: vertical; min-height: 120px;
+    padding: 10px; border-radius: 8px;
+    border: 1px solid var(--linje); background: var(--bg);
+  }
+  #sparstatus { min-height: 20px; font-size: 12px; color: var(--text-2); margin: 6px 0 12px; }
+  .steg { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .steg button, .nasta-obedomd {
+    padding: 8px; border-radius: 8px; border: 1px solid var(--linje); background: var(--yta-2); font-size: 14px;
+  }
+  .nasta-obedomd { width: 100%; margin-top: 8px; }
+  .tips { font-size: 12px; color: var(--text-2); margin: 14px 0 0; }
+
+  /* Introduktionen */
+  .intro {
+    margin: 16px 20px 0; padding: 14px 18px;
+    background: var(--yta); border: 1px solid var(--linje); border-radius: 12px;
+    font-size: 14px; max-width: 980px;
+  }
+  .intro p { margin: 0 0 8px; }
+  .intro p:last-of-type { margin-bottom: 10px; }
+  .intro button { border: 1px solid var(--linje); background: var(--yta-2); border-radius: 8px; padding: 6px 12px; font-size: 14px; }
+
+  /* Översikten */
+  .oversikt { padding: 16px 20px 40px; }
+  .filter { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px; }
+  .filter button { border: 1px solid var(--linje); background: var(--yta); border-radius: 999px; padding: 5px 12px; font-size: 13px; }
+  .filter button[aria-pressed="true"] { background: var(--text); color: var(--bg); border-color: var(--text); }
+  .filter .hoger { margin-left: auto; }
+  .kort-lista { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+  .kort {
+    text-align: left; padding: 0; overflow: hidden;
+    background: var(--yta); border: 1px solid var(--linje); border-radius: 10px;
+    display: flex; flex-direction: column;
+  }
+  .kort img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; display: block; background: var(--yta-2); }
+  .kort .text { padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 4px; }
+  .kort strong { font-size: 14px; overflow-wrap: anywhere; }
+  .kort .kritik { font-size: 12px; color: var(--text-2); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .bricka { align-self: flex-start; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: var(--yta-2); color: var(--text-2); }
+  .bricka.godkand { background: var(--gron-yta); color: var(--gron); }
+  .bricka.underkand { background: var(--rod-yta); color: var(--rod); }
+  .export { margin-top: 16px; }
+  .export textarea { min-height: 200px; font: 12px/1.45 ui-monospace, monospace; }
+
+  @media (max-width: 1100px) {
+    .bedom { grid-template-columns: minmax(0, 1fr) minmax(0, 220px); }
+    .panel { grid-column: 1 / -1; position: static; order: -1; }
+  }
+  @media (max-width: 640px) {
+    .topp { padding: 0 16px; gap: 10px; }
+    .topp h1 { font-size: 15px; }
+    .stapel, #raknare .extra { display: none; }
+    .bedom { grid-template-columns: 1fr; padding: 12px 16px; }
+    .ram { max-height: 70vh; }
+    .intro, .banner { margin-left: 16px; margin-right: 16px; }
+    .oversikt { padding: 12px 16px 32px; }
+    .kort-lista { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  }
+</style>
+
+<header class="topp">
+  <h1>Johnnys måttstock</h1>
+  <div class="framsteg">
+    <div class="stapel" aria-hidden="true"><i class="g" id="stapelG"></i><i class="u" id="stapelU"></i></div>
+    <span id="raknare"></span>
+  </div>
+  <button class="vy-knapp" id="vyKnapp" type="button">Översikt</button>
+</header>
+
+<div class="banner" id="banner" hidden></div>
+
+<section class="intro" id="intro" hidden>
+  <p><strong>Hade du varit nöjd om Nortropic levererat den här sajten till en kund?</strong> Svara godkänd eller underkänd och skriv kort vad som avgjorde, med dina egna ord. Det finns inga rätta svar. Domarna och kritiken blir din måttstock och granskarens kalibrering.</p>
+  <p>Varje sajt visas med hela startsidan i dator och mobil. Scrolla i bilderna, eller öppna sajten live. Ordningen är blandad med avsikt. Allt sparas när du väljer en dom eller slutar skriva, så du kan sluta när du vill och fortsätta senare.</p>
+  <button type="button" id="introOk">Börja</button>
+</section>
+
+<main class="bedom" id="bedomVy">
+  <figure>
+    <figcaption>Dator · hela startsidan</figcaption>
+    <div class="ram" id="ramD"><img id="bildD" alt=""></div>
+  </figure>
+  <figure>
+    <figcaption>Mobil · hela startsidan</figcaption>
+    <div class="ram" id="ramM"><img id="bildM" alt=""></div>
+  </figure>
+  <aside class="panel" aria-label="Din bedömning">
+    <p class="nr" id="nr"></p>
+    <h2 id="namn"></h2>
+    <p id="meta"></p>
+    <a id="lank" target="_blank" rel="noopener noreferrer"></a>
+    <div class="domar" role="group" aria-label="Din dom">
+      <button type="button" data-dom="godkand" aria-pressed="false">Godkänd <kbd>G</kbd></button>
+      <button type="button" data-dom="underkand" aria-pressed="false">Underkänd <kbd>U</kbd></button>
+    </div>
+    <label for="kritik">Kort kritik</label>
+    <textarea id="kritik" rows="5" placeholder="Vad avgör? Det som gör den bra eller dålig."></textarea>
+    <p id="sparstatus" aria-live="polite"></p>
+    <div class="steg">
+      <button type="button" id="forra">← Föregående</button>
+      <button type="button" id="nasta">Nästa →</button>
+    </div>
+    <button type="button" class="nasta-obedomd" id="nastaObedomd">Nästa obedömda</button>
+    <p class="tips">Tangenter: G och U dömer, pilarna bläddrar, K hoppar till kritiken. Ctrl+Enter i kritiken går vidare.</p>
+  </aside>
+</main>
+
+<section class="oversikt" id="oversiktVy" hidden>
+  <div class="filter" role="group" aria-label="Visa">
+    <button type="button" data-filter="alla" aria-pressed="true">Alla</button>
+    <button type="button" data-filter="obedomda" aria-pressed="false">Obedömda</button>
+    <button type="button" data-filter="godkand" aria-pressed="false">Godkända</button>
+    <button type="button" data-filter="underkand" aria-pressed="false">Underkända</button>
+    <button type="button" class="hoger vy-knapp" id="kopiera">Kopiera alla som text</button>
+  </div>
+  <div class="kort-lista" id="kortLista"></div>
+  <div class="export" id="export" hidden>
+    <label for="exportText">Bedömningarna som text – markera och kopiera</label>
+    <textarea id="exportText" readonly></textarea>
+  </div>
+</section>
+
+<script type="application/json" id="sajter">/*SAJTER*/</script>
+<script>
+(() => {
+  const SAJTER = JSON.parse(document.getElementById('sajter').textContent);
+  const $ = (s) => document.querySelector(s);
+  const LS = 'mattstock-v1';
+  const SAMLING = 'bedomningar';
+
+  const tillstand = {};   // id -> { dom, kritik }
+  const skrivet = {};     // id -> senast sparade [dom, kritik] som JSON
+  const kedjor = {};      // id -> skrivkedja, en skrivning åt gången per dokument
+  const vantar = {};      // id -> antal skrivningar som inte är klara
+  let idx = 0;
+  let db = null;
+  let lage = 'laddar';    // 'db' | 'lokal'
+  let kanSkriva = true;
+  let anvandarId = null;
+  let kritikTimer = null;
+  let filter = 'alla';
+
+  const kritikEl = $('#kritik');
+
+  function las(nyckel) { try { return localStorage.getItem(nyckel); } catch { return null; } }
+  function spara(nyckel, v) { try { localStorage.setItem(nyckel, v); } catch {} }
+
+  function status(t) { $('#sparstatus').textContent = t; }
+  function banner(t) { const b = $('#banner'); b.textContent = t; b.hidden = !t; }
+  function visningsUrl(u) { return u.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, ''); }
+
+  // ---------- Räknare och framsteg ----------
+  function raknaOm() {
+    let g = 0, u = 0;
+    for (const s of SAJTER) {
+      const d = tillstand[s.id] && tillstand[s.id].dom;
+      if (d === 'godkand') g++; else if (d === 'underkand') u++;
+    }
+    const n = SAJTER.length;
+    const r = $('#raknare'); r.textContent = `${g + u} av ${n} bedömda`;
+    const extra = document.createElement('span'); extra.className = 'extra';
+    extra.textContent = ` · ${g} godkända · ${u} underkända`; r.append(extra);
+    $('#stapelG').style.width = (100 * g / n) + '%';
+    $('#stapelU').style.width = (100 * u / n) + '%';
+    if (!$('#oversiktVy').hidden) ritaOversikt();
+  }
+
+  // ---------- Bedömningsvyn ----------
+  function satBild(img, ram, src) {
+    const gammal = ram.querySelector('.saknas'); if (gammal) gammal.remove();
+    img.hidden = false;
+    img.onerror = () => {
+      img.hidden = true;
+      const p = document.createElement('p'); p.className = 'saknas';
+      p.textContent = 'Bilden saknas. Öppna sajten live.';
+      ram.appendChild(p);
+    };
+    img.src = src;
+  }
+
+  function forladda(i) {
+    const s = SAJTER[(i + SAJTER.length) % SAJTER.length];
+    if (!s) return;
+    new Image().src = `skarmar/${s.id}-hel.jpg`;
+    new Image().src = `skarmar/${s.id}-m.jpg`;
+  }
+
+  function ritaDom() {
+    const s = SAJTER[idx];
+    const d = tillstand[s.id] && tillstand[s.id].dom;
+    for (const b of document.querySelectorAll('.domar button')) {
+      b.setAttribute('aria-pressed', String(b.dataset.dom === d));
+      b.disabled = !kanSkriva;
+    }
+    kritikEl.readOnly = !kanSkriva;
+  }
+
+  function visa(i) {
+    flushKritik();
+    idx = (i + SAJTER.length) % SAJTER.length;
+    const s = SAJTER[idx];
+    $('#nr').textContent = `Sajt ${idx + 1} av ${SAJTER.length}`;
+    $('#namn').textContent = s.namn;
+    $('#meta').textContent = [s.bransch, s.ort].filter(Boolean).join(' · ');
+    const a = $('#lank'); a.href = s.url; a.textContent = visningsUrl(s.url) + ' ↗';
+    $('#bildD').alt = `Startsidan för ${s.namn} i dator`;
+    $('#bildM').alt = `Startsidan för ${s.namn} i mobil`;
+    satBild($('#bildD'), $('#ramD'), `skarmar/${s.id}-hel.jpg`);
+    satBild($('#bildM'), $('#ramM'), `skarmar/${s.id}-m.jpg`);
+    $('#ramD').scrollTop = 0; $('#ramM').scrollTop = 0;
+    kritikEl.value = (tillstand[s.id] && tillstand[s.id].kritik) || '';
+    status(skrivet[s.id] ? 'Sparad' : '');
+    ritaDom();
+    spara(LS + '-sajt', s.id);
+    forladda(idx + 1);
+  }
+
+  function nastaObedomd() {
+    for (let k = 1; k <= SAJTER.length; k++) {
+      const j = (idx + k) % SAJTER.length;
+      const t = tillstand[SAJTER[j].id];
+      if (!t || !t.dom) return visa(j);
+    }
+    status('Alla sajter är bedömda.');
+  }
+
+  // ---------- Sparande ----------
+  function kropp(id) {
+    const t = tillstand[id] || {};
+    const s = SAJTER.find((x) => x.id === id);
+    const b = { dom: t.dom || null, kritik: t.kritik || '', namn: s.namn, url: s.url, tid: new Date().toISOString() };
+    if (anvandarId) b.av = anvandarId;
+    return b;
+  }
+  const nyckel = (b) => JSON.stringify([b.dom, b.kritik]);
+
+  function vanta(ms) { return new Promise((r) => setTimeout(r, ms)); }
+
+  async function setMedOmforsok(ref, b) {
+    try { await ref.set(b); }
+    catch (e) {
+      if (e && e.code === 'unavailable') { await vanta(400 + Math.random() * 800); await ref.set(b); }
+      else throw e;
+    }
+  }
+
+  function hanteraFel(e) {
+    const kod = e && e.code;
+    if (kod === 'invalid_argument') {
+      kanSkriva = false; ritaDom();
+      banner('Du kan läsa bedömningarna men inte spara här.');
+    } else if (kod === 'quota_exceeded') {
+      banner('Lagringen är full, så bedömningen sparades inte. Säg till Claude.');
+    } else if (kod === 'revoked' || kod === 'not_granted' || kod === 'capability_disabled' || kod === 'capability_removed') {
+      kanSkriva = false; ritaDom();
+      banner('Bedömningarna kan inte längre sparas i den här vyn. Ladda om sidan.');
+    } else {
+      status('Kunde inte spara. Försök igen.');
+    }
+  }
+
+  async function skrivNu(id) {
+    const b = kropp(id);
+    if (skrivet[id] === nyckel(b)) return;
+    if (!db) {
+      spara(LS, JSON.stringify(tillstand));
+      skrivet[id] = nyckel(b);
+      if (SAJTER[idx].id === id) status('Sparad i den här webbläsaren');
+      return;
+    }
+    try {
+      await setMedOmforsok(db.collection(SAMLING).doc(id), b);
+      skrivet[id] = nyckel(b);
+      if (SAJTER[idx].id === id) status('Sparad');
+    } catch (e) { hanteraFel(e); }
+  }
+
+  let dbKlar = Promise.resolve();
+  function skriv(id) {
+    if (!kanSkriva) return;
+    if (SAJTER[idx].id === id) status('Sparar…');
+    vantar[id] = (vantar[id] || 0) + 1;
+    kedjor[id] = (kedjor[id] || dbKlar).then(() => skrivNu(id)).finally(() => { vantar[id]--; });
+  }
+
+  function bedom(dom) {
+    if (!kanSkriva) return;
+    const s = SAJTER[idx];
+    clearTimeout(kritikTimer); kritikTimer = null;
+    tillstand[s.id] = { ...(tillstand[s.id] || {}), dom, kritik: kritikEl.value.trim() };
+    ritaDom(); raknaOm();
+    skriv(s.id);
+  }
+
+  function flushKritik() {
+    clearTimeout(kritikTimer); kritikTimer = null;
+    const s = SAJTER[idx]; if (!s || !kanSkriva) return;
+    const v = kritikEl.value.trim();
+    const t = tillstand[s.id] || {};
+    if ((t.kritik || '') === v) return;
+    tillstand[s.id] = { ...t, kritik: v };
+    skriv(s.id);
+  }
+
+  kritikEl.addEventListener('input', () => {
+    clearTimeout(kritikTimer);
+    kritikTimer = setTimeout(flushKritik, 900);
+  });
+  kritikEl.addEventListener('blur', flushKritik);
+  window.addEventListener('pagehide', flushKritik);
+
+  // ---------- Översikten ----------
+  function ritaOversikt() {
+    const lista = $('#kortLista');
+    lista.textContent = '';
+    SAJTER.forEach((s, i) => {
+      const t = tillstand[s.id] || {};
+      if (filter === 'obedomda' && t.dom) return;
+      if ((filter === 'godkand' || filter === 'underkand') && t.dom !== filter) return;
+      const kort = document.createElement('button');
+      kort.type = 'button'; kort.className = 'kort';
+      const img = document.createElement('img');
+      img.loading = 'lazy'; img.alt = ''; img.src = `skarmar/${s.id}-d.jpg`;
+      const text = document.createElement('span'); text.className = 'text';
+      const bricka = document.createElement('span');
+      bricka.className = 'bricka' + (t.dom ? ' ' + t.dom : '');
+      bricka.textContent = t.dom === 'godkand' ? 'Godkänd' : t.dom === 'underkand' ? 'Underkänd' : 'Obedömd';
+      const namn = document.createElement('strong'); namn.textContent = `${i + 1}. ${s.namn}`;
+      text.append(bricka, namn);
+      if (t.kritik) { const k = document.createElement('span'); k.className = 'kritik'; k.textContent = t.kritik; text.append(k); }
+      kort.append(img, text);
+      kort.addEventListener('click', () => { vaxla(false); visa(i); });
+      lista.append(kort);
+    });
+  }
+
+  function vaxla(oversikt) {
+    if (oversikt) flushKritik();
+    $('#oversiktVy').hidden = !oversikt;
+    $('#bedomVy').hidden = oversikt;
+    $('#vyKnapp').textContent = oversikt ? 'Bedöm' : 'Översikt';
+    if (oversikt) ritaOversikt();
+    window.scrollTo(0, 0);
+  }
+
+  $('#vyKnapp').addEventListener('click', () => vaxla($('#oversiktVy').hidden));
+  for (const b of document.querySelectorAll('.filter [data-filter]')) {
+    b.addEventListener('click', () => {
+      filter = b.dataset.filter;
+      for (const x of document.querySelectorAll('.filter [data-filter]')) x.setAttribute('aria-pressed', String(x === b));
+      ritaOversikt();
+    });
+  }
+
+  $('#kopiera').addEventListener('click', async () => {
+    const rader = [`Johnnys måttstock – ${new Date().toLocaleDateString('sv-SE')}`, ''];
+    SAJTER.forEach((s, i) => {
+      const t = tillstand[s.id] || {};
+      const dom = t.dom === 'godkand' ? 'GODKÄND' : t.dom === 'underkand' ? 'UNDERKÄND' : 'obedömd';
+      rader.push(`${s.id} · ${s.namn} · ${s.url}`, `${dom}${t.kritik ? ': ' + t.kritik : ''}`, '');
+    });
+    const text = rader.join('\n');
+    const ex = $('#export'); const ta = $('#exportText');
+    ta.value = text; ex.hidden = false;
+    try { await navigator.clipboard.writeText(text); $('#kopiera').textContent = 'Kopierat'; }
+    catch { ta.focus(); ta.select(); }
+  });
+
+  // ---------- Knappar och tangenter ----------
+  for (const b of document.querySelectorAll('.domar button')) b.addEventListener('click', () => bedom(b.dataset.dom));
+  $('#forra').addEventListener('click', () => visa(idx - 1));
+  $('#nasta').addEventListener('click', () => visa(idx + 1));
+  $('#nastaObedomd').addEventListener('click', nastaObedomd);
+  $('#introOk').addEventListener('click', () => { $('#intro').hidden = true; spara(LS + '-intro', '1'); });
+
+  document.addEventListener('keydown', (e) => {
+    if ($('#bedomVy').hidden) return;
+    const iText = e.target === kritikEl;
+    if (iText) {
+      if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); flushKritik(); kritikEl.blur(); visa(idx + 1); }
+      else if (e.key === 'Escape') kritikEl.blur();
+      return;
+    }
+    if (e.ctrlKey || e.metaKey || e.altKey || (e.target.closest && e.target.closest('input, textarea, select'))) return;
+    const k = e.key.toLowerCase();
+    if (k === 'g') bedom('godkand');
+    else if (k === 'u') bedom('underkand');
+    else if (e.key === 'ArrowRight') visa(idx + 1);
+    else if (e.key === 'ArrowLeft') visa(idx - 1);
+    else if (k === 'k') { e.preventDefault(); kritikEl.focus(); }
+    else return;
+  });
+
+  // ---------- Start ----------
+  const startId = las(LS + '-sajt');
+  const startIdx = Math.max(0, SAJTER.findIndex((s) => s.id === startId));
+  if (!las(LS + '-intro')) $('#intro').hidden = false;
+  raknaOm();
+  visa(startIdx);
+
+  const c = window.claude;
+  const anvandarLofte = c && c.use ? c.use('user').catch(() => null) : Promise.resolve(null);
+  dbKlar = (c && c.use ? c.use('db').catch(() => null) : Promise.resolve(null)).then(async (d) => {
+    db = d;
+    const anv = await anvandarLofte;
+    if (anv) {
+      try { anvandarId = await anv.id(); } catch {}
+      try { if ((await anv.can('data.write')) === false) { kanSkriva = false; banner('Du kan läsa bedömningarna men inte spara här.'); } } catch {}
+    }
+    if (!db) {
+      lage = 'lokal';
+      banner('Bedömningarna kan inte sparas på servern i den här vyn. De sparas i den här webbläsaren – använd Kopiera alla som text i översikten och klistra in till Claude.');
+      let lokalt = {};
+      try { lokalt = JSON.parse(las(LS) || '{}') || {}; } catch {}
+      for (const s of SAJTER) if (lokalt[s.id]) {
+        const t = lokalt[s.id];
+        tillstand[s.id] = { dom: t.dom || null, kritik: t.kritik || '' };
+        skrivet[s.id] = nyckel({ dom: tillstand[s.id].dom, kritik: tillstand[s.id].kritik });
+      }
+      raknaOm(); visa(idx);
+      return;
+    }
+    lage = 'db';
+    db.collection(SAMLING).onSnapshot((snap) => {
+      let andrad = false;
+      for (const d of snap.docs) {
+        const data = d.data();
+        if (!data || !SAJTER.some((s) => s.id === d.id)) continue;
+        if (vantar[d.id] > 0) continue;
+        const ny = { dom: data.dom === 'godkand' || data.dom === 'underkand' ? data.dom : null,
+                     kritik: typeof data.kritik === 'string' ? data.kritik : '' };
+        const aktiv = SAJTER[idx].id === d.id && (document.activeElement === kritikEl || kritikTimer);
+        const lokal = tillstand[d.id] || {};
+        tillstand[d.id] = aktiv ? { ...lokal, dom: ny.dom } : ny;
+        skrivet[d.id] = nyckel(ny);
+        andrad = true;
+        if (SAJTER[idx].id === d.id) {
+          if (!aktiv) kritikEl.value = ny.kritik;
+          ritaDom();
+        }
+      }
+      if (andrad) raknaOm();
+    }, (e) => {
+      if (e && e.code === 'revoked') { kanSkriva = false; ritaDom(); banner('Bedömningarna kan inte längre sparas i den här vyn. Ladda om sidan.'); }
+      else banner('Kontakten med lagringen bröts. Ladda om sidan innan du fortsätter.');
+    });
+    ritaDom();
+  });
+})();
+</script>

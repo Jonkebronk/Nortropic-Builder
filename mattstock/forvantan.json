@@ -1,0 +1,357 @@
+{
+ "registrerad": "2026-10-15",
+ "not": "Claudes förväntan per sajt, registrerad innan Johnny dömde. stark/medel väntas oftare godkännas; svag/ai-generisk väntas underkännas. s23, s25 och s31 gick inte att fånga och byttes mot reserverna s22, s43 och s37 ur samma kandidatlista.",
+ "sajter": [
+  {
+   "id": "s07",
+   "namn": "Kroppsbalans",
+   "url": "https://www.kroppsbalans.com/",
+   "kategori": "nisch",
+   "hittad_via": "massage Luleå massör",
+   "claude_forvantan": "stark",
+   "motivering": "Varmt eget foto, egen grafisk profil med stämpelknappar och separata boka-knappar per ort."
+  },
+  {
+   "id": "s12",
+   "namn": "Kajens Café",
+   "url": "https://kajenscafe.se/",
+   "kategori": "nisch",
+   "hittad_via": "café Västerås",
+   "claude_forvantan": "stark",
+   "motivering": "Eget stämningsfoto från kajen, tydliga knappar för meny och hitta hit, modern typografi med karaktär."
+  },
+  {
+   "id": "s13",
+   "namn": "Bright Tandhälsa",
+   "url": "https://brighttandhalsa.se/",
+   "kategori": "nisch",
+   "hittad_via": "tandläkare Linköping",
+   "claude_forvantan": "stark",
+   "motivering": "Stort äkta teamfoto och redaktionell typografi som bygger förtroende, med Boka tid alltid synlig."
+  },
+  {
+   "id": "s16",
+   "namn": "Advokat Kierkegaard",
+   "url": "https://advokatkierkegaard.se/",
+   "kategori": "nisch",
+   "hittad_via": "advokatbyrå Karlstad",
+   "claude_forvantan": "stark",
+   "motivering": "Drönarvideo över Karlstad och elegant serif-typografi ger en lokal och seriös känsla."
+  },
+  {
+   "id": "s21",
+   "namn": "Salt Studio",
+   "url": "https://www.saltstudio.nu/",
+   "kategori": "nisch",
+   "hittad_via": "restaurang Gävle lunch",
+   "claude_forvantan": "stark",
+   "motivering": "Redaktionell svartvit design med veckans lunch direkt på startsidan – personlig men okonventionell navigering."
+  },
+  {
+   "id": "s27",
+   "namn": "Looking Good Stockholm",
+   "url": "https://looking-good.se/",
+   "kategori": "nisch",
+   "hittad_via": "hudvårdssalong Stockholm ansiktsbehandling",
+   "claude_forvantan": "stark",
+   "motivering": "Elegant och lugn med äkta salongsfoto, tydlig meny och förtroendeskapande text om certifieringar."
+  },
+  {
+   "id": "s30",
+   "namn": "Rosendal & Folk Cykel",
+   "url": "https://www.rosendalcykel.se/",
+   "kategori": "nisch",
+   "hittad_via": "cykelbutik cykelverkstad Uppsala",
+   "claude_forvantan": "stark",
+   "motivering": "Framer-sajt med bokningskalender direkt på startsidan, priser i text och snygg typografi."
+  },
+  {
+   "id": "s32",
+   "namn": "Fungera",
+   "url": "https://www.fungera.info/",
+   "kategori": "nisch",
+   "hittad_via": "fysioterapeut Göteborg klinik",
+   "claude_forvantan": "stark",
+   "motivering": "Lugn Webflow-sajt med äkta teamfoto och tydlig rubrik, men knapparna har låg kontrast."
+  },
+  {
+   "id": "s50",
+   "namn": "Jursla Rör",
+   "url": "https://jurslaror.se/",
+   "kategori": "nisch",
+   "hittad_via": "rörmokare Norrköping VVS firma",
+   "claude_forvantan": "stark",
+   "motivering": "Modern och tydlig med jourtelefon, fast pris och garanti ovanför vecket, men stockbild och lite mallmässig byråkänsla."
+  },
+  {
+   "id": "s53",
+   "namn": "Lundqvist El",
+   "url": "https://lundqvistel.se/",
+   "kategori": "nisch",
+   "hittad_via": "elektriker Uppsala",
+   "claude_forvantan": "stark",
+   "motivering": "Äkta foto på egen elektriker, tydlig offert-CTA och Google-betyg direkt under menyn."
+  },
+  {
+   "id": "s08",
+   "namn": "Stångå Tandklinik",
+   "url": "https://stangatandklinik.se/",
+   "kategori": "nisch",
+   "hittad_via": "tandläkare Linköping",
+   "claude_forvantan": "medel",
+   "motivering": "Tydliga CTA:er (boka online, telefon) och adress, men blå overlay över suddigt foto känns mallmässigt."
+  },
+  {
+   "id": "s37",
+   "namn": "FE Måleri",
+   "url": "https://femaleri.se/",
+   "kategori": "nisch",
+   "hittad_via": "målare Umeå måleri",
+   "claude_forvantan": "medel",
+   "motivering": "Stark äkta bild på ägarna men saknar viewport-tagg (sämre i mobil) och har otydlig rubrik och CTA."
+  },
+  {
+   "id": "s34",
+   "namn": "Diamond Hair",
+   "url": "http://diamondhair.se/",
+   "kategori": "nisch",
+   "hittad_via": "frisör Malmö salong",
+   "claude_forvantan": "medel",
+   "motivering": "Dramatisk helskärmsbild med bara logga – stark stämning men ingen information eller bokning ovanför vecket."
+  },
+  {
+   "id": "s45",
+   "namn": "Gustafsbro",
+   "url": "https://www.gustafsbro.se/",
+   "kategori": "nisch",
+   "hittad_via": "restaurang Gävle lunch",
+   "claude_forvantan": "medel",
+   "motivering": "Mallmässig suddig hero, men dagens lunch med pris och öppettider syns direkt."
+  },
+  {
+   "id": "s54",
+   "namn": "Acreda",
+   "url": "https://acreda.se/",
+   "kategori": "nisch",
+   "hittad_via": "redovisningsbyrå Örebro",
+   "claude_forvantan": "medel",
+   "motivering": "Äkta kontorsfoto och personlig ton ('sväng förbi på en kopp kaffe'), men liten text och otydlig huvud-CTA."
+  },
+  {
+   "id": "s35",
+   "namn": "Cederins Guld",
+   "url": "https://www.cederinsguld.se/",
+   "kategori": "nisch",
+   "hittad_via": "guldsmed butik Örebro",
+   "claude_forvantan": "medel",
+   "motivering": "Äkta skyltfoto och tydlig meny, men svårläst skrivstilstext på grön textur."
+  },
+  {
+   "id": "s02",
+   "namn": "Torsokliniken",
+   "url": "https://torsokliniken.se/",
+   "kategori": "nisch",
+   "hittad_via": "kiropraktor Malmö",
+   "claude_forvantan": "svag",
+   "motivering": "Divi-tema där heron bara visar logga, Turning Torso och 'följ oss på sociala medier' i stället för ett erbjudande."
+  },
+  {
+   "id": "s04",
+   "namn": "MB Bygg AB",
+   "url": "https://www.mbbyggab.se/",
+   "kategori": "nisch",
+   "hittad_via": "snickare Västerås byggfirma",
+   "claude_forvantan": "svag",
+   "motivering": "Daterad concrete5-sajt med generisk stockbild på 'hantverkare' och formulärtung hero."
+  },
+  {
+   "id": "s20",
+   "namn": "Kjellstrands Redovisningsbyrå",
+   "url": "https://www.kjellstrands.se/",
+   "kategori": "nisch",
+   "hittad_via": "redovisningsbyrå Örebro",
+   "claude_forvantan": "svag",
+   "motivering": "Tidigt 2010-tal: stockbild på pärm, liten seriftext och ingen viewport-tagg."
+  },
+  {
+   "id": "s33",
+   "namn": "Eriksbergs Cykel",
+   "url": "https://www.eriksbergscykel.se/",
+   "kategori": "nisch",
+   "hittad_via": "cykelbutik cykelverkstad Uppsala",
+   "claude_forvantan": "svag",
+   "motivering": "Äkta butiksfoto men amatörmässiga lagernotiser som välkomsttext, gammal WordPress och ©2018."
+  },
+  {
+   "id": "s55",
+   "namn": "Campino Pizzeria",
+   "url": "https://campinohalmstad.se/",
+   "kategori": "nisch",
+   "hittad_via": "pizzeria Halmstad meny",
+   "claude_forvantan": "svag",
+   "motivering": "Mörkt WordPress-tema med ordmoln-stockbild och tunn typografi; lunchpris finns men personligheten saknas."
+  },
+  {
+   "id": "s56",
+   "namn": "Salong Ella",
+   "url": "https://www.salongella.se/",
+   "kategori": "nisch",
+   "hittad_via": "frisör Malmö salong",
+   "claude_forvantan": "svag",
+   "motivering": "Stockporträtt i polaroidramar och långa SEO-textstycken, men telefonnummer och drop-in syns direkt."
+  },
+  {
+   "id": "s26",
+   "namn": "Citykiropraktikern",
+   "url": "https://citykiropraktikern.se/",
+   "kategori": "nisch",
+   "hittad_via": "kiropraktor Malmö",
+   "claude_forvantan": "ai-generisk",
+   "motivering": "Funktionellt med priser, öppettider och sticky CTA, men pill-taggar, gradient och kortgrid ser ut som en typisk AI-genererad Next.js-sajt."
+  },
+  {
+   "id": "s47",
+   "namn": "Klara Advokatbyrå",
+   "url": "https://www.klaraadvokatbyra.se/",
+   "kategori": "nisch",
+   "hittad_via": "advokatbyrå Karlstad",
+   "claude_forvantan": "ai-generisk",
+   "motivering": "Generiska fraser ('trygghet och expertis i varje steg') och kvarlämnade hakparenteser runt adressen tyder på oredigerad AI-text."
+  },
+  {
+   "id": "s06",
+   "namn": "ALICE Hair & Art",
+   "url": "https://www.alicehairart.se/",
+   "kategori": "forebild",
+   "hittad_via": "https://www.awwwards.com/sites/alice-hair-art",
+   "claude_forvantan": "medel",
+   "motivering": "Awwwards Honorable Mention 2025 (Framer) och konstnärligt collage – men engelska, liten text och otydlig bokningsväg."
+  },
+  {
+   "id": "s10",
+   "namn": "Lamanna's Bakery",
+   "url": "https://www.lamannabakery.com/",
+   "kategori": "forebild",
+   "hittad_via": "https://www.siteinspire.com/websites/category/cafes-bars-and-restaurants",
+   "claude_forvantan": "stark",
+   "motivering": "Extremt djärv typografi och starkt varumärke med beställ online i toppen."
+  },
+  {
+   "id": "s19",
+   "namn": "Zahnarztpraxis Natalie Herzel",
+   "url": "https://herzel-zahnarzt.de/",
+   "kategori": "forebild",
+   "hittad_via": "https://www.awwwards.com/sites/natalie-herzel-dental-clinic",
+   "claude_forvantan": "stark",
+   "motivering": "Awwwards-nominerad 2024; luftig, ljus och lugn med tydlig tidsbokning och adress i toppen."
+  },
+  {
+   "id": "s43",
+   "namn": "Rendezvous Barbers",
+   "url": "https://www.myrendezvous.ca/",
+   "kategori": "forebild",
+   "hittad_via": "https://www.awwwards.com/sites/rendezvous-barbers",
+   "claude_forvantan": "stark",
+   "motivering": "Awwwards Honorable Mention 2024; djärv typografi och färg, men huvud-CTA är bara 'Download app'."
+  },
+  {
+   "id": "s40",
+   "namn": "Hays Woodworking",
+   "url": "https://www.hayswoodworking.com/",
+   "kategori": "forebild",
+   "hittad_via": "https://www.awwwards.com/sites/hays-woodworking-group-inc",
+   "claude_forvantan": "stark",
+   "motivering": "Awwwards Honorable Mention 2025; förfinad layout med egna projektbilder som visar hantverket."
+  },
+  {
+   "id": "s41",
+   "namn": "Plomberie 5 Étoiles",
+   "url": "https://www.plomberie5etoiles.com/",
+   "kategori": "forebild",
+   "hittad_via": "https://www.awwwards.com/inspiration_search/plumber/",
+   "claude_forvantan": "stark",
+   "motivering": "Awwwards-listad rörmokare med äkta teamfoto, maskot, Google-betyg och två tydliga CTA:er."
+  },
+  {
+   "id": "s42",
+   "namn": "Pinchman's Café & Artisan Bakery",
+   "url": "https://pinchmans.ca/",
+   "kategori": "forebild",
+   "hittad_via": "https://www.awwwards.com/sites/pinchmans-cafe-bakery",
+   "claude_forvantan": "stark",
+   "motivering": "Awwwards-nominerad; stämningsfull hero med adress, telefon och beställning i toppraden."
+  },
+  {
+   "id": "s49",
+   "namn": "Bernice Bakery",
+   "url": "https://bernicebakery.com/",
+   "kategori": "forebild",
+   "hittad_via": "https://www.awwwards.com/sites/bernice-bakery",
+   "claude_forvantan": "stark",
+   "motivering": "Awwwards Honorable Mention; lekfull, djärv typografi och matfoto som säljer direkt."
+  },
+  {
+   "id": "s01",
+   "namn": "Prolific Pours",
+   "url": "https://www.prolificpours.com/",
+   "kategori": "ai",
+   "hittad_via": "https://www.makingthatwebsite.com/durable-ai-website-examples/",
+   "claude_forvantan": "ai-generisk",
+   "motivering": "Durable-byggd; snygg färgsättning men mallstruktur och generisk säljtext."
+  },
+  {
+   "id": "s11",
+   "namn": "Antalee Med Spa",
+   "url": "https://www.antalee.com/",
+   "kategori": "ai",
+   "hittad_via": "https://www.sitebuilderreport.com/inspiration/lovable-websites",
+   "claude_forvantan": "ai-generisk",
+   "motivering": "Lovable-byggd: 'Your Wellness Journey Starts Here', stockporträtt och neongröna knappar."
+  },
+  {
+   "id": "s14",
+   "namn": "Kaïven",
+   "url": "https://kaiventrouville.fr/",
+   "kategori": "ai",
+   "hittad_via": "https://madewithlovable.com/examples/restaurant-website",
+   "claude_forvantan": "medel",
+   "motivering": "Lovable-byggd men med ovanligt egen stil (AI-illustrerad meny, retrotypografi) – testfall för om AI-byggt alltid är generiskt."
+  },
+  {
+   "id": "s22",
+   "namn": "Color Wonder Balloons",
+   "url": "https://colorwonderballoons.com/",
+   "kategori": "ai",
+   "hittad_via": "https://www.makingthatwebsite.com/durable-ai-website-examples/",
+   "claude_forvantan": "ai-generisk",
+   "motivering": "Durable-byggd med typisk AI-rubrik ('Enhance Gatherings with...') och standardblock."
+  },
+  {
+   "id": "s36",
+   "namn": "NaturePure Cleaning Co.",
+   "url": "https://naturepurecleaning.com/",
+   "kategori": "ai",
+   "hittad_via": "https://www.makingthatwebsite.com/durable-ai-website-examples/",
+   "claude_forvantan": "ai-generisk",
+   "motivering": "Durable-byggd: ren men utbytbar text ('A clean so good, you can feel it') och standardstruktur."
+  },
+  {
+   "id": "s48",
+   "namn": "My Party Chef",
+   "url": "https://www.mypartychef.co.uk/",
+   "kategori": "ai",
+   "hittad_via": "https://www.wix.com/blog/best-ai-website-examples",
+   "claude_forvantan": "ai-generisk",
+   "motivering": "Wix AI-exempel med suddig hero och AI-typisk rubrik ('Where Deliciousness Meets Exceptional Service')."
+  },
+  {
+   "id": "s52",
+   "namn": "We Care Car Care",
+   "url": "https://wecarecarcare.com/",
+   "kategori": "ai",
+   "hittad_via": "https://www.sitebuilderreport.com/inspiration/lovable-websites",
+   "claude_forvantan": "ai-generisk",
+   "motivering": "Lovable-byggd med synlig 'Edit with Lovable'-badge, statistikrad och typiska AI-rubriker."
+  }
+ ]
+}

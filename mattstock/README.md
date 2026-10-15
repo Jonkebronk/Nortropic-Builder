@@ -1,6 +1,6 @@
 # Johnnys måttstock
 
-**Status:** pågår sedan 2026-10-15. Johnny bedömer 39 sajter. Därefter skriver Claude måttstocken ur domarna och Johnny godkänner den.
+**Status:** Johnny dömde de 39 sajterna 2026-10-15. Claude har skrivit måttstocken ur domarna (`mattstock.md`, utkast), och Johnny ska godkänna den.
 
 ## Vad den är och vad den används till
 
@@ -17,7 +17,7 @@ Måttstocken är Johnnys besked om vad som är en bra sajt (`BESLUT.md` 2026-10-
    - **7 AI-byggda sajter** (Durable, Lovable, Wix AI). De ligger närmast systemets egna utkast. Kalibrering på andras sajter överförs inte automatiskt till egna utkast, vilket webb-pro visade (`3-2`).
 
    Urvalet har ungefär lika många sajter som Claude väntar sig blir godkända som underkända. Utan båda sorterna går det inte att mäta andelen rätt godkända och rätt underkända.
-2. **Claudes förväntan registrerades före domarna.** Den ligger i `forvantan.json` med kategori, förväntan och motivering per sajt. Filen hålls utanför repot tills Johnny är klar, så att den inte påverkar domarna. SHA-256-summan av filen är `4782462a057ec811c16da857803876ed908ddd35044b56aff331f65a535f4ad3`. Den visar att filen inte har ändrats i efterhand. Skillnaden mellan Claudes förväntan och Johnnys dom är i sig ett resultat: den visar hur långt AI:ns smak ligger från Johnnys.
+2. **Claudes förväntan registrerades före domarna.** Den ligger i `forvantan.json` med kategori, förväntan och motivering per sajt. Filen hölls utanför repot tills Johnny var klar, så att den inte kunde påverka domarna. Den lades in efter domarna. SHA-256-summan av filen är `4782462a057ec811c16da857803876ed908ddd35044b56aff331f65a535f4ad3`. Den visar att filen inte har ändrats i efterhand. Skillnaden mellan Claudes förväntan och Johnnys dom är i sig ett resultat: den visar hur långt AI:ns smak ligger från Johnnys.
 3. **Skärmbilderna** visar hela startsidan i dator (1280 px bred) och i mobil (390 px bred). De fångades samma dag med Playwright, och kakbannern klickades bort när det gick. Johnny kan också öppna varje sajt live.
 4. **Bedömningen** görs i en privat bedömningssida på claude.ai. Frågan är: *Hade du varit nöjd om Nortropic levererat den här sajten till en kund?* Johnny svarar godkänd eller underkänd och skriver en kort kritik med egna ord. Sidan visar varken förval, kategorier eller Claudes förväntan. Ordningen är blandad med ett fast frö.
 5. **Måttstocken** skrivs ur domarna i `mattstock.md`. Johnnys kriterier står där med hans egna ord och vilka sajter som visar dem, tillsammans med skillnaderna mot Claudes förväntan. Johnny godkänner måttstocken innan den används.
@@ -35,8 +35,10 @@ Måttstocken är Johnnys besked om vad som är en bra sajt (`BESLUT.md` 2026-10-
 |---|---|
 | `README.md` | Den här filen: metoden |
 | `urval.json` | De 39 sajterna: id, namn, adress, bransch och ort |
-| `forvantan.json` | Claudes förväntan per sajt. Läggs till när Johnny är klar |
-| `domar.jsonl` | Johnnys domar och kritik. Läggs till när Johnny är klar |
-| `mattstock.md` | Måttstocken. Skrivs ur domarna |
+| `forvantan.json` | Claudes förväntan per sajt, registrerad före domarna |
+| `kandidater.json` | Alla 57 kandidater med förväntan och motivering |
+| `domar.jsonl` | Johnnys 39 domar med kritik, i urvalets ordning |
+| `mattstock.md` | Måttstocken: tre frågor, Johnnys ord och förebilder, jämförelsen med Claudes förväntan |
+| `verktyg/` | Fångstskriptet (Playwright), bedömningssidan och analysen. De går att köra igen för en ny omgång, till exempel med systemets egna utkast |
 
 Skärmbilderna finns i bedömningssidan och inte i repot. Repot är publikt, och bilderna visar andra företags sajter.

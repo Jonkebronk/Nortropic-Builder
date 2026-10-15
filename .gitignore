@@ -26,6 +26,3 @@ Thumbs.db
 # Kundsajter är egna privata repon (guide/bilaga-f-projektstruktur.md)
 sites/
 
-# Måttstocken: Claudes förväntan hålls utanför repot tills Johnny har dömt (mattstock/README.md)
-mattstock/forvantan.json
-mattstock/kandidater.json
