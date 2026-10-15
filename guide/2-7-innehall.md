@@ -78,7 +78,7 @@ Format, storlek och laddning → `2-8-teknik-och-kvalitet.md`. *WebP under 200 K
 4. **AI-genererade bilder,** även av personer, märkta enligt ärlighetsregeln (beslutet ovan).
 5. **Byrån ordnar fotografering** efter beställningen. 🔧 Kostar tid och pengar.
 
-Alternativ 2–4 går ihop med ärlighetsregeln. Vilket är standard, och får kunden välja? *Öppet – se `guide/bilaga-e-oppna-fragor.md`, fråga 1.4.*
+Kundens egna foton går först; alternativ 3 och 4 är tillåtna enligt beslutet ovan och ärlighetsregeln, och kunden får alltid välja egna foton i stället.
 
 ## Vad som kommer ut
 
