@@ -51,7 +51,15 @@ I den första sajten tas de minimala kiten fram enligt *Grundregeln* och *Tre ri
 - [N2] **7. Johnnys dom:** godkänt eller underkänt med kort kritik; bara Johnny godkänner ett kit (`historik/karta/5-yta.md`). Domen blir kalibreringsdata (→ `3-2-granskning-och-kalibrering.md`).
 - [N2] **8. Kiten måste skilja sig.** Varianter ur samma kontext är samma idé, och då är kundens val en illusion (fallgrop 77) 🎥 *ADHD-videon*. Nya kit föreslås med spridd idégenerering, och kritikern prövar dem mot de befintliga.
 
-Förslag på första kit, inte beslutat: Trygg och traditionell, Stram och modern, Varm och välkomnande, valfritt Lekfull (`historik/karta/5-yta.md`). Vilka kit och hur många i första varvet är *öppet – se `bilaga-e-oppna-fragor.md`*.
+**De tre första kiten** tas fram ur Johnnys godkända sajter i måttstocken (`BESLUT.md` 2026-10-15). Referenserna får enligt referensregeln bära layout, palett och typsnitt, men inte identitet, texter eller bilder. Varje kit är godkänt först när Johnny sett dess provsida.
+
+| Kit | Referenser i måttstocken | Johnnys ord |
+|---|---|---|
+| **Lugn och luftig** | Stångå Tandklinik, Fungera, Looking Good | *"Lugn färgskala, bra luft"*, *"Lugn, luftig typografi"*, *"Lugn, dyr känsla som passar kundgruppen"* |
+| **Varm och välkomnande** | Kroppsbalans, Kajens Café, Pinchman's | *"Grön/beige palett, handritade knappar"*, *"den handskrivna accenten"*, *"en mjuk brun/beige identitet"* |
+| **Djärv och egen** | Lamanna's, Bernice, Rendezvous | *"rött/gult, stjärnknappar"*, *"rosa/blå färger och de rundade korten"*, *"orange/serif-identiteten är helt egen"* |
+
+Kartans tidigare förslag (Trygg och traditionell, Stram och modern, Varm och välkomnande, valfritt Lekfull) ersätts. Fler kit läggs till när övningssajterna visar att det behövs.
 
 ### Spridd idégenerering
 
@@ -88,7 +96,7 @@ Används när kit föreslås, för layoutvarianter (→ `2-4-skelett.md`) och f�
 
 ### Tre riktningar till Johnny och kunden
 
-- [N1] **Tre riktningar = startsidan i tre minimala kit.** Claude väljer tre kit efter briefens ton och intryck, med en mening per kit om varför, och bygger startsidan i varje kit med kundens riktiga texter och bilder (→ `2-7-innehall.md`), i mobil och dator och sida vid sida, så att valet gäller ytan 🎥 *4 Ways-videon*. Johnny ser **mobilen först**, så att måttstockens fråga 1 prövas redan här (`mattstock/mattstock.md`; `BESLUT.md` 2026-10-15). Saknade bilder visas som en beställning till kunden, inte som lån; i webb-pro saknades materialet, och det gick inte att lösa med design 📄 `2026-10-15_webb-pro-genomgang.md`. Johnny ser riktningarna först och kan stryka, med en kort motivering i `domar.jsonl` (→ `3-2-granskning-och-kalibrering.md`); en struken riktning ersätts eller utgår. Sedan väljer kunden bland det Johnny släppt fram, och valet skrivs i `sites/<namn>/design.md` med kundens varumärkesfärg som accent och kundens egen logotyp. Ordningen gäller tills Johnny beslutar annat. 📄 `BESLUT.md` 2026-10-13 och 2026-10-15.
+- [N1] **Tre riktningar = startsidan i tre minimala kit.** Claude väljer tre kit efter briefens ton och intryck, med en mening per kit om varför, och bygger startsidan i varje kit med kundens riktiga texter och bilder (→ `2-7-innehall.md`), i mobil och dator och sida vid sida, så att valet gäller ytan 🎥 *4 Ways-videon*. Johnny ser **mobilen först**, så att måttstockens fråga 1 prövas redan här (`mattstock/mattstock.md`; `BESLUT.md` 2026-10-15). Bilderna är i första hand kundens egna; i övningssajterna firmans, från dess sajt. Saknas de används stock- eller AI-bilder enligt ärlighetsregeln (`2-7-innehall.md`; `BESLUT.md` 2026-10-15), och det som saknas antecknas ändå som en beställning till kunden; i webb-pro saknades materialet, och det gick inte att lösa med design 📄 `2026-10-15_webb-pro-genomgang.md`. Johnny ser riktningarna först och kan stryka, med en kort motivering i `domar.jsonl` (→ `3-2-granskning-och-kalibrering.md`); en struken riktning ersätts eller utgår. Sedan väljer kunden bland det Johnny släppt fram – i övningssajterna väljer Johnny i kundens ställe (`2-1-strategi.md`, *Övningsläget*) – och valet skrivs i `sites/<namn>/design.md` med kundens varumärkesfärg som accent och kundens egen logotyp. Ordningen gäller tills Johnny beslutar annat. 📄 `BESLUT.md` 2026-10-13 och 2026-10-15.
 - [N2] **Kundens egna referenser och anti-referenser**, även som skärminspelning (Meng Tos *video to super prompt*) 🎥 *designskills-videon*, styr valet av kit tillsammans med bransch, målgrupp och rörelsebudget (→ `2-1-strategi.md`).
 - [N2] **Riktningarna visar kitens provsidor** bredvid kundens sidor 🎥 *4 Ways-videon*.
 - [N2] **Kunden ser riktningarna via en skyddad förhandsvisning** (→ `2-8-teknik-och-kvalitet.md`).
@@ -148,7 +156,7 @@ Hur granskningen går till står i `3-2-granskning-och-kalibrering.md`. Här st�
 
 **Granskningskriterier**
 
-- [N1] **Konsekvens är inte karaktär.** En sida kan följa kitet och ändå se AI-genererad ut (fallgrop 85) 🎥 *Astryx-videon*. Karaktären kommer från kundens egna bilder, ord och lokala belägg (`historik/principer.md`; jfr `guide/README.md`, princip 2). Följer sidan kitet men känns generisk är det ett fynd. Leta i de fem tecknen på AI-slop: typografi, bilder, hierarki, färg och avstånd 🎥 *Jack Roberts designgeni-videon*. Båda kriterierna har en källa (bänken), så ett fynd mot dem får högst allvaret `medel` (→ `3-2-granskning-och-kalibrering.md`).
+- [N1] **Konsekvens är inte karaktär.** En sida kan följa kitet och ändå vara generisk (fallgrop 85) 🎥 *Astryx-videon*. *Generisk* betyder det Johnnys måttstock säger: första skärmen säger inte vad, var och hur, och innehållet kunde höra till vem som helst (fråga 1 och 2 i `mattstock/mattstock.md`; `guide/README.md`, princip 12). **AI-utseende i sig är inget fynd.** Johnny godkände 4 av 7 AI-byggda sajter, och Claude dömde fel om fyra sajter just för att de såg AI-gjorda ut (`BESLUT.md` 2026-10-15). Karaktären kommer från kundens egna bilder, ord och lokala belägg. Granskaren dömer i måttstockens form (→ `3-2-granskning-och-kalibrering.md`).
 - [N2] **Avstånd och linjering på pixelnivå**, med Jakub Krehels *better layout* som kriteriekälla 🎥 *designskills-videon*.
 - [N2] **Versaler bara där kitet anger det**, då med 5–12 % spärrning 📄 Butterick. Ett allmänt förbud har en källa (en källa – bänken; 🎥 *Coding Sloth-videon*, fallgrop 196).
 
@@ -162,4 +170,4 @@ I den första sajten är inget självgående: Johnny tittar på hela bygget, och
 - [N2] **Kundbygget är självgående inom kitet.** Byggaren väljer inga färger, typsnitt eller avstånd.
 - [N3] **Förnyelse:** stryker Johnny ofta samma kit, eller väljer kunder det sällan, föreslår agenten att kitet förnyas. 🔧
 
-*Öppet – se `bilaga-e-oppna-fragor.md`:* vilka kit och hur många i första varvet, licensbeslutets räckvidd, Terrazzo och `[data-kit]`, Fontshares villkor och reserverade typsnittsnamn, Stitchs kvoter, och om Claude Code läser `.agents/skills`.
+*Öppet – se `bilaga-e-oppna-fragor.md`:* licensbeslutets räckvidd, Terrazzo och `[data-kit]`, Fontshares villkor och reserverade typsnittsnamn, Stitchs kvoter, och om Claude Code läser `.agents/skills`.

@@ -36,7 +36,7 @@
 - **Nisch: bransch, paket och priser** – målgruppen är beslutad (otekniska småföretagare), men inte bransch, paketens innehåll eller priser (`4-foretaget.md`). Vilka branscher får mall först (`2-2-omfattning.md`)?
 - **Förvaltningen som abonnemang eller tjänstetrappa,** och om sajtgranskningen är ett eget betalt steg (`4-foretaget.md`).
 - **Förvaltningens huvudmått:** nordstjärnan eller kontakterna från Google-profilen (`2-9-drift-och-forvaltning.md`); prislistan som standardändring (`2-9`).
-- **Stilkit i första varvet:** vilka kit och hur många efter de tre första (`2-5-yta.md`).
+- **Stilkit efter de tre första:** de tre första är beslutade 2026-10-15 och tas fram ur måttstocken (`2-5-yta.md`). Vilka kit som följer avgör övningssajterna.
 - **Rörelse:** vad budgetnivåerna måttlig och expressiv tillåter; sidövergångar inom `no-preference`; Remotion om byrån får fler än tre anställda (licens) och i version 5.0; Scroll Worlds licens (`2-6-rorelse.md`).
 - **Planvyn:** egen HTML-sida eller samma sida som flödespanelens reservläge (`3-5-live-visning.md`).
 - **Förvaltningens nivå per kund:** svarstider, antal ändringar, rapportfrekvens (`2-9-drift-och-forvaltning.md`).

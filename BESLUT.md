@@ -403,3 +403,21 @@ Johnny:
 > Ja
 
 **Innebär:** Ändringarna är införda i `2-4-skelett.md`, både i sektionstabellen, i startsidans mall och i N1-regeln om första skärmen. Blickprovet är fortfarande ingen automatisk stoppkontroll, och Johnny avgör.
+
+## 2026-10-15: Ytlagret – bilder i riktningarna, generisk enligt måttstocken, de tre första kiten
+
+**Status:** gäller.
+
+Claude föreslog vid genomläsningen av `guide/2-5-yta.md`:
+- A. Riktningarna använder i första hand kundens egna bilder, i övningen firmans. Annars används stock- eller AI-bilder enligt ärlighetsregeln, och i övningen väljer Johnny riktning i kundens ställe.
+- B. *Generisk* betyder det måttstocken säger: första skärmen säger inte vad, var och hur, och innehållet kunde höra till vem som helst. AI-utseende i sig är inget fynd.
+- C. De tre första kiten tas fram ur Johnnys godkända sajter i måttstocken:
+  - Lugn och luftig (Stångå, Fungera, Looking Good)
+  - Varm och välkomnande (Kroppsbalans, Kajens, Pinchman's)
+  - Djärv och egen (Lamanna's, Bernice, Rendezvous)
+
+Johnny:
+
+> Ja
+
+**Innebär:** Ändringarna är införda i `2-5-yta.md`. Kartans förslag på kit ersätts. Varje kit är godkänt först när Johnny har sett dess provsida. Bilaga E frågar nu bara vilka kit som följer efter de tre första.
