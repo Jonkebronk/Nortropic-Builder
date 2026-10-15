@@ -140,13 +140,18 @@ stitch agent-skills add --user    # installerar Stitch-skillen
 | **React Component** / **shadcn** — delar upp Stitchs stora HTML-fil i komponenter med validering via skript | Beror på stackvalet (§14) |
 Videon använder Stitch via **MCP** ([davideast/stitch-mcp](https://github.com/davideast/stitch-mcp) — ett communityprojekt utan koppling till Google) 🎥; vi föredrar **CLI:t** (första videon), som tar mindre kontext. **Verifierat (📄 research 2026-10-14, `kunskap/research/2026-10-14_stitch-och-verktyg.md`):** det officiella CLI:t är npm-paketet **`@google/stitch`** (Apache-2.0, kräver Node 20+; kommandon bl.a. `login`, `generate`, `capture`, `upload`, `agent-skills add`, och en egen MCP-server via `stitch mcp install`). **Googles egna skills (`google-labs-code/stitch-skills`) kräver MCP** — regeln *CLI före MCP* gäller alltså inte fullt ut här: skillsen körs med Stitchs officiella MCP, enkla steg med CLI:t. För **obevakad körning** används **`STITCH_API_KEY`** i stället för OAuth-inloggning. Stitch är fortfarande Google Labs.
 
-### Stitch-CLI — kända kommandon ⚠️
+### Stitch-CLI — verifierade kommandon (rättat v0.74, konsolideringsanalysen M18)
+Källa: `kunskap/research/2026-10-14_stitch-och-verktyg.md` (`@google/stitch` 0.11.1). Alla kommandon har `--json`.
 | Kommando | Syfte |
 |---|---|
-| `stitch create project` | Skapa projekt |
-| `stitch generate screen --device DESKTOP\|MOBILE` | Generera skärm |
-| `stitch generate variants --creative-range REFINE\|EXPLORE\|REIMAGINE` | Varianter: förfina / närliggande / nytänk |
-| `stitch serve` | Förhandsgranska lokalt |
+| `stitch login` / `STITCH_API_KEY` | Inloggning (OAuth) / API-nyckel för obevakad körning |
+| `stitch generate screen --new-project "…" --prompt "…" --device DESKTOP\|MOBILE` | Skapa projekt och generera skärm (det finns inget `create project`) |
+| `stitch generate variants --count 1–5 --creative-range REFINE\|EXPLORE\|REIMAGINE` | Varianter: förfina / närliggande / nytänk |
+| `stitch capture <url>` → `stitch upload screen` → `stitch edit screen <id> --prompt "…"` | För in en befintlig sida och gör om den |
+| `stitch upload design DESIGN.md --project <id>` | Ladda upp `design.md` |
+| `stitch serve -p <id>` | Förhandsgranska lokalt |
+| `stitch mcp install` | Registrera Stitchs officiella MCP-server (krävs av Googles skills) |
+| `stitch agent-skills add` | Skriver SKILL.md till **`.agents/skills`**, inte `.claude/skills` — kopieras eller länkas dit. ⚠️ Hur Claude Code hanterar `.agents/skills` är inte verifierat |
 
 **Verktygsmanifest i stället för gissningar 🎥 idé (Astryx-videon) / 🔧:** Astryx Max-skillen kör designsystemets `manifest`-kommando för att ge modellen en fil över *allt som finns* — alla kommandon och flaggor — så att den inte gissar eller missar sådant den inte visste fanns 🎥. Samma princip för våra CLI:er:
 - För varje verktyg (Stitch, GitHub CLI, `wrangler`, våra egna skript) genereras ett **manifest** ur verktygets egen hjälp (`stitch --help` och varje underkommandos hjälp) och läggs i respektive skill.
@@ -163,7 +168,7 @@ Videon använder Stitch via **MCP** ([davideast/stitch-mcp](https://github.com/d
 ```
 ai-webbyggare/
 ├── CLAUDE.md                     # Flödesregler, faser, pekare till skills (rot-filen, helst under ~300 rader, §8.7)
-├── .agentignore / .gitignore     # 🔧 det agenterna aldrig ska läsa eller röra (§7.3)
+├── .gitignore                    # 🔧 det som aldrig ska i repot; läsförbud sätts med permissions.deny (§7.3)
 ├── plugin/                       # 🔧 byggsystemet paketerat som versionerat plugin (§8.8)
 ├── IMPLEMENTERINGSGUIDE.md       # Detta dokument
 ├── arbetssatt.md                 # 🔧 "Hur vi arbetar" — enda filen auto loopen får skriva om (§10.5)
@@ -273,7 +278,7 @@ Verktyg: REA:s webbläge (§11.11) eller Playwright CLI:s nätverksfångst. Allt
   - **Du tillfrågas bara** om beslut som ändrar *vad sajten är*: syfte, målgrupp, berättelse, primär handling, bransch, innehåll som bara du har.
   - **Claude avgör själv** små detaljer som är lätta att ändra senare och ligger inom det du bett om — och loggar varje sådant val som antagande (§6.5), så att du ser vad som bestämts.
   - Ger en kortare intervju utan att du tappar kontrollen.
-- **Svar från utredningar märks *sett / härlett / okänt*** (§11.11). Bara *sett* räknas som besvarat; ett *härlett* svar går till domaren (§5.3) eller dig och byggs aldrig på som fakta.
+- **Svar från utredningar märks *sett / härlett / okänt*** (§11.11). Bara *sett* räknas som besvarat **fakta**; ett *härlett* svar om fakta går till kunden, domaren (§5.3) eller dig och byggs aldrig på som fakta. Små *härledda* val som inte är fakta (t.ex. ordning på sektioner) går som antaganden (§6.5) (rättat v0.74, konsolideringsanalysen M21).
 - **Dimma → utredning, inte gissning 🎥 (Wayfinder, gauntlet-videon) / 🔧:** utöver det Claude kan härleda och det du måste svara på finns en tredje kategori: frågor som **varken du eller Claude kan svara på ännu**, för att något inte är utrett. Wayfinder kallar det *dimman* — agenten fyller annars luckan med ett eget antagande och planerar vidare som om saken var avgjord 🎥.
   - Exempel: *går kundens bokningssystem att bädda in?*, *vilken formulärtjänst klarar kraven?*, *finns bilderna i tillräcklig upplösning?*
   - Varje sådan fråga blir en **utredningsuppgift** innan briefen godkänns: läsa dokumentation, bygga en grov prototyp, eller göra en verklig uppgift som att registrera ett testkonto för att kunna bedöma en tjänst 🎥. Svaret förs in och låser upp de beslut som väntade på det. Större utredningar och branschresearch kan använda Claude Codes inbyggda arbetsflöde för **djupresearch** (fem faser) 🎥 (OS-videon) — källorna behandlas som extern text (§7.3).
@@ -389,7 +394,7 @@ Verktyg: REA:s webbläge (§11.11) eller Playwright CLI:s nätverksfångst. Allt
   - Sparas i `sites/<namn>/checkpoints.json` med status per checkpoint, en lista över **tillåtna filer** (§8.6) och **beroenden** (vilka checkpoints som måste vara klara först).
   - Varje checkpoint byggs av en **ny byggagent** med egen kontext och måste klara sina låsta kontroller innan den räknas som klar.
   - **Överlämningsdokument per checkpoint 🎥 (Handoff, fleet-videon) / 🔧:** byggaren får inte orkestrerarens chatt utan ett **kort överlämningsdokument** som *pekar på* befintliga filer i stället för att kopiera in dem 🎥: brief och relevanta kapitel, `design.md`, `design.functional.md`, checkpointens tillåtna filer, **namnen** på kontrollerna som ska gå igenom (inte testkoden, §10.2), beroenden som redan är klara, och vilka skills som ska användas. Sparas i `sites/<namn>/overlamning/<checkpoint>.md`. Agenten börjar ren och fokuserad.
-    - **Spanaren skriver dokumentet 🎥 (Goal Buddy-videon) / 🔧:** i stället för orkestreraren skriver en **spanare** — bara läsrätt, låg effort — överlämningsdokumentet. Den kartlägger checkpointens filer, beroenden och utgångsläge och lägger till ett kompakt **bevis-kvitto** (vilka filer finns, vilka kontroller som fallerar nu) 🎥. Billigt, kan inte ändra något, och håller orkestrerarens kontext ren.
+    - **Spanaren skriver dokumentet 🎥 (Goal Buddy-videon) / 🔧:** i stället för orkestreraren skriver en **spanare** — bara läsrätt, billig modell — överlämningsdokumentet. Den kartlägger checkpointens filer, beroenden och utgångsläge och lägger till ett kompakt **bevis-kvitto** (vilka filer finns, vilka kontroller som fallerar nu) 🎥. Billigt, kan inte ändra något, och håller orkestrerarens kontext ren.
   - **Status skrivs bara av orkestreraren 🎥 (Unlazy-videon) / 🔧:** byggaren får **aldrig** sätta status. När byggaren säger att den är klar kör orkestreraren checkpointens kontroller själv och skriver `klar` **tillsammans med bevis** (andra oberoende källan, skills-videon 🎥: *verifiering är inte att Claude läser sitt eget arbete och säger att det ser bra ut* — det kräver bevis utanför utkastet: skärmdump, testresultat, källa; och *din första titt ska vara agentens femte eller sjätte*) (§7.2). Status utan bevis räknas som underkänd.
   - **Storlek 🔧:** Fable-videon 🎥 visar att Fable 5.1 presterar bäst när den får slutföra en hel sak, inte många små steg — vilket krockar med Shopifys uppdelning. Mellanväg: en checkpoint är en **hel meningsfull enhet** (t.ex. ett kapitel eller hela navigeringen), aldrig ett mikrosteg. **Startvärde 🎥 (Unlazy):** varje checkpoint ska motsvara **minst cirka 10 minuters verkligt arbete** — blir delarna mindre är uppdelningen för fin. Eval (§9) justerar gränsen.
   - **Parallellt arbete 🎥 (Unlazy-videon) / 🔧:** Unlazy delade ursprungligen ut en uppgift i taget — efter 3–4 timmar fanns bara en inloggningssida; med tio parallella agenter blev hela appen klar på cirka 2 timmar 🎥. Hos oss: checkpoints vars beroenden är klara och vars **listor över tillåtna filer inte överlappar** körs samtidigt. Typiskt: grundlayouten först (ensam), därefter kapitlen parallellt, sist navigering och formulär. Överlappande fillistor → körs i följd, så att agenterna inte skriver över varandra.
@@ -407,7 +412,7 @@ Verktyg: REA:s webbläge (§11.11) eller Playwright CLI:s nätverksfångst. Allt
 ### Fas 4 — Designgranskning (`stitch-review`) 🎥
 Jämför bygget mot Stitch-designen **och** kontrollerar alla skärmstorlekar.
 - **Åtgärd 🎥:** hämta originaldesignen från Stitch → ta skärmdumpar i flera bredder → rapport sorterad med värst först → Claude rättar.
-- 🎥 Lägg en pekare till skillen och Stitch-projektets id i `CLAUDE.md` så att granskningen vet vilket projekt den ska jämföra mot.
+- Stitch-projektets id finns i `state.json`; **granskaren får det i sin uppdragsprompt** — inte via `CLAUDE.md`, som granskarna inte läser (§5.2) (rättat v0.74, konsolideringsanalysen M7).
 - 🔧 **Bredder:** 375 (mobil), 768 (surfplatta), 1280 och 1920 (dator).
 - **Stitch-exporten är prototypen 🔧:** Shopify-videon 🎥 bygger först en HTML-prototyp att jämföra mot. Vi får den från fas 2 — Stitch-exporten (HTML + bild).
 - **Två granskare parallellt 🎥:** en för **utseende** (jämför mot prototypen och `design.md`) och en för **beteende** (meny, länkar, formulär, hover, fokus). Orkestreraren slår ihop resultaten till en rapport.
@@ -426,7 +431,6 @@ Jämför bygget mot Stitch-designen **och** kontrollerar alla skärmstorlekar.
   Fynd utan element, förväntat/faktiskt eller kriterium räknas som ofullständiga och skickas tillbaka till granskaren — de går inte vidare till byggaren. **Upprätthålls med strikta scheman** när granskningen körs som arbetsflöde (§5.1): granskaren arbetar tills svaret stämmer med schemat 🎥 (OS-videon).
 - **Tre utfall per kontrollpunkt 🎥 (Reticle, repo-videon) / 🔧:** `fungerar` · `fungerar inte` · `för lite information`. Granskaren ska inte gissa när underlaget är tunt. `för lite information` är ett eget utfall som orkestreraren måste hantera — t.ex. med nya skärmdumpar, fler tillstånd eller en annan bredd — och räknas aldrig som godkänt i grinden.
 - **Grind 🔧:** inga `kritisk`/`hög` kvar. Max 3 rättningsrundor, sedan eskalering.
-- **Begränsning 🎥:** granskar bara *utseende*, inte *beteende*.
 - 🔧 **Granskningsdjup:** rättningsrundor kan få snabb granskning beroende på ändringens storlek; sista rundan är alltid full (§7.6).
 - 🔧 **Tillval — Hallmark-kontroll:** Hallmark kan granska ett befintligt bygge mot sina regler 🎥 och fånga generiska AI-mönster som `stitch-review` inte letar efter. Resultatet förs in i samma rapport med samma allvarlighetsgrader.
 
@@ -591,7 +595,7 @@ Guiden har hittills saknat grundläggande sökmotoroptimering. Allt nedan blir *
 - Inskick av sitemap till Search Console görs i fas 7 (fas 8g).
 
 ### Fas 7 — Publicering (tillval) 🎥 idé / 🔧 variant
-⚠️ Tillval tills frågan om publicering i §14 är avgjord. **Kräver alltid ditt godkännande** (§5.4) — skyddshooken blockerar deploy och `git push` för agenten (§7.3).
+Publicering **ingår** i flödet — plattformen är avgjord (Cloudflare, `BESLUT.md` 2026-10-14) och kundens väg slutar med lansering (`BESLUT.md` 2026-10-13) (rättat v0.74, konsolideringsanalysen M16). **Kräver alltid ditt godkännande** (§5.4) — skyddshooken blockerar deploy och `git push` för agenten (§7.3).
 
 1. **Säkerhetsgranskning** av hela repot. I Opus 5.5-videon hittade en skanning av hela projektet en säkerhetsrisk i formulärets e-postfält 🎥 — formulär är den del av en landningssida som oftast är sårbar. Alternativ: CodeRabbit (PR-granskning + skanning av hela repot; betalt efter 14 dagars provperiod 🎥) eller Claude Codes egen `/security-review` 🔧, eller **[Mantis](https://github.com/google/mantis)** — Googles skills för säkerhetsgranskning, uppdelade efter område, för webb- och mobilappar 🎥 (Hermes-videon) ⚠️, eller **Claude Code Security Review GitHub Action**, som videon byggde sin säkerhetsgranskare på 🎥 (Fable 5-videon) ⚠️.
    - **Den starkaste modellen** används här, oavsett effortregeln (§8.6).
@@ -673,7 +677,7 @@ Förvaltningen blir mätbar på riktigt när den kan läsa kundens data — inte
 | Koppling | Användning |
 |---|---|
 | **Google Search Console** | Fas 0b: före-mått (klick, visningar, placeringar). Fas 7: skicka in sitemap, kontrollera indexering, verifiera omdirigeringarna vid ombyggnad. Fas 8a (veckovis): indexeringsfel, nya 404:or, utveckling i sök |
-| **Google Analytics** | Värdet för kunden (fas 8a): förfrågningar och konverteringar |
+| **Google Analytics** | Bara tillval, bakom samtycke (§11.10). **Förfrågningar räknas i D1** (inskicken) och trafik med analys på serversidan; GA4 behövs inte för värdet för kunden (fas 8a) (rättat v0.74, konsolideringsanalysen M15) |
 | **Google Business Profile** | Lokala företag: öppettider och uppgifter i synk med faktabasen (§11.8) |
 | **PageSpeed Insights / CrUX** | Prestanda från riktiga användare (fas 8a) |
 | **Resend** (e-post-API) | Formulärleverans och märkta testinskick (fas 8a) |
@@ -787,7 +791,7 @@ Låt granskningsskills köras i en **separat delagent** med färsk kontext. En g
 | Roll | Läser | Skriver | Modell / effort | Källa i guiden |
 |---|---|---|---|---|
 | **Orkestrerare** | `state.json`, rapporter, bevis | `state.json`, status (enda som markerar klart) | Stark för planering | §5.1, fas 3 |
-| **Spanare** | Projektets filer | Bara överlämningsdokument | Billig, låg effort | fas 3 |
+| **Spanare** | Projektets filer | Bara överlämningsdokument | Billig modell, lägst medium (söker i filer, §8.6) | fas 3 |
 | **Byggare** | Överlämningsdokument, brief, `design.md`, faktabas — **inte** `kontroller/` | Bara tillåtna filer för checkpointen | Billig + advisor | §8.6, §10.2, §5.3 |
 | **Rättare** | Fynd, tillåtna filer | Bara tillåtna filer | Billig + advisor | fas 4, 6b |
 | **Granskare / specialister** | Referens, kriterier, skärmdumpar/video — **inte** `CLAUDE.md`, logg, rundnummer | Bara egen rapport | Efter förmåga (smak/intelligens) | §5.2, fas 4, 6 |
@@ -1010,7 +1014,7 @@ Blockering sker genom att skriptet avslutar med kod 2 och skriver orsaken på st
 **Grindar per fas** (från §4, i mätbar form). Från v0.5 gäller dessutom för fas 3–6: inga låsta filer ändrade sedan godkännandet, och de låsta kontrollerna (§10.3) som hör till fasen går igenom.
 | Fas | Kontroller |
 |---|---|
-| 1 Brief | `brief.md` finns med alla 7 rubriker |
+| 1 Brief | `brief.md` har alla rubriker i briefmallen (räknas ur mallen, inte som ett fast tal) (rättat v0.74, konsolideringsanalysen M10) |
 | 1b Kontroller | `state.json` har `planApproved: true` (sätts bara efter användarens svar, aldrig på timeout) · brief och kontroller committade |
 | 2 Design | Stitch-projekt-id finns · vald design finns för DESKTOP och MOBILE i `designs/` |
 | 3 Bygge | Bygg-kommandot avslutas med kod 0 · alla checkpoints i `checkpoints.json` har status `klar` **med bevis** — hooken kör dessutom om kontrollerna själv i stället för att lita på statusen |
@@ -1073,7 +1077,7 @@ Flödet committar automatiskt efter varje runda (§10.4) — utan att en männis
 - **Mönstersökning räcker inte ensam 🎥:** Agit ersätter kända nyckelformat med platshållare, men ett lösenord av vanliga ord har inget mönster och slinker igenom. Därför är regeln ovan — att hemligheter aldrig hamnar i filerna från början — huvudskyddet; sökningen är ett extra lager.
 - `.env`-filer finns i `.gitignore` och får inte läsas av agenten (lager 1 ovan).
 
-**Ignore-filer 🎥 (harness-videon) / 🔧:** `.gitignore` och `.agentignore` gör att agenten låter bli filer den inte ska röra 🎥. Hos oss listas det byggarna aldrig ska läsa: `sites/*/befintlig/` (kundens gamla sajt — extern text), `sites/*/referenser/`, `kontroller/` (dolda kontroller, §10.2), `node_modules/` och genererade bygg-mappar. Ett extra lager utöver skyddshooken och behörighetstabellen (§5.2) — inte en ersättning. ⚠️ Kontrollera vilka ignore-filer Claude Code respekterar i vår version.
+**Ignore-filer 🎥 (harness-videon) / 🔧 — rättat (rättat v0.74, konsolideringsanalysen M5):** videon säger att `.gitignore` och `.agentignore` gör att agenten låter bli filer 🎥, men **`.agentignore` finns inte i Claude Codes dokumentation och har ingen effekt** (verifieringen 2026-10-14). Läsförbud sätts med **`permissions.deny`** (§5.2); `.gitignore` håller filer utanför repot. Hos oss listas det byggarna aldrig ska läsa: `sites/*/befintlig/` (kundens gamla sajt — extern text), `sites/*/referenser/`, `kontroller/` (dolda kontroller, §10.2), `node_modules/` och genererade bygg-mappar. Ett extra lager utöver skyddshooken och behörighetstabellen (§5.2) — inte en ersättning. ⚠️ Kontrollera vilka ignore-filer Claude Code respekterar i vår version.
 
 **Extern text är data, inte instruktioner 🔧 (utifrån Skill Spector-videon 🎥):**
 Samma angrepp som i skills — dolda instruktioner, osynliga tecken, kodad text 🎥 — kan finnas i **allt externt innehåll som flödet läser**: referenssajter och Inspo-sidor (fas 1b, 4, 6), kundens dokument och texter (fas 1), konkurrenters sajter, sidor som läses vid AEO-kontrollen (fas 8a). En referenssida kan innehålla dold text som säger *"ignorera dina instruktioner och …"*.
@@ -1300,7 +1304,7 @@ Varje ny modell beter sig annorlunda i långa körningar utan tillsyn. Uppgifter
 | **Roller som måste söka: "Känner du inte säkert igen ett namn — eller känner igen det från ett område som ändras snabbt — är det namnet som ska verifieras: sök innan du svarar."** (förkortat) | Vid **låg effort** är Fable 5.1 *mindre benägen än Fable 5 att anropa ett sök- eller hämtningsverktyg och mer benägen att svara ur minnet* 📄 (Anthropic, *Prompting Claude Fable 5.1*). Anthropic föreslår antingen högre effort för de berörda turerna eller den här instruktionen 📄. Gäller spanaren och researchen (fas 0b), faktakontrollen och granskningen av lagkrav (fas 6). |
 | **"Bygg inte mer än uppdraget kräver. Välj den enklaste lösningen som fungerar — inga extra funktioner, inställningar eller system för problem som inte finns."** | En av Karpathys fyra regler (Skills-videon 🎥). De övriga tre — gissa inte, rör inget utanför uppdraget, bestäm kontrollen innan du börjar — täcks redan av §6.5, raden ovan om tillåtna filer och fas 1b. |
 
-**Effort per roll 🔧:** CodeRabbit fann 61 % av felen med låg effort mot 57,1 % med hög, och låg var snabbare 🎥; i videons eget test fastnade hög effort i att gå fram och tillbaka. Börja med **låg effort** för alla roller och höj bara för en roll där eval (§9.5) visar att det lönar sig. Effort sparas per roll i agentdefinitionerna.
+**Effort per roll 🔧:** CodeRabbit fann 61 % av felen med låg effort mot 57,1 % med hög, och låg var snabbare 🎥; i videons eget test fastnade hög effort i att gå fram och tillbaka. ⚠️ *Rättat (rättat v0.74, konsolideringsanalysen M2): siffran ovan kommer från en enda video, och Anthropics dokumentation säger "Start with high, the default" och sänk där eval visar att kvaliteten håller (§8.6, *Effort*).* Startvärdet är därför **standardnivån (high)**; sänk för en roll först när eval visar att det håller. Tidigare text: börja med låg effort för alla roller och höj bara för en roll där eval (§9.5) visar att det lönar sig. Effort sparas per roll i agentdefinitionerna.
 - **Tak 🎥 (Fable 5-videon):** på Fable 5 ger *xhigh* och *max* samma resultat som *high* — att höja är en användningsfälla, inte en kvalitetshöjning 🎥. Håll effort mellan låg och hög. ⚠️ Gäller enligt videon Fable 5; pröva på nya modeller.
   - **⚠️ Motsägelse:** "4 Ways"-videon kör **xhigh för animationer**, eftersom det ger färre rättningsrundor 🎥 — tvärtemot Fable 5-videons påstående. Båda kan stämma för olika uppgifter. **Eval per roll avgör** (§9.5): animationsbyggaren i fas 5 prövas med både high och xhigh, och antal rundor och kostnad jämförs.
 - **Undantag — roller som måste gå till källorna 📄 (Anthropic, *Prompting Claude Fable 5.1*; Nate Herks prompting-video 🎥):** låg effort minskar sökningarna (se tabellen ovan). Spanaren och researchen (fas 0b), faktakontrollen och granskningen av lagkrav (fas 6) kör därför **lägst medium** och har sökinstruktionen i prompten; eval (§9.5) avgör den slutliga nivån. Fable 5.1 hittar redan på svar i 72,6 % av fallen när den inte vet — låg effort som också minskar sökningarna förvärrar det.
@@ -1458,11 +1462,10 @@ Vår variant 🔧:
 Lager 3 är det enda som också fångar ändringar via vägar vi inte förutsett — skriptet jämför bara filernas innehåll mot den godkända versionen.
 
 **Lager 4 — dolda kontroller 🎥 (Ouroboros, repo-videon) / 🔧 variant:** lager 1–3 hindrar byggaren från att *ändra* kontrollerna, men den kan fortfarande *läsa* dem och bygga för att klara testet i stället för att göra det rätt. Ouroboros låter aldrig byggarens instruktioner innehålla hur kontrollerna körs eller vilket resultat de förväntar sig 🎥.
-- **Byggaragenterna** (fas 3, 5 och rättare) nekas **läsrätt** till `kontroller/` — via agentdefinitionens verktygsbegränsning och skyddshooken (§7.3).
+- **Byggaragenterna** (fas 3, 5 och rättare) ska inte kunna läsa de dolda kontrollerna. **Rättat (rättat v0.74, konsolideringsanalysen M4):** agentens `tools` kan inte sätta läsrätt per sökväg, och `Read`-deny täcker inte t.ex. `grep -r` eller ett skript. De dolda kontrollerna ligger därför **utanför byggarens arbetskatalog** (eller i en sandlåda) och körs av orkestreraren — läsförbud är bara ett extra lager.
 - När en kontroll fallerar får byggaren **bara** kontrollens namn, en mening om vad den kontrollerar och felmeddelandet — inte testkoden.
 - Grindhooken och orkestreraren kör kontrollerna som vanligt; ingenting går förlorat.
 - Med låsta **och** dolda kontroller kan byggaren varken göra testet lättare eller bygga mot det. Den måste göra det briefen beskriver.
-- ⚠️ Kontrollera att det går att begränsa läsrätten per agent i den Claude Code-version vi använder.
 
 ⚠️ Exakt syntax för `deny`-regler ska verifieras mot dokumentationen.
 
@@ -1642,7 +1645,7 @@ Samma princip som bevis per grind (§7.2) och faktabasen (§11.8) — nu för de
 - lärdomar i auto loopen (redan ≥ 2 sajter, §10.5),
 - missade fynd som föreslås bli kriterier (§10.5),
 - regler i `kunskap/`.
-Två videor från samma kanal räknas som *en* källa om den ena bygger på den andra.
+Två videor från samma kanal räknas som *en* källa. **Räkna per primärkälla, inte per kanal** (rättat v0.74, konsolideringsanalysen M20): två kanaler som återger samma person (t.ex. Boris Cherny via AI LABS och via Nate Herk) eller samma metod (Jacks *design loop* = gauntlet-loopen) är *en* källa.
 - **Källans sammanhang 🎥 (radera-skills-videon) / 🔧:** *ta inte råd rakt av* — Boris Cherny och Karpathy talar som personer som bygger harness och arbetar i stora kodbaser, och det gäller inte automatiskt för den som gör kunskapsarbete 🎥. Varje källa märks därför med **sitt sammanhang** (t.ex. *bygger mjukvara*, *kunskapsarbete*, *byrå*, *forskning*), och ett råd väger tyngre när sammanhanget liknar vårt: vi bygger och förvaltar mjukvara åt företag. Används i konsolideringen.
 - **På bänken — emotionell prompting 🎥 (radera-skills-videon):** Nate avslutar mål med *"inte en prototyp, utan testad tio gånger och redo för marknaden i morgon"* och menar att det *verkar* fungera ibland 🎥. En anekdot; prövas i eval innan den används.
 - **Nya oberoende källor (v0.73, Coding Sloth-videon — programmerare, skeptisk till hypen):** *tester skrivs före implementationen — annars skriver modellen tester som passar sin egen kod, "det är inte testning, det är fusk"* 🎥 (stöder de låsta kontrollerna i fas 1b); *planera med en stark modell, bygg med en billigare* 🎥 (§8.6); *en ny session per uppgift — sammanfattning mitt i en uppgift sänker kvaliteten* 🎥 (överlämningsdokument, fas 3).
@@ -1704,7 +1707,7 @@ Guiden har hittills inte sagt något om **var sajternas bilder kommer ifrån**. 
 
 **3. Licens:** varje bild har en känd rätt att användas. Bilder utan dokumenterad licens används inte. Samma krav gäller **typsnitt, ikoner, Lottie-filer och komponenter** (fas 5).
 
-**4. Tillgänglighet och prestanda:** alt-texter enligt WCAG (§11.3) skrivs när bilden läggs in; bildformat, storlek och lat laddning kontrolleras i fas 6b. **Mätbart krav 📄 ("$10K Website Kit"):** bilder beskurna till sin visade storlek och konverterade till **WebP under 200 KB** — en låst kontroll.
+**4. Tillgänglighet och prestanda:** alt-texter enligt WCAG (§11.3) skrivs när bilden läggs in; bildformat, storlek och lat laddning kontrolleras i fas 6b. **AI-metadata behålls** (rättat v0.74, konsolideringsanalysen M19): AI-genererade bilder behåller sin AI-metadata (t.ex. C2PA) genom konverteringen — en vanlig WebP-konvertering tar bort den (§11.13, AI-förordningen). **Mätbart krav 📄 ("$10K Website Kit"):** bilder beskurna till sin visade storlek och konverterade till **WebP under 200 KB** — en låst kontroll.
 
 **5. Saknas bilder** som bara kunden kan ta (personal, lokal, arbeten): platshållare + `blocked`-fråga till kunden — inte en genererad ersättare.
 
@@ -1887,7 +1890,7 @@ Samma princip som allt annat: *agenten föreslår, du beslutar, sedan låses det
 | **ADHD** | [UditAkhourii/adhd](https://github.com/UditAkhourii/adhd) 🎥 | Tillval: spridd idégenerering (§11.7). Installationen hamnar i mappen `.agents` — den behöver döpas om till (eller länkas från) `.claude` för att Claude Code ska hitta skillen 🎥 ⚠️ |
 | *Buzz* (Block) | 🎥 | **Används inte** — gruppchatt för agenter. Kontexten hamnar dubbelt (ett svar på en hälsning: ~31 000 tokens mot ~4 000 i terminalen 🎥), allt körs i tur och ordning, ingen kryptering och agenter kan inte begränsas. Idéerna (adversarial granskning av planen, spårbarhet per agent) är inbyggda i fas 1b och §10.4 |
 | *Wayfinder* | [mattpocock/skills](https://github.com/mattpocock/skills) 🎥 | **Installeras inte i första hand** — idéerna (dimma → utredning, beslutskarta, facit) är inbyggda i fas 1 och 1b. Originalet är omfattande och anropar flera andra skills (bl.a. Grill Me); videon gjorde en egen, enklare variant ⚠️ |
-| *Grill Me, GSAP, Vercel, Supabase* | [mattpocock/skills](https://github.com/mattpocock/skills), [greensock/gsap-skills](https://github.com/greensock/gsap-skills), [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills), [supabase/agent-skills](https://github.com/supabase/agent-skills) 🎥 | Grill Me ≈ vår intervju i fas 1. GSAP-skillen kan bli aktuell i fas 5 (prövas med Caliper). Vercels deployskill passar fas 7. Supabase behövs inte för statiska sajter ⚠️ |
+| *Grill Me, GSAP, Vercel, Supabase* | [mattpocock/skills](https://github.com/mattpocock/skills), [greensock/gsap-skills](https://github.com/greensock/gsap-skills), [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills), [supabase/agent-skills](https://github.com/supabase/agent-skills) 🎥 | Grill Me ≈ vår intervju i fas 1. GSAP-skillen kan bli aktuell i fas 5 (prövas med Caliper). Vercels deployskill är **inaktuell** — vi publicerar på Cloudflare (fas 7). Supabase: bara för slutanvändarinloggning eller redigeringsvy, med TIA (§11.13); typ A klarar sig med D1 (rättat v0.74, konsolideringsanalysen M1, M3) |
 | **Variate** | Tredjepart — [Nutlope/variate](https://github.com/Nutlope/variate) 🎥 | Stopp 2 och fas 8b (§6.8). Får aldrig publiceras ⚠️ |
 | **Task Observer** | Tredjepart — [rebelytics/one-skill-to-rule-them-all](https://github.com/rebelytics/one-skill-to-rule-them-all) 🎥 | Tillval: löpande loggning av lärdomar per skill (§10.5). Installera per projekt ⚠️ |
 | *Karpathy-reglerna* | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) 🎥 | **Installeras inte** — de fyra reglerna finns redan i §8.6, §6.5 och fas 1b |
@@ -1903,8 +1906,8 @@ Samma princip som allt annat: *agenten föreslår, du beslutar, sedan låses det
 name: stitch-review
 description: Jämför den byggda sajten mot Stitch-designen i alla skärmbredder. Använd efter bygget och efter varje rättningsrunda.
 ---
-1. Läs Stitch-projektets id från CLAUDE.md och hämta designerna (DESKTOP + MOBILE).
-2. Starta sajten lokalt och ta helsidesskärmdumpar i 375, 768, 1280, 1920 px.
+1. Ta emot Stitch-projektets id i uppdragsprompten (ur `state.json`) och hämta designerna (DESKTOP + MOBILE).
+2. Starta sajten lokalt och ta skärmdumpar i 375, 768, 1280, 1920 px — sektion för sektion, beskurna och i full upplösning (fas 4, *beskär och zooma*).
 3. Jämför per sektion: layout, avstånd, typsnitt, färger, bilder, text.
 4. Kontrollera dessutom: horisontell scroll, överlappande element, avklippt text, klickytor ≥ 44 px.
 5. Skriv reviews/stitch-review-<runda>.md: en tabell per bredd, fel sorterade kritisk → låg, med skärmdump-referens.
@@ -1917,7 +1920,7 @@ description: Jämför den byggda sajten mot Stitch-designen i alla skärmbredder
 ```markdown
 ---
 name: story-review
-description: Sträng berättelsegranskning av en scrollytelling-sajt mot brief.md. Använd efter att animationer lagts till.
+description: Sträng berättelsegranskning av sajtens sidor mot brief.md och sidkartan. Använd efter att animationer lagts till. ⚠️ Skelett från v0.1 — skrivs om vid konsolideringen.
 ---
 Du är jurymedlem för ett webbdesignpris. Var sträng.
 1. Läs brief.md — särskilt berättelsen och acceptanskriterierna.
@@ -2151,12 +2154,12 @@ Du är jurymedlem för ett webbdesignpris. Var sträng.
   *Vi bygger marknadsförings-UI* (landningssidor, företagssajter). Det talar emot att låta ett komponentbibliotek styra utseendet — samma slutsats som Astryx-erfarenheten.
 - [ ] **Sajttyper:** bara scrollytelling-sajter, eller även vanliga flersidiga sajter? (Då behövs fas 5–6 i alternativ variant.) Underlag 📄 ("Websites for Normal People") — fyra vägar: **A** grundsajt (formulär, e-post, analys) · **B** med CMS för kunder som själva redigerar · **C** med e-handel (Stripe Checkout) · **D** egna funktioner (bokning, evenemang, medlemskap). Med kontrollfrågan **"behöver kunden verkligen ett CMS?"** — bara om någon faktiskt kommer att redigera innehållet 📄. Vid e-handel: bevisa flödet med riktig betalning, nekat kort, avbruten kassa och kundbekräftelse 📄.
 - [ ] **Nivå av autonomi:** ska designvalet i fas 2 vara automatiskt?
-- [ ] **Skärmdumpsverktyg:** Playwright-skript, Chrome DevTools MCP eller annat? *Förslag (v0.47): **Playwright CLI** — CLI i stället för MCP, lättare på kontexten (§12).*
+- [ ] **Skärmdumps- och testverktyg** (en fråga, se även nedan): Playwright-skript, Chrome DevTools MCP eller annat? *Förslag (v0.47): **Playwright CLI** — CLI i stället för MCP, lättare på kontexten (§12).*
 - [x] **Stitch-autentisering i obevakat läge:** `STITCH_API_KEY` (§2). Hur länge en OAuth-inloggning håller är ej bekräftat.
 - [ ] **Kostnad/kvoter i Stitch:** fortfarande **ej bekräftat** i officiell källa (en siffra cirkulerar bara i andrahandskällor). Mäts i första skarpa körningarna.
-- [ ] **Publicering:** ingår deploy (fas 7) i flödet eller slutar det vid lokal sajt? *Plattformen är avgjord (Cloudflare); frågan gäller om flödet själv publicerar.*
+- [x] **Publicering:** ingår (fas 7), alltid efter ditt godkännande.
 - [ ] **Scrollytelling eller Scroll World:** båda, valbart i briefen? Vilken videotjänst och vilken budget per sajt?
-- [ ] **Säkerhetsgranskning:** CodeRabbit (betalt) eller `/security-review`?
+- [ ] **Säkerhetsgranskning:** vilket av alternativen i fas 7 (Claude Security, Cloudflares security-audit-skill, `/security-review`, CodeRabbit) — avgörs i eval.
 - [ ] **Hallmark:** ta med, efter granskning av skillen?
 - [ ] **Inspo:** ta med i fas 1b? Vilken gräns för hur många referenser som studeras i detalj?
 - [ ] **Tillval generellt:** ska varje tillval prövas med Caliper (§9.5) innan det tas in?
@@ -2166,9 +2169,9 @@ Du är jurymedlem för ett webbdesignpris. Var sträng.
 - [ ] **Förvaltning — var körs kontrollerna?** Lokalt (cron), Claude Codes schemalagda molnagenter eller annan tjänst?
 - [ ] **Förvaltning — larm:** vart ska notiser gå (terminal, e-post, chatt)?
 - [ ] **Förvaltning — ändringsflöde:** hur kommer kundens önskemål in, och vem skriver ändringsbriefen?
-- [ ] **Förvaltning — formulärtester:** hur märks testinskick så att de inte når kunden?
+- [x] **Förvaltning — formulärtester:** besvarat i fas 8a (testinskick märks och filtreras bort).
 - [ ] **Förvaltning — nivå:** vad ingår per kund (svarstider, antal ändringar, rapportfrekvens)?
-- [ ] **Kodstandarden för fas 6b:** räcker punkterna i §4, eller ska den utgå från en etablerad standard (t.ex. WCAG 2.2 AA)? *Förslag i §11.3: WCAG 2.2 AA.*
+- [x] **Kodstandarden för fas 6b:** WCAG 2.2 AA (§11.3, §11.13).
 - [ ] **Kunskapsbasen:** vilka källor ska med från start, och vem kontrollerar sammanfattningarna? (§11.6)
 - [ ] **Planvyn:** egen HTML-sida, eller samma sida som flödespanelens fallback (§6.4)?
 - [x] **Licens:** scrollytelling-skillen (doodledood), Hallmark och Inspo har **MIT** (📄 research 2026-10-14, `kunskap/research/2026-10-14_stitch-och-verktyg.md`).
@@ -2362,3 +2365,4 @@ Videons räkneexempel: 499 dollar i månaden kräver 168 betalande kunder för e
 | 2026-10-15 | 0.71 | Utifrån Jack Roberts Claude Design 3.0-videon: Aceternity UI och React Bits som komponentkällor och ett blickfång per sajt inom rörelsebudgeten (fas 5); genererade hamburgare som motexempel till ärlighetsregeln (§11.9) |
 | 2026-10-15 | 0.72 | Utifrån Claude Motion-videon (Tristen O'Brien), sponsrad av Higgsfield: *text i kod, bild i video* lyft från bänken med låst kontroll mot text inbränd i video eller bild (fas 6); Remotion som kandidat för klipp med kontrollerad licens (gratis upp till 3 anställda) (fas 5); Claude Motion noterad (beta, Team/Enterprise); fallgrop 195 |
 | 2026-10-15 | 0.73 | Utifrån Coding Sloth-videon (ny oberoende kanal): låst kontroll mot text i versaler (fas 6); Thermonuclear code quality review som kandidat för kritikern, Pococks skill nämnd av tredje kanalen (fas 6b); tester före implementation, stark modell planerar/billig bygger och ny session per uppgift som oberoende källor på bänken (§11.11); fallgrop 196 |
+| 2026-10-15 | 0.74 | **Konsolidering, steg 1 — rättningar** enligt `kunskap/research/2026-10-15_guide-konsolideringsanalys.md` §3.1: verifierade Stitch-kommandon (M18); `.agentignore` struken (M5); Stitch-id via uppdragsprompten, inte `CLAUDE.md` (M7); fas 4:s "bara utseende" struken (M8); skelettens skärmdumpar och scrollytelling-antagande (M11); Supabase/Vercel-raden (M1, M3); analys och konverteringar i 8g (M15); publicering ingår (M16); inaktuella frågor i §14 stängda (M17); effort startar på high enligt Anthropic (M2); dolda kontroller utanför byggarens katalog (M4); briefens rubriker räknas ur mallen (M10); bänken räknas per primärkälla (M20); sett/härlett förtydligat (M21); AI-metadata behålls (M19). Strukturfrågor (M9, M13, M14, M22, ordningsfel) och besluten 2026-10-15 tas i v1.0 |
