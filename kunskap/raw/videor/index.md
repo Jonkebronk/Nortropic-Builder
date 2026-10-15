@@ -70,6 +70,7 @@ Råmaterial för `kunskap/` och konsolideringen av implementeringsguiden. Rörs 
 | 2026-10-08 | Nate Herk | AI Automation | Anthropic Engineers Just 10x'd Everyone's Claude Code | [2026-10-08_oz2CwrPV2Rg.md](2026-10-08_oz2CwrPV2Rg.md) |
 | 2026-10-09 | AI LABS | Claude Mods Are Insane... You Need To Try These Right Now | [2026-10-09_ERNqRK6sMJY.md](2026-10-09_ERNqRK6sMJY.md) |
 | 2026-10-09 | Jack Roberts | How to Use Claude Design Better Than 99% of People | [2026-10-09_IYNAyRkUsjI.md](2026-10-09_IYNAyRkUsjI.md) |
+| 2026-10-11 | Jack Roberts | 10 New Github Repos to Make Money in 19 mins | [2026-10-11_zwQmodmp1To.md](2026-10-11_zwQmodmp1To.md) |
 | 2026-10-11 | Nate Herk | AI Automation | I Tried 100+ Github Repos for Claude. These 6 Are the Best | [2026-10-11_HhZdNYI4pJs.md](2026-10-11_HhZdNYI4pJs.md) |
 | 2026-10-13 | AI LABS | Google Just Fixed AI Design By Releasing This | [2026-10-13_au2TI8sdq8E.md](2026-10-13_au2TI8sdq8E.md) |
 | 2026-10-13 | Nate Herk | AI Automation | I Tested the Viral Reverse Engineer Anything Skill. What You Need to Know. | [2026-10-13_rL5tw6h78zo.md](2026-10-13_rL5tw6h78zo.md) |
