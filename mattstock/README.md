@@ -1,6 +1,6 @@
 # Johnnys måttstock
 
-**Status:** Johnny dömde de 39 sajterna 2026-10-15. Claude har skrivit måttstocken ur domarna (`mattstock.md`, utkast), och Johnny ska godkänna den.
+**Status:** Johnny dömde de 39 sajterna 2026-10-15. Claude har skrivit måttstocken ur domarna (`mattstock.md`). Johnny godkände den samma dag.
 
 ## Vad den är och vad den används till
 

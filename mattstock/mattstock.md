@@ -1,6 +1,6 @@
 # Johnnys måttstock
 
-**Status:** utkast 2026-10-15. Claude har skrivit det ur Johnnys 39 domar (`domar.jsonl`) och hans egen sammanfattning. Johnny godkänner det innan granskaren kalibreras mot det. Metoden står i `README.md`.
+**Status:** godkänd av Johnny 2026-10-15 (`BESLUT.md`). Claude har skrivit den ur Johnnys 39 domar (`domar.jsonl`) och hans egen sammanfattning. Metoden står i `README.md`.
 
 **Frågan Johnny dömde efter:** *Hade du varit nöjd om Nortropic levererat den här sajten till en kund?*
 
@@ -195,7 +195,7 @@ Förväntan registrerades före domarna (`forvantan.json`, SHA-256 i `README.md`
 
 ### Förslag till guiden
 
-Johnny beslutar om förslagen. Inget är infört.
+Godkännandet av måttstocken gäller inte förslagen. Johnny beslutar om dem var för sig, och inget är infört än.
 
 1. **`2-4-skelett.md` och `2-7-innehall.md`:** mobilens första skärm ska ha en rubrik med tjänst och ort, branschens kontaktväg och ett klickbart telefonnummer. Rubriken är aldrig "Välkommen till …". Det blir en instruktion och ett granskningskriterium, eftersom det är Johnnys måttstock och ingen norm.
 2. **`2-7-innehall.md`:** egna foton på människor och jobb före stockbilder, och texten ska låta som företaget och vara kort. Det skärper den öppna frågan om **bildkällan** (`bilaga-e-oppna-fragor.md` 1.4). Förslaget där tillåter licensierade stockbilder för stämning, men stockfoton i stället för egna bilder fällde ofta. Därför måste intervjun samla in egna foton, eller så blir en fotografering en del av erbjudandet.

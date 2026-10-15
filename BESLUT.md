@@ -201,3 +201,25 @@ Johnny, vid genomläsningen:
 > Jag tänker vi bedömer 30-40 sidor som måttstock och kalibrering så utifrån allt du vet, ta fram sidor åt mig så kan vi göra måttstocken klar nu
 
 **Innebär:** Johnnys måttstock (beslutet ovan) tas fram genom att han bedömer 30–40 sajter som godkänd eller underkänd med en kort kritik; samma bedömningar blir granskarens kalibrering. Claude väljer sajterna. Förslaget om användartester med riktiga personer (Krug, Nielsen) tas inte med.
+
+## 2026-10-15: Måttstocken är godkänd
+
+**Status:** gäller.
+
+Johnny dömde 39 sajter (`mattstock/domar.jsonl`) och sammanfattade sina mönster:
+
+> Det som oftast avgjorde godkänt var att mobilens första skärm svarade på vad, var och hur man kontaktar, i kombination med egna foton på människor eller jobb. Jursla Rör, Plomberie 5 Étoiles, Citykiropraktikern och We Care Car Care är de tydligaste förebilderna.
+>
+> Det som oftast fällde var "Välkommen till…" som rubrik, stockfoton i stället för egna bilder, och att telefon eller knapp saknades tills sidfoten. Tre sajter fälldes på rent mobilutförande (ALICE, Kjellstrands, Rosendal & Folk) trots bra innehåll, för det är Nortropics ansvar.
+>
+> Sex sajter markerade jag som "osäker" i texten (Acreda, Kierkegaard, Looking Good, Rendezvous, Herzel, Hays) där jag angav åt vilket håll det lutade. Där är tröskeln ett omdömesfall mellan äkthet och tydlighet, och det är nog de granskaren har mest nytta av att läsa.
+
+Om utkastet `mattstock/mattstock.md`:
+
+> Jag godkänner den
+
+Om domarna i det publika repot:
+
+> Pusha allt som det är
+
+**Innebär:** `mattstock/mattstock.md` är Johnnys måttstock. Tre frågor i ordning, med mobilen först: förstår och når kunden företaget på mobilens första skärm, är det äkta, håller utförandet. Granskaren kalibreras mot den enligt `guide/3-2-granskning-och-kalibrering.md`, med 8 domar som exempel och 31 som mätning. De fyra förslagen till guiden i måttstockens slut är **inte** beslutade av godkännandet; de avgörs var för sig.
