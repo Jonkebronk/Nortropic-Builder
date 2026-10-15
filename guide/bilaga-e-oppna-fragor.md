@@ -63,7 +63,7 @@
 | Delar Cloudflares förhandsadresser D1/KV med produktion? | Staging med formulär – lös med separata resurser | `2026-10-14_cloudflare-stack.md` |
 | Kräver Cloudflare Web Analytics samtyckesbanner? | Val av analys – lös med analys på serversidan | `2026-10-14_dataoverforing-och-analys.md` |
 | Thermonuclear code quality review: namn och repo | Kandidat för kodgranskning | `bilaga-a-verktyg.md` |
-| ~~Hur byggsessionen avgränsas från användarnivån~~ **Avgjort 2026-10-15:** med en egen konfigurationskatalog (`BESLUT.md`). Den verifieras i den inloggade byggsessionen. | Risk att gamla regler laddas i första bygget | `3-3-sakerhet-och-installningar.md` |
+| ~~Hur byggsessionen avgränsas från användarnivån~~ **Avgjort 2026-10-15:** med en egen konfigurationskatalog (`BESLUT.md`). Verifierad 2026-10-15 i den inloggade byggsessionen. | Risk att gamla regler laddas i första bygget | `3-3-sakerhet-och-installningar.md` |
 | Omfattas Google Grounding Lite av villkoren för Places-data? | Research med platsdata (`2-1-strategi.md`) | – |
 | Terrazzo och `[data-kit]` för att växla stilkit | Tokenpipelinen (`2-5-yta.md`) | – |
 | Fontshares villkor och reserverade typsnittsnamn | Typsnitt i kiten (`2-5`) | – |

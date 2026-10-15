@@ -14,7 +14,7 @@ Beslut som behövs först (`bilaga-e-oppna-fragor.md`, avsnitt 1):
 2. ~~Publiceras den första sajten?~~ **Avgjort 2026-10-15:** övningssajterna publiceras högst på en förhandsadress bakom Cloudflare Access (*Övningssajterna* nedan). Det kräver ett Cloudflare-konto men ingen domän; kontot är byråns eget, eftersom det inte finns någon kund som äger ett. Kontot och nycklarna är mänskliga klick (`2-2-omfattning.md`).
 3. ~~Bildkälla om verksamheten saknar egna foton~~ **Avgjort 2026-10-15:** stock- och AI-bilder är tillåtna, även av personer, enligt ärlighetsregeln (`2-7-innehall.md`).
 
-**Bygget görs på Johnnys Mac** med den nyaste Claude Code (`BESLUT.md` 2026-10-15). Användarnivån är inventerad och versionen prövad 2026-10-15 (📄 `kunskap/research/2026-10-15_mac-avgransning.md`). Byggsessionen avgränsas med en egen konfigurationskatalog, och avgränsningen verifieras i den inloggade byggsessionen före steg 1 (`3-3-sakerhet-och-installningar.md`; `BESLUT.md` 2026-10-15).
+**Bygget görs på Johnnys Mac** med den nyaste Claude Code (`BESLUT.md` 2026-10-15). Användarnivån är inventerad och versionen prövad 2026-10-15 (📄 `kunskap/research/2026-10-15_mac-avgransning.md`). Byggsessionen avgränsas med en egen konfigurationskatalog. Avgränsningen verifierades i den inloggade byggsessionen 2026-10-15 (`3-3-sakerhet-och-installningar.md`; `BESLUT.md` 2026-10-15).
 
 Filer som behövs innan steg 1:
 

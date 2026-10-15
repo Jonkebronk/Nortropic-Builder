@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-15 kl. 20.25 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-15 kl. 20.27 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Kort
 
@@ -37,6 +37,13 @@ Detaljerna står i `BESLUT.md`.
   - Före inloggningen är det prövat att bara repots `CLAUDE.md` och inbyggda skills laddas, utan MCP-servrar.
 - **Johnny har loggat in i byggsessionen.** Efter inloggningen visade `claude -p "/context"` och init-provet med `~/.claude-bygg` att bara repots `CLAUDE.md` och inbyggda plugins, skills och delagenter laddas. Det fanns inga MCP-servrar, inga claude.ai-connectorer och ingen auto memory (`kunskap/research/2026-10-15_mac-avgransning.md`, *Tillägg kl. 20.15*).
 - **Johnny valde auto mode och Opus 5.5 på xhigh** och sa att det inte ska vara regelstyrt (`BESLUT.md`). Bevakad körning är struken ur `guide/3-3`, och C165 i bilaga C gäller nu bara att N1 inte har några hooks.
+- **Byggsessionen är verifierad och har tagit över** (kl. 20.26).
+  - Inifrån laddade den interaktiva sessionen också `claude-in-chrome` och `ide`, vilket `-p` inte hade visat.
+  - Chrome-verktygen är spärrade med en deny-regel i `~/.claude-bygg/settings.json` (Johnny 20:25, `BESLUT.md`). De försvann direkt, utan omstart.
+  - `ide` publicerar ingenting och får vara kvar.
+  - Johnny körde `/status`, `/skills` och `/mcp`: *"allt är grönt"*.
+  - Arbetet med byggsystemet görs från och med nu i `claude-bygg`. En session är byggsessionen bara om `CLAUDE_CONFIG_DIR` är `~/.claude-bygg`.
+  - Detaljerna står i `kunskap/research/2026-10-15_mac-avgransning.md`, *Sett inifrån byggsessionen*.
 - **De största krockarna:**
   - Auto memory laddar webb-pros gamla ägarbeslut i varje session.
   - `superpowers` har en hook som styr arbetssättet.
@@ -47,21 +54,15 @@ Detaljerna står i `BESLUT.md`.
 
 ## Nästa steg – på Macen
 
-1. **Avsluta verifieringen av byggsessionen** (`guide/3-3`, N1). Genvägen, inloggningen och Claudes prov är klara. Kvar är att Johnny kör `/status`, `/skills` och `/mcp` en gång i `claude-bygg`.
-   - **Sett inifrån kl. 20.25:** minnesfilerna, skillsen, delagenterna och connectorerna stämmer med proven. Men den interaktiva sessionen laddar två inbyggda MCP-servrar som `-p` inte visade. Den ena är **`claude-in-chrome`**, som använder Johnnys inloggade Chrome. Den andra är **`ide`**, eftersom sessionen körs i VS Code:s terminal; den publicerar ingenting. Detaljerna står i `kunskap/research/2026-10-15_mac-avgransning.md`, *Sett inifrån byggsessionen*.
-   - **Chrome-verktygen är spärrade** (Johnny 20:25, `BESLUT.md`). `"mcp__claude-in-chrome"` står i `permissions.deny` i `~/.claude-bygg/settings.json`. Verktygen försvann ur sessionen direkt när filen sparades, utan omstart.
-   - I auto mode stoppade klassaren byggsessionens egna prov som *Auto-Mode Bypass* och läsningen av `.claude.json` som *Credential Exploration*. Proven kördes därför från en session i den vanliga konfigurationen.
-2. **Byggsessionen tar över.** Från och med nu körs arbetet med byggsystemet i `claude-bygg`, inte i den vanliga konfigurationen. En session är byggsessionen bara om `CLAUDE_CONFIG_DIR` är `~/.claude-bygg`, alltså om den startats med `claude-bygg`.
-3. **Förberedelserna** i `guide/5-byggplan.md`:
+1. **Förberedelserna** i `guide/5-byggplan.md`:
    - en kort `CLAUDE.md`
    - `.claude/settings.json` med `permissions.deny` för push, deploy och `.env`. Förslag: lägg till `cf deploy`, `cf builds` och `cf pages`.
    - kärnfrågorna och briefmallen
-4. **Johnny väljer den första firman.** Förslaget är en av måttstockens underkända svenska firmor, eftersom hans *För godkänt:* redan säger vad sajten måste klara. Exempel är MB Bygg, Torsokliniken, Gustafsbro och Eriksbergs Cykel.
-5. **Byggplanens steg 1–6**, med en genomgång efter sajten.
+2. **Johnny väljer den första firman.** Förslaget är en av måttstockens underkända svenska firmor, eftersom hans *För godkänt:* redan säger vad sajten måste klara. Exempel är MB Bygg, Torsokliniken, Gustafsbro och Eriksbergs Cykel.
+3. **Byggplanens steg 1–6**, med en genomgång efter sajten.
 
 ## Väntar på Johnny
 
-- **`/status`, `/skills` och `/mcp` i byggsessionen**, en gång. Det förväntade utfallet står i `kunskap/research/2026-10-15_mac-avgransning.md`, avsnitt 3, *Så verifieras byggsessionen*. Raden om statusraden och Manual-läget gäller inte längre. `/mcp` väntas visa `ide` och ingen claude.ai-sektion. Om `claude-in-chrome` fortfarande listas där är inte sett, men dess verktyg är spärrade.
 - **Ansökan om API-åtkomst för Google Business Profile.** Bara Johnny kan ansöka, och svaret tar upp till 14 dagar.
 - **Ett Cloudflare-konto för byrån** inför steg 5. Det är ett mänskligt klick, och övningssajterna ligger på byråns konto.
 - **Bilaga E:** avsnitt 1 och 2 är avgjorda. 1.8 (integritetspolicy) och 1.9 (betalning) väntar till den första riktiga kunden, och 2.4, 2.7 och 2.8 till förvaltningen. Avsnitt 3 gäller senare nivåer. Avsnitt 4 verifieras under bygget.
@@ -71,5 +72,6 @@ Detaljerna står i `BESLUT.md`.
 
 - `mattstock/verktyg/` innehåller fångsten med Playwright (helsidesbilder i mobil och dator), bedömningssidan och analysen. De används för nya omgångar, till exempel för att kalibrera på systemets egna utkast.
 - **Push från Macen:** git har `osxkeychain` som inloggning och kan hänga på en behörighetsruta i nyckelringen. `gh` är inloggat som Jonkebronk och fungerar. Pusha med `git -c credential.helper= -c 'credential.helper=!gh auth git-credential' push origin main`, eller låt Johnny köra `gh auth setup-git` en gång, vilket ändrar hans globala git-konfiguration.
+- **Prov av byggsessionens egen konfiguration:** i auto mode stoppade klassaren dem som *Auto-Mode Bypass* och läsningen av `.claude.json` som *Credential Exploration*. Sådana prov körs från en session i den vanliga konfigurationen.
 - `konsolidering/bygg_n1.py` genererar N1-sammanfattningen. Skriptet kräver Python 3.10 eller senare. På Macen är `python3` version 3.9, så kör det med `/opt/homebrew/bin/python3.12`.
 - Bedömningssidan med Johnnys domar finns som privat artefakt på claude.ai: <https://claude.ai/artifact/16Cz4NeibCYDDsKGD3sdsq>. Domarna finns också i `mattstock/domar.jsonl`.
