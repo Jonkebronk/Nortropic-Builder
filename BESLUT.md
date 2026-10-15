@@ -601,3 +601,18 @@ Johnny, 20:30:
 - **Spärren för push, deploy och `.env` följer med varje sajt** från mallen `mallar/sajt/`: `.claude/settings.json`, `CLAUDE.md` och `.gitignore`. Spärren täcker också `gh repo`, `gh api` och `cf deploy`, `cf builds` och `cf pages`. Byggrepots `CLAUDE.md` hoppas över i sajtsessionen med `claudeMdExcludes`.
 - **Byggrepots `.claude/settings.json`** spärrar deploy och `.env` men inte push, så den stående tillåtelsen att pusha byggrepot gäller som förut.
 - **Förberedelserna:** sajtens `CLAUDE.md` (40 rader) ligger i `mallar/sajt/`. Kärnfrågorna, briefmallen och faktamallen ligger i `mallar/`. Claudes ändringar i `CLAUDE.md` är förslag som Johnny godkänner (bilaga E 2.3), och Claude läser mandatet som godkännande av mallen tills Johnny säger annat.
+
+## 2026-10-15: Den första övningssajten
+
+**Status:** gäller.
+
+Claude förklarade att flödets delar byggs i det steg där sajten behöver dem, och föreslog en av måttstockens underkända svenska firmor som den första övningssajten.
+
+Johnny, 21:10:
+
+> kör på [firman] men behöver du inte stich?
+
+**Innebär:**
+- Steg 1 börjar för den första övningssajten.
+- Firmans namn står inte här. Allt om firman ligger privat i `sites/<namn>/` (`guide/5-byggplan.md`, *Övningssajterna*), och Johnnys ord står ordagrant i sajtens `progress.md`.
+- Stitch behövs i steg 2, när stilkiten provas på provsidan, och används aldrig med firmans innehåll (`guide/2-5-yta.md`). Stitch-CLI:t 0.11.1 är installerat, och inloggningen gör Johnny.

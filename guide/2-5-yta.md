@@ -73,7 +73,7 @@ Används när kit föreslås, för layoutvarianter (→ `2-4-skelett.md`) och f�
 
 ### Stitch när kiten tas fram
 
-`npm install -g @google/stitch` (Node 20+). Inloggning med `stitch login` eller `STITCH_API_KEY`, som också krävs för vissa Canvas-operationer; nyckeln ligger utanför repot (→ `3-3-sakerhet-och-installningar.md`). Verifierat i 0.11.1, alla kommandon med `--json`, `--schema` och `--dry-run` 📄 `kunskap/research/2026-10-14_stitch-och-verktyg.md`. I den första sajten räcker CLI:t; hur det används står i *Grundregeln*.
+`npm install -g @google/stitch` (Node 20+). Inloggning med `stitch login` eller `STITCH_API_KEY`. Enligt `stitch status` i 0.11.1 krävs nyckeln för projekt, skärmar, fångster och designsystem, och den sparas med `stitch login --api-key` (sett 2026-10-15; installerat på Macen samma dag); nyckeln ligger utanför repot (→ `3-3-sakerhet-och-installningar.md`). Verifierat i 0.11.1, alla kommandon med `--json`, `--schema` och `--dry-run` 📄 `kunskap/research/2026-10-14_stitch-och-verktyg.md`. I den första sajten räcker CLI:t; hur det används står i *Grundregeln*.
 
 | Kommando | Syfte |
 |---|---|

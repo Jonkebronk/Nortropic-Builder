@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-15 kl. 20.45 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-15 kl. 21.15 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Kort
 
@@ -61,12 +61,13 @@ Detaljerna står i `BESLUT.md`.
 
 ## Nästa steg – på Macen
 
-1. **Johnny väljer den första firman.** Förslaget är en av måttstockens underkända svenska firmor, eftersom hans *För godkänt:* redan säger vad sajten måste klara. Exempel är MB Bygg, Torsokliniken, Gustafsbro och Eriksbergs Cykel.
-2. **Sajten startas** enligt `guide/bilaga-f-projektstruktur.md`, *Så startas en sajt*, och sessionen startas i `sites/<namn>/` med `claude-bygg`.
+1. **Den första övningssajten är vald och skapad** i `sites/` ur mallen (Johnny 21:10, `BESLUT.md`). Firmans namn står bara där, i sajtens `progress.md`, som också håller läget.
+2. **Johnny startar om sessionen i sajtens katalog** med `claude-bygg`. Sajtens spärrar gäller bara då. Sajtsessionen börjar med researchen före intervjun (steg 1).
 3. **Byggplanens steg 1–6**, med en genomgång efter sajten.
 
 ## Väntar på Johnny
 
+- **`stitch login` före steg 2**, i en egen terminal och inte med `!`, så att inget hemligt hamnar i samtalet. Enligt `stitch status` kräver projekt, skärmar, fångster och designsystem dessutom en API-nyckel: `stitch login --api-key <nyckel>`. Nyckeln sparas i `~/.stitch/`, utanför repot.
 - **Läsa sajtens `CLAUDE.md`** i `mallar/sajt/CLAUDE.md`. Claude skrev den med mandatet, och Johnny godkänner ändringar i `CLAUDE.md` (bilaga E 2.3).
 - **Ansökan om API-åtkomst för Google Business Profile.** Bara Johnny kan ansöka, och svaret tar upp till 14 dagar.
 - **Ett Cloudflare-konto för byrån** inför steg 5. Det är ett mänskligt klick, och övningssajterna ligger på byråns konto.
@@ -77,6 +78,7 @@ Detaljerna står i `BESLUT.md`.
 
 - `mattstock/verktyg/` innehåller fångsten med Playwright (helsidesbilder i mobil och dator), bedömningssidan och analysen. De används för nya omgångar, till exempel för att kalibrera på systemets egna utkast.
 - **Push från Macen:** git har `osxkeychain` som inloggning och kan hänga på en behörighetsruta i nyckelringen. `gh` är inloggat som Jonkebronk och fungerar. Pusha med `git -c credential.helper= -c 'credential.helper=!gh auth git-credential' push origin main`, eller låt Johnny köra `gh auth setup-git` en gång, vilket ändrar hans globala git-konfiguration.
+- **Stitch-CLI:t 0.11.1** är installerat globalt med npm (2026-10-15) men är inte inloggat.
 - **Prov av byggsessionens egen konfiguration:** i auto mode stoppade klassaren dem som *Auto-Mode Bypass* och läsningen av `.claude.json` som *Credential Exploration*. Sådana prov körs från en session i den vanliga konfigurationen.
 - `konsolidering/bygg_n1.py` genererar N1-sammanfattningen. Skriptet kräver Python 3.10 eller senare. På Macen är `python3` version 3.9, så kör det med `/opt/homebrew/bin/python3.12`.
 - Bedömningssidan med Johnnys domar finns som privat artefakt på claude.ai: <https://claude.ai/artifact/16Cz4NeibCYDDsKGD3sdsq>. Domarna finns också i `mattstock/domar.jsonl`.
