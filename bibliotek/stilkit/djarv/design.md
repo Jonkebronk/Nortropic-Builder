@@ -19,3 +19,5 @@
 - **Rendezvous Barbers:** "Orange/serif-identiteten är helt egen." Orangen och känslan av en egen identitet kommer härifrån.
 
 Uppmätt med Playwright 2026-10-15. Ingen identitet, text eller bild är lånad.
+
+**Johnnys dom 2026-10-15: underkänt, men nära.** Utförandet var det mest genomarbetade, men orange helskärm, rosa fotoram och versaler läses "som en padelhall eller en energidryck" för en kiropraktor. *För godkänt:* behåll typsnittet och de svarta konturerna, byt den orange förstavyn mot den mörka marinen eller den beige bakgrunden, ta bort rosa som bakgrundsfärg och använd orange bara till knappar och länkar.

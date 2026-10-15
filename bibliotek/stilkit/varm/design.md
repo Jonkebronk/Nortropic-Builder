@@ -19,3 +19,5 @@
 - **Pinchman's:** "En mjuk brun/beige identitet." Den varma beigen och serifen i rubrikerna kommer härifrån.
 
 Uppmätt med Playwright 2026-10-15. Ingen identitet, text eller bild är lånad.
+
+**Johnnys dom 2026-10-15: godkänt** (startsidan för den första övningssajten). Det som drog ner: tre typsnitt på första skärmen är ett för mycket, och den gröna knappen syns mindre mot den grågröna fotocirkeln.

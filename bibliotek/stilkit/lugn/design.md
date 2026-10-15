@@ -19,3 +19,5 @@
 - **Looking Good:** "Lugn, dyr känsla som passar kundgruppen." Återhållsamheten, med en accent och mycket vitt, kommer härifrån.
 
 Uppmätt med Playwright 2026-10-15. Ingen identitet, text eller bild är lånad.
+
+**Johnnys dom 2026-10-15: godkänt** (startsidan för den första övningssajten). Han noterade att prisetiketten skär in i fotot på mobilen och att sektionsavstånden på datorn är i största laget.
