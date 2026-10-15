@@ -1,0 +1,275 @@
+[
+ {
+  "id": "s07",
+  "namn": "Kroppsbalans",
+  "url": "https://www.kroppsbalans.com/",
+  "bransch": "Massage",
+  "ort": "Luleå och Boden"
+ },
+ {
+  "id": "s12",
+  "namn": "Kajens Café",
+  "url": "https://kajenscafe.se/",
+  "bransch": "Café",
+  "ort": "Västerås"
+ },
+ {
+  "id": "s13",
+  "namn": "Bright Tandhälsa",
+  "url": "https://brighttandhalsa.se/",
+  "bransch": "Tandläkare",
+  "ort": "Linköping"
+ },
+ {
+  "id": "s16",
+  "namn": "Advokat Kierkegaard",
+  "url": "https://advokatkierkegaard.se/",
+  "bransch": "Advokatbyrå",
+  "ort": "Karlstad"
+ },
+ {
+  "id": "s21",
+  "namn": "Salt Studio",
+  "url": "https://www.saltstudio.nu/",
+  "bransch": "Lunchrestaurang",
+  "ort": "Gävle"
+ },
+ {
+  "id": "s27",
+  "namn": "Looking Good Stockholm",
+  "url": "https://looking-good.se/",
+  "bransch": "Hudvård",
+  "ort": "Stockholm"
+ },
+ {
+  "id": "s30",
+  "namn": "Rosendal & Folk Cykel",
+  "url": "https://www.rosendalcykel.se/",
+  "bransch": "Cykelbutik & verkstad",
+  "ort": "Uppsala"
+ },
+ {
+  "id": "s32",
+  "namn": "Fungera",
+  "url": "https://www.fungera.info/",
+  "bransch": "Fysioterapi",
+  "ort": "Göteborg"
+ },
+ {
+  "id": "s50",
+  "namn": "Jursla Rör",
+  "url": "https://jurslaror.se/",
+  "bransch": "Rörmokare",
+  "ort": "Norrköping"
+ },
+ {
+  "id": "s53",
+  "namn": "Lundqvist El",
+  "url": "https://lundqvistel.se/",
+  "bransch": "Elektriker",
+  "ort": "Uppsala"
+ },
+ {
+  "id": "s08",
+  "namn": "Stångå Tandklinik",
+  "url": "https://stangatandklinik.se/",
+  "bransch": "Tandläkare",
+  "ort": "Linköping"
+ },
+ {
+  "id": "s31",
+  "namn": "Smålands Tak & Plåt (vikantak.se)",
+  "url": "https://vikantak.se/",
+  "bransch": "Takläggare",
+  "ort": "Jönköping"
+ },
+ {
+  "id": "s34",
+  "namn": "Diamond Hair",
+  "url": "http://diamondhair.se/",
+  "bransch": "Frisör",
+  "ort": "Malmö"
+ },
+ {
+  "id": "s45",
+  "namn": "Gustafsbro",
+  "url": "https://www.gustafsbro.se/",
+  "bransch": "Lunchrestaurang",
+  "ort": "Gävle"
+ },
+ {
+  "id": "s54",
+  "namn": "Acreda",
+  "url": "https://acreda.se/",
+  "bransch": "Redovisningsbyrå",
+  "ort": "Örebro"
+ },
+ {
+  "id": "s35",
+  "namn": "Cederins Guld",
+  "url": "https://www.cederinsguld.se/",
+  "bransch": "Guldsmed",
+  "ort": "Örebro"
+ },
+ {
+  "id": "s02",
+  "namn": "Torsokliniken",
+  "url": "https://torsokliniken.se/",
+  "bransch": "Kiropraktor",
+  "ort": "Malmö och Trelleborg"
+ },
+ {
+  "id": "s04",
+  "namn": "MB Bygg AB",
+  "url": "https://www.mbbyggab.se/",
+  "bransch": "Snickare",
+  "ort": "Västerås"
+ },
+ {
+  "id": "s20",
+  "namn": "Kjellstrands Redovisningsbyrå",
+  "url": "https://www.kjellstrands.se/",
+  "bransch": "Redovisningsbyrå",
+  "ort": "Örebro"
+ },
+ {
+  "id": "s33",
+  "namn": "Eriksbergs Cykel",
+  "url": "https://www.eriksbergscykel.se/",
+  "bransch": "Cykelbutik",
+  "ort": "Uppsala"
+ },
+ {
+  "id": "s55",
+  "namn": "Campino Pizzeria",
+  "url": "https://campinohalmstad.se/",
+  "bransch": "Pizzeria",
+  "ort": "Halmstad"
+ },
+ {
+  "id": "s56",
+  "namn": "Salong Ella",
+  "url": "https://www.salongella.se/",
+  "bransch": "Frisör",
+  "ort": "Malmö"
+ },
+ {
+  "id": "s26",
+  "namn": "Citykiropraktikern",
+  "url": "https://citykiropraktikern.se/",
+  "bransch": "Kiropraktor",
+  "ort": "Malmö"
+ },
+ {
+  "id": "s47",
+  "namn": "Klara Advokatbyrå",
+  "url": "https://www.klaraadvokatbyra.se/",
+  "bransch": "Advokatbyrå",
+  "ort": "Karlstad"
+ },
+ {
+  "id": "s06",
+  "namn": "ALICE Hair & Art",
+  "url": "https://www.alicehairart.se/",
+  "bransch": "Frisör",
+  "ort": "Stockholm"
+ },
+ {
+  "id": "s10",
+  "namn": "Lamanna's Bakery",
+  "url": "https://www.lamannabakery.com/",
+  "bransch": "Bageri & pizzeria",
+  "ort": "Toronto, Kanada"
+ },
+ {
+  "id": "s19",
+  "namn": "Zahnarztpraxis Natalie Herzel",
+  "url": "https://herzel-zahnarzt.de/",
+  "bransch": "Tandläkare",
+  "ort": "Hamburg, Tyskland"
+ },
+ {
+  "id": "s25",
+  "namn": "SPS Plumbers",
+  "url": "https://spsplumbers.com.au/",
+  "bransch": "Rörmokare",
+  "ort": "Sydney, Australien"
+ },
+ {
+  "id": "s40",
+  "namn": "Hays Woodworking",
+  "url": "https://www.hayswoodworking.com/",
+  "bransch": "Snickeri",
+  "ort": "Mississauga, Kanada"
+ },
+ {
+  "id": "s41",
+  "namn": "Plomberie 5 Étoiles",
+  "url": "https://www.plomberie5etoiles.com/",
+  "bransch": "Rörmokare",
+  "ort": "Montréal, Kanada"
+ },
+ {
+  "id": "s42",
+  "namn": "Pinchman's Café & Artisan Bakery",
+  "url": "https://pinchmans.ca/",
+  "bransch": "Café & bageri",
+  "ort": "Sudbury, Kanada"
+ },
+ {
+  "id": "s49",
+  "namn": "Bernice Bakery",
+  "url": "https://bernicebakery.com/",
+  "bransch": "Bageri",
+  "ort": "Montréal, Kanada"
+ },
+ {
+  "id": "s01",
+  "namn": "Prolific Pours",
+  "url": "https://www.prolificpours.com/",
+  "bransch": "Bartenderservice",
+  "ort": "New York, USA"
+ },
+ {
+  "id": "s11",
+  "namn": "Antalee Med Spa",
+  "url": "https://www.antalee.com/",
+  "bransch": "Hudvård",
+  "ort": "Glenview, Illinois, USA"
+ },
+ {
+  "id": "s14",
+  "namn": "Kaïven",
+  "url": "https://kaiventrouville.fr/",
+  "bransch": "Restaurang & take away",
+  "ort": "Trouville-sur-Mer, Frankrike"
+ },
+ {
+  "id": "s23",
+  "namn": "The Greedy Fox",
+  "url": "https://thegreedyfox.com.au/",
+  "bransch": "Grekisk restaurang",
+  "ort": "Rostrevor, Australien"
+ },
+ {
+  "id": "s36",
+  "namn": "NaturePure Cleaning Co.",
+  "url": "https://naturepurecleaning.com/",
+  "bransch": "Städ",
+  "ort": "Mountain View County, Kanada"
+ },
+ {
+  "id": "s48",
+  "namn": "My Party Chef",
+  "url": "https://www.mypartychef.co.uk/",
+  "bransch": "Catering",
+  "ort": "Alton, Hampshire, Storbritannien"
+ },
+ {
+  "id": "s52",
+  "namn": "We Care Car Care",
+  "url": "https://wecarecarcare.com/",
+  "bransch": "Bilvård",
+  "ort": "Framingham, Massachusetts, USA"
+ }
+]

@@ -22,7 +22,7 @@ På Johnnys uppdrag ("du har fullt mandat att skriva klart så läser jag igenom
 ## Börja nu, lång ledtid
 
 - Ansök om API-åtkomst för Google Business Profile (bara Johnny kan ansöka; svar inom 14 dagar).
-- Bedöm 30–40 skärmdumpar av sajter som godkänd eller underkänd med en kort kritik – den första måttstocken och granskarens kalibrering.
+- **Måttstocken:** Johnny bedömer 39 sajter som godkänd eller underkänd med en kort kritik i en privat bedömningssida på claude.ai. Claudes förväntan är registrerad i förväg. Sedan skriver Claude måttstocken ur domarna (`mattstock/README.md`).
 - Avgränsa byggsessionen från användarnivåns 292 skills (bl.a. `nortropic-stack`, som föreskriver Next.js) innan första bygget – se `guide/3-3-sakerhet-och-installningar.md` och bilaga E.
 
 ## Nästa steg (Claudes förslag)

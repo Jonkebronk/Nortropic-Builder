@@ -32,6 +32,7 @@ Nortropic-Builder/
 ├── inventering/              kompetensinventeringen
 ├── historik/                 v0.74, ändringsloggen, kartan och principerna före v1.0, webb-pro
 ├── konsolidering/            skrivregler och spårbarhet för v1.0
+├── mattstock/                Johnnys måttstock: metod, urval, domar och måttstocken (3-2)
 ├── .claude/
 │   ├── settings.json         [N1] permissions.deny för push, deploy och .env (3-3)
 │   ├── skills/               [N1] egna skills (bilaga B); Stitchs agent-skills skriver till

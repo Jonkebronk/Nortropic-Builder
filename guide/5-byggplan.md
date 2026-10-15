@@ -27,7 +27,7 @@ Kontrollskriptet byggs i steg 3 och granskningsmallen i steg 4 – inte i förv�
 Börja nu – lång ledtid:
 
 - **Ansök om API-åtkomst för Google Business Profile.** Bara Johnny kan ansöka; svar inom 14 dagar (`2-9-drift-och-forvaltning.md`).
-- **Johnnys måttstock för vad som är bra** (beslut 2026-10-15). Den blir granskarens kalibrering i steg 4 och grunden för eval (`3-2-granskning-och-kalibrering.md`). Att bedöma 30–40 skärmdumpar som godkänd eller underkänd med en kort kritik är ett sätt att ta fram den (kartans förslag).
+- **Johnnys måttstock för vad som är bra** (beslut 2026-10-15). Den blir granskarens kalibrering i steg 4 och grunden för eval (`3-2-granskning-och-kalibrering.md`). Johnny bedömer 39 sajter som godkänd eller underkänd med en kort kritik (`mattstock/README.md`).
 - `claude update` – bara om mods ska användas (kräver 2.1.287; `3-5-live-visning.md`).
 
 ## Stegen
