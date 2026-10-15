@@ -298,3 +298,21 @@ Johnny, när Claude påpekade att en fiktiv kund saknar riktiga människor och j
 > Vi tar ju lokala verklig firma och tränar på det
 
 **Innebär:** Övningssajterna görs för verkliga lokala firmor som inte har beställt dem. Sajterna är fiktiva, men firmorna finns på riktigt, så måttstockens fråga 2 (äkthet) kan övas med firmans verkliga uppgifter och bilder. Hur firmans material får användas och var övningssajterna får visas lades fram som förslag samma dag.
+
+## 2026-10-15: Så görs övningssajterna
+
+**Status:** gäller.
+
+Claude föreslog sex regler för övningssajterna:
+1. En genomgång efter varje sajt.
+2. Ny bransch för varje firma.
+3. Underlaget hämtas ur firmans sajt och Google-profil, och Johnnys svar som kund märks.
+4. Ingenting syns utåt utan Johnnys beslut: högst en förhandsadress bakom Access, firmans material används bara i övningen och firman kontaktas inte.
+5. Allt om firman ligger privat i `sites/`.
+6. Underlag för när Johnny är nöjd visas efter varje sajt.
+
+Johnny:
+
+> Ja
+
+**Innebär:** Reglerna står i `guide/5-byggplan.md`, avsnittet *Övningssajterna*, som två N1-regler. Bilaga E 1.3 är avgjord: övningssajterna publiceras högst på en förhandsadress bakom Cloudflare Access och aldrig öppet. Det kräver ett eget Cloudflare-konto för byrån men ingen domän. Faktabasen får källan `johnny-som-kund` (`2-7-innehall.md`).

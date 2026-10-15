@@ -5,7 +5,7 @@
 ## Två slags repon
 
 1. **Byggrepot** (det här, Nortropic-Builder): guiden, biblioteket, stilkiten, skills och företagets filer. Inga kunduppgifter och inga hemligheter (`CLAUDE.md`).
-2. **Ett privat repo per kundsajt**: sajtens kod och dess arbetsfiler. Det kopplas till kundens eget Cloudflare-konto med Workers Builds (`2-8-teknik-och-kvalitet.md`). Lokalt klonas det till `sites/<namn>/`, som byggrepots `.gitignore` utesluter – kunduppgifter hamnar aldrig i byggrepot.
+2. **Ett privat repo per kundsajt**: sajtens kod och dess arbetsfiler. Det kopplas till kundens eget Cloudflare-konto med Workers Builds (`2-8-teknik-och-kvalitet.md`). Lokalt klonas det till `sites/<namn>/`, som byggrepots `.gitignore` utesluter – kunduppgifter hamnar aldrig i byggrepot. Det gäller också övningssajterna för verkliga firmor (`5-byggplan.md`, *Övningssajterna*).
 
 ## Byggrepot
 

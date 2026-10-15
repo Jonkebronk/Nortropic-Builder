@@ -27,7 +27,7 @@ På Johnnys uppdrag ("du har fullt mandat att skriva klart så läser jag igenom
 
 ## Nästa steg (Claudes förslag)
 
-1. Johnnys genomläsning och rättelser.
-2. Svaren på bilaga E avsnitt 1.
-3. Byggplanens förberedelser och steg 1 på den första verksamheten.
+1. Johnnys genomläsning och rättelser (klart: README, kundens väg, byggplanen).
+2. De återstående frågorna i bilaga E avsnitt 1 (1.6 Astro, 1.8 integritetspolicy, 1.9 betalning, 1.10 Lucide och Inter).
+3. Johnny väljer den första firman för övningssajterna (`guide/5-byggplan.md`, *Övningssajterna*); byggplanens förberedelser och steg 1.
 4. För in guidens verktyg i `inventering/inventering.json` (99 rader saknas där; `guide/bilaga-a-verktyg.md`).

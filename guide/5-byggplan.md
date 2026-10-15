@@ -11,7 +11,7 @@
 Beslut som behövs först (`bilaga-e-oppna-fragor.md`, avsnitt 1):
 
 1. ~~Den första verksamheten~~ **Avgjort 2026-10-15:** övningssajter för verkliga lokala firmor, en i taget, tills Johnny är nöjd. Johnny intervjuar tillsammans med AI:n (beslut 2026-10-15).
-2. **Publiceras den första sajten?** Om ja: domän, Cloudflare-konto och nycklar är mänskliga klick (`2-2-omfattning.md`).
+2. ~~Publiceras den första sajten?~~ **Avgjort 2026-10-15:** övningssajterna publiceras högst på en förhandsadress bakom Cloudflare Access (*Övningssajterna* nedan). Det kräver ett Cloudflare-konto men ingen domän; kontot är byråns eget, eftersom det inte finns någon kund som äger ett. Kontot och nycklarna är mänskliga klick (`2-2-omfattning.md`).
 3. ~~Bildkälla om verksamheten saknar egna foton~~ **Avgjort 2026-10-15:** stock- och AI-bilder är tillåtna, även av personer, enligt ärlighetsregeln (`2-7-innehall.md`).
 
 Filer som behövs innan steg 1:
@@ -42,6 +42,13 @@ Börja nu – lång ledtid:
 | 6 | **Förvaltningens första rapport** | Rapporten med nordstjärnan, gjord för hand med Claude | Rapporten | Johnny godkänner den som något kunden skulle betala för |
 
 **I varje steg** mäts tiden i `progress.md` som underlag – ingen tidsbudget förrän Johnny är nöjd med kvaliteten (`1-kundens-vag.md`), och det som gjordes för hand noteras. Det som har gjorts för hand tre gånger blir kandidat till en skill (`bilaga-b-skills.md`).
+
+## Övningssajterna
+
+Övningssajter för verkliga lokala firmor, en i taget, tills Johnny är nöjd (`BESLUT.md` 2026-10-15). Firman finns på riktigt men har inte beställt sajten.
+
+- [N1] **Så görs en övningssajt.** **Underlaget** hämtas ur firmans egen sajt och Google-profil, med källa per uppgift i `fakta.md`. Det som saknas svarar Johnny på i intervjun i rollen som kund; de svaren får `kalla: johnny-som-kund` och förväxlas aldrig med det firman själv har bekräftat (`2-7-innehall.md`, *Faktabasen*). **Ingenting syns utåt utan Johnnys beslut:** sajten publiceras högst på en förhandsadress bakom Cloudflare Access, där steg 5 övas; firmans bilder och texter är firmans och används bara i övningen; firman kontaktas inte och får inte se sajten om inte Johnny beslutar det. **Allt om firman ligger privat** – sajten, faktabasen, bilderna och domarna – i `sites/<namn>/`, som byggrepots `.gitignore` utesluter; inget hamnar i det publika repot. **Ny bransch för varje firma,** genom måttstockens sex branscher och med och utan befintlig sajt, så att serien inte lär sig en enda kund. Måttstockens underkända svenska firmor är givna kandidater, eftersom Johnnys *För godkänt:* redan säger vad sajten måste klara (`mattstock/domar.jsonl`). 🔧 (`BESLUT.md` 2026-10-15)
+- [N1] **Efter varje sajt: genomgång och underlag.** Claude lägger fram vad Johnny rättade och vad granskaren missade, med förslag på var varje rättelse ska föras in – regel, skill, bibliotek eller stilkit (`3-4-larande-och-underhall.md`). Johnny godkänner eller stryker (princip 9). Johnnys domar över sajten läggs till kalibreringen, och granskaren mäts om, nu också på de egna utkasten (`3-2-granskning-och-kalibrering.md`). Underlaget för när Johnny är nöjd visas: andelen domar som blev godkända utan rättelse, granskarens träffsäkerhet och tiden per steg (`progress.md`). Johnny avgör när serien är klar; ett steg som klarat några sajter i rad utan rättelse kan bli självgående (princip 7). Bara det som skrivs ner lär systemet något – modellen minns inget mellan sessioner. 🔧 (`BESLUT.md` 2026-10-15)
 
 ## Därefter – när en verklig sajt kräver det
 
