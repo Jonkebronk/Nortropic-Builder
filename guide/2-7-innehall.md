@@ -1,0 +1,120 @@
+# 2.7 Innehåll
+
+**Status:** konsoliderad v1.0, 2026-10-15; ommärkt efter granskningen samma dag (`konsolidering/granskning-v1.0.md`). Utkast, inte genomgånget med Johnny.
+
+Sajtens texter, fakta och bilder. Här motverkas det generiska: det specifika kommer ur kundens faktabas, ord och foton, och det som saknas blir en fråga till kunden, aldrig en gissning. Vilket innehåll varje sida behöver bestäms i `2-2-omfattning.md`; här tas det fram. Hemvist för faktabasen, platshållarna, texterna och AI-signaturerna i text.
+
+## Vad byrån gör
+
+### Faktabasen
+
+- [N1] **`sites/<namn>/fakta.md` är den enda källan till fakta om kunden, med källa per faktum.** Tjänster, priser, öppettider, adresser, personal, årtal, siffror, certifikat, omdömen, citat och svarstider står där. Varje post har ett metadatafält, `kalla`: kundens ord, ett omdöme eller ett register, med datum och hur det bekräftades. Kunden bekräftar varje faktum. Bara *sett* är fakta; ett *härlett* svar blir en fråga till kunden (`guide/README.md`, *Sett, härlett, okänt*), och branschresearch blir aldrig kundfakta (fallgrop 161; research → `2-1-strategi.md`). Används briefen som faktabas sprids sanningen ut i koden när fakta ändras (fallgrop 93). 🔧 (en fil räcker för första sajten, analysen §8.2); 📄 webb-pro `kunskap/kundintervju.md`; 🎥 STORM-videon
+- [N1] **Faktakontrollen: varje faktapåstående i texterna finns i `fakta.md`, annars `kritisk`.** Det gäller årtal, siffror, priser, utmärkelser, kundnamn, citat, omdömen, öppettider och svarstider, och socialt bevis: kundlogotyper, antal kunder, år i branschen. Modellen hittar på socialt bevis oombedd – en färdig sajt för ett takföretag visade Anthropic, Slack och Stripe som kunder (fallgrop 180). En bild som ser ut att visa kundens verklighet utan att vara kundens är också `kritisk` (ärlighetsregeln nedan). Låst kontroll, tre källor (analysen §4.3); den körs som N1-kontroll 5 i `2-8-teknik-och-kvalitet.md`. 🎥 Jack Roberts-videon 3
+- [N2] **Posterna får `giltigt_fran` och `anvands_pa`.** Då hittar förvaltningen varje sida som inte följt med en ändring (→ `2-9-drift-och-forvaltning.md`). 🔧 / 📄 `historik/karta/7-innehall.md`
+- [N2] **Bekräftade fakta är inte ett godkännande** av design, pris eller publicering. 📄 webb-pro `kunskap/kundintervju.md`
+- [N2] **Vid ombyggnad är den gamla sajtens innehåll förslag.** Posterna märks *sett* med var de stod, och kunden bekräftar dem, eftersom gammalt innehåll kan vara inaktuellt (fallgrop 103; ombyggnad → `2-2-omfattning.md`). 🎥 4 Ways-videon
+- [N2] **Faktabasen publiceras aldrig som den är.** Den kan innehålla personuppgifter (→ `3-3-sakerhet-och-installningar.md`).
+- [N3] **En fil per faktum i förvaltningen** (`sites/<namn>/fakta/` med `index.md` och frontmatter), så att en ändrad öppettid är en ändring i en fil. 🎥 OKF-videon
+
+### Texterna
+
+- [N2] **Texterna ligger i innehållsfiler som byggs ur faktabasen, inte i komponenterna.** Då kan samma innehåll visas i tre stilkit, och en omdesign rör inte texten. Här bor regeln för texterna; att komponenterna inte bär innehåll → `2-4-skelett.md`. 📄 *Websites for Normal People*; Astros content collections (`historik/karta/9-drift-forvaltning.md`; stacken → `2-8-teknik-och-kvalitet.md`)
+- [N2] **Texterna till sidorna som riktningarna visar skrivs före riktningarna.** Riktningarna är tre stilkit på samma innehåll (`BESLUT.md` 2026-10-15); i webb-pro styrde bristen på kundens ord och bilder aldrig bygget (webb-pro-genomgången §4). 🔧
+- [N2] **Konkret i stället för generiskt.** Varje löfte (*kvalitet*, *pålitlig*, *helhetslösning*) får en detalj ur faktabasen – vad, hur, när, till vilket pris – eller stryks (fallgrop 176). *"Pålitliga och byggda för att hålla"* blev *"sex spikar per takpanel, varje panel"*. Saknas detaljen blir det en fråga till kunden. 🎥 Jack Roberts-videon 2 (*Slop Monster*); 📄 marketingskills `copywriting` ("Specificity Over Vagueness")
+- [N2] **Bytestest:** en rad som skulle fungera oförändrad hos en konkurrent skrivs om, eller blir en platshållare om det som skiljer saknas. *(En källa – bänken.)* 📄 marketingskills `copywriting`
+- [N2] **Kundens egna ord.** Hur ägaren beskriver jobbet och kunderna problemet samlas ordagrant ur intervjun och används i texterna. Johnny bad upprepat i webb-pro om att fråga kunden i stället för att utelämna (webb-pro-genomgången §3). 📄 marketingskills `customer-research` ("Capture exact quotes, not paraphrases")
+- [N2] **Röstprofil `rost.md`:** NN/g:s fyra tondimensioner (formell–vardaglig, allvarlig–skämtsam, respektfull–respektlös, saklig–entusiastisk), 3–5 attribut som *Vi är / Vi är inte*, ägarens ordlista och en citatbank. 📄 [NN/g](https://www.nngroup.com/articles/tone-of-voice-dimensions/); Anthropics `brand-review`
+- [N2] **En inspelad intervju transkriberas lokalt** med [KB-Whisper](https://huggingface.co/KBLab/kb-whisper-large), så att ljudet aldrig lämnar byråns dator. Intervjuns form, text eller röst: *Öppet – se `guide/bilaga-e-oppna-fragor.md`*.
+- [N2] **Klarspråk:** meningar på högst 15–20 ord, aktiv form, vanliga ord, en idé per stycke, det viktigaste först, underrubriker och listor, ungefär hälften så många ord som i tryck. 79 % av användarna skummar, och koncis, skumbar och saklig text var 124 % bättre än säljig text i NN/g:s test. 📄 NN/g, [How Users Read on the Web](https://www.nngroup.com/articles/how-users-read-on-the-web/), [Plain Language Is for Everyone](https://www.nngroup.com/articles/plain-language-experts/). Språklagen gäller offentlig verksamhet; för kunderna är klarspråk ett kvalitetsval. Gäller även bekräftelsemejlet, hjälpguiden, ärendesvar och rapporter (→ `2-9-drift-och-forvaltning.md`). Ingen tillgjord prosa: inga krystade fraser eller metaforer i stället för klartext. 🎥 Fable-videon
+- [N2] **Kort tankstreck (–), aldrig långt (—):** med mellanslag vid inskott (*han kom – lite försent – till mötet*), utan vid intervall (*5–10*). Det långa strecket är ovanligt i svensk text och en AI-signatur (fallgrop 169). Granskningsförslag *(en källa – bänken)* tills Språkrådets *Svenska skrivregler* är läst: Kunskapsbladet är en andrahandskälla och videon gäller engelsk AI-text. 📄 [Kunskapsbladet](https://kunskapsbladet.se/sprakfragor/tankstreck/) efter Språkrådets *Svenska skrivregler* (⚠️ originalet inte läst); 🎥 sex-färdigheter-videon
+- [N2] **Textmängd: varje sektion säger en sak** (fallgrop 175). Granskningskriterium *(en källa – bänken)*. 🎥 Jack Roberts-videon 2. Blickprovet (femsekunderstestet) → `2-4-skelett.md`.
+  - [N2] **Ordgränsen** per hero och sektion är en instruktion som sätts efter Johnnys domar, inte en kontroll: värdet saknar källa (analysen §4.2; → `3-2-granskning-och-kalibrering.md`).
+  - [N4] Variate tar fram kortare versioner; den kortaste som klarar blickprovet vinner (verktyget → `3-5-live-visning.md`). 🎥 Variate-videon
+- [N2] **Logotyper och citat kräver tillstånd;** omdömen visas med namn bara med samtycke, alltid med datum och plattform. Instruktion *(⚠️ marknadsföringslagen och direktiv 2019/2161 är inte lästa i original; läses innan regeln blir kontroll, analysen §4.2. Inte juridisk rådgivning.)* Att källan finns i faktabasen kontrolleras redan i N1 av faktakontrollen.
+- [N2] **Rätt attribution:** utbildning som utbildning, inte som certifikat; betyg med plattform och antal *(en källa – bänken; 📄 webb-pro `kunskap/copy-kontroll.md`)*. Länka hellre till färska omdömen i Google-profilen än att frysa gamla citat. 📄 [BrightLocal 2026](https://www.brightlocal.com/research/local-consumer-review-survey/) (amerikanskt urval)
+
+### AI-signaturer i text
+
+- [N2] **Granskningskriterium:** *inte X utan Y*, grupper om tre, superlativ utan belägg, standardöppningar, självbesvarade frågor, långa tankstreck (fallgrop 129). På svenska också nominaliseringar, passiv som falsk formalitet och anglicismer; svenska läsare misstror superlativ. 🎥 Nate Herk 100-repon-videon (Wikipedia-redaktörernas guide via Humanizer; ⚠️ guiden inte läst); 📄 marketingskills `copywriting`, Anthropics `brand-review`, claude-humanizer-svenska (saknar licens – läs, kopiera inte)
+- [N2] **Granskningsförslag: inga versaler i rubriker och knappar,** utom etiketter som stilkitet anger (→ `2-5-yta.md`; fallgrop 196). *(En källa – bänken: Coding Sloth kallar det själv "a funny rule". Inte en kontroll, analysen §4.2.)*
+- [N2] **Svenska copyfynd som rapport, inte grind:** byråfraser (*skräddarsydda lösningar*, *kvalitet i fokus*), engelsk jargong, intern information (*vår nya hemsida*), *Välkommen till …* som rubrik, flera tankstreck i ett stycke, flera utropstecken per sida, tre stycken i rad som börjar med *Vi*. Ett fynd rättas eller motiveras – en fras kan vara rätt i kundens röst. *(En källa – bänken; 📄 webb-pro `kunskap/copy-kontroll.md`.)*
+- [N2] **Humanizer och Slop Monster är kandidater** (status → `bilaga-a-verktyg.md`). Båda är skrivna för engelska. Används en av dem körs den efter faktakontrollen, och ändrade texter faktakontrolleras igen.
+
+### Bilder
+
+- [N1] **Källa och licens per bild.** Varje bild har en post i faktabasen med `kalla` (kundens foto, licensierad, AI-genererad, form i koden) och `licens`. Bilder utan känt ursprung eller dokumenterad licens används inte (fallgrop 95; licens per tillgång → `2-5-yta.md`). 📄 webb-pro `kunskap/bild.md`
+- [N1] **Ärlighetsregeln: en bild som inte är kundens får aldrig se ut att visa kundens arbete, personal, lokal, produkt eller resultat.** Ett genererat "vårt team" är ett påhittat faktum (fallgrop 94) och fångas av faktakontrollen. Stock och AI får visa miljöer, material, texturer och abstrakta motiv, aldrig personer. Bilder som Stitch genererar när stilkiten tas fram räknas som AI-genererade. En fotorealistisk AI-bild som liknar verkliga personer, föremål, platser eller händelser märks i bildtexten (*AI-genererad illustration.*): AI-förordningen art. 50.4 kräver upplysning sedan 2 augusti 2026. Generiska stämningsbilder kräver normalt ingen märkning, och i tveksamma fall märks bilden; med ärlighetsregeln är märkningen skyddsnätet, inte normalfallet. 🎥 designskills-videon 2; 📄 webb-pro `kunskap/bild.md`; 📄 `kunskap/research/2026-10-14_ai-forordningen-och-rattigheter.md` (kan vara vilseledande marknadsföring; tolkning, inte juridisk rådgivning)
+- [N1] **All text ligger i HTML, aldrig inbränd i bild eller video,** utom i logotyper och motiv som en skylt. Text i bild når inte skärmläsare eller sökmotorer och går inte att rätta (fallgrop 195). 📄 WCAG 2.2, 1.4.5 Images of Text (AA). Tristen O'Briens video är ingen andra källa (analysen §4.4).
+- [N2] **Kundens egna foton först.** Arbete, personal och lokaler visas bara med kundens bilder; besökare tittar på riktiga medarbetare och ignorerar generiska stockpersoner. 📄 [NN/g, Photos as Web Content](https://www.nngroup.com/articles/photos-as-web-content/)
+- [N2] **Det som saknas blir en bildbeställning** med plats och syfte, efter Googles kategorier: exteriör, interiör, produkter, i arbete och team, minst tre av varje – då täcker en fotosession både sajten och Google-profilen. Intervjun frågar vad som finns (→ `2-1-strategi.md`). Tills bilden kommer bär typografi, färg och form, och platsen fylls aldrig med en ersättare som ser äkta ut. 📄 [Google](https://support.google.com/business/answer/6123536?hl=en); webb-pro `kunskap/bild.md`
+- [N2] **Bildposten får sex fält:** utöver `kalla` och `licens` även `ansprak` (visar kundens arbete, visar kundens personer, illustration), `forestaller`, `anvands_pa` och samtycke för personer. 📄 webb-pro `kunskap/bild.md` (anspråken)
+- [N2] **AI-metadata (t.ex. C2PA) behålls genom bildkedjan, och AI-bilder laddas aldrig upp till Google-profilen.** Den maskinläsbara märkningen är leverantörens skyldighet (art. 50.2), men vi tar inte bort den; Google kräver att profilens bilder visar verkligheten. ⚠️ Enligt webb-pro tar Astros bildkedja bort metadata, vilket är rätt för GPS men fel för AI-metadata; hur Astro och sharp hanterar exif och C2PA är inte verifierat och prövas med den första AI-bilden. 📄 `kunskap/research/2026-10-14_ai-forordningen-och-rattigheter.md`; [Google](https://support.google.com/business/answer/6103862?hl=en) (profilen → `2-9-drift-och-forvaltning.md`)
+- [N2] **GPS och annan platsdata tas bort ur kundens foton,** och husnummer, registreringsskyltar och ansikten granskas – ett foto från en kunds hem kan avslöja adressen. 📄 anteckningarna lager 6–7 §4 (tolkning, inte juridisk rådgivning)
+- [N2] **Stockbilder väljs för hand enligt licensen;** Unsplash-API:t kräver hotlinkning och "non-automated" användning. Prompter till bildtjänster innehåller inga namn, orter, nummer eller citat ur kundens underlag. 📄 rapporten lager 7; webb-pro `kunskap/bild.md`
+- [N2] **Alt-text skrivs när bilden läggs in.** [W3C:s beslutsträd](https://www.w3.org/WAI/tutorials/images/decision-tree/) avgör om den behövs (dekor får tomt `alt`); [1177:s regler](https://www.1177.se/riktlinjer-och-material/riktlinjer-for-bild-och-video/riktlinjer-for-alt-texter-och-bildtexter/) styr formen: en kort mening med punkt, cirka 80 tecken, om vad bilden ger besökaren, utan kön, ålder eller kläder om det inte är relevant. 📄 WCAG 2.2, 1.1.1. Att `alt` finns kontrolleras redan i N1 (N1-kontroll 8 i `2-8-teknik-och-kvalitet.md`).
+- [N2] **Kundens videoklipp med tal får undertexter** (WebVTT, t.ex. via KB-Whisper). 📄 [WCAG 2.2, 1.2.2](https://www.w3.org/WAI/WCAG22/Understanding/captions-prerecorded.html). Autouppspelning → `2-6-rorelse.md`.
+
+Format, storlek och laddning → `2-8-teknik-och-kvalitet.md`. *WebP under 200 KB* är struket som låst kontroll *(en källa – bänken; krockar med AI-metadata, analysen §4.2, M19)*.
+
+### Platshållare
+
+- [N1] **Skriv bara fakta som finns i faktabasen; det som saknas markeras, aldrig gissas.** I text står `[[PLATSHÅLLARE: vad som saknas]]`, för en bild en platshållare märkt i faktabasen, och varje platshållare blir en fråga till kunden. Modeller hittar på när de inte vet – enligt videon i 72,6 % av fallen för Fable 5.1 (fallgrop 38; ⚠️ videons siffra). Publiceringen stoppas av N1-kontroll 6 i `2-8-teknik-och-kvalitet.md` (fallgrop 181). 🎥 Fable-videon; 🎥 Jack Roberts-videon 3 (*"Älskad av 10 000 nöjda husägare"* publicerades); 📄 marketingskills `copywriting` (`[NEED: …]`)
+- [N2] **Regeln står i varje byggarprompt, och frågan får status `blocked`** så att flödet väntar på svaret (→ `3-1-orkestrering-och-roller.md`).
+
+### Bekräftelsemejlets innehåll
+
+- [N2] **Bekräftelsen till besökaren och aviseringen till kunden skrivs som sajtens övriga text,** inte som formulärtjänstens standardtext (fallgrop 183): i sajtens stilkit, på klarspråk och med fakta ur faktabasen – vad som händer nu, när kunden hör av sig, vart man ringer om det brådskar. 🎥 idé Jack Roberts-videon 4 / 🔧. Mejltekniken → `2-8-teknik-och-kvalitet.md`.
+
+### Öppen fråga: bildkälla när kunden saknar egna foton
+
+Platshållarkontrollen stoppar publicering och ärlighetsregeln förbjuder ersättare som ser äkta ut, så en kund utan foton kan inte publiceras förrän frågan är avgjord (analysen §5.2, §8.1 punkt 7). Alternativen:
+
+1. **Vänta på kundens foton.** Ärligast; kunden styr tidplanen.
+2. **Publicera utan foton.** Bildplatserna tas bort och typografi, färg och form bär; fotona kommer i förvaltningen.
+3. **Licensierade stockbilder** av miljöer, material och detaljer, valda för hand.
+4. **Märkta AI-illustrationer** av samma slag.
+5. **Byrån ordnar fotografering** efter beställningen. 🔧 Kostar tid och pengar.
+
+Alternativ 2–4 går ihop med ärlighetsregeln. Vilket är standard, och får kunden välja? *Öppet – se `guide/bilaga-e-oppna-fragor.md`, fråga 1.4.*
+
+## Vad som kommer ut
+
+- [N1] `fakta.md` med fakta- och bildposter som kunden bekräftat (källa per faktum, källa och licens per bild), sidornas texter och en fråga till kunden för varje platshållare.
+- [N2] Innehållsfiler med texterna per sida; bildbeställningen; bearbetade bilder med alt-text.
+- [N2] `rost.md` med röstprofil och citatbank; texterna till bekräftelsemejlet och aviseringen.
+
+## Kompetens och källor
+
+- [N2] **Egen skill:** kartans textskill `text` (→ `bilaga-b-skills.md`), destillerad ur Humanizer, better-writing och marketingskills `copywriting` (tydlighet före fyndighet, kundens egna ord, bytestestet) med NN/g:s läsforskning; SaaS-exempel och osourcad statistik stryks. Alt-texten skrivs av Claude efter beslutsträdet och 1177, och kunden granskar.
+- [N2] **Eget bibliotek:** Vale-stilen `Nortropic-sv`, fotolistan per bransch och textmallar per sektion.
+- [N2] **Språkgrind:** Vale (MIT) med stilen `Nortropic-sv` – Hunspell sv_SE för stavning, LIX via `metric` som varning, regler för tankstreck och AI-mönster; en självhostad LanguageTool prövas som andra pass. ⚠️ Testa först att å, ä och ö stavningskontrolleras (Vales standardfilter är `[^a-zA-Z_']`) och att *t.ex.* och *m.fl.* inte delar meningar. 📄 rapporten lager 7
+
+**Förankring:** *Myndigheternas skrivregler* (Språkrådet 2014), kapitlen om klarspråk och webben (⚠️ lästa till rubriknivå); SS-ISO 24495-1:2023 *Klarspråk* (⚠️ betald, overifierad); NN/g om läsning, ton och foton; W3C WAI:s bildhandledning med 1177; Halvorson och Rach, *Content Strategy for the Web*.
+
+**Kandidater och avstått** → `bilaga-a-verktyg.md`.
+
+**Underlag:** `historik/karta/7-innehall.md`; `kunskap/research/2026-10-15_kompetensluckor-och-kandidater-per-lager.md` lager 7 och anteckningarna `2026-10-15_kompetensluckor-anteckningar/lager-6-7-rorelse-innehall.md`; `kunskap/research/2026-10-14_ai-forordningen-och-rattigheter.md`; webb-pro `kunskap/bild.md` och `kunskap/copy-kontroll.md`.
+
+## Kontroll
+
+N1-kontrollerna definieras bara i `2-8-teknik-och-kvalitet.md`, tabellen *N1 – kontrollerna för första sajten*. Lagret bidrar med nr 5, faktakontrollen (vad den omfattar står under *Faktabasen* ovan), och nr 6, platshållare. Ingen text i bild (WCAG 1.4.5) är ingen automatisk kontroll i N1: Johnny ser bilderna, och från `5-byggplan.md`, steg 4, även granskaren. Därtill kundens bekräftelse av fakta och Johnnys dom i varje steg. Hur granskningen går till → `3-2-granskning-och-kalibrering.md`; registret över alla kontroller → `bilaga-c-kontroller.md`.
+
+| Kontroll | Nivå | Typ och grund |
+|---|---|---|
+| Sökning efter siffror nära *kunder*, *år*, *uppdrag*, *omdömen* som stöd för faktakontrollen | N2 | Hjälpmedel. 📄 webb-pro `kunskap/copy-kontroll.md` |
+| Ingen text i bild eller video, utom logotyper och skyltar, med textigenkänning | N2 | **Låst kontroll** (WCAG 2.2, 1.4.5); träff = `hög` |
+| Alt-textens kvalitet; kunden bekräftar alt-texterna | N2 | Granskningskriterium och mänsklig kontroll. Att `alt` finns: N1-kontroll 8 i `2-8-teknik-och-kvalitet.md` (WCAG 1.1.1) |
+| Inget långt tankstreck (—) i svensk sajttext | N2 | Granskningsförslag *(en källa – bänken)* tills Språkrådets *Svenska skrivregler* är läst; träff högst `medel` |
+| Inga GPS-fält i publicerade bilder | N2 | Kontroll (GDPR, tolkning) |
+| Konkret i stället för generiskt, AI-signaturer, textmängd, klarspråk, tillstånd för logotyper och citat | N2 | Granskningskriterier |
+| Versaler, bytestest, svenska copyfynd | N2 | Granskningsförslag *(en källa – bänken)* |
+| Språkgrinden (Vale) | N2 | Rapport. En regel stoppar först när den har en norm eller två oberoende primärkällor **och** en mätning mot en liten svensk korpus visar få falsklarm (llepafils-metoden: LanguageTool ensam fann 19 av 35 kända fel, hela kedjan 34 av 35 utan falsklarm). 📄 rapporten lager 7 |
+
+## Hur självgående
+
+På första sajten tittar Johnny på allt, och kunden bekräftar fakta (`5-byggplan.md`, steg 1). Punkterna nedan gäller när tillsynen minskar.
+
+- [N2] Texterna skrivs självgående ur faktabasen och kundens ord. Det som saknas blir frågor, och flödet väntar på svaren i stället för att gissa.
+- [N2] Aldrig självgående: bildkällan när foton saknas, logotyper och citat utan tillstånd, och AI-bilder som kunden vill visa som äkta.
+- [N2] Språkgrinden körs på all text utan tillsyn, men bara mätta regler stoppar.
+- [N3] I förvaltningen går ändrade fakta till faktabasen, och kontrollen hittar sidorna som inte följt med. Priser, erbjudanden och juridiska texter publiceras aldrig utan Johnnys godkännande (→ `2-9-drift-och-forvaltning.md`).

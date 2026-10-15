@@ -1,26 +1,25 @@
 # Nortropic-Builder
 
-Ett självgående flöde i Claude Code som bygger, granskar, publicerar och förvaltar webbplatser åt kunder — med Google Stitch som designmotor, låsta kontroller som grindar och människan i två stopp.
+Grunden till en autonom webbyrå i Claude Code som bygger, granskar, publicerar och förvaltar webbplatser åt otekniska småföretagare – med ett eget sektionsbibliotek och stilkit, kontroller med belägg och Johnny som art director.
 
 ## Innehåll
 
 | Sökväg | Vad |
 |---|---|
-| [`IMPLEMENTERINGSGUIDE.md`](IMPLEMENTERINGSGUIDE.md) | Implementeringsguiden — levande dokument (se status och ändringslogg i filen) |
-| [`kunskap/raw/videor/`](kunskap/raw/videor/index.md) | Råmaterial: transkript och metadata för videorna guiden bygger på |
-| [`kunskap/raw/dokument/`](kunskap/raw/dokument/) | Sammanfattningar av dokument som använts som underlag (inte originaltext) |
-| [`kunskap/research/`](kunskap/research/) | Researchrapporter med källor, också rapporten om kompetensluckor per lager |
-| [`LAGE.md`](LAGE.md) | Läget, nästa steg och hur guiden och kartan förhåller sig till varandra |
+| [`guide/`](guide/README.md) | Guiden v1.0 – kundens väg, de nio lagren, flödet, företaget, byggplanen och bilagor |
+| [`LAGE.md`](LAGE.md) | Läget, nästa steg och det som väntar på Johnny |
 | [`BESLUT.md`](BESLUT.md) | Johnnys beslut, ordagrant med datum och klockslag |
-| [`principer.md`](principer.md) | Principerna för flödet, med källor |
-| [`karta/`](karta/README.md) | Kundens väg och de nio lagren plus flödet, en fil per lager |
+| [`CLAUDE.md`](CLAUDE.md) | Arbetsregler för sessioner |
+| [`kunskap/kallor.md`](kunskap/kallor.md) | Källistan |
+| [`kunskap/raw/videor/`](kunskap/raw/videor/index.md) | Råmaterial: transkript och metadata för videorna |
+| [`kunskap/raw/dokument/`](kunskap/raw/dokument/) | Sammanfattningar av dokument (inte originaltext) |
+| [`kunskap/research/`](kunskap/research/) | Researchrapporter med primärkällor |
 | [`inventering/`](inventering/README.md) | Kompetensinventeringen: data, byggskript och sidan |
-| [`historik/`](historik/webb-pro.md) | Det som hände i nortropic-webb-pro och det vi tar med oss |
+| [`historik/`](historik/) | Implementeringsguiden v0.74 och dess ändringslogg, kartan och principerna före konsolideringen, webb-pros historik |
+| [`konsolidering/`](konsolidering/) | Skrivreglerna och spårbarheten för guiden v1.0 |
 
 ## Status
 
-Guiden är ett utkast som byggts upp video för video. Nästa steg är en konsolideringsrunda där guiden byggs om som wiki ur råmaterialet (se guidens statusrad och §11.6).
-
-Kartan, inventeringen och rapporten om kompetensluckor togs fram i ett eget spår 13–15 oktober 2026. Spåren är inte sammanförda. Var de stämmer överens och var de skiljer sig står i `LAGE.md`.
+Guiden konsoliderades till v1.0 den 2026-10-15 ur implementeringsguiden (byggd video för video) och kartan (framtagen med Johnny 13–15 oktober). Inget är byggt än. Nästa steg står i `LAGE.md` och `guide/5-byggplan.md`.
 
 Råmaterialet i `kunskap/raw/` används bara internt som underlag och ska inte publiceras vidare.

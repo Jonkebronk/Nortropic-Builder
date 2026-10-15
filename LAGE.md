@@ -1,61 +1,33 @@
 # Läget
 
-Uppdaterad 2026-10-15, 13:30.
+Uppdaterad 2026-10-15, kväll.
 
-## Två spår i repot — nu på samma gren
+## Guiden v1.0 är skriven – Johnny läser igenom
 
-Kartspåret slogs ihop med main 2026-10-15. Spåren är fortfarande två dokumentsamlingar, men fyra av skillnaderna är avgjorda (`BESLUT.md`, 2026-10-15).
+På Johnnys uppdrag ("du har fullt mandat att skriva klart så läser jag igenom sen för eventuella rättelser", 2026-10-15) konsoliderades implementeringsguiden v0.74 och kartan till **guiden v1.0 i `guide/`**. Börja i `guide/README.md` och `guide/n1-forsta-sajten.md`.
 
-- **Guiden** (`IMPLEMENTERINGSGUIDE.md`, v0.73): ett självgående flöde med Claude Code, låsta kontroller som grindar och Johnny i stoppen. Byggd video för video ur 74 transkript i `kunskap/raw/videor/`, kontrollerad mot researchen i `kunskap/research/`. Videogenomgången är avslutad; konsolideringen pågår.
-- **Kartan** (`karta/`, `inventering/`, `BESLUT.md`, `principer.md`): kundens väg, nio lager plus flödet och kompetensinventeringen, framtagna med Johnny 13–15 oktober.
+- **Struktur:** kundens väg, de nio lagren (kartans ryggrad), flödet (3.1–3.5), företaget, byggplanen och bilagor A–F. Varje regel bor på ett ställe och är märkt N1–N4.
+- **N1 är litet:** cirka 62 regler, tio automatiska kontroller (definierade i `guide/2-8-teknik-och-kvalitet.md`) och fyra skillutkast – mot cirka 320 N1-punkter i första utkastet och ~60 kontroller i v0.74.
+- **Byggplanen** (`guide/5-byggplan.md`) har sex steg på den första verksamheten, interaktivt medan Johnny tittar: intervju → brief, tre riktningar (startsidan i tre minimala stilkit), bygget, granskaren, publicering, första rapporten.
+- **Arkiverat i `historik/`:** guiden v0.74, ändringsloggen, kartan och principerna. Källistan är ett uppslag för kortnamnen i `kunskap/kallor.md`.
+- **Spårbarhet:** `konsolidering/sparbarhet/` anger för varje del var v0.74-innehållet tog vägen. Den oberoende granskningen står i `konsolidering/granskning-v1.0.md`; fynden är åtgärdade i ommärkningen.
 
-### Avgjort 2026-10-15 (`BESLUT.md`)
+## Det som väntar på Johnny
 
-1. **Ordningen: flödet först** — guidens ordning. Beslutet 2026-10-13 om små steg står kvar.
-2. **Designsättet: Stitch inom stilkit** — eget sektionsbibliotek och 3–5 stilkit (kartan); Stitch m.fl. används när stilkiten tas fram och förnyas, inte vid varje kundbygge.
-3. **Riktningen: Johnny först, sedan kunden.**
-4. **Sajttypen: vanlig flersidig sajt** som standardprodukt; scrollytelling blir tillval.
-
-### Där spåren stämmer överens
-
-- Intervjun kommer först (guiden fas 1, kartan lager 1). Tre riktningar före bygget. Ombyggnad är ett eget spår. Den som bygger granskar inte sitt eget arbete. Cloudflare och Astro. WCAG 2.2 AA som golv. Förvaltningen är en egen fas. Mikroföretag undantagna från tillgänglighetslagen; analys utan kakor kan ändå kräva samtycke (tolkningar, inte juridisk rådgivning).
-
-### Fortfarande öppet mellan spåren, för Johnny
-
-1. **`CLAUDE.md`** — guiden planerar en egen som bara ändras via Johnny; den som ligger i roten kommer från kartspåret.
-2. **Besluten** — guiden för beslut i §14, kartspåret i `BESLUT.md`. Claudes förslag: `BESLUT.md` blir det enda registret; §14 behåller bara öppna frågor.
-3. **Licensbeslutet 2026-10-13 18:50** — gäller "kopiera, reverse engineera och ta andra företags designer" betalda verktyg (t.ex. Mobbin) eller andra företags sajter? Både guidens originalitetskontroll och webb-pros referensregel är snävare. Webb-pro-genomgången visar att det skriftliga licensbeskedet där har oifyllda platshållare.
-4. **Intervjun** — guiden intervjuar Johnny med svarsalternativ, kartan kunden med öppna frågor.
-5. **Detaljer som säger emot varandra:** Lucide och Inter (förbjudna i guiden, standard i kartan), ortssidor, Firecrawl, var säkerhetsheaders sätts.
-
-## Konsolideringen — underlag
-
-- `kunskap/research/2026-10-15_webb-pro-genomgang.md` — varför webb-pro inte gav bra sajter, vad som är värt att ta med, fem risker för att guiden upprepar misstagen.
-- `kunskap/research/2026-10-15_karta-mot-guide.md` — lager för lager mot guiden, konflikter, luckor åt båda håll.
-- `kunskap/research/2026-10-15_guide-konsolideringsanalys.md` — 27 dubblettgrupper, motsägelser med radnummer, regler med en källa som fungerar som grind, ⚠️-inventering, minsta nödvändiga för en första sajt.
-
-## Var vi står
-
-- Inget är byggt: inget bibliotek, inga stilkit, ingen egen skill och ingen sajt.
-- Inventeringen: 72 delar ur webb-pro och 99 kandidater; inga beslut fattade. Guidens ~60 verktyg är inte införda i inventeringen.
-
-## Nästa steg (Claudes förslag, 2026-10-15)
-
-1. Konsolidera guiden efter besluten: rätta motsägelserna, slå ihop dubbletterna, byt designsätt (stilkit), sajttyp (flersidig) och riktning (Johnny, sedan kunden), och märk varje regel *behövs för första varvet* eller *senare*.
-2. Välj den första verksamheten — flödets första varv körs på den.
-3. Bygg flödets kärna i små steg, med en synlig sajt så tidigt som möjligt i varje steg.
+1. **Läs igenom v1.0** och rätta det som är fel. Alla ändringar efter Johnnys besked förs som vanligt (beslut i `BESLUT.md`).
+2. **Frågorna före den första sajten** (`guide/bilaga-e-oppna-fragor.md`, avsnitt 1): vilken verksamhet, vem svarar på intervjun, publiceras sajten, bildkälla, tidsbudget, bekräfta Astro, intervjuns form, integritetspolicy utan formulär, byggs de första sajterna utan betalning, Lucide och Inter.
+3. **Styrningsfrågorna** (avsnitt 2): licensbeslutets räckvidd, `CLAUDE.md`, priser som rutin eller hög risk, automatisk sammanslagning, Variate och Inspo i kundbygget.
+4. **Repot är publikt** (Johnny: "det ändrar vi sen").
 
 ## Börja nu, lång ledtid
 
 - Ansök om API-åtkomst för Google Business Profile (bara Johnny kan ansöka; svar inom 14 dagar).
-- Bedöm 30–40 skärmdumpar av sajter med godkänt eller underkänt och en kort kritik — bedömarens kalibrering.
-- `claude update` (mods kräver 2.1.287).
-- Sätt upp Renovate med ett delat preset och sju dagars karenstid.
+- Bedöm 30–40 skärmdumpar av sajter som godkänd eller underkänd med en kort kritik – den första måttstocken och granskarens kalibrering.
+- Avgränsa byggsessionen från användarnivåns 292 skills (bl.a. `nortropic-stack`, som föreskriver Next.js) innan första bygget – se `guide/3-3-sakerhet-och-installningar.md` och bilaga E.
 
-## Öppna frågor till Johnny
+## Nästa steg (Claudes förslag)
 
-- Frågorna under "Fortfarande öppet".
-- Repot är publikt, och därmed råmaterialet i `kunskap/raw/`. Ska repot bli privat igen? (Johnny 2026-10-15: "det ändrar vi sen".)
-- Vilken verksamhet blir den första? Vem svarar på intervjun i första varvet?
-- Tidsbudget per sajt — saknas i båda spåren.
-- Överlappar skillen `nortropic-intake` med den nya intervjuskillen?
+1. Johnnys genomläsning och rättelser.
+2. Svaren på bilaga E avsnitt 1.
+3. Byggplanens förberedelser och steg 1 på den första verksamheten.
+4. För in guidens verktyg i `inventering/inventering.json` (99 rader saknas där; `guide/bilaga-a-verktyg.md`).

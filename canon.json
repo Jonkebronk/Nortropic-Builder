@@ -1,0 +1,676 @@
+{
+ "res": {
+  "5000-timmarsvideon": {
+   "2-1-strategi.md": 3,
+   "2-2-omfattning.md": 1,
+   "2-9-drift-och-forvaltning.md": 1,
+   "3-1-orkestrering-och-roller.md": 2,
+   "4-foretaget.md": 2,
+   "bilaga-c-kontroller.md": 2,
+   "n1-forsta-sajten.md": 3
+  },
+  "FDE-videon": {
+   "2-1-strategi.md": 2,
+   "2-9-drift-och-forvaltning.md": 2,
+   "3-2-granskning-och-kalibrering.md": 3,
+   "bilaga-b-skills.md": 1,
+   "bilaga-c-kontroller.md": 1,
+   "n1-forsta-sajten.md": 3
+  },
+  "gauntlet-videon": {
+   "2-1-strategi.md": 2,
+   "2-5-yta.md": 1,
+   "3-2-granskning-och-kalibrering.md": 2,
+   "bilaga-a-verktyg.md": 1,
+   "bilaga-c-kontroller.md": 2,
+   "n1-forsta-sajten.md": 3
+  },
+  "konsult-videon": {
+   "2-1-strategi.md": 1,
+   "4-foretaget.md": 4,
+   "n1-forsta-sajten.md": 1
+  },
+  "mods-videon 2": {
+   "2-1-strategi.md": 1,
+   "3-5-live-visning.md": 2
+  },
+  "OS-videon": {
+   "2-1-strategi.md": 1,
+   "3-1-orkestrering-och-roller.md": 1,
+   "bilaga-a-verktyg.md": 1,
+   "n1-forsta-sajten.md": 1
+  },
+  "repo-videon": {
+   "2-1-strategi.md": 1,
+   "2-6-rorelse.md": 1,
+   "3-1-orkestrering-och-roller.md": 1,
+   "3-2-granskning-och-kalibrering.md": 1,
+   "bilaga-a-verktyg.md": 4,
+   "bilaga-c-kontroller.md": 2,
+   "n1-forsta-sajten.md": 2
+  },
+  "retainer-föredraget": {
+   "2-1-strategi.md": 1,
+   "2-9-drift-och-forvaltning.md": 1,
+   "4-foretaget.md": 4
+  },
+  "STORM-videon": {
+   "2-1-strategi.md": 2,
+   "2-7-innehall.md": 1,
+   "3-2-granskning-och-kalibrering.md": 1,
+   "bilaga-c-kontroller.md": 1,
+   "n1-forsta-sajten.md": 2
+  },
+  "4 Ways-videon": {
+   "2-2-omfattning.md": 1,
+   "2-4-skelett.md": 1,
+   "2-5-yta.md": 1,
+   "2-7-innehall.md": 1,
+   "2-8-teknik-och-kvalitet.md": 1,
+   "3-3-sakerhet-och-installningar.md": 1,
+   "3-4-larande-och-underhall.md": 2,
+   "bilaga-a-verktyg.md": 1,
+   "bilaga-c-kontroller.md": 1,
+   "n1-forsta-sajten.md": 5
+  },
+  "advise-videon": {
+   "2-2-omfattning.md": 3,
+   "bilaga-a-verktyg.md": 3,
+   "bilaga-c-kontroller.md": 1
+  },
+  "Jack Roberts repo-video": {
+   "2-2-omfattning.md": 1,
+   "2-5-yta.md": 1,
+   "2-8-teknik-och-kvalitet.md": 1,
+   "bilaga-a-verktyg.md": 4
+  },
+  "REA-videon": {
+   "2-2-omfattning.md": 2,
+   "2-6-rorelse.md": 1,
+   "bilaga-a-verktyg.md": 1
+  },
+  "Coding Sloth-videon": {
+   "2-3-struktur.md": 1,
+   "2-5-yta.md": 1,
+   "3-1-orkestrering-och-roller.md": 1,
+   "3-2-granskning-och-kalibrering.md": 1,
+   "bilaga-a-verktyg.md": 1,
+   "bilaga-c-kontroller.md": 4,
+   "n1-forsta-sajten.md": 3
+  },
+  "Jack Roberts-videon 2": {
+   "2-3-struktur.md": 1,
+   "2-4-skelett.md": 1,
+   "2-5-yta.md": 7,
+   "2-6-rorelse.md": 1,
+   "2-7-innehall.md": 2,
+   "4-foretaget.md": 2,
+   "bilaga-a-verktyg.md": 5,
+   "bilaga-c-kontroller.md": 1,
+   "n1-forsta-sajten.md": 6
+  },
+  "Jack Roberts-videon 3": {
+   "2-3-struktur.md": 3,
+   "2-4-skelett.md": 1,
+   "2-7-innehall.md": 2,
+   "2-8-teknik-och-kvalitet.md": 1,
+   "4-foretaget.md": 1,
+   "bilaga-a-verktyg.md": 2,
+   "bilaga-c-kontroller.md": 1,
+   "n1-forsta-sajten.md": 6
+  },
+  "loop-nivåvideon": {
+   "2-3-struktur.md": 1,
+   "2-6-rorelse.md": 2,
+   "2-9-drift-och-forvaltning.md": 2,
+   "3-2-granskning-och-kalibrering.md": 2,
+   "bilaga-a-verktyg.md": 2,
+   "bilaga-c-kontroller.md": 2
+  },
+  "loop-videon": {
+   "2-3-struktur.md": 1,
+   "2-8-teknik-och-kvalitet.md": 1,
+   "3-1-orkestrering-och-roller.md": 2,
+   "3-2-granskning-och-kalibrering.md": 2,
+   "3-4-larande-och-underhall.md": 2,
+   "bilaga-c-kontroller.md": 7,
+   "n1-forsta-sajten.md": 3
+  },
+  "ADHD-videon": {
+   "2-4-skelett.md": 1,
+   "2-5-yta.md": 2,
+   "bilaga-a-verktyg.md": 1,
+   "bilaga-c-kontroller.md": 2,
+   "bilaga-d-fallgropar.md": 1,
+   "n1-forsta-sajten.md": 1
+  },
+  "Astryx-videon": {
+   "2-4-skelett.md": 2,
+   "2-5-yta.md": 2,
+   "2-8-teknik-och-kvalitet.md": 1,
+   "3-4-larande-och-underhall.md": 1,
+   "bilaga-a-verktyg.md": 1,
+   "bilaga-c-kontroller.md": 1,
+   "n1-forsta-sajten.md": 5
+  },
+  "Claude Design-videon": {
+   "2-4-skelett.md": 1,
+   "2-5-yta.md": 2,
+   "3-2-granskning-och-kalibrering.md": 1,
+   "bilaga-a-verktyg.md": 2,
+   "bilaga-c-kontroller.md": 1,
+   "n1-forsta-sajten.md": 1
+  },
+  "designskills-videon 2": {
+   "2-4-skelett.md": 1,
+   "2-5-yta.md": 2,
+   "2-7-innehall.md": 1,
+   "2-8-teknik-och-kvalitet.md": 1,
+   "bilaga-a-verktyg.md": 3,
+   "n1-forsta-sajten.md": 4
+  },
+  "skills-videon": {
+   "2-4-skelett.md": 1,
+   "3-4-larande-och-underhall.md": 2,
+   "bilaga-a-verktyg.md": 1,
+   "bilaga-b-skills.md": 1,
+   "n1-forsta-sajten.md": 2
+  },
+  "Astra-videon": {
+   "2-5-yta.md": 3,
+   "2-6-rorelse.md": 3,
+   "3-3-sakerhet-och-installningar.md": 1,
+   "bilaga-a-verktyg.md": 3,
+   "bilaga-c-kontroller.md": 1,
+   "n1-forsta-sajten.md": 3
+  },
+  "Boris Cherny-videon": {
+   "2-5-yta.md": 1,
+   "3-1-orkestrering-och-roller.md": 1,
+   "3-2-granskning-och-kalibrering.md": 1,
+   "3-4-larande-och-underhall.md": 2,
+   "n1-forsta-sajten.md": 1
+  },
+  "designnivå-videon": {
+   "2-5-yta.md": 4,
+   "2-9-drift-och-forvaltning.md": 1,
+   "3-3-sakerhet-och-installningar.md": 1,
+   "bilaga-a-verktyg.md": 3,
+   "bilaga-c-kontroller.md": 2,
+   "n1-forsta-sajten.md": 1
+  },
+  "designskills-videon": {
+   "2-5-yta.md": 4,
+   "2-6-rorelse.md": 2,
+   "bilaga-a-verktyg.md": 6,
+   "bilaga-c-kontroller.md": 1,
+   "n1-forsta-sajten.md": 1
+  },
+  "Inspo-videon": {
+   "2-5-yta.md": 3,
+   "2-6-rorelse.md": 1,
+   "bilaga-a-verktyg.md": 2,
+   "bilaga-c-kontroller.md": 1,
+   "n1-forsta-sajten.md": 1
+  },
+  "Jack Roberts designgeni-videon": {
+   "2-5-yta.md": 2,
+   "2-8-teknik-och-kvalitet.md": 1,
+   "3-2-granskning-och-kalibrering.md": 1,
+   "bilaga-c-kontroller.md": 3,
+   "n1-forsta-sajten.md": 1
+  },
+  "Jack Roberts Motion Design-videon": {
+   "2-5-yta.md": 1,
+   "2-6-rorelse.md": 1,
+   "bilaga-a-verktyg.md": 1
+  },
+  "Jack Roberts-videon 4": {
+   "2-5-yta.md": 2,
+   "2-7-innehall.md": 1,
+   "2-8-teknik-och-kvalitet.md": 2,
+   "4-foretaget.md": 1,
+   "bilaga-a-verktyg.md": 2,
+   "bilaga-c-kontroller.md": 1
+  },
+  "Opus 5.5-videon": {
+   "2-5-yta.md": 3,
+   "2-6-rorelse.md": 2,
+   "2-8-teknik-och-kvalitet.md": 2,
+   "3-3-sakerhet-och-installningar.md": 1,
+   "bilaga-a-verktyg.md": 4,
+   "n1-forsta-sajten.md": 2
+  },
+  "sex-färdigheter-videon": {
+   "2-5-yta.md": 1,
+   "2-7-innehall.md": 1,
+   "3-2-granskning-och-kalibrering.md": 1,
+   "n1-forsta-sajten.md": 2
+  },
+  "Skills-videon": {
+   "2-5-yta.md": 1,
+   "2-7-innehall.md": 1,
+   "3-3-sakerhet-och-installningar.md": 1,
+   "3-4-larande-och-underhall.md": 2,
+   "3-5-live-visning.md": 1,
+   "bilaga-a-verktyg.md": 2,
+   "n1-forsta-sajten.md": 1
+  },
+  "Stitch-skills-videon": {
+   "2-5-yta.md": 5,
+   "bilaga-a-verktyg.md": 1,
+   "n1-forsta-sajten.md": 3
+  },
+  "Stitch-videon": {
+   "2-5-yta.md": 2,
+   "2-6-rorelse.md": 5,
+   "bilaga-c-kontroller.md": 1,
+   "n1-forsta-sajten.md": 4
+  },
+  "Claude Motion-videon": {
+   "2-6-rorelse.md": 1,
+   "bilaga-a-verktyg.md": 2
+  },
+  "Jack Roberts Claude Design 3.0-videon": {
+   "2-6-rorelse.md": 1,
+   "bilaga-a-verktyg.md": 1
+  },
+  "Nate Herk 100-repon-videon": {
+   "2-6-rorelse.md": 1,
+   "2-7-innehall.md": 1,
+   "2-8-teknik-och-kvalitet.md": 1,
+   "3-4-larande-och-underhall.md": 1,
+   "bilaga-a-verktyg.md": 11,
+   "bilaga-c-kontroller.md": 1,
+   "n1-forsta-sajten.md": 1
+  },
+  "Fable-videon": {
+   "2-7-innehall.md": 2,
+   "3-1-orkestrering-och-roller.md": 1,
+   "3-3-sakerhet-och-installningar.md": 4,
+   "bilaga-c-kontroller.md": 3,
+   "n1-forsta-sajten.md": 3
+  },
+  "OKF-videon": {
+   "2-7-innehall.md": 1,
+   "2-9-drift-och-forvaltning.md": 1,
+   "3-4-larande-och-underhall.md": 1,
+   "bilaga-a-verktyg.md": 3
+  },
+  "Ebbelaar-intervjun": {
+   "2-8-teknik-och-kvalitet.md": 3,
+   "2-9-drift-och-forvaltning.md": 1,
+   "3-2-granskning-och-kalibrering.md": 2,
+   "3-3-sakerhet-och-installningar.md": 1,
+   "3-4-larande-och-underhall.md": 1,
+   "4-foretaget.md": 2,
+   "bilaga-c-kontroller.md": 2,
+   "n1-forsta-sajten.md": 2
+  },
+  "Fable 5-videon": {
+   "2-8-teknik-och-kvalitet.md": 1,
+   "3-2-granskning-och-kalibrering.md": 1,
+   "3-3-sakerhet-och-installningar.md": 3,
+   "bilaga-a-verktyg.md": 1,
+   "bilaga-c-kontroller.md": 2
+  },
+  "Hermes-videon": {
+   "2-8-teknik-och-kvalitet.md": 1,
+   "3-1-orkestrering-och-roller.md": 1,
+   "3-4-larande-och-underhall.md": 1,
+   "bilaga-a-verktyg.md": 1,
+   "bilaga-b-skills.md": 1,
+   "n1-forsta-sajten.md": 1
+  },
+  "Boris-skills-videon": {
+   "2-9-drift-och-forvaltning.md": 1,
+   "3-4-larande-och-underhall.md": 1,
+   "bilaga-b-skills.md": 1
+  },
+  "Grok Bot-videon": {
+   "2-9-drift-och-forvaltning.md": 2,
+   "bilaga-c-kontroller.md": 2
+  },
+  "VAULT-videon": {
+   "2-9-drift-och-forvaltning.md": 3,
+   "3-1-orkestrering-och-roller.md": 1,
+   "3-2-granskning-och-kalibrering.md": 1,
+   "4-foretaget.md": 3,
+   "bilaga-b-skills.md": 1,
+   "bilaga-c-kontroller.md": 2,
+   "n1-forsta-sajten.md": 1
+  },
+  "1-person-videon": {
+   "3-1-orkestrering-och-roller.md": 1,
+   "4-foretaget.md": 9,
+   "bilaga-c-kontroller.md": 2
+  },
+  "fleet-videon": {
+   "3-1-orkestrering-och-roller.md": 2,
+   "3-3-sakerhet-och-installningar.md": 1,
+   "bilaga-a-verktyg.md": 3,
+   "n1-forsta-sajten.md": 1
+  },
+  "Goal Buddy-videon": {
+   "3-1-orkestrering-och-roller.md": 3,
+   "3-3-sakerhet-och-installningar.md": 1,
+   "bilaga-c-kontroller.md": 1
+  },
+  "Shopify-videon": {
+   "3-1-orkestrering-och-roller.md": 4,
+   "3-2-granskning-och-kalibrering.md": 3,
+   "bilaga-c-kontroller.md": 5,
+   "n1-forsta-sajten.md": 5
+  },
+  "Unlazy-videon": {
+   "3-1-orkestrering-och-roller.md": 5,
+   "bilaga-a-verktyg.md": 1,
+   "bilaga-c-kontroller.md": 4,
+   "n1-forsta-sajten.md": 2
+  },
+  "ADLC-videon": {
+   "3-2-granskning-och-kalibrering.md": 1,
+   "3-4-larande-och-underhall.md": 1,
+   "bilaga-c-kontroller.md": 1
+  },
+  "Buzz-videon": {
+   "3-2-granskning-och-kalibrering.md": 1,
+   "bilaga-a-verktyg.md": 1
+  },
+  "funktionsvideon": {
+   "3-2-granskning-och-kalibrering.md": 1,
+   "3-3-sakerhet-och-installningar.md": 1,
+   "bilaga-a-verktyg.md": 1,
+   "bilaga-c-kontroller.md": 2
+  },
+  "Hermes-loopvideon": {
+   "3-2-granskning-och-kalibrering.md": 1,
+   "3-4-larande-och-underhall.md": 1,
+   "bilaga-c-kontroller.md": 1
+  },
+  "Jev-videon": {
+   "3-2-granskning-och-kalibrering.md": 2,
+   "3-3-sakerhet-och-installningar.md": 2,
+   "bilaga-a-verktyg.md": 1,
+   "bilaga-c-kontroller.md": 3
+  },
+  "loop-typvideon": {
+   "3-2-granskning-och-kalibrering.md": 1,
+   "3-4-larande-och-underhall.md": 1,
+   "bilaga-c-kontroller.md": 1
+  },
+  "radera-skills-videon": {
+   "3-2-granskning-och-kalibrering.md": 1,
+   "3-4-larande-och-underhall.md": 2,
+   "bilaga-c-kontroller.md": 1
+  },
+  "Agit-videon": {
+   "3-3-sakerhet-och-installningar.md": 1,
+   "bilaga-a-verktyg.md": 1,
+   "bilaga-c-kontroller.md": 1,
+   "n1-forsta-sajten.md": 1
+  },
+  "CLAUDE.md-videon": {
+   "3-3-sakerhet-och-installningar.md": 1,
+   "3-4-larande-och-underhall.md": 1,
+   "bilaga-c-kontroller.md": 1,
+   "n1-forsta-sajten.md": 1
+  },
+  "Karpathy-videon": {
+   "3-3-sakerhet-och-installningar.md": 1,
+   "3-4-larande-och-underhall.md": 2,
+   "bilaga-a-verktyg.md": 2
+  },
+  "Skill Spector-videon": {
+   "3-3-sakerhet-och-installningar.md": 1,
+   "bilaga-a-verktyg.md": 2,
+   "bilaga-c-kontroller.md": 1,
+   "n1-forsta-sajten.md": 1
+  },
+  "context-videon": {
+   "3-4-larande-och-underhall.md": 6,
+   "bilaga-c-kontroller.md": 2
+  },
+  "harness-videon": {
+   "3-4-larande-och-underhall.md": 2
+  },
+  "inställningsvideon": {
+   "3-5-live-visning.md": 1,
+   "bilaga-a-verktyg.md": 1,
+   "n1-forsta-sajten.md": 1
+  },
+  "mods-videon": {
+   "3-5-live-visning.md": 2,
+   "bilaga-c-kontroller.md": 1,
+   "n1-forsta-sajten.md": 1
+  },
+  "Clay-videon": {
+   "4-foretaget.md": 7,
+   "bilaga-a-verktyg.md": 1
+  },
+  "Graft-videon": {
+   "bilaga-a-verktyg.md": 1
+  }
+ },
+ "var": {
+  "5000-timmarsvideon": {
+   "5000-timmarsvideon": 12,
+   "5000-timmars-videon": 2
+  },
+  "FDE-videon": {
+   "FDE-videon": 12
+  },
+  "gauntlet-videon": {
+   "gauntlet-videon": 11
+  },
+  "konsult-videon": {
+   "konsult-videon": 6
+  },
+  "mods-videon 2": {
+   "Mods-videon 2": 1,
+   "mods-videon 2": 2
+  },
+  "OS-videon": {
+   "OS-videon": 4
+  },
+  "repo-videon": {
+   "repo-videon": 12
+  },
+  "retainer-föredraget": {
+   "retainer-föredraget": 5,
+   "retainer-videon": 1
+  },
+  "STORM-videon": {
+   "STORM-videon": 7
+  },
+  "4 Ways-videon": {
+   "\"4 Ways\"-videon": 8,
+   "4 Ways-videon": 7
+  },
+  "advise-videon": {
+   "advise-videon": 7
+  },
+  "Jack Roberts repo-video": {
+   "Jack Roberts repo-video": 6,
+   "Jack Roberts repovideo": 1
+  },
+  "REA-videon": {
+   "REA-videon": 4
+  },
+  "Coding Sloth-videon": {
+   "Coding Sloth-videon": 12
+  },
+  "Jack Roberts-videon 2": {
+   "Jack Roberts-videon 2": 26
+  },
+  "Jack Roberts-videon 3": {
+   "Jack Roberts-videon 3": 17
+  },
+  "loop-nivåvideon": {
+   "loop-nivåvideon": 11
+  },
+  "loop-videon": {
+   "loop-videon": 17,
+   "Loop-videon": 1
+  },
+  "ADHD-videon": {
+   "ADHD-videon": 8
+  },
+  "Astryx-videon": {
+   "Astryx-videon": 13
+  },
+  "Claude Design-videon": {
+   "Claude Design-videon": 8
+  },
+  "designskills-videon 2": {
+   "designskills-videon 2": 12
+  },
+  "skills-videon": {
+   "skills-videon": 7
+  },
+  "Astra-videon": {
+   "Astra-videon": 14
+  },
+  "Boris Cherny-videon": {
+   "Boris Cherny-videon": 6
+  },
+  "designnivå-videon": {
+   "designnivå-videon": 12
+  },
+  "designskills-videon": {
+   "designskills-videon": 14
+  },
+  "Inspo-videon": {
+   "Inspo-videon": 8
+  },
+  "Jack Roberts designgeni-videon": {
+   "Jack Roberts designgeni-videon": 8
+  },
+  "Jack Roberts Motion Design-videon": {
+   "Jack Roberts Motion Design-videon": 3
+  },
+  "Jack Roberts-videon 4": {
+   "Jack Roberts-videon 4": 9
+  },
+  "Opus 5.5-videon": {
+   "Opus 5.5-videon": 14
+  },
+  "sex-färdigheter-videon": {
+   "sex-färdigheter-videon": 5
+  },
+  "Skills-videon": {
+   "Skills-videon": 9
+  },
+  "Stitch-skills-videon": {
+   "Stitch-skills-videon": 9
+  },
+  "Stitch-videon": {
+   "Stitch-videon": 12
+  },
+  "Claude Motion-videon": {
+   "Claude Motion-videon": 3
+  },
+  "Jack Roberts Claude Design 3.0-videon": {
+   "Jack Roberts Claude Design 3.0-videon": 2
+  },
+  "Nate Herk 100-repon-videon": {
+   "Nate Herks repovideo": 1,
+   "Nate Herk-videon": 5,
+   "Nate Herk 100-repon-videon": 11
+  },
+  "Fable-videon": {
+   "Fable-videon": 13
+  },
+  "OKF-videon": {
+   "OKF-videon": 6
+  },
+  "Ebbelaar-intervjun": {
+   "Ebbelaar-intervjun": 14
+  },
+  "Fable 5-videon": {
+   "Fable 5-videon": 8
+  },
+  "Hermes-videon": {
+   "Hermes-videon": 6
+  },
+  "Boris-skills-videon": {
+   "Boris-skills-videon": 3
+  },
+  "Grok Bot-videon": {
+   "Grok Bot-videon": 4
+  },
+  "VAULT-videon": {
+   "VAULT-videon": 12
+  },
+  "1-person-videon": {
+   "1-person-videon": 12
+  },
+  "fleet-videon": {
+   "fleet-videon": 6,
+   "Fleet-videon": 1
+  },
+  "Goal Buddy-videon": {
+   "Goal Buddy-videon": 5
+  },
+  "Shopify-videon": {
+   "Shopify-videon": 17
+  },
+  "Unlazy-videon": {
+   "Unlazy-videon": 12
+  },
+  "ADLC-videon": {
+   "ADLC-videon": 3
+  },
+  "Buzz-videon": {
+   "Buzz-videon": 2
+  },
+  "funktionsvideon": {
+   "funktionsvideon": 4,
+   "Funktionsvideon": 1
+  },
+  "Hermes-loopvideon": {
+   "Hermes-loopvideon": 3
+  },
+  "Jev-videon": {
+   "Jev-videon": 7,
+   "Jev-videorna": 1
+  },
+  "loop-typvideon": {
+   "loop-typvideon": 3
+  },
+  "radera-skills-videon": {
+   "radera-skills-videon": 4
+  },
+  "Agit-videon": {
+   "Agit-videon": 4
+  },
+  "CLAUDE.md-videon": {
+   "CLAUDE.md-videon": 4
+  },
+  "Karpathy-videon": {
+   "Karpathy-videon": 5
+  },
+  "Skill Spector-videon": {
+   "Skill Spector-videon": 5
+  },
+  "context-videon": {
+   "context-videon": 7,
+   "Context-videon": 1
+  },
+  "harness-videon": {
+   "harness-videon": 2
+  },
+  "inställningsvideon": {
+   "inställningsvideon": 3
+  },
+  "mods-videon": {
+   "mods-videon": 4
+  },
+  "Clay-videon": {
+   "Clay-videon": 8
+  },
+  "Graft-videon": {
+   "Graft-videon": 1
+  }
+ }
+}

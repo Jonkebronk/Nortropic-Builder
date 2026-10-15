@@ -22,3 +22,6 @@ CLAUDE.local.md
 Thumbs.db
 .vscode/
 .idea/
+
+# Kundsajter är egna privata repon (guide/bilaga-f-projektstruktur.md)
+sites/
