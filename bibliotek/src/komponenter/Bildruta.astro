@@ -2,8 +2,9 @@
 // En bild med bredd och höjd, optimerad av Astro när den är importerad. Saknas bilden ritas en neutral form i koden.
 import { Image } from 'astro:assets';
 import type { Bild } from '../innehall/typ';
-interface Props { bild?: Bild; bredd: number; klass?: string; laddning?: 'eager' | 'lazy'; }
-const { bild, bredd, klass, laddning = 'lazy' } = Astro.props;
+// prioritet: den största bilden i första vyn hämtas först (web.dev, Fetch Priority).
+interface Props { bild?: Bild; bredd: number; klass?: string; laddning?: 'eager' | 'lazy'; prioritet?: boolean; }
+const { bild, bredd, klass, laddning = 'lazy', prioritet = false } = Astro.props;
 // Be aldrig om en större bild än originalet.
 const original = bild && typeof bild.src !== 'string' ? bild.src.width : Infinity;
 const bredder = [bredd, bredd * 2].filter((b) => b <= original);
@@ -12,7 +13,7 @@ const widths = bredder.length ? bredder : [original];
 {bild ? (
   typeof bild.src === 'string'
     ? <img class={klass} src={bild.src} alt={bild.alt} width={bild.width ?? bredd} height={bild.height} loading={laddning} decoding="async" />
-    : <Image class={klass} src={bild.src} alt={bild.alt} widths={widths} sizes={`${Math.min(bredd, original)}px`} loading={laddning} />
+    : <Image class={klass} src={bild.src} alt={bild.alt} widths={widths} sizes={`${Math.min(bredd, original)}px`} loading={laddning} fetchpriority={prioritet ? 'high' : undefined} />
 ) : (
   <svg class={klass} viewBox="0 0 120 150" role="img" aria-label="Platshållare för bild">
     <rect width="120" height="150" fill="currentColor" opacity="0.08" />

@@ -59,7 +59,7 @@ De tre riktningarna i `5-byggplan.md`, steg 2, visar startsidan i tre stilkit me
 | Behov | Primitiv | Källa |
 |---|---|---|
 | Vanliga frågor, utfällbart | `<details name>` (Baseline; `name` i alla stora webbläsare sedan 2024). Dölj aldrig det de flesta behöver. | [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/details), [GOV.UK Details](https://design-system.service.gov.uk/components/details/) |
-| Mobilmeny | Synliga länkar vid högst fyra (`2-3`); annars disclosure med `<details>` eller `popover`, aldrig ARIA-rollen `menu`. `aria-current="page"`; Escape stänger och lämnar fokus på knappen. | [W3C APG](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/) |
+| Mobilmeny | Synliga länkar vid högst fyra på datorn (`2-3`). På mobilen en knapp med ordet "Meny" som öppnar en `popover`-panel med alla sidor och kontaktvägen; Escape och klick utanför stänger den och fokus går tillbaka till knappen. Aldrig ARIA-rollen `menu`; `aria-current="page"` (`BESLUT.md` 2026-10-15). | [W3C APG](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/), [MDN popover](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) |
 | Bild i större format | Länk till bilden; från N2 `<dialog>` med Invoker Commands som förbättring | [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Invoker_Commands_API) |
 | Formulär | Vanliga fält med `<label>`, validering på servern | [GOV.UK Validation](https://design-system.service.gov.uk/patterns/validation/), → `2-8` |
 | Komplex widget, till exempel bokningskalender | Från N3 en isolerad ö med Zag | [Zag](https://github.com/chakra-ui/zag) |

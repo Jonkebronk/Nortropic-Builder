@@ -10,10 +10,10 @@ import Process from '../sektioner/Process.astro';
 import NastaSteg from '../sektioner/NastaSteg.astro';
 import type { StartInnehall } from '../innehall/typ';
 
-interface Props { kit: 'lugn' | 'varm' | 'djarv'; innehall: StartInnehall; noindex?: boolean; rorelse?: 'sparsam' | 'mattlig'; }
-const { kit, innehall, noindex = false, rorelse } = Astro.props;
+interface Props { kit: 'lugn' | 'varm' | 'djarv'; innehall: StartInnehall; noindex?: boolean; rorelse?: 'sparsam' | 'mattlig'; strukturerad?: object[]; }
+const { kit, innehall, noindex = false, rorelse, strukturerad } = Astro.props;
 ---
-<Sida kit={kit} innehall={innehall} titel={innehall.titel} beskrivning={innehall.beskrivning} noindex={noindex} rorelse={rorelse}>
+<Sida kit={kit} innehall={innehall} titel={innehall.titel} beskrivning={innehall.beskrivning} noindex={noindex} rorelse={rorelse} strukturerad={strukturerad}>
   <Forstavy innehall={innehall} />
   <Praktiskt innehall={innehall} />
   <Tjanster innehall={innehall} />

@@ -15,6 +15,7 @@ const { fortroende } = Astro.props.innehall;
         <span>{fortroende.betyg.skala}<br /><span class="dampad">{fortroende.betyg.antal}</span></span>
       </p>
       <p class="dampad fortroende__kalla">{fortroende.betyg.kalla}</p>
+      {fortroende.lank && <p><a class="fortroende__lank" href={fortroende.lank.href} rel="noopener">{fortroende.lank.text}</a></p>}
     </div>
     <ul class="fortroende__citat">
       {fortroende.citat.map((c) => (
@@ -34,6 +35,7 @@ const { fortroende } = Astro.props.innehall;
   .fortroende__stjarna :global(svg) { width: 2rem; height: 2rem; fill: currentColor; }
   .fortroende__varde { font-family: var(--k-font-rubrik); font-weight: var(--k-rubrik-vikt); font-size: var(--k-h2); line-height: 1; }
   .fortroende__kalla { font-size: 0.9rem; }
+  .fortroende__lank { font-weight: 600; display: inline-flex; min-height: 44px; align-items: center; }
   .fortroende__citat { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--k-a4); }
   .fortroende__citat blockquote { margin: 0; font-size: 1.1rem; }
   @media (min-width: 48rem) { .fortroende__citat { grid-template-columns: repeat(3, 1fr); } }

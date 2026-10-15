@@ -748,3 +748,25 @@ Johnny, omkring 23:06:
 > Regeln blir: patientcitat visas ordagrant med källa och datum, klinikens egen text lovar ingen effekt.
 
 **Innebär:** Omdömen visas ordagrant med plattform och datum, och namn bara med samtycke (`guide/2-7-innehall.md`). Kundens egna texter lovar ingen effekt av behandlingen, och faktakontrollen behandlar sådana påståenden som fynd.
+
+## 2026-10-15: Kontaktvägen nere på mobilen; omdömena ligger kvar
+
+**Status:** gäller. Ändrar *Mobilens första skärm …*, där kontaktvägen låg fast i toppen på mobilen (`guide/2-3-struktur.md`).
+
+Johnny frågade hur menyn och fasta knappar på mobilen bör göras, med sin egen sajt grenstradfallning.se som exempel. Claude tog fram underlaget och byggde ett förslag:
+- ett smalt sidhuvud med "Meny" som göms vid scroll nedåt
+- knapplisten *Boka tid* och *Ring* nere i tumzonen, som visas när förstavyns knappar har scrollats bort
+- menyn som en panel med alla sidor
+
+Underlaget var NN/g om dold navigation och fasta sidhuvuden, tester av ordet "Meny", Hoobers tumzon, WCAG 2.2, 2.4.11, och Johnnys dom över Citykiropraktikern. Claude frågade också om omdömessektionen skulle flyttas eller ligga kvar.
+
+Johnny, omkring 23:35:
+
+> Ja
+>
+> Kvar.
+
+**Innebär:**
+- På mobilen ligger kontaktvägen i en knapplist i tumzonen, och sidhuvudet är smalt, med namnet och knappen "Meny". Det är standard i biblioteket (`mobilLista: 'nere'`), och `'uppe'` finns kvar som val.
+- På datorn är sidhuvudet oförändrat.
+- Omdömessektionen ligger kvar efter Om Peter. Betyget syns redan i förstavyn.

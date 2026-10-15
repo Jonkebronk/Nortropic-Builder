@@ -1,16 +1,16 @@
 ---
 // Sidhuvudet. På datorn: namn, fyra synliga länkar, telefon och Boka (guide/2-3-struktur.md).
 // På mobilen finns två lägen (innehall.mobilLista):
-//  'uppe' – kontaktvägen fast i sidhuvudet, som Johnnys beslut 2026-10-15.
-//  'nere' – smalt sidhuvud med "Meny" som göms när man scrollar nedåt och kommer tillbaka uppåt
+//  'nere' – standard (Johnnys beslut 2026-10-15, kl. 23.35): smalt sidhuvud med "Meny" som göms när man scrollar nedåt och kommer tillbaka uppåt
 //           (NN/g, Sticky Headers), och kontaktvägen i en knapplist i tumzonen (Kontaktlist.astro).
+//  'uppe' – kontaktvägen fast i sidhuvudet.
 // Menyn är en popover: Escape och klick utanför stänger den utan JavaScript (guide/2-4-skelett.md, primitiverna).
 import Ikon from '../komponenter/Ikon.astro';
 import Knapp from '../komponenter/Knapp.astro';
 import Bildruta from '../komponenter/Bildruta.astro';
 import type { StartInnehall } from '../innehall/typ';
 interface Props { innehall: StartInnehall; }
-const { foretag, boka, ring, nav, meny, mobilLista = 'uppe' } = Astro.props.innehall;
+const { foretag, boka, ring, nav, meny, mobilLista = 'nere' } = Astro.props.innehall;
 const menyLankar = meny?.lankar ?? nav;
 const sida = Astro.url.pathname;
 ---

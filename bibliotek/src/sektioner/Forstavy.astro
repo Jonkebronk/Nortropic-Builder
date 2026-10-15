@@ -24,7 +24,7 @@ const { forstavy, boka, ring, fortroende } = Astro.props.innehall;
     </div>
     <div class="forstavy__bild">
       <div class="forstavy__bildyta">
-        <Bildruta bild={forstavy.bild} bredd={340} klass="forstavy__foto" laddning="eager" />
+        <Bildruta bild={forstavy.bild} bredd={340} klass="forstavy__foto" laddning="eager" prioritet />
       </div>
       {forstavy.markering && <p class="markering">{forstavy.markering}</p>}
     </div>

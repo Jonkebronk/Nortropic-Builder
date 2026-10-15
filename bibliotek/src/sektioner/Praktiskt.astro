@@ -5,7 +5,7 @@ import type { StartInnehall } from '../innehall/typ';
 interface Props { innehall: StartInnehall; }
 const { praktiskt, ring } = Astro.props.innehall;
 ---
-<section class="sektion praktiskt" id="praktiskt" aria-labelledby="praktiskt-rubrik">
+<section class="sektion praktiskt" id="praktiskt" aria-labelledby="praktiskt-rubrik" data-idag-text={praktiskt.idagText}>
   <div class="behallare">
     <h2 id="praktiskt-rubrik" class="praktiskt__rubrik">{praktiskt.rubrik}</h2>
     <div class="praktiskt__rutnat">
@@ -14,7 +14,7 @@ const { praktiskt, ring } = Astro.props.innehall;
           <h3>{p.namn}</h3>
           <p><a class="praktiskt__adress" href={p.karta.href} data-apple={p.karta.apple} rel="noopener" aria-label={`${p.karta.text}: ${p.adress}`}><Ikon namn="plats" /><span>{p.adress}</span></a></p>
           <dl class="praktiskt__dagar">
-            {p.dagar.map((d) => (<div><dt>{d.dag}</dt><dd>{d.tid}</dd></div>))}
+            {p.dagar.map((d) => (<div data-veckodag={d.nr}><dt>{d.dag}</dt><dd>{d.tid}</dd></div>))}
           </dl>
         </article>
       ))}
@@ -31,6 +31,19 @@ const { praktiskt, ring } = Astro.props.innehall;
   </div>
 </section>
 
+<script>
+  // Markerar dagens rad, så att besökaren ser var mottagningen är i dag. Utan JavaScript syns tiderna som vanligt.
+  const s = document.querySelector<HTMLElement>('.praktiskt[data-idag-text]');
+  if (s) {
+    const idag = String(new Date().getDay());
+    s.querySelectorAll<HTMLElement>(`[data-veckodag="${idag}"]`).forEach((rad) => {
+      rad.classList.add('praktiskt__idag');
+      const m = document.createElement('span'); m.className = 'praktiskt__idagmarkering'; m.textContent = s.dataset.idagText ?? '';
+      rad.querySelector('dt')?.append(' ', m);
+    });
+  }
+</script>
+
 <style>
   .praktiskt { padding-top: var(--k-a7); }
   .praktiskt__rubrik { margin-bottom: var(--k-a5); }
@@ -42,6 +55,8 @@ const { praktiskt, ring } = Astro.props.innehall;
   .praktiskt__dagar div { display: flex; justify-content: space-between; gap: var(--k-a4); border-bottom: 1px solid var(--k-linje); padding-block: var(--k-a2); }
   .praktiskt__dagar dt { font-weight: 600; }
   .praktiskt__dagar dd { margin: 0; font-variant-numeric: tabular-nums; }
+  .praktiskt__dagar :global(.praktiskt__idag) { font-weight: 700; }
+  .praktiskt__dagar :global(.praktiskt__idagmarkering) { display: inline-block; margin-left: var(--k-a2); padding: 0 var(--k-a2); border-radius: 999px; background: var(--k-accent); color: var(--k-pa-accent); font-size: 0.8rem; font-weight: 600; }
   .praktiskt__belopp { font-family: var(--k-font-rubrik); font-weight: var(--k-rubrik-vikt); font-size: var(--k-h2); line-height: 1; }
   .praktiskt__kontaktrubrik { margin-top: var(--k-a4); }
   .praktiskt__telefon { display: inline-flex; align-items: center; gap: var(--k-a2); font-weight: 600; font-size: 1.2rem; min-height: 44px; }
