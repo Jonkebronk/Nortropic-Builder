@@ -98,3 +98,5 @@
 [data-kit="djarv"] .tjanster .kort:nth-child(4n + 1) { background: var(--k-dekor); }
 [data-kit="djarv"] .tjanster .kort:nth-child(4n + 2) { background: var(--k-dekor-2); color: #ffffff; }
 [data-kit="djarv"] .tjanster .kort:nth-child(4n + 2) a { color: #ffffff; }
+/* Namnet i sidhuvudet med gemener, så att det får plats bredvid kontaktvägen på mobilen. */
+[data-kit="djarv"] .sidhuvud__namn { text-transform: none; letter-spacing: -0.01em; }
