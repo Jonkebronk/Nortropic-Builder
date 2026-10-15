@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-15 kl. 21.47 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-15 kl. 21.42 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Kort
 
@@ -61,7 +61,7 @@ Detaljerna står i `BESLUT.md`.
 ## Nästa steg – på Macen
 
 1. **Den första övningssajten är vald och skapad** i `sites/` ur mallen (Johnny 21:10, `BESLUT.md`). Firmans namn står bara där, i sajtens `progress.md`, som också håller läget.
-2. **Steg 1 är klart för Johnnys dom** (fullt mandat, Johnny 21:25; Claude svarade i kundens ställe, 21:40, `BESLUT.md`). Briefen, faktabasen och sidkartan är klara kl. 21.46. Steg 2 är nästa. Läget och fynden står i sajtens `progress.md`.
+2. **Steg 1 är klart för Johnnys dom** (fullt mandat, Johnny 21:25; Claude svarade i kundens ställe, 21:40, `BESLUT.md`). Briefen, faktabasen och sidkartan är klara kl. 21.42. Steg 2 är nästa. Läget och fynden står i sajtens `progress.md`.
 3. **Byggplanens steg 1–6**, med en genomgång efter sajten.
 
 ## Väntar på Johnny
