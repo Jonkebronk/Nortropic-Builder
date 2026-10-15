@@ -1,6 +1,6 @@
 # 3.1 Orkestrering och roller
 
-**Status:** konsoliderad v1.0, 2026-10-15; ommärkt samma dag efter granskningen (`konsolidering/granskning-v1.0.md`). Utkast, inte genomgånget med Johnny.
+**Status:** konsoliderad v1.0, 2026-10-15; ommärkt samma dag efter granskningen (`konsolidering/granskning-v1.0.md`). **Genomläst med Johnny 2026-10-15**; rättelserna står i `BESLUT.md`.
 
 Flödet är lagret ovanpå de nio lagren: hur agenterna arbetar sig igenom dem (`historik/karta/flodet.md`). Här står vem som gör vad, hur läget hålls i filer, när ett steg är redo för Johnnys dom och hur tillsynen följer konsekvensen. Bedömningen står i `3-2-granskning-och-kalibrering.md`; säkerhet, modeller och effort i `3-3-sakerhet-och-installningar.md`.
 
@@ -80,7 +80,7 @@ I N1 frågar huvudsessionen Johnny direkt när något saknas eller samma fel kom
 
 ## Den som bygger dömer inte
 
-- [N1] **Granskaren är en separat delagent med färsk kontext,** från `5-byggplan.md`, steg 4. Den får referensen, checklistan och skärmdumparna – inte huvudsessionens logg och resonemang och, från N2, inte byggarens överlämning. Använd en vanlig delagent, inte en som ärver chatten (som `subtask`). Varför: en granskare som delar kontext med byggaren godkänner det som byggts. 🎥 Shopify-videon; 📄 *Prompting Claude Fable 5* ("separata verifierande delagenter med färsk kontext presterar ofta bättre än självkritik"); 📄 [Best practices](https://code.claude.com/docs/en/best-practices). Lyft – får vara grind.
+- [N1] **Granskaren är en separat delagent med färsk kontext,** från `5-byggplan.md`, steg 4. Den får referensen, checklistan med måttstockens tre frågor, Johnnys exempel och skärmdumparna, bland dem helsidesbilder i mobil och dator (`3-2`) – inte huvudsessionens logg och resonemang och, från N2, inte byggarens överlämning. Använd en vanlig delagent, inte en som ärver chatten (som `subtask`). Varför: en granskare som delar kontext med byggaren godkänner det som byggts. 🎥 Shopify-videon; 📄 *Prompting Claude Fable 5* ("separata verifierande delagenter med färsk kontext presterar ofta bättre än självkritik"); 📄 [Best practices](https://code.claude.com/docs/en/best-practices). Lyft – får vara grind.
 - [N2] **Granskaren bedömer resultatet, inte om byggaren följde instruktionerna:** uppdraget innehåller inte `CLAUDE.md`, arbetsregler eller loggen. 🎥 Shopify-videon (en källa – bänken; lyfts när Shopify-artikeln läses i original). ⚠️ Om delagenter laddar projektets `CLAUDE.md` är inte kontrollerat; lägg därför inga bedömningskriterier där.
 - [N2] **Verktyg som lägger in kontext i varje prompt** (t.ex. Graft) är aldrig aktiva för granskare. 🔧
 

@@ -480,3 +480,18 @@ Claude föreslog vid genomläsningen av `guide/2-9-drift-och-forvaltning.md` att
 > Ja
 
 **Innebär:** Regeln är införd i `2-9-drift-och-forvaltning.md` (N1) och i `5-byggplan.md`, steg 6. Alla nio lagren är genomlästa med Johnny.
+
+## 2026-10-15: Granskaren – måttstocken först, dom skild från fynd
+
+**Status:** gäller.
+
+Claude föreslog vid genomläsningen av `guide/3-1-orkestrering-och-roller.md` och `3-2-granskning-och-kalibrering.md`:
+- A. Granskarens checklista börjar med måttstockens tre frågor, mobilen först. Johnnys 8 utvalda domar blir referens redan i N1, och underlaget får helsidesbilder i mobil och dator.
+- B. Granskaren ger överst en dom i Johnnys form enligt måttstockens vägning. Fyndens allvar under domen följer regeln om en källa. Domen är ingen grind.
+- C. `3-1` pekar på samma underlag.
+
+Johnny:
+
+> Ja
+
+**Innebär:** Ändringarna är införda i `3-2` (N1-reglerna om granskaren och exemplen) och i `3-1`.
