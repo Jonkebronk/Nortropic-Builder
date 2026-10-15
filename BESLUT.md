@@ -135,3 +135,44 @@ Johnny, 12:36:
 Repot är https://github.com/Jonkebronk/Nortropic-Builder. Det skapades 2026-10-14 21:35 med implementeringsguiden v0.50, och guiden byggdes sedan vidare där i en annan Claude-session. Samma dag som beslutet gjorde Johnny repot publikt så att den här sessionen kunde läsa det.
 
 **Innebär:** kartan, inventeringen och rapporten ligger i samma repo som guiden. Hur spåren förhåller sig till varandra står i `LAGE.md`.
+
+## 2026-10-14: Förvaltningen ingår
+
+**Status:** gäller. Klockslag inte noterat.
+
+Johnny, i guidesessionen:
+
+> nej, vi förvaltar även sidorna
+
+**Innebär:** fas 8 Förvaltning i guiden. Stämmer med nischbeslutet 2026-10-13.
+
+## 2026-10-14: Claude Design är inte designmotor
+
+**Status:** gäller. Klockslag inte noterat.
+
+Johnny, i guidesessionen:
+
+> claude design är inte alternativ designmotor men det andra är bra
+
+## 2026-10-14: Hosting på Cloudflare
+
+**Status:** gäller. Klockslag inte noterat.
+
+Johnny, i guidesessionen:
+
+> vi kommer hosta på cloudflare dock med domän möjlighet, workers etc
+
+**Innebär:** guidens fas 7 och stackförslaget i §14 bygger på Cloudflare Workers (v0.68).
+
+## 2026-10-15: Ordning, designsätt, riktning och sajttyp
+
+**Status:** gäller.
+
+Johnny valde, 13:20, i Claudes frågeformulär efter genomgången av webb-pro och jämförelsen mellan kartan och guiden:
+
+- **Ordning:** "Flödet först" (av alternativen: en sajt först, flödet först, parallellt).
+- **Designsätt:** "Stitch inom stilkit" — eget sektionsbibliotek och 3–5 stilkit; Stitch och andra verktyg används när stilkiten tas fram och förnyas, inte vid varje kundbygge.
+- **Riktning:** "Du först, sedan kunden" — Johnny ser och kan stryka riktningar innan kunden väljer.
+- **Sajttyp:** "Vanlig flersidig sajt" — standardprodukten för första varvet; scrollytelling blir tillval.
+
+**Innebär:** kartans designsätt och sajttyp gäller; guidens ordning (flödet först) gäller. Beslutet 2026-10-13 om små steg står kvar. Claudes tolkning i `principer.md` och `karta/README.md` ("först en sajt, sedan byrån, sist maskinen") ändras av ordningsbeslutet. Underlag: `kunskap/research/2026-10-15_webb-pro-genomgang.md`, `2026-10-15_karta-mot-guide.md`, `2026-10-15_guide-konsolideringsanalys.md`.

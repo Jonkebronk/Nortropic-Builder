@@ -1,59 +1,61 @@
 # Läget
 
-Uppdaterad 2026-10-15.
+Uppdaterad 2026-10-15, 13:30.
 
-## Två spår i repot
+## Två spår i repot — nu på samma gren
 
-Repot har två spår som inte är sammanförda.
+Kartspåret slogs ihop med main 2026-10-15. Spåren är fortfarande två dokumentsamlingar, men fyra av skillnaderna är avgjorda (`BESLUT.md`, 2026-10-15).
 
-- **Guiden** (`IMPLEMENTERINGSGUIDE.md`, v0.73): ett självgående flöde där Claude Code styr Google Stitch, med låsta kontroller som grindar och Johnny i två stopp. Den byggs video för video ur 74 videotranskript i `kunskap/raw/videor/`, kontrolleras mot researchrapporterna i `kunskap/research/` och ska konsolideras när videogenomgången är klar.
-- **Kartan** (`karta/`, `inventering/`, `BESLUT.md`, `principer.md`): kundens väg, nio lager plus flödet och kompetensinventeringen, framtagna med Johnny 13–15 oktober ur metoder, litteratur och GitHub.
+- **Guiden** (`IMPLEMENTERINGSGUIDE.md`, v0.73): ett självgående flöde med Claude Code, låsta kontroller som grindar och Johnny i stoppen. Byggd video för video ur 74 transkript i `kunskap/raw/videor/`, kontrollerad mot researchen i `kunskap/research/`. Videogenomgången är avslutad; konsolideringen pågår.
+- **Kartan** (`karta/`, `inventering/`, `BESLUT.md`, `principer.md`): kundens väg, nio lager plus flödet och kompetensinventeringen, framtagna med Johnny 13–15 oktober.
+
+### Avgjort 2026-10-15 (`BESLUT.md`)
+
+1. **Ordningen: flödet först** — guidens ordning. Beslutet 2026-10-13 om små steg står kvar.
+2. **Designsättet: Stitch inom stilkit** — eget sektionsbibliotek och 3–5 stilkit (kartan); Stitch m.fl. används när stilkiten tas fram och förnyas, inte vid varje kundbygge.
+3. **Riktningen: Johnny först, sedan kunden.**
+4. **Sajttypen: vanlig flersidig sajt** som standardprodukt; scrollytelling blir tillval.
 
 ### Där spåren stämmer överens
 
-- Intervjun kommer först och ger underlaget för resten (guiden fas 1, kartan lager 1).
-- Tre designriktningar tas fram innan bygget (fas 1b, lager 5).
-- Ombyggnad av en befintlig sajt är ett eget spår (fas 0b, lager 2).
-- Den som bygger granskar inte sitt eget arbete, och granskaren kalibreras mot Johnnys egna domar (§5.2 och §9.6, `karta/flodet.md`).
-- Cloudflare som värd och Astro för en vanlig företagssajt (§14, lager 8). I guiden är Astro ett förslag som väntar på Johnnys bekräftelse.
-- Kunskapen förankras i etablerade metoder och normer, med WCAG 2.2 AA som golv (§11, lager 4–8).
-- Förvaltningen är en egen fas med schemalagda kontroller (fas 8, lager 9).
-- Researchen i båda spåren landar lika i två juridiska frågor: mikroföretag är undantagna från tillgänglighetslagen (10 §), och även analys utan kakor kan kräva samtycke. Det är tolkningar, inte juridisk rådgivning.
+- Intervjun kommer först (guiden fas 1, kartan lager 1). Tre riktningar före bygget. Ombyggnad är ett eget spår. Den som bygger granskar inte sitt eget arbete. Cloudflare och Astro. WCAG 2.2 AA som golv. Förvaltningen är en egen fas. Mikroföretag undantagna från tillgänglighetslagen; analys utan kakor kan ändå kräva samtycke (tolkningar, inte juridisk rådgivning).
 
-### Där spåren skiljer sig, för Johnny att avgöra
+### Fortfarande öppet mellan spåren, för Johnny
 
-1. **Designen.** Guiden låter Stitch ta fram en ny design för varje sajt och avråder från att låta ett komponentbibliotek styra utseendet (§14). Kartan låter AI:n välja inom ett eget sektionsbibliotek och 3–5 stilkit, där de tre riktningarna är tre stilkit på samma innehåll (`karta/5-yta.md`). Claudes förslag: Stitch, Inspo och Tastemaker används när stilkiten tas fram och förnyas, inte vid varje kundbygge.
-2. **Ordningen.** Guidens nästa steg (§16) bygger flödet först, och den första exempelsajten kommer i steg 10 av 21. Kartans förslag är en sajt först och ny mekanik först när en verklig sajt behöver den, utifrån Johnnys beslut 2026-10-13 att börja om i små steg.
-3. **Vem som väljer riktning.** I guiden väljer Johnny i stopp 1 (fas 1b). I Johnnys beskrivning av kundens väg 2026-10-13 väljer kunden.
-4. **`CLAUDE.md`.** Guiden planerar en egen `CLAUDE.md` i roten som bara ändras via Johnny (§3, §10.1, §16 steg 7). Den som ligger där nu kommer från kartspåret och beskriver båda spåren.
-5. **Besluten.** Guiden för sina beslut i §14. Kartspåret skriver Johnnys ord i `BESLUT.md`.
+1. **`CLAUDE.md`** — guiden planerar en egen som bara ändras via Johnny; den som ligger i roten kommer från kartspåret.
+2. **Besluten** — guiden för beslut i §14, kartspåret i `BESLUT.md`. Claudes förslag: `BESLUT.md` blir det enda registret; §14 behåller bara öppna frågor.
+3. **Licensbeslutet 2026-10-13 18:50** — gäller "kopiera, reverse engineera och ta andra företags designer" betalda verktyg (t.ex. Mobbin) eller andra företags sajter? Både guidens originalitetskontroll och webb-pros referensregel är snävare. Webb-pro-genomgången visar att det skriftliga licensbeskedet där har oifyllda platshållare.
+4. **Intervjun** — guiden intervjuar Johnny med svarsalternativ, kartan kunden med öppna frågor.
+5. **Detaljer som säger emot varandra:** Lucide och Inter (förbjudna i guiden, standard i kartan), ortssidor, Firecrawl, var säkerhetsheaders sätts.
 
-## Var vi står i kartspåret
+## Konsolideringen — underlag
 
-- Riktningen är satt (`BESLUT.md`, `principer.md`, `karta/README.md`).
-- Kartan finns: kundens väg och nio lager plus flödet (`karta/`). Lager 1–4 är genomgångna med Johnny. Lager 5–9 och flödet är utkast ur rapporten.
-- Kompetensinventeringen finns: 72 delar ur nortropic-webb-pro och 99 nya kandidater, varav 53 att ta in och 46 att pröva (`inventering/`). Inga beslut om kandidaterna är fattade, och verktygen som guiden föreslår är inte införda i inventeringen än.
-- Rapporten om kompetensluckor och anteckningarna bakom den finns i `kunskap/research/`.
-- Inget är byggt: inget bibliotek, ingen egen skill och ingen sajt.
+- `kunskap/research/2026-10-15_webb-pro-genomgang.md` — varför webb-pro inte gav bra sajter, vad som är värt att ta med, fem risker för att guiden upprepar misstagen.
+- `kunskap/research/2026-10-15_karta-mot-guide.md` — lager för lager mot guiden, konflikter, luckor åt båda håll.
+- `kunskap/research/2026-10-15_guide-konsolideringsanalys.md` — 27 dubblettgrupper, motsägelser med radnummer, regler med en källa som fungerar som grind, ⚠️-inventering, minsta nödvändiga för en första sajt.
+
+## Var vi står
+
+- Inget är byggt: inget bibliotek, inga stilkit, ingen egen skill och ingen sajt.
+- Inventeringen: 72 delar ur webb-pro och 99 kandidater; inga beslut fattade. Guidens ~60 verktyg är inte införda i inventeringen.
 
 ## Nästa steg (Claudes förslag, 2026-10-15)
 
-1. Avgör designfrågan och ordningen ovan. De bestämmer vad den första sajten byggs med.
-2. Välj den första verksamheten: ett av testfallen från tidigare eller en ny verksamhet.
-3. Fatta bara de beslut som en första sajt kräver, lager för lager.
-4. Bygg den första sajten i ett Astro-projekt, med det designsätt Johnny valt.
+1. Konsolidera guiden efter besluten: rätta motsägelserna, slå ihop dubbletterna, byt designsätt (stilkit), sajttyp (flersidig) och riktning (Johnny, sedan kunden), och märk varje regel *behövs för första varvet* eller *senare*.
+2. Välj den första verksamheten — flödets första varv körs på den.
+3. Bygg flödets kärna i små steg, med en synlig sajt så tidigt som möjligt i varje steg.
 
 ## Börja nu, lång ledtid
 
-- Ansök om API-åtkomst för Google Business Profile. Kvoten är noll tills Google godkänt ansökan, och bara Johnny kan ansöka.
+- Ansök om API-åtkomst för Google Business Profile (bara Johnny kan ansöka; svar inom 14 dagar).
+- Bedöm 30–40 skärmdumpar av sajter med godkänt eller underkänt och en kort kritik — bedömarens kalibrering.
+- `claude update` (mods kräver 2.1.287).
 - Sätt upp Renovate med ett delat preset och sju dagars karenstid.
-- Kör `/skill-doctor` och skill-creators beskrivningsoptimering innan nya skills läggs till.
-- Bedöm 30–40 skärmdumpar av sajter med godkänt eller underkänt och en kort kritik. Det blir bedömarens kalibrering.
 
 ## Öppna frågor till Johnny
 
-- Frågorna under "Där spåren skiljer sig".
-- Repot är publikt, och då är även råmaterialet i `kunskap/raw/` publikt, fast README säger att det inte ska publiceras vidare. Ska repot bli privat igen?
-- Vilken verksamhet blir den första?
-- Vem svarar på intervjun i första varvet? Claudes rekommendation är en människa som verkligen känner verksamheten, inte en AI som spelar kund.
-- Överlappar skillen `nortropic-intake` med den nya intervjuskillen? Den är inte granskad.
+- Frågorna under "Fortfarande öppet".
+- Repot är publikt, och därmed råmaterialet i `kunskap/raw/`. Ska repot bli privat igen? (Johnny 2026-10-15: "det ändrar vi sen".)
+- Vilken verksamhet blir den första? Vem svarar på intervjun i första varvet?
+- Tidsbudget per sajt — saknas i båda spåren.
+- Överlappar skillen `nortropic-intake` med den nya intervjuskillen?
