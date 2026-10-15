@@ -30,7 +30,7 @@ Om planvyn blir en egen sida eller samma sida som reservläget utan mods (nedan)
 
 En mod är ett plugin vars `hooks/hooks.json` har nyckeln `modules`, som pekar på en `.js`- eller `.ts`-fil. Den kan rita en panel bredvid chatten eller en ram ovanför prompten, och rita om delar av skärmen. Mods installeras som plugins och kan ingå i byggsystemets plugin (`3-4-larande-och-underhall.md`). Källor: AI LABS, Nate Herk och dokumentationen (📄 `2026-10-14_claude-code-verifiering.md` §1).
 
-- [N4] **Mods kräver Claude Code 2.1.287 i terminalen, 2.1.286 i Desktop.** Lokalt finns 2.1.281, med mods bara som avstängd early access. Kör `claude update`; använd inte early access-flaggan i stället (fallgrop 190). Mods skrivs på begäran med `/plugin-authoring`, som också kräver 2.1.287.
+- [N4] **Mods kräver Claude Code 2.1.287 i terminalen, 2.1.286 i Desktop.** Macen har 2.1.300 sedan 2026-10-15, och där är mods på som standard. Använd inte early access-flaggan (fallgrop 190). Mods skrivs på begäran med `/plugin-authoring`, som också kräver 2.1.287.
 - [N4] **Ritningen syns i terminalen och i Desktop-appens Code-flik** (inte WSL). I VS Code-tilläggets chattpanel körs koden men ritningen syns inte, och inte heller i `claude -p` eller molnsessioner (fallgrop 7). `--safe-mode`, `--bare` och `disableAllHooks` stänger av mods.
 - [N4] **En mod som Claude skriver ligger i `~/.claude/dev-mods/<sessions-id>/` och försvinner med sessionen om den inte installeras** (fallgrop 8).
 - [N4] **Utgå från sessionsloggarna:** be Claude föreslå de fem mods som skulle hjälpa mest utifrån vad Johnny faktiskt gör och upprepar (mods-videon 2). Johnny väljer.

@@ -14,7 +14,7 @@ Beslut som behövs först (`bilaga-e-oppna-fragor.md`, avsnitt 1):
 2. ~~Publiceras den första sajten?~~ **Avgjort 2026-10-15:** övningssajterna publiceras högst på en förhandsadress bakom Cloudflare Access (*Övningssajterna* nedan). Det kräver ett Cloudflare-konto men ingen domän; kontot är byråns eget, eftersom det inte finns någon kund som äger ett. Kontot och nycklarna är mänskliga klick (`2-2-omfattning.md`).
 3. ~~Bildkälla om verksamheten saknar egna foton~~ **Avgjort 2026-10-15:** stock- och AI-bilder är tillåtna, även av personer, enligt ärlighetsregeln (`2-7-innehall.md`).
 
-**Bygget görs på Johnnys Mac** med den nyaste Claude Code (`BESLUT.md` 2026-10-15). Först där: inventera användarnivån (`~/.claude`), avgränsa byggsessionen och verifiera den (`3-3-sakerhet-och-installningar.md`), och pröva om versionen ändrar något som guiden har verifierat på 2.1.281.
+**Bygget görs på Johnnys Mac** med den nyaste Claude Code (`BESLUT.md` 2026-10-15). Användarnivån är inventerad och versionen prövad 2026-10-15 (📄 `kunskap/research/2026-10-15_mac-avgransning.md`). Byggsessionen avgränsas med en egen konfigurationskatalog, och avgränsningen verifieras i den inloggade byggsessionen före steg 1 (`3-3-sakerhet-och-installningar.md`; `BESLUT.md` 2026-10-15).
 
 Filer som behövs innan steg 1:
 
@@ -30,7 +30,7 @@ Börja nu – lång ledtid:
 
 - **Ansök om API-åtkomst för Google Business Profile.** Bara Johnny kan ansöka; svar inom 14 dagar (`2-9-drift-och-forvaltning.md`).
 - ~~Johnnys måttstock för vad som är bra~~ **Klar 2026-10-15:** Johnny dömde 39 sajter, och måttstocken är godkänd (`mattstock/mattstock.md`). Den blir granskarens kalibrering i steg 4 och grunden för eval (`3-2-granskning-och-kalibrering.md`).
-- `claude update` – bara om mods ska användas (kräver 2.1.287; `3-5-live-visning.md`).
+- ~~`claude update`~~ **Klart 2026-10-15:** Macen har Claude Code 2.1.300, som också räcker för mods (`3-5-live-visning.md`).
 
 ## Stegen
 

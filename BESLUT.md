@@ -537,3 +537,18 @@ Johnny:
 > Ja, ge mig en uppstarts prompt på macen
 
 **Innebär:** Frågorna är avgjorda i `guide/bilaga-e-oppna-fragor.md`. 2.4, 2.7 och 2.8 väntar till förvaltningen. Genomgången av guiden v1.0 är klar. `CLAUDE.md` har fått repots arbetsregler, så att sessionerna på Macen känner till dem. Det gäller Johnnys stående tillåtelse att committa och pusha byggrepot till `main`, nyckelsökning före commit, ingen force-push, ingen ändring av synligheten och att övningssajterna inte pushas utan Johnny.
+
+## 2026-10-15: Byggsessionen avgränsas med en egen konfigurationskatalog
+
+**Status:** gäller.
+
+Claude lade fram inventeringen av användarnivån på Macen (`kunskap/research/2026-10-15_mac-avgransning.md`) och tre frågor:
+- **Avgränsningen:** byggsessionen får en egen konfigurationskatalog, `~/.claude-bygg`. Den har Manual-läge, ingen synk från claude.ai, inga claude.ai-connectors och ingen auto memory. Hemkatalogens `CLAUDE.md` laddas inte, och de inbyggda `/design` och `/design-sync` är dolda. Modell och effort är som i dag, Fable 5.1 med xhigh.
+- **Uppdatering** till Claude Code 2.1.300 före verifieringen.
+- **Publicering:** inventeringen får ligga i det publika repot.
+
+Johnny, 19:45:
+
+> Ja till allt
+
+**Innebär:** Avgränsningen är beslutad och står i `guide/3-3-sakerhet-och-installningar.md`. Den räknas som klar först när verifieringen i den inloggade byggsessionen har visat att bara det avsedda laddas. Claude läste "allt" som att det också omfattar förslagen till rättelser i guiden i samma fil, avsnitt 5. De är införda i `3-3`, `3-5-live-visning.md`, `5-byggplan.md` och bilaga E avsnitt 4.
