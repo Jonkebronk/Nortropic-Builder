@@ -570,3 +570,18 @@ Johnny, 20:14:
 > dessa saker borde dock inte vara regelstyrda.
 
 **Innebär:** Byggsessionen körs i auto mode med Opus 5.5 på xhigh, som `~/.claude-bygg/settings.json` redan säger. Claude läser det sista beskedet som att behörighetsläge, modell och effort är Johnnys inställningar och inte står som regler eller kontroller i guiden, och att Claude inte föreslår att de sätts tillbaka. N1-regeln *Bevakad körning* är struken ur `guide/3-3-sakerhet-och-installningar.md`. Kvar av den är att N1 inte har några hooks, och C165 i bilaga C gäller bara det, som instruktion. Frågan om auto mode i bilaga E avsnitt 3 är avgjord. Modell och effort per roll från N2 i `3-3`, *Effort och modeller*, är oförändrade. Beslutet kl. 19.45 gäller i övrigt.
+
+## 2026-10-15: Chrome-verktygen spärras i byggsessionen
+
+**Status:** gäller.
+
+Inifrån den första byggsessionen såg Claude att den interaktiva sessionen laddar två inbyggda MCP-servrar som proven med `-p` inte visade: `claude-in-chrome` och `ide`. Chrome-verktygen använder Johnnys inloggade Chrome. Claude föreslog en deny-regel för `mcp__claude-in-chrome` i `~/.claude-bygg/settings.json` och att `ide` får vara kvar (`kunskap/research/2026-10-15_mac-avgransning.md`, *Sett inifrån byggsessionen*).
+
+Johnny, 20:25:
+
+> fixa detta, jag manuellt approvar allt
+
+**Innebär:**
+- `permissions.deny` i `~/.claude-bygg/settings.json` innehåller `"mcp__claude-in-chrome"`, och regeln hör till avgränsningen i `guide/3-3-sakerhet-och-installningar.md`.
+- `ide` är kvar. Den publicerar ingenting, och `executeCode` kör bara efter ett klick i VS Code.
+- Samtidigt lämnade sessionen auto mode. Claude läser "jag manuellt approvar allt" som att Johnny godkänner varje steg själv. Läget är hans inställning och ingen regel (2026-10-15, *Läge, modell och effort är Johnnys inställningar*).

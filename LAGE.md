@@ -24,6 +24,7 @@ Detaljerna står i `BESLUT.md`.
 | **Provsajt ("Benchy"), branschprofiler och blickprov i steg 2**, efter jämförelsen med en 3D-skrivare | `guide/3-2`, `2-2-omfattning.md`, `2-4` |
 | Astro statiskt är bekräftat. Inter och Lucide väljs per kit | `guide/2-8-teknik-och-kvalitet.md`, `2-5` |
 | **Läge, modell och effort är Johnnys inställningar, inte regler.** Byggsessionen körs i auto mode med Opus 5.5 på xhigh (kl. 20.13–20.14) | `BESLUT.md`; `guide/3-3` |
+| **Chrome-verktygen spärras i byggsessionen** med en deny-regel i `~/.claude-bygg/settings.json` (kl. 20.25) | `BESLUT.md`; `guide/3-3` |
 
 ## Gjort på Macen 2026-10-15
 
@@ -48,7 +49,7 @@ Detaljerna står i `BESLUT.md`.
 
 1. **Avsluta verifieringen av byggsessionen** (`guide/3-3`, N1). Genvägen, inloggningen och Claudes prov är klara. Kvar är att Johnny kör `/status`, `/skills` och `/mcp` en gång i `claude-bygg`.
    - **Sett inifrån kl. 20.25:** minnesfilerna, skillsen, delagenterna och connectorerna stämmer med proven. Men den interaktiva sessionen laddar två inbyggda MCP-servrar som `-p` inte visade. Den ena är **`claude-in-chrome`**, som använder Johnnys inloggade Chrome. Den andra är **`ide`**, eftersom sessionen körs i VS Code:s terminal; den publicerar ingenting. Detaljerna står i `kunskap/research/2026-10-15_mac-avgransning.md`, *Sett inifrån byggsessionen*.
-   - **Förslag:** lägg till `"deny": ["mcp__claude-in-chrome"]` under `permissions` i `~/.claude-bygg/settings.json`. Regeln tar bort Chrome-verktygen ur byggsessionen (📄 permissions). Kontrollen är att `/mcp` eller `/context` i nästa session inte visar några Chrome-verktyg.
+   - **Chrome-verktygen är spärrade** (Johnny 20:25, `BESLUT.md`). `"mcp__claude-in-chrome"` står i `permissions.deny` i `~/.claude-bygg/settings.json`. Verktygen försvann ur sessionen direkt när filen sparades, utan omstart.
    - I auto mode stoppade klassaren byggsessionens egna prov som *Auto-Mode Bypass* och läsningen av `.claude.json` som *Credential Exploration*. Proven kördes därför från en session i den vanliga konfigurationen.
 2. **Byggsessionen tar över.** Från och med nu körs arbetet med byggsystemet i `claude-bygg`, inte i den vanliga konfigurationen. En session är byggsessionen bara om `CLAUDE_CONFIG_DIR` är `~/.claude-bygg`, alltså om den startats med `claude-bygg`.
 3. **Förberedelserna** i `guide/5-byggplan.md`:
@@ -60,8 +61,7 @@ Detaljerna står i `BESLUT.md`.
 
 ## Väntar på Johnny
 
-- **`/status`, `/skills` och `/mcp` i byggsessionen**, en gång. Det förväntade utfallet står i `kunskap/research/2026-10-15_mac-avgransning.md`, avsnitt 3, *Så verifieras byggsessionen*. Raden om statusraden och Manual-läget gäller inte längre. `/mcp` väntas visa `claude-in-chrome` och `ide`.
-- **Ja eller nej till att spärra Chrome-verktygen i byggsessionen** (förslaget under *Nästa steg*, punkt 1).
+- **`/status`, `/skills` och `/mcp` i byggsessionen**, en gång. Det förväntade utfallet står i `kunskap/research/2026-10-15_mac-avgransning.md`, avsnitt 3, *Så verifieras byggsessionen*. Raden om statusraden och Manual-läget gäller inte längre. `/mcp` väntas visa `ide` och ingen claude.ai-sektion. Om `claude-in-chrome` fortfarande listas där är inte sett, men dess verktyg är spärrade.
 - **Ansökan om API-åtkomst för Google Business Profile.** Bara Johnny kan ansöka, och svaret tar upp till 14 dagar.
 - **Ett Cloudflare-konto för byrån** inför steg 5. Det är ett mänskligt klick, och övningssajterna ligger på byråns konto.
 - **Bilaga E:** avsnitt 1 och 2 är avgjorda. 1.8 (integritetspolicy) och 1.9 (betalning) väntar till den första riktiga kunden, och 2.4, 2.7 och 2.8 till förvaltningen. Avsnitt 3 gäller senare nivåer. Avsnitt 4 verifieras under bygget.
