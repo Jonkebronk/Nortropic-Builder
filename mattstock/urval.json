@@ -77,11 +77,11 @@
   "ort": "Linköping"
  },
  {
-  "id": "s31",
-  "namn": "Smålands Tak & Plåt (vikantak.se)",
-  "url": "https://vikantak.se/",
-  "bransch": "Takläggare",
-  "ort": "Jönköping"
+  "id": "s37",
+  "namn": "FE Måleri",
+  "url": "https://femaleri.se/",
+  "bransch": "Målare",
+  "ort": "Umeå"
  },
  {
   "id": "s34",
@@ -189,11 +189,11 @@
   "ort": "Hamburg, Tyskland"
  },
  {
-  "id": "s25",
-  "namn": "SPS Plumbers",
-  "url": "https://spsplumbers.com.au/",
-  "bransch": "Rörmokare",
-  "ort": "Sydney, Australien"
+  "id": "s43",
+  "namn": "Rendezvous Barbers",
+  "url": "https://www.myrendezvous.ca/",
+  "bransch": "Barberare",
+  "ort": "Toronto, Kanada"
  },
  {
   "id": "s40",
@@ -245,11 +245,11 @@
   "ort": "Trouville-sur-Mer, Frankrike"
  },
  {
-  "id": "s23",
-  "namn": "The Greedy Fox",
-  "url": "https://thegreedyfox.com.au/",
-  "bransch": "Grekisk restaurang",
-  "ort": "Rostrevor, Australien"
+  "id": "s22",
+  "namn": "Color Wonder Balloons",
+  "url": "https://colorwonderballoons.com/",
+  "bransch": "Eventdekor",
+  "ort": "Celina/Prosper, Texas, USA"
  },
  {
   "id": "s36",
