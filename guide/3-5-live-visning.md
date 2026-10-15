@@ -1,6 +1,6 @@
 # 3.5 Live-visning
 
-**Status:** konsoliderad v1.0, 2026-10-15; ommärkt efter granskningen samma dag. Utkast, inte genomgånget med Johnny.
+**Status:** konsoliderad v1.0, 2026-10-15; ommärkt efter granskningen samma dag. **Genomläst med Johnny 2026-10-15**; rättelserna står i `BESLUT.md`.
 
 Johnny ska se sajten växa fram och följa vad flödet gör utan att läsa loggar – varje steg slutar med något han kan se och döma (`guide/README.md`, princip 1). Webbläsaren visar resultatet och terminalen processen; en terminal kan rita listor och knappar men inte rendera en webbsida. Förhandsvisningen hör till första sajten, planvyn till N2 och det mesta annat till N4.
 

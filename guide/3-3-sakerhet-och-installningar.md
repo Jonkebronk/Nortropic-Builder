@@ -1,6 +1,6 @@
 # 3.3 Säkerhet och inställningar
 
-**Status:** konsoliderad v1.0, 2026-10-15; ommärkt efter granskningen samma dag. Utkast, inte genomgånget med Johnny.
+**Status:** konsoliderad v1.0, 2026-10-15; ommärkt efter granskningen samma dag. **Genomläst med Johnny 2026-10-15**; rättelserna står i `BESLUT.md`.
 
 Hur flödet hindras från att göra skada, och vilka inställningar, modeller och promptregler det körs med. Behörigheter per roll står i `3-1-orkestrering-och-roller.md`, säkerhetsgranskningen av sajten i `2-8-teknik-och-kvalitet.md`. Nycklar och kommandon är kontrollerade i 📄 `kunskap/research/2026-10-14_claude-code-verifiering.md` (*verifieringen*) om inget annat anges.
 

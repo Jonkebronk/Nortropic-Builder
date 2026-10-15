@@ -495,3 +495,18 @@ Johnny:
 > Ja
 
 **Innebär:** Ändringarna är införda i `3-2` (N1-reglerna om granskaren och exemplen) och i `3-1`.
+
+## 2026-10-15: Företaget – övningssajterna är inga exempelsajter
+
+**Status:** gäller.
+
+Claude föreslog vid genomläsningen av `guide/4-foretaget.md`:
+- Övningssajterna är varken betalda eller exempelsajter.
+- Byråns exempelsajter kommer från de första riktiga kunderna med deras tillstånd.
+- Regeln om gratis pilotsajter flyttas till N2, tillsammans med bilaga E 1.9.
+
+Johnny:
+
+> Ja
+
+**Innebär:** Regeln står som N2 i `4-foretaget.md`. I `3-4-larande-och-underhall.md` ersätts N2-punkten *Före andra sajten* av genomgången efter varje övningssajt (`5-byggplan.md`, N1), eftersom de två var samma sak. Flödet 3.1–3.5 och företaget är genomlästa.

@@ -2,7 +2,7 @@
 
 **Genererad** av `konsolidering/bygg_n1.py` ur `[N1]`-märkningen i guidens filer. Ändra i källfilerna, inte här. Varje punkt står i sin helhet, med källor, i filen under rubriken. Taket är cirka 60 regler och tio automatiska kontroller (`README.md`, *Nivåer*).
 
-77 regler och tabellrader, plus de tio kontrollerna och verktygen nedan.
+76 regler och tabellrader, plus de tio kontrollerna och verktygen nedan.
 
 ## 1. Kundens väg (`1-kundens-vag.md`)
 
@@ -174,7 +174,7 @@
 
 - **Bevakad körning.** Johnny följer bygget, och Claude Codes behörighetsfrågor är på – inget auto mode, inget läge som hoppar över frågorna, inga hooks. Skyddshook, designregelvakt och bevakning kommer i N2–N4. Varför: Bash-regler är enligt dokumentationen ingen säkerhetsgräns; `sh -c '…'` matchas inte av `Bash(rm *)` (verifieringen §7). Spärren i N1 är att Johnny ser vad som händer. Små steg (`BESLUT.md` 2026-10-13); webb-pro slutade med 61 skills och 67 krockar.
 - **`permissions.deny` för push, publicering och `.env`** i projektets `.claude/settings.json`. Reglerna gäller huvudsessionen och alla delagenter. Push till huvudgrenen publicerar via Workers Builds, så push-förbudet är också ett publiceringsförbud (📄 `2026-10-14_cloudflare-stack.md`). Johnny loggar in med verktygens egna kommandon (`gh auth login`, `wrangler login`) och publicerar efter sitt godkännande (`5-byggplan.md`, steg 5). `.env` står i `.gitignore`, och inget hemligt får nå webbläsaren – det fångas av N1-kontroll 10 (`2-8-teknik-och-kvalitet.md`; fallgrop 141).
-- **Byggsessionen avgränsas från användarnivån.** Byggets inställningar och skills ligger i projektets `.claude/`, inte i Johnnys globala, som påverkar alla hans projekt. Före första sajten kontrolleras med `/doctor` vilka skills, plugins och `CLAUDE.md` som laddas, och en körning med `claude --safe-mode` blir baslinje – det läget stänger av allt anpassat, också projektets egna skills och `CLAUDE.md` (verifieringen §9). Varför: `~/.claude/skills/` har i dag 292 skills plus plugins som laddas i alla projekt, bland dem gamla Nortropic- och webb-pro-skills; `nortropic-stack` föreskriver till exempel Next.js och Vercel, medan guiden bygger med Astro och Cloudflare. Johnnys `~/.claude/CLAUDE.md` har en regel för ett annat projekt (båda sett 2026-10-15). Ärvda `CLAUDE.md` laddas osynligt i varje tur (context-videon; fallgrop 132), och skillistan får 1 % av kontexten (`3-4-larande-och-underhall.md`, *Skills*). ⚠️ Hur användarnivåns skills och plugins stängs av för just byggsessionen, och om `/doctor` visar vilka som laddas, är inte verifierat – öppet, se `bilaga-e-oppna-fragor.md`, avsnitt 4.
+- **Byggsessionen avgränsas från användarnivån.** Byggets inställningar och skills ligger i projektets `.claude/`, inte i Johnnys globala, som påverkar alla hans projekt. Före första sajten kontrolleras med `/doctor` vilka skills, plugins och `CLAUDE.md` som laddas, och en körning med `claude --safe-mode` blir baslinje – det läget stänger av allt anpassat, också projektets egna skills och `CLAUDE.md` (verifieringen §9). Varför: `~/.claude/skills/` har i dag 292 skills plus plugins som laddas i alla projekt, bland dem gamla Nortropic- och webb-pro-skills; `nortropic-stack` föreskriver till exempel Next.js och Vercel, medan guiden bygger med Astro och Cloudflare. Johnnys `~/.claude/CLAUDE.md` har en regel för ett annat projekt (båda sett 2026-10-15). Användarnivån har också egna delagenter från det gamla Nortropic-flödet – bland dem `stack-builder` (Next.js 15 och Vercel), `design-reviewer`, `content-designer`, `qa-launcher`, `project-planner`, `seo-optimizer` och `nortropic-steward` – som erbjöds i sessionerna 2026-10-15. Ärvda `CLAUDE.md` laddas osynligt i varje tur (context-videon; fallgrop 132), och skillistan får 1 % av kontexten (`3-4-larande-och-underhall.md`, *Skills*). ⚠️ Hur användarnivåns skills och plugins stängs av för just byggsessionen, och om `/doctor` visar vilka som laddas, är inte verifierat – öppet, se `bilaga-e-oppna-fragor.md`, avsnitt 4.
 
 ## 3.4 Lärande och underhåll (`3-4-larande-och-underhall.md`)
 
@@ -191,12 +191,6 @@
 *Förhandsvisning i webbläsaren*
 
 - **Sajten syns i webbläsaren medan den byggs, och bara lokalt.** Dev-servern startas innan Claude skriver sajtens filer, med automatisk omladdning, och sidan öppnas i webbläsaren, så att varje sektion syns när den skapas. Servern lyssnar bara på `127.0.0.1`. Förhandsadresser på Cloudflare är publika som standard och skyddas med Access → `2-8-teknik-och-kvalitet.md` (fallgrop 58, 185). 🔧
-
-## 4. Företaget (`4-foretaget.md`)
-
-*Trappan av insatser*
-
-- **De första sajterna byggs utan betalning** – egna sajter eller pilotsajter – och blir byråns exempelsajter. *Claudes förslag – öppet, se `guide/bilaga-e-oppna-fragor.md`.* Att sälja till företag ger avtal och dataskyddsskyldigheter, och ett dataintrång går inte att ta tillbaka (fallgrop 140). 🎥 Ebbelaar-intervjun: för dig själv, för din organisation, säljs till företag, konsumentprodukt – hoppa inte över steg (en källa – bänken). Byrån siktar på steg 3, sälja till företag; de första sajterna är steg 1–2.
 
 ## 5. Byggplanen (`5-byggplan.md`)
 

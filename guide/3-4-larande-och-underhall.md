@@ -1,6 +1,6 @@
 # 3.4 Lärande och underhåll
 
-**Status:** konsoliderad v1.0, 2026-10-15; ommärkt efter granskningen samma dag. Utkast, inte genomgånget med Johnny.
+**Status:** konsoliderad v1.0, 2026-10-15; ommärkt efter granskningen samma dag. **Genomläst med Johnny 2026-10-15**; rättelserna står i `BESLUT.md`.
 
 Hur flödet blir bättre mellan sajter utan att Johnnys ord blir mekanik, hur instruktionerna hålls små och aktuella, och hur kunskapsbasen växer. Principerna *agenten föreslår, Johnny beslutar, sedan låses det* och *Johnnys ord blir inte mekanik på egen hand* står i `guide/README.md` (princip 9 och 10); här står hur de tillämpas.
 
@@ -9,7 +9,7 @@ Hur flödet blir bättre mellan sajter utan att Johnnys ord blir mekanik, hur in
 I webb-pro blev Johnnys kommentarer samma dag stationer och grindkriterier, och lärdomsfilen som alla agenter läste fick rensas (`kunskap/research/2026-10-15_webb-pro-genomgang.md` §4, risk 4). v0.74:s auto loop upprepade mönstret och är omskriven här.
 
 - [N1] **Ingen lärdom ändrar något av sig själv.** Varken Claude, en hook eller en loop skriver in en lärdom i `CLAUDE.md`, en skill, ett kriterium eller en kontroll. En lärdom är ett förslag, och Johnny beslutar. En dom om smak gäller den sajten: det Johnny avvisar rättas där, och det blir en allmän regel först när han säger det – då skrivs hans ord ordagrant i `BESLUT.md` (`guide/README.md`, princip 10). Varför: ett enda dåligt resultat blir annars en permanent regel (Variate-videon, Task Observer; fallgrop 44), och agenter lär sig bara när människan medvetet uppdaterar instruktioner och harness (Simon Willison, 📄 `2026-10-15_kompetensluckor-anteckningar/flodet-loopar-bedomare.md` §5). v0.74:s regel att hans feedback skrivs direkt i `arbetssatt.md` för alla agenter är struken.
-- [N2] **Före andra sajten** skriver Claude en kort lista – vad som tog tid, vad Johnny rättade och varför, vad som gick sönder – med hänvisning till logg, commit eller Johnnys motivering. Johnny väljer vad som görs. 🔧
+- **Efter varje övningssajt** lägger Claude fram vad Johnny rättade och vad granskaren missade, med förslag på var varje rättelse ska föras in; Johnny godkänner eller stryker. Regeln bor i `5-byggplan.md`, *Övningssajterna* (N1), och ersätter den tidigare N2-punkten *Före andra sajten*.
 - [N2] **Nya låsta kontroller bara för det som är objektivt fel och har hänt mer än en gång**, efter Johnnys beslut. Johnny formulerar frågan själv innan agenten föreslår svar, i stället för att välja i en numrerad lista (webb-pro-genomgången, motåtgärd 4).
 - [N2] **Förslag loggas löpande** i `sites/<namn>/larande-forslag.md`, under rätt roll. De ändrar ingenting.
 - [N2] **Orsaken klassas före förslaget**, så att processen rättas och inte bara utfallet (skill-ingenjörsvideon; fallgrop 145): *processen* var fel → stegen i skillen; *kontext* saknades → referensfil eller faktabas (`2-7-innehall.md`); en *regel* var svag → kriterium eller kontroll, på billigaste stället (nedan); *koden* var opålitlig → låst skript (nedan).

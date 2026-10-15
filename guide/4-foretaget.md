@@ -1,6 +1,6 @@
 # 4. Företaget
 
-**Status:** konsoliderad v1.0, 2026-10-15; ommärkt 2026-10-15 efter granskningen. Ur v0.74 §15 och trappan i §5.4. Inte genomgånget med Johnny utöver besluten i `BESLUT.md`.
+**Status:** konsoliderad v1.0, 2026-10-15; ommärkt 2026-10-15 efter granskningen. Ur v0.74 §15 och trappan i §5.4. **Genomläst med Johnny 2026-10-15**; erbjudande, paket och priser är fortfarande öppna (`bilaga-e-oppna-fragor.md`).
 
 Lagren och flödet beskriver maskinen. Här står företaget runt den: vad som säljs, hur kunder och ärenden kommer in och om ekonomin går ihop.
 
@@ -10,7 +10,7 @@ Lagren och flödet beskriver maskinen. Här står företaget runt den: vad som s
 
 ## Trappan av insatser
 
-- [N1] **De första sajterna byggs utan betalning** – egna sajter eller pilotsajter – och blir byråns exempelsajter. *Claudes förslag – öppet, se `guide/bilaga-e-oppna-fragor.md`.* Att sälja till företag ger avtal och dataskyddsskyldigheter, och ett dataintrång går inte att ta tillbaka (fallgrop 140). 🎥 Ebbelaar-intervjun: för dig själv, för din organisation, säljs till företag, konsumentprodukt – hoppa inte över steg (en källa – bänken). Byrån siktar på steg 3, sälja till företag; de första sajterna är steg 1–2.
+- [N2] **De första riktiga kundsajterna byggs utan betalning** som pilotsajter och blir, med kundens tillstånd, byråns exempelsajter. Övningssajterna är varken betalda eller exempelsajter: de innehåller firmornas material och visas inte utåt (`5-byggplan.md`, *Övningssajterna*; `BESLUT.md` 2026-10-15). *Om pilotsajterna ska vara gratis är Claudes förslag – öppet till den första riktiga kunden, se `guide/bilaga-e-oppna-fragor.md` 1.9.* Att sälja till företag ger avtal och dataskyddsskyldigheter, och ett dataintrång går inte att ta tillbaka (fallgrop 140). 🎥 Ebbelaar-intervjun: för dig själv, för din organisation, säljs till företag, konsumentprodukt – hoppa inte över steg (en källa – bänken). Byrån siktar på steg 3, sälja till företag; de första sajterna är steg 1–2.
 - [N3] **Kundavtal före första betalande kund**, granskat av jurist (⚠️ inte juridisk rådgivning): ansvar och vad som händer vid fel, förvaltningens omfattning (→ `2-9-drift-och-forvaltning.md`), biträdesavtal med underbiträden och leverantörskonton i kundens namn, åtagandet *"byggd enligt WCAG 2.2 AA, testad med metod X"* i stället för *"lagenlig"* (fallgrop 188), och att AI-genererade delar kan sakna upphovsrätt och att kunden bär det redaktionella ansvaret. 📄 `kunskap/research/2026-10-14_dataoverforing-och-analys.md` §5.3, `…_tillganglighetslagen.md`, `…_ai-forordningen-och-rattigheter.md`.
 
 Lagkrav per kund → `2-2-omfattning.md`. Säkerhet → `2-8-teknik-och-kvalitet.md`. Pilotfasen och när stopp släpps → `3-2-granskning-och-kalibrering.md`.
