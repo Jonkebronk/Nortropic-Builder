@@ -510,3 +510,13 @@ Johnny:
 > Ja
 
 **Innebär:** Regeln står som N2 i `4-foretaget.md`. I `3-4-larande-och-underhall.md` ersätts N2-punkten *Före andra sajten* av genomgången efter varje övningssajt (`5-byggplan.md`, N1), eftersom de två var samma sak. Flödet 3.1–3.5 och företaget är genomlästa.
+
+## 2026-10-15: Bygget görs på Johnnys Mac
+
+**Status:** gäller.
+
+Johnny, när Claude föreslog en egen konfigurationskatalog för byggsessionerna:
+
+> Vi kommer bygga på min Mac när vi är Klara med genomgången, den har nyaste Claude
+
+**Innebär:** Övningssajterna byggs på Johnnys Mac med den nyaste Claude Code. Det som guiden har verifierat på Windows-datorn (Claude Code 2.1.281) prövas på nytt där. Det första steget på Macen är att inventera användarnivån och avgränsa och verifiera byggsessionen (`guide/3-3-sakerhet-och-installningar.md`, `5-byggplan.md`). Förslaget om en egen konfigurationskatalog prövas på Macen och är inte beslutat. `sites/` och allt om firmorna finns bara lokalt på Macen.

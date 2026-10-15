@@ -14,6 +14,8 @@ Beslut som behövs först (`bilaga-e-oppna-fragor.md`, avsnitt 1):
 2. ~~Publiceras den första sajten?~~ **Avgjort 2026-10-15:** övningssajterna publiceras högst på en förhandsadress bakom Cloudflare Access (*Övningssajterna* nedan). Det kräver ett Cloudflare-konto men ingen domän; kontot är byråns eget, eftersom det inte finns någon kund som äger ett. Kontot och nycklarna är mänskliga klick (`2-2-omfattning.md`).
 3. ~~Bildkälla om verksamheten saknar egna foton~~ **Avgjort 2026-10-15:** stock- och AI-bilder är tillåtna, även av personer, enligt ärlighetsregeln (`2-7-innehall.md`).
 
+**Bygget görs på Johnnys Mac** med den nyaste Claude Code (`BESLUT.md` 2026-10-15). Först där: inventera användarnivån (`~/.claude`), avgränsa byggsessionen och verifiera den (`3-3-sakerhet-och-installningar.md`), och pröva om versionen ändrar något som guiden har verifierat på 2.1.281.
+
 Filer som behövs innan steg 1:
 
 | Fil | Var den beskrivs |
