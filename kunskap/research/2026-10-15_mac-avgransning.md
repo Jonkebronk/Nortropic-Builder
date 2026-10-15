@@ -181,6 +181,7 @@ Frågan var var spärren för push ska ligga, när den inte får stoppa pushen a
 - `additionalDirectories: ["../.."]` i sajtens inställningar tog inte med rotens skills eller inställningar.
 - Med `claudeMdExcludes` och ett glob, `**/<rot>/CLAUDE.md`, i sajtens inställningar laddades bara sajtens `CLAUDE.md`.
 - **Prov med den riktiga mallen.** `mallar/sajt/` kopierades till `sites/_prov/` i byggrepot och startades med byggsessionens användarinställningar. Då laddades bara `sites/_prov/CLAUDE.md`, och det fanns inga MCP-servrar. Ett anrop med Haiku (0,003 USD) i den inloggade byggsessionen försökte `git push origin main`, `wrangler deploy --dry-run` och läsa `.env`. Alla tre nekades av reglerna, och `permission_denials` listade dem. Provsajten saknade fjärrdestination och togs bort efteråt.
+- **Lucka och tillägg kl. 20.50.** `Bash(git push *)` fångar inte `git -C . push` eller `git -c push.default=current push`. Dokumentationen visar just de exemplen och tillåter jokertecken mitt i en regel (📄 permissions, *Wildcard patterns*). `Bash(git * push *)` och `Bash(git * push)` lades till i mallen. Ett nytt prov med Haiku (0,002 USD) gav att `git -C . push origin main`, `git -c push.default=current push origin main` och `git -C . push` nekades, medan `git status --short` gick igenom. Bash-regler är ändå ingen säkerhetsgräns: `sh -c '…'` och sökvägar som `/usr/bin/git` matchas inte (📄 permissions).
 
 ## 4. Versionsberoende fakta: 2.1.281 på Windows mot 2.1.296 på Macen
 

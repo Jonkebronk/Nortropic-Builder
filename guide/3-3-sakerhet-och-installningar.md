@@ -11,7 +11,7 @@ Hur flödet hindras från att göra skada, och vilka inställningar, modeller oc
   - **Sajtarbetet körs i en session som startats i `sites/<namn>/`.** Projektets inställningar läses bara från katalogen där sessionen startar (prövat 2026-10-15, 📄 `kunskap/research/2026-10-15_mac-avgransning.md`, *Sajtkatalogen*). Därför stoppar spärren inte pushen av byggrepot, som Johnny har gett stående tillåtelse till (`CLAUDE.md`).
   - **Byggrepots egen `.claude/settings.json`** spärrar deploy och `.env` men inte push.
   - **Spärren:** reglerna gäller huvudsessionen och alla delagenter. Push till huvudgrenen publicerar via Workers Builds, så push-förbudet är också ett publiceringsförbud (📄 `2026-10-14_cloudflare-stack.md`). `gh repo` och `gh api` spärras också, eftersom de kan skriva till sajtens repo utan `git push`. Detsamma gäller Cloudflares nya CLI: `cf deploy`, `cf builds` och `cf pages`.
-  - **Reglerna** står i `mallar/sajt/.claude/settings.json`. Prövat 2026-10-15: push, deploy och läsning av `.env` nekades.
+  - **Reglerna** står i `mallar/sajt/.claude/settings.json`. `Bash(git * push *)` fångar också `git -C … push` och `git -c … push`, som `Bash(git push *)` missar. Prövat 2026-10-15: push i alla tre former, deploy och läsning av `.env` nekades.
   - **Inloggning och publicering:** Johnny loggar in med verktygens egna kommandon (`gh auth login`, `wrangler login`) och publicerar efter sitt godkännande (`5-byggplan.md`, steg 5).
   - **Hemligheter:** `.env` står i sajtens `.gitignore`, och inget hemligt får nå webbläsaren. Det fångas av N1-kontroll 10 (`2-8-teknik-och-kvalitet.md`; fallgrop 141).
 

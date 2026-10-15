@@ -2,6 +2,8 @@
   "permissions": {
     "deny": [
       "Bash(git push *)",
+      "Bash(git * push *)",
+      "Bash(git * push)",
       "Bash(gh repo *)",
       "Bash(gh api *)",
       "Bash(wrangler deploy *)",
