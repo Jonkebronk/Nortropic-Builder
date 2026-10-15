@@ -637,3 +637,16 @@ Johnny, omkring 21:20:
 - N1-regeln om `permissions.deny` i `guide/3-3` och kontrollen C166 i bilaga C är strukna.
 - Claude läser beskedet som att det gäller spärrarna, inte Johnnys regler. Att en kundsajt eller övningssajt publiceras, deployas och pushas först efter hans godkännande, och att hemligheter ligger utanför repot, står kvar som instruktioner (`CLAUDE.md`, *Skyddsräcken*; `guide/5-byggplan.md`, *Övningssajterna*). `.env` står kvar i `.gitignore`, eftersom den håller nycklar ur repot utan att stoppa Claude.
 - Auto mode-klassaren stoppade först ändringen av `~/.claude-bygg/settings.json` och mallens inställningar som *Self-Modification*. Efter Johnnys andra besked gick ändringen igenom.
+
+## 2026-10-15: Fullt autonomt mandat enligt planen
+
+**Status:** gäller.
+
+Johnny, 21:25:
+
+> du har fullt autonomt mandat att köra enligt våran plan
+
+**Innebär:**
+- Claude kör byggplanen (`guide/5-byggplan.md`) för den första övningssajten utan att fråga mellan delmomenten.
+- Claude stannar där planen själv kräver Johnny och lägger fram det han ska se. Det gäller intervjun, där han svarar i kundens ställe, hans dom som avslutar varje steg, och mänskliga klick som inloggningar och konton.
+- Claude läser mandatet så. Det ändrar inte planens grindar.

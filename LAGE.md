@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-15 kl. 21.25 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-15 kl. 21.55 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Kort
 
@@ -60,7 +60,7 @@ Detaljerna står i `BESLUT.md`.
 ## Nästa steg – på Macen
 
 1. **Den första övningssajten är vald och skapad** i `sites/` ur mallen (Johnny 21:10, `BESLUT.md`). Firmans namn står bara där, i sajtens `progress.md`, som också håller läget.
-2. **Steg 1 börjar** i byggsessionen i repots rot, med researchen före intervjun. Johnny säger till när han vill köra.
+2. **Steg 1 pågår** (fullt mandat enligt planen, Johnny 21:25, `BESLUT.md`). Researchen före intervjun var klar kl. 21.55, och intervjun med Johnny i kundens ställe väntar. Läget och fynden står i sajtens `progress.md`.
 3. **Byggplanens steg 1–6**, med en genomgång efter sajten.
 
 ## Väntar på Johnny
