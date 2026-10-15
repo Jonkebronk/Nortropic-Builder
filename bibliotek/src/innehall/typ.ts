@@ -35,7 +35,9 @@ export interface StartInnehall {
   };
   tjanster: { id: string; rubrik: string; ingress?: string; poster: { namn: string; text: string; lank: Lank; ikon: 'ryggrad' | 'nal' | 'vag' | 'foretag' }[] };
   person: { id: string; overrad: string; rubrik: string; citat: string; text: string[]; fakta: string[]; bild?: Bild; lank: Lank };
-  fortroende: { rubrik: string; betyg: { varde: string; skala: string; antal: string; kalla: string }; citat: { text: string; kalla: string }[]; lank?: Lank };
+  fortroende: { rubrik: string; betyg: { varde: string; skala: string; antal: string; kalla: string }; citat: { text: string; kalla: string }[]; lank?: Lank;
+    kontroll?: string; // om och hur omdömena kontrolleras (12 c § marknadsföringslagen; guide/2-7-innehall.md)
+  };
   process: { rubrik: string; steg: { rubrik: string; text: string }[]; not?: string };
   nastaSteg: { rubrik: string; text: string };
   sidfot: { platser: { namn: string; adress: string; karta?: KartLank }[]; epost?: Lank; sociala: Lank[]; rad: string;

@@ -138,6 +138,12 @@ if (!unika(besk)) k7.push('metabeskrivningar saknas eller är dubbletter');
 lagg(7, 'Unik titel och beskrivning per sida; sitemap.xml finns', 'Stopp', k7.length === 0, k7.length ? k7.join('; ') : `${sidor.length} sidor, sitemap.xml finns`);
 const h1fel = sidor.filter((s) => per[s].h1 !== 1);
 lagg('7b', 'En h1 per sida', 'Rapport', h1fel.length === 0, h1fel.length ? h1fel.map((s) => `${s}: ${per[s].h1}`).join(', ') : 'en h1 på varje sida');
+// 7c. robots.txt stänger inte ute sökrobotarna (BESLUT.md 2026-10-16). Gruppen för roboten gäller, annars gruppen för *.
+// Applebot följer Googlebots regler när den saknar en egen grupp (Apple, support.apple.com/en-us/119829).
+const robotsFil = join(dist, 'robots.txt');
+const sokrobotar = ['Googlebot', 'Bingbot', 'OAI-SearchBot', 'PerplexityBot', 'Applebot', 'Google-Extended'];
+const k7c = existsSync(robotsFil) ? utestangda(readFileSync(robotsFil, 'utf8'), sokrobotar) : ['robots.txt saknas'];
+lagg('7c', 'robots.txt släpper in sökrobotarna', 'Rapport', k7c.length === 0, k7c.length ? `stängs ute: ${k7c.join(', ')}` : `${sokrobotar.join(', ')} släpps in`);
 
 // 8. axe
 const k8 = sidor.flatMap((s) => per[s].axe.map((v) => `${s} ${v}`));
@@ -174,6 +180,20 @@ lagg(10, 'Inga hemligheter i repot eller i bygget', 'Stopp', k10.length === 0, k
 server.close();
 skrivUt();
 
+// Vilka av robotarna som stängs ute från hela sajten. Gruppen för roboten gäller, annars gruppen för *.
+function utestangda(text, robotar) {
+  const grupper = []; let g = null, iRegler = false;
+  for (const rad of text.split(/\r?\n/).map((r) => r.replace(/#.*/, '').trim()).filter(Boolean)) {
+    const [nyckel, ...rest] = rad.split(':'); const v = rest.join(':').trim(); const k = nyckel.trim().toLowerCase();
+    if (k === 'user-agent') { if (!g || iRegler) { g = { agenter: [], disallow: [], allow: [] }; grupper.push(g); iRegler = false; } g.agenter.push(v.toLowerCase()); }
+    else if (g && (k === 'disallow' || k === 'allow')) { iRegler = true; if (v) g[k].push(v); }
+  }
+  const grupp = (ua) => grupper.find((x) => x.agenter.includes(ua.toLowerCase()));
+  return robotar.filter((bot) => {
+    const x = grupp(bot) ?? (bot === 'Applebot' ? grupp('Googlebot') : undefined) ?? grupp('*');
+    return x && x.disallow.includes('/') && !x.allow.includes('/');
+  });
+}
 function allaFiler(d) { return existsSync(d) ? readdirSync(d, { withFileTypes: true }).flatMap((e) => e.isDirectory() ? allaFiler(join(d, e.name)) : [join(d, e.name)]) : []; }
 function skrivUt() {
   console.log(`Kontrollskriptet mot ${sajt} – ${new Date().toLocaleString('sv-SE')}`);

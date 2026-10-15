@@ -24,12 +24,12 @@ Schemalagda kontroller hör till förvaltningen (N3). Den första sajten har ing
 | [N3] | Månadsvis | Rapporten (nedan). Säkerhetsgranskning med läsrätt, verktyget enligt `2-8`; fynd blir ändringar på egen gren. **Ny besökare:** utforskningstestet (→ `3-2-granskning-och-kalibrering.md`) från början, som om sajten vore okänd 🎥 Grok Bot-videon. |
 | [N3] | Kvartalsvis | **Arkitekturgranskning** av sajtens kod (och efter större omdesign) med Pococks `improve-codebase-architecture`; fynd går till kön. Förvaltningens ändringar lämnar rester som får annat att gå sönder månader senare (fallgrop 142). 🎥 Ebbelaar-intervjun + två kanaler (konsolideringsanalysen §4.3) |
 | [N3] | Årligen | Förvaltningsplanen med kunden; tillgänglighet enligt WCAG-EM (→ `2-8`). |
-| [N4] | Månadsvis | **AEO:** fråga AI-assistenter det en köpare i branschen skulle fråga, utan att nämna kunden, och logga om sajten nämns. Bara trenden över månader räknas. 🎥 Grok Bot-videon *(en källa – bänken)* |
+| [N3] | Månadsvis | **AEO:** 8–10 frågor som en köpare i orten skulle ställa, utan att nämna kunden, körs tre gånger i varje motor genom API:erna med kundens ort som plats: OpenAI (`web_search` med `user_location`), Perplexity (`web_search` med `user_location`) och Gemini (grounding mot Google Sök och Maps). Loggen visar om kunden nämns, om sajten eller Google-profilen citeras och vilka konkurrenter som nämns. Till det kommer citaten i Bing Webmaster Tools, AI Performance, som täcker Copilot. Bara trenden över månader räknas, eftersom svaren varierar mellan körningar. API-svaren är inte bevisat desamma som i apparna ⚠️, och konsumentapparna frågas inte automatiskt. 📄 OpenAI, Perplexity, Google och Microsoft; 📊 BrightLocal 2026; 🎥 Grok Bot-videon (`kunskap/research/2026-10-16_seo-aeo-geo.md`, avsnitt 4; `BESLUT.md` 2026-10-16) |
 
 - [N3] **Varje körning slutar i ett av tre lägen: ok, incident eller okänt.** Okänt (403, 429, tidsgräns hos tredje part) är aldrig ok, och en körning som uteblev redovisas – annars ser en tyst kontroll grön ut. 🔧 webb-pro (`kunskap/drift.md`)
 - [N3] **Skript för schemalagda kontroller, MCP när någon undersöker.** Ett skript mot ett officiellt API ger samma svar varje gång, är billigt och tar ingen kontext. 🎥 FDE-videon + VAULT-videon (två källor, konsolideringsanalysen §4.3)
 - [N3] **Schemaläggning:** `/loop`, som kör på timer (inte `/goal`, som kör tills ett villkor är uppfyllt – fallgrop 57), cron, schemalagt GitHub Actions-flöde eller Workers Cron Triggers (fem per konto gratis). 📄 `kunskap/research/2026-10-14_claude-code-verifiering.md`, `2026-10-14_cloudflare-stack.md`. En obevakad körning får inte kunna fastna på en fråga (fallgrop 14, 34; → `3-3-sakerhet-och-installningar.md`). Var kontrollerna körs: *Öppet – se `guide/bilaga-e-oppna-fragor.md`*.
-- [N4] Tillval: en maskinläsbar version av kundens publika fakta (i stil med `llms.txt`), prövad mot AEO-mätningen först 🎥 OKF-videon ⚠️. OpenSEO → `bilaga-a-verktyg.md` (data hos tredje part).
+- [N4] OpenSEO → `bilaga-a-verktyg.md` (data hos tredje part). Ingen `llms.txt`: Google säger att filen inte behövs, och inget tyder på att AI-sökmotorerna läser den (`BESLUT.md` 2026-10-16; → `2-8`).
 
 ### Rapporten
 
@@ -111,7 +111,7 @@ Den första sajten ger bara den första rapporten, dömd av Johnny (→ *Rapport
 | Kunden behöver (`BESLUT.md`) | Det som kontrolleras |
 |---|---|
 | En seriös sajt | Röktest, visuell regression, säkerhetsgranskning, certifikat |
-| Att den syns | Search Console, Google-profilen, AEO [N4] |
+| Att den syns | Search Console, Bing Webmaster Tools med AI Performance, Google-profilen, AEO-mätningen [N3] |
 | Att det är lätt att höra av sig | Formulärtestet, den primära handlingen, kontakterna i rapporten |
 | Att den stämmer om ett år | Faktabasen, domän och certifikat, beroenden, arkitekturgranskning, förvaltningsplanen |
 

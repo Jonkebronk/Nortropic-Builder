@@ -57,6 +57,7 @@ export const provinnehall: StartInnehall = {
       { text: 'Ett andra omdöme, lite längre, för att pröva hur kortet växer när texten blir längre.', kalla: 'Omdöme på Exempelsajten, 2025' },
       { text: 'Ett tredje omdöme.', kalla: 'Omdöme på Exempelsajten, 2024' },
     ],
+    kontroll: 'Ett urval av omdömena på Exempelsajten. Vi kontrollerar inte själva att de kommer från patienter.',
   },
   process: {
     rubrik: 'Så går första besöket till',

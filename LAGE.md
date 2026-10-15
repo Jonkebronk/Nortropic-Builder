@@ -1,12 +1,12 @@
 # Läget
 
-Uppdaterad 2026-10-16 kl. 00.57 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-16 kl. 01.08 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Kort
 
 - **Guiden v1.0 är genomläst med Johnny** 2026-10-15 i sin helhet: README, kundens väg, byggplanen, alla nio lagren, flödet 3.1–3.5, företaget och bilagorna. Varje rättelse står ordagrant i `BESLUT.md` med datumet 2026-10-15.
 - **Måttstocken är godkänd:** `mattstock/mattstock.md`. Den har tre frågor, mobilen först: förstår och når kunden företaget på mobilens första skärm, är det äkta, håller utförandet. Den bygger på Johnnys domar över 39 sajter (`mattstock/domar.jsonl`).
-- **N1 har 82 regler och tio automatiska kontroller.** Johnny godtog att taket på cirka 60 överskreds. Sammanfattningen genereras till `guide/n1-forsta-sajten.md` med `python konsolidering/bygg_n1.py`.
+- **N1 har 85 regler och tio automatiska kontroller.** Johnny godtog att taket på cirka 60 överskreds. Sammanfattningen genereras till `guide/n1-forsta-sajten.md` med `python konsolidering/bygg_n1.py`.
 
 ## Det viktigaste som beslutades 2026-10-15
 
@@ -66,7 +66,16 @@ Detaljerna står i `BESLUT.md`.
 Johnny tog in fem av förslagen till checklistan och lade till ett sjätte. `mallar/granskning.md` är låst på nytt, och uppdraget står i `mattstock/granskare/uppdrag.md`. Hans fynd och anteckningar är åtgärdade i biblioteket och sajten. Kontrollskriptet har fått kontroll 2b: länkar till kartor, recensioner och sociala medier öppnas i ny flik på datorn.
    Beslutat omkring 00.32: branschen avgör om *Det praktiska* eller *Tjänster* kommer efter första vyn (`guide/2-4-skelett.md`; biblioteket: `forst` i innehållet). Övningssajten behåller *Var och när* först.
    Beslutat omkring 00.36: målet i Lighthouse är 100 i alla fyra kategorier (kontroll 9, median av tre efter en uppvärmning). Övningssajten får 100 i alla 14 mätningar.
-   Researchen om lokal SEO, AEO och GEO är klar (`kunskap/research/2026-10-16_seo-aeo-geo.md`). Den har 16 förslag med hemvist, som väntar på Johnnys beslut.
+   Researchen om lokal SEO, AEO och GEO är klar (`kunskap/research/2026-10-16_seo-aeo-geo.md`). Johnny sa ja till alla 16 förslag omkring 00.58, och de är införda:
+   - omdömen enligt Googles policy och 12 c §
+   - robots.txt-regeln och kontroll 7c
+   - `sameAs`
+   - Cloudflares AI-blockering, Crawler Hints och Bing Webmaster Tools i steg 5
+   - AEO-mätningen på N3
+   - Bing Places och Apple i Kundens lyft
+   - `llms.txt` struken
+
+   Kontrollregistret har fått Lighthouse 100, 2b och 7c. Guiden har 85 N1-punkter.
 4. **Nästa:** steg 6 (förvaltningsrapportens form) och genomgången efter sajten (`guide/5-byggplan.md`). Nästa mätning av granskaren görs på nya sajter och på systemets egna utkast.
 
 ## Väntar på Johnny

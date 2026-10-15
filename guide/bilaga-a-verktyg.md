@@ -186,7 +186,7 @@ Lanseringskraven → 2-8; uppföljningen → 2-9.
 | Google Tag Manager och Consent Mode v2 | Taggar och samtyckesläge | 2-8 | kandidat (tillval) | N3 | 📄 *Websites for Normal People*, skrivet för kanadensisk lag; EU-reglerna gäller (→ 2-8) | – |
 | [OpenSEO](https://github.com/every-app/open-seo) | Sökorddata, placeringar och bakåtlänkar | 2-9 | kandidat | N3 | 🎥 Nate Herk 100-repon-videon ⚠️. Datan ligger hos dem om man inte driftar själv | – |
 | Claude SEO | SEO-skills | 2-3 | kandidat | N2 | 🎥 Jack Roberts-videon 3; ingen länk i v0.74 | K23 (*claude-seo: seo-local*: Pröva), K75 (Pröva) |
-| `llms.txt` eller OKF-version av kundens publika fakta | Maskinläsbar kunskap för AI-sökning | 2-9 | kandidat (spekulativt) | N4 | 🎥 OKF-videon. Mäts med AEO-kontrollen innan det införs | – |
+| `llms.txt` eller OKF-version av kundens publika fakta | Maskinläsbar kunskap för AI-sökning | 2-9 | **avstå** (`BESLUT.md` 2026-10-16) | – | 📄 Google: *"You don't need to create new machine readable files, AI text files, or markup"*; ingen leverantör har lovat att läsa filen, och loggstudierna visar nästan inga hämtningar (`kunskap/research/2026-10-16_seo-aeo-geo.md`) | – |
 
 ## 8. Förvaltning och företaget
 
@@ -278,7 +278,7 @@ Kandidater som rapporten bedömde som *Avstå* eller *Bevaka* står inte i inven
 - **Test och kvalitet:** PageSpeed Insights och CrUX, Caliper, Reticle, Anti-Slop, Vizzly, Pococks arkitekturskills, Thermonuclear, CodeRabbit.
 - **Säkerhet:** Skill Spector, Claude Security, cloudflare/security-audit-skill, Mantis, Security Review GitHub Action, Docker Sandbox, Bitwarden Secrets Manager, Agit.
 - **Innehåll och kunskap:** Slop Monster, Higgsfield, Stitchs bildgenerator, youtube-transcript-api och yt-dlp, LLM Wiki-gisten, Open Knowledge Format.
-- **SEO och synlighet:** Google Analytics 4 och dess MCP, Tag Manager och Consent Mode, OpenSEO, `llms.txt`.
+- **SEO och synlighet:** Google Analytics 4 och dess MCP, Tag Manager och Consent Mode, OpenSEO.
 - **Förvaltning och företaget:** Google Workspace CLI, Symphony, Clay, Paseo.
 - **Flödet:** Find Skills, Grill Me och Handoff, Task Observer, Graft, Chisle, Codeburn, Caveman och Ponytail, Jev-verktygen, Codex och Astra, mods, Unlazy, RTK, Claude Mem och Context Mode, Planning with Files, Goal Buddy, Ouroboros, Wayfinder, Karpathy-reglerna, Buzz, Delegate Skills m.fl., OpenCLI, neuroarxiv, Hyperframes, Apify och Expo; och de inbyggda funktionerna utom delagenten och `/goal` (K88).
 

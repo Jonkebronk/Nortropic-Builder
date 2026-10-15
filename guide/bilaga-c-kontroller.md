@@ -37,14 +37,14 @@ Exakt de tio i `2-8-teknik-och-kvalitet.md`, *N1 – kontrollerna för första s
 | # | Kontroll | Vid träff |
 |---|---|---|
 | 1 | `astro build` går igenom utan fel (C1) | Stopp |
-| 2 | Inga konsolfel; alla bilder laddas (C2) | Rapport |
+| 2 | Inga konsolfel; alla bilder laddas (C2); 2b: kartor, recensioner och sociala medier i ny flik på datorn | Rapport |
 | 3 | Ingen horisontell scroll i 320 CSS-px bredd (C3) | Stopp |
 | 4 | Den primära handlingen fungerar hela vägen (C4) | Stopp; synligheten på första skärmen: rapport |
 | 5 | Varje faktapåstående finns i `fakta.md` – en läsning, inget skript (C5) | Stopp, `kritisk` |
 | 6 | Inga platshållare i produktionsbygget (C6) | Stopp |
-| 7 | Unik titel och metabeskrivning, `sitemap.xml`; en `h1` per sida (C7) | Stopp; rapport för `h1` |
+| 7 | Unik titel och metabeskrivning, `sitemap.xml`; en `h1` per sida (C7); 7c: `robots.txt` släpper in sökrobotarna | Stopp; rapport för `h1` och 7c |
 | 8 | axe med WCAG 2.2 A/AA ger 0 fel (C8) | Stopp |
-| 9 | Lighthouse tillgänglighet, bästa praxis och SEO ≥ 90 (C9) | Rapport |
+| 9 | Lighthouse 100 i prestanda, tillgänglighet, bästa praxis och SEO (C9) | Rapport |
 | 10 | Inga hemligheter i repot eller det byggda paketet (C10) | Stopp, `kritisk` |
 
 Sju stoppar helt (1, 3, 4, 5, 6, 8, 10), två rapporterar (2, 9), och nr 7 stoppar för titel, beskrivning och sitemap men rapporterar för `h1`. Därtill Johnnys dom i varje steg (C140).
@@ -56,14 +56,14 @@ Sju stoppar helt (1, 3, 4, 5, 6, 8, 10), två rapporterar (2, 9), och nr 7 stopp
 | # | Kontroll | Var (fil, avsnitt) | Nivå | Typ | Grund | Hur den körs |
 |---|---|---|---|---|---|---|
 | C1 | **Nr 1.** `astro build` går igenom utan fel | 2-8 Kontroll N1 | N1 | låst kontroll (stopp) | 🔧 förutsättning för allt annat | Kontrollskriptet |
-| C2 | **Nr 2.** Inga konsolfel; alla bilder laddas | 2-8 Kontroll N1; 2-6 Kontroll (N2: också med reducerad rörelse) | N1 | kontroll (rapport) | 🔧 egen kodstandard (v0.74 §10.3); ingen norm | Kontrollskriptet |
+| C2 | **Nr 2.** Inga konsolfel; alla bilder laddas. **2b:** länkar till kartor, recensioner och sociala medier öppnas i ny flik på datorn och i samma flik på mobilen | 2-8 Kontroll N1; 2-6 Kontroll (N2: också med reducerad rörelse) | N1 | kontroll (rapport) | 🔧 egen kodstandard (v0.74 §10.3); ingen norm. 2b: Johnnys beslut (`BESLUT.md` 2026-10-16); 📄 WCAG-teknik G201 för beskedet till skärmläsare | Kontrollskriptet |
 | C3 | **Nr 3.** Ingen horisontell scroll i 320 CSS-px bredd | 2-8 Kontroll N1; 2-4 Kontroll hänvisar | N1 | låst kontroll (stopp) | Norm: 📄 WCAG 2.2, 1.4.10 Reflow | Kontrollskriptet (Playwright) |
 | C4 | **Nr 4.** Den primära handlingen fungerar hela vägen: telefon- eller mejllänken har numret eller adressen ur `fakta.md`, eller bokningslänken svarar och leder till kundens bokning; publiceras ett formulär sparar det och mejlar. Rapport: kontaktvägen och en klickbar `tel:`-länk syns på mobilens första skärm i 375 px (måttstocken, fråga 1) | 2-8 Kontroll N1; 2-3 Vägar och tillstånd (nyckelresan); 3-2 Körbara kontroller | N1 | låst kontroll (stopp) | Två källor för körbara kontroller (analysen §4.3: 🎥 loop-videon + 🎥 Coding Sloth-videon); att pröva handlingen hela vägen är egen tillämpning 🔧 | Kontrollskriptet (Playwright) |
 | C5 | **Nr 5.** Varje faktapåstående finns i `fakta.md`, annars `kritisk`; en bild som ser ut att visa kundens verklighet utan att vara kundens är också `kritisk`; socialt bevis ingår | 2-8 Kontroll N1; 2-7 Faktabasen (vad den omfattar) | N1 | låst kontroll (stopp) | Tre källor (analysen §4.3): 🎥 Fable-videon + 🎥 Jack Roberts-videon 3 + 📄 Anthropic | En läsning av texterna mot `fakta.md`, inget skript; från steg 4 även granskaren |
 | C6 | **Nr 6.** Inga platshållare i produktionsbygget: `[[PLATSHÅLLARE: …]]`, fyllnadstext och bilder märkta som platshållare ger noll träffar | 2-8 Kontroll N1; 2-7 Platshållare | N1 | låst kontroll (stopp) | En platshållare är ett obekräftat faktum, så kontrollen vilar på faktakontrollens tre källor; publicerade platshållare: 🎥 Jack Roberts-videon 3 | Kontrollskriptet (sökning i bygget) |
-| C7 | **Nr 7.** Unik titel och metabeskrivning per sida, `sitemap.xml` finns; en `h1` per sida | 2-8 Kontroll N1 | N1 | låst kontroll (stopp; `h1` rapport) | 📄 Google Search Central (titlar) + 📄 *$10K Website Kit*, *Websites for Normal People*; `h1` 🔧 egen kodstandard | Kontrollskriptet |
+| C7 | **Nr 7.** Unik titel och metabeskrivning per sida, `sitemap.xml` finns; en `h1` per sida. **7c:** `robots.txt` stänger inte ute Googlebot, Bingbot, OAI-SearchBot, PerplexityBot, Applebot eller Google-Extended | 2-8 Kontroll N1 | N1 | låst kontroll (stopp; `h1` och 7c rapport) | 📄 Google Search Central (titlar) + 📄 *$10K Website Kit*, *Websites for Normal People*; `h1` 🔧 egen kodstandard. 7c: 📄 Google, OpenAI, Perplexity och Apple om sina robotar (`BESLUT.md` 2026-10-16) | Kontrollskriptet |
 | C8 | **Nr 8.** axe med WCAG 2.2 A/AA-taggarna ger 0 fel i Chromium (bl.a. kontrast, alt-texter, etiketter, tomma länkar) | 2-8 Kontroll N1; 2-5 och 2-7 hänvisar | N1 | låst kontroll (stopp) | Norm: 📄 WCAG 2.2 | @axe-core/playwright |
-| C9 | **Nr 9.** Lighthouse tillgänglighet, bästa praxis och SEO ≥ 90 i mobil och dator, mot det lokala bygget eller produktion; prestandan mäts | 2-8 Kontroll N1; A Lighthouse-raden | N1 | kontroll (rapport) | 📄 leverantörens dokumentation (skalan, 90–100 = *Good*); tröskeln 90 är vald *(en källa – bänken: $10K Website Kit)* | Lighthouse |
+| C9 | **Nr 9.** Lighthouse 100 i prestanda, tillgänglighet, bästa praxis och SEO, i mobil och dator, mot det lokala bygget eller produktion; en uppvärmning och medianen av tre körningar | 2-8 Kontroll N1; A Lighthouse-raden | N1 | kontroll (rapport) | Johnnys beslut (`BESLUT.md` 2026-10-16), ingen norm; 📄 Chrome for Developers (skalan; 100 *"not expected"*) och Lighthouse docs/variability.md (medianen) | Lighthouse |
 | C10 | **Nr 10.** Inga hemligheter i repot eller i det byggda paketet (HTML, JS och källkartor söks efter nyckelformat); träff = `kritisk` | 2-8 Kontroll N1; 3-3 Första sajten och Hemligheter | N1 | låst kontroll (stopp) | 📄 Cloudflare (`wrangler secret put`) + 🎥 Ebbelaar-intervjun | Kontrollskriptet |
 
 ### Lager 2.1 Strategi
@@ -208,7 +208,7 @@ Sju stoppar helt (1, 3, 4, 5, 6, 8, 10), två rapporterar (2, 9), och nr 7 stopp
 | C101 | Månadsvis säkerhetsgranskning med läsrätt; fynd blir ändringar på gren | 2-9 Schemalagda kontroller; 2-8 | N3 | kontroll | Verktyget enligt 2-8 | `/security-review` eller valt verktyg |
 | C102 | Månadsvis *ny besökare*: utforskningstestet från början | 2-9 Schemalagda kontroller; 3-2 | N3 | kontroll | En källa – bänken: 🎥 Grok Bot-videon | Delagent med webbläsare |
 | C103 | Kvartalsvis arkitekturgranskning av sajtens kod; fynd till kön | 2-9 Schemalagda kontroller; 3-4 hänvisar | N3 | granskningskriterium | Två källor (analysen §4.3): 🎥 Ebbelaar-intervjun + Pococks skill via två kanaler; 📄 skillen (MIT) | Pococks `improve-codebase-architecture` |
-| C104 | AEO: AI-assistenter tillfrågas varje månad; bara trenden räknas | 2-9 Schemalagda kontroller | N4 | kontroll | En källa – bänken: 🎥 Grok Bot-videon | Agent |
+| C104 | AEO: samma frågor till AI-sökmotorerna varje månad, ställda på kundens ort, tre körningar per motor; citaten i Bings AI Performance; bara trenden räknas | 2-9 Schemalagda kontroller | N3 | kontroll | 📄 Bing AI Performance; 📄 OpenAI, Perplexity och Gemini (API:er med plats); 📊 BrightLocal 2026 (svaren varierar mellan körningar); 🎥 Grok Bot-videon (`BESLUT.md` 2026-10-16) | Skript mot API:erna |
 | C105 | Varje schemalagd körning slutar i *ok*, *incident* eller *okänt*; okänt är aldrig ok, och en utebliven körning redovisas | 2-9 Schemalagda kontroller | N3 | kontroll | 🔧 webb-pro `drift.md` | Skripten |
 | C106 | Visuell regression mot baslinjen från Johnnys slutgodkännande, alla bredder; Johnny godkänner eller avvisar varje diff | 2-9 Ändringar; 2-8 Kontroll N3–N4 hänvisar | N3 | kontroll | En källa – bänken: 🎥 designnivå-videon, kartan | Skärmdumpsjämförelse; Johnny |
 | C107 | Den agent som orsakade en avvikelse rör inte baslinjen, varken basbilden eller undantagslistan | 2-9 Ändringar; 2-8 Hur självgående; 3-1 Låsningen | N3 | låst kontroll | En källa – bänken: kartan; principen *den som bedöms ändrar inte domaren* har två källor (3-1) | Låsningen (3-1) |

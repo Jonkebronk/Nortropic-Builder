@@ -23,7 +23,7 @@ Johnny, 2026-10-13:
 
 ## Kundens lyft
 
-- [N1] **När sajten är godkänd får kunden *Kundens lyft*:** en kort, prioriterad lista med det som skulle lyfta sajten mest och som bara kunden kan lösa, till exempel nya foton, rätt uppgifter i Google-profilen, fler omdömen eller hur missade samtal tas om hand. Varje punkt säger vad, varför (med belägg), hur kunden gör och ungefär hur lång tid det tar. Listan skrivs ur bygget, granskningen och intervjun i `sites/<namn>/kundens-lyft.md` efter mallen `mallar/kundens-lyft.md`. Den lämnas vid lanseringen (steg 7) och följs upp i månadsrapporten (`2-9-drift-och-forvaltning.md`). I övningssajterna skrivs den men lämnas inte till firman. (`BESLUT.md` 2026-10-15, *Ställningstaganden och Kundens lyft*)
+- [N1] **När sajten är godkänd får kunden *Kundens lyft*:** en kort, prioriterad lista med det som skulle lyfta sajten mest och som bara kunden kan lösa, till exempel nya foton, rätt uppgifter i Google-profilen, fler omdömen eller hur missade samtal tas om hand. Varje punkt säger vad, varför (med belägg), hur kunden gör och ungefär hur lång tid det tar. Listan skrivs ur bygget, granskningen och intervjun i `sites/<namn>/kundens-lyft.md` efter mallen `mallar/kundens-lyft.md`. Den lämnas vid lanseringen (steg 7) och följs upp i månadsrapporten (`2-9-drift-och-forvaltning.md`). Råd om omdömen följer Googles policy: be alla kunder, inte bara de nöjda, utan att erbjuda något och utan att trycka på dem på plats (📄 [Google, Prohibited and restricted content](https://support.google.com/contributionpolicy/answer/7400114); `BESLUT.md` 2026-10-16). I övningssajterna skrivs den men lämnas inte till firman. (`BESLUT.md` 2026-10-15, *Ställningstaganden och Kundens lyft*)
 
 ## Vem gör vad
 

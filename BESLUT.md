@@ -870,3 +870,27 @@ Kontrollskriptet visade 87–100 i prestanda. Det låga värdet kom från starts
   - Den lokala servern komprimerar som en riktig värd (`skript/kontroll.mjs`, `guide/2-8-teknik-och-kvalitet.md`).
 - Bygget lägger stilmallen i varje sida (`inlineStylesheets: 'always'`), så att första besöket slipper en blockerande hämtning. På en sida om personen hämtas fotot i första vyn direkt och först.
 - Den första övningssajten får 100 i alla 14 mätningar, och startsidan på mobilen får 100 också i det kalla läget.
+
+## 2026-10-16: Lokal SEO, AEO och GEO – förslagen ur researchen
+
+**Status:** gäller.
+
+Claude gick igenom källorna om hur små svenska företag hittas i Google och i AI-sökmotorerna och lade fram 16 förslag med hemvist (`kunskap/research/2026-10-16_seo-aeo-geo.md`, avsnitt 5). Två av dem var rättelser:
+- *Kundens lyft* bad bara nöjda patienter om omdömen, vilket Googles policy förbjuder.
+- Sajten visade utvalda omdömen utan att säga om de kontrolleras (12 c § marknadsföringslagen, ⚖️ tolkning).
+
+Claude frågade: "Vilka förslag tar du in? Jag föreslår att de två rättelserna görs först." Johnny, omkring 00:58:
+
+> ja
+
+**Innebär:**
+- **Omdömen:**
+  - Kunden ber *alla* kunder om ett omdöme, utan att erbjuda något och utan att trycka på dem på plats (`mallar/kundens-lyft.md`; `guide/1-kundens-vag.md`).
+  - En sajt som visar omdömen säger om och hur de kontrolleras (N1 i `guide/2-7-innehall.md`; sektionen Förtroende).
+- **N1, i `guide/2-8-teknik-och-kvalitet.md`:**
+  - `robots.txt` släpper in Googlebot, Bingbot, OAI-SearchBot, PerplexityBot och Applebot, och Google-Extended för Gemini. Robotarna för träning är kundens val, och standard är att släppa in dem. Kontroll 7c läser `robots.txt`.
+  - Den strukturerade datan får `sameAs`. Ingen FAQPage, eftersom Google slutade visa FAQ-resultat den 7 maj 2026. Synliga vanliga frågor behålls.
+- **Steg 5:** Cloudflares AI-blockering kontrolleras, Crawler Hints (IndexNow) slås på och sajten verifieras i Bing Webmaster Tools.
+- **N3:** AEO-mätningen flyttas från N4 till N3, med Bings AI Performance och API:erna från OpenAI, Perplexity och Gemini, ställda på kundens ort. Bara trenden räknas (`guide/2-9-drift-och-forvaltning.md`).
+- **Kundens lyft:** Bing Places och Apple Business Connect. Med lägre prioritet: samma uppgifter i svenska kataloger och branschregister.
+- **Stryks:** kandidaten `llms.txt`.

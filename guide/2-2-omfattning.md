@@ -18,6 +18,7 @@ Länkar till primärkällorna: `kunskap/research/2026-10-15_kompetensluckor-ante
   - en MoSCoW-märkt lista över sidor, sektioner, vanliga frågor, troliga toppuppgifter och förtroendesignaler som F-skatt, ROT och certifieringar
   - **kontaktvägen på första skärmen** och **ordningen mellan Det praktiska och Tjänster** (→ `2-4-skelett.md`, *Sektionerna*; `BESLUT.md` 2026-10-16)
   - förebilderna ur Johnnys måttstock
+  - branschens register och kataloger för *Kundens lyft*, till exempel LKR för kiropraktorer (`BESLUT.md` 2026-10-16)
 
   Startvärdena är måttstockens tabell *Branschen avgör vilken kontaktväg som räknas* (`mattstock/mattstock.md`). Varje övningssajt i en ny bransch skriver eller rättar profilen i genomgången efter sajten (`5-byggplan.md`, *Övningssajterna*). Då avgörs inte samma sak på nytt för varje firma, på samma sätt som en 3D-skrivare har en färdig profil per material (`BESLUT.md` 2026-10-15). På sikt destilleras profilen också ur 10–20 svenska och nordiska branschsajter, sökfraser och omdömesteman. Nyckeln är en tabell: SNI 2025 ↔ Google-kategori ↔ Places-typ ↔ schema.org-typ; branscher utan egen typ får en överordnad typ och en egen nyckel. Inget öppet dataset finns, så profilerna byggs själva. Källa: anteckningarna §3. Vilka branscher som får profil först avgör övningssajterna.
   - [N2] Innan profilen finns är marketingskills "Small Business / Local" (platt, en–två nivåer) nollpunkten, översatt och prövad med MoSCoW. Källa: anteckningarna §3 (pröva).

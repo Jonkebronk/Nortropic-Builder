@@ -1,5 +1,6 @@
 ---
 // Förtroende: betyget med källa och datum, och några omdömen med plattform och datum (guide/2-7-innehall.md).
+// Under omdömena står om och hur de kontrolleras, eftersom sajten ger tillgång till konsumentrecensioner (12 c § MFL).
 import Ikon from '../komponenter/Ikon.astro';
 import type { StartInnehall } from '../innehall/typ';
 interface Props { innehall: StartInnehall; }
@@ -25,6 +26,7 @@ const { fortroende } = Astro.props.innehall;
         </li>
       ))}
     </ul>
+    {fortroende.kontroll && <p class="dampad fortroende__kontroll">{fortroende.kontroll}</p>}
   </div>
 </section>
 
@@ -38,5 +40,6 @@ const { fortroende } = Astro.props.innehall;
   .fortroende__lank { font-weight: 600; display: inline-flex; min-height: 44px; align-items: center; }
   .fortroende__citat { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--k-a4); }
   .fortroende__citat blockquote { margin: 0; font-size: 1.1rem; }
+  .fortroende__kontroll { margin-top: var(--k-a4); font-size: 0.9rem; }
   @media (min-width: 48rem) { .fortroende__citat { grid-template-columns: repeat(3, 1fr); } }
 </style>
