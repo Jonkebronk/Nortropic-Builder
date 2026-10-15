@@ -4,7 +4,7 @@ Uppdaterad 2026-10-15, sen kväll. Överlämning till byggsessionerna på Johnny
 
 ## Kort
 
-- **Guiden v1.0 är genomläst med Johnny** 2026-10-15: README, kundens väg, byggplanen, alla nio lagren, flödet 3.1–3.5 och företaget. Bilagorna är synkade mot besluten. Varje rättelse står ordagrant i `BESLUT.md` med datumet 2026-10-15.
+- **Guiden v1.0 är genomläst med Johnny** 2026-10-15 i sin helhet: README, kundens väg, byggplanen, alla nio lagren, flödet 3.1–3.5, företaget och bilagorna. Varje rättelse står ordagrant i `BESLUT.md` med datumet 2026-10-15.
 - **Måttstocken är godkänd:** `mattstock/mattstock.md`. Den har tre frågor, mobilen först: förstår och når kunden företaget på mobilens första skärm, är det äkta, håller utförandet. Den bygger på Johnnys domar över 39 sajter (`mattstock/domar.jsonl`).
 - **N1 har 76 regler och tio automatiska kontroller.** Johnny godtog att taket på cirka 60 överskreds. Sammanfattningen genereras till `guide/n1-forsta-sajten.md` med `python konsolidering/bygg_n1.py`.
 
@@ -43,7 +43,7 @@ Detaljerna står i `BESLUT.md`.
 
 - **Ansökan om API-åtkomst för Google Business Profile.** Bara Johnny kan ansöka, och svaret tar upp till 14 dagar.
 - **Ett Cloudflare-konto för byrån** inför steg 5. Det är ett mänskligt klick, och övningssajterna ligger på byråns konto.
-- **Bilaga E avsnitt 2–4** (styrning och teknik) är öppna. 1.8 (integritetspolicy) och 1.9 (betalning) väntar till den första riktiga kunden.
+- **Bilaga E:** avsnitt 1 och 2 är avgjorda. 1.8 (integritetspolicy) och 1.9 (betalning) väntar till den första riktiga kunden, och 2.4, 2.7 och 2.8 till förvaltningen. Avsnitt 3 gäller senare nivåer. Avsnitt 4 verifieras under bygget.
 - **Repot är publikt** (Johnny: "det ändrar vi sen"). Måttstockens domar över namngivna firmor pushades med Johnnys godkännande.
 
 ## Verktyg i repot
