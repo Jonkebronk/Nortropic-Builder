@@ -28,7 +28,7 @@ Varje sektion besvarar en fråga besökaren har. Listan är kartans utkast (inte
 
 | Sektion | Besökarens fråga | Anmärkning |
 |---|---|---|
-| Sidhuvud | Vem är ni, hur når jag er? | Namn, meny och `tel:`-länk när kontaktvägen är telefon (`2-3-struktur.md`) |
+| Sidhuvud | Vem är ni, hur når jag er? | Namn, meny och branschens kontaktväg med `tel:`-länk, fast i toppen på mobilen (`2-3-struktur.md`) |
 | Första vyn | Vad gör ni, var och för vem, och vad gör jag nu? | Rubrik med tjänst och ort, branschens kontaktväg och klickbart telefonnummer på mobilens första skärm (regeln nedan) |
 | Det praktiska | När har ni öppet, var finns ni, vad kostar det? | Öppettider, adress eller område, telefon och priser i korthet ur faktabasen; branschprofilen avgör vad som visas (regeln nedan) |
 | Tjänster | Kan ni hjälpa mig med det här? | Ett kort per tjänst med länk till tjänstesidan |
