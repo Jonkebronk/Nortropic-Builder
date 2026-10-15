@@ -653,7 +653,7 @@ Johnny, 21:25:
 
 ## 2026-10-15: Stitchs MCP-server i byggsessionen
 
-**Status:** gäller.
+**Status:** ersatt av 2026-10-15, *Stitch stryks*.
 
 Johnny klistrade omkring kl. 21.34 in kommandot som lägger till Stitchs officiella MCP-server, `claude mcp add stitch --transport http --header "X-Goog-Api-Key: …" https://stitch.googleapis.com/mcp`. Nyckeln är utelämnad här.
 
@@ -692,3 +692,33 @@ Johnny, 21:40:
 - Stitch-nyckeln byts inte.
 - I övningssajterna svarar Claude på intervjufrågorna i kundens ställe, med påhittade men rimliga svar. De märks `claude-som-kund` och förväxlas aldrig med det som är *sett* hos firman eller med Johnnys egna ord (`guide/2-1-strategi.md`, *Övningsläget*; `2-7-innehall.md`).
 - Claude läser beskedet som att det gäller intervjun. Johnnys dom över briefen, faktabasen och sidkartan, som avslutar steg 1, står kvar (`guide/5-byggplan.md`).
+
+## 2026-10-15: Stitch stryks
+
+**Status:** gäller. Ersätter *Stitchs MCP-server i byggsessionen* och Stitch-delen av designsättet *Stitch inom stilkit* (2026-10-15).
+
+Johnny, omkring 21:48:
+
+> Vi stryker stitch helt och hållet då vi inte kommer navända det
+
+**Innebär:**
+- Stitchs MCP-server är borttagen ur byggsessionen och Stitch-CLI:t är avinstallerat (kl. 21.49). Inga Stitch-filer finns kvar i hemkatalogen.
+- Stilkiten tas fram ur referenserna i måttstocken, med värden uppmätta med Playwright (`guide/2-5-yta.md`). Resten av designsättet gäller: ett eget bibliotek och 3–5 stilkit, och designverktyg bara när kiten tas fram.
+- Guiden rensas från Stitch som verktyg. Källhänvisningarna till Stitch-videorna och rapporten `kunskap/research/2026-10-14_stitch-och-verktyg.md` står kvar, eftersom de är källor och inga verktyg.
+
+## 2026-10-15: Startsäkringen – alltid senaste version
+
+**Status:** gäller.
+
+Claude valde Astro 7.3.5 i stället för 7.4.0, som hade kommit ut samma dag.
+
+Johnny, omkring 21:51:
+
+> Vi ska alltid ha det senaste av astro, mcps, skills, claude code etc så vi alltid är uppdaterade, en slags startsäkring vi alltid gör
+
+**Innebär:**
+- Varje session börjar med startsäkringen, `skript/startsakring.sh`, från repots rot (`CLAUDE.md`, *Börja här*).
+- Startsäkringen uppdaterar Claude Code, alla npm-beroenden i `bibliotek/` och i varje sajt (exakt version i `package.json`), Playwrights webbläsare, MCP-servrar och plugins till senaste version.
+- Den skriver vad som ändrades, så att en uppdatering som förstör något går att spåra.
+- Inbyggda skills följer med Claude Code. Egna skills finns inte än.
+- Den första körningen kl. 21.52 uppdaterade Claude Code från 2.1.300 till 2.1.301 och Astro från 7.3.5 till 7.4.0.

@@ -6,6 +6,7 @@ Johnny beslutar. Claude föreslår, bygger och kontrollerar.
 
 ## Börja här
 
+0. Kör startsäkringen från repots rot: `skript/startsakring.sh`. Den uppdaterar Claude Code, npm-projekten, Playwrights webbläsare, MCP-servrar och plugins till senaste version och skriver vad som ändrades (`BESLUT.md` 2026-10-15).
 1. Läs `LAGE.md`: läget, nästa steg och det som väntar på Johnny.
 2. Läs `guide/README.md` (principer, nivåer N1–N4, grind eller instruktion) och den fil i `guide/` som uppgiften gäller.
 3. Läs `BESLUT.md` när en fråga rör något Johnny redan avgjort. Beslut väger tyngst.
