@@ -1,9 +1,11 @@
 ---
 // Sidtoppen på en undersida: sidans enda h1, en kort ingress och kontaktvägen (guide/2-3-struktur.md).
 import Knapp from '../komponenter/Knapp.astro';
+import type { IkonNamn } from '../komponenter/Ikon.astro';
 import type { Lank } from '../innehall/typ';
-interface Props { overrad?: string; rubrik: string; ingress: string; boka?: Lank; ring?: Lank; lank?: Lank; }
-const { overrad, rubrik, ingress, boka, ring, lank } = Astro.props;
+// boka är den primära knappen och ring den sekundära; ikonerna kan bytas, t.ex. ring och mejla på en företagssida.
+interface Props { overrad?: string; rubrik: string; ingress: string; boka?: Lank; ring?: Lank; lank?: Lank; primarIkon?: IkonNamn; sekundarIkon?: IkonNamn; }
+const { overrad, rubrik, ingress, boka, ring, lank, primarIkon = 'kalender', sekundarIkon = 'telefon' } = Astro.props;
 ---
 <section class="sidtopp" aria-labelledby="sidtopp-rubrik">
   <div class="behallare sidtopp__text">
@@ -12,8 +14,8 @@ const { overrad, rubrik, ingress, boka, ring, lank } = Astro.props;
     <p class="sidtopp__ingress">{ingress}</p>
     {(boka || ring) && (
       <div class="sidtopp__knappar">
-        {boka && <Knapp href={boka.href} text={boka.text} ikon="kalender" />}
-        {ring && <Knapp href={ring.href} text={ring.text} variant="sekundar" ikon="telefon" />}
+        {boka && <Knapp href={boka.href} text={boka.text} ikon={primarIkon} />}
+        {ring && <Knapp href={ring.href} text={ring.text} variant="sekundar" ikon={sekundarIkon} />}
       </div>
     )}
     {lank && <p><a class="sidtopp__lank" href={lank.href}>{lank.text}</a></p>}

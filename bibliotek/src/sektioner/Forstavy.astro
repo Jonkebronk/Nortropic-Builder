@@ -3,9 +3,10 @@
 // Rubriken säger tjänst och ort; kontaktvägen syns som knappar; telefonnumret går att klicka på.
 import Knapp from '../komponenter/Knapp.astro';
 import Bildruta from '../komponenter/Bildruta.astro';
+import Ikon from '../komponenter/Ikon.astro';
 import type { StartInnehall } from '../innehall/typ';
 interface Props { innehall: StartInnehall; }
-const { forstavy, boka, ring } = Astro.props.innehall;
+const { forstavy, boka, ring, fortroende } = Astro.props.innehall;
 ---
 <section class="forstavy" aria-labelledby="forstavy-rubrik">
   <div class="behallare forstavy__rutnat">
@@ -17,6 +18,9 @@ const { forstavy, boka, ring } = Astro.props.innehall;
         <Knapp href={boka.href} text={boka.text} ikon="kalender" />
         <Knapp href={ring.href} text={ring.text} variant="sekundar" ikon="telefon" />
       </div>
+      {forstavy.visaBetyg && (
+        <p class="forstavy__betyg"><Ikon namn="stjarna" /><span><strong>{fortroende.betyg.varde}</strong> {fortroende.betyg.skala} · {fortroende.betyg.antal}</span></p>
+      )}
     </div>
     <div class="forstavy__bild">
       <div class="forstavy__bildyta">
@@ -37,7 +41,9 @@ const { forstavy, boka, ring } = Astro.props.innehall;
   .forstavy__knappar :global(.knapp--sekundar) { color: inherit; }
   .forstavy__bild { position: relative; justify-self: center; width: min(100%, 22rem); }
   .forstavy__bildyta { display: grid; place-items: end center; overflow: hidden; padding-top: var(--k-a5); aspect-ratio: 4 / 5; }
-  .forstavy__bildyta :global(.forstavy__foto) { width: 82%; height: auto; }
+  .forstavy__bildyta :global(.forstavy__foto) { width: 74%; height: auto; }
+  .forstavy__betyg { display: flex; align-items: center; gap: var(--k-a2); font-size: 0.95rem; }
+  .forstavy__betyg :global(svg) { width: 1.1rem; height: 1.1rem; fill: currentColor; color: var(--k-accent-text); flex: none; }
   .forstavy__bild .markering { position: absolute; right: -0.25rem; bottom: 1.25rem; margin: 0; }
   @media (max-width: 40rem) {
     .forstavy__knappar :global(.knapp) { flex: 1 1 100%; }

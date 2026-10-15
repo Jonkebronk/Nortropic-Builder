@@ -16,6 +16,7 @@ export interface StartInnehall {
     rubrik: string;
     ingress: string;
     markering?: string;
+    visaBetyg?: boolean; // en rad med betyget ur fortroende, under knapparna
     bild?: Bild;
   };
   praktiskt: {

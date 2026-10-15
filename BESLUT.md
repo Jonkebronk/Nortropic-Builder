@@ -722,3 +722,29 @@ Johnny, omkring 21:51:
 - Den skriver vad som ändrades, så att en uppdatering som förstör något går att spåra.
 - Inbyggda skills följer med Claude Code. Egna skills finns inte än.
 - Den första körningen kl. 21.52 uppdaterade Claude Code från 2.1.300 till 2.1.301 och Astro från 7.3.5 till 7.4.0.
+
+## 2026-10-15: Rörelse – sparsam som standard
+
+**Status:** gäller. Avgör standardbudgeten för rörelse efter den första övningssajten (`guide/2-6-rorelse.md`).
+
+Johnny dömde de två rörelseversionerna i den första övningssajten, live och på video.
+
+Johnny, omkring 23:06:
+
+> Sparsam som standard, måttlig som tillval för restaurang, café och den djärva riktningen där stämning är en del av varan. Om måttlig ska finnas kvar som tillval: starta sektionerna från minst 70 % i stället för 35 %, då försvinner känslan av att vänta på texten.
+
+Skälet, i hans ord: *"För vård, hantverkare och allt där kunden är ute efter en uppgift ska texten vara läsbar i samma ögonblick den syns."*
+
+**Innebär:** Rörelsebudgeten är *sparsam* om inget annat väljs. *Måttlig* är ett tillval för restaurang, café och Djärv och egen. Den måttliga versionen börjar sektionerna från minst 70 % opacitet (`bibliotek/src/styles/rorelse.css`).
+
+## 2026-10-15: Omdömen – patientens ord, klinikens text lovar ingen effekt
+
+**Status:** gäller.
+
+Faktakontrollen frågade om omdömet "Peter har hjälpt mig massor med både rygg- och nackbesvär" fick visas, eftersom det påstår en effekt med en patients ord.
+
+Johnny, omkring 23:06:
+
+> Regeln blir: patientcitat visas ordagrant med källa och datum, klinikens egen text lovar ingen effekt.
+
+**Innebär:** Omdömen visas ordagrant med plattform och datum, och namn bara med samtycke (`guide/2-7-innehall.md`). Kundens egna texter lovar ingen effekt av behandlingen, och faktakontrollen behandlar sådana påståenden som fynd.
