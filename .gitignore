@@ -11,6 +11,7 @@ dist/
 build/
 .next/
 .cache/
+__pycache__/
 
 # Lokala inställningar
 .claude/settings.local.json
