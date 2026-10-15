@@ -374,3 +374,17 @@ Johnny:
 > Ja
 
 **Innebär:** Undantagen står i `2-2-omfattning.md` och `4-foretaget.md`. Branschprofilen i `bibliotek/branscher/` har tre delar: MoSCoW-listan, kontaktvägen på första skärmen och förebilderna ur måttstocken. Ordet *branschmall* är ersatt i hela guiden.
+
+## 2026-10-15: Strukturlagret – kontaktvägen i sidhuvudet blir N1; integritetspolicyn väntar
+
+**Status:** gäller.
+
+Claude föreslog vid genomläsningen av `guide/2-3-struktur.md`:
+- A. Sidhuvudet har branschens kontaktväg på varje sida, fast i toppen på mobilen och med en klickbar `tel:`-länk. Regeln lyfts från N2 till N1, med Johnnys förebilder som grund. Den fasta listen får inte täcka första skärmens knappar.
+- B. Frågan om integritetspolicy utan formulär väntar till den första riktiga kunden.
+
+Johnny:
+
+> Ja
+
+**Innebär:** Regeln om sidhuvudet är N1 i `2-3-struktur.md`. Tre av Johnnys fyra förebilder har en fast list; för We Care Car Care nämner kritiken ingen sådan list. Claude sa först "alla fyra" vid genomläsningen, vilket var en överdrift som är rättad i guiden.

@@ -10,7 +10,7 @@ Garretts strukturplan har två halvor. **Informationsarkitekturen** bestämmer v
 
 Standardprodukten är en vanlig flersidig företagssajt; scrollytelling och Scroll World är tillval (`BESLUT.md` 2026-10-15, → `2-6-rorelse.md`).
 
-- [N1] **Varje sajt utgår från standarduppsättningen: start, tjänst eller tjänster, om oss, kontakt och en designad 404-sida. Tacksida och integritetspolicy ingår bara när sajten har formulär.** Avvikelser motiveras i sidkartan. En sajt med bara en startsida räcker inte: "no one just buys a page" (fallgrop 179, 🎥 *Jack Roberts-videon 3*, sponsrad av Relume). En sida per huvudtjänst: expertenkäten Whitespark 2026 rankar "Dedicated Page for Each Service" som lokal organisk faktor nummer 1 – en enkät, inte ett experiment 📄 [Whitespark](https://whitespark.ca/local-search-ranking-factors). Ramverkets standardsida för 404 signalerar slarv med resten (fallgrop 178) *(en källa – bänken: 🎥 Jack Roberts-videon 2)*. Behövs integritetspolicyn också utan formulär? Webbserverns loggar hos Cloudflare innehåller IP-adresser. *Öppet – se `bilaga-e-oppna-fragor.md`, fråga 1.8.* Uppsättningen 🔧
+- [N1] **Varje sajt utgår från standarduppsättningen: start, tjänst eller tjänster, om oss, kontakt och en designad 404-sida. Tacksida och integritetspolicy ingår bara när sajten har formulär.** Avvikelser motiveras i sidkartan. En sajt med bara en startsida räcker inte: "no one just buys a page" (fallgrop 179, 🎥 *Jack Roberts-videon 3*, sponsrad av Relume). En sida per huvudtjänst: expertenkäten Whitespark 2026 rankar "Dedicated Page for Each Service" som lokal organisk faktor nummer 1 – en enkät, inte ett experiment 📄 [Whitespark](https://whitespark.ca/local-search-ranking-factors). Ramverkets standardsida för 404 signalerar slarv med resten (fallgrop 178) *(en källa – bänken: 🎥 Jack Roberts-videon 2)*. Behövs integritetspolicyn också utan formulär? Webbserverns loggar hos Cloudflare innehåller IP-adresser. Frågan väntar till den första riktiga kunden, eftersom övningssajterna inte är publika (`bilaga-e-oppna-fragor.md`, fråga 1.8; `BESLUT.md` 2026-10-15). Uppsättningen 🔧
 
 | Sida | Adress | Besökarens fråga | Primär handling |
 |---|---|---|---|
@@ -21,7 +21,7 @@ Standardprodukten är en vanlig flersidig företagssajt; scrollytelling och Scro
 | Kontakt | `/kontakt/` | Hur når jag er, när och var? | Ring eller skicka förfrågan |
 | Sidan finns inte (404) | – | Var hamnade jag? Har sidhuvud, meny och kontaktväg och visar vägar vidare; `noindex` → `2-8-teknik-och-kvalitet.md`. | Till start, tjänster eller kontakt |
 | Tack – bara med formulär | `/tack/` | Kom min förfrågan fram, och vad händer nu? `noindex`, inte i sitemap. | – |
-| Integritetspolicy – med formulär; utan formulär öppet | `/integritetspolicy/` | Vad händer med mina uppgifter? Länkas från sidfoten och formuläret; innehållet → `2-8`. | – |
+| Integritetspolicy – med formulär; utan formulär avgörs vid första riktiga kunden | `/integritetspolicy/` | Vad händer med mina uppgifter? Länkas från sidfoten och formuläret; innehållet → `2-8`. | – |
 
 Blogg, ortssidor (nedan) och sidor för funktioner som bokning eller betalning ingår inte. De är tillval och prissätts i paketet (`2-2-omfattning.md`, `4-foretaget.md`).
 
@@ -32,7 +32,7 @@ Blogg, ortssidor (nedan) och sidor för funktioner som bokning eller betalning i
 - [N1] **Sidkartan är en tabell i `sites/<namn>/sidkarta.md`, inte en del av briefen. Den listar varje sida med adress, besökarens fråga, söksträngar och primär handling, och varje sida slutar med sin primära handling som nästa steg.** Sidkartan är "the step that everyone misses" 🎥 *Jack Roberts-videon 3*. En sida som ser bra ut men inte leder till handlingen har misslyckats (fallgrop 50) 🔧. Sajtens primära handling och processen efter klicket bestäms i strategin (`2-1-strategi.md`). Johnny ser sidkartan tillsammans med briefen (`5-byggplan.md`, steg 1).
 - [N2] **Sidkartan får två kolumner till:** innehållskälla i faktabasen och vilken handling på sidan som för mot nordstjärnan. Nordstjärnan själv → `2-1-strategi.md`. 🔧
 - [N2] **Mermaid-diagram av sidkartan** när sajten har fler nivåer än standardsajten, så att strukturen syns i GitHub och artefakter. 📄 [mermaid-js/mermaid](https://github.com/mermaid-js/mermaid) (MIT; `kunskap/research/2026-10-15_kompetensluckor-anteckningar/lager-3-4-struktur-skelett.md`)
-- [N2] **Har kontaktmodellen telefon, finns numret som `tel:`-länk i sidhuvudet på varje sida.** Då är kontaktvägen ett tryck bort var besökaren än landar. 🔧 (webb-pros byggstandard 9.2)
+- [N1] **Sidhuvudet har branschens kontaktväg på varje sida, och på mobilen ligger den fast i toppen.** Telefonen är en klickbar `tel:`-länk, och kontaktvägen hämtas ur branschprofilen (`2-2-omfattning.md`). Då är kontaktvägen ett tryck bort var besökaren än landar. Tre av Johnnys fyra förebilder i måttstocken har en sådan list: *"Jourtelefonen ligger i en list allra högst upp på mobilen"* (Jursla Rör), *"offertknapp och telefonnummer som klistrad list överst på mobilen"* (Plomberie 5 Étoiles) och *"en fast list med 'Boka online' / 'Ring nu' på mobilen"* (Citykiropraktikern). Den fasta listen får inte täcka första skärmens knappar: hos Citykiropraktikern *"täcker hero-knapparna när man scrollat lite"*. 📄 `mattstock/mattstock.md`; 🔧 webb-pros byggstandard 9.2 (`BESLUT.md` 2026-10-15)
 
 ### Sökord före bygget
 
