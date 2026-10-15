@@ -20,8 +20,10 @@ Nortropic-Builder/
 │   │                         provsida (2-4-skelett.md)
 │   ├── branscher/            [N2] branschprofiler: sidor, sektioner, kontaktväg, förebilder (2-2-omfattning.md)
 │   └── stilkit/              [N1] stilkiten med tokens, design.md och wireframe-kitet (2-5-yta.md)
-├── mallar/                   [N1] briefmall och kärnfrågor (2-1-strategi.md), fakta.md-mall
-│                             (2-7-innehall.md), granskningsmall från steg 4 (3-2)
+├── mallar/                   [N1] brief.md och karnfragor.md (2-1-strategi.md), fakta.md
+│   │                         (2-7-innehall.md), granskningsmall från steg 4 (3-2)
+│   └── sajt/                 [N1] kopieras till varje sajt: CLAUDE.md, .claude/settings.json
+│                             med spärrarna, .gitignore (3-3, 3-4)
 ├── skript/                   [N1] kontrollskriptet (Playwright) med N1-kontrollerna, byggs i steg 3
 │                             (2-8-teknik-och-kvalitet.md, bilaga-c-kontroller.md)
 ├── foretag/                  [N2] erbjudande.md, profil, kvitton.md, vanliga frågor (4-foretaget.md)
@@ -35,7 +37,7 @@ Nortropic-Builder/
 ├── konsolidering/            skrivregler och spårbarhet för v1.0
 ├── mattstock/                Johnnys måttstock: metod, urval, domar och måttstocken (3-2)
 ├── .claude/
-│   ├── settings.json         [N1] permissions.deny för push, deploy och .env (3-3)
+│   ├── settings.json         [N1] permissions.deny för deploy och .env, inte push (3-3)
 │   ├── skills/               [N1] egna skills (bilaga B); Stitchs agent-skills skriver till
 │   │                         .agents/skills – kopieras hit (3-4)
 │   ├── hooks/                [N2] grind-stopp.mjs m.fl. (3-1)
@@ -47,7 +49,9 @@ Nortropic-Builder/
 
 ```
 sites/<namn>/
-├── CLAUDE.md                 [N2] bara det sajtspecifika (3-4)
+├── CLAUDE.md                 [N1] flödets regler ur mallar/sajt/ (3-4); i N2 bara det sajtspecifika
+├── .claude/settings.json     [N1] spärren för push, deploy och .env ur mallar/sajt/ (3-3)
+├── .gitignore                [N1] ur mallar/sajt/
 ├── brief.md                  [N1] briefen (2-1-strategi.md)
 ├── fakta.md                  [N1] faktabasen med källa per faktum; från N3 en mapp fakta/ med en fil per faktum (2-7)
 ├── sidkarta.md               [N1] sidkartan som tabell (2-3-struktur.md)
@@ -73,4 +77,12 @@ sites/<namn>/
 
 **Dolda kontroller** [N4] ligger inte i kundsajtens repo utan utanför byggarens arbetskatalog och körs av orkestreraren (`3-1-orkestrering-och-roller.md`).
 
-Öppet: var flödets egen `CLAUDE.md` för sajtbyggande agenter ska ligga (`bilaga-e-oppna-fragor.md`).
+**Så startas en sajt** (`BESLUT.md` 2026-10-15, *Fritt mandat för förberedelserna*):
+
+```sh
+mkdir -p sites/<namn> && cp -R mallar/sajt/. sites/<namn>/ && git -C sites/<namn> init
+cp mallar/brief.md mallar/fakta.md sites/<namn>/
+cd sites/<namn> && claude-bygg
+```
+
+Sajtsessionen startas alltid i `sites/<namn>/`, eftersom spärrarna i sajtens `.claude/settings.json` bara gäller då (`3-3-sakerhet-och-installningar.md`).

@@ -16,13 +16,16 @@ Beslut som behövs först (`bilaga-e-oppna-fragor.md`, avsnitt 1):
 
 **Bygget görs på Johnnys Mac** med den nyaste Claude Code (`BESLUT.md` 2026-10-15). Användarnivån är inventerad och versionen prövad 2026-10-15 (📄 `kunskap/research/2026-10-15_mac-avgransning.md`). Byggsessionen avgränsas med en egen konfigurationskatalog. Avgränsningen verifierades i den inloggade byggsessionen 2026-10-15 (`3-3-sakerhet-och-installningar.md`; `BESLUT.md` 2026-10-15).
 
-Filer som behövs innan steg 1:
+Filer som behövs innan steg 1. **Alla är klara 2026-10-15** (`BESLUT.md`, *Fritt mandat för förberedelserna*):
 
-| Fil | Var den beskrivs |
-|---|---|
-| Kort `CLAUDE.md` för sajtarbetet | `3-4-larande-och-underhall.md` |
-| `.claude/settings.json` med `permissions.deny` för push, deploy och `.env` | `3-3-sakerhet-och-installningar.md` |
-| De åtta kärnfrågorna och briefmallen med sex rubriker | `2-1-strategi.md` |
+| Fil | Var den beskrivs | Var den ligger |
+|---|---|---|
+| Kort `CLAUDE.md` för sajtarbetet | `3-4-larande-och-underhall.md` | `mallar/sajt/CLAUDE.md` |
+| `.claude/settings.json` med `permissions.deny` för push, deploy och `.env` | `3-3-sakerhet-och-installningar.md` | `mallar/sajt/.claude/settings.json`; byggrepots `.claude/settings.json` spärrar deploy och `.env` |
+| De åtta kärnfrågorna och briefmallen med sex rubriker | `2-1-strategi.md` | `mallar/karnfragor.md`, `mallar/brief.md` |
+| Faktamallen | `2-7-innehall.md` | `mallar/fakta.md` |
+
+En sajt startas med mallen och sessionen startas i sajtens katalog (`bilaga-f-projektstruktur.md`, *Så startas en sajt*).
 
 Kontrollskriptet byggs i steg 3 och granskningsmallen i steg 4 – inte i förväg.
 

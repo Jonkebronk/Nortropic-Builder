@@ -169,6 +169,19 @@ Den första riktiga byggsessionen startades med `claude-bygg` i VS Code:s inbygg
 - **Spärren som dokumentationen beskriver:** en deny-regel med serverns namn, `"mcp__claude-in-chrome"`, matchar alla serverns verktyg. En deny-regel som bara anger verktygsnamnet tar dessutom bort verktyget ur Claudes kontext (📄 permissions).
 - **Införd kl. 20.25 efter Johnnys ja** (`BESLUT.md` 2026-10-15, *Chrome-verktygen spärras i byggsessionen*). `"mcp__claude-in-chrome"` står under `permissions.deny` i `~/.claude-bygg/settings.json`. **Verifierat:** när filen sparades meddelade sessionen att servern hade kopplats från, och alla 22 Chrome-verktyg försvann ur Claudes verktygslista utan omstart. `ide` finns kvar. Om `/mcp` fortfarande listar servern är inte sett.
 
+### Sajtkatalogen (prov kl. 20.35, 2.1.300)
+
+Frågan var var spärren för push ska ligga, när den inte får stoppa pushen av byggrepot. Proven gjordes med `claude -p "/context"` och init-händelsen i `stream-json`, utan modellanrop. Provkatalogen hade en rot med en sajt under `sites/x/`, och varje katalog hade egna `CLAUDE.md`, `.claude/settings.json` (deny på ett verktygsnamn) och en skill.
+
+| Sessionen startad i | Projektinställningar | Skills | `CLAUDE.md` vid start |
+|---|---|---|---|
+| `sites/x/` | Bara sajtens. Rotens deny gällde inte. | Bara sajtens | Sajtens och rotens, eftersom roten är en överordnad katalog |
+| roten | Bara rotens. Sajtens deny gällde inte. | Bara rotens | Bara rotens |
+
+- `additionalDirectories: ["../.."]` i sajtens inställningar tog inte med rotens skills eller inställningar.
+- Med `claudeMdExcludes` och ett glob, `**/<rot>/CLAUDE.md`, i sajtens inställningar laddades bara sajtens `CLAUDE.md`.
+- **Prov med den riktiga mallen.** `mallar/sajt/` kopierades till `sites/_prov/` i byggrepot och startades med byggsessionens användarinställningar. Då laddades bara `sites/_prov/CLAUDE.md`, och det fanns inga MCP-servrar. Ett anrop med Haiku (0,003 USD) i den inloggade byggsessionen försökte `git push origin main`, `wrangler deploy --dry-run` och läsa `.env`. Alla tre nekades av reglerna, och `permission_denials` listade dem. Provsajten saknade fjärrdestination och togs bort efteråt.
+
 ## 4. Versionsberoende fakta: 2.1.281 på Windows mot 2.1.296 på Macen
 
 | Guiden (2.1.281) | 2.1.296 på Macen | Källa |

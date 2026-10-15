@@ -1,0 +1,17 @@
+# Hemligheter – aldrig i repot (guide/3-3-sakerhet-och-installningar.md)
+.env
+.env.*
+*.key
+*.pem
+
+# Beroenden och byggen
+node_modules/
+dist/
+.astro/
+
+# Lokala inställningar
+.claude/settings.local.json
+CLAUDE.local.md
+
+# Operativsystem
+.DS_Store

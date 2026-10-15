@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash(git push *)",
+      "Bash(gh repo *)",
+      "Bash(gh api *)",
+      "Bash(wrangler deploy *)",
+      "Bash(npx wrangler deploy *)",
+      "Bash(wrangler versions deploy *)",
+      "Bash(npx wrangler versions deploy *)",
+      "Bash(cf deploy *)",
+      "Bash(npx cf deploy *)",
+      "Bash(cf builds *)",
+      "Bash(npx cf builds *)",
+      "Bash(cf pages *)",
+      "Bash(npx cf pages *)",
+      "Read(**/.env)",
+      "Read(**/.env.*)"
+    ]
+  },
+  "claudeMdExcludes": [
+    "**/nortropic-builder/CLAUDE.md"
+  ]
+}

@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-15 kl. 20.27 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-15 kl. 20.45 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Kort
 
@@ -25,6 +25,7 @@ Detaljerna står i `BESLUT.md`.
 | Astro statiskt är bekräftat. Inter och Lucide väljs per kit | `guide/2-8-teknik-och-kvalitet.md`, `2-5` |
 | **Läge, modell och effort är Johnnys inställningar, inte regler.** Byggsessionen körs i auto mode med Opus 5.5 på xhigh (kl. 20.13–20.14) | `BESLUT.md`; `guide/3-3` |
 | **Chrome-verktygen spärras i byggsessionen** med en deny-regel i `~/.claude-bygg/settings.json` (kl. 20.25) | `BESLUT.md`; `guide/3-3` |
+| **Fritt mandat för förberedelserna.** Sajtarbetet startas i `sites/<namn>/` med spärrarna ur `mallar/sajt/`, och byggrepot pushas som förut (kl. 20.30) | `BESLUT.md`; `guide/3-3`, bilaga F |
 
 ## Gjort på Macen 2026-10-15
 
@@ -44,6 +45,12 @@ Detaljerna står i `BESLUT.md`.
   - Johnny körde `/status`, `/skills` och `/mcp`: *"allt är grönt"*.
   - Arbetet med byggsystemet görs från och med nu i `claude-bygg`. En session är byggsessionen bara om `CLAUDE_CONFIG_DIR` är `~/.claude-bygg`.
   - Detaljerna står i `kunskap/research/2026-10-15_mac-avgransning.md`, *Sett inifrån byggsessionen*.
+- **Förberedelserna är klara** (kl. 20.30–20.45, med Johnnys fria mandat, `BESLUT.md`):
+  - **Sajtarbetet körs i en session som startats i `sites/<namn>/`.** Projektets inställningar läses bara från katalogen där sessionen startar (prövat), och därför stoppar sajtens spärr inte pushen av byggrepot.
+  - **Mallen `mallar/sajt/`** kopieras till varje sajt. Den innehåller `CLAUDE.md` (40 rader), `.claude/settings.json` och `.gitignore`. Spärren täcker push, `gh repo`, `gh api`, `wrangler deploy`, `cf deploy`, `cf builds`, `cf pages` och `.env`.
+  - **Prov med den riktiga mallen:** push, deploy och läsning av `.env` nekades. Bara sajtens `CLAUDE.md` laddades.
+  - **Byggrepots `.claude/settings.json`** spärrar deploy och `.env` men inte push.
+  - **`mallar/karnfragor.md`, `mallar/brief.md` och `mallar/fakta.md`** är tagna ur `guide/2-1` och `2-7`.
 - **De största krockarna:**
   - Auto memory laddar webb-pros gamla ägarbeslut i varje session.
   - `superpowers` har en hook som styr arbetssättet.
@@ -54,16 +61,13 @@ Detaljerna står i `BESLUT.md`.
 
 ## Nästa steg – på Macen
 
-1. **Förberedelserna** i `guide/5-byggplan.md`:
-   - en kort `CLAUDE.md`
-   - `.claude/settings.json` med `permissions.deny` för push, deploy och `.env`. Förslag: lägg till `cf deploy`, `cf builds` och `cf pages`.
-     - ⚠️ **Krock att avgöra först:** `Bash(git push *)` i byggrepots `.claude/settings.json` (`guide/3-3`) spärrar också pushen av byggrepot. Den har Johnny gett stående tillåtelse till (`CLAUDE.md`). Spärren gäller sajterna i `sites/`, inte byggrepot.
-   - kärnfrågorna och briefmallen
-2. **Johnny väljer den första firman.** Förslaget är en av måttstockens underkända svenska firmor, eftersom hans *För godkänt:* redan säger vad sajten måste klara. Exempel är MB Bygg, Torsokliniken, Gustafsbro och Eriksbergs Cykel.
+1. **Johnny väljer den första firman.** Förslaget är en av måttstockens underkända svenska firmor, eftersom hans *För godkänt:* redan säger vad sajten måste klara. Exempel är MB Bygg, Torsokliniken, Gustafsbro och Eriksbergs Cykel.
+2. **Sajten startas** enligt `guide/bilaga-f-projektstruktur.md`, *Så startas en sajt*, och sessionen startas i `sites/<namn>/` med `claude-bygg`.
 3. **Byggplanens steg 1–6**, med en genomgång efter sajten.
 
 ## Väntar på Johnny
 
+- **Läsa sajtens `CLAUDE.md`** i `mallar/sajt/CLAUDE.md`. Claude skrev den med mandatet, och Johnny godkänner ändringar i `CLAUDE.md` (bilaga E 2.3).
 - **Ansökan om API-åtkomst för Google Business Profile.** Bara Johnny kan ansöka, och svaret tar upp till 14 dagar.
 - **Ett Cloudflare-konto för byrån** inför steg 5. Det är ett mänskligt klick, och övningssajterna ligger på byråns konto.
 - **Bilaga E:** avsnitt 1 och 2 är avgjorda. 1.8 (integritetspolicy) och 1.9 (betalning) väntar till den första riktiga kunden, och 2.4, 2.7 och 2.8 till förvaltningen. Avsnitt 3 gäller senare nivåer. Avsnitt 4 verifieras under bygget.

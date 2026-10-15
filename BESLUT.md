@@ -585,3 +585,19 @@ Johnny, 20:25:
 - `permissions.deny` i `~/.claude-bygg/settings.json` innehåller `"mcp__claude-in-chrome"`, och regeln hör till avgränsningen i `guide/3-3-sakerhet-och-installningar.md`.
 - `ide` är kvar. Den publicerar ingenting, och `executeCode` kör bara efter ett klick i VS Code.
 - Samtidigt lämnade sessionen auto mode. Claude läser "jag manuellt approvar allt" som att Johnny godkänner varje steg själv. Läget är hans inställning och ingen regel (2026-10-15, *Läge, modell och effort är Johnnys inställningar*).
+
+## 2026-10-15: Fritt mandat för förberedelserna; sajtarbetet startas i sajtens katalog
+
+**Status:** gäller.
+
+Claude visade en krock. `Bash(git push *)` i byggrepots `.claude/settings.json` (`guide/3-3`) spärrar också pushen av byggrepot, och den har Johnny gett stående tillåtelse till. Claude föreslog att spärren läggs i varje sajts katalog och frågade om `cf deploy`, `cf builds` och `cf pages` skulle med.
+
+Johnny, 20:30:
+
+> du har fritt mandat och fixa allt, och behöver jag byta från auto mode till manual mode för att approva så gör jag det
+
+**Innebär:** Claude läser "allt" som krocken, `cf`-reglerna och förberedelserna i `guide/5-byggplan.md`. Valen nedan är Claudes, gjorda med Johnnys mandat. Johnny kan ändra dem.
+- **Sajtarbetet körs i en session som startats i `sites/<namn>/` med `claude-bygg`.** Projektets inställningar och skills läses bara från katalogen där sessionen startar, enligt provet 2026-10-15 kl. 20.35 (`kunskap/research/2026-10-15_mac-avgransning.md`, *Sajtkatalogen*). En spärr i byggrepot gäller därför inte i sajtsessionen, och en spärr i sajtens repo gäller inte i byggrepot.
+- **Spärren för push, deploy och `.env` följer med varje sajt** från mallen `mallar/sajt/`: `.claude/settings.json`, `CLAUDE.md` och `.gitignore`. Spärren täcker också `gh repo`, `gh api` och `cf deploy`, `cf builds` och `cf pages`. Byggrepots `CLAUDE.md` hoppas över i sajtsessionen med `claudeMdExcludes`.
+- **Byggrepots `.claude/settings.json`** spärrar deploy och `.env` men inte push, så den stående tillåtelsen att pusha byggrepot gäller som förut.
+- **Förberedelserna:** sajtens `CLAUDE.md` (40 rader) ligger i `mallar/sajt/`. Kärnfrågorna, briefmallen och faktamallen ligger i `mallar/`. Claudes ändringar i `CLAUDE.md` är förslag som Johnny godkänner (bilaga E 2.3), och Claude läser mandatet som godkännande av mallen tills Johnny säger annat.
