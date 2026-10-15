@@ -344,3 +344,18 @@ Johnny:
 1. Den första godkända övningssajten fryses och byggs om efter varje större ändring, och resultatet jämförs med den godkända versionen (`guide/3-2-granskning-och-kalibrering.md`, N2).
 2. En profil per bransch i `bibliotek/branscher/`, med måttstockens tabell som startvärden (`guide/2-4-skelett.md`, N2).
 3. Blickprovet körs i steg 2 på varje riktnings första vy i mobil, innan Johnny ser riktningarna (`guide/2-4-skelett.md`, `5-byggplan.md`).
+
+## 2026-10-15: Strategilagret – övningsläget, "var" i briefen, nordstjärnan i övningen
+
+**Status:** gäller.
+
+Claude föreslog vid genomläsningen av `guide/2-1-strategi.md`:
+- A. Johnny bekräftar i kundens ställe i övningssajterna. Uppgifter ur firmans egna källor räknas som sett, och Johnnys svar märks `johnny-som-kund`.
+- B. Briefens sammanfattning tar med *var*, och primär handling hämtar branschens kontaktväg.
+- C. Nordstjärnan får stå som *Inte angivet* i övningen eller sättas av Johnny som kund.
+
+Johnny:
+
+> Ja
+
+**Innebär:** Grinden och faktabasen i N1 fungerar för övningssajterna (*Övningsläget* i `2-1-strategi.md`). Briefmallen har *var* och kontaktvägen, så att första skärmen enligt måttstockens fråga 1 har sitt underlag redan i briefen.

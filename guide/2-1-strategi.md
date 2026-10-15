@@ -12,7 +12,7 @@ Länkar till primärkällorna: `kunskap/research/2026-10-15_kompetensluckor-ante
 
 ### Intervjun
 
-- [N1] **Johnny intervjuar kunden tillsammans med AI:n, med öppna frågor, och utgår från de åtta kärnfrågorna** (`BESLUT.md` 2026-10-15). AI:n håller ordning på frågorna, föreslår följdfrågor och fyller briefen och faktabasen under samtalet; Johnny leder samtalet (avsnittet *Kärnfrågor och intervjuguide*). En fråga i taget. Öppna, icke-ledande frågor om verkliga och nyliga händelser, aldrig hypotetiska. Be om exempel. Föreslå aldrig svar, inte ens ett tema; färdiga svarsalternativ visas bara när kunden väljer bland det vi erbjuder, som paket och tillval (→ `guide/2-2-omfattning.md`). Inget smicker. Våga vara tyst. Kan kunden inte svara, fråga från ett annat håll. "Vet inte" och "längre fram" är giltiga svar och blir *okänt*, aldrig en gissning. Varför: ledande frågor ger kundens gissning om vad vi vill höra. Källa: `BESLUT.md` 2026-10-13, 18:05 och 18:41 (intervjuande AI, öppna frågor); 📄 Geiecke & Jaravel (principerna med egna ord; koden är icke-kommersiellt licensierad), 📄 Hall, *Just Enough Research*, 📄 Mom Test via pm-skills; svarsalternativen och "vet inte" 🔧 (webb-pro `kundintervju.md`). Granskningskriterium för utskriften. Vem som svarar i första varvet är öppet – se `guide/bilaga-e-oppna-fragor.md` (Claudes förslag: en människa som känner verksamheten).
+- [N1] **Johnny intervjuar kunden tillsammans med AI:n, med öppna frågor, och utgår från de åtta kärnfrågorna** (`BESLUT.md` 2026-10-15). AI:n håller ordning på frågorna, föreslår följdfrågor och fyller briefen och faktabasen under samtalet; Johnny leder samtalet (avsnittet *Kärnfrågor och intervjuguide*). En fråga i taget. Öppna, icke-ledande frågor om verkliga och nyliga händelser, aldrig hypotetiska. Be om exempel. Föreslå aldrig svar, inte ens ett tema; färdiga svarsalternativ visas bara när kunden väljer bland det vi erbjuder, som paket och tillval (→ `guide/2-2-omfattning.md`). Inget smicker. Våga vara tyst. Kan kunden inte svara, fråga från ett annat håll. "Vet inte" och "längre fram" är giltiga svar och blir *okänt*, aldrig en gissning. Varför: ledande frågor ger kundens gissning om vad vi vill höra. Källa: `BESLUT.md` 2026-10-13, 18:05 och 18:41 (intervjuande AI, öppna frågor); 📄 Geiecke & Jaravel (principerna med egna ord; koden är icke-kommersiellt licensierad), 📄 Hall, *Just Enough Research*, 📄 Mom Test via pm-skills; svarsalternativen och "vet inte" 🔧 (webb-pro `kundintervju.md`). Granskningskriterium för utskriften. I övningssajterna svarar Johnny i kundens ställe där firmans egna källor inte räcker (*Övningsläget* nedan).
 - [N1] **Research före samtalet: läs kundens sajt och Google-profil,** och fråga bara om det som inte står där. Kunden bekräftar förifyllda påståenden, och varje påstående visar sin källa: "Jag ser att ni erbjuder X och Y – stämmer det?" Bara det kunden bekräftat blir ett faktum (→ faktabasen under *Vad som kommer ut*). Varför: förifyllda svar ger tydligare underlag men upplevs som mindre pålitliga när källan inte syns. Källa: 📄 marketingskills `customer-research`, 📄 Paludan m.fl. 2025. Ersätter v0.74:s självintervju (🎥 repo-videon).
 - [N2] **Bredare research före samtalet:** omdömen, sociala medier och offentliga register, med samma regel om källa och bekräftelse. Åtkomsten → *Kompetens och källor*. Källa: 📄 marketingskills `customer-research`.
 - [N2] **Varje fråga har en känd användning.** Intervjuguiden nedan anger vilket lager som använder svaret. Det som redan är besvarat frågas inte igen. Intervjun är klar när varje lager har sitt underlag, inte efter ett visst antal frågor. Varför: en fråga utan användning kostar kundens tid. Källa: 📄 GOV.UK question pages, 📄 Jarretts question protocol. I N1 anger bokstaven efter varje kärnfråga användningen.
@@ -75,8 +75,10 @@ Intervjun avslutas med kundens bekräftelse (→ *Kontroll*).
 ## Vad som kommer ut
 
 - [N1] **Strategibriefen** i `sites/<namn>/brief.md`: en sida med sex rubriker – sammanfattning, nordstjärna, besökare, primär handling, ton och intryck (med rörelsebudget), får inte påstås – enligt avsnittet *Briefmall*. Varje påstående är märkt: kundens ord, offentlig källa med länk och datum, eller antagande. Källa (märkningen): `historik/karta/1-strategi.md`, 📄 marketingskills `competitor-profiling`.
-- [N1] **Faktabasen `sites/<namn>/fakta.md` fylls med det kunden bekräftat,** med källa per faktum (hemvist → `guide/2-7-innehall.md`). Briefen är ett planeringsdokument, inte en faktabas (fallgrop 93).
+- [N1] **Faktabasen `sites/<namn>/fakta.md` fylls med det kunden bekräftat,** med källa per faktum (hemvist → `guide/2-7-innehall.md`). Briefen är ett planeringsdokument, inte en faktabas (fallgrop 93). I övningssajterna fylls den med det Johnny bekräftat i kundens ställe (*Övningsläget* nedan).
 - [N2] Beslutskartan (ovan).
+
+**Övningsläget** (`BESLUT.md` 2026-10-15; `5-byggplan.md`, *Övningssajterna*). En firma som inte vet om övningen kan inte bekräfta något, så i övningssajterna bekräftar Johnny i kundens ställe. Uppgifter ur firmans egen sajt och Google-profil räknas som *sett*, med källa. Det Johnny svarar som kund märks `johnny-som-kund`. Inget presenteras som bekräftat av firman. Nordstjärnan får stå som *Inte angivet*, eller så sätter Johnny ett rimligt mål märkt `johnny-som-kund`, så att rapporten i steg 6 kan övas.
 
 ### Nordstjärna
 
@@ -88,17 +90,18 @@ Nordstjärnan bor här. Förvaltningsrapporten (→ `guide/2-9-drift-och-forvalt
 
 ### Briefmall
 
-Biblioteksfil `mallar/brief.md`, avskalad ur webb-pros `brief-mall.md` 🔧. Jobbformeln ur 📄 wondelai `jobs-to-be-done`. Mallen för den första sajten har sex rubriker:
+Biblioteksfil `mallar/brief.md`, avskalad ur webb-pros `brief-mall.md` 🔧. Jobbformeln ur 📄 wondelai `jobs-to-be-done`. *Var* i sammanfattningen och kontaktvägen i primär handling är det som första skärmen behöver enligt Johnnys måttstock, fråga 1 (`mattstock/mattstock.md`; `2-4-skelett.md`). Mallen för den första sajten har sex rubriker:
 
 ```markdown
 # Strategibrief – <verksamhet>
 Märkning per påstående: [kund] · [källa: länk, datum] · [antagande]. Överhoppat: *Inte angivet*.
 
-## 1. Sammanfattning – 3–5 meningar: vad, för vem, vad sajten ska åstadkomma.
+## 1. Sammanfattning – 3–5 meningar: vad, var (ort eller område), för vem, vad sajten ska åstadkomma.
 ## 2. Nordstjärna – hink · mått · baslinje (källa) · mål · tidsram · godkänd (datum).
 ## 3. Besökare – "När [situation] vill jag [framsteg] så att [utfall]." Oro och vana.
    Ägarens 3–5 toppuppgifter (→ 2-2).
-## 4. Primär handling – vad besökaren gör, vem som tar emot, hur snabbt, vad som händer vid fel.
+## 4. Primär handling – vad besökaren gör (branschens kontaktväg ur bibliotek/branscher/),
+   vem som tar emot, hur snabbt, vad som händer vid fel.
 ## 5. Ton och intryck – 3–5 ord, två ordagranna meningar ur kundens material,
    referenser och anti-referenser med en mening om varför,
    rörelsebudget (sparsam, måttlig eller expressiv → 2-6).
@@ -134,7 +137,7 @@ Märkning per påstående: [kund] · [källa: länk, datum] · [antagande]. Öve
 
 ## Kontroll
 
-- [N1] **Grind: kunden bekräftar sammanfattningen, och Johnny godkänner briefen och faktabasen,** innan nästa lager börjar (`5-byggplan.md`, steg 1). Intervjun avslutas med en sammanfattning per avsnitt som kunden kan ändra. Överhoppade svar står som *Inte angivet*, och det är tydligt att inget är klart förrän kunden bekräftat. Bekräftelsen gäller fakta och mål, inte pris, design eller publicering (🔧 webb-pro `kundintervju.md`). Johnny godkänner briefen som en sann bild av verksamheten; steget ger honom något att se och döma (`guide/README.md`, princip 1). Varför: kunden får en andra chans att rätta fel innan de byggs in. Källa: 📄 GOV.UK check answers, 📄 Anthropics `smb-onboard` (visa profilen och vänta på uttryckligt godkännande) – två oberoende källor. Stoppen → `guide/3-2-granskning-och-kalibrering.md`.
+- [N1] **Grind: kunden bekräftar sammanfattningen, och Johnny godkänner briefen och faktabasen,** innan nästa lager börjar (`5-byggplan.md`, steg 1). I övningssajterna bekräftar Johnny i kundens ställe (*Övningsläget* ovan). Intervjun avslutas med en sammanfattning per avsnitt som kunden kan ändra. Överhoppade svar står som *Inte angivet*, och det är tydligt att inget är klart förrän kunden bekräftat. Bekräftelsen gäller fakta och mål, inte pris, design eller publicering (🔧 webb-pro `kundintervju.md`). Johnny godkänner briefen som en sann bild av verksamheten; steget ger honom något att se och döma (`guide/README.md`, princip 1). Varför: kunden får en andra chans att rätta fel innan de byggs in. Källa: 📄 GOV.UK check answers, 📄 Anthropics `smb-onboard` (visa profilen och vänta på uttryckligt godkännande) – två oberoende källor. Stoppen → `guide/3-2-granskning-och-kalibrering.md`.
 - [N2] **En egen granskare prövar underlaget:** "kan nästa lager börja med det här?" Den går igenom kolumnen *Nästa användning*, kontrollerar att varje påstående i briefen är märkt och skickar luckorna tillbaka som följdfrågor. Granskaren har ren kontext (→ `guide/3-1-orkestrering-och-roller.md`). Källa: `historik/karta/1-strategi.md`, 📄 marketingskills `competitor-profiling`. Granskningskriterium.
 - [N2] **Kunden betygsätter 1–4** hur väl sammanfattningen träffar; betygen följs över tid som mått på intervjuskillen (→ `guide/3-2-granskning-och-kalibrering.md`). Källa: 📄 Geiecke & Jaravel.
 
@@ -144,4 +147,4 @@ Märkning per påstående: [kund] · [källa: länk, datum] · [antagande]. Öve
 - Från N2 går researchen helt självgående.
 - Mål, positionering och nordstjärna är kundens beslut. AI:n föreslår, kunden bekräftar.
 - En uppgift som saknas blockerar bara det som beror på den; resten går vidare. 🔧 (webb-pro `brief-mall.md`)
-- Öppet – se `guide/bilaga-e-oppna-fragor.md`: vem som svarar i första varvet, överlappet med `nortropic-intake`, om Grounding Lite omfattas av Places-villkoren.
+- Öppet – se `guide/bilaga-e-oppna-fragor.md`: överlappet med `nortropic-intake`, om Grounding Lite omfattas av Places-villkoren. Vem som svarar i övningssajterna är avgjort (*Övningsläget*).
