@@ -7,6 +7,7 @@ export interface KartLank extends Lank { apple?: string; }
 export interface Bild { src: ImageMetadata | string; alt: string; width?: number; height?: number; }
 
 export interface StartInnehall {
+  forst?: 'praktiskt' | 'tjanster'; // sektionen efter första vyn; branschen avgör (guide/2-4-skelett.md), standard 'praktiskt'
   nyFlikText?: string; // för skärmläsare när en länk öppnas i ny flik på datorn, t.ex. "(öppnas i ny flik)"
   titel: string;
   beskrivning: string;

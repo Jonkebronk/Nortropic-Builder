@@ -15,19 +15,11 @@ const { kit, innehall, noindex = false, rorelse, strukturerad } = Astro.props;
 ---
 <Sida kit={kit} innehall={innehall} titel={innehall.titel} beskrivning={innehall.beskrivning} noindex={noindex} rorelse={rorelse} strukturerad={strukturerad}>
   <Forstavy innehall={innehall} />
-  <Praktiskt innehall={innehall} />
-  <Tjanster innehall={innehall} />
+  {innehall.forst === 'tjanster'
+    ? <><Tjanster innehall={innehall} /><Praktiskt innehall={innehall} /></>
+    : <><Praktiskt innehall={innehall} /><Tjanster innehall={innehall} /></>}
   <Person innehall={innehall} />
   <Fortroende innehall={innehall} />
   <Process innehall={innehall} />
   <NastaSteg innehall={innehall} />
-  <script is:inline>
-    // Bara för jämförelsen av sektionsordningen: ?ordning=behandlingar lägger Tjänster före Det praktiska.
-    // Noderna flyttas i dokumentet, så att läsordning och tabbordning följer det som syns.
-    (function () {
-      if (new URLSearchParams(location.search).get('ordning') !== 'behandlingar') return;
-      var p = document.querySelector('.praktiskt'), t = document.querySelector('.tjanster');
-      if (p && t) p.parentNode.insertBefore(t, p);
-    })();
-  </script>
 </Sida>

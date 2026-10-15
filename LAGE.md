@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-16 kl. 00.30 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-16 kl. 00.35 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Kort
 
@@ -64,6 +64,7 @@ Detaljerna står i `BESLUT.md`.
 2. **Steg 1 och 2 är dömda** (Johnny omkring 22.23). Steg 1 är godkänt. Johnny valde Lugn och luftig, godkände Varm och underkände Djärv. Domarna står i sajtens `domar.jsonl`. Steg 3 är godkänt, och slutgranskningen är godkänd omkring 23.51 ("den bästa sajten i måttstocken"). Versionen är fryst med taggen `steg4-underlag`.
 3. **Steg 4, granskaren, är klart** (Johnny omkring 00.14). Granskaren hade rätt på 12 av Johnnys 17 godkända (71 %) och 12 av 14 underkända (86 %). Av de 22 domar den var säker på var 21 rätt, och sex av sju fel var märkta osäkra. Resultatet, avvikelserna och fem förslag till checklistan står i `mattstock/granskare/matning-2026-10-15.md`. Över sajten dömde granskaren godkänd, som Johnny. Den hittade tio fynd och en av Johnnys fyra anteckningar helt. Jämförelsen står i sajtens `granskning-steg4.md`.
 Johnny tog in fem av förslagen till checklistan och lade till ett sjätte. `mallar/granskning.md` är låst på nytt, och uppdraget står i `mattstock/granskare/uppdrag.md`. Hans fynd och anteckningar är åtgärdade i biblioteket och sajten. Kontrollskriptet har fått kontroll 2b: länkar till kartor, recensioner och sociala medier öppnas i ny flik på datorn.
+   Beslutat omkring 00.32: branschen avgör om *Det praktiska* eller *Tjänster* kommer efter första vyn (`guide/2-4-skelett.md`; biblioteket: `forst` i innehållet). Övningssajten behåller *Var och när* först.
 4. **Nästa:** steg 6 (förvaltningsrapportens form) och genomgången efter sajten (`guide/5-byggplan.md`). Nästa mätning av granskaren görs på nya sajter och på systemets egna utkast.
 
 ## Väntar på Johnny

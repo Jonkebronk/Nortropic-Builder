@@ -830,3 +830,26 @@ Om övningssajtens fynd, i samma svar (det som gäller firman står ordagrant i 
 - Kontrollskriptet får en kontroll för länkar till kartor, recensioner och sociala medier: på datorn öppnas de i ny flik, på mobilen i samma flik så att appen tar över (`skript/kontroll.mjs`, `guide/2-8-teknik-och-kvalitet.md`).
 - Biblioteket: logotypsymbolen visas i sidhuvudet på alla bredder.
 - Steg 4 i den första övningssajten är avgjort.
+
+## 2026-10-16: Branschen avgör ordningen mellan Det praktiska och Tjänster
+
+**Status:** gäller.
+
+Johnny frågade omkring 00:28 om behandlingarna borde komma före *Var och när*, hur ordningen hade bestämts och vad bästa praxis säger. Claude svarade att ordningen kom från hans beslut 2026-10-15 (*Det praktiska* direkt efter första vyn) och från måttstocken, utan någon extern källa. Claude gick sedan igenom källorna:
+- NN/g 2018: 74 % av tiden på en sida går till de två första skärmarna.
+- BrightLocal 2015, mobil: adress, karta, öppettider och telefon är viktigast.
+- BrightLocal 2016: listan över tjänster och priser är viktigast.
+- BrightLocal 2019: Google-profilen tar de snabba frågorna, och webbplatsen ger detaljerna.
+
+Claude föreslog att branschprofilen avgör ordningen:
+- Kommer kunden till en plats och är tjänsterna få (klinik, skönhet, café, restaurang), kommer *Det praktiska* först.
+- Är kundens första fråga om företaget kan göra jobbet (hantverk, jour, event, byrå), kommer *Tjänster* först och sedan område, jour och priser.
+
+För den första övningssajten skulle ordningen ligga kvar. Johnny, omkring 00:32:
+
+> ja till ditt förslag
+
+**Innebär:**
+- Regeln står i `guide/2-4-skelett.md`, *Mobilens första skärm*, och i startsidans standardordning. Branschprofilen tar upp den (`guide/2-2-omfattning.md`).
+- Biblioteket väljer ordningen med `forst: 'praktiskt' | 'tjanster'` i innehållet. Standard är `'praktiskt'`, och jämförelseväxeln `?ordning=` är borttagen.
+- Den första övningssajten behåller *Var och när* före *Behandlingar*.
