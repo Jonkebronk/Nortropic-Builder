@@ -33,6 +33,7 @@ Råmaterial för `kunskap/` och konsolideringen av implementeringsguiden. Rörs 
 | 2026-08-10 | AI LABS | This Claude Code Skill make Building 10x Faster | [2026-08-10_b9k-AE4v5yI.md](2026-08-10_b9k-AE4v5yI.md) |
 | 2026-08-11 | Nate Herk | AI Automation | How to Build a One Person AI Business (Using Claude Code) | [2026-08-11_LVAHYV4Xrto.md](2026-08-11_LVAHYV4Xrto.md) |
 | 2026-08-12 | AI LABS | How To Use Claude Design To Build Beautiful Sites | [2026-08-12_bBlY5YOsKN8.md](2026-08-12_bBlY5YOsKN8.md) |
+| 2026-08-12 | Jack Roberts | Turn Claude into a Design Genius... Just Watch | [2026-08-12_NAumQObJEwM.md](2026-08-12_NAumQObJEwM.md) |
 | 2026-08-12 | Nate Herk | AI Automation | I Deleted All My Claude Skills... And Claude Got Smarter | [2026-08-12_XNQBCRcwXV4.md](2026-08-12_XNQBCRcwXV4.md) |
 | 2026-08-14 | AI LABS | This Claude Skill Just Fixed Loop Engineering | [2026-08-14_D_uojDHkbw4.md](2026-08-14_D_uojDHkbw4.md) |
 | 2026-08-18 | AI LABS | Every Level Of Claude Code Loop Engineering Explained | [2026-08-18_PLyRe6Zk--8.md](2026-08-18_PLyRe6Zk--8.md) |
