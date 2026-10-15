@@ -30,6 +30,7 @@ Varje sektion besvarar en fråga besökaren har. Listan är kartans utkast (inte
 |---|---|---|
 | Sidhuvud | Vem är ni, hur når jag er? | Namn, meny och `tel:`-länk när kontaktvägen är telefon (`2-3-struktur.md`) |
 | Första vyn | Vad gör ni, var och för vem, och vad gör jag nu? | Rubrik med tjänst och ort, branschens kontaktväg och klickbart telefonnummer på mobilens första skärm (regeln nedan) |
+| Det praktiska | När har ni öppet, var finns ni, vad kostar det? | Öppettider, adress eller område, telefon och priser i korthet ur faktabasen; branschprofilen avgör vad som visas (regeln nedan) |
 | Tjänster | Kan ni hjälpa mig med det här? | Ett kort per tjänst med länk till tjänstesidan |
 | Text och bild | Vilka är ni? Vad ingår? | Om oss, vad en tjänst omfattar, längre text |
 | Förtroende | Kan jag lita på er? | Omdömen med källa, F-skatt, försäkring, certifikat, ROT och RUT – bara det som är belagt (`2-7`) |
@@ -44,7 +45,7 @@ Varje sektion besvarar en fråga besökaren har. Listan är kartans utkast (inte
 
 De tre riktningarna i `5-byggplan.md`, steg 2, visar startsidan i tre stilkit med samma sektioner och samma innehåll (`BESLUT.md` 2026-10-15). Riktningarna och kiten → `2-5-yta.md`.
 
-- [N1] **Mobilens första skärm svarar på vad, var och hur – utan att besökaren scrollar, i 375 px.** Rubriken säger tjänst och ort och är aldrig *"Välkommen till …"*. Branschens kontaktväg syns som knapp: ring och offert för hantverk, boka för klinik och skönhet, meny, beställ och hitta hit för restaurang och café. Telefonnumret går att klicka på. Det här är fråga 1 i Johnnys måttstock och det som oftast avgjorde hans domar; förebilderna är Jursla Rör, Plomberie 5 Étoiles, Citykiropraktikern och We Care Car Care. Instruktion och granskningskriterium – Johnnys måttstock, ingen norm (`BESLUT.md` 2026-10-15); prövas i blickprovet under *Kontroll*. 📄 `mattstock/mattstock.md`
+- [N1] **Mobilens första skärm svarar på vad, var och hur – utan att besökaren scrollar, i 375 px.** Rubriken säger tjänst och ort och är aldrig *"Välkommen till …"*. Branschens kontaktväg syns som knapp: ring och offert för hantverk, boka för klinik och skönhet, meny, beställ och hitta hit för restaurang och café. Telefonnumret går att klicka på. Det här är fråga 1 i Johnnys måttstock och det som oftast avgjorde hans domar; förebilderna är Jursla Rör, Plomberie 5 Étoiles, Citykiropraktikern och We Care Car Care. Direkt efter första vyn följer **Det praktiska**: öppettider, adress eller område, telefon och priser i korthet ur faktabasen; branschprofilen avgör vad som visas (meny med priser för restaurang, område och jour för hantverk; `2-2-omfattning.md`). Johnny berömde *"öppettider, priser, telefon och adress som kort direkt under"* (Citykiropraktikern) och saknade det hos flera: *"Jag ser varken adress, öppettider eller telefon på startsidan [...] det hade jag velat ha"* (Lamanna's). Instruktion och granskningskriterium – Johnnys måttstock, ingen norm (`BESLUT.md` 2026-10-15); prövas i blickprovet under *Kontroll*. 📄 `mattstock/mattstock.md`
 
 - [N2] **Två till tre varianter per sektion** (kartan), till exempel delad (text och bild) och helbild för första vyn, och **tillval per bransch:** bokning, prislista, öppettider, jour, meny för restauranger, betallänk, nyhetsbrev, språkväxlare och brödsmulor. Funktionerna → `2-2-omfattning.md`.
 - **Branschprofilen** – kontaktväg, sektioner, tillval och förebilder per bransch – bor i `2-2-omfattning.md`, *Två spår*.
@@ -64,7 +65,7 @@ De tre riktningarna i `5-byggplan.md`, steg 2, visar startsidan i tre stilkit me
 | Komplex widget, till exempel bokningskalender | Från N3 en isolerad ö med Zag | [Zag](https://github.com/chakra-ui/zag) |
 
 - [N2] **Layouten byggs med ett fåtal layoutprimitiver** (stapel, kluster, sidopanel, växel, rutnät, täckyta, ram) i stället för brytpunkter och magiska tal. 📄 [Every Layout](https://every-layout.dev/) (destilleras; boken kostar 69 USD). Flytande typ- och avståndsskalor → `2-5`.
-- [N2] **Mobilen först.** Varje sektion designas och prövas i mobilbredd före dator, och mobilen får ett eget innehållsurval där det behövs i stället för en hopklämd datorversion (fallgrop 3, 19). 📄 Wroblewski, *Mobile First* ([A Book Apart](https://abookapart.com/products/mobile-first)). I första sajten fångar provsidan i 375 px och N1-kontroll 3 i `2-8` det värsta.
+- [N1] **Mobilen först.** Varje sektion designas och prövas i mobilbredd före dator, redan i första sajten, och mobilen får ett eget innehållsurval där det behövs i stället för en hopklämd datorversion (fallgrop 3, 19). Johnny fällde tre sajter i måttstocken enbart på mobilutförandet: *"Det är Nortropics ansvar att layouten håller på mobilen."* 📄 Wroblewski, *Mobile First* ([A Book Apart](https://abookapart.com/products/mobile-first)); `mattstock/mattstock.md` (`BESLUT.md` 2026-10-15). N1-kontroll 3 i `2-8` fångar det värsta automatiskt; resten bedöms i måttstockens fråga 3.
 - [N2] **Varje sektion har en `h2` och `aria-labelledby`; mallen sätter sidans enda `h1`, landmärkena och länken Hoppa till innehållet.** WCAG 2.4.1 ingår i golvet från första sajten (`2-8`, *Kodstandard*). Kontrollen av rubriker → `2-8`.
 - [N2] **Bilder har bredd och höjd,** så att layouten inte hoppar när sidan laddar. Mätningen (CLS) → `2-8`.
 
@@ -78,7 +79,7 @@ bibliotek/               eget Astro-projekt i det här repot
   src/layout/            layoutprimitiverna (från sajt 2)
   src/sektioner/         en fil per sektion: Sidhuvud, Forstavy, Tjanster, TextBild,
                          Fortroende, Utfort, Process, Omrade, Fragor, Kontakt,
-                         HittaHit, NastaSteg, Sidfot – bara de som används
+                         HittaHit, Praktiskt, NastaSteg, Sidfot – bara de som används
   src/mallar/            sidtyperna: Start, Tjanst, Tjanster, OmOss, Kontakt,
                          Saknas (404); Integritet och Tack bara med formulär
   src/pages/prov/        provsidan (gallerivyn från sajt 2)
@@ -105,7 +106,7 @@ Prövningen görs i biblioteket, en gång, inte i varje kundbygge. I första saj
 
 | Mall | Sektioner i standardordning |
 |---|---|
-| Start | Sidhuvud · Första vyn · Tjänster · Förtroende · Utfört arbete · Så går det till · Serviceområde · Vanliga frågor · Nästa steg · Sidfot |
+| Start | Sidhuvud · Första vyn · Det praktiska · Tjänster · Förtroende · Utfört arbete · Så går det till · Serviceområde · Vanliga frågor · Nästa steg · Sidfot |
 | Tjänst | Sidhuvud · brödsmulor (från sajt 2) · Första vyn · Text och bild (vad som ingår; pris och ROT eller RUT om faktabasen har det) · Utfört arbete · Vanliga frågor · Nästa steg · Sidfot |
 | Tjänster | Sidhuvud · Tjänster · Nästa steg · Sidfot |
 | Om oss | Sidhuvud · Text och bild · Förtroende · Nästa steg · Sidfot |
@@ -169,7 +170,7 @@ Alla kontroller och deras grund står i `bilaga-c-kontroller.md`, liksom visning
 
 I första sajten har skelettet inga egna automatiska kontroller. Reflow vid 320 CSS-px är N1-kontroll 3 och axe N1-kontroll 8 i `2-8`, och Johnny ser sajten. Kriterierna nedan med WCAG som norm gäller ändå från första sajten som en del av golvet (`2-8`, *Kodstandard*); som egna kontroller i skriptet kommer de från sajt 2.
 
-- [N1] **Granskningskriterium: blickprovet (femsekunderstestet).** En separat AI ser en skärmbild av första vyn i 375 och 1280 px, mobilen först, utan källkoden, och säger vad som erbjuds, var och vad man ska göra. Det är fråga 1 i Johnnys måttstock (`mattstock/mattstock.md`; regeln under *Sektionerna*). Stämmer svaret inte med briefen och den primära handlingen är det ett fynd – högst `medel`, eftersom kriteriet har en källa (→ `3-2-granskning-och-kalibrering.md`). Testet gäller skelett och yta och körs i byggplanens steg 2 på varje riktnings första vy, innan resten av sajten byggs – en kontroll av första lagret, som på en 3D-skrivare (`BESLUT.md` 2026-10-15). Här är dess enda plats. *(en källa – bänken: 🎥 Jack Roberts-videon 2, som bygger på Krug; Krug är inte läst i original)* Textmängden per sektion (fallgrop 175) → `2-7-innehall.md`.
+- [N1] **Granskningskriterium: blickprovet (femsekunderstestet).** En separat AI ser en skärmbild av första vyn i 375 och 1280 px, mobilen först, utan källkoden, och säger vad som erbjuds, var och vad man ska göra. Det är fråga 1 i Johnnys måttstock (`mattstock/mattstock.md`; regeln under *Sektionerna*). Stämmer svaret inte med briefen och den primära handlingen är det ett fynd. Brister fråga 1 helt blir granskarens dom *underkänd*, enligt Johnnys måttstock (`BESLUT.md` 2026-10-15). Det är ingen automatisk stoppkontroll, och Johnny avgör (→ `3-2-granskning-och-kalibrering.md`). Testet gäller skelett och yta och körs i byggplanens steg 2 på varje riktnings första vy, innan resten av sajten byggs – en kontroll av första lagret, som på en 3D-skrivare (`BESLUT.md` 2026-10-15). Här är dess enda plats. *(en källa – bänken: 🎥 Jack Roberts-videon 2, som bygger på Krug; Krug är inte läst i original)* Textmängden per sektion (fallgrop 175) → `2-7-innehall.md`.
 - [N2] **Låst kontroll: klickytor minst 24 × 24 CSS-px**, eller tillräckligt avstånd enligt kriteriet. 📄 WCAG 2.2, 2.5.8, AA ([W3C](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html))
 - [N2] **Granskningskriterium: 44 × 44 px för knappar, menyknappen och fristående länkar.** Nortropics nivå (kartan), över golvet; 2.5.5 är AAA och därför ingen norm för en låst kontroll. 📄 2.5.5 ([W3C](https://www.w3.org/WAI/WCAG22/Understanding/target-size-enhanced.html))
 - [N2] **Låst kontroll: fokus syns** på allt som nås med tangentbordet. 📄 WCAG 2.2, 2.4.7, AA ([W3C](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html))

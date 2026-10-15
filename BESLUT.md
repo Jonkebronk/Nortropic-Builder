@@ -388,3 +388,18 @@ Johnny:
 > Ja
 
 **Innebär:** Regeln om sidhuvudet är N1 i `2-3-struktur.md`. Tre av Johnnys fyra förebilder har en fast list; för We Care Car Care nämner kritiken ingen sådan list. Claude sa först "alla fyra" vid genomläsningen, vilket var en överdrift som är rättad i guiden.
+
+## 2026-10-15: Skelettlagret – mobilen först i N1, Det praktiska, blickprovets vikt
+
+**Status:** gäller.
+
+Claude föreslog vid genomläsningen av `guide/2-4-skelett.md`:
+- A. "Mobilen först" lyfts från N2 till N1.
+- B. Startsidan får sektionen *Det praktiska* direkt efter första vyn, med öppettider, adress eller område, telefon och priser i korthet. Branschprofilen avgör vad som visas.
+- C. När fråga 1 brister helt blir granskarens dom *underkänd* i stället för ett fynd med högst `medel`.
+
+Johnny:
+
+> Ja
+
+**Innebär:** Ändringarna är införda i `2-4-skelett.md`, både i sektionstabellen, i startsidans mall och i N1-regeln om första skärmen. Blickprovet är fortfarande ingen automatisk stoppkontroll, och Johnny avgör.
