@@ -770,3 +770,25 @@ Johnny, omkring 23:35:
 - På mobilen ligger kontaktvägen i en knapplist i tumzonen, och sidhuvudet är smalt, med namnet och knappen "Meny". Det är standard i biblioteket (`mobilLista: 'nere'`), och `'uppe'` finns kvar som val.
 - På datorn är sidhuvudet oförändrat.
 - Omdömessektionen ligger kvar efter Om Peter. Betyget syns redan i förstavyn.
+
+## 2026-10-15: Ställningstaganden och Kundens lyft
+
+**Status:** gäller.
+
+Efter en genomgång av den första övningssajten mot studier och praxis föreslog Claude fem ställningstaganden som regler:
+1. inga automatiska bildspel
+2. inga popup-rutor som skymmer innehållet när besökaren kommer in
+3. ingen chattwidget som laddas automatiskt, utan chatten som länk
+4. telefon, adress och mejl på varje sida
+5. inget eget stjärnbetyg i den strukturerade datan
+
+Claude skrev också vad som skulle lyfta sajten mest och bara kan lösas av kunden, nya foton.
+
+Johnny, omkring 23:42:
+
+> Mycket bra och ja till regler, det jag tycker är något som vi kan ha att vi har en sån här sak efter vi har byggt hemsidan klart till en kun som du skriver "Det som skulle lyfta sajten mest som kunden kan lösa" så kan det återkopplas till kund.
+
+**Innebär:**
+- De fem ställningstagandena är N1-regler i `guide/2-3-struktur.md`, `2-4-skelett.md` och `2-8-teknik-och-kvalitet.md`.
+- När sajten är byggd och godkänd får kunden *Kundens lyft*: en kort, prioriterad lista med det som skulle lyfta sajten mest och som bara kunden kan lösa, med varför och hur (`guide/1-kundens-vag.md`, mallen `mallar/kundens-lyft.md`). Den lämnas vid leveransen och följs upp i månadsrapporten.
+- I övningssajterna skrivs listan men lämnas inte till firman.
