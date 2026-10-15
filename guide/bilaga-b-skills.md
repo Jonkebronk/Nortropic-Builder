@@ -25,7 +25,7 @@ Steg 5 (publicering) och steg 6 (den första rapporten) görs för hand (*Inte s
 - **Begränsningar:** de åtta kärnfrågorna, inte hela intervjuguiden. Öppna frågor, en i taget, utan färdiga svarsalternativ. Gissar aldrig ett faktum – frågar. Research om branschen blir aldrig fakta om kunden. Lovar inget om resultat. Sidkartan står inte i briefen.
 - **Underlag:** kärnfrågorna och briefmallen (→ `2-1-strategi.md`).
 - **Destilleras ur:** webb-pros `kunskap/kundintervju.md` och `brief-mall.md`; K1 customer-research, K2 jobs-to-be-done, K3 smb-onboard, K8 Geiecke och Jaravels metod; K7 interview-script och Matt Pococks Grill Me bara kritiskt, eftersom Grill Me intervjuar användaren och inte kunden (→ `2-1-strategi.md`, `bilaga-a-verktyg.md`). Inventeringen: "Det finns ingen färdig AI-intervjuare för småföretagssajter."
-- **Öppet:** om skillen överlappar `nortropic-intake` – se `bilaga-e-oppna-fragor.md`, fråga 2.5.
+- **Avgjort:** `nortropic-intake` laddas inte i byggsessionen (bilaga E 2.5).
 - Sidkartan görs i samma steg men utanför utkastet: en tabell i `sites/<namn>/sidkarta.md` (→ `2-3-struktur.md`).
 - Ersätter v0.74:s `brief-interview`.
 

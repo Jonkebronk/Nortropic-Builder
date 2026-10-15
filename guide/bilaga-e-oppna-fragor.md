@@ -21,15 +21,15 @@
 
 | # | Fråga | Läget |
 |---|---|---|
-| 2.1 | **Licensbeslutet 2026-10-13 18:50** ("kopiera, reverse engineera och ta andra företags designer") – gäller det betalda verktyg (t.ex. Mobbin) eller andra företags sajter? | Tills vidare gäller regeln från webb-pro: en referens får bära layout, palett och typsnitt; identitet, texter och bilder kopieras inte (`2-5-yta.md`). Webb-pros skriftliga licensbesked har oifyllda platshållare och behöver hämtas (`kunskap/research/2026-10-15_webb-pro-genomgang.md`). |
-| 2.2 | **Beslutsregistret** | Claudes förslag: `BESLUT.md` är det enda registret; den här bilagan behåller bara öppna frågor. |
-| 2.3 | **`CLAUDE.md`** – får Claude ändra den, eller bara via Johnny (v0.74 föreslog låsning)? Och var ligger flödets egen `CLAUDE.md` för agenter som bygger en sajt (`3-4-larande-och-underhall.md`, `bilaga-f-projektstruktur.md`)? | Claudes förslag: ändringar är förslag som Johnny godkänner (princip 9 i `README.md`); flödets regler i `sites/<namn>/CLAUDE.md` plus en gemensam mall i `mallar/`. |
-| 2.6 | **Kod från andras sajter** – får den kopieras, eller gäller fråga 2.1 bara design? (`2-6-rorelse.md`) | Tills vidare: ingen kod kopieras; teknik får studeras (REA, `2-2-omfattning.md`). |
+| 2.1 | ~~Licensbeslutet 2026-10-13 18:50 – betalda verktyg eller andra företags sajter?~~ **Avgjort tills vidare 2026-10-15:** referensregeln gäller tills Johnny säger annat – en referens får bära layout, palett och typsnitt; identitet, texter och bilder kopieras inte (`2-5-yta.md`, `BESLUT.md`). Frågan tas upp igen om ett kit behöver mer | – |
+| 2.2 | ~~Beslutsregistret~~ **Avgjort 2026-10-15:** `BESLUT.md` är det enda registret; den här bilagan har bara öppna frågor (`BESLUT.md`) | – |
+| 2.3 | ~~`CLAUDE.md`~~ **Avgjort 2026-10-15:** Claudes ändringar i `CLAUDE.md` är förslag som Johnny godkänner (princip 9); flödets regler för en sajt i `sites/<namn>/CLAUDE.md` ur en gemensam mall i byggrepot (`BESLUT.md`) | – |
+| 2.6 | ~~Kod från andras sajter~~ **Avgjort tills vidare 2026-10-15:** ingen kod kopieras; teknik får studeras (REA, `2-2-omfattning.md`) – tills Johnny säger annat (`BESLUT.md`) | – |
 | 2.7 | **Priser på sajten: rutinändring eller hög risk?** | Webb-pro och researchen: rutin; v0.74 §15.2: hög risk. `2-9` och `4-foretaget.md` följer den strängare regeln tills vidare. |
 | 2.8 | **Automatisk sammanslagning i CI** av förvaltningsändringar, eller Johnnys godkännande vid varje publicering? (`2-9-drift-och-forvaltning.md`) | Tills vidare: Johnnys godkännande. |
-| 2.9 | **Variate, Inspo och liknande verktyg** – bara när biblioteket och kiten tas fram, eller också i kundbygget? (`3-5-live-visning.md`, `2-5`) | Följer beslutet 2026-10-15: bara vid framtagning. |
+| 2.9 | ~~Variate, Inspo och liknande verktyg i kundbygget?~~ **Avgjort 2026-10-15:** bara när biblioteket och kiten tas fram (beslutet *Stitch inom stilkit*; `BESLUT.md`) | – |
 | 2.4 | **Repot är publikt**, och därmed råmaterialet i `kunskap/raw/`, som enligt README inte ska publiceras vidare. | Johnny 2026-10-15: "det ändrar vi sen". |
-| 2.5 | **Överlappar skillen `nortropic-intake`** med intervjun i `2-1-strategi.md`? | Inte granskad. |
+| 2.5 | ~~Överlappar `nortropic-intake` intervjun?~~ **Avgjort 2026-10-15:** frågan faller bort – byggsessionen avgränsas från användarnivån, så den gamla skillen laddas inte; den egna intervjuskillen används (`3-3-sakerhet-och-installningar.md`, `BESLUT.md`) | – |
 
 ## 3. Senare [N2–N4]
 

@@ -520,3 +520,20 @@ Johnny, när Claude föreslog en egen konfigurationskatalog för byggsessionerna
 > Vi kommer bygga på min Mac när vi är Klara med genomgången, den har nyaste Claude
 
 **Innebär:** Övningssajterna byggs på Johnnys Mac med den nyaste Claude Code. Det som guiden har verifierat på Windows-datorn (Claude Code 2.1.281) prövas på nytt där. Det första steget på Macen är att inventera användarnivån och avgränsa och verifiera byggsessionen (`guide/3-3-sakerhet-och-installningar.md`, `5-byggplan.md`). Förslaget om en egen konfigurationskatalog prövas på Macen och är inte beslutat. `sites/` och allt om firmorna finns bara lokalt på Macen.
+
+## 2026-10-15: Styrningen – bilaga E avsnitt 2
+
+**Status:** gäller.
+
+Claude föreslog vid genomläsningen av bilaga E, avsnitt 2:
+- 2.2: `BESLUT.md` är det enda beslutsregistret.
+- 2.3: Claudes ändringar i `CLAUDE.md` är förslag som Johnny godkänner, och flödets regler för en sajt ligger i `sites/<namn>/CLAUDE.md` ur en gemensam mall.
+- 2.5: frågan om `nortropic-intake` faller bort, eftersom byggsessionen avgränsas.
+- 2.9: Variate och Inspo används bara när kiten tas fram.
+- 2.1 och 2.6: referensregeln gäller, och ingen kod kopieras, tills Johnny säger annat.
+
+Johnny:
+
+> Ja, ge mig en uppstarts prompt på macen
+
+**Innebär:** Frågorna är avgjorda i `guide/bilaga-e-oppna-fragor.md`. 2.4, 2.7 och 2.8 väntar till förvaltningen. Genomgången av guiden v1.0 är klar. `CLAUDE.md` har fått repots arbetsregler, så att sessionerna på Macen känner till dem. Det gäller Johnnys stående tillåtelse att committa och pusha byggrepot till `main`, nyckelsökning före commit, ingen force-push, ingen ändring av synligheten och att övningssajterna inte pushas utan Johnny.
