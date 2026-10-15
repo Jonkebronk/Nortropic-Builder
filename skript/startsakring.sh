@@ -23,7 +23,7 @@ else
 fi
 
 # 2. npm-projekten: biblioteket och varje sajt
-for dir in "$ROT/bibliotek" "$ROT"/sites/*/; do
+for dir in "$ROT/bibliotek" "$ROT/skript" "$ROT"/sites/*/; do
   dir="${dir%/}"
   [[ -f "$dir/package.json" ]] || continue
   rubrik "npm: ${dir#"$ROT"/}"
