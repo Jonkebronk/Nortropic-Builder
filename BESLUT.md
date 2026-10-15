@@ -236,10 +236,20 @@ Johnny, om de fyra förslagen till guiden i `mattstock/mattstock.md`:
 
 ## 2026-10-15: Stockbilder får visa personer
 
-**Status:** gäller.
+**Status:** gäller; sista meningen om AI-bilder ersattes samma dag av beslutet nedan.
 
 Johnny, om ärlighetsregeln efter beslutet om stockbilder:
 
 > Det ska gälla även personer.
 
 **Innebär:** Stockbilder får visa personer (`guide/2-7-innehall.md`, ärlighetsregeln). Det som består av regeln är att en stockperson aldrig presenteras som kundens personal, kund eller ägare: inget namn, ingen bildtext och ingen plats under *Om oss* eller *Vårt team*. Skälet är att det kan vara vilseledande marknadsföring (`kunskap/research/2026-10-14_ai-forordningen-och-rattigheter.md`, tolkning). AI-genererade bilder av personer omfattas inte av beslutet och får fortfarande inte användas.
+
+## 2026-10-15: AI-genererade bilder får också visa personer
+
+**Status:** gäller.
+
+Johnny, om att AI-genererade bilder av personer fortfarande inte var tillåtna:
+
+> Det ska ändras också
+
+**Innebär:** AI-genererade bilder får visa personer, precis som stockbilder (`guide/2-7-innehall.md`, ärlighetsregeln). Två saker består. Den första är att en person som inte hör till kunden aldrig presenteras som kundens personal, kund eller ägare. Den andra är märkningen: en fotorealistisk AI-bild av en person får bildtexten *AI-genererad illustration.*, eftersom AI-förordningen art. 50.4 kräver upplysning sedan 2 augusti 2026. Märkningen är lag och inte en byråregel.
