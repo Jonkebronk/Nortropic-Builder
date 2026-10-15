@@ -189,3 +189,15 @@ Johnny, 15:52, vid genomläsningen av guiden v1.0:
 > 3. jag intervjuar kunden tillsammans med ai för att få underlaget vi kan bygga med.
 
 **Innebär:** Johnny tar fram måttstocken för vad som är bra; den blir grunden för granskarens kalibrering och för eval. Ingen tidsbudget förrän Johnny är nöjd med det som byggs – tiden mäts bara som underlag. Intervjun görs av Johnny tillsammans med AI:n, som stöd i samtalet; det stämmer med beslutet 2026-10-13 18:05 ("jag intervjuar han utifrån min lokala AI").
+
+## 2026-10-15: Måttstocken tas fram ur 30–40 bedömda sajter
+
+**Status:** gäller.
+
+Johnny, vid genomläsningen:
+
+> hoppar över den.
+>
+> Jag tänker vi bedömer 30-40 sidor som måttstock och kalibrering så utifrån allt du vet, ta fram sidor åt mig så kan vi göra måttstocken klar nu
+
+**Innebär:** Johnnys måttstock (beslutet ovan) tas fram genom att han bedömer 30–40 sajter som godkänd eller underkänd med en kort kritik; samma bedömningar blir granskarens kalibrering. Claude väljer sajterna. Förslaget om användartester med riktiga personer (Krug, Nielsen) tas inte med.
