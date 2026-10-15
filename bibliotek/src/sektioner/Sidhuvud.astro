@@ -46,6 +46,14 @@ const { foretag, boka, ring, nav } = Astro.props.innehall;
   .sidhuvud__logo { flex: none; display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 8px; background: var(--k-mork); padding: 5px; }
   .sidhuvud__logo :global(img) { width: 100%; height: auto; }
   @media (max-width: 25rem) { .sidhuvud__logo { display: none; } }
+  @media (max-width: 22.5rem) {
+    .sidhuvud__rad { width: min(100% - 2rem, var(--k-max)); gap: 2px; }
+    .sidhuvud__namn { font-size: 0.9rem; }
+    .sidhuvud__meny summary { min-width: 42px; width: 42px; }
+    /* Branschens kontaktväg (boka) ligger kvar; telefonen finns i förstavyn och under Det praktiska. */
+    .sidhuvud__ring { display: none; }
+    .sidhuvud__boka { padding: 0.45rem 0.7rem; font-size: 0.875rem; }
+  }
   .sidhuvud__nav { display: none; }
   .sidhuvud__nav ul, .sidhuvud__meny ul { list-style: none; margin: 0; padding: 0; }
   .sidhuvud__nav ul { display: flex; gap: var(--k-a5); }
