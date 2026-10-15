@@ -2,7 +2,7 @@
 
 **Status:** konsoliderad v1.0, 2026-10-15. Ersätter v0.74 §16 (21 steg, där den första hela sajten kom i steg 13).
 
-**Ordning:** flödet först (beslut 2026-10-15) – men i små steg (beslut 2026-10-13), och **varje steg ger något Johnny kan se och döma**. Ett steg är klart när Johnny har dömt resultatet, inte när kontrollerna går igenom. Stegen körs på **fiktiva verksamheter, en i taget, tills Johnny är nöjd** (beslut 2026-10-15: *"vi kommer bygga ett x antal fiktiva hemsidor tills jag är nöjd och vi har mängdträning"*), interaktivt i huvudsessionen medan Johnny tittar. Flödets delar byggs för att sajten framför oss ska bli bra, inte för en tänkt framtida skala.
+**Ordning:** flödet först (beslut 2026-10-15) – men i små steg (beslut 2026-10-13), och **varje steg ger något Johnny kan se och döma**. Ett steg är klart när Johnny har dömt resultatet, inte när kontrollerna går igenom. Stegen körs som **övningssajter för verkliga lokala firmor, en i taget, tills Johnny är nöjd** (beslut 2026-10-15: *"vi kommer bygga ett x antal fiktiva hemsidor tills jag är nöjd och vi har mängdträning"* och *"Vi tar ju lokala verklig firma och tränar på det"*). Firman finns på riktigt, men den har inte beställt sajten. Övningen körs interaktivt i huvudsessionen medan Johnny tittar. Flödets delar byggs för att sajten framför oss ska bli bra, inte för en tänkt framtida skala.
 
 **N1 är litet med avsikt:** högst cirka 60 regler och tio automatiska kontroller i hela guiden (`README.md`, *Nivåer*). Den genererade sammanfattningen `n1-forsta-sajten.md` visar vad som gäller.
 
@@ -10,7 +10,7 @@
 
 Beslut som behövs först (`bilaga-e-oppna-fragor.md`, avsnitt 1):
 
-1. ~~Den första verksamheten~~ **Avgjort 2026-10-15:** fiktiva verksamheter, en i taget, tills Johnny är nöjd. Johnny intervjuar tillsammans med AI:n (beslut 2026-10-15).
+1. ~~Den första verksamheten~~ **Avgjort 2026-10-15:** övningssajter för verkliga lokala firmor, en i taget, tills Johnny är nöjd. Johnny intervjuar tillsammans med AI:n (beslut 2026-10-15).
 2. **Publiceras den första sajten?** Om ja: domän, Cloudflare-konto och nycklar är mänskliga klick (`2-2-omfattning.md`).
 3. ~~Bildkälla om verksamheten saknar egna foton~~ **Avgjort 2026-10-15:** stock- och AI-bilder är tillåtna, även av personer, enligt ärlighetsregeln (`2-7-innehall.md`).
 

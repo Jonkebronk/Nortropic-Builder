@@ -288,3 +288,13 @@ Claude föreslog att granskaren i byggplanens steg 4 först får 8 av måttstock
 > Ja, vi kommer bygga ett x antal fiktiva hemsidor tills jag är nöjd och vi har mängdträning, för vi lär väl oss?
 
 **Innebär:** Steg 4 börjar med mätningen på måttstocken (`guide/5-byggplan.md`, `3-2`). Byggplanens steg körs på fiktiva verksamheter, en i taget, och serien fortsätter tills Johnny är nöjd. Bilaga E 1.1 är därmed avgjord. Hur lärandet mellan sajterna ska gå till, hur övningssajterna publiceras och vad "nöjd" mäts med lades fram som förslag samma dag.
+
+## 2026-10-15: Övningssajterna görs för verkliga lokala firmor
+
+**Status:** gäller. Preciserar beslutet ovan om fiktiva hemsidor.
+
+Johnny, när Claude påpekade att en fiktiv kund saknar riktiga människor och jobb att visa:
+
+> Vi tar ju lokala verklig firma och tränar på det
+
+**Innebär:** Övningssajterna görs för verkliga lokala firmor som inte har beställt dem. Sajterna är fiktiva, men firmorna finns på riktigt, så måttstockens fråga 2 (äkthet) kan övas med firmans verkliga uppgifter och bilder. Hur firmans material får användas och var övningssajterna får visas lades fram som förslag samma dag.
