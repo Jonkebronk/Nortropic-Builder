@@ -52,7 +52,7 @@ Steg 5 (publicering) och steg 6 (den första rapporten) görs för hand (*Inte s
 
 - **Syfte:** en granskare med ren kontext bedömer sajten mot briefen, kitet och en kort checklista. Fynden jämförs med Johnnys egen dom. En granskare räcker i första varvet (analysen M9).
 - **In:** skärmdumpar sektion för sektion i mobil- och datorbredd, briefen, faktabasen, det valda kitet och checklistan. Inte byggarens logg, `CLAUDE.md` eller rundnummer (→ `3-1-orkestrering-och-roller.md`).
-- **Ut:** en checklista i markdown i `sites/<namn>/reviews/` med element, förväntat, faktiskt och allvar per fynd (→ `3-2-granskning-och-kalibrering.md`). Johnny avgör vilka fynd som var rätt; hans domar och motivering loggas i `domar.jsonl` (`5-byggplan.md`, steg 4).
+- **Ut:** en checklista i markdown i `sites/<namn>/reviews/` med element, förväntat, faktiskt och allvar per fynd, och överst en dom i Johnnys form: godkänd eller underkänd, kort kritik och för en underkänd sajt *För godkänt:* (→ `3-2-granskning-och-kalibrering.md`). Johnny avgör vilka fynd som var rätt; hans domar och motivering loggas i `domar.jsonl` (`5-byggplan.md`, steg 4).
 - **Begränsningar:** bedömer, rättar inte. Varje fynd pekar på ett element och ett kriterium. Gissar inte när underlaget är tunt. Bedömer alltid mot en referens (fallgrop 61). Ett fynd mot ett kriterium med en källa får högst allvaret `medel`.
 - **Underlag:** granskningsmallen, som skrivs i det här steget, och Johnnys bedömda exempel från förberedelserna (→ `3-2`).
 - **Destilleras ur:** B8 better-interface-review, B39 Impeccable, designer-skills, web-design-guidelines, Landing Page Design och B37 Hallmark – en källa i taget (`bilaga-a-verktyg.md`). Inventeringen: den kalibrerade bedömaren (K90) måste byggas själva.

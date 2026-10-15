@@ -263,3 +263,18 @@ Claude föreslog vid genomläsningen ny lydelse för princip 12 i `guide/README.
 > Ja
 
 **Innebär:** Princip 12 säger nu att karaktären kommer från kundens egna bilder, ord och lokala belägg, och att stock- och AI-bilder är tillåtna men inte bär den. En sajt blir generisk av en första skärm som inte säger vad, var och hur, och av innehåll som kunde höra till vem som helst. Samma svar besvarade också frågan "ska N1 få vara 68 regler": N1 får ha 68 regler, och ingen strykning görs nu.
+
+## 2026-10-15: Kundens väg – tre rättelser
+
+**Status:** gäller.
+
+Claude föreslog vid genomläsningen av `guide/1-kundens-vag.md` tre ändringar:
+1. Claudes roll är *stöd i intervjun*, inte intervjun.
+2. Johnny ser riktningarna i mobil först.
+3. Johnnys dom har samma form som i måttstocken: dom, kort kritik och för en avvisning *För godkänt:*, och granskaren svarar i samma form.
+
+Johnny:
+
+> Ja
+
+**Innebär:** Rättelserna är införda i `1-kundens-vag.md`, `2-5-yta.md` (N1-regeln om riktningarna), `5-byggplan.md` steg 2, `3-2-granskning-och-kalibrering.md` (fältet `for_godkant` i `domar.jsonl`) och granskningsskillen i `bilaga-b-skills.md`.
