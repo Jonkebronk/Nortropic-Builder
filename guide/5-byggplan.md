@@ -12,7 +12,7 @@ Beslut som behövs först (`bilaga-e-oppna-fragor.md`, avsnitt 1):
 
 1. **Den första verksamheten.** Johnny intervjuar den tillsammans med AI:n (beslut 2026-10-15).
 2. **Publiceras den första sajten?** Om ja: domän, Cloudflare-konto och nycklar är mänskliga klick (`2-2-omfattning.md`).
-3. **Bildkälla** om verksamheten saknar egna foton (`2-7-innehall.md`).
+3. ~~Bildkälla om verksamheten saknar egna foton~~ **Avgjort 2026-10-15:** stock- och AI-bilder är tillåtna, även av personer, enligt ärlighetsregeln (`2-7-innehall.md`).
 
 Filer som behövs innan steg 1:
 
@@ -27,7 +27,7 @@ Kontrollskriptet byggs i steg 3 och granskningsmallen i steg 4 – inte i förv�
 Börja nu – lång ledtid:
 
 - **Ansök om API-åtkomst för Google Business Profile.** Bara Johnny kan ansöka; svar inom 14 dagar (`2-9-drift-och-forvaltning.md`).
-- **Johnnys måttstock för vad som är bra** (beslut 2026-10-15). Den blir granskarens kalibrering i steg 4 och grunden för eval (`3-2-granskning-och-kalibrering.md`). Johnny bedömer 39 sajter som godkänd eller underkänd med en kort kritik (`mattstock/README.md`).
+- ~~Johnnys måttstock för vad som är bra~~ **Klar 2026-10-15:** Johnny dömde 39 sajter, och måttstocken är godkänd (`mattstock/mattstock.md`). Den blir granskarens kalibrering i steg 4 och grunden för eval (`3-2-granskning-och-kalibrering.md`).
 - `claude update` – bara om mods ska användas (kräver 2.1.287; `3-5-live-visning.md`).
 
 ## Stegen
