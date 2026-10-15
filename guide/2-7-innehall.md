@@ -45,7 +45,7 @@ Första vyns rubrik – tjänst och ort, aldrig *"Välkommen till …"* – stå
 ### Bilder
 
 - [N1] **Källa och licens per bild.** Varje bild har en post i faktabasen med `kalla` (kundens foto, licensierad, AI-genererad, form i koden) och `licens`. Bilder utan känt ursprung eller dokumenterad licens används inte (fallgrop 95; licens per tillgång → `2-5-yta.md`). 📄 webb-pro `kunskap/bild.md`
-- [N1] **Ärlighetsregeln: en bild som inte är kundens får aldrig se ut att visa kundens arbete, personal, lokal, produkt eller resultat.** Ett genererat "vårt team" är ett påhittat faktum (fallgrop 94) och fångas av faktakontrollen. Stock och AI får visa miljöer, material, texturer och abstrakta motiv, aldrig personer. Bilder som Stitch genererar när stilkiten tas fram räknas som AI-genererade. En fotorealistisk AI-bild som liknar verkliga personer, föremål, platser eller händelser märks i bildtexten (*AI-genererad illustration.*): AI-förordningen art. 50.4 kräver upplysning sedan 2 augusti 2026. Generiska stämningsbilder kräver normalt ingen märkning, och i tveksamma fall märks bilden; med ärlighetsregeln är märkningen skyddsnätet, inte normalfallet. 🎥 designskills-videon 2; 📄 webb-pro `kunskap/bild.md`; 📄 `kunskap/research/2026-10-14_ai-forordningen-och-rattigheter.md` (kan vara vilseledande marknadsföring; tolkning, inte juridisk rådgivning)
+- [N1] **Ärlighetsregeln: en bild som inte är kundens får aldrig se ut att visa kundens arbete, personal, lokal, produkt eller resultat.** Ett genererat "vårt team" är ett påhittat faktum (fallgrop 94) och fångas av faktakontrollen. **Stockbilder är tillåtna, även av personer** (`BESLUT.md` 2026-10-15), men en stockperson presenteras aldrig som kundens personal, kund eller ägare – inget namn, ingen bildtext och ingen plats under *Om oss* eller *Vårt team*. AI-genererade bilder får visa miljöer, material, texturer och abstrakta motiv, aldrig personer. Bilder som Stitch genererar när stilkiten tas fram räknas som AI-genererade. En fotorealistisk AI-bild som liknar verkliga personer, föremål, platser eller händelser märks i bildtexten (*AI-genererad illustration.*): AI-förordningen art. 50.4 kräver upplysning sedan 2 augusti 2026. Generiska stämningsbilder kräver normalt ingen märkning, och i tveksamma fall märks bilden; med ärlighetsregeln är märkningen skyddsnätet, inte normalfallet. 🎥 designskills-videon 2; 📄 webb-pro `kunskap/bild.md`; 📄 `kunskap/research/2026-10-14_ai-forordningen-och-rattigheter.md` (kan vara vilseledande marknadsföring; tolkning, inte juridisk rådgivning)
 - [N1] **All text ligger i HTML, aldrig inbränd i bild eller video,** utom i logotyper och motiv som en skylt. Text i bild når inte skärmläsare eller sökmotorer och går inte att rätta (fallgrop 195). 📄 WCAG 2.2, 1.4.5 Images of Text (AA). Tristen O'Briens video är ingen andra källa (analysen §4.4).
 - [N2] **Kundens egna foton först.** Arbete, personal och lokaler visas bara med kundens bilder; besökare tittar på riktiga medarbetare och ignorerar generiska stockpersoner. 📄 [NN/g, Photos as Web Content](https://www.nngroup.com/articles/photos-as-web-content/)
 - [N2] **Det som saknas blir en bildbeställning** med plats och syfte, efter Googles kategorier: exteriör, interiör, produkter, i arbete och team, minst tre av varje – då täcker en fotosession både sajten och Google-profilen. Intervjun frågar vad som finns (→ `2-1-strategi.md`). Tills bilden kommer bär typografi, färg och form, och platsen fylls aldrig med en ersättare som ser äkta ut. 📄 [Google](https://support.google.com/business/answer/6123536?hl=en); webb-pro `kunskap/bild.md`
@@ -67,13 +67,13 @@ Format, storlek och laddning → `2-8-teknik-och-kvalitet.md`. *WebP under 200 K
 
 - [N2] **Bekräftelsen till besökaren och aviseringen till kunden skrivs som sajtens övriga text,** inte som formulärtjänstens standardtext (fallgrop 183): i sajtens stilkit, på klarspråk och med fakta ur faktabasen – vad som händer nu, när kunden hör av sig, vart man ringer om det brådskar. 🎥 idé Jack Roberts-videon 4 / 🔧. Mejltekniken → `2-8-teknik-och-kvalitet.md`.
 
-### Öppen fråga: bildkälla när kunden saknar egna foton
+### Bildkälla när kunden saknar egna foton
 
-Platshållarkontrollen stoppar publicering och ärlighetsregeln förbjuder ersättare som ser äkta ut, så en kund utan foton kan inte publiceras förrän frågan är avgjord (analysen §5.2, §8.1 punkt 7). Alternativen:
+**Avgjort 2026-10-15:** stockbilder är tillåtna, även av personer (`BESLUT.md`); ärlighetsregeln ovan gäller. Johnnys måttstock väger egna foton högre: stockbilder gör äktheten svag men fäller aldrig ensamma (`mattstock/mattstock.md`, fråga 2). Alternativen som utreddes (analysen §5.2, §8.1 punkt 7):
 
 1. **Vänta på kundens foton.** Ärligast; kunden styr tidplanen.
 2. **Publicera utan foton.** Bildplatserna tas bort och typografi, färg och form bär; fotona kommer i förvaltningen.
-3. **Licensierade stockbilder** av miljöer, material och detaljer, valda för hand.
+3. **Licensierade stockbilder,** valda för hand – även av personer (beslutet ovan).
 4. **Märkta AI-illustrationer** av samma slag.
 5. **Byrån ordnar fotografering** efter beställningen. 🔧 Kostar tid och pengar.
 
