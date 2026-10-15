@@ -1,6 +1,6 @@
 # Implementeringsguide: AI-webbsidebyggare med Claude Code + Google Stitch
 
-> **Status:** Utkast v0.67 (2026-10-14) — levande dokument som vi bygger vidare på.
+> **Status:** Utkast v0.68 (2026-10-15) — levande dokument som vi bygger vidare på.
 > **Planerat:** konsolideringsrunda (slå ihop dubbletter, t.ex. granskarisolering i §5.2/fas 4/fas 6b; skilj grindar från instruktioner och flytta regler enligt placeringsordningen i §8.7; gör **"agenten föreslår, du beslutar"** till en egen princip — den återkommer för `arbetssatt.md`, granskarkriterier, kontroller, `design.md` och `CLAUDE.md`; en möjlig disposition är OS-liknelsen ur OS-videon — `CLAUDE.md` som kärna, MCP som drivrutiner, skills som program, loopar/rutiner som schemaläggare, arbetsflöden som binder ihop) **när videogenomgången är klar** — inte före. **Metod för konsolideringen (Karpathy-videon):** guiden byggs om som wiki ur råmaterialet i `kunskap/raw/` — varje regel spårbar till ett citat, regler med en källa på bänken (§11.11), och motsägelser mellan videor synliga som konflikter. **Tillägg (STORM-videon, §11.12):** motsägelserna tas fram med linser — byggaren, kunden, säkerheten, ekonomin och skeptikern — och en karta över motsägelser, och varje citat kontrolleras mot sin källa (*bekräftad, rättad, nedgraderad*).
 > **Källor:**
 > - AI LABS, *"Google Just Fixed AI Design By Releasing This"* (2026-10-13), https://www.youtube.com/watch?v=au2TI8sdq8E — flödet (§1–5)
@@ -52,6 +52,7 @@
 > - Jack Roberts, *"Insane Claude Design Skills You Actually Need To Build Beautiful Sites"* (2026-08-31), https://www.youtube.com/watch?v=pUu4G2lINnk — sidkarta och wireframes för hela sajten, interaktiv offert, mobil först, påhittat socialt bevis, sökordsstrategi (fas 1, 2, 6, 7, §15.1) ⚠️ sponsrad av Relume och Higgsfield
 > - Jack Roberts, *"Every Level of Claude Design Explained"* (2026-08-22), https://www.youtube.com/watch?v=Rm1UkGX-g3w — sju nivåer: referenser, iteration, designsystem, varumärke i mejl, bildgenerering, rörelse, Supabase med advisors (fas 5, 6c, §12, §15.1) ⚠️ Supabase och Higgsfield med affiliatelänkar
 > - 📄 Supabase, *Advisors* (hämtad 2026-10-14), https://supabase.com/docs/guides/observability/advisors (fas 6c)
+> - 📄 Researchrapporter 2026-10-14 i `kunskap/research/` (primärkällor citerade i varje rapport): tillgänglighetslagen, dataöverföring och analys, AI-förordningen och rättigheter, Claude Code-verifiering, Cloudflare-stack, Stitch och verktyg (fas 0, 3, 7, §2, §5.2, §6.2, §8.8, §11.9, §11.10, §11.13, §14)
 > - Dokument: *"The $10K Website Kit: How Claude Builds an Agency-Quality Site for Your Business"* (Google Docs) — SEO-grunder, Emils animationsregler, bildkrav, Impeccable, förväxlingspaket (fas 1b, 5, 6c, §11.9, §12)
 > - Dokument: *"Websites for Normal People – genomgång av flödet"* (Google Docs; genomgång av Sebastian Konings guide) — hemligheter per kund, staging, formulär, samtycke, vägar A–D, människans klick (fas 0, 3, 6c, 7, 8b, §7.3, §11.10, §14)
 > - Märkningen 📄 = från ett av dessa dokument
@@ -132,7 +133,7 @@ stitch agent-skills add --user    # installerar Stitch-skillen
 | **Enhanced Prompt** — gör vaga prompter Stitch-anpassade; *Stitch använder adjektiv för att förstå stämning*, inte exakta beskrivningar | Fas 2: prompterna byggs av **stämningsadjektiv** ur den valda riktningen |
 | **Stitch Loop** — bygger en hel sajt självständigt med Chrome DevTools | Referens; vi har vår egen loop med grindar |
 | **React Component** / **shadcn** — delar upp Stitchs stora HTML-fil i komponenter med validering via skript | Beror på stackvalet (§14) |
-Videon använder Stitch via **MCP** ([davideast/stitch-mcp](https://github.com/davideast/stitch-mcp)) 🎥; vi föredrar **CLI:t** (första videon), som tar mindre kontext. ⚠️ Kontrollera att skillsen fungerar med CLI:t.
+Videon använder Stitch via **MCP** ([davideast/stitch-mcp](https://github.com/davideast/stitch-mcp) — ett communityprojekt utan koppling till Google) 🎥; vi föredrar **CLI:t** (första videon), som tar mindre kontext. **Verifierat (📄 research 2026-10-14, `kunskap/research/2026-10-14_stitch-och-verktyg.md`):** det officiella CLI:t är npm-paketet **`@google/stitch`** (Apache-2.0, kräver Node 20+; kommandon bl.a. `login`, `generate`, `capture`, `upload`, `agent-skills add`, och en egen MCP-server via `stitch mcp install`). **Googles egna skills (`google-labs-code/stitch-skills`) kräver MCP** — regeln *CLI före MCP* gäller alltså inte fullt ut här: skillsen körs med Stitchs officiella MCP, enkla steg med CLI:t. För **obevakad körning** används **`STITCH_API_KEY`** i stället för OAuth-inloggning. Stitch är fortfarande Google Labs.
 
 ### Stitch-CLI — kända kommandon ⚠️
 | Kommando | Syfte |
@@ -143,7 +144,7 @@ Videon använder Stitch via **MCP** ([davideast/stitch-mcp](https://github.com/d
 | `stitch serve` | Förhandsgranska lokalt |
 
 **Verktygsmanifest i stället för gissningar 🎥 idé (Astryx-videon) / 🔧:** Astryx Max-skillen kör designsystemets `manifest`-kommando för att ge modellen en fil över *allt som finns* — alla kommandon och flaggor — så att den inte gissar eller missar sådant den inte visste fanns 🎥. Samma princip för våra CLI:er:
-- För varje verktyg (Stitch, GitHub CLI, Vercel CLI, våra egna skript) genereras ett **manifest** ur verktygets egen hjälp (`stitch --help` och varje underkommandos hjälp) och läggs i respektive skill.
+- För varje verktyg (Stitch, GitHub CLI, `wrangler`, våra egna skript) genereras ett **manifest** ur verktygets egen hjälp (`stitch --help` och varje underkommandos hjälp) och läggs i respektive skill.
 - Agenten använder bara kommandon och flaggor som finns i manifestet — från fakta, inte från minnet.
 - Manifestet **är verifieringen** av kommandotabellen ovan: när det genererats ersätts ⚠️ med de faktiska kommandona.
 - Manifestet genereras om när verktyget uppdateras (en underhållsrutin, fas 8f).
@@ -221,8 +222,11 @@ Varje fas har: **input → åtgärd → output → grind** (villkor för att gå
 - **Grind:** `stitch --help` fungerar, båda skills syns för Claude, inloggning giltig
 
 **Onboarding per kund — människans klick 📄 ("Websites for Normal People") / 🔧:** principen i dokumentet: *agenten gör allt; människan agerar bara där ett företag kräver en människa* 📄 — **betala**, **godkänna villkor** och **bevisa identitet** (inloggning, auktoriseringsklick). Allt annat — DNS, databaser, e-postautentisering, analysuppsättning — är agentens uppgifter. Dokumentet räknar 14 sådana klick 📄. Hos oss blir det en **checklista per kund** i `sites/<namn>/onboarding.md`, t.ex.:
-- domän (köp eller tillgång till kundens befintliga), hosting-konto, e-postdomän
-- Google-konto för Search Console, GA4 (villkor), ev. Tag Manager och Business Profile (fas 8g)
+- **domän:** köp eller tillgång till kundens befintliga. ⚠️ **.se kan inte registreras hos Cloudflare Registrar** — domänen köps hos en svensk registrator och **namnservrarna pekas till Cloudflare** (fungerar på gratisplanen) (📄 research 2026-10-14, `kunskap/research/2026-10-14_cloudflare-stack.md`).
+- **Cloudflare-konto per kund, som kunden äger:** vi bjuds in som medlem med **obligatorisk 2FA**, och flödet får en **API-nyckel som bara gäller kundens konto** (begränsad behörighet) (📄 research 2026-10-14, `kunskap/research/2026-10-14_cloudflare-stack.md`). Kunden behåller kontrollen om samarbetet upphör.
+- e-postdomän
+- Google-konto för Search Console, ev. GA4 (tillval, villkor), ev. Tag Manager och Business Profile (fas 8g)
+- **Lagkrav per kund (§11.13):** antal anställda och omsättning (mikroföretag?), om sajten ska ha **shop, betalning eller bokning**, och om kunden är **vård eller tandvård med offentlig finansiering** (📄 research 2026-10-14, `kunskap/research/2026-10-14_tillganglighetslagen.md`)
 - formulärtjänst och eventuell betalning (villkor, verifiering)
 - personuppgiftsbiträdesavtal med kunden (§11.10)
 - **kundavtal:** ansvar, förvaltningens omfattning, vad som händer vid fel (§5.4, trappan)
@@ -368,6 +372,7 @@ Verktyg: REA:s webbläge (§11.11) eller Playwright CLI:s nätverksfångst. Allt
 - 🔧 **Stack:** öppet beslut (se §14).
 - **Innehåll skilt från design 📄 ("Websites for Normal People"):** texter och data ligger i egna innehållsfiler (markdown/data), inte inbakade i komponenterna — då blir en omdesign en enda prompt utan att innehållet rörs 📄. Hos oss byggs innehållsfilerna ur faktabasen (§11.8).
 - **Säkerhetsgrunder för vägarna B–D (med databas och backend) 🎥 (Ebbelaar-intervjun):** databas med **radnivåsäkerhet (RLS)** påslagen (videon rekommenderar Supabase för de flesta); hemligheter i miljövariabler, aldrig i koden; **brandvägg eller IP-vitlista** så att backend och databas bara tar emot anrop från den egna frontenden 🎥. ⚠️ Detaljerna beror på stack och hosting — utreds per sajt.
+- **Formulär på Cloudflare (📄 research 2026-10-14, `kunskap/research/2026-10-14_cloudflare-stack.md`):** en Worker-route tar emot formuläret, kontrollerar **Turnstile** på serversidan (skydd mot spam), **sparar inskicket i D1 skapad i EU-jurisdiktion** och skickar först därefter mejlet. Mejl via Resend tills vidare — men **Resend lagrar loggar och metadata i USA oavsett sändregion** (📄 research 2026-10-14, `kunskap/research/2026-10-14_dataoverforing-och-analys.md`), så formulären samlar bara in det som behövs (§11.10). Cloudflares egen e-postutskickning är i beta och kräver Workers Paid. ⚠️ Gratisplanens rate limiting är svag (en regel, per IP).
 - **Formulär som inte tappar inskick 📄 ("Websites for Normal People") / 🔧:** formuläret är den primära handlingen; ett tappat inskick är en tappad kund.
   - **Spara först, mejla sedan:** inskicket sparas (databas eller formulärtjänst) *innan* e-post skickas — går e-posten fel finns inskicket kvar 📄.
   - **Spam-skydd** (t.ex. Cloudflare Turnstile 📄 eller motsvarande) — utan att lägga hinder för riktiga besökare.
@@ -535,7 +540,7 @@ Grindarna i fas 4–6 kontrollerar utseende, beteende och berättelse — men in
 - **Shopify 🎥:** två agenter granskar koden mot en nedskriven standard; båda måste godkänna. **Videons variant 🎥:** en **kritiker** som utgår från att koden är fel och letar problem, och en **rättare** som åtgärdar dem. De växlar tills kritikern godkänner.
 - **Vår variant 🔧:** kritiker + rättare, båda som delagenter med ny kontext. Kritikern ser bara koden, briefen och standarden — inte byggarens logg (§5.2).
 - **Mätbar första sållning 🎥 (Anti-Slop, repo-videon) / 🔧:** innan kritikern startar körs regelbaserade kontroller (linter + [Anti-Slop](https://github.com/dmmulroy/anti-slop) för JS/TS ⚠️) som fångar typiska agentmisstag. Rättaren åtgärdar dem först, så att kritikern inte lägger tid på sådant en fast regel kan hitta. Samma princip som i §7.6: billig kontroll först, dyr sedan.
-- **Arkitektur på projektnivå 🎥 (Ebbelaar-intervjun):** kritikern bedömer också **mappstruktur och moduler** — inga kvarlämnade experiment, ingen logik gömd i kod som ser oanvänd ut. Dave rekommenderar **Matt Pococks skill för kodbasarkitektur** (djupa moduler, lokalitet, sömmar), skriven *för att motverka AI-slop och göra kodbaser lättare för AI att navigera* 🎥. Andra oberoende källan till Pococks skills (de tidigare kom från AI LABS). ⚠️ Skillens aktuella namn verifieras ([mattpocock/skills](https://github.com/mattpocock/skills)).
+- **Arkitektur på projektnivå 🎥 (Ebbelaar-intervjun):** kritikern bedömer också **mappstruktur och moduler** — inga kvarlämnade experiment, ingen logik gömd i kod som ser oanvänd ut. Dave rekommenderar **Matt Pococks skill för kodbasarkitektur** (djupa moduler, lokalitet, sömmar), skriven *för att motverka AI-slop och göra kodbaser lättare för AI att navigera* 🎥. Andra oberoende källan till Pococks skills (de tidigare kom från AI LABS). **Verifierat (📄 research 2026-10-14, `kunskap/research/2026-10-14_stitch-och-verktyg.md`):** skillen heter **`codebase-design`**; `improve-codebase-architecture` letar efter förbättringar i en befintlig kodbas ([mattpocock/skills](https://github.com/mattpocock/skills), MIT).
   - **`/simplify` 🎥 (funktionsvideon):** Claude Codes inbyggda kommando granskar återanvändning, förenkling och effektivitet och tar bort kod som inte längre används 🎥. Körs i samma första pass, före kritikern. `/code-review` kan användas som del av kritikerns underlag.
 - **Agent teams — tillval 🎥 (funktionsvideon):** sessioner som **pratar med varandra** (till skillnad från delagenter), körs i tmux bakom en dold flagga 🎥. Kritiker och rättare kan då utbyta fynd och rättningar parallellt i stället för via dokument. Kritikern kommunicerar bara med rättaren — aldrig med byggaren eller dess logg (§5.2). Samma sak går att använda för angripare och försvarare i fas 1b. ⚠️ Drar många tokens; experimentellt.
 - **Standarden** (låst, §10.1) 🔧:
@@ -575,12 +580,14 @@ Guiden har hittills saknat grundläggande sökmotoroptimering. Allt nedan blir *
    - **Som GitHub Action körs granskningen automatiskt på varje PR** — även på förvaltningens ändringar (fas 8b), där varje ändring blir en PR.
    - Kan köras som **flera parallella säkerhetsagenter per område** (formulär, beroenden, rubriker och inställningar, tredjepartsskript) 🎥.
 2. **Rätta** fynd av allvarlighetsgrad `kritisk`/`hög`.
-3. **Git → GitHub → Vercel 🎥:** privat repo via GitHub CLI; Vercel kopplas till repot och publicerar varje ny commit på huvudgrenen.
-3b. **Staging är ett fast steg 📄 ("Websites for Normal People"):** varje publicering går **först till en staging-adress**; produktion kräver uttryckligt godkännande 📄. Låsta kontroller, SEO-kontroller, samtyckeskontroll (§11.10) och formulärtest körs mot staging innan du godkänner. Gäller även förvaltningens ändringar (fas 8b).
-3c. **Kopplingar och samtycke:** Search Console-egendom verifieras (DNS) och sitemap skickas in; GA4 och eventuell Tag Manager kopplas in bakom samtyckesbannern (§11.10, fas 8g).
-4. **Vercel CLI 🎥:** så att Claude kan läsa byggloggar och rätta fel i deployen.
+3. **Git → GitHub → Cloudflare Workers (beslut 2026-10-14) / 📄 research 2026-10-14, `kunskap/research/2026-10-14_cloudflare-stack.md`:** privat repo via GitHub CLI. Sajten körs som en **Worker med statiska tillgångar** — inte Pages; Cloudflares egen dokumentation säger *"Start new projects with Workers"*. **Workers Builds** bygger och publicerar automatiskt vid push till huvudgrenen. (Tidigare Vercel, enligt videorna 🎥.)
+   - **Säkerhetsheaders sätts i Worker-koden** — `_headers`-filen gäller inte för svar som Workern genererar.
+   - **Rollback (`wrangler rollback`) återställer koden, inte data** i D1/KV. Ändringar i databasen kräver egen återställningsplan (migreringar, säkerhetskopia).
+3b. **Staging är ett fast steg 📄 ("Websites for Normal People"):** på Cloudflare får varje gren och PR en **egen förhandsadress** — det är vår staging. ⚠️ **Förhandsadresserna är publika som standard** och skyddas med **Cloudflare Access** (📄 research 2026-10-14). Om de delar D1/KV med produktion är inte bekräftat — staging får **egna** databasresurser. varje publicering går **först till en staging-adress**; produktion kräver uttryckligt godkännande 📄. Låsta kontroller, SEO-kontroller, samtyckeskontroll (§11.10) och formulärtest körs mot staging innan du godkänner. Gäller även förvaltningens ändringar (fas 8b).
+3c. **Kopplingar och samtycke:** Search Console-egendom verifieras (DNS) och sitemap skickas in. **Standard är analys på serversidan** (§11.10); GA4 och eventuell Tag Manager kopplas bara in som tillval, bakom samtyckesbannern (§11.10, fas 8g).
+4. **`wrangler` i stället för Vercel CLI (📄 research 2026-10-14, `kunskap/research/2026-10-14_cloudflare-stack.md`):** `wrangler deploy`, `wrangler rollback`, `wrangler tail --format json` (loggar som Claude kan läsa) och `wrangler secret put` (hemligheter — aldrig i koden, §7.3). Cloudflares officiella Claude Code-plugin (`/plugin marketplace add cloudflare/skills`) och API-MCP:n (`https://mcp.cloudflare.com/mcp`) prövas enligt §12. ⚠️ CLI-kommando för *byggloggar* från Workers Builds är inte bekräftat.
 5. **Röktest** mot den publicerade adressen 🔧: kör de låsta kontrollerna (§10.3) mot den riktiga URL:en.
-6. **Inga arbetsverktyg i produktion 🔧:** låst kontroll att varken Variate-menyn (§6.8) eller andra utvecklingsverktyg finns i produktionsbygget.
+6. **Inga arbetsverktyg i produktion 🔧:** låst kontroll att varken Variate-menyn (§6.8) eller andra utvecklingsverktyg finns i produktionsbygget. Variate är enbart för utveckling: `up` lägger in en markerad rad eller injicerar koden när sidan serveras, `end` tar bort allt (📄 research 2026-10-14, `kunskap/research/2026-10-14_stitch-och-verktyg.md`) — kontrollen söker efter markeringen.
 7. **Avstämning mellan löften och resultat 🎥 idé (ADHD-videon) / 🔧:** en isolerad agent läser briefen, beslutskartan och den **färdiga sajten** och listar allt som utlovats men saknas eller avviker. I videon hittade en sådan genomgång funktioner som utlovats i PRD:n men aldrig byggts 🎥. Täckningstabellen (fas 1b) fångar luckor *innan* bygget; detta är det sista skyddsnätet mot tyst nedskärning *efter* bygget. Fynd blir `blocked` tills du tagit ställning.
 8. **Omdirigeringar vid ombyggnad 🔧 (fas 0b):** låst kontroll att varje URL i `befintlig/urler.md` antingen svarar eller omdirigeras (301) — **ingen gammal URL ger 404**, utom de som medvetet tagits bort enligt beslutskartan. Körs igen som röktest mot den publicerade adressen.
 9. **Baslinje för visuell regression 🔧:** skärmdumparna från stopp 2 sparas som baslinje (alla bredder) och används i förvaltningen (fas 8b).
@@ -669,7 +676,7 @@ Förvaltningen blir mätbar på riktigt när den kan läsa kundens data — inte
 **Slutsatser 🔧:**
 - **Schemalagda kontroller (fas 8a) körs som skript mot de officiella API:erna** med en separat inloggning per kund: Search Console som begränsad användare, GA4 som läsare, CrUX/PSI med API-nyckel.
 - **GA4:s officiella MCP** (bara läsning) är förstahandsval för interaktiv analys. Search Console-MCP:n från community prövas enligt §12 (säkerhetsskanning, låst version) och körs **utan** flaggan för skrivoperationer.
-- **Business Profile är flaskhalsen:** ansök om API-åtkomst tidigt, och eftersom det saknas läsroll ska skrivoperationer blockeras av skyddshooken (§7.3) — ändringar i kundens profil (t.ex. öppettider) går som förslag till dig.
+- **Business Profile är flaskhalsen** (bekräftat, 📄 research 2026-10-14, `kunskap/research/2026-10-14_stitch-och-verktyg.md`: ansökan via formulär, svar inom 14 dagar; **ingen roll med enbart läsrätt** — manager är lägsta): ansök om API-åtkomst tidigt, och eftersom det saknas läsroll ska skrivoperationer blockeras av skyddshooken (§7.3) — ändringar i kundens profil (t.ex. öppettider) går som förslag till dig.
 - Search Console-egendomar och GA4-egendomar läggs upp per kund i fas 7 med DNS-verifiering; kundens godkännande av villkor och identitet är mänskliga steg.
 
 **8e. Lärdomar tillbaka till bygget**
@@ -682,7 +689,7 @@ Anthropic kör 20–30 *rutiner* om dagen: återkommande molnjobb på en mening 
 - **Tester för det som saknar tester**, t.ex. hooks och skript, så att *vi* märker när något går sönder.
 - Rutinerna följer samma regler som allt annat: egen gren, PR, ditt godkännande; de ändrar aldrig låsta filer (§10.1).
 - **Byggsystemet som versionerat plugin (§8.8):** en ändring i byggsystemet blir en ny pluginversion, prövas med eval (§9) och rullas sedan ut.
-- **Arkitekturgranskning av förvaltade sajter 🎥 (Ebbelaar-intervjun):** spaghettikod växer i det tysta — experiment lämnar rester, senare raderas en funktion som innehöll logik något annat behövde, och allt slutar fungera efter tre månader 🎥. Hos oss är det **förvaltningens ändringar** som är risken. Varje kvartal (och efter större omdesign) granskas varje sajts kodbas med Pococks arkitekturskill; fynd blir ändringar i kön (fas 8b).
+- **Arkitekturgranskning av förvaltade sajter 🎥 (Ebbelaar-intervjun):** spaghettikod växer i det tysta — experiment lämnar rester, senare raderas en funktion som innehöll logik något annat behövde, och allt slutar fungera efter tre månader 🎥. Hos oss är det **förvaltningens ändringar** som är risken. Varje kvartal (och efter större omdesign) granskas varje sajts kodbas med Pococks `improve-codebase-architecture`; fynd blir ändringar i kön (fas 8b).
 - **Halvårsvis rensningsprov 🎥 (radera-skills-videon):** baslinjen med och utan uppsättning (§8.5, steg 1–4) körs var sjätte månad, även utan ny modell.
 - **Schemalagd `/doctor` 🎥 (context-videon):** varje månad (oftare om uppsättningen ändras ofta, annars varje kvartal) och **alltid vid ny modell** 🎥. Rekommendationerna läggs fram som förslag som du godkänner eller avslår.
 
@@ -771,6 +778,11 @@ Låt granskningsskills köras i en **separat delagent** med färsk kontext. En g
 | **Roller som läser externt** (referenser, kundmaterial, AEO) | Externt innehåll | Bara egen rapport, inga hemligheter | Efter uppgift | §7.3 |
 | **Förvaltningsagenter** | Läsrätt till statistik, loggar, hosting och kundens kopplingar (Search Console, Analytics m.fl., fas 8g) — bara den aktuella kundens | Bara rapporter och grenar — publicerar aldrig | Efter uppgift | fas 8d, 8g |
 
+**Hur tabellen genomförs — rättat efter verifiering (📄 research 2026-10-14, `kunskap/research/2026-10-14_claude-code-verifiering.md`):** i Claude Code 2.1.281 kan agentdefinitionens `tools`/`disallowedTools` bara slå av **hela verktyg** — ett `Bash(git push *)` där tar bort hela Bash, och **läsrätt per sökväg går inte att sätta per agent**. Därför:
+- **Sökvägsregler** (t.ex. att byggaren inte får läsa `kontroller/`) ligger i `permissions.deny` i projektets inställningar — de gäller då **alla** agenter — eller i **agentens egna hooks**.
+- ⚠️ **Hooks i agentdefinitioner ignoreras för agenter som levereras i plugins.** Isoleringen får alltså inte bero på pluginets agentfiler (§8.8): hooksen ligger i **projektets** `.claude/settings.json`, och skyddshooken (§7.3) avgör per anrop vilken agent som anropar.
+- Rollen som *inte* får läsa något registreras därför både i tabellen och i skyddshookens regler; en låst kontroll jämför dem.
+
 Effort börjar lågt för alla roller (§8.6) utom där tabellen säger annat — och utom roller som måste söka i källor, som kör lägst medium (§8.6); eval (§9.5) justerar.
 
 ### 5.3 Stoppvillkor
@@ -844,7 +856,7 @@ En terminal kan rita text, knappar och listor men inte rendera en webbsida. Äve
 - Mods syns i **Claude Desktop-appen** 🎥. AI LABS sa *terminalen men inte VS Code-tillägget* 🎥. Sammantaget: terminalen och desktop-appen, inte VS Code-tillägget.
 - Mods byggs med vanligt språk; *"hur slår jag på och av den?"* går att fråga efteråt 🎥.
 
-⚠️ **Kvar att kontrollera:** att mods finns i *användarens* version. Användaren körde Claude Code 2.1.281, och i en session på den versionen fanns ingen skill med namnet *plugin authoring*. **Första steget är att verifiera det** (se §15).
+**Verifierat (📄 research 2026-10-14, `kunskap/research/2026-10-14_claude-code-verifiering.md`):** mods är officiellt på först från **Claude Code 2.1.287** i terminalen och **2.1.286** i Desktop; i 2.1.281 finns bara en avstängd tidig version. `/plugin-authoring` kräver också 2.1.287. **Förutsättning: `claude update`** innan mods används. I VS Code körs modens kod, men det den ritar syns inte.
 
 **Vilka mods vi bygger — utgå från sessionsloggarna 🎥:** be Claude läsa dina sessionsloggar och föreslå de fem mods som skulle hjälpa dig mest — utifrån vad du faktiskt gör och upprepar 🎥. Samma mönster som auto mode setup och Skillify.
 
@@ -922,7 +934,7 @@ Varför den passar ett självgående flöde 🔧: flödet frågar bara vid stora
 - **Förvaltning (fas 8b):** en kund som vill förnya en sektion får tre versioner att välja mellan.
 - Det är det närmaste vi kommer målet "bygget framför ögonen": du ser alternativen på den riktiga sajten, inte i en beskrivning.
 
-**Får aldrig publiceras:** menyn är ett arbetsverktyg. En låst kontroll i fas 7 säkerställer att Variate-koden inte finns i produktionsbygget. ⚠️ Overifierat — granska hur Variate kopplas in och tas bort innan den används.
+**Får aldrig publiceras:** menyn är ett arbetsverktyg. En låst kontroll i fas 7 säkerställer att Variate-koden inte finns i produktionsbygget. **Verifierat (📄 research 2026-10-14, `kunskap/research/2026-10-14_stitch-och-verktyg.md`):** Variate är enbart för utveckling — `up` lägger in en markerad rad i entry-filen eller injicerar koden när sidan serveras, `end` tar bort allt.
 
 ### 6.7 Prompt för att skapa flödespanelen 🔧
 > Skapa en Claude-mod som visar en panel bredvid chatten. Den läser `sites/<namn>/state.json` och visar alla faser med status (klar / pågår / väntar), aktuell rättningsrunda, antal fel per allvarlighetsgrad från senaste granskningen och antal öppna antaganden. Visa tydligt när `blocked` är satt. Lägg till knappar som öppnar förhandsvisningen och senaste rapporten i `reviews/`. Uppdatera panelen när filen ändras.
@@ -1035,8 +1047,8 @@ Claude får veta exakt vilket värde som bröt regeln och vilka värden som är 
 Antimönster som inte går att söka fram (t.ex. en centrerad CTA utan sammanhang) blir granskningskriterier för konverteringsspecialisten i fas 6.
 
 **Hemligheter i flödets filer 🔧** (idé: Agit-videon 🎥):
-Flödet committar automatiskt efter varje runda (§10.4) — utan att en människa granskar vad som skickas. Samtidigt hanteras inloggningar i fas 0 (Stitch) och fas 7 (GitHub, Vercel).
-- **Regel i `CLAUDE.md`:** hemligheter skrivs **aldrig** i flödets filer (`state.json`, `resultat.jsonl`, `reviews/`, `brief.md`, sajtens källkod). Inloggningsuppgifter ligger i miljövariabler eller i verktygens egna inloggningar (`stitch login`, `gh auth login`, `vercel login`), som du kör själv.
+Flödet committar automatiskt efter varje runda (§10.4) — utan att en människa granskar vad som skickas. Samtidigt hanteras inloggningar i fas 0 (Stitch) och fas 7 (GitHub, Cloudflare).
+- **Regel i `CLAUDE.md`:** hemligheter skrivs **aldrig** i flödets filer (`state.json`, `resultat.jsonl`, `reviews/`, `brief.md`, sajtens källkod). Inloggningsuppgifter ligger i miljövariabler eller i verktygens egna inloggningar (`stitch login`, `gh auth login`, `wrangler login`), som du kör själv.
 - **Kontroll före varje automatisk commit:** sök efter kända nyckelformat (API-nycklar, tokens, privata nycklar) i det som ska committas. Träff → ingen commit, flödet sätts `blocked`.
 - **Mönstersökning räcker inte ensam 🎥:** Agit ersätter kända nyckelformat med platshållare, men ett lösenord av vanliga ord har inget mönster och slinker igenom. Därför är regeln ovan — att hemligheter aldrig hamnar i filerna från början — huvudskyddet; sökningen är ett extra lager.
 - `.env`-filer finns i `.gitignore` och får inte läsas av agenten (lager 1 ovan).
@@ -1188,7 +1200,7 @@ Sätt miljövariabeln `CLAUDE_CODE_NEW_INIT=1` **innan** `claude` startas och k�
 |---|---|
 | **Skill doctor** — visar hur ofta varje skill används och vad den kostar i tokens | Månadsvis: ta bort skills som inte används |
 | **`/skills` + T** — sorterar skills efter tokenkostnad | Vid behov |
-| **Prompt audit** (`claude api`) — granskar instruktionsfiler och skills med delagenter, föreslår rättningar | Efter varje ny modell — då blir flest instruktioner inaktuella. Kör eval (§9) före och efter. Ändrar inget själv — du godkänner varje förslag 🎥 (Fable-videon) |
+| **Prompt audit** (`claude api`; `/doctor prompt-audit` kräver Claude Code 2.1.283) — granskar instruktionsfiler och skills med delagenter, föreslår rättningar | Efter varje ny modell — då blir flest instruktioner inaktuella. Kör eval (§9) före och efter. Ändrar inget själv — du godkänner varje förslag 🎥 (Fable-videon) |
 | **`/doctor`** — rensar efter regeln *skulle Claude ha listat ut det här själv?*; behåller det modellen gjort fel på, motiveringar och det som skiljer sig från verktygens standard 🎥 (Boris Cherny-videon) | Efter varje ny modell; hälsorapport med förslag, inget ändras förrän du godkänner ⚠️ |
 
 **Rutin vid ny modell 🎥 (Boris Cherny-videon) / 🔧:**
@@ -1289,7 +1301,7 @@ Varje ny modell beter sig annorlunda i långa körningar utan tillsyn. Uppgifter
 Claude Code-plugins paketerar **skills, hooks och MCP:er** i ett installerbart paket; den som installerar det får exakt samma kontext och konfiguration, och paket kan synkas via ett GitHub-repo och en egen marknadsplats 🎥.
 
 När vi bygger och förvaltar många sajter måste byggsystemet vara **identiskt överallt** och varje ändring gå att spåra och ångra. Därför:
-- Våra skills, hooks, agentdefinitioner (§5.2), standardkontroller och inställningar paketeras som **ett plugin i ett eget repo**, med versionsnummer.
+- Våra skills, hooks, agentdefinitioner (§5.2), standardkontroller och inställningar paketeras som **ett plugin i ett eget repo**, med versionsnummer. ⚠️ **Undantag:** hooks som ska isolera agenter fungerar inte i pluginets agentdefinitioner (📄 research 2026-10-14, `kunskap/research/2026-10-14_claude-code-verifiering.md`) — de installeras i projektets inställningar (§5.2). Pluginformatet, `/plugin`, egen marknadsplats och versionslåsning via `ref`/`sha`/semver är bekräftade i 2.1.281.
 - Varje maskin och varje sajtrepo installerar **en angiven version**. En sajt i förvaltning kan ligga kvar på den version den byggdes med tills en uppgradering är prövad.
 - **En ändring i byggsystemet är en ny version** — prövad med eval (§9) innan den rullas ut, och möjlig att rulla tillbaka.
 - **Test av skills före utrullning 🎥 idé (context-videon) / 🔧:** varje version testas automatiskt: varje skill har giltig frontmatter, ett unikt namn och en beskrivning; inga trasiga sökvägar. En skill med felformaterad frontmatter syns aldrig för Claude — och ingen märker det 🎥.
@@ -1666,6 +1678,7 @@ Guiden har hittills inte sagt något om **var sajternas bilder kommer ifrån**. 
 **1. Källa per bild** — dokumenteras i faktabasen (§11.8), en post per bild: `kalla` (kundens foto / licensierad / AI-genererad), `licens`, `foreställer`, `anvands_pa`. Stitch genererar själv bilder under designen (Nano Banana) 🎥 (Stitch-skills-videon) — de räknas som AI-genererade och följer ärlighetsregeln nedan.
 
 **2. Ärlighetsregel ⚠️:** genererade bilder får **aldrig föreställa verkliga personer, lokaler, produkter eller resultat som om de vore äkta**. Ett genererat "vårt team", "vår salong" eller "före och efter" är ett påhittat faktum — samma sak som en påhittad kundsiffra (§8.6). Genererade bilder får användas för **stämning, illustration och abstrakta motiv**. Fångas av faktakontrollen i fas 6.
+   - **AI-förordningen, artikel 50 (gäller sedan 2 augusti 2026; 📄 research 2026-10-14, `kunskap/research/2026-10-14_ai-forordningen-och-rattigheter.md`):** fotorealistiska genererade bilder som liknar **verkliga personer, platser eller händelser** kan räknas som deepfakes och ska **märkas** som AI-genererade. Generiska stämningsbilder kräver ingen synlig märkning. Ärlighetsregeln ovan gör att vi i praktiken inte publicerar sådant som skulle behöva märkas — märkningen är skyddsnätet om en kund ändå vill.
 
 **3. Licens:** varje bild har en känd rätt att användas. Bilder utan dokumenterad licens används inte. Samma krav gäller **typsnitt, ikoner, Lottie-filer och komponenter** (fas 5).
 
@@ -1682,11 +1695,12 @@ Dokumentet tar upp Consent Mode v2 och samtyckesbanners, men utgår från kanade
 
 | Område | Vad flödet gör 🔧 |
 |---|---|
+| **Analys — standard 🔧 (📄 research 2026-10-14, `kunskap/research/2026-10-14_dataoverforing-och-analys.md`)** | **Analys på serversidan i Cloudflares edge, utan skript hos besökaren** — minst juridisk friktion. GA4 bara som tillval bakom samtycke. ⚠️ Cloudflare Web Analytics sätter inga kakor, men den använder ett skript i webbläsaren, och **EDPB:s riktlinjer 2/2023 omfattar även skript som skickar data från webbläsaren** — om den slipper samtyckesbanner är **osäkert**; utreds innan den används utan banner |
 | **Kakor och spårning** | Statistik- och marknadsföringskakor (t.ex. GA4) laddas **först efter samtycke**. Samtyckesbanner med lika lätta val att godkänna och neka. **Consent Mode v2** för Google-taggar 📄. Nödvändiga kakor kräver inte samtycke |
 | **Integritetspolicy** | Varje sajt får en integritetspolicy byggd ur faktabasen: vem som är personuppgiftsansvarig (kunden), vilka uppgifter som samlas in (formulär, statistik), varför, hur länge, mottagare, och den registrerades rättigheter |
 | **Formulär** | Bara de uppgifter som behövs; information om behandlingen vid formuläret; lagringstid bestämd; inskick lagras säkert (fas 3) |
 | **Personuppgiftsbiträdesavtal** | Vi behandlar personuppgifter för kundens räkning (formulärinskick, statistik) — ett **biträdesavtal** med kunden ingår i onboardingen (fas 0) |
-| **Tredjepartstjänster** | Varje tjänst som tar emot besökardata (formulärtjänst, analys, karta, typsnitt från extern server) listas i integritetspolicyn; överföringar utanför EU/EES bedöms |
+| **Tredjepartstjänster** | Varje tjänst som tar emot besökardata (formulärtjänst, analys, karta, typsnitt från extern server) listas i integritetspolicyn; överföringar utanför EU/EES bedöms. Se §11.13 för grunden per leverantör |
 
 **Låsta kontroller (fas 6c, fas 7):**
 - Inga statistik- eller marknadsföringskakor sätts och inga sådana anrop görs **innan** samtycke (testas i webbläsare utan samtycke).
@@ -1710,6 +1724,34 @@ Byggflödet har många granskare, men researchen — om branschen, konkurrentern
 **Gräns:** researchen ger **sammanhang om branschen**. **Fakta om kunden** — tjänster, priser, personal, öppettider — kommer bara från kunden och faktabasen (§11.8). En slutsats ur researchen förs aldrig in i faktabasen.
 
 **Vilken lins saknas — som allmän regel 🎥 (STORM-videon) / 🔧:** varje granskning med flera perspektiv avslutas med frågan *vilket perspektiv saknas?* — specialisterna i fas 6, spridd idégenerering (§11.7) och granskningen av planen (fas 1b). Svaret loggas; återkommer samma saknade lins kan den bli en ny specialist, via förslag och ditt beslut.
+
+### 11.13 Lagkrav per kund 📄 (research 2026-10-14) / 🔧
+⚠️ **Inte juridisk rådgivning.** Sammanfattning av researchen i `kunskap/research/`; tolkningarna stäms av med jurist innan första kundleverans.
+
+**Tillgänglighetslagen (2023:254) — 📄 research 2026-10-14, `kunskap/research/2026-10-14_tillganglighetslagen.md`:**
+- **Mikroföretag är helt undantagna för tjänster** (10 §): färre än 10 anställda och omsättning *eller* balansomslutning högst 2 MEUR. De flesta av våra kunder har därför troligen **inga** lagkrav enligt denna lag.
+- Lagen gäller **e-handelstjänster** — tjänster *i syfte att ingå ett konsumentavtal* — och bara de delar av sajten som hör dit (PTS). Informationssajt: omfattas inte. Offertformulär: troligen inte. **Webbshop och betalning: omfattas. Bokning: sannolikt.**
+- Krav sedan **28 juni 2025**, ingen övergångsperiod för befintliga sajter: uppfattningsbar, hanterbar, begriplig, robust; krav på betal- och identifieringsflöden (8 § PTSFS 2024:6); kunden publicerar **information om tjänstens tillgänglighet**, länkad från startsidan och nämnd i villkoren.
+- **Kunden bär ansvaret** (sanktionsavgift 10 000–10 000 000 kr; PTS tillsyn). Vi finns inte i lagens ansvarskedja — men vi får en **avtalsrisk om vi lovar en "lagenlig" sajt**.
+- **DOS-lagen** gäller inte vanliga privata företag, men **gäller privat vård och tandvård med offentlig finansiering — utan mikroföretagsundantag.** Berör klinikkunder.
+- **Hos oss:** alla sajter byggs efter **WCAG 2.2 AA** (fas 6b). En **modul för tillgänglighetslagen** är obligatorisk för kunder över mikroföretagsgränsen med shop, betalning eller bokning; en **DOS-modul** för kliniker med offentlig finansiering. Båda styrs av frågorna i onboardingen (fas 0).
+- ⚠️ Osäkert: bokning utan betalning; om EN 301 549 v4.1.1 blivit harmoniserad standard (väntas enligt andrahandskälla runt 30 november 2026); koncerners storleksberäkning; om statligt tandvårdsstöd räknas som offentlig finansiering.
+
+**Dataöverföring och analys — 📄 research 2026-10-14, `kunskap/research/2026-10-14_dataoverforing-och-analys.md`:**
+- **EU–US Data Privacy Framework gäller** — tribunalen ogillade Latombe-målet (T-553/23, 3 september 2025); överklagat till EU-domstolen (C-703/25 P), pågår. ⚠️ Ny risk: EDPB bad i juli 2026 kommissionen pröva om en dom i USA:s högsta domstol påverkar ramverket; kommissionens svar ej bekräftat. **Plan B:** standardavtalsklausuler hos alla leverantörer och så lite data som möjligt utanför EU.
+- **IMY:** efter Tele2- och CDON-besluten (2023) konstaterar IMY att det *numera* finns ett adekvansbeslut för DPF-mottagare. **GA4 kräver ändå samtycke** (lagen om elektronisk kommunikation 9 kap. 28 §).
+- **Per leverantör:** Google, Cloudflare och Resend finns på DPF-listan; **Supabase gör det inte** och stöder sig på standardavtalsklausuler — **egen överföringsbedömning (TIA)** krävs, och EU-region. **Resend lagrar loggar och metadata i USA** oavsett sändregion. Cloudflares Data Localization Suite kräver Enterprise — för små kunder styrs lagringen genom **D1 i EU-jurisdiktion**. Alla har DPA med standardavtalsklausuler.
+- **Integritetspolicyn** listar Cloudflare, Resend och ev. Supabase/Google med överföringsgrund.
+
+**AI-förordningen, artikel 50 — 📄 research 2026-10-14, `kunskap/research/2026-10-14_ai-forordningen-och-rattigheter.md`:**
+- Gäller sedan **2 augusti 2026**; den s.k. digitala omnibusen sköt upp högriskreglerna men inte artikel 50. Kommissionens uppförandekod och riktlinjer finns (juni respektive juli 2026).
+- **En AI-chatt på en kundsajt ska tydligt säga att den är AI vid första kontakten.** Fotorealistiska bilder av verkliga personer eller platser märks (§11.9). Granskad marknadsföringstext och kundsvar som en människa godkänner berörs troligen inte.
+- ⚠️ Oklart vem som är *leverantör* när vi bygger en chatt under kundens namn; den svenska lydelsen är inte ordagrant verifierad.
+
+**Rättigheter och kundavtal — 📄 research 2026-10-14, `kunskap/research/2026-10-14_ai-forordningen-och-rattigheter.md`:**
+- Upphovsrätt kräver mänsklig skapande insats; **ren AI-output saknar sannolikt skydd**, så kunden kan **inte få ensamrätt genom upphovsrätt** till genererad design eller bild. Rättigheterna regleras i **kundavtalet**, och varumärken skyddas genom registrering.
+- **Stitch:** Google gör inte anspråk på output och förbjuder inte kommersiell användning (Labs-experiment). **Higgsfield:** kommersiell användning tillåten, men output garanteras inte vara unik; villkoren är motsägelsefulla om träning på användarnas innehåll.
+- **Kundavtalet** (fas 0) ska: avgränsa vad vi lovar om lagkrav (**inte** en generell "lagenlig sajt"), reglera rättigheter till genererat material, och kompletteras med **biträdesavtal** med varje kund.
 
 ---
 
@@ -1741,7 +1783,7 @@ Samma princip som allt annat: *agenten föreslår, du beslutar, sedan låses det
 5. **Caliper (§9.5) visar nytta** som är värd tokens,
 6. det inte krockar med våra hooks, granskarisoleringen (§5.2) eller säkerhetsmodellen (§7.3, fas 8d),
 7. **det har säkerhetsskannats och versionen är låst 🎥 (Skill Spector-videon) / 🔧.** Forskare skannade över 30 000 skills: mer än **en fjärdedel hade en säkerhetssårbarhet** och ungefär **1 av 20 visade tecken på att vara rent skadlig** 🎥.
-   - **Skill Spector** (NVIDIA; ⚠️ videon anger ingen länk — repo-adressen ska tas fram och verifieras) skannar en skill före installation, ger en risk-poäng och pekar ut fil och rad 🎥. Den letar efter sex sorters angrepp: **dolda instruktioner** (kommentarer, osynliga tecken, kodad text), **imitation av verktyg** (t.ex. ett `read` där "a" är en kyrillisk bokstav), **skills som ljuger** om vad de gör, **stöld av inloggningsuppgifter**, **skadlig kod** (t.ex. reverse shell) och **förgiftade beroenden** (paketnamn med ett stavfel) 🎥.
+   - **Skill Spector** ([NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector), Apache-2.0 — verifierat, 📄 research 2026-10-14, `kunskap/research/2026-10-14_stitch-och-verktyg.md`; skannar skills och MCP-servrar med mönsteranalys och valfri LLM-granskning, poäng 0–100) skannar en skill före installation, ger en risk-poäng och pekar ut fil och rad 🎥. Den letar efter sex sorters angrepp: **dolda instruktioner** (kommentarer, osynliga tecken, kodad text), **imitation av verktyg** (t.ex. ett `read` där "a" är en kyrillisk bokstav), **skills som ljuger** om vad de gör, **stöld av inloggningsuppgifter**, **skadlig kod** (t.ex. reverse shell) och **förgiftade beroenden** (paketnamn med ett stavfel) 🎥.
    - **Båda lägena körs:** mönstermatchning *och* AI-skanning. AI-läget är avstängt från början och fångar skills som ljuger; det kräver normalt en OpenAI-nyckel, men videon kör det via **Claude Codes headless-läge** (`claude -p`) i stället 🎥.
    - Hög poäng → installeras inte. Fynd i mellanregistret granskas manuellt.
    - **Låsta versioner:** en installerad skill fixeras till en version (commit). En **uppdatering är en ny installation** och skannas igen — annars kan en ofarlig skill bli skadlig vid nästa uppdatering.
@@ -1808,7 +1850,7 @@ Samma princip som allt annat: *agenten föreslår, du beslutar, sedan låses det
 | **Vizzly** | [vizzly-testing/cli](https://github.com/vizzly-testing/cli) 🎥 | Tillval: visuell regression med pixeldiffar och godkänn/avvisa (fas 8b) ⚠️ |
 | **web-design-guidelines** (Vercel Labs) | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines) 🎥 | Tillval: granskning mot underhållna webbdesignriktlinjer — kriterierna arbetas in i den låsta granskarskillen (fas 4) ⚠️ |
 | *Goal Buddy* | 🎥 (länk saknas i videon) | **Installeras inte** — referensarkitektur. Tillstånd i `state.yaml`, orakel, slices, roller med strikt åtkomst (domare, spanare, arbetare, projektledare) och slutrevision motsvarar redan guiden; domaren och spanaren är inbyggda i §5.3 och fas 3 |
-| **Skill Spector** (NVIDIA) | 🎥 — verifiera repo-adressen | **Obligatorisk** säkerhetsskanning före varje installation och uppdatering av en skill (kriterium 7 ovan). AI-läget via `claude -p` ⚠️ |
+| **Skill Spector** (NVIDIA) | [NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector) — verifierat | **Obligatorisk** säkerhetsskanning före varje installation och uppdatering av en skill (kriterium 7 ovan). AI-läget via `claude -p` ⚠️ |
 | **frontend-design** (Anthropic) | [anthropics/claude-code … frontend-design](https://github.com/anthropics/claude-code/blob/main/plugins/frontend-design/skills/frontend-design/SKILL.md) 🎥 | Tillval: tvingar fram en riktning före kod; dess stilförinställningar ingår i perspektivbiblioteket (§11.7) ⚠️ |
 | **Taste-förinställningar** | [skills.sh/leonxlnx/taste-skill](https://www.skills.sh/leonxlnx/taste-skill/minimalist-ui) 🎥 | Tillval: minimalistisk, industriellt brutalistisk m.fl. som perspektiv (§11.7). Samma upphovsperson som Unlazy ⚠️ |
 | **UI UX Pro Max** | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) 🎥 | Tillval: palett, typsnitt och layout efter bransch — överlappar Inspo och Tastemaker; prövas med Caliper ⚠️ |
@@ -2051,11 +2093,22 @@ Du är jurymedlem för ett webbdesignpris. Var sträng.
 182. **Sökord som tas fram först efter lansering.** (Jack Roberts-videon 3)
 183. **Ett bekräftelsemejl som är formulärtjänstens standardtext.** (Jack Roberts-videon 4)
 184. **Avstängd e-postbekräftelse vid registrering i produktion** — bekvämt under test, farligt live. (Jack Roberts-videon 4)
+185. **Publika förhandsadresser** på Cloudflare utan Access-skydd. (Research 2026-10-14)
+186. **Att försöka köpa en .se-domän hos Cloudflare** — registreras hos svensk registrator, DNS pekas till Cloudflare. (Research 2026-10-14)
+187. **Supabase utan överföringsbedömning (TIA)** — Supabase finns inte på DPF-listan. (Research 2026-10-14)
+188. **Att lova kunden en "lagenlig" sajt** utan att avgränsa vad det betyder. (Research 2026-10-14)
+189. **Isoleringshooks i pluginets agentdefinitioner** — de ignoreras. (Research 2026-10-14)
+190. **Att räkna med mods i Claude Code före 2.1.287.** (Research 2026-10-14)
+191. **Staging som delar databas med produktion.** (Research 2026-10-14)
 
 ---
 
 ## 14. Öppna frågor (att bestämma tillsammans)
 
+- [x] **Hosting — avgjort 2026-10-14:** Cloudflare (Workers med statiska tillgångar, egen domän, Workers-backend). Se fas 7 och 📄 research 2026-10-14, `kunskap/research/2026-10-14_cloudflare-stack.md`.
+- [x] **Stackförslag per sajttyp (📄 research 2026-10-14, `kunskap/research/2026-10-14_cloudflare-stack.md`) — ersätter frågan nedan när du bekräftat:**
+  - **Typ A, informationssajt med formulär:** Astro (statiskt), Worker-route för formuläret, Turnstile, D1 (EU), Resend, analys på serversidan — **$0** på gratisplanerna.
+  - **Typ B–D, med inloggning, databas eller bokning:** som A, plus **Supabase Auth med RLS** när slutanvändare loggar in (EU-region, egen överföringsbedömning, §11.13), **D1** för enkel datalagring, **Durable Objects** för bokningar som inte får krocka — **Workers Paid, $5/mån**.
 - [ ] **Stack för den byggda sajten:** ren HTML/CSS/JS (närmast Stitch-exporten) eller ett ramverk (t.ex. Astro/Next.js), eventuellt med komponentbibliotek? **Välj efter belägg, inte efter vana** 🎥 (Ebbelaar-intervjun: Glido fick byta stack för att de valde det de kände till; att byta språk i efterhand vill man undvika). Underlag (Astryx-videon 🎥 / 🔧):
   | | Ren HTML/CSS (Stitch-export) | Ramverk + komponentbibliotek (t.ex. Astryx, shadcn) |
   |---|---|---|
@@ -2070,9 +2123,9 @@ Du är jurymedlem för ett webbdesignpris. Var sträng.
 - [ ] **Sajttyper:** bara scrollytelling-sajter, eller även vanliga flersidiga sajter? (Då behövs fas 5–6 i alternativ variant.) Underlag 📄 ("Websites for Normal People") — fyra vägar: **A** grundsajt (formulär, e-post, analys) · **B** med CMS för kunder som själva redigerar · **C** med e-handel (Stripe Checkout) · **D** egna funktioner (bokning, evenemang, medlemskap). Med kontrollfrågan **"behöver kunden verkligen ett CMS?"** — bara om någon faktiskt kommer att redigera innehållet 📄. Vid e-handel: bevisa flödet med riktig betalning, nekat kort, avbruten kassa och kundbekräftelse 📄.
 - [ ] **Nivå av autonomi:** ska designvalet i fas 2 vara automatiskt?
 - [ ] **Skärmdumpsverktyg:** Playwright-skript, Chrome DevTools MCP eller annat? *Förslag (v0.47): **Playwright CLI** — CLI i stället för MCP, lättare på kontexten (§12).*
-- [ ] **Stitch-autentisering i obevakat läge:** hur länge håller inloggningen? Behövs annan lösning?
-- [ ] **Kostnad/kvoter i Stitch:** finns gränser för antal genereringar?
-- [ ] **Publicering:** ingår deploy (fas 7) i flödet eller slutar det vid lokal sajt? Vercel eller annat?
+- [x] **Stitch-autentisering i obevakat läge:** `STITCH_API_KEY` (§2). Hur länge en OAuth-inloggning håller är ej bekräftat.
+- [ ] **Kostnad/kvoter i Stitch:** fortfarande **ej bekräftat** i officiell källa (en siffra cirkulerar bara i andrahandskällor). Mäts i första skarpa körningarna.
+- [ ] **Publicering:** ingår deploy (fas 7) i flödet eller slutar det vid lokal sajt? *Plattformen är avgjord (Cloudflare); frågan gäller om flödet själv publicerar.*
 - [ ] **Scrollytelling eller Scroll World:** båda, valbart i briefen? Vilken videotjänst och vilken budget per sajt?
 - [ ] **Säkerhetsgranskning:** CodeRabbit (betalt) eller `/security-review`?
 - [ ] **Hallmark:** ta med, efter granskning av skillen?
@@ -2089,8 +2142,8 @@ Du är jurymedlem för ett webbdesignpris. Var sträng.
 - [ ] **Kodstandarden för fas 6b:** räcker punkterna i §4, eller ska den utgå från en etablerad standard (t.ex. WCAG 2.2 AA)? *Förslag i §11.3: WCAG 2.2 AA.*
 - [ ] **Kunskapsbasen:** vilka källor ska med från start, och vem kontrollerar sammanfattningarna? (§11.6)
 - [ ] **Planvyn:** egen HTML-sida, eller samma sida som flödespanelens fallback (§6.4)?
-- [ ] **Licens:** granska scrollytelling-skillens licens innan vi kopierar in den.
-- [ ] **Mods:** finns funktionen i användarens version, eller krävs uppdatering? Var lagras installerade mods?
+- [x] **Licens:** scrollytelling-skillen (doodledood), Hallmark och Inspo har **MIT** (📄 research 2026-10-14, `kunskap/research/2026-10-14_stitch-och-verktyg.md`).
+- [x] **Mods:** kräver Claude Code 2.1.287 (terminal) / 2.1.286 (Desktop) — uppdatera före användning (§6.2).
 - [ ] **Arbetsmiljö:** körs flödet i terminalen (krävs för mod-panelerna) eller i VS Code?
 - [ ] **Förhandsvisning:** egen webbläsarflik, eller visas den inbäddad någonstans?
 - [ ] **Bygg-kommando för grinden i fas 3:** beror på stackvalet.
@@ -2199,7 +2252,7 @@ Videons räkneexempel: 499 dollar i månaden kräver 168 betalande kunder för e
 17. Skriv kodstandarden och skapa `kod-kritiker` + `kod-rattare` (fas 6b). Testa att låsta kontroller körs om efter varje rättning.
 18. Skriv testbriefs (§9.2) och kör första eval-svit som baslinje.
 19. Bygg auto loopen (§10.5) när minst 2–3 sajter har resultatloggar.
-20. Om publicering ingår: sätt upp GitHub CLI och Vercel CLI (inloggning görs av dig), och testa fas 7 på en exempelsajt med säkerhetsgranskning före deploy.
+20. Om publicering ingår: sätt upp GitHub CLI och `wrangler` (inloggning görs av dig), skapa Access-skydd för förhandsadresserna och testa fas 7 på en exempelsajt med säkerhetsgranskning före deploy.
 21. Bygg flödespanelen och antagandemoden när `state.json` fylls av ett verkligt flöde.
 
 ---
@@ -2274,3 +2327,4 @@ Videons räkneexempel: 499 dollar i månaden kräver 168 betalande kunder för e
 | 2026-10-14 | 0.65 | Utifrån Jack Roberts-videon 2 (*How to Use Claude Design Better Than 99% of People*; oberoende kanal): textmängd med låst ordgräns och blickprov, konkret i stället för generiskt (fas 6); gallerier per sektion, typsnitt med licens, mikrointeraktioner inom rörelsebudgeten (fas 5); licenskrav för typsnitt, ikoner och Lottie (§11.9); designad 404 i alla paket och varumärkesbok som tillval (§15.1); klarspråk för hjälpguide, ärenden och rapporter (§15.2); Slop Monster som kandidat (§12); andra källor för specialister och jämförelse mot förebild (fas 6); fallgropar 175–178 |
 | 2026-10-14 | 0.66 | Utifrån Jack Roberts-videon 3 (*Insane Claude Design Skills…*, sponsrad av Relume och Higgsfield): sidkarta per sida i briefen (2b) och wireframes per sidtyp (fas 2); sökordsanalys före bygget (fas 1); socialt bevis med källa och tillstånd i faktakontrollen (fas 6); låst kontroll mot platshållare före publicering (fas 7, steg 10); interaktiv prisuppskattning som tillval med hög risk (§15.1); fallgropar 179–182 |
 | 2026-10-14 | 0.67 | Utifrån Jack Roberts-videon 4 (*Every Level of Claude Design Explained*): bekräftelsemejlet ingår i alla paket och testas (§15.1, fas 8a); Supabase Security/Performance Advisor som låst kontroll och kontroll av e-postbekräftelse (fas 6c; funktionerna kontrollerade i Supabase dokumentation); Supabase-raden i §12 uppdaterad; Land-book och Coolors (fas 5); fallgropar 183–184 |
+| 2026-10-15 | 0.68 | Utifrån sex researchrapporter (`kunskap/research/`, 2026-10-14) och beslutet om Cloudflare-hosting: fas 7 omskriven för Cloudflare Workers (Workers Builds, förhandsadresser som staging med Access, `wrangler`, säkerhetsheaders i Worker-koden, rollback utan data); .se via svensk registrator, Cloudflare-konto per kund med 2FA och begränsad API-nyckel (fas 0); formulär med Turnstile och D1 i EU (fas 3); stackförslag per sajttyp (§14); analys på serversidan som standard (§11.10); behörigheter rättade — läsrätt per sökväg via `permissions.deny`/hooks, inte agentens `tools`, och hooks fungerar inte i pluginets agenter (§5.2, §8.8); mods kräver 2.1.287 (§6.2); Stitch CLI `@google/stitch`, skills kräver MCP, `STITCH_API_KEY` (§2); `codebase-design`, Skill Spector-adressen, Variate `end`, licenser MIT, Business Profile utan läsroll; nytt §11.13 Lagkrav per kund (tillgänglighetslagen med mikroföretagsundantag och DOS-lagen för kliniker, DPF och leverantörer, AI-förordningen art. 50, upphovsrätt och kundavtal); märkning av fotorealistiska AI-bilder (§11.9); fallgropar 185–191 |
