@@ -2,7 +2,7 @@
 
 **Status:** konsoliderad v1.0, 2026-10-15. Ersätter v0.74 §16 (21 steg, där den första hela sajten kom i steg 13).
 
-**Ordning:** flödet först (beslut 2026-10-15) – men i små steg (beslut 2026-10-13), och **varje steg ger något Johnny kan se och döma**. Ett steg är klart när Johnny har dömt resultatet, inte när kontrollerna går igenom. Varje steg körs på den **första verksamheten**, interaktivt i huvudsessionen medan Johnny tittar. Flödets delar byggs för att den sajten ska bli bra, inte för en tänkt framtida skala.
+**Ordning:** flödet först (beslut 2026-10-15) – men i små steg (beslut 2026-10-13), och **varje steg ger något Johnny kan se och döma**. Ett steg är klart när Johnny har dömt resultatet, inte när kontrollerna går igenom. Stegen körs på **fiktiva verksamheter, en i taget, tills Johnny är nöjd** (beslut 2026-10-15: *"vi kommer bygga ett x antal fiktiva hemsidor tills jag är nöjd och vi har mängdträning"*), interaktivt i huvudsessionen medan Johnny tittar. Flödets delar byggs för att sajten framför oss ska bli bra, inte för en tänkt framtida skala.
 
 **N1 är litet med avsikt:** högst cirka 60 regler och tio automatiska kontroller i hela guiden (`README.md`, *Nivåer*). Den genererade sammanfattningen `n1-forsta-sajten.md` visar vad som gäller.
 
@@ -10,7 +10,7 @@
 
 Beslut som behövs först (`bilaga-e-oppna-fragor.md`, avsnitt 1):
 
-1. **Den första verksamheten.** Johnny intervjuar den tillsammans med AI:n (beslut 2026-10-15).
+1. ~~Den första verksamheten~~ **Avgjort 2026-10-15:** fiktiva verksamheter, en i taget, tills Johnny är nöjd. Johnny intervjuar tillsammans med AI:n (beslut 2026-10-15).
 2. **Publiceras den första sajten?** Om ja: domän, Cloudflare-konto och nycklar är mänskliga klick (`2-2-omfattning.md`).
 3. ~~Bildkälla om verksamheten saknar egna foton~~ **Avgjort 2026-10-15:** stock- och AI-bilder är tillåtna, även av personer, enligt ärlighetsregeln (`2-7-innehall.md`).
 
@@ -37,7 +37,7 @@ Börja nu – lång ledtid:
 | 1 | **Intervju → brief** | Johnny intervjuar verksamheten tillsammans med AI:n utifrån de åtta kärnfrågorna; briefen med sex rubriker; `fakta.md` med källa per faktum; sidkartan som tabell i `sites/<namn>/sidkarta.md` | Briefen, faktabasen och sidkartan | Kunden har bekräftat underlaget och Johnny har godkänt briefen |
 | 2 | **Tre riktningar** | Tre minimala stilkit (färg, typsnitt, avstånd, radie, kort `design.md`) och de sektioner startsidan behöver, en variant var. Stitch används när kiten tas fram, aldrig med kundinnehåll. Riktningarna = **startsidan i tre kit** | De tre riktningarna, mobilen först – stryker eller släpper till kunden | Kunden har valt bland dem Johnny släppt |
 | 3 | **Bygget** | Hela sajten i valt kit: standardsidorna och de sektioner de behöver; kontrollskriptet med de tio N1-kontrollerna (`2-8-teknik-och-kvalitet.md`). Ingen granskare än | Sajten i webbläsaren | De stoppande kontrollerna går igenom, så att sajten är redo för Johnnys dom – och Johnny har dömt den |
-| 4 | **Granskaren** | En delagent med ren kontext och en checklista; dess fynd jämförs med Johnnys egna domar | Granskarens fynd bredvid sin egen dom | Johnny har avgjort vilka fynd som var rätt; avvikelserna loggas i `domar.jsonl` som kalibreringsdata |
+| 4 | **Granskaren** | En delagent med ren kontext och en checklista med måttstockens tre frågor och 8 av Johnnys domar som exempel. Först mäts den på måttstockens 31 övriga sajter, med samma bilder som Johnny såg (`mattstock/verktyg/`); sedan granskar den sajten, och dess fynd jämförs med Johnnys egna domar | Mätningen – andelen rätt bland hans godkända och bland hans underkända – och sedan granskarens fynd bredvid sin egen dom | Johnny har avgjort vilka fynd som var rätt; avvikelserna loggas i `domar.jsonl` som kalibreringsdata |
 | 5 | **Publicering** (om sajten publiceras) | Cloudflare Workers, förhandsadress bakom Access, `_headers` med grundhuvudena | Förhandsadressen, sedan den publicerade sajten | Johnny har godkänt och sajten är live |
 | 6 | **Förvaltningens första rapport** | Rapporten med nordstjärnan, gjord för hand med Claude | Rapporten | Johnny godkänner den som något kunden skulle betala för |
 

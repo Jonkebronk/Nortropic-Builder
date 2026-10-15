@@ -278,3 +278,13 @@ Johnny:
 > Ja
 
 **Innebär:** Rättelserna är införda i `1-kundens-vag.md`, `2-5-yta.md` (N1-regeln om riktningarna), `5-byggplan.md` steg 2, `3-2-granskning-och-kalibrering.md` (fältet `for_godkant` i `domar.jsonl`) och granskningsskillen i `bilaga-b-skills.md`.
+
+## 2026-10-15: Granskaren mäts på måttstocken först; fiktiva sajter tills Johnny är nöjd
+
+**Status:** gäller.
+
+Claude föreslog att granskaren i byggplanens steg 4 först får 8 av måttstockens domar som exempel och mäts på de 31 övriga, innan den granskar en egen sajt. Johnny:
+
+> Ja, vi kommer bygga ett x antal fiktiva hemsidor tills jag är nöjd och vi har mängdträning, för vi lär väl oss?
+
+**Innebär:** Steg 4 börjar med mätningen på måttstocken (`guide/5-byggplan.md`, `3-2`). Byggplanens steg körs på fiktiva verksamheter, en i taget, och serien fortsätter tills Johnny är nöjd. Bilaga E 1.1 är därmed avgjord. Hur lärandet mellan sajterna ska gå till, hur övningssajterna publiceras och vad "nöjd" mäts med lades fram som förslag samma dag.
