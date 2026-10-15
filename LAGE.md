@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-15 kl. 20.20 på Johnnys Mac, efter inloggningen i byggsessionen.
+Uppdaterad 2026-10-15 kl. 20.25 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Kort
 
@@ -47,6 +47,8 @@ Detaljerna står i `BESLUT.md`.
 ## Nästa steg – på Macen
 
 1. **Avsluta verifieringen av byggsessionen** (`guide/3-3`, N1). Genvägen, inloggningen och Claudes prov är klara. Kvar är att Johnny kör `/status`, `/skills` och `/mcp` en gång i `claude-bygg`.
+   - **Sett inifrån kl. 20.25:** minnesfilerna, skillsen, delagenterna och connectorerna stämmer med proven. Men den interaktiva sessionen laddar två inbyggda MCP-servrar som `-p` inte visade. Den ena är **`claude-in-chrome`**, som använder Johnnys inloggade Chrome. Den andra är **`ide`**, eftersom sessionen körs i VS Code:s terminal; den publicerar ingenting. Detaljerna står i `kunskap/research/2026-10-15_mac-avgransning.md`, *Sett inifrån byggsessionen*.
+   - **Förslag:** lägg till `"deny": ["mcp__claude-in-chrome"]` under `permissions` i `~/.claude-bygg/settings.json`. Regeln tar bort Chrome-verktygen ur byggsessionen (📄 permissions). Kontrollen är att `/mcp` eller `/context` i nästa session inte visar några Chrome-verktyg.
    - I auto mode stoppade klassaren byggsessionens egna prov som *Auto-Mode Bypass* och läsningen av `.claude.json` som *Credential Exploration*. Proven kördes därför från en session i den vanliga konfigurationen.
 2. **Byggsessionen tar över.** Från och med nu körs arbetet med byggsystemet i `claude-bygg`, inte i den vanliga konfigurationen. En session är byggsessionen bara om `CLAUDE_CONFIG_DIR` är `~/.claude-bygg`, alltså om den startats med `claude-bygg`.
 3. **Förberedelserna** i `guide/5-byggplan.md`:
@@ -58,7 +60,8 @@ Detaljerna står i `BESLUT.md`.
 
 ## Väntar på Johnny
 
-- **`/status`, `/skills` och `/mcp` i byggsessionen**, en gång. Det förväntade utfallet står i `kunskap/research/2026-10-15_mac-avgransning.md`, avsnitt 3, *Så verifieras byggsessionen*. Raden om statusraden och Manual-läget gäller inte längre.
+- **`/status`, `/skills` och `/mcp` i byggsessionen**, en gång. Det förväntade utfallet står i `kunskap/research/2026-10-15_mac-avgransning.md`, avsnitt 3, *Så verifieras byggsessionen*. Raden om statusraden och Manual-läget gäller inte längre. `/mcp` väntas visa `claude-in-chrome` och `ide`.
+- **Ja eller nej till att spärra Chrome-verktygen i byggsessionen** (förslaget under *Nästa steg*, punkt 1).
 - **Ansökan om API-åtkomst för Google Business Profile.** Bara Johnny kan ansöka, och svaret tar upp till 14 dagar.
 - **Ett Cloudflare-konto för byrån** inför steg 5. Det är ett mänskligt klick, och övningssajterna ligger på byråns konto.
 - **Bilaga E:** avsnitt 1 och 2 är avgjorda. 1.8 (integritetspolicy) och 1.9 (betalning) väntar till den första riktiga kunden, och 2.4, 2.7 och 2.8 till förvaltningen. Avsnitt 3 gäller senare nivåer. Avsnitt 4 verifieras under bygget.

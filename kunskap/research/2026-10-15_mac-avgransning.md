@@ -5,6 +5,7 @@
 **Uppdrag:** steg 2 och 3 i `LAGE.md`. Inventera användarnivån, lista det som krockar med guiden, föreslå och pröva en avgränsning, och pröva de versionsberoende fakta som guiden verifierade med 2.1.281 på Windows.
 **Status:** inventeringen och proven är klara. Johnny sa ja till avgränsningen, uppdateringen och publiceringen kl. 19.45 (`BESLUT.md` 2026-10-15). `~/.claude-bygg/settings.json` är skapad, och Claude Code är uppdaterad till 2.1.300. Kvar är verifieringen i den inloggade byggsessionen. Inget i `~/.claude`, `~/.claude.json` eller skalets konfiguration har ändrats.
 **Tillägg kl. 20.15:** Läge, modell och effort är Johnnys inställningar och ingår inte i avgränsningen (`BESLUT.md` 2026-10-15, kl. 20.13–20.14). Byggsessionen körs i auto mode med Opus 5.5 på xhigh. Det som står nedan om Manual-läget och Fable 5.1 är ersatt. Efter inloggningen kördes `claude -p "/context"` och init-provet (`stream-json`) med `CLAUDE_CONFIG_DIR=~/.claude-bygg` från repots rot kl. 20.11, i Claude Code 2.1.300. Minnesfilerna var bara repots `CLAUDE.md`. Det fanns inga MCP-servrar och inga MCP-verktyg, alltså inga claude.ai-connectorer och inga Chrome-verktyg. Plugins var bara de fyra inbyggda och delagenterna bara de fem inbyggda. Skills var bara inbyggda, utan `design` och `design-sync`, och `memory_paths` saknades. Synken och connectorerna hålls alltså borta också inloggad. Kvar är Johnnys `/status`, `/skills` och `/mcp` i den interaktiva sessionen.
+**Tillägg kl. 20.25:** Den interaktiva byggsessionen laddar två inbyggda MCP-servrar som proven med `-p` inte visade, nämligen `claude-in-chrome` och `ide`. Se avsnitt 3, *Sett inifrån byggsessionen*.
 
 ## Metod
 
@@ -121,7 +122,7 @@ Byggsessionerna körs med en egen konfigurationskatalog, `~/.claude-bygg`, och s
 ### Kvar att verifiera efter inloggningen (⚠️ inte prövat)
 
 - Att `syncClaudeAiSkills`, `syncClaudeAiPlugins` och `disableClaudeAiConnectors` håller borta claude.ai-delarna när sessionen är inloggad. Det står i dokumentationen men är inte prövat.
-- Om Claude in Chrome och computer-use dyker upp i den nya katalogen.
+- Om Claude in Chrome och computer-use dyker upp i den nya katalogen. **Besvarat kl. 20.25:** Chrome syns i den interaktiva sessionen men inte computer-use (*Sett inifrån byggsessionen*).
 - Om `/login` i den nya katalogen lämnar standardkatalogens inloggning orörd. Enligt dokumentationen får varje katalog en egen nyckelringspost (`authentication`). I dag finns bara posten `Claude Code-credentials`.
 
 ### Det Johnny gör en gång
@@ -141,13 +142,30 @@ I den interaktiva byggsessionen:
 |---|---|
 | `/status` | Kontot och modellen. *Setting sources* visar användarinställningarna, alltså `~/.claude-bygg`, och projektets. |
 | Statusraden | `⏸ manual mode on` |
-| `/context all` | Minnesfiler: bara repots `CLAUDE.md`. Skills: bara *Built-in*. Inga MCP-verktyg. |
+| `/context all` | Minnesfiler: bara repots `CLAUDE.md`. Skills: bara *Built-in*. MCP-verktyg bara från `claude-in-chrome` och `ide` (kl. 20.25, se nedan). |
 | `/skills` | Bara inbyggda skills, utan `design` och `design-sync` |
-| `/mcp` | Inga servrar och ingen claude.ai-sektion |
+| `/mcp` | Ingen claude.ai-sektion. Servrar bara de inbyggda `claude-in-chrome` och `ide` (kl. 20.25, se nedan). |
 
 Delagenterna kan inte verifieras med `/agents`. Sedan efter 2.1.197 skriver det kommandot bara en påminnelse och listar ingenting (📄 commands). De verifieras i stället med init-händelsens agentlista i `stream-json`, som ska visa bara de fem inbyggda.
 
 Därtill kör Claude `claude -p "/context"` och init-provet med `CLAUDE_CONFIG_DIR=~/.claude-bygg` och sparar utdata som belägg.
+
+### Sett inifrån byggsessionen (kl. 20.25)
+
+Den första riktiga byggsessionen startades med `claude-bygg` i VS Code:s inbyggda terminal (`TERM_PROGRAM=vscode`). `CLAUDE_CONFIG_DIR` var `~/.claude-bygg` och versionen 2.1.300. Claude läste av vad som laddats i den egna kontexten:
+
+| Del | Sett |
+|---|---|
+| Minnesfiler | Bara repots `CLAUDE.md`. `claudeMdExcludes` håller. |
+| Skills | Bara inbyggda, 18 stycken, utan `design` och `design-sync`. Provet med `-p` visade 13. |
+| Delagenter | Bara inbyggda: de fem från init-provet och `claude-code-guide` |
+| claude.ai-connectorer, computer-use | Inga |
+| **MCP-servrar** | **`claude-in-chrome`** med 22 verktyg: navigera, klicka, fylla i formulär, ladda upp filer, köra JavaScript och läsa nätverkstrafik. Dessutom **`ide`** med `getDiagnostics` och `executeCode`. |
+
+- **`ide`** följer med eftersom CLI:t kopplar upp sig mot VS Code när det körs i VS Code:s terminal. Låsfilen ligger under `$CLAUDE_CONFIG_DIR/ide/`. `getDiagnostics` läser Problems-panelen. `executeCode` kör en cell i den aktiva Jupyter-anteckningsboken, men bara efter att någon klickat *Execute* i VS Code (📄 vs-code). Servern publicerar ingenting.
+- **`claude-in-chrome`** använder Johnnys Chrome med dess inloggningar, och Claude kommer då åt varje sajt han är inloggad på (📄 chrome). I auto mode hoppar tillägget över sin egen kontroll per sajt när klassaren har godkänt anropet. Det gäller inte om behörighetsreglerna nekar Chrome någon sajt (📄 chrome). Därmed är Chrome-verktygen en sådan väg förbi deny-reglerna som avsnitt 2, punkt 4, beskriver. Det är också samma skäl som när OpenCLI (*inloggade Chrome-konton som agentkommandon*) avvisades i bilaga A: det går emot minsta behörighet (`2-9`). Guiden använder Playwright för kontrollerna och skärmdumparna (bilaga A).
+- ⚠️ **Varför Chrome laddas är inte utrett.** Enligt dokumentationen laddas Chrome-verktygen med `--chrome` eller när *Enabled by default* är på i `/chrome` (📄 chrome). Ingen av dem har satts medvetet i `~/.claude-bygg`, och `claude -p` laddade inte verktygen.
+- **Spärren som dokumentationen beskriver:** en deny-regel med serverns namn, `"mcp__claude-in-chrome"`, matchar alla serverns verktyg. En deny-regel som bara anger verktygsnamnet tar dessutom bort verktyget ur Claudes kontext (📄 permissions).
 
 ## 4. Versionsberoende fakta: 2.1.281 på Windows mot 2.1.296 på Macen
 
@@ -176,6 +194,6 @@ Därtill kör Claude `claude -p "/context"` och init-provet med `CLAUDE_CONFIG_D
 
 ## Källor
 
-- 📄 Claude Code-dokumentationen, hämtad 2026-10-15: `https://code.claude.com/docs/en/{cli-reference,settings,settings-reference,env-vars,permission-modes,authentication,skills,memory,mcp,commands,headless,sub-agents,claude-directory,plugins/install,plugins/mods/overview,changelog}.md`
+- 📄 Claude Code-dokumentationen, hämtad 2026-10-15: `https://code.claude.com/docs/en/{cli-reference,settings,settings-reference,env-vars,permission-modes,authentication,skills,memory,mcp,commands,headless,sub-agents,claude-directory,plugins/install,plugins/mods/overview,changelog}.md`. Kl. 20.25 hämtades också `chrome`, `vs-code` och `permissions`.
 - Lokalt: `claude --version`, `claude --help`, `npm view @anthropic-ai/claude-code version`, `security dump-keychain` (bara posternas namn), filerna under `~/.claude`, `~/.claude.json` (bara nycklar och servernamn) och proven ovan.
 - Föregångare: `kunskap/research/2026-10-14_claude-code-verifiering.md` (2.1.281 på Windows).
