@@ -22,7 +22,7 @@ På Johnnys uppdrag ("du har fullt mandat att skriva klart så läser jag igenom
 ## Börja nu, lång ledtid
 
 - Ansök om API-åtkomst för Google Business Profile (bara Johnny kan ansöka; svar inom 14 dagar).
-- **Måttstocken:** Johnny dömde 39 sajter 2026-10-15 (22 godkända, 17 underkända). Utkastet i `mattstock/mattstock.md` sammanfattar domarna i tre frågor: förstår och når kunden företaget på mobilens första skärm, är det äkta, håller utförandet. Claudes förväntan stämde i 28 av 39 fall. **Godkänd av Johnny 2026-10-15.** Väntar på hans beslut om de fyra förslagen till guiden.
+- **Måttstocken:** Johnny dömde 39 sajter 2026-10-15 (22 godkända, 17 underkända). Utkastet i `mattstock/mattstock.md` sammanfattar domarna i tre frågor: förstår och når kunden företaget på mobilens första skärm, är det äkta, håller utförandet. Claudes förväntan stämde i 28 av 39 fall. **Godkänd av Johnny 2026-10-15.** Tre av förslagen till guiden är införda: mobilens första skärm (2-4, N1), innehåll utan in-animation (2-6) och kontrollskriptets skärmbilder (2-8). Stockbilder är tillåtna (bilaga E 1.4 avgjord).
 - Avgränsa byggsessionen från användarnivåns 292 skills (bl.a. `nortropic-stack`, som föreskriver Next.js) innan första bygget – se `guide/3-3-sakerhet-och-installningar.md` och bilaga E.
 
 ## Nästa steg (Claudes förslag)

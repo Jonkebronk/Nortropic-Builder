@@ -223,3 +223,13 @@ Om domarna i det publika repot:
 > Pusha allt som det är
 
 **Innebär:** `mattstock/mattstock.md` är Johnnys måttstock. Tre frågor i ordning, med mobilen först: förstår och når kunden företaget på mobilens första skärm, är det äkta, håller utförandet. Granskaren kalibreras mot den enligt `guide/3-2-granskning-och-kalibrering.md`, med 8 domar som exempel och 31 som mätning. De fyra förslagen till guiden i måttstockens slut är **inte** beslutade av godkännandet; de avgörs var för sig.
+
+## 2026-10-15: Förslagen ur måttstocken – stockbilder är tillåtna
+
+**Status:** gäller.
+
+Johnny, om de fyra förslagen till guiden i `mattstock/mattstock.md`:
+
+> Stockbilder är tillåtna, resten ok av förslagen
+
+**Innebär:** Tre förslag är införda i guiden. Mobilens första skärm svarar på vad, var och hur, med en rubrik som säger tjänst och ort och aldrig "Välkommen till …", branschens kontaktväg och ett klickbart telefonnummer (`guide/2-4-skelett.md`, N1). Innehållet syns utan att en in-animation har körts (`guide/2-6-rorelse.md`). Kontrollskriptets skärmbilder följer lärdomarna från fångsten (`guide/2-8-teknik-och-kvalitet.md`). Förslaget "egna foton före stockbilder" gäller inte, eftersom stockbilder är tillåtna. Bilaga E 1.4 är därmed avgjord. Ärlighetsregeln i `2-7-innehall.md` gäller som förut: en bild som inte är kundens får aldrig se ut att visa kundens arbete, personal eller lokal. I måttstocken gör stockbilder fråga 2 svag men fäller aldrig ensamma.

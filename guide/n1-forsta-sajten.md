@@ -2,7 +2,7 @@
 
 **Genererad** av `konsolidering/bygg_n1.py` ur `[N1]`-märkningen i guidens filer. Ändra i källfilerna, inte här. Varje punkt står i sin helhet, med källor, i filen under rubriken. Taket är cirka 60 regler och tio automatiska kontroller (`README.md`, *Nivåer*).
 
-67 regler och tabellrader, plus de tio kontrollerna och verktygen nedan.
+68 regler och tabellrader, plus de tio kontrollerna och verktygen nedan.
 
 ## 1. Kundens väg (`1-kundens-vag.md`)
 
@@ -51,12 +51,13 @@
 
 - **I kundbygget väljer AI:n ur biblioteket – sektion, variant och innehåll – och uppfinner ingen layout. Saknas en sektion byggs den i biblioteket först, med Johnnys godkännande, och används sedan.** De etablerade AI-byggarna gör så: AI:n väljer inom ett system som designers har byggt. 📄 [Wix ADI](https://www.fastcompany.com/3060934/can-you-teach-ai-to-design-wix-is-trying), [Squarespace Blueprint](https://ecomm.design/using-squarespace-blueprint-ai/), [GoDaddys Go-tema](https://github.com/godaddy-wordpress/go) (`guide/README.md`, *Principer*, källorna). Biblioteket ger konsekvens, inte karaktär: en sajt kan följa alla regler och ändå se AI-genererad ut (fallgrop 85, 🎥 *Astryx-videon*). Karaktären kommer från stilkitet (`2-5-yta.md`) och från kundens egna bilder, ord och lokala belägg (`2-7-innehall.md`).
 - **Biblioteket består av egna marknadsföringssektioner, inte av ett UI-komponentbibliotek för appar. I första sajten har det bara de sektioner som startsidan och standardsidorna använder, en variant var.** Bibliotek för funktionellt gränssnitt drar en marknadsföringssajt mot sitt eget generiska utseende (fallgrop 96) *(en källa – bänken: 🎥 designskills-videon 2 och Astryx-videon, samma kanal)*. Det som är lika i varje bygge görs en gång; annars genereras samma kod på nytt i varje bygge, dyrt och olika varje gång (fallgrop 143, 🎥 *skill-ingenjörsvideon*, Nate Herk, som återger Anthropic i andra hand). Startsidans sektioner byggs i `5-byggplan.md`, steg 2, och övriga sidors i steg 3. Johnny ser sektionerna på en provsida i 375 och 1280 px; i första sajten är provsidan startsidan i de tre kiten.
+- **Mobilens första skärm svarar på vad, var och hur – utan att besökaren scrollar, i 375 px.** Rubriken säger tjänst och ort och är aldrig *"Välkommen till …"*. Branschens kontaktväg syns som knapp: ring och offert för hantverk, boka för klinik och skönhet, meny, beställ och hitta hit för restaurang och café. Telefonnumret går att klicka på. Det här är fråga 1 i Johnnys måttstock och det som oftast avgjorde hans domar; förebilderna är Jursla Rör, Plomberie 5 Étoiles, Citykiropraktikern och We Care Car Care. Instruktion och granskningskriterium – Johnnys måttstock, ingen norm (`BESLUT.md` 2026-10-15); prövas i blickprovet under *Kontroll*. 📄 `mattstock/mattstock.md`
 - **En sektion är en Astro-komponent med typade props och en `variant`-prop, utan eget innehåll och utan egna värden.** Ingen text, inga kunduppgifter och inga bilder ligger i komponenten, och den använder bara tokens ur stilkitet – inga hårdkodade färger, typsnitt, avstånd eller radier. Då kan samma innehåll visas i tre kit, och en omdesign blir ett byte av kit eller variant utan att innehållet rörs. 📄 *Websites for Normal People*. Utan tokens faller modellen tillbaka på sina egna val (fallgrop 18, → `2-5-yta.md`). Texterna och innehållsfilerna → `2-7-innehall.md`.
 - **HTML först: innehåll och navigation fungerar utan JavaScript,** och skript förbättrar bara. "The JavaScript layer is not fault-tolerant." 📄 [GOV.UK, progressive enhancement](https://www.gov.uk/service-manual/technology/using-progressive-enhancement) *(en källa – bänken)*. Kontrollen → `2-8-teknik-och-kvalitet.md`. Rörelse som börjar osynlig (`opacity: 0`) får inte dölja innehåll utan JavaScript → `2-6-rorelse.md`. Primitiverna:
 
 *Kontroll*
 
-- **Granskningskriterium: blickprovet (femsekunderstestet).** En separat AI ser en skärmbild av första vyn i 375 och 1280 px, utan källkoden, och säger vad som erbjuds, var och vad man ska göra. Stämmer svaret inte med briefen och den primära handlingen är det ett fynd – högst `medel`, eftersom kriteriet har en källa (→ `3-2-granskning-och-kalibrering.md`). Testet gäller skelett och yta och körs en gång; här är dess enda plats. *(en källa – bänken: 🎥 Jack Roberts-videon 2, som bygger på Krug; Krug är inte läst i original)* Textmängden per sektion (fallgrop 175) → `2-7-innehall.md`.
+- **Granskningskriterium: blickprovet (femsekunderstestet).** En separat AI ser en skärmbild av första vyn i 375 och 1280 px, mobilen först, utan källkoden, och säger vad som erbjuds, var och vad man ska göra. Det är fråga 1 i Johnnys måttstock (`mattstock/mattstock.md`; regeln under *Sektionerna*). Stämmer svaret inte med briefen och den primära handlingen är det ett fynd – högst `medel`, eftersom kriteriet har en källa (→ `3-2-granskning-och-kalibrering.md`). Testet gäller skelett och yta och körs en gång; här är dess enda plats. *(en källa – bänken: 🎥 Jack Roberts-videon 2, som bygger på Krug; Krug är inte läst i original)* Textmängden per sektion (fallgrop 175) → `2-7-innehall.md`.
 
 ## 2.5 Yta (`2-5-yta.md`)
 
@@ -220,6 +221,8 @@ Tio kontroller, och bara sådana som mäter något kunden märker (konsolidering
 | 8 | axe med WCAG 2.2 A/AA-taggarna ger 0 fel i Chromium; täcker bl.a. kontrast, alt-texter, etiketter och tomma länkar | Stopp | 📄 WCAG 2.2 |
 | 9 | Lighthouse tillgänglighet, bästa praxis och SEO ≥ 90 i mobil och dator, mot det lokala bygget eller produktion – inte mot förhandsadressen, där `noindex` ger underkänt SEO (🔧 härlett, lager-8-anteckningarna); prestandan mäts | Rapport | 📄 Leverantörens dokumentation: Lighthouses skala, 90–100 = *Good* (Chrome for Developers). Tröskeln 90 är vald *(en källa – bänken: $10K Website Kit)*; analysen §4.2 |
 | 10 | Inga hemligheter i repot eller i det byggda paketet (HTML, JS, källkartor söks efter nyckelformat) | Stopp, `kritisk` | Allt i webbläsaren går att inspektera (fallgrop 141) 🎥 Ebbelaar-intervjun; 📄 Cloudflare: hemligheter med `wrangler secret put`. Regeln → `3-3` |
+
+**Skärmbilderna** som skriptet tar för Johnnys dom och granskaren är helsidesbilder i mobil och dator. Tre lärdomar från måttstockens fångst (`mattstock/verktyg/fanga.js`, beslut 2026-10-15): en hård tidsgräns per sida, så att en sida som hänger inte stoppar resten; sidor som scrollar i en inre behållare lossas, annars syns bara en skärmhöjd; och sidan scrollas igenom före bilden, så att lat laddade bilder kommer med. 🔧
 
 Därtill Johnnys slutgranskning med en kort motivering per avvisning (`3-2`).
 

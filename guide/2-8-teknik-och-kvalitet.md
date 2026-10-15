@@ -158,6 +158,8 @@ Tio kontroller, och bara sådana som mäter något kunden märker (konsolidering
 | 9 | Lighthouse tillgänglighet, bästa praxis och SEO ≥ 90 i mobil och dator, mot det lokala bygget eller produktion – inte mot förhandsadressen, där `noindex` ger underkänt SEO (🔧 härlett, lager-8-anteckningarna); prestandan mäts | Rapport | 📄 Leverantörens dokumentation: Lighthouses skala, 90–100 = *Good* (Chrome for Developers). Tröskeln 90 är vald *(en källa – bänken: $10K Website Kit)*; analysen §4.2 |
 | 10 | Inga hemligheter i repot eller i det byggda paketet (HTML, JS, källkartor söks efter nyckelformat) | Stopp, `kritisk` | Allt i webbläsaren går att inspektera (fallgrop 141) 🎥 Ebbelaar-intervjun; 📄 Cloudflare: hemligheter med `wrangler secret put`. Regeln → `3-3` |
 
+**Skärmbilderna** som skriptet tar för Johnnys dom och granskaren är helsidesbilder i mobil och dator. Tre lärdomar från måttstockens fångst (`mattstock/verktyg/fanga.js`, beslut 2026-10-15): en hård tidsgräns per sida, så att en sida som hänger inte stoppar resten; sidor som scrollar i en inre behållare lossas, annars syns bara en skärmhöjd; och sidan scrollas igenom före bilden, så att lat laddade bilder kommer med. 🔧
+
 Därtill Johnnys slutgranskning med en kort motivering per avvisning (`3-2`).
 
 ### N2 – när sajterna blir fler

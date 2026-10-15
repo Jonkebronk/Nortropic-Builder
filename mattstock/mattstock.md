@@ -56,7 +56,7 @@ Det som syns ska vara företagets eget: egna människor, egna jobb, egen lokal o
 
 Det här fäller:
 
-- **Stockfoton i stället för egna bilder:** *"Inte ett enda foto från ett eget jobb"* (s04 MB Bygg). *"Alla bilder är stockbilder på modeller [...] ingen salong, ingen frisör"* (s34). *"enda människan på sidan är en stockbild på handskakning"* (s47).
+- **Stockfoton i stället för egna bilder** gör fråga 2 svag: *"Inte ett enda foto från ett eget jobb"* (s04 MB Bygg). *"Alla bilder är stockbilder på modeller [...] ingen salong, ingen frisör"* (s34). *"enda människan på sidan är en stockbild på handskakning"* (s47). Stockbilder är tillåtna (Johnny, `BESLUT.md` 2026-10-15). I domarna fällde de aldrig ensamma, utan bara tillsammans med andra svagheter.
 - **Text som ingen människa skrivit:** *"en vägg av SEO-text som upprepar 'din frisör i Malmö med Drop-In' i varje stycke, ingen människa låter så"* (s56 Salong Ella). *"genererad engelska som ingen människa skrivit"* (s48 My Party Chef).
 - **För mycket text:** *"textmassan kortad till en tredjedel"* (s02), *"tjänstetexterna kortade till en mening var"* (s34).
 
@@ -129,13 +129,13 @@ s02 Torsokliniken (*"Underkänd, men nära"*) hör också till gränsfallen.
 
 ## Alla 39 mot de tre frågorna
 
-Teckenförklaring: ✓ stark, ○ godtagbar, – svag, ✗ brister. Kodningen är Claudes, gjord ur Johnnys kritik.
+Teckenförklaring: ✓ stark, ○ godtagbar, – svag, ✗ brister. Kodningen är Claudes, gjord ur Johnnys kritik. Stockbilder ensamma kodas som svag, inte brister, eftersom de är tillåtna (ändrat för s04, s20, s34 och s55; inga domar påverkas).
 
 | Sajt | Dom | 1 Förstå och nå | 2 Äkta | 3 Utförande |
 |---|---|---|---|---|
 | s01 Prolific Pours | G | ✓ | ✓ | ✓ |
 | s02 Torsokliniken | U | ○ | – | – |
-| s04 MB Bygg | U | ○ | ✗ | – |
+| s04 MB Bygg | U | ○ | – | – |
 | s06 ALICE Hair & Art | U | – | ✓ | ✗ |
 | s07 Kroppsbalans | G | ✓ | ✓ | ○ |
 | s08 Stångå Tandklinik | G | ✓ | – | ✓ |
@@ -146,7 +146,7 @@ Teckenförklaring: ✓ stark, ○ godtagbar, – svag, ✗ brister. Kodningen ä
 | s14 Kaïven | G | ✓ | – | ✓ |
 | s16 Advokat Kierkegaard | U | ✗ | ✓ | – |
 | s19 Herzel | G | ○ | ✓ | – |
-| s20 Kjellstrands | U | – | ✗ | ✗ |
+| s20 Kjellstrands | U | – | – | ✗ |
 | s21 Salt Studio | U | ✗ | ✓ | – |
 | s22 Color Wonder Balloons | U | – | ✓ | ✗ |
 | s26 Citykiropraktikern | G | ✓ | ✓ | ○ |
@@ -154,7 +154,7 @@ Teckenförklaring: ✓ stark, ○ godtagbar, – svag, ✗ brister. Kodningen ä
 | s30 Rosendal & Folk Cykel | U | – | – | ✗ |
 | s32 Fungera | G | ✓ | ✓ | – |
 | s33 Eriksbergs Cykel | U | – | ○ | – |
-| s34 Diamond Hair | U | ✗ | ✗ | – |
+| s34 Diamond Hair | U | ✗ | – | – |
 | s35 Cederins Guld | U | – | ○ | – |
 | s36 NaturePure Cleaning | U | ✗ | – | ✓ |
 | s37 FE Måleri | G | ○ | ✓ | ○ |
@@ -170,7 +170,7 @@ Teckenförklaring: ✓ stark, ○ godtagbar, – svag, ✗ brister. Kodningen ä
 | s52 We Care Car Care | G | ✓ | ✓ | ○ |
 | s53 Lundqvist El | G | ✓ | ✓ | ✓ |
 | s54 Acreda | G | – | ✓ | ○ |
-| s55 Campino Pizzeria | U | – | ✗ | ○ |
+| s55 Campino Pizzeria | U | – | – | ○ |
 | s56 Salong Ella | U | ○ | ✗ | – |
 
 ## Claudes förväntan mot Johnnys domar
@@ -195,7 +195,7 @@ Förväntan registrerades före domarna (`forvantan.json`, SHA-256 i `README.md`
 
 ### Förslag till guiden
 
-Godkännandet av måttstocken gäller inte förslagen. Johnny beslutar om dem var för sig, och inget är infört än.
+**Utfall (Johnny, `BESLUT.md` 2026-10-15: *"Stockbilder är tillåtna, resten ok av förslagen"*):** förslag 1, 3 och 4 är införda i guiden; förslag 2 gäller inte – stockbilder är tillåtna, och bilaga E 1.4 är avgjord. Förslag 3 står i `2-6-rorelse.md`, där rörelse bor, i stället för i `2-8`.
 
 1. **`2-4-skelett.md` och `2-7-innehall.md`:** mobilens första skärm ska ha en rubrik med tjänst och ort, branschens kontaktväg och ett klickbart telefonnummer. Rubriken är aldrig "Välkommen till …". Det blir en instruktion och ett granskningskriterium, eftersom det är Johnnys måttstock och ingen norm.
 2. **`2-7-innehall.md`:** egna foton på människor och jobb före stockbilder, och texten ska låta som företaget och vara kort. Det skärper den öppna frågan om **bildkällan** (`bilaga-e-oppna-fragor.md` 1.4). Förslaget där tillåter licensierade stockbilder för stämning, men stockfoton i stället för egna bilder fällde ofta. Därför måste intervjun samla in egna foton, eller så blir en fotografering en del av erbjudandet.

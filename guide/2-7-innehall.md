@@ -18,6 +18,8 @@ Sajtens texter, fakta och bilder. Här motverkas det generiska: det specifika ko
 
 ### Texterna
 
+Första vyns rubrik – tjänst och ort, aldrig *"Välkommen till …"* – står i `2-4-skelett.md`, *Sektionerna*.
+
 - [N2] **Texterna ligger i innehållsfiler som byggs ur faktabasen, inte i komponenterna.** Då kan samma innehåll visas i tre stilkit, och en omdesign rör inte texten. Här bor regeln för texterna; att komponenterna inte bär innehåll → `2-4-skelett.md`. 📄 *Websites for Normal People*; Astros content collections (`historik/karta/9-drift-forvaltning.md`; stacken → `2-8-teknik-och-kvalitet.md`)
 - [N2] **Texterna till sidorna som riktningarna visar skrivs före riktningarna.** Riktningarna är tre stilkit på samma innehåll (`BESLUT.md` 2026-10-15); i webb-pro styrde bristen på kundens ord och bilder aldrig bygget (webb-pro-genomgången §4). 🔧
 - [N2] **Konkret i stället för generiskt.** Varje löfte (*kvalitet*, *pålitlig*, *helhetslösning*) får en detalj ur faktabasen – vad, hur, när, till vilket pris – eller stryks (fallgrop 176). *"Pålitliga och byggda för att hålla"* blev *"sex spikar per takpanel, varje panel"*. Saknas detaljen blir det en fråga till kunden. 🎥 Jack Roberts-videon 2 (*Slop Monster*); 📄 marketingskills `copywriting` ("Specificity Over Vagueness")

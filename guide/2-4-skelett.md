@@ -29,7 +29,7 @@ Varje sektion besvarar en fråga besökaren har. Listan är kartans utkast (inte
 | Sektion | Besökarens fråga | Anmärkning |
 |---|---|---|
 | Sidhuvud | Vem är ni, hur når jag er? | Namn, meny och `tel:`-länk när kontaktvägen är telefon (`2-3-struktur.md`) |
-| Första vyn | Vad gör ni, var och för vem, och vad gör jag nu? | |
+| Första vyn | Vad gör ni, var och för vem, och vad gör jag nu? | Rubrik med tjänst och ort, branschens kontaktväg och klickbart telefonnummer på mobilens första skärm (regeln nedan) |
 | Tjänster | Kan ni hjälpa mig med det här? | Ett kort per tjänst med länk till tjänstesidan |
 | Text och bild | Vilka är ni? Vad ingår? | Om oss, vad en tjänst omfattar, längre text |
 | Förtroende | Kan jag lita på er? | Omdömen med källa, F-skatt, försäkring, certifikat, ROT och RUT – bara det som är belagt (`2-7`) |
@@ -43,6 +43,8 @@ Varje sektion besvarar en fråga besökaren har. Listan är kartans utkast (inte
 | Sidfot | Var hittar jag uppgifterna? | Innehållet → `2-3` |
 
 De tre riktningarna i `5-byggplan.md`, steg 2, visar startsidan i tre stilkit med samma sektioner och samma innehåll (`BESLUT.md` 2026-10-15). Riktningarna och kiten → `2-5-yta.md`.
+
+- [N1] **Mobilens första skärm svarar på vad, var och hur – utan att besökaren scrollar, i 375 px.** Rubriken säger tjänst och ort och är aldrig *"Välkommen till …"*. Branschens kontaktväg syns som knapp: ring och offert för hantverk, boka för klinik och skönhet, meny, beställ och hitta hit för restaurang och café. Telefonnumret går att klicka på. Det här är fråga 1 i Johnnys måttstock och det som oftast avgjorde hans domar; förebilderna är Jursla Rör, Plomberie 5 Étoiles, Citykiropraktikern och We Care Car Care. Instruktion och granskningskriterium – Johnnys måttstock, ingen norm (`BESLUT.md` 2026-10-15); prövas i blickprovet under *Kontroll*. 📄 `mattstock/mattstock.md`
 
 - [N2] **Två till tre varianter per sektion** (kartan), till exempel delad (text och bild) och helbild för första vyn, och **tillval per bransch:** bokning, prislista, öppettider, jour, meny för restauranger, betallänk, nyhetsbrev, språkväxlare och brödsmulor. Funktionerna → `2-2-omfattning.md`.
 - [N2] **Kitet får ange vilka layoutvarianter det föredrar,** så att riktningarna skiljer sig i mer än färg och typsnitt. 🔧 förslag
@@ -166,7 +168,7 @@ Alla kontroller och deras grund står i `bilaga-c-kontroller.md`, liksom visning
 
 I första sajten har skelettet inga egna automatiska kontroller. Reflow vid 320 CSS-px är N1-kontroll 3 och axe N1-kontroll 8 i `2-8`, och Johnny ser sajten. Kriterierna nedan med WCAG som norm gäller ändå från första sajten som en del av golvet (`2-8`, *Kodstandard*); som egna kontroller i skriptet kommer de från sajt 2.
 
-- [N1] **Granskningskriterium: blickprovet (femsekunderstestet).** En separat AI ser en skärmbild av första vyn i 375 och 1280 px, utan källkoden, och säger vad som erbjuds, var och vad man ska göra. Stämmer svaret inte med briefen och den primära handlingen är det ett fynd – högst `medel`, eftersom kriteriet har en källa (→ `3-2-granskning-och-kalibrering.md`). Testet gäller skelett och yta och körs en gång; här är dess enda plats. *(en källa – bänken: 🎥 Jack Roberts-videon 2, som bygger på Krug; Krug är inte läst i original)* Textmängden per sektion (fallgrop 175) → `2-7-innehall.md`.
+- [N1] **Granskningskriterium: blickprovet (femsekunderstestet).** En separat AI ser en skärmbild av första vyn i 375 och 1280 px, mobilen först, utan källkoden, och säger vad som erbjuds, var och vad man ska göra. Det är fråga 1 i Johnnys måttstock (`mattstock/mattstock.md`; regeln under *Sektionerna*). Stämmer svaret inte med briefen och den primära handlingen är det ett fynd – högst `medel`, eftersom kriteriet har en källa (→ `3-2-granskning-och-kalibrering.md`). Testet gäller skelett och yta och körs en gång; här är dess enda plats. *(en källa – bänken: 🎥 Jack Roberts-videon 2, som bygger på Krug; Krug är inte läst i original)* Textmängden per sektion (fallgrop 175) → `2-7-innehall.md`.
 - [N2] **Låst kontroll: klickytor minst 24 × 24 CSS-px**, eller tillräckligt avstånd enligt kriteriet. 📄 WCAG 2.2, 2.5.8, AA ([W3C](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html))
 - [N2] **Granskningskriterium: 44 × 44 px för knappar, menyknappen och fristående länkar.** Nortropics nivå (kartan), över golvet; 2.5.5 är AAA och därför ingen norm för en låst kontroll. 📄 2.5.5 ([W3C](https://www.w3.org/WAI/WCAG22/Understanding/target-size-enhanced.html))
 - [N2] **Låst kontroll: fokus syns** på allt som nås med tangentbordet. 📄 WCAG 2.2, 2.4.7, AA ([W3C](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html))

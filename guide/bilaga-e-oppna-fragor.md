@@ -9,7 +9,7 @@
 | 1.1 | **Vilken verksamhet blir den första?** | Flödets alla steg körs på den (`5-byggplan.md`) | En verklig verksamhet, gärna ett av testfallen från tidigare |
 | 1.2 | ~~Vem svarar på intervjun?~~ **Avgjort 2026-10-15:** Johnny intervjuar kunden tillsammans med AI:n (`BESLUT.md`) | – | – |
 | 1.3 | **Publiceras den första sajten?** | Avgör om domän, Cloudflare-konto och nycklar behövs nu (`2-2-omfattning.md`) | Ja, på en förhandsadress först |
-| 1.4 | **Bildkälla** för en verksamhet utan egna foton | Ärlighetsregeln och kontrollen mot platshållare stoppar annars publicering (`2-7-innehall.md`) | Kundens egna foton i första hand; licensierade stockbilder för stämning; ingen publicering av genererade bilder som föreställer verksamheten. **Måttstocken (2026-10-15):** stockfoton i stället för egna bilder fällde ofta (`mattstock/mattstock.md`) |
+| 1.4 | ~~Bildkälla för en verksamhet utan egna foton~~ **Avgjort 2026-10-15:** stockbilder är tillåtna (`BESLUT.md`). Ärlighetsregeln i `2-7-innehall.md` gäller som förut, och måttstocken väger egna foton högre (fråga 2) | – | – |
 | 1.5 | ~~Tidsbudget per sajt~~ **Avgjort 2026-10-15:** ingen tidsbudget förrän Johnny är nöjd med det som byggs; tiden mäts som underlag (`BESLUT.md`, `1-kundens-vag.md`) | – | – |
 | 1.6 | **Bekräfta Astro statiskt** för standardsajten | Stacken var ett förslag i v0.74 §14; kartan har Astro | Ja (`2-8-teknik-och-kvalitet.md`) |
 | 1.7 | ~~Intervjuns form~~ **Avgjort 2026-10-15:** ett samtal som Johnny leder med AI:n som stöd (`BESLUT.md`); om det sker på plats, i telefon eller i video avgörs per kund | – | – |
