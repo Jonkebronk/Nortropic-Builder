@@ -1,0 +1,28 @@
+---
+// Nästa steg: sidan slutar med den primära handlingen (guide/2-3-struktur.md).
+import Knapp from '../komponenter/Knapp.astro';
+import type { StartInnehall } from '../innehall/typ';
+interface Props { innehall: StartInnehall; }
+const { nastaSteg, boka, ring } = Astro.props.innehall;
+---
+<section class="nasta" aria-labelledby="nasta-rubrik">
+  <div class="behallare nasta__ruta">
+    <div class="nasta__text">
+      <h2 id="nasta-rubrik">{nastaSteg.rubrik}</h2>
+      <p>{nastaSteg.text}</p>
+    </div>
+    <div class="nasta__knappar">
+      <Knapp href={boka.href} text={boka.text} variant="pa-mork" ikon="kalender" />
+      <a class="nasta__ring" href={ring.href}>{ring.text}</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .nasta { background: var(--k-mork); color: var(--k-pa-mork); padding-block: var(--k-sektion); }
+  .nasta__ruta { display: grid; gap: var(--k-a5); align-items: center; }
+  .nasta__text { display: grid; gap: var(--k-a3); max-width: 40rem; }
+  .nasta__knappar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--k-a5); }
+  .nasta__ring { color: var(--k-pa-mork); font-weight: 600; min-height: 44px; display: inline-flex; align-items: center; }
+  @media (min-width: 56rem) { .nasta__ruta { grid-template-columns: 1.4fr 1fr; } .nasta__knappar { justify-content: flex-end; } }
+</style>

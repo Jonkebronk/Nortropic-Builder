@@ -1,0 +1,22 @@
+---
+import Ikon, { type IkonNamn } from './Ikon.astro';
+
+interface Props {
+  href: string;
+  text: string;
+  variant?: 'primar' | 'sekundar' | 'pa-mork';
+  ikon?: IkonNamn;
+  extern?: boolean;
+  etikett?: string;
+}
+const { href, text, variant = 'primar', ikon, extern = false, etikett } = Astro.props;
+---
+<a
+  class={`knapp knapp--${variant}`}
+  href={href}
+  aria-label={etikett}
+  {...(extern ? { rel: 'noopener', target: '_blank' } : {})}
+>
+  {ikon && <Ikon namn={ikon} />}
+  <span>{text}</span>
+</a>

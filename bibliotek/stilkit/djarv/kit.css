@@ -1,0 +1,100 @@
+/* Stilkit: Djärv och egen. Referenser i måttstocken: Lamanna's Bakery, Bernice Bakery, Rendezvous Barbers (guide/2-5-yta.md).
+   Värdena är uppmätta med Playwright 2026-10-15 och justerade för kontrast (WCAG 2.2 AA). */
+@import "@fontsource/bricolage-grotesque/800.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/600.css";
+
+[data-kit="djarv"] {
+  /* Färg: starka block i orange, rosa och blått mot bläck och benvitt */
+  --k-bg: #f8f8f2;
+  --k-yta: #ffffff;
+  --k-text: #112229;
+  --k-dampad: #3b4a50;
+  --k-linje: #112229;
+  --k-accent: #ff6b35;
+  --k-pa-accent: #112229;
+  --k-accent-text: #c2380c;
+  --k-mork: #112229;
+  --k-pa-mork: #f8f8f2;
+  --k-dekor: #ffb3ef;
+  --k-dekor-2: #147c98;
+  --k-forstavy-bg: #ff6b35;
+  --k-forstavy-text: #112229;
+
+  /* Typsnitt: Bricolage Grotesque och Inter (OFL), självhostade */
+  --k-font-rubrik: "Bricolage Grotesque", system-ui, sans-serif;
+  --k-font-brod: "Inter", system-ui, sans-serif;
+  --k-font-markering: var(--k-font-rubrik);
+  --k-rubrik-vikt: 800;
+  --k-rubrik-versaler: uppercase;
+  --k-rubrik-spatiering: -0.005em;
+  --k-rubrik-radhojd: 0.95;
+  --k-h1: clamp(2.5rem, 1.3rem + 5.6vw, 6rem);
+  --k-h2: clamp(1.9rem, 1.4rem + 2.4vw, 3.4rem);
+  --k-h3: 1.25rem;
+  --k-brod: 1.0625rem;
+  --k-radhojd: 1.6;
+  --k-overrad-versaler: uppercase;
+  --k-overrad-spatiering: 0.06em;
+
+  /* Avstånd: tätare, med stor typografi */
+  --k-a1: 0.25rem;
+  --k-a2: 0.5rem;
+  --k-a3: 0.75rem;
+  --k-a4: 1rem;
+  --k-a5: 1.25rem;
+  --k-a6: 2rem;
+  --k-a7: 3rem;
+  --k-sektion: clamp(3.5rem, 2.5rem + 4vw, 6rem);
+  --k-max: 74rem;
+
+  /* Radie och knappar: piller med kraftig kant, stora rundade kort */
+  --k-radie-knapp: 999px;
+  --k-radie-kort: 28px;
+  --k-radie-bild: 28px;
+  --k-knapp-vikt: 600;
+  --k-knapp-versaler: uppercase;
+  --k-kantlinje: 2px;
+
+  /* Rörelse */
+  --k-tid: 220ms;
+  --k-kurva: cubic-bezier(0.3, 0.9, 0.3, 1.2);
+}
+
+/* Kitets egna drag: förstavyn som ett orange block, porträttet på rosa och en rund märkning som en etikett. */
+[data-kit="djarv"] .forstavy .knapp--primar {
+  background: var(--k-mork);
+  color: var(--k-pa-mork);
+  border-color: var(--k-mork);
+}
+[data-kit="djarv"] .forstavy .knapp--sekundar {
+  border-color: var(--k-mork);
+  color: var(--k-mork);
+}
+[data-kit="djarv"] .forstavy__bildyta {
+  background: var(--k-dekor);
+  border: var(--k-kantlinje) solid var(--k-mork);
+  border-radius: var(--k-radie-bild);
+}
+[data-kit="djarv"] .markering {
+  display: grid;
+  place-items: center;
+  width: 7.5rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--k-dekor);
+  border: var(--k-kantlinje) solid var(--k-mork);
+  font-family: var(--k-font-rubrik);
+  font-weight: 800;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.05;
+  padding: var(--k-a3);
+  transform: rotate(-12deg);
+}
+[data-kit="djarv"] .kort {
+  border: var(--k-kantlinje) solid var(--k-linje);
+}
+[data-kit="djarv"] .tjanster .kort:nth-child(4n + 1) { background: var(--k-dekor); }
+[data-kit="djarv"] .tjanster .kort:nth-child(4n + 2) { background: var(--k-dekor-2); color: #ffffff; }
+[data-kit="djarv"] .tjanster .kort:nth-child(4n + 2) a { color: #ffffff; }

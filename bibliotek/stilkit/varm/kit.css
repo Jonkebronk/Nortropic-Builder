@@ -1,0 +1,83 @@
+/* Stilkit: Varm och välkomnande. Referenser i måttstocken: Kroppsbalans, Kajens Café, Pinchman's (guide/2-5-yta.md).
+   Värdena är uppmätta med Playwright 2026-10-15 och justerade för kontrast (WCAG 2.2 AA). */
+@import "@fontsource-variable/fraunces/index.css";
+@import "@fontsource/figtree/400.css";
+@import "@fontsource/figtree/600.css";
+@import "@fontsource/caveat/600.css";
+
+[data-kit="varm"] {
+  /* Färg: grönt och beige, med terrakotta som handskriven accent */
+  --k-bg: #f3ede2;
+  --k-yta: #fbf8f2;
+  --k-text: #2a2620;
+  --k-dampad: #5a5248;
+  --k-linje: #e2d9c9;
+  --k-accent: #3f5a35;
+  --k-pa-accent: #fbf8f2;
+  --k-accent-text: #3f5a35;
+  --k-mork: #27431f;
+  --k-pa-mork: #f3ede2;
+  --k-dekor: #dce3d2;
+  --k-dekor-2: #9c4f32;
+  --k-forstavy-bg: var(--k-bg);
+  --k-forstavy-text: var(--k-text);
+
+  /* Typsnitt: Fraunces, Figtree och Caveat (alla OFL), självhostade */
+  --k-font-rubrik: "Fraunces Variable", Georgia, serif;
+  --k-font-brod: "Figtree", system-ui, sans-serif;
+  --k-font-markering: "Caveat", "Figtree", cursive;
+  --k-rubrik-vikt: 560;
+  --k-rubrik-versaler: none;
+  --k-rubrik-spatiering: -0.01em;
+  --k-rubrik-radhojd: 1.08;
+  --k-h1: clamp(2.4rem, 1.6rem + 3.8vw, 4.4rem);
+  --k-h2: clamp(1.7rem, 1.35rem + 1.6vw, 2.6rem);
+  --k-h3: 1.25rem;
+  --k-brod: 1.0625rem;
+  --k-radhojd: 1.65;
+  --k-overrad-versaler: none;
+  --k-overrad-spatiering: 0;
+
+  /* Avstånd: mellan */
+  --k-a1: 0.25rem;
+  --k-a2: 0.5rem;
+  --k-a3: 0.75rem;
+  --k-a4: 1rem;
+  --k-a5: 1.5rem;
+  --k-a6: 2.25rem;
+  --k-a7: 3.5rem;
+  --k-sektion: clamp(4rem, 2.8rem + 5vw, 7rem);
+  --k-max: 70rem;
+
+  /* Radie och knappar: runda knappar, mjuka kort */
+  --k-radie-knapp: 999px;
+  --k-radie-kort: 22px;
+  --k-radie-bild: 999px;
+  --k-knapp-vikt: 600;
+  --k-knapp-versaler: none;
+  --k-kantlinje: 1.5px;
+
+  /* Rörelse */
+  --k-tid: 350ms;
+  --k-kurva: cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Kitets egna drag: porträttet i en rund, salviagrön yta och en handskriven anteckning i terrakotta. */
+[data-kit="varm"] .forstavy__bildyta {
+  background: var(--k-dekor);
+  border-radius: 46% 54% 50% 50% / 52% 48% 52% 48%;
+}
+[data-kit="varm"] .markering {
+  font-family: var(--k-font-markering);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--k-dekor-2);
+  line-height: 1.1;
+  transform: rotate(-3deg);
+}
+[data-kit="varm"] .overrad {
+  font-family: var(--k-font-markering);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--k-dekor-2);
+}

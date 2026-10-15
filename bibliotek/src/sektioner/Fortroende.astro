@@ -1,0 +1,40 @@
+---
+// Förtroende: betyget med källa och datum, och några omdömen med plattform och datum (guide/2-7-innehall.md).
+import Ikon from '../komponenter/Ikon.astro';
+import type { StartInnehall } from '../innehall/typ';
+interface Props { innehall: StartInnehall; }
+const { fortroende } = Astro.props.innehall;
+---
+<section class="sektion fortroende" aria-labelledby="fortroende-rubrik">
+  <div class="behallare">
+    <div class="fortroende__huvud">
+      <h2 id="fortroende-rubrik">{fortroende.rubrik}</h2>
+      <p class="fortroende__betyg">
+        <span class="fortroende__stjarna"><Ikon namn="stjarna" /></span>
+        <span class="fortroende__varde">{fortroende.betyg.varde}</span>
+        <span>{fortroende.betyg.skala}<br /><span class="dampad">{fortroende.betyg.antal}</span></span>
+      </p>
+      <p class="dampad fortroende__kalla">{fortroende.betyg.kalla}</p>
+    </div>
+    <ul class="fortroende__citat">
+      {fortroende.citat.map((c) => (
+        <li class="kort">
+          <blockquote><p>”{c.text}”</p></blockquote>
+          <p class="dampad">{c.kalla}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .fortroende__huvud { display: grid; gap: var(--k-a3); margin-bottom: var(--k-a6); }
+  .fortroende__betyg { display: flex; align-items: center; gap: var(--k-a3); }
+  .fortroende__stjarna { color: var(--k-accent-text); }
+  .fortroende__stjarna :global(svg) { width: 2rem; height: 2rem; fill: currentColor; }
+  .fortroende__varde { font-family: var(--k-font-rubrik); font-weight: var(--k-rubrik-vikt); font-size: var(--k-h2); line-height: 1; }
+  .fortroende__kalla { font-size: 0.9rem; }
+  .fortroende__citat { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--k-a4); }
+  .fortroende__citat blockquote { margin: 0; font-size: 1.1rem; }
+  @media (min-width: 48rem) { .fortroende__citat { grid-template-columns: repeat(3, 1fr); } }
+</style>

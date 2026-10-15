@@ -1,0 +1,51 @@
+---
+// Det praktiska: direkt efter första vyn – var och när, pris och telefon (guide/2-4-skelett.md).
+import Ikon from '../komponenter/Ikon.astro';
+import type { StartInnehall } from '../innehall/typ';
+interface Props { innehall: StartInnehall; }
+const { praktiskt, ring } = Astro.props.innehall;
+---
+<section class="sektion praktiskt" id="praktiskt" aria-labelledby="praktiskt-rubrik">
+  <div class="behallare">
+    <h2 id="praktiskt-rubrik" class="praktiskt__rubrik">{praktiskt.rubrik}</h2>
+    <div class="praktiskt__rutnat">
+      {praktiskt.platser.map((p) => (
+        <article class="kort praktiskt__plats">
+          <h3>{p.namn}</h3>
+          <p class="praktiskt__adress"><Ikon namn="plats" /><span>{p.adress}</span></p>
+          <dl class="praktiskt__dagar">
+            {p.dagar.map((d) => (<div><dt>{d.dag}</dt><dd>{d.tid}</dd></div>))}
+          </dl>
+          <a href={p.karta.href} rel="noopener">{p.karta.text}</a>
+        </article>
+      ))}
+      <article class="kort praktiskt__pris">
+        <h3>{praktiskt.pris.rubrik}</h3>
+        <p class="praktiskt__belopp">{praktiskt.pris.belopp}</p>
+        <p class="dampad">{praktiskt.pris.text}</p>
+        <h3 class="praktiskt__kontaktrubrik">{praktiskt.kontakt.rubrik}</h3>
+        <p><a class="praktiskt__telefon" href={ring.href}><Ikon namn="telefon" />{ring.nummer}</a></p>
+        <p class="dampad">{praktiskt.kontakt.text}</p>
+        {praktiskt.kontakt.epost && <p><a href={praktiskt.kontakt.epost.href}>{praktiskt.kontakt.epost.text}</a></p>}
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .praktiskt { padding-top: var(--k-a7); }
+  .praktiskt__rubrik { margin-bottom: var(--k-a5); }
+  .praktiskt__rutnat { display: grid; gap: var(--k-a4); }
+  .praktiskt__adress { display: flex; gap: var(--k-a2); align-items: flex-start; color: var(--k-dampad); }
+  .praktiskt__adress :global(svg) { width: 1.1rem; height: 1.1rem; margin-top: 0.3rem; flex: none; }
+  .praktiskt__dagar { margin: 0; display: grid; gap: var(--k-a1); }
+  .praktiskt__dagar div { display: flex; justify-content: space-between; gap: var(--k-a4); border-bottom: 1px solid var(--k-linje); padding-block: var(--k-a2); }
+  .praktiskt__dagar dt { font-weight: 600; }
+  .praktiskt__dagar dd { margin: 0; font-variant-numeric: tabular-nums; }
+  .praktiskt__belopp { font-family: var(--k-font-rubrik); font-weight: var(--k-rubrik-vikt); font-size: var(--k-h2); line-height: 1; }
+  .praktiskt__kontaktrubrik { margin-top: var(--k-a4); }
+  .praktiskt__telefon { display: inline-flex; align-items: center; gap: var(--k-a2); font-weight: 600; font-size: 1.2rem; min-height: 44px; }
+  .praktiskt__telefon :global(svg) { width: 1.2rem; height: 1.2rem; }
+  @media (min-width: 48rem) { .praktiskt__rutnat { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 64rem) { .praktiskt__rutnat { grid-template-columns: repeat(3, 1fr); } }
+</style>

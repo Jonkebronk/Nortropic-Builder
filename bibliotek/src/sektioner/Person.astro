@@ -1,0 +1,33 @@
+---
+// Personen bakom verksamheten: bild, ett citat i egna ord och några belägg (TextBild i guide/2-4-skelett.md).
+import Bildruta from '../komponenter/Bildruta.astro';
+import type { StartInnehall } from '../innehall/typ';
+interface Props { innehall: StartInnehall; }
+const { person } = Astro.props.innehall;
+---
+<section class="sektion person" id={person.id} aria-labelledby="person-rubrik">
+  <div class="behallare person__rutnat">
+    <div class="person__bild">
+      <Bildruta bild={person.bild} bredd={360} klass="person__foto" />
+    </div>
+    <div class="person__text">
+      <p class="overrad">{person.overrad}</p>
+      <h2 id="person-rubrik">{person.rubrik}</h2>
+      <blockquote class="person__citat"><p>{person.citat}</p></blockquote>
+      {person.text.map((t) => <p>{t}</p>)}
+      <ul class="person__fakta">{person.fakta.map((f) => <li>{f}</li>)}</ul>
+      <a href={person.lank.href} class="person__lank">{person.lank.text}</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .person__rutnat { display: grid; gap: var(--k-a6); align-items: center; }
+  .person__bild { background: var(--k-yta); border-radius: var(--k-radie-kort); overflow: hidden; max-width: 24rem; justify-self: center; width: 100%; }
+  .person__bild :global(.person__foto) { width: 100%; height: auto; mix-blend-mode: multiply; }
+  .person__text { display: grid; gap: var(--k-a4); max-width: 40rem; }
+  .person__citat { margin: 0; padding-left: var(--k-a4); border-left: 3px solid var(--k-accent); font-family: var(--k-font-rubrik); font-size: 1.3rem; line-height: 1.35; }
+  .person__fakta { margin: 0; padding-left: 1.2rem; display: grid; gap: var(--k-a1); color: var(--k-dampad); }
+  .person__lank { font-weight: 600; }
+  @media (min-width: 56rem) { .person__rutnat { grid-template-columns: 0.8fr 1.2fr; gap: var(--k-a7); } }
+</style>

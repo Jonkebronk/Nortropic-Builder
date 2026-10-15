@@ -1,0 +1,36 @@
+---
+// Tjänster: en rad per huvudtjänst, en mening var och en länk till tjänstens sida (guide/2-3-struktur.md).
+import Ikon from '../komponenter/Ikon.astro';
+import type { StartInnehall } from '../innehall/typ';
+interface Props { innehall: StartInnehall; }
+const { tjanster } = Astro.props.innehall;
+---
+<section class="sektion tjanster" id={tjanster.id} aria-labelledby="tjanster-rubrik">
+  <div class="behallare">
+    <div class="sektion__huvud">
+      <h2 id="tjanster-rubrik">{tjanster.rubrik}</h2>
+      {tjanster.ingress && <p class="dampad">{tjanster.ingress}</p>}
+    </div>
+    <ul class="tjanster__lista">
+      {tjanster.poster.map((t) => (
+        <li class="kort">
+          <span class="tjanster__ikon"><Ikon namn={t.ikon} /></span>
+          <h3>{t.namn}</h3>
+          <p>{t.text}</p>
+          <a class="tjanster__lank" href={t.lank.href}>{t.lank.text}<Ikon namn="pil" /></a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .tjanster { background: color-mix(in srgb, var(--k-dekor) 45%, var(--k-bg)); }
+  .tjanster__lista { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--k-a4); }
+  .tjanster__ikon { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 50%; background: var(--k-bg); color: var(--k-accent-text); }
+  .tjanster__ikon :global(svg) { width: 1.35rem; height: 1.35rem; }
+  .tjanster__lank { display: inline-flex; align-items: center; gap: var(--k-a2); font-weight: 600; margin-top: auto; min-height: 44px; }
+  .tjanster__lank :global(svg) { width: 1.1rem; height: 1.1rem; }
+  @media (min-width: 40rem) { .tjanster__lista { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 72rem) { .tjanster__lista { grid-template-columns: repeat(4, 1fr); } }
+</style>

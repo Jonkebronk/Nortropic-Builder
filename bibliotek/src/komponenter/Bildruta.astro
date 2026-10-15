@@ -1,0 +1,18 @@
+---
+// En bild med bredd och höjd, optimerad av Astro när den är importerad. Saknas bilden ritas en neutral form i koden.
+import { Image } from 'astro:assets';
+import type { Bild } from '../innehall/typ';
+interface Props { bild?: Bild; bredd: number; klass?: string; laddning?: 'eager' | 'lazy'; }
+const { bild, bredd, klass, laddning = 'lazy' } = Astro.props;
+---
+{bild ? (
+  typeof bild.src === 'string'
+    ? <img class={klass} src={bild.src} alt={bild.alt} width={bild.width ?? bredd} height={bild.height} loading={laddning} decoding="async" />
+    : <Image class={klass} src={bild.src} alt={bild.alt} widths={[bredd, bredd * 2]} sizes={`${bredd}px`} loading={laddning} />
+) : (
+  <svg class={klass} viewBox="0 0 120 150" role="img" aria-label="Platshållare för bild">
+    <rect width="120" height="150" fill="currentColor" opacity="0.08" />
+    <circle cx="60" cy="52" r="22" fill="currentColor" opacity="0.18" />
+    <path d="M22 150c4-34 20-52 38-52s34 18 38 52z" fill="currentColor" opacity="0.18" />
+  </svg>
+)}

@@ -1,0 +1,79 @@
+---
+// Sidhuvudet: kontaktvägen på varje sida, fast i toppen på mobilen (guide/2-3-struktur.md).
+// Menyn är en <details>-disclosure som fungerar utan JavaScript (guide/2-4-skelett.md, primitiverna).
+import Ikon from '../komponenter/Ikon.astro';
+import Bildruta from '../komponenter/Bildruta.astro';
+import type { StartInnehall } from '../innehall/typ';
+interface Props { innehall: StartInnehall; }
+const { foretag, boka, ring, nav } = Astro.props.innehall;
+---
+<header class="sidhuvud">
+  <div class="behallare sidhuvud__rad">
+    <a class="sidhuvud__namn" href="/">
+      {foretag.logotyp && <span class="sidhuvud__logo"><Bildruta bild={foretag.logotyp} bredd={40} /></span>}
+      <span>{foretag.namn}</span>
+    </a>
+    <nav class="sidhuvud__nav" aria-label="Huvudmeny">
+      <ul>{nav.map((l) => <li><a href={l.href}>{l.text}</a></li>)}</ul>
+    </nav>
+    <div class="sidhuvud__kontakt">
+      <a class="sidhuvud__ring" href={ring.href} aria-label={`Ring ${ring.nummer}`}>
+        <Ikon namn="telefon" /><span class="sidhuvud__ringtext">{ring.nummer}</span>
+      </a>
+      <a class="knapp knapp--primar sidhuvud__boka" href={boka.href} rel="noopener">{boka.text}</a>
+      <details class="sidhuvud__meny">
+        <summary aria-label="Meny"><Ikon namn="meny" /></summary>
+        <ul>{nav.map((l) => <li><a href={l.href}>{l.text}</a></li>)}</ul>
+      </details>
+    </div>
+  </div>
+</header>
+
+<style>
+  .sidhuvud {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--k-bg) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid color-mix(in srgb, var(--k-linje) 70%, transparent);
+  }
+  .sidhuvud__rad { display: flex; align-items: center; gap: var(--k-a2); min-height: 4rem; }
+  .sidhuvud__namn {
+    display: flex; align-items: center; gap: var(--k-a2); min-width: 0;
+    font-family: var(--k-font-rubrik); font-weight: var(--k-rubrik-vikt); text-transform: var(--k-rubrik-versaler);
+    font-size: clamp(0.95rem, 0.8rem + 0.8vw, 1.2rem); color: var(--k-text); text-decoration: none; margin-right: auto;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .sidhuvud__logo { display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 8px; background: var(--k-mork); padding: 4px; }
+  .sidhuvud__nav { display: none; }
+  .sidhuvud__nav ul, .sidhuvud__meny ul { list-style: none; margin: 0; padding: 0; }
+  .sidhuvud__nav ul { display: flex; gap: var(--k-a5); }
+  .sidhuvud__nav a, .sidhuvud__meny a { color: var(--k-text); text-decoration: none; font-weight: 500; }
+  .sidhuvud__nav a:hover { text-decoration: underline; }
+  .sidhuvud__kontakt { display: flex; align-items: center; gap: var(--k-a1); flex: none; }
+  .sidhuvud__ring {
+    display: inline-flex; align-items: center; justify-content: center; gap: var(--k-a2);
+    min-width: 48px; min-height: 48px; color: var(--k-text); text-decoration: none; font-weight: 600;
+  }
+  .sidhuvud__ring :global(svg) { width: 1.3rem; height: 1.3rem; }
+  .sidhuvud__ringtext { display: none; }
+  .sidhuvud__boka { min-height: 44px; padding: 0.5rem 0.9rem; white-space: nowrap; font-size: 0.95rem; }
+  .sidhuvud__meny summary {
+    list-style: none; display: grid; place-items: center; width: 48px; height: 48px; cursor: pointer; color: var(--k-text);
+  }
+  .sidhuvud__meny summary::-webkit-details-marker { display: none; }
+  .sidhuvud__meny summary :global(svg) { width: 1.5rem; height: 1.5rem; }
+  .sidhuvud__meny ul {
+    position: absolute; right: var(--k-a4); top: 4rem; min-width: 14rem;
+    background: var(--k-yta); border: 1px solid var(--k-linje); border-radius: var(--k-radie-kort);
+    padding: var(--k-a3); display: grid; gap: var(--k-a1);
+  }
+  .sidhuvud__meny li a { display: block; padding: var(--k-a3) var(--k-a4); }
+  @media (min-width: 64rem) {
+    .sidhuvud__rad { min-height: 5rem; gap: var(--k-a6); }
+    .sidhuvud__nav { display: block; }
+    .sidhuvud__meny { display: none; }
+    .sidhuvud__ringtext { display: inline; }
+    .sidhuvud__namn { margin-right: 0; }
+    .sidhuvud__nav { margin-right: auto; }
+  }
+</style>

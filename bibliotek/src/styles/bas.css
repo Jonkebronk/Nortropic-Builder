@@ -1,0 +1,81 @@
+/* Grunden som alla kit delar. Bara tokens ur stilkitet används (guide/2-4-skelett.md). */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 5rem; }
+body {
+  margin: 0;
+  background: var(--k-bg);
+  color: var(--k-text);
+  font-family: var(--k-font-brod);
+  font-size: var(--k-brod);
+  line-height: var(--k-radhojd);
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { display: block; max-width: 100%; height: auto; }
+h1, h2, h3 {
+  font-family: var(--k-font-rubrik);
+  font-weight: var(--k-rubrik-vikt);
+  text-transform: var(--k-rubrik-versaler);
+  letter-spacing: var(--k-rubrik-spatiering);
+  line-height: var(--k-rubrik-radhojd);
+  margin: 0;
+  text-wrap: balance;
+}
+h1 { font-size: var(--k-h1); }
+h2 { font-size: var(--k-h2); }
+h3 { font-size: var(--k-h3); line-height: 1.25; }
+p { margin: 0; text-wrap: pretty; }
+a { color: var(--k-accent-text); text-underline-offset: 0.18em; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--k-accent-text); outline-offset: 3px; border-radius: 4px; }
+
+.behallare { width: min(100% - 2 * var(--k-a5), var(--k-max)); margin-inline: auto; }
+.sektion { padding-block: var(--k-sektion); }
+.sektion__huvud { display: grid; gap: var(--k-a3); margin-bottom: var(--k-a6); max-width: 44rem; }
+.overrad {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: var(--k-overrad-versaler);
+  letter-spacing: var(--k-overrad-spatiering);
+  color: var(--k-accent-text);
+}
+.dampad { color: var(--k-dampad); }
+
+.hoppa {
+  position: absolute; left: var(--k-a4); top: -100px; z-index: 100;
+  background: var(--k-mork); color: var(--k-pa-mork); padding: var(--k-a2) var(--k-a4); border-radius: var(--k-radie-knapp);
+}
+.hoppa:focus { top: var(--k-a2); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Knappar */
+.knapp {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--k-a2);
+  min-height: 48px; padding: 0.7rem 1.4rem;
+  border-radius: var(--k-radie-knapp);
+  border: var(--k-kantlinje) solid transparent;
+  font: inherit; font-weight: var(--k-knapp-vikt); text-transform: var(--k-knapp-versaler);
+  letter-spacing: 0.01em; text-decoration: none; line-height: 1.2;
+  transition: background-color var(--k-tid) var(--k-kurva), color var(--k-tid) var(--k-kurva), transform var(--k-tid) var(--k-kurva);
+}
+.knapp svg { width: 1.15em; height: 1.15em; flex: none; }
+.knapp--primar { background: var(--k-accent); color: var(--k-pa-accent); border-color: var(--k-accent); }
+.knapp--sekundar { background: transparent; color: var(--k-text); border-color: currentColor; }
+.knapp--pa-mork { background: var(--k-pa-mork); color: var(--k-mork); border-color: var(--k-pa-mork); }
+.knapp:hover { transform: translateY(-1px); }
+
+/* Kort */
+.kort {
+  background: var(--k-yta);
+  border-radius: var(--k-radie-kort);
+  padding: var(--k-a5);
+  display: grid; gap: var(--k-a3); align-content: start;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition-property: color, background-color, border-color, opacity !important;
+  }
+  .knapp:hover { transform: none; }
+}

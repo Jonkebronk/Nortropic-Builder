@@ -1,0 +1,73 @@
+/* Stilkit: Lugn och luftig. Referenser i måttstocken: Stångå Tandklinik, Fungera, Looking Good (guide/2-5-yta.md).
+   Värdena är uppmätta med Playwright 2026-10-15 och justerade för kontrast (WCAG 2.2 AA). */
+@import "@fontsource/instrument-sans/400.css";
+@import "@fontsource/instrument-sans/600.css";
+
+[data-kit="lugn"] {
+  /* Färg */
+  --k-bg: #f6f3ee;
+  --k-yta: #ffffff;
+  --k-text: #22382f;
+  --k-dampad: #4f5f58;
+  --k-linje: #ddd6cc;
+  --k-accent: #a4532e;
+  --k-pa-accent: #ffffff;
+  --k-accent-text: #a4532e;
+  --k-mork: #22382f;
+  --k-pa-mork: #f6f3ee;
+  --k-dekor: #ebe3d8;
+  --k-forstavy-bg: var(--k-bg);
+  --k-forstavy-text: var(--k-text);
+
+  /* Typsnitt: Instrument Sans (OFL), självhostat */
+  --k-font-rubrik: "Instrument Sans", system-ui, sans-serif;
+  --k-font-brod: "Instrument Sans", system-ui, sans-serif;
+  --k-font-markering: var(--k-font-brod);
+  --k-rubrik-vikt: 600;
+  --k-rubrik-versaler: none;
+  --k-rubrik-spatiering: -0.015em;
+  --k-rubrik-radhojd: 1.1;
+  --k-h1: clamp(2.3rem, 1.5rem + 3.6vw, 4.1rem);
+  --k-h2: clamp(1.65rem, 1.3rem + 1.5vw, 2.5rem);
+  --k-h3: 1.2rem;
+  --k-brod: 1.0625rem;
+  --k-radhojd: 1.7;
+  --k-overrad-versaler: uppercase;
+  --k-overrad-spatiering: 0.12em;
+
+  /* Avstånd: luftigt */
+  --k-a1: 0.25rem;
+  --k-a2: 0.5rem;
+  --k-a3: 0.75rem;
+  --k-a4: 1rem;
+  --k-a5: 1.5rem;
+  --k-a6: 2.5rem;
+  --k-a7: 4rem;
+  --k-sektion: clamp(4.5rem, 3rem + 6vw, 8.5rem);
+  --k-max: 72rem;
+
+  /* Radie och knappar */
+  --k-radie-knapp: 10px;
+  --k-radie-kort: 14px;
+  --k-radie-bild: 14px;
+  --k-knapp-vikt: 600;
+  --k-knapp-versaler: none;
+  --k-kantlinje: 1px;
+
+  /* Rörelse */
+  --k-tid: 400ms;
+  --k-kurva: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Kitets egna drag: porträttet på en mjuk, rundad yta och en tunn linje som avdelare. */
+[data-kit="lugn"] .forstavy__bildyta {
+  background: var(--k-dekor);
+  border-radius: 999px 999px var(--k-radie-bild) var(--k-radie-bild);
+}
+[data-kit="lugn"] .markering {
+  background: var(--k-yta);
+  border: 1px solid var(--k-linje);
+  border-radius: 999px;
+  padding: var(--k-a2) var(--k-a4);
+  font-size: 0.95rem;
+}

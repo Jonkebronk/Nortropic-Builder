@@ -1,0 +1,16 @@
+---
+// Bibliotekets ingång: länkar till provsidan i varje stilkit.
+const kit = [
+  { id: 'lugn', namn: 'Lugn och luftig' },
+  { id: 'varm', namn: 'Varm och välkomnande' },
+  { id: 'djarv', namn: 'Djärv och egen' },
+];
+---
+<!doctype html>
+<html lang="sv">
+  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Biblioteket</title><meta name="robots" content="noindex" /></head>
+  <body style="font-family: system-ui, sans-serif; max-width: 40rem; margin: 3rem auto; padding: 0 1rem;">
+    <h1>Biblioteket – provsidor</h1>
+    <ul>{kit.map((k) => <li><a href={`/prov/${k.id}/`}>{k.namn}</a></li>)}</ul>
+  </body>
+</html>

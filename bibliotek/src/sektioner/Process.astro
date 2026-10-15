@@ -1,0 +1,30 @@
+---
+// Process: hur första besöket eller uppdraget går till, i numrerade steg (guide/2-4-skelett.md).
+import type { StartInnehall } from '../innehall/typ';
+interface Props { innehall: StartInnehall; }
+const { process } = Astro.props.innehall;
+---
+<section class="sektion process" aria-labelledby="process-rubrik">
+  <div class="behallare">
+    <h2 id="process-rubrik" class="process__rubrik">{process.rubrik}</h2>
+    <ol class="process__steg">
+      {process.steg.map((s) => (
+        <li class="kort"><h3>{s.rubrik}</h3><p class="dampad">{s.text}</p></li>
+      ))}
+    </ol>
+    {process.not && <p class="process__not dampad">{process.not}</p>}
+  </div>
+</section>
+
+<style>
+  .process { background: var(--k-yta); }
+  .process__rubrik { margin-bottom: var(--k-a6); }
+  .process__steg { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--k-a4); counter-reset: steg; }
+  .process__steg li { counter-increment: steg; background: var(--k-bg); }
+  .process__steg li::before {
+    content: counter(steg);
+    font-family: var(--k-font-rubrik); font-weight: var(--k-rubrik-vikt); font-size: 2rem; line-height: 1; color: var(--k-accent-text);
+  }
+  .process__not { margin-top: var(--k-a5); max-width: 40rem; }
+  @media (min-width: 48rem) { .process__steg { grid-template-columns: repeat(3, 1fr); } }
+</style>

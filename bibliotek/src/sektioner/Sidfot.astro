@@ -1,0 +1,30 @@
+---
+// Sidfoten: platser, kontakt och sociala länkar. Ingen text i komponenten.
+import type { StartInnehall } from '../innehall/typ';
+interface Props { innehall: StartInnehall; }
+const { foretag, sidfot, ring } = Astro.props.innehall;
+---
+<footer class="sidfot">
+  <div class="behallare sidfot__rutnat">
+    <p class="sidfot__namn">{foretag.namn}</p>
+    <ul class="sidfot__lista">
+      {sidfot.platser.map((p) => <li><strong>{p.namn}</strong><br />{p.adress}</li>)}
+    </ul>
+    <ul class="sidfot__lista">
+      <li><a href={ring.href}>{ring.nummer}</a></li>
+      {sidfot.epost && <li><a href={sidfot.epost.href}>{sidfot.epost.text}</a></li>}
+      {sidfot.sociala.map((l) => <li><a href={l.href} rel="noopener">{l.text}</a></li>)}
+    </ul>
+  </div>
+  <div class="behallare sidfot__rad"><p>{sidfot.rad}</p></div>
+</footer>
+
+<style>
+  .sidfot { background: var(--k-bg); border-top: 1px solid var(--k-linje); padding-block: var(--k-a7) var(--k-a5); font-size: 0.95rem; }
+  .sidfot__rutnat { display: grid; gap: var(--k-a5); }
+  .sidfot__namn { font-family: var(--k-font-rubrik); font-weight: var(--k-rubrik-vikt); text-transform: var(--k-rubrik-versaler); font-size: 1.25rem; }
+  .sidfot__lista { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--k-a3); }
+  .sidfot__lista a { color: var(--k-text); }
+  .sidfot__rad { margin-top: var(--k-a6); color: var(--k-dampad); font-size: 0.85rem; }
+  @media (min-width: 48rem) { .sidfot__rutnat { grid-template-columns: 1fr 1fr 1fr; } }
+</style>

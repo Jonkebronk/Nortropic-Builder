@@ -1,0 +1,51 @@
+---
+// Förstavyn: mobilens första skärm svarar på vad, var och hur (guide/2-4-skelett.md; måttstockens fråga 1).
+// Rubriken säger tjänst och ort; kontaktvägen syns som knappar; telefonnumret går att klicka på.
+import Knapp from '../komponenter/Knapp.astro';
+import Bildruta from '../komponenter/Bildruta.astro';
+import type { StartInnehall } from '../innehall/typ';
+interface Props { innehall: StartInnehall; }
+const { forstavy, boka, ring } = Astro.props.innehall;
+---
+<section class="forstavy" aria-labelledby="forstavy-rubrik">
+  <div class="behallare forstavy__rutnat">
+    <div class="forstavy__text">
+      <p class="overrad">{forstavy.overrad}</p>
+      <h1 id="forstavy-rubrik">{forstavy.rubrik}</h1>
+      <p class="forstavy__ingress">{forstavy.ingress}</p>
+      <div class="forstavy__knappar">
+        <Knapp href={boka.href} text={boka.text} ikon="kalender" />
+        <Knapp href={ring.href} text={ring.text} variant="sekundar" ikon="telefon" />
+      </div>
+    </div>
+    <div class="forstavy__bild">
+      <div class="forstavy__bildyta">
+        <Bildruta bild={forstavy.bild} bredd={340} klass="forstavy__foto" laddning="eager" />
+      </div>
+      {forstavy.markering && <p class="markering">{forstavy.markering}</p>}
+    </div>
+  </div>
+</section>
+
+<style>
+  .forstavy { background: var(--k-forstavy-bg); color: var(--k-forstavy-text); padding-block: var(--k-a6) var(--k-sektion); }
+  .forstavy__rutnat { display: grid; gap: var(--k-a6); align-items: center; }
+  .forstavy__text { display: grid; gap: var(--k-a4); }
+  .forstavy__text .overrad { color: inherit; opacity: 0.9; }
+  .forstavy__ingress { font-size: 1.125rem; max-width: 34rem; }
+  .forstavy__knappar { display: flex; flex-wrap: wrap; gap: var(--k-a3); margin-top: var(--k-a2); }
+  .forstavy__knappar :global(.knapp--sekundar) { color: inherit; }
+  .forstavy__bild { position: relative; justify-self: center; width: min(100%, 22rem); }
+  .forstavy__bildyta { display: grid; place-items: end center; overflow: hidden; padding-top: var(--k-a5); aspect-ratio: 4 / 5; }
+  .forstavy__bildyta :global(.forstavy__foto) { width: 82%; height: auto; mix-blend-mode: multiply; }
+  .forstavy__bild .markering { position: absolute; right: -0.25rem; bottom: 1.25rem; margin: 0; }
+  @media (max-width: 40rem) {
+    .forstavy__knappar :global(.knapp) { flex: 1 1 100%; }
+    .forstavy__bild { width: min(78%, 18rem); }
+  }
+  @media (min-width: 56rem) {
+    .forstavy { padding-top: var(--k-a7); }
+    .forstavy__rutnat { grid-template-columns: 1.25fr 1fr; gap: var(--k-a7); }
+    .forstavy__bild { width: min(100%, 24rem); }
+  }
+</style>
