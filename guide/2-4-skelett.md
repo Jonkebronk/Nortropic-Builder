@@ -1,6 +1,6 @@
 # 2.4 Skelett
 
-**Status:** konsoliderad v1.0, 2026-10-15; ommärkt samma dag efter granskningen (fem N1-punkter). Genomgånget med Johnny 2026-10-13 (`historik/karta/4-skelett.md`). Lagret är nytt i guiden; v0.74 hade bara wireframes (fas 2).
+**Status:** konsoliderad v1.0, 2026-10-15; ommärkt samma dag efter granskningen (fem N1-punkter). Genomgånget med Johnny 2026-10-13 (`historik/karta/4-skelett.md`). Lagret är nytt i guiden; v0.74 hade bara wireframes (fas 2). **Genomläst med Johnny 2026-10-15**; rättelserna står i `BESLUT.md`.
 
 Garretts skelettplan bestämmer vilka delar varje sida har, var de står och vad ögat ser först. Lagret byggs enligt Brad Frosts *Atomic Design*, som Frost själv kallar en tankemodell, inte en linjär process 📄 ([kap. 2](https://atomicdesign.bradfrost.com/chapter-2/)):
 

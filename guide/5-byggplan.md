@@ -1,6 +1,6 @@
 # 5. Byggplanen
 
-**Status:** konsoliderad v1.0, 2026-10-15. Ersätter v0.74 §16 (21 steg, där den första hela sajten kom i steg 13).
+**Status:** konsoliderad v1.0, 2026-10-15. Ersätter v0.74 §16 (21 steg, där den första hela sajten kom i steg 13). **Genomläst med Johnny 2026-10-15**; rättelserna står i `BESLUT.md`.
 
 **Ordning:** flödet först (beslut 2026-10-15) – men i små steg (beslut 2026-10-13), och **varje steg ger något Johnny kan se och döma**. Ett steg är klart när Johnny har dömt resultatet, inte när kontrollerna går igenom. Stegen körs som **övningssajter för verkliga lokala firmor, en i taget, tills Johnny är nöjd** (beslut 2026-10-15: *"vi kommer bygga ett x antal fiktiva hemsidor tills jag är nöjd och vi har mängdträning"* och *"Vi tar ju lokala verklig firma och tränar på det"*). Firman finns på riktigt, men den har inte beställt sajten. Övningen körs interaktivt i huvudsessionen medan Johnny tittar. Flödets delar byggs för att sajten framför oss ska bli bra, inte för en tänkt framtida skala.
 

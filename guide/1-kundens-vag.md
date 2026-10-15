@@ -1,6 +1,6 @@
 # 1. Kundens väg
 
-**Status:** konsoliderad v1.0, 2026-10-15. Kundens väg är Johnnys beslut 2026-10-13 18:05; ordningen för riktningarna är beslutet 2026-10-15.
+**Status:** konsoliderad v1.0, 2026-10-15. Kundens väg är Johnnys beslut 2026-10-13 18:05; ordningen för riktningarna är beslutet 2026-10-15. **Genomläst med Johnny 2026-10-15**; rättelserna står i `BESLUT.md`.
 
 Johnny, 2026-10-13:
 

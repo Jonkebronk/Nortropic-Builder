@@ -1,6 +1,6 @@
 # 2.2 Omfattning
 
-**Status:** konsoliderad v1.0, 2026-10-15, ommärkt efter granskningen samma dag. Genomgånget med Johnny 2026-10-13 (`historik/karta/2-omfattning.md`).
+**Status:** konsoliderad v1.0, 2026-10-15, ommärkt efter granskningen samma dag. Genomgånget med Johnny 2026-10-13 (`historik/karta/2-omfattning.md`). **Genomläst med Johnny 2026-10-15**; rättelserna står i `BESLUT.md`.
 
 Omfattningen är Garretts andra plan: vilka sidor, funktioner och vilket innehåll sajten ska ha, och vad den inte ska ha. Lagret har två spår, eftersom inte alla verksamheter har en sajt (`BESLUT.md` 2026-10-13, 18:43). Här bor också det som gör omfattningen leveransbar per kund: onboarding, lagkrav och avtal.
 

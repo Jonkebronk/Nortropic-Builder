@@ -1,6 +1,6 @@
 # 2.3 Struktur
 
-**Status:** konsoliderad v1.0, 2026-10-15; ommärkt samma dag efter granskningen (fyra N1-punkter). Genomgånget med Johnny 2026-10-13 (`historik/karta/3-struktur.md`).
+**Status:** konsoliderad v1.0, 2026-10-15; ommärkt samma dag efter granskningen (fyra N1-punkter). Genomgånget med Johnny 2026-10-13 (`historik/karta/3-struktur.md`). **Genomläst med Johnny 2026-10-15**; rättelserna står i `BESLUT.md`.
 
 Garretts strukturplan har två halvor. **Informationsarkitekturen** bestämmer vilka sidor som finns, hur de hänger ihop och vad de heter. **Interaktionsdesignen** bestämmer vägarna genom sajten: vad besökaren kan göra på varje sida och vad som händer då. Hur sidorna ser ut och vilka sektioner de har hör till skelettet (`2-4-skelett.md`). Vilka sidor och funktioner som ingår i paketet avgörs i omfattningen (`2-2-omfattning.md`).
 

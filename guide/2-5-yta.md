@@ -1,6 +1,6 @@
 # 2.5 Yta
 
-**Status:** konsoliderad v1.0, 2026-10-15; ommärkt 2026-10-15 efter granskningen. Utkast, inte genomgånget med Johnny.
+**Status:** konsoliderad v1.0, 2026-10-15; ommärkt 2026-10-15 efter granskningen. **Genomläst med Johnny 2026-10-15**; rättelserna står i `BESLUT.md`.
 
 Ytan är Garretts femte plan: typografi, färg, avstånd, radier, skuggor, ikoner och bildbehandling. I Atomic Design är det tokens, lagret som bibliotekets sektioner (→ `2-4-skelett.md`) bygger på. Här ändrades guiden mest i v1.0: en kundsajt får inte längre en egen design i Stitch, utan ytan kommer ur 3–5 stilkit som byggs en gång (`BESLUT.md` 2026-10-15, "Stitch inom stilkit"). Den första sajten använder minimala kit (`5-byggplan.md`, steg 2); kitens fulla omfång kommer från sajt 2.
 

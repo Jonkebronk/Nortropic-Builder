@@ -1,6 +1,6 @@
 # Nortropic-Builder – guiden
 
-**Status:** v1.0, konsoliderad 2026-10-15. Ersätter implementeringsguiden v0.74 (`historik/IMPLEMENTERINGSGUIDE-v0.74.md`). Johnny läser igenom och rättar; tills dess är v1.0 ett utkast med mandat.
+**Status:** v1.0, konsoliderad 2026-10-15. Ersätter implementeringsguiden v0.74 (`historik/IMPLEMENTERINGSGUIDE-v0.74.md`). Johnny läser igenom och rättar. Genomläst 2026-10-15: README, kundens väg, byggplanen och lagren 2.1–2.5; resten är ett utkast med mandat tills det är genomläst. Rättelserna står i `BESLUT.md`.
 
 ## Vad det här är
 

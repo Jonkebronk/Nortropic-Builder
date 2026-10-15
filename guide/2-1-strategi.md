@@ -1,6 +1,6 @@
 # 2.1 Strategi
 
-**Status:** konsoliderad v1.0, 2026-10-15, ommärkt efter granskningen samma dag. Genomgånget med Johnny 2026-10-13 (`historik/karta/1-strategi.md`).
+**Status:** konsoliderad v1.0, 2026-10-15, ommärkt efter granskningen samma dag. Genomgånget med Johnny 2026-10-13 (`historik/karta/1-strategi.md`). **Genomläst med Johnny 2026-10-15**; rättelserna står i `BESLUT.md`.
 
 Strategin är Garretts första plan: vad verksamheten vill uppnå med sajten, vilka besökarna är och vad de vill få gjort. En intervjuande AI tar reda på det med kunden och skriver en strategibrief på en sida. Alla senare lager bygger på briefen, och ett fel här klarar alla senare grindar, eftersom de mäter mot planen (fallgrop 71).
 
