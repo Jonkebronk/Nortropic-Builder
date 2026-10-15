@@ -34,8 +34,8 @@ Steg 5 (publicering) och steg 6 (den första rapporten) görs för hand (*Inte s
 - **Syfte:** tre riktningar – startsidan i tre minimala stilkit – som Johnny ser först och kan stryka innan kunden väljer. (`BESLUT.md` 2026-10-15)
 - **In:** briefen, särskilt ton och intryck, och faktabasen.
 - **Ut:** de tre minimala stilkiten ur måttstocken – Lugn och luftig, Varm och välkomnande, Djärv och egen (`2-5-yta.md`) – vart och ett med färg, typsnitt (med licens), avstånd, radie och rörelse samt en kort `design.md` med personlighet, typsnitt och referenser. De sektioner startsidan behöver, en variant var. Startsidan i de tre kiten som förhandsvisning och skärmdumpar i mobil- och datorbredd, mobilen först, med en mening per riktning om varför den passar briefen. Blickprovet körs på varje riktnings första vy innan Johnny ser dem (`2-4-skelett.md`).
-- **Begränsningar:** Stitch används på provsidan i dator och mobil när kiten tas fram – aldrig med kundinnehåll och aldrig per kund i övrigt. Bara de sektioner startsidan behöver. Riktningarna ska skilja sig på riktigt. Referensregeln och licens per tillgång → `2-5-yta.md`.
-- **Destilleras ur:** webb-pros `designfas` (B20). Regler för stilkit och referenser → `2-5-yta.md`; sektionerna → `2-4-skelett.md`. Verktygen (Stitch-CLI, Inspo) → `bilaga-a-verktyg.md`.
+- **Begränsningar:** Bara de sektioner startsidan behöver. Riktningarna ska skilja sig på riktigt. Referensregeln och licens per tillgång → `2-5-yta.md`.
+- **Destilleras ur:** webb-pros `designfas` (B20). Regler för stilkit och referenser → `2-5-yta.md`; sektionerna → `2-4-skelett.md`. Verktygen (Inspo, Playwright) → `bilaga-a-verktyg.md`.
 - [N2] **Från sajt 2 väljer utkastet bland befintliga stilkit och sektioner** och uppfinner inga färger, typsnitt eller sektioner. Att byta stilkit blir ett skript; utkastet väljer och motiverar. Nya kit tas fram i biblioteksarbetet, inte här.
 - Ersätter v0.74:s riktningar ur Inspo i fas 1b. Går upp i `yta` [N2].
 
@@ -95,7 +95,7 @@ Steg 5 (publicering) och steg 6 (den första rapporten) görs för hand (*Inte s
 | `omfattning` | N2 | 2 | Top Tasks, MoSCoW, branschprofiler; ombyggnadsspåret med fångst, URL-inventering, omdirigeringar och före-mått (→ 2-2) | v0.74 fas 0b; kartan lager 2 | K9, K11, K12; inventeringen: branschprofilerna byggs själva |
 | `struktur` | N2 | 3 | Sidkarta, sökord, menyer, nyckelresor (→ 2-3) | v0.74 fas 1 (sökord), brief 2b; kartan lager 3 | K18, K23 |
 | `skelett` | N2 | 4 | Regler för sektionsbiblioteket, nya sektioner, wireframes per sidtyp (→ 2-4) | v0.74 fas 2; kartan lager 4 | B9, B30, B43, K28, K29; inventeringen: sektionen Serviceområde byggs själva |
-| `yta` | N2 | 5 | Ta fram och förnya stilkit; tar över `riktningar` (→ 2-5) | v0.74 fas 2 (`design.md`, Stitch); kartan lager 5 | B5, B10, B11, B27, B35, B52, B54, B55, B58; Stitch, Inspo, Tastemaker |
+| `yta` | N2 | 5 | Ta fram och förnya stilkit; tar över `riktningar` (→ 2-5) | v0.74 fas 2 (`design.md`); kartan lager 5 | B5, B10, B11, B27, B35, B52, B54, B55, B58; Inspo, Tastemaker |
 | `rorelse` | N2 | 6 | Bibliotekets rörelser och rörelsebudget (→ 2-6) | v0.74 fas 5; kartan lager 6 | B22, B23, B33, B36, B42 |
 | `text` | N2 | 7 | Texter ur faktabasen, svensk språkgrind, ägarens röst (→ 2-7) | v0.74 fas 6 (språk); kartan lager 7 | B13, B38, K52–K56, K60; inventeringen: svenska språkregler byggs själva |
 | `kvalitet` | N2 | 8 | Kontrolltabellerna, SEO och lanseringskrav, publicering; kontroller per sajt ur briefen (→ 2-8) | v0.74 `write-checks`, fas 6b, 6c och 7; kartan lager 8 | B3, B7, B26, B41, K66–K75 |
@@ -111,14 +111,14 @@ v0.74 räknade med "ett trettiotal" egna skills men namngav nio. Resten var roll
 | v0.74 | v1.0 |
 |---|---|
 | `brief-interview` | `intervju`: utkast [N1], skill [N2] |
-| `stitch-review` | Struken (M11). Ersatt av `granska`; jämförelsen mot en Stitch-design per sajt finns inte längre, eftersom Stitch bara används för stilkit |
+| `stitch-review` | Struken (M11). Ersatt av `granska`; jämförelsen mot en Stitch-design per sajt finns inte längre, och Stitch är struket 2026-10-15 (`BESLUT.md`, *Stitch stryks*) |
 | `story-review` | Struken (M11). Berättelsegranskning blir en delfil i `granska` för scrollytelling-tillvalet [N4] |
 | `write-checks` | `kvalitet` [N2]. I första varvet är kontrollerna ett skript |
 | `auto-loop` | `lardomar` [N4] |
 | `checkpoint-planner` | Ingen skill; funktionslistan `checkpoints.json` [N2] (→ `3-1-orkestrering-och-roller.md`) |
 | `planvy` | Ingen skill; en vy i `3-5-live-visning.md` |
 | `kod-kritiker` och `kod-rattare` | Inbyggda `/code-review` en gång före publicering [N2] (analysen §7.3); egna roller först [N4] (→ 3-2) |
-| `stitch`, `scrollytelling` | Tredjepart → `bilaga-a-verktyg.md` |
+| `stitch`, `scrollytelling` | Tredjepart → `bilaga-a-verktyg.md`; `stitch` är struken 2026-10-15 (`BESLUT.md`, *Stitch stryks*) |
 | LLM Wiki och `/ingest` | `kunskap` [N4] |
 | `project-context` som minne (§10.6) | Ingen skill; briefen och stilkitet fyller rollen |
 | Roller: spanare, domare, advisor, specialister, angripare, ärendeagent | Spanare och domare → `3-1-orkestrering-och-roller.md`; advisor → `3-3-sakerhet-och-installningar.md`; specialister → `3-2-granskning-och-kalibrering.md`; angripare → `3-2-granskning-och-kalibrering.md`, *Eval*; ärendeagent → `4-foretaget.md` |

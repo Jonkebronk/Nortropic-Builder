@@ -36,8 +36,8 @@ Nortropic-Builder/
 ├── konsolidering/            skrivregler och spårbarhet för v1.0
 ├── mattstock/                Johnnys måttstock: metod, urval, domar och måttstocken (3-2)
 ├── .claude/
-│   ├── skills/               [N1] egna skills (bilaga B); Stitchs agent-skills skriver till
-│   │                         .agents/skills – kopieras hit (3-4)
+│   ├── skills/               [N1] egna skills (bilaga B); skills som hamnar i
+│   │                         .agents/skills kopieras hit (3-4)
 │   ├── hooks/                [N2] grind-stopp.mjs m.fl. (3-1)
 │   └── workflows/            [N4] arbetsflöden (3-1)
 └── .gitignore                bl.a. sites/, .env, nycklar

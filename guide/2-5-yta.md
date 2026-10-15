@@ -2,13 +2,13 @@
 
 **Status:** konsoliderad v1.0, 2026-10-15; ommärkt 2026-10-15 efter granskningen. **Genomläst med Johnny 2026-10-15**; rättelserna står i `BESLUT.md`.
 
-Ytan är Garretts femte plan: typografi, färg, avstånd, radier, skuggor, ikoner och bildbehandling. I Atomic Design är det tokens, lagret som bibliotekets sektioner (→ `2-4-skelett.md`) bygger på. Här ändrades guiden mest i v1.0: en kundsajt får inte längre en egen design i Stitch, utan ytan kommer ur 3–5 stilkit som byggs en gång (`BESLUT.md` 2026-10-15, "Stitch inom stilkit"). Den första sajten använder minimala kit (`5-byggplan.md`, steg 2); kitens fulla omfång kommer från sajt 2.
+Ytan är Garretts femte plan: typografi, färg, avstånd, radier, skuggor, ikoner och bildbehandling. I Atomic Design är det tokens, lagret som bibliotekets sektioner (→ `2-4-skelett.md`) bygger på. Här ändrades guiden mest i v1.0: en kundsajt får inte längre en egen design, utan ytan kommer ur 3–5 stilkit som byggs en gång (`BESLUT.md` 2026-10-15, designsättet och *Stitch stryks*). Den första sajten använder minimala kit (`5-byggplan.md`, steg 2); kitens fulla omfång kommer från sajt 2.
 
 ## Vad byrån gör
 
 ### Grundregeln
 
-- [N1] **Ytan kommer ur ett stilkit, aldrig ur fri generering i kundbygget.** Stitch, Inspo, Tastemaker och övriga designverktyg används när kiten tas fram och förnyas, inte vid varje kundbygge. Stitch prövar kitet på en startsida med provinnehåll, i dator och mobil, och värdena förs in i kitets tokens: inget kundinnehåll skickas till Stitch, och ingen export går till en kundsajt. Claude Design är inte designmotor. 📄 `BESLUT.md` 2026-10-14 och 2026-10-15. Varför: en design per sajt tog lång tid, åtta Stitch-varianter i videon (fallgrop 6) 🎥 *Stitch-videon*; modellen gled tillbaka till sina egna färger och typsnitt (fallgrop 18) 🎥 *Opus 5.5-videon*; och Stitch designade bara för dator, så att sajten gick sönder på mobil (fallgrop 3, 19) 🎥 *Stitch-videon*, *Opus 5.5-videon*.
+- [N1] **Ytan kommer ur ett stilkit, aldrig ur fri generering i kundbygget.** Inspo, Tastemaker och övriga designverktyg används när kiten tas fram och förnyas, inte vid varje kundbygge. Kiten tas fram ur referenserna i måttstocken (*De tre första kiten* nedan): värdena mäts upp som beräknade stilar via Playwright och förs in i kitets tokens. Claude Design är inte designmotor. 📄 `BESLUT.md` 2026-10-14 och 2026-10-15 (*Stitch stryks*). Varför: en design per sajt tog lång tid, åtta varianter i videon (fallgrop 6) 🎥 *Stitch-videon*; modellen gled tillbaka till sina egna färger och typsnitt (fallgrop 18) 🎥 *Opus 5.5-videon*; och designen gjordes bara för dator, så att sajten gick sönder på mobil (fallgrop 3, 19) 🎥 *Stitch-videon*, *Opus 5.5-videon*.
 - [N2] **Stilen kommer ur kitet, inte ur skills.** Byggaren laddar inga stilskills (taste, frontend-design m.fl.); de används bara när kit tas fram, en stil per agent. Skills med olika stil krockar (fallgrop 48) 🎥 *designskills-videon*, och webb-pros 67 skillkrockar drog mot "en säker mittenform" 📄 `kunskap/research/2026-10-15_webb-pro-genomgang.md`.
 - [N2] **Kiten varierar ytan, inte konventionen.** Besökare dömer estetik på 17–50 ms och föredrar enkla, välbekanta sidor, och utseendet stod för 46,1 % av kommentarerna om trovärdighet. 📄 `kunskap/research/2026-10-15_kompetensluckor-anteckningar/lager-5-yta.md` §5.
 
@@ -20,7 +20,7 @@ Ett tokenset över bibliotekets sektioner plus en `design.md` som beskriver det.
 - [N2] **Kitets elva axlar** när kiten växer: typsnitt och vikter · typskala och radavstånd · avståndsskala · radie per elementklass och kantbredd · skuggor i minst två lager · färgroller, neutralton och accent · versaler och spärrning i knappar och etiketter · navigationsstil · ikonfamilj och streck · bildbehandling · rörelsebudget (→ `2-6-rorelse.md`). Destillerat ur Go-temat, Flowbite v4 och daisyUI 5; Go är GPL-2.0, så bara parametrarna studeras. 📄 `lager-5-yta.md` §5.
 - [N2] **Tokens i två nivåer.** Grundvärden delas av alla kit, och varje kit mappar dem till semantiska roller med shadcn-namn (`--primary`, `--primary-foreground`). Sektionerna använder bara rollerna, så ett kit byts utan att en sektion ändras, och varje rollpar är ett kontrasttest. 📄 Brad Frost via `lager-5-yta.md` §1, §5.
 - [N2] **Format när kiten lintas och förnyas:** DTCG 2025.10 byggt med Terrazzo (låst version) till Tailwind 4 `@theme`; resolverns modifier `kit` är "ett system, flera kit". DTCG är stabilt men ingen W3C-standard, och dimensioner får bara vara `px` eller `rem`, så `clamp()`-skalor kräver en egen transform. ⚠️ Terrazzo och `[data-kit]` är inte provade – *öppet, se `bilaga-e-oppna-fragor.md`*. 📄 `lager-5-yta.md` §1.
-- [N2] **Full `design.md` per kit:** personlighet och vilka kunder kitet passar, stämningsadjektiv, typsnitt med licens, ikonfamilj, bildbehandling, rörelsebudget, antimönster, namngivna referenser med en mening om varför, och datum för Johnnys godkännande. Googles format, så att Stitch kan läsa filen. 🎥 *Stitch-skills-videon*.
+- [N2] **Full `design.md` per kit:** personlighet och vilka kunder kitet passar, stämningsadjektiv, typsnitt med licens, ikonfamilj, bildbehandling, rörelsebudget, antimönster, namngivna referenser med en mening om varför, och datum för Johnnys godkännande. 🎥 *Stitch-skills-videon*.
 - [N2] **Antimönster per kit, inte globalt.** Ett kit får förbjuda typsnitt, ikonbibliotek eller mönster (t.ex. glassmorfism med gradienter) i sin `design.md`. Förbudet mot Inter, Geist och Lucide gäller inte alla kit: det har en källa, och Inter passar många småföretag (en källa – bänken; 🎥 *designnivå-videon*; analysen §4.2). Inter och Lucide är varken standard eller förbjudna: varje kit väljer (`BESLUT.md` 2026-10-15). Vaktens mekanik → `3-3-sakerhet-och-installningar.md`.
 - [N2] **Typsnitt ur en kuraterad OFL-lista**, självhostade via Astros Fonts API och Fontsource, t.ex. Inter, Source Serif, Fraunces, Familjen Grotesk, Atkinson Hyperlegible Next och IBM Plex. `latin` räcker för svenska; `latin-ext` behövs för samiska namn. Subsetta inte efter använda tecken, eftersom kunden lägger till text. ⚠️ Reserverade typsnittsnamn är inte kontrollerade – *öppet, se `bilaga-e-oppna-fragor.md`*. 📄 `lager-5-yta.md` §3.
 - [N2] **Flytande typskala enligt Utopia**, med max högst 2,5 × min per steg så att texten går att förstora (WCAG 1.4.4; tröskeln är Barvians, en källa). 📄 `lager-5-yta.md` §3.
@@ -44,8 +44,8 @@ I den första sajten tas de minimala kiten fram enligt *Grundregeln* och *Tre ri
 - [N2] **1. Kitbrief:** personlighet, vilka kunder kitet passar, 3–5 stämningsadjektiv och rörelsebudget. Börja med personligheten (*Refactoring UI*). 📄 `lager-5-yta.md` §6.
 - [N2] **2. Referenser:** ett fåtal i detalj, eftersom varje sökning kostar kontext, filtrerade på bransch (en kaffebrief gav annars hälsosajter, fallgrop 28) 🎥 *Inspo-videon*. Varje referens får en mening om varför den är bra (fallgrop 170) 🎥 *sex-färdigheter-videon*. Skills är bara text och visar inga hela sidor (fallgrop 27).
   - [N2] **Referensbilder utan överlägg.** En skärmdump där en cookie-ruta eller popup täcker designen tas om eller kasseras; agenten gissar aldrig på det dolda (fallgrop 29) 🎥 *Inspo-videon*.
-- [N2] **3. Utforska i Stitch** enligt *Stitch när kiten tas fram*.
-- [N2] **4. Exakta värden med skript**, inte som textsammanfattning där detaljer tappas (fallgrop 49) 🎥 *designskills-videon*: Tastemaker ⚠️, Stitch-skillen `extract-design-md` eller beräknade stilar via Playwright.
+- ~~[N2] **3. Utforska i Stitch**~~ **Struket 2026-10-15** (`BESLUT.md`, *Stitch stryks*).
+- [N2] **4. Exakta värden med skript**, inte som textsammanfattning där detaljer tappas (fallgrop 49) 🎥 *designskills-videon*: Tastemaker ⚠️ eller beräknade stilar via Playwright.
 - [N2] **5. Värdena blir tokens och `design.md`.**
 - [N2] **6. Provsida:** färger, typsnitt, skalor, radier, skuggor och ikoner, plus bibliotekets sektioner med minst två verksamheters innehåll, i mobil och dator. En `design.md` är svår för en människa att föreställa sig 🎥 *Claude Design-videon*.
 - [N2] **7. Johnnys dom:** godkänt eller underkänt med kort kritik; bara Johnny godkänner ett kit (`historik/karta/5-yta.md`). Domen blir kalibreringsdata (→ `3-2-granskning-och-kalibrering.md`).
@@ -71,28 +71,9 @@ Används när kit föreslås, för layoutvarianter (→ `2-4-skelett.md`) och f�
 - [N4] Parvis turnering (Arena-skillen) står på bänken 🎥 *Jack Roberts repo-video* ⚠️.
 - [N2] ADHD-skillen hamnar i `.agents` och måste kopieras eller länkas till `.claude` (fallgrop 1).
 
-### Stitch när kiten tas fram
+### ~~Stitch när kiten tas fram~~
 
-`npm install -g @google/stitch` (Node 20+). Inloggning med `stitch login` eller `STITCH_API_KEY`. Enligt `stitch status` i 0.11.1 krävs nyckeln för projekt, skärmar, fångster och designsystem, och den sparas med `stitch login --api-key` (sett 2026-10-15; installerat på Macen samma dag); nyckeln ligger utanför repot (→ `3-3-sakerhet-och-installningar.md`). Verifierat i 0.11.1, alla kommandon med `--json`, `--schema` och `--dry-run` 📄 `kunskap/research/2026-10-14_stitch-och-verktyg.md`. I den första sajten räcker CLI:t; hur det används står i *Grundregeln*.
-
-| Kommando | Syfte |
-|---|---|
-| `stitch generate screen --new-project "…" --prompt "…" --device DESKTOP\|MOBILE` | Nytt projekt och skärm (inget `create project`) |
-| `stitch generate variants --count 1–5 --creative-range REFINE\|EXPLORE\|REIMAGINE` | Varianter |
-| `stitch capture <url>` → `stitch upload screen` → `stitch edit screen <id> --prompt "…"` | För in en sida och gör om den |
-| `stitch upload design DESIGN.md --project <id>` | Ladda upp kitets `design.md` |
-| `stitch serve -p <id>` | Förhandsvisa lokalt |
-| `stitch mcp install` | Officiell MCP-server, som Googles skills kräver |
-| `stitch agent-skills add` | Skriver SKILL.md till `.agents/skills` |
-
-- [N2] **Gör om bibliotekets egna sektioner, uppfinn inte layouter.** Rendera provsidan, för in den med `capture` och `upload screen`, och pröva kitets adjektiv med `edit screen`. Då utforskar Stitch ytan medan skelettet står fast. 🔧 ⚠️ Inte provat.
-- [N2] **Prompter av stämningsadjektiv**, eftersom Stitch förstår stämning genom adjektiv (fallgrop 118); skillen `enhance-prompt` hjälper 🎥 *Stitch-skills-videon*.
-- [N2] **`EXPLORE` för bredd, sedan `REFINE`;** `REIMAGINE` bara om inget är nära. Efter cirka tio varianter väljer Johnny bland de 2–3 bästa. 🔧 Johnny kan också markera en del i Stitch och beskriva ändringen 🎥 *Stitch-skills-videon*.
-- [N2] **Kontrollera att skillen syns.** `agent-skills add` skriver till `.agents/skills`, och om Claude Code läser den mappen är inte verifierat; kopiera eller länka till `.claude/skills/` (fallgrop 1).
-- [N2] **Googles stitch-skills** (Apache-2.0): `npx plugins add google-labs-code/stitch-skills --scope project --target claude-code`. De kräver MCP, vilket duger för kitarbete som görs sällan. Användbara: `design-md`, `extract-design-md`, `enhance-prompt`, `manage-design-system`. davideast/stitch-mcp behövs inte.
-- [N2] **Verktygsmanifest** ur `stitch --help` och underkommandonas hjälp; agenten använder bara det som står där och listan görs om vid uppdatering (fallgrop 86) 🎥 *Astryx-videon*.
-
-**Villkor:** Google gör inte anspråk på output och förbjuder inte kommersiell användning, men ger ingen ensamrätt. Stitch är Google Labs utan åtagande om drift, så exporter sparas lokalt. Kvoterna är inte bekräftade officiellt. 📄 `2026-10-14_ai-forordningen-och-rattigheter.md` §5.
+**Struket 2026-10-15** (`BESLUT.md`, *Stitch stryks*).
 
 ### Tre riktningar till Johnny och kunden
 
@@ -117,7 +98,7 @@ Används när kit föreslås, för layoutvarianter (→ `2-4-skelett.md`) och f�
 | Komponenter (21st.dev, Aceternity UI, React Bits) | Licens per komponent; de går in i biblioteket (→ `2-4-skelett.md`), inte direkt i en kundsajt. | 🎥 *Astra-videon* |
 | Lottie och rörelser | Licens per fil (→ `2-6-rorelse.md`). | 🎥 *Jack Roberts-videon 2* |
 | Bilder och video | → `2-7-innehall.md`, samma krav på känd licens. | |
-| Output från Stitch och Higgsfield | Inget anspråk från leverantören, men ingen ensamrätt eller unikhet. Higgsfields rätt att träna på uppladdat material är oklar; läs villkoren före kundmaterial. | 📄 `2026-10-14_ai-forordningen-och-rattigheter.md` §5 |
+| Output från Higgsfield | Inget anspråk från leverantören, men ingen ensamrätt eller unikhet. Higgsfields rätt att träna på uppladdat material är oklar; läs villkoren före kundmaterial. | 📄 `2026-10-14_ai-forordningen-och-rattigheter.md` §5 |
 | Betalda källor (Mobbin, 21st m.fl.) | Webb-pros licensbesked har oifyllda platshållare. Hämta skriftliga medgivanden eller läs villkoren. | 📄 `2026-10-15_webb-pro-genomgang.md` |
 
 Effekter från referenssajter → `2-6-rorelse.md`.
@@ -170,4 +151,4 @@ I den första sajten är inget självgående: Johnny tittar på hela bygget, och
 - [N2] **Kundbygget är självgående inom kitet.** Byggaren väljer inga färger, typsnitt eller avstånd.
 - [N3] **Förnyelse:** stryker Johnny ofta samma kit, eller väljer kunder det sällan, föreslår agenten att kitet förnyas. 🔧
 
-*Öppet – se `bilaga-e-oppna-fragor.md`:* licensbeslutets räckvidd, Terrazzo och `[data-kit]`, Fontshares villkor och reserverade typsnittsnamn, Stitchs kvoter, och om Claude Code läser `.agents/skills`.
+*Öppet – se `bilaga-e-oppna-fragor.md`:* licensbeslutets räckvidd, Terrazzo och `[data-kit]` samt Fontshares villkor och reserverade typsnittsnamn.

@@ -13,7 +13,7 @@ Johnny ska se sajten växa fram och följa vad flödet gör utan att läsa logga
 - [N2] **Granskarens skärmdumpar sparas i `reviews/` och länkas**, så att Johnny ser vad granskaren såg.
 - [N4] **Ett galleri visar varje rättningsrunda före och efter.**
 
-Monitor på dev-serverns loggar → `3-3-sakerhet-och-installningar.md`. Stitch-förhandsvisning när stilkit tas fram → `2-5-yta.md`.
+Monitor på dev-serverns loggar → `3-3-sakerhet-och-installningar.md`.
 
 ## Planvyn
 

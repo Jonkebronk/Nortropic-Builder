@@ -10,9 +10,11 @@ Fallgroparna är 196 iakttagelser ur videorna och researchen: saker som gick fel
 
 | Utfall | Antal |
 |---|---|
-| Intagen som *varför* i en regel, med numret | 185 |
+| Intagen som *varför* i en regel, med numret | 183 |
 | Struken – dubblett, sammanslagen med en annan fallgrop i samma regel | 10 |
 | Struken – inaktuell | 1 |
+| Struken – Stitch stryks (`BESLUT.md` 2026-10-15) | 1 |
+| Utan hemvist efter att Stitch ströks | 1 |
 | Inte intagen men fortfarande relevant | 0 |
 | **Summa** | **196** |
 
@@ -22,7 +24,7 @@ Fallgroparna om företaget – de som analysen §6.3 pekar ut (150–153, 167, 1
 
 | Nr | Fallgrop | Var den tagits in |
 |---|---|---|
-| 1 | Skills i fel mapp | 3-4, 2-5, A |
+| 1 | Skills i fel mapp | 3-4, 2-5 |
 | 2 | Stilbyten mellan Stitch-designer | struken – inaktuell: ingen Stitch-design per sajt; kitets tokens ger samma stil på alla sidor (2-5) |
 | 3 | Bara datordesign – sajten gick sönder på mobil | 2-4, 2-5, 2-8 |
 | 4 | Oönskade småanimationer under bygget | 2-6 |
@@ -107,7 +109,7 @@ Fallgroparna om företaget – de som analysen §6.3 pekar ut (150–153, 167, 1
 | 83 | Misslyckade förbättringar loggas inte | 3-4 |
 | 84 | Ett tredjeparts-`init` skriver om `CLAUDE.md` | 3-4, A |
 | 85 | Ett designsystem ger konsekvens, inte karaktär | 2-4, 2-5 |
-| 86 | Agenten gissar kommandon och flaggor | 2-5 |
+| 86 | Agenten gissar kommandon och flaggor | utan hemvist – regeln var ett verktygsmanifest ur `stitch --help`, som försvann när Stitch ströks (`BESLUT.md` 2026-10-15). Förslag: ett manifest ur `--help` för varje CLI som flödet använder, i `3-4` |
 | 87 | Slentriangodkännande | 3-2, 2-9 |
 | 88 | Högsta effort ger inget mer än hög | struken – dubblett av nr 39 (samma regel i 3-3) |
 | 89 | Billig modell för säkerhetsgranskning | 3-3, 2-8 |
@@ -139,7 +141,7 @@ Fallgroparna om företaget – de som analysen §6.3 pekar ut (150–153, 167, 1
 | 115 | Agenten antar att ett okänt kommando är ofarligt | 3-3 (analysen: ≈ 10; egen rad i skyddshooken) |
 | 116 | Hårda regler begravda mitt i `CLAUDE.md` | 3-4 |
 | 117 | Skills skrivna efter hur man tror att man arbetar | 3-4, B |
-| 118 | Exakta beskrivningar till Stitch | 2-5 |
+| 118 | Exakta beskrivningar till Stitch | struken – Stitch stryks (`BESLUT.md` 2026-10-15) |
 | 119 | Redesign med andras sajter som stilguide | 2-5, 2-2 |
 | 120 | Lekfulla hinder före den primära handlingen | 2-3, 3-2 |
 | 121 | Förvaltning ser om sajten fungerar, inte om den hittas | 2-9 |

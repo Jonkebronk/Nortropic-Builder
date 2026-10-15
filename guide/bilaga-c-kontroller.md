@@ -304,7 +304,7 @@ Sju stoppar helt (1, 3, 4, 5, 6, 8, 10), två rapporterar (2, 9), och nr 7 stopp
 |---|---|---|---|---|---|---|
 | C178 | Formtest av varje skillversion: giltig frontmatter, unikt namn, beskrivning, inga trasiga sökvägar | 3-4 Skills | N2 | kontroll | 📄 Claude Code, *Skills* (`claude plugin validate`); 🎥 context-videon | `claude plugin validate` |
 | C179 | Triggningstest: tre testfrågor per skill och en parvis jämförelse av beskrivningarna | 3-4 Skills | N2 | instruktion | En källa – bänken: Nate Herks återgivning av skill-creator (grind i v0.74) | skill-creator |
-| C180 | Kontrollera att en installerad skill syns i `.claude/skills/` (Stitch skriver till `.agents/skills`) | 2-5 Stitch; 3-4 Skills | N2 | kontroll | 📄 `2026-10-14_stitch-och-verktyg.md`; om `.agents/skills` läses är ⚠️ overifierat | För hand |
+| C180 | Kontrollera att en installerad skill syns i `.claude/skills/` (en del skills hamnar i `.agents/skills`) | 3-4 Skills | N2 | kontroll | 📄 `2026-10-14_stitch-och-verktyg.md`; om `.agents/skills` läses är ⚠️ overifierat | För hand |
 | C181 | `/skill-doctor` och `/doctor` månadsvis; förslagen godkänns eller avslås av Johnny | 3-4 Underhållsrutiner | N2 | kontroll | 📄 Claude Code, *Skills*; verifieringen | `/skill-doctor`, `/doctor` |
 | C182 | Rensning vid ny modell: kör med och utan i säkert läge; behåll rensningen bara om resultatet inte blev sämre | 3-4 Rensning vid ny modell | N2 | grind | Boris Cherny (en källa) + 📄 *Prompting Claude Fable 5* + 📄 *Harness design* | Johnnys blinda dom tills eval finns |
 | C183 | Stegvis utrullning av ny byggsystemversion: eval, en riktig sajt, sedan alla | 3-4 Plugin | N4 | grind | En källa: 🎥 ADLC-videon | Eval; Johnny |

@@ -16,7 +16,7 @@ Garretts skelettplan bestämmer vilka delar varje sida har, var de står och vad
 
 - [N1] **I kundbygget väljer AI:n ur biblioteket – sektion, variant och innehåll – och uppfinner ingen layout. Saknas en sektion byggs den i biblioteket först, med Johnnys godkännande, och används sedan.** De etablerade AI-byggarna gör så: AI:n väljer inom ett system som designers har byggt. 📄 [Wix ADI](https://www.fastcompany.com/3060934/can-you-teach-ai-to-design-wix-is-trying), [Squarespace Blueprint](https://ecomm.design/using-squarespace-blueprint-ai/), [GoDaddys Go-tema](https://github.com/godaddy-wordpress/go) (`guide/README.md`, *Principer*, källorna). Biblioteket ger konsekvens, inte karaktär: en sajt kan följa alla regler och ändå se AI-genererad ut (fallgrop 85, 🎥 *Astryx-videon*). Karaktären kommer från stilkitet (`2-5-yta.md`) och från kundens egna bilder, ord och lokala belägg (`2-7-innehall.md`).
 
-Biblioteket byggs av Johnny och Claude med full designkompetens, och där läggs Johnnys smak in (kartan). Besluten: "iteratar tills vi har ett eget bibliotek som är världsklass" (`BESLUT.md` 2026-10-13 18:52) och "Stitch inom stilkit" – eget sektionsbibliotek och 3–5 stilkit; Stitch och andra verktyg används när stilkiten tas fram, inte vid varje kundbygge (2026-10-15).
+Biblioteket byggs av Johnny och Claude med full designkompetens, och där läggs Johnnys smak in (kartan). Besluten: "iteratar tills vi har ett eget bibliotek som är världsklass" (`BESLUT.md` 2026-10-13 18:52) och designsättet – eget sektionsbibliotek och 3–5 stilkit; designverktyg används när stilkiten tas fram, inte vid varje kundbygge (2026-10-15, ändrat av *Stitch stryks*).
 
 ### Biblioteket i första sajten
 
@@ -137,7 +137,7 @@ I första sajten görs inga wireframes. Riktningarna visar startsidan direkt i t
 ## Kompetens och källor
 
 - [N2] **Skelettskillen** destilleras när biblioteket har byggts för hand: ur better-layout, emil-mobile-native och refero-design (metoden för referenser), med *Atomic Design*, *Mobile First* och *Refactoring UI* (`bilaga-b-skills.md`).
-- [N2] **Byggverktyg när biblioteket byggs ut** (inventeringen): better-variant och emil-prototype för varianter, state-machine för tillstånd per komponent, better-break för värsta fall, better-explain-interface och steget Observe ur ai-website-cloner-template för att se hur referenssajter löser layout och responsivitet, samt Refero, Mobbin och Inspo för mönster. Om Stitch kan ta fram layoutvarianter till biblioteket är inte prövat; det prövas när biblioteket byggs ut. 🔧
+- [N2] **Byggverktyg när biblioteket byggs ut** (inventeringen): better-variant och emil-prototype för varianter, state-machine för tillstånd per komponent, better-break för värsta fall, better-explain-interface och steget Observe ur ai-website-cloner-template för att se hur referenssajter löser layout och responsivitet, samt Refero, Mobbin och Inspo för mönster.
 - [N2] **Kandidater till sektionerna** 📄 `kunskap/research/2026-10-15_kompetensluckor-anteckningar/lager-3-4-struktur-skelett.md`:
 
 | Kandidat | Dom | Vad vi tar |

@@ -74,7 +74,7 @@ Johnnys beslut står ordagrant i `BESLUT.md` och väger tyngst. De som formar gu
 - **Två spår:** det finns inte alltid en befintlig sajt (2026-10-13).
 - **Eget bibliotek** av skills, komponenter, teman och animationer, byggt ur en inventering (2026-10-13).
 - **Förvaltningen ingår**, **Claude Design är inte designmotor**, **hosting på Cloudflare** (2026-10-14).
-- **Flödet först; Stitch inom stilkit; Johnny ser riktningarna först, sedan kunden; vanlig flersidig sajt som standard** (2026-10-15).
+- **Flödet först; eget sektionsbibliotek och 3–5 stilkit; Johnny ser riktningarna först, sedan kunden; vanlig flersidig sajt som standard** (2026-10-15). Stitch är struket (2026-10-15, *Stitch stryks*).
 - **Johnny tar fram måttstocken för vad som är bra; ingen tidsbudget förrän han är nöjd; Johnny intervjuar kunden tillsammans med AI** (2026-10-15).
 
 Det som fortfarande är öppet står i `bilaga-e-oppna-fragor.md`.

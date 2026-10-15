@@ -14,7 +14,7 @@ Hur flödet hindras från att göra skada, och vilka inställningar, modeller oc
 
 I N1 räcker `.gitignore` och N1-kontroll 10 (ovan). Sajten har inga nycklar förrän formulär och kopplingar kommer (N2 och senare).
 
-- [N2] **Hemligheter skrivs aldrig i flödets filer** – tillståndsfil, loggar, rapporter, brief, faktabas, källkod. Nycklar som sajten behöver sätts med `wrangler secret put` (📄 `2026-10-14_cloudflare-stack.md`); Stitch-inloggningen → `2-5-yta.md`. Varför: flödet committar utan att någon läser varje fil, och mönstersökning missar ett lösenord av vanliga ord (Agit-videon; fallgrop 26).
+- [N2] **Hemligheter skrivs aldrig i flödets filer** – tillståndsfil, loggar, rapporter, brief, faktabas, källkod. Nycklar som sajten behöver sätts med `wrangler secret put` (📄 `2026-10-14_cloudflare-stack.md`). Varför: flödet committar utan att någon läser varje fil, och mönstersökning missar ett lösenord av vanliga ord (Agit-videon; fallgrop 26).
 - [N2] **En API-nyckel per kund, begränsad till kundens eget Cloudflare-konto.** Kunden äger kontot, och byrån är inbjuden medlem med obligatorisk 2FA (📄 `2026-10-14_cloudflare-stack.md`; kontot → `2-8`, onboarding → `2-2-omfattning.md`). Nyckeln ligger utanför repot.
 - [N2] **Inget hemligt i det som når webbläsaren** – allt i klientkoden går att inspektera (Ebbelaar-intervjun; fallgrop 141). Kontrollen är N1-kontroll 10 (`2-8`); regeln blir verklig när sajten får formulär och kopplingar.
 - [N2] **Sökning efter nyckelformat före varje automatisk commit.** Träff ger ingen commit, och flödet stannar. Ett extra lager; huvudskyddet är reglerna ovan.
@@ -125,4 +125,4 @@ Faktaregeln, tillgjord prosa och AI-signaturer i text → `2-7-innehall.md`.
 
 ## Versioner och installation
 
-Macen har Claude Code 2.1.300 sedan 2026-10-15 (`BESLUT.md` 2026-10-15). Det räcker för `/doctor prompt-audit` (2.1.283) och mods (2.1.287). Versionens fakta är prövade mot guidens från 2.1.281 (📄 `kunskap/research/2026-10-15_mac-avgransning.md`, avsnitt 4). Astro, Playwright och Wrangler → `2-8`. Stitch-CLI:t (Node ≥ 20, inloggning) när stilkit tas fram → `2-5`. Skills, `/init` och `CLAUDE.md` → `3-4-larande-och-underhall.md`.
+Macen har Claude Code 2.1.300 sedan 2026-10-15 (`BESLUT.md` 2026-10-15). Det räcker för `/doctor prompt-audit` (2.1.283) och mods (2.1.287). Versionens fakta är prövade mot guidens från 2.1.281 (📄 `kunskap/research/2026-10-15_mac-avgransning.md`, avsnitt 4). Astro, Playwright och Wrangler → `2-8`. Skills, `/init` och `CLAUDE.md` → `3-4-larande-och-underhall.md`.

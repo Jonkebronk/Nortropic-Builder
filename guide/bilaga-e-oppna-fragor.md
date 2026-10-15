@@ -27,7 +27,7 @@
 | 2.6 | ~~Kod från andras sajter~~ **Avgjort tills vidare 2026-10-15:** ingen kod kopieras; teknik får studeras (REA, `2-2-omfattning.md`) – tills Johnny säger annat (`BESLUT.md`) | – |
 | 2.7 | **Priser på sajten: rutinändring eller hög risk?** | Webb-pro och researchen: rutin; v0.74 §15.2: hög risk. `2-9` och `4-foretaget.md` följer den strängare regeln tills vidare. |
 | 2.8 | **Automatisk sammanslagning i CI** av förvaltningsändringar, eller Johnnys godkännande vid varje publicering? (`2-9-drift-och-forvaltning.md`) | Tills vidare: Johnnys godkännande. |
-| 2.9 | ~~Variate, Inspo och liknande verktyg i kundbygget?~~ **Avgjort 2026-10-15:** bara när biblioteket och kiten tas fram (beslutet *Stitch inom stilkit*; `BESLUT.md`) | – |
+| 2.9 | ~~Variate, Inspo och liknande verktyg i kundbygget?~~ **Avgjort 2026-10-15:** bara när biblioteket och kiten tas fram (designsättet med stilkit; `BESLUT.md`, ändrat av *Stitch stryks*) | – |
 | 2.4 | **Repot är publikt**, och därmed råmaterialet i `kunskap/raw/`, som enligt README inte ska publiceras vidare. | Johnny 2026-10-15: "det ändrar vi sen". |
 | 2.5 | ~~Överlappar `nortropic-intake` intervjun?~~ **Avgjort 2026-10-15:** frågan faller bort – byggsessionen avgränsas från användarnivån, så den gamla skillen laddas inte; den egna intervjuskillen används (`3-3-sakerhet-och-installningar.md`, `BESLUT.md`) | – |
 
@@ -56,10 +56,10 @@
 
 | Fråga | Blockerar | Källa |
 |---|---|---|
-| Hur wireframes tas fram med Stitch-CLI:t | Framtagning av stilkit (`2-5`) | konsolideringsanalysen §5.2 |
-| Stitchs kvoter och kostnad | Framtagning av stilkit; mäts i första körningen | `kunskap/research/2026-10-14_stitch-och-verktyg.md` |
-| Läser Claude Code `.agents/skills` (dit `stitch agent-skills add` skriver)? | Stitch-skillen | samma |
-| Hur länge en OAuth-inloggning i Stitch håller | Obevakad körning (lös med `STITCH_API_KEY`) | samma |
+| ~~Hur wireframes tas fram med Stitch-CLI:t~~ **Bortfallen 2026-10-15:** Stitch stryks (`BESLUT.md`) | – | konsolideringsanalysen §5.2 |
+| ~~Stitchs kvoter och kostnad~~ **Bortfallen 2026-10-15:** Stitch stryks (`BESLUT.md`) | – | `kunskap/research/2026-10-14_stitch-och-verktyg.md` |
+| ~~Läser Claude Code `.agents/skills` (dit `stitch agent-skills add` skriver)?~~ **Bortfallen 2026-10-15:** Stitch stryks (`BESLUT.md`) | – | samma |
+| ~~Hur länge en OAuth-inloggning i Stitch håller~~ **Bortfallen 2026-10-15:** Stitch stryks (`BESLUT.md`) | – | samma |
 | Delar Cloudflares förhandsadresser D1/KV med produktion? | Staging med formulär – lös med separata resurser | `2026-10-14_cloudflare-stack.md` |
 | Kräver Cloudflare Web Analytics samtyckesbanner? | Val av analys – lös med analys på serversidan | `2026-10-14_dataoverforing-och-analys.md` |
 | Thermonuclear code quality review: namn och repo | Kandidat för kodgranskning | `bilaga-a-verktyg.md` |
@@ -75,4 +75,4 @@ Tolkningarna i `2-2-omfattning.md` (lagkrav per kund) och researchen 2026-10-14 
 
 ## Avgjorda sedan v0.74 (för spårbarhet)
 
-Måttstocken (Johnny tar fram den), tidsbudget (inte förrän kvaliteten sitter) och intervjun (Johnny tillsammans med AI:n), alla 2026-10-15. Hosting (Cloudflare, 2026-10-14), publicering ingår, designsätt (stilkit, 2026-10-15), vem som väljer riktning (2026-10-15), sajttyp (flersidig, 2026-10-15), ordning (flödet först, 2026-10-15), kodstandard (WCAG 2.2 AA), formulärtester, Stitch obevakat (`STITCH_API_KEY`), licenser för scrollytelling-skillen, Hallmark och Inspo (MIT), mods (kräver 2.1.287), test- och skärmdumpsverktyg (Playwright, förslag sedan v0.47 – bekräftas i `2-8`).
+Måttstocken (Johnny tar fram den), tidsbudget (inte förrän kvaliteten sitter) och intervjun (Johnny tillsammans med AI:n), alla 2026-10-15. Hosting (Cloudflare, 2026-10-14), publicering ingår, designsätt (stilkit, 2026-10-15), vem som väljer riktning (2026-10-15), sajttyp (flersidig, 2026-10-15), ordning (flödet först, 2026-10-15), kodstandard (WCAG 2.2 AA), formulärtester, Stitch (struket 2026-10-15, *Stitch stryks*), licenser för scrollytelling-skillen, Hallmark och Inspo (MIT), mods (kräver 2.1.287), test- och skärmdumpsverktyg (Playwright, förslag sedan v0.47 – bekräftas i `2-8`).

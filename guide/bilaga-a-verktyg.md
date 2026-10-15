@@ -4,7 +4,7 @@
 
 Registret är en katalog att plocka ur när en verklig sajt behöver något, inte en byggplan (`guide/README.md`, princip 8). Egna skills står i `bilaga-b-skills.md`.
 
-**Den första sajten** använder bara verktygen med nivå N1: Stitch-CLI och Inspo när de tre minimala stilkiten tas fram, Astro, Playwright, axe och Lucide (förslag), samt Cloudflare, GitHub och Wrangler om sajten publiceras (`5-byggplan.md`, steg 2–5). Därtill Claude Codes inbyggda delagent för granskaren (steg 4). Allt annat är N2 eller senare.
+**Den första sajten** använder bara verktygen med nivå N1: Inspo när de tre minimala stilkiten tas fram, Astro, Playwright, axe och Lucide (förslag), samt Cloudflare, GitHub och Wrangler om sajten publiceras (`5-byggplan.md`, steg 2–5). Därtill Claude Codes inbyggda delagent för granskaren (steg 4). Allt annat är N2 eller senare.
 
 **Så läses tabellerna**
 
@@ -20,7 +20,7 @@ Registret är en katalog att plocka ur när en verklig sajt behöver något, int
 Gäller allt tredjepartsmaterial som tas in utöver N1-verktygen ovan. Kriterierna är instruktioner, inte grindar. 🔧 (idé: advise-project-approach 🎥)
 
 - [N2] **Bygg egna och destillera ur andras.** Externa skills och MCP:er används när egna skills och biblioteket byggs. I kundbygget körs egna skills och den åtkomst som behövs vid körning, till exempel Cloudflare och Google. Varför: Johnnys beslut om egna skills och bibliotek. 📄 `BESLUT.md` 2026-10-13 18:52, `historik/karta/README.md`
-- Stitch, Inspo, Tastemaker och övriga designverktyg används när stilkit tas fram och förnyas, inte vid varje kundbygge (`BESLUT.md` 2026-10-15) → 2-5. I N1 tas de tre minimala kiten fram i `5-byggplan.md`, steg 2.
+- Inspo, Tastemaker och övriga designverktyg används när stilkit tas fram och förnyas, inte vid varje kundbygge (`BESLUT.md` 2026-10-15) → 2-5. I N1 tas de tre minimala kiten fram i `5-byggplan.md`, steg 2.
 - [N2] **Passform före popularitet – stjärnor är inte passform.** Stjärnor på GitHub visar att någon gillade projektet en gång, inte att verktyget passar vårt problem och vår skala. Underhåll, licens och läsbara kontroller väger tyngre. Regeln bor här. 🎥 advise-videon; 📄 `kunskap/research/2026-10-15_kompetensluckor-anteckningar/lager-1-2-strategi-omfattning.md` och `lager-8-teknik-kvalitet.md` (stjärnor är en svag kvalitetssignal) (fallgrop 65)
 - [N2] **Underhåll, licens och kostnad kontrolleras innan något tas in.** Senaste uppdateringar och öppna ärenden; en licens som tillåter vår användning, utan copyleft i levererad kod; kostnad i tre lägen – vid lansering, i normal drift och om kunden växer (→ `2-2-omfattning.md`). 🎥 advise-videon (fallgrop 66); intagsregeln i `historik/karta/flodet.md`
 - [N2] **Ingen överlappning med en befintlig skill.** Två skills som konkurrerar om samma uppgift gör att Claude får gissa. 📄 `historik/karta/flodet.md`; 🎥 skill-ingenjörsvideon (fallgrop 144)
@@ -35,13 +35,13 @@ Gäller allt tredjepartsmaterial som tas in utöver N1-verktygen ovan. Kriterier
 
 ## 1. Design och referenser
 
-Används främst när stilkit och sektionsbibliotek tas fram (→ 2-4, 2-5). I N1 bara Stitch-CLI, Inspo och Lucide. Referensregeln och licens per tillgång → 2-5.
+Används främst när stilkit och sektionsbibliotek tas fram (→ 2-4, 2-5). I N1 bara Inspo och Lucide. Referensregeln och licens per tillgång → 2-5.
 
 | Verktyg | Vad | Var | Status | Nivå | Källäge och förbehåll | Inv |
 |---|---|---|---|---|---|---|
-| Stitch-CLI, npm `@google/stitch` | Googles design-CLI: skärmar, varianter, `design.md`, fånga en sida | 2-5 | prövas | N1, när de tre minimala stilkiten tas fram (`5-byggplan.md`, steg 2), på provsidan i dator och mobil; aldrig med kundinnehåll | 📄 `2026-10-14_stitch-och-verktyg.md`: officiellt, Apache-2.0, Node ≥ 20, Google Labs; `STITCH_API_KEY` för obevakad körning. ⚠️ Kvoter och wireframes via CLI:t okända (analysen §5.2). `agent-skills add` skriver till `.agents/skills`; om Claude Code läser den mappen är inte bekräftat (fallgrop 1) | – (B56 *taste-stitch*: Släpp) |
-| [Googles stitch-skills](https://github.com/google-labs-code/stitch-skills) | 15 skills: `design.md`-mall, Enhanced Prompt, extract-design-md m.fl. | 2-5 | kandidat | N2, stilkitsbygget | 📄 samma rapport: Apache-2.0; kräver Stitchs MCP (`stitch mcp install`); `npx plugins add google-labs-code/stitch-skills --scope project --target claude-code` | – |
-| [davideast/stitch-mcp](https://github.com/davideast/stitch-mcp) | MCP för Stitch från communityn | – | avvisat | – | Inte Google; ersatt av Stitchs officiella MCP (📄 samma rapport) | – |
+| Stitch-CLI, npm `@google/stitch` | Googles design-CLI: skärmar, varianter, `design.md`, fånga en sida | – | avvisat | – | Struket 2026-10-15 (`BESLUT.md`, *Stitch stryks*). 📄 `2026-10-14_stitch-och-verktyg.md` | – (B56 *taste-stitch*: Släpp) |
+| [Googles stitch-skills](https://github.com/google-labs-code/stitch-skills) | 15 skills: `design.md`-mall, Enhanced Prompt, extract-design-md m.fl. | – | avvisat | – | Struket 2026-10-15 (`BESLUT.md`, *Stitch stryks*). 📄 samma rapport | – |
+| [davideast/stitch-mcp](https://github.com/davideast/stitch-mcp) | MCP för Stitch från communityn | – | avvisat | – | Inte Google (📄 samma rapport). Stitch är struket 2026-10-15 (`BESLUT.md`, *Stitch stryks*) | – |
 | [Inspo](https://github.com/Nutlope/inspo) (MCP) | 832 sajter med dator- och mobilbilder, `design.md` per sajt, branschfilter | 2-5 | prövas | N1, när de tre minimala stilkiten tas fram (steg 2) | 📄 MIT; 🎥 Inspo-videon. Installeras från repo-adressen, i projektscope, inte användarscope | B65 (Byggverktyg) |
 | [Tastemaker](https://github.com/codeswithroh/tastemaker) | Exakta designvärden ur referensbilder, med skript | 2-5 | kandidat | N2, stilkitsbygget | 🎥 designskills-videon; ⚠️ licensen inte kontrollerad | – |
 | [Hallmark](https://www.usehallmark.com/) | Regler mot AI-utseende; kan granska ett bygge | 2-5, 3-2 | kandidat (destillera) | N2 | 📄 `Nutlope/hallmark`, MIT; innehållet inte granskat; 🎥 Opus 5.5-videon | B37 (Destillera) |
@@ -169,7 +169,7 @@ Faktabas, bildstrategi och AI-märkning → 2-7. Kunskapsbasen → 3-4.
 | [Humanizer](https://github.com/blader/humanizer) | Text som inte låter AI-genererad; bygger på Wikipedias guide | 2-7 | kandidat (destillera) | N2 | 🎥 Nate Herk 100-repon-videon. MIT, Wikipedia-underlaget CC BY-SA 4.0. Skrivet för engelska | B38 (Destillera) |
 | [Slop Monster](https://github.com/ItsssssJack/SlopMonster) | Gör generiska löften till konkreta detaljer | 2-7 | kandidat | N2 | 🎥 Jack Roberts-videon 2. Skrivet för engelska – prövas på svensk text först | – |
 | Higgsfield (MCP) | AI-bild och AI-video | 2-7 | kandidat | N2 | Sponsor eller affiliate i flera videor. Kommersiell användning tillåten, men resultatet är inte garanterat unikt och villkoren om träning är motsägelsefulla (📄 `2026-10-14_ai-forordningen-och-rattigheter.md`). Bara stämning och illustration (→ 2-7) | – |
-| Stitchs bildgenerator (Nano Banana) | AI-bilder under designen | 2-7 | kandidat | N2, stilkitsbygget | 🎥 Stitch-skills-videon. Räknas som AI-genererat (→ 2-7) | – |
+| Stitchs bildgenerator (Nano Banana) | AI-bilder under designen | – | avvisat | – | Struket 2026-10-15 (`BESLUT.md`, *Stitch stryks*). 🎥 Stitch-skills-videon | – |
 | youtube-transcript-api, yt-dlp | Hämtar undertexter till råmaterialet | 3-4 | kandidat | N2 | 🎥 Karpathy-videon | – |
 | Karpathys LLM Wiki-gist och `/ingest` | Mönster för en kunskapsbas som växer | 3-4, `bilaga-b-skills.md` | kandidat | N2 | 🎥 Karpathy-videon, länk i videobeskrivningen ⚠️. OKF-videon bygger på samma gist, alltså en källa (analysen §4.4) | – |
 | Open Knowledge Format (Google) | En fil per begrepp, `index.md`, frontmatter | 3-4 | kandidat (formatet) | N2 | 🎥 OKF-videon; de officiella verktygen kräver BigQuery | – |
@@ -251,7 +251,7 @@ Inget att installera; nivån anger när funktionen tas i bruk. Verifierat i 📄
 
 ## Nämnda bara i förbigående
 
-Behöver ingen rad i registret: Node.js och npm (förutsättning för Stitch-CLI:t), tmux (agent teams), Next.js och StyleX (stacktabellen i v0.74), Google Fonts (exempel på ett antagande; typsnitt laddas från egen domän → 2-8), Sendbird och Stream (kostnadsexempel för bygga eller använda befintligt → 2-2), Lovables connector-katalog (idékälla till kopplingarna per kund → 2-9), OpenRouter och Vercel AI Gateway (åtkomst till Jev), Manus och Runway (videotjänster i Scroll World), ChatGPT, Claude och Perplexity (AEO-frågor → 2-9), Linearity (sponsor i en källa), Linear (förebild i en jämförelse), C2PA (metadata för AI-bilder → 2-7) och ASD-STE100 (förenklad teknisk engelska; svensk motsvarighet är klarspråk → 4).
+Behöver ingen rad i registret: Node.js och npm (förutsättning för Astro), tmux (agent teams), Next.js och StyleX (stacktabellen i v0.74), Google Fonts (exempel på ett antagande; typsnitt laddas från egen domän → 2-8), Sendbird och Stream (kostnadsexempel för bygga eller använda befintligt → 2-2), Lovables connector-katalog (idékälla till kopplingarna per kund → 2-9), OpenRouter och Vercel AI Gateway (åtkomst till Jev), Manus och Runway (videotjänster i Scroll World), ChatGPT, Claude och Perplexity (AEO-frågor → 2-9), Linearity (sponsor i en källa), Linear (förebild i en jämförelse), C2PA (metadata för AI-bilder → 2-7) och ASD-STE100 (förenklad teknisk engelska; svensk motsvarighet är klarspråk → 4).
 
 ## Avstå och Bevaka enligt kompetensrapporten
 
@@ -270,7 +270,7 @@ Kandidater som rapporten bedömde som *Avstå* eller *Bevaka* står inte i inven
 
 ## Guidens verktyg som saknas i inventeringen
 
-`LAGE.md` räknar med cirka 60 verktyg ur guiden som inte är införda i inventeringen. Registret ovan har 98 rader med – i kolumnen Inv, varav 17 avvisade, utöver de inbyggda funktionerna; en rad samlar ibland flera verktyg. Skillnaden mot 60 är att registret också tar med tjänster, länkkällor och avvisade verktyg. De förs in i `inventering.json` när Johnny beslutar det; den här bilagan ändrar inte inventeringen.
+`LAGE.md` räknar med cirka 60 verktyg ur guiden som inte är införda i inventeringen. Registret ovan har 98 rader med – i kolumnen Inv, varav 20 avvisade, utöver de inbyggda funktionerna; en rad samlar ibland flera verktyg. Skillnaden mot 60 är att registret också tar med tjänster, länkkällor och avvisade verktyg. De förs in i `inventering.json` när Johnny beslutar det; den här bilagan ändrar inte inventeringen.
 
 - **Design och referenser:** Stitch-CLI, Googles stitch-skills, davideast/stitch-mcp, Tastemaker, Variate, design-md-planner, designmd.space, Aura.build, Relume, godly.design och Awwwards, Land-book, Coolors, sektionsgallerierna, typsnittskällorna, Aceternity UI och React Bits, brandguidelines.net, Astryx, Claude Design, garden-skills, designer-skills, Meng To, Landing Page Design, web-design-guidelines, UI Skills, ADHD, Arena.
 - **Rörelse:** scrollytelling, Scroll World, Scrollcraft, img2threejs, Claude Motion, mikrointeraktionskällorna.
