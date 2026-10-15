@@ -316,3 +316,13 @@ Johnny:
 > Ja
 
 **Innebär:** Reglerna står i `guide/5-byggplan.md`, avsnittet *Övningssajterna*, som två N1-regler. Bilaga E 1.3 är avgjord: övningssajterna publiceras högst på en förhandsadress bakom Cloudflare Access och aldrig öppet. Det kräver ett eget Cloudflare-konto för byrån men ingen domän. Faktabasen får källan `johnny-som-kund` (`2-7-innehall.md`).
+
+## 2026-10-15: Astro statiskt; Inter och Lucide väljs per kit
+
+**Status:** gäller.
+
+Claude föreslog ja till Astro statiskt för standardsajten (bilaga E 1.6) och inget globalt förbud mot Inter och Lucide, utan att varje kit väljer (1.10). Johnny:
+
+> Ja
+
+**Innebär:** Stacken i `guide/2-8-teknik-och-kvalitet.md` är bekräftad. I `guide/2-5-yta.md` är Inter och Lucide varken standard eller förbjudna, utan valet görs i varje stilkits `design.md`. Bilaga E 1.8 (integritetspolicy utan formulär) och 1.9 (sajter utan betalning) väntar till den första riktiga kunden.

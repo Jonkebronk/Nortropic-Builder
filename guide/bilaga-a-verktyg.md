@@ -106,7 +106,7 @@ Stack och publicering → 2-8. Förslaget för en informationssajt är Astro sta
 
 | Verktyg | Vad | Var | Status | Nivå | Källäge och förbehåll | Inv |
 |---|---|---|---|---|---|---|
-| Astro | Statisk sajtgenerator | 2-8 | prövas | N1 | 📄 cloudflare-stack (typ A). Stacken väntar på Johnnys bekräftelse. Öppet – se `bilaga-e-oppna-fragor.md`, fråga 1.6 | – (K20, K25, K26, K40, K57 och K79 förutsätter Astro) |
+| Astro | Statisk sajtgenerator | 2-8 | prövas | N1 | 📄 cloudflare-stack (typ A). Bekräftad av Johnny 2026-10-15 (`bilaga-e-oppna-fragor.md` 1.6) | – (K20, K25, K26, K40, K57 och K79 förutsätter Astro) |
 | Cloudflare: Workers med statiska tillgångar, Workers Builds och Access | Hosting; bygge och publicering vid push; Access skyddar förhandsadresserna, alltså staging | 2-8 | prövas | N1, om sajten publiceras (`5-byggplan.md`, steg 5; `bilaga-e-oppna-fragor.md`, fråga 1.3) | `BESLUT.md` 2026-10-14; 📄 cloudflare-stack. Access: gratisgränsen för 2026 inte bekräftad (fallgrop 185) | B70 (Behåll) |
 | Wrangler | Cloudflares CLI: deploy, rollback, loggar, hemligheter | 2-8 | prövas | N1, om sajten publiceras | 📄 cloudflare-stack. `rollback` återställer kod, inte data | – (K79 nämner `wrangler rollback`) |
 | GitHub och GitHub CLI | Privat repo per sajt | 2-8 | prövas | N1, om sajten publiceras | v0.74 fas 7. Inloggningen gör Johnny | – |

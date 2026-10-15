@@ -11,11 +11,11 @@
 | 1.3 | ~~Publiceras den första sajten?~~ **Avgjort 2026-10-15:** övningssajterna publiceras högst på en förhandsadress bakom Cloudflare Access och aldrig öppet (`BESLUT.md`, `5-byggplan.md`) | – | – |
 | 1.4 | ~~Bildkälla för en verksamhet utan egna foton~~ **Avgjort 2026-10-15:** stockbilder och AI-genererade bilder är tillåtna, även av personer (`BESLUT.md`). Ärlighetsregeln i `2-7-innehall.md` gäller: en sådan person presenteras aldrig som kundens personal, och en fotorealistisk AI-person märks (AI-förordningen art. 50.4). Måttstocken väger egna foton högre (fråga 2) | – | – |
 | 1.5 | ~~Tidsbudget per sajt~~ **Avgjort 2026-10-15:** ingen tidsbudget förrän Johnny är nöjd med det som byggs; tiden mäts som underlag (`BESLUT.md`, `1-kundens-vag.md`) | – | – |
-| 1.6 | **Bekräfta Astro statiskt** för standardsajten | Stacken var ett förslag i v0.74 §14; kartan har Astro | Ja (`2-8-teknik-och-kvalitet.md`) |
+| 1.6 | ~~Bekräfta Astro statiskt för standardsajten~~ **Avgjort 2026-10-15:** ja, Astro statiskt (`BESLUT.md`, `2-8-teknik-och-kvalitet.md`) | – | – |
 | 1.7 | ~~Intervjuns form~~ **Avgjort 2026-10-15:** ett samtal som Johnny leder med AI:n som stöd (`BESLUT.md`); om det sker på plats, i telefon eller i video avgörs per kund | – | – |
 | 1.8 | **Integritetspolicy utan formulär?** | Cloudflares serverloggar innehåller IP-adresser (`2-3-struktur.md`, `2-8`) | Ja, en kort policy på alla sajter |
 | 1.9 | **Byggs de första sajterna utan betalning?** | Claudes förslag ur en källa (`4-foretaget.md`); styr den första kundrelationen | Ja, för egna sajter och pilotsajter |
-| 1.10 | **Lucide och Inter som standard i stilkiten?** | v0.74 förbjöd dem (en källa), kartan har dem som standard (`2-5-yta.md`, `3-3`) | Inget globalt förbud; varje kit väljer |
+| 1.10 | ~~Lucide och Inter som standard i stilkiten?~~ **Avgjort 2026-10-15:** inget globalt förbud; varje kit väljer (`BESLUT.md`, `2-5-yta.md`) | – | – |
 
 ## 2. Styrning och skillnader mellan spåren
 
