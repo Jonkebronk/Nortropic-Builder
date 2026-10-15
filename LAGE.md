@@ -57,6 +57,7 @@ Detaljerna står i `BESLUT.md`.
 1. **Förberedelserna** i `guide/5-byggplan.md`:
    - en kort `CLAUDE.md`
    - `.claude/settings.json` med `permissions.deny` för push, deploy och `.env`. Förslag: lägg till `cf deploy`, `cf builds` och `cf pages`.
+     - ⚠️ **Krock att avgöra först:** `Bash(git push *)` i byggrepots `.claude/settings.json` (`guide/3-3`) spärrar också pushen av byggrepot. Den har Johnny gett stående tillåtelse till (`CLAUDE.md`). Spärren gäller sajterna i `sites/`, inte byggrepot.
    - kärnfrågorna och briefmallen
 2. **Johnny väljer den första firman.** Förslaget är en av måttstockens underkända svenska firmor, eftersom hans *För godkänt:* redan säger vad sajten måste klara. Exempel är MB Bygg, Torsokliniken, Gustafsbro och Eriksbergs Cykel.
 3. **Byggplanens steg 1–6**, med en genomgång efter sajten.
