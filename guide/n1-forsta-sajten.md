@@ -57,7 +57,7 @@
 
 *Kontroll*
 
-- **Granskningskriterium: blickprovet (femsekunderstestet).** En separat AI ser en skärmbild av första vyn i 375 och 1280 px, mobilen först, utan källkoden, och säger vad som erbjuds, var och vad man ska göra. Det är fråga 1 i Johnnys måttstock (`mattstock/mattstock.md`; regeln under *Sektionerna*). Stämmer svaret inte med briefen och den primära handlingen är det ett fynd – högst `medel`, eftersom kriteriet har en källa (→ `3-2-granskning-och-kalibrering.md`). Testet gäller skelett och yta och körs en gång; här är dess enda plats. *(en källa – bänken: 🎥 Jack Roberts-videon 2, som bygger på Krug; Krug är inte läst i original)* Textmängden per sektion (fallgrop 175) → `2-7-innehall.md`.
+- **Granskningskriterium: blickprovet (femsekunderstestet).** En separat AI ser en skärmbild av första vyn i 375 och 1280 px, mobilen först, utan källkoden, och säger vad som erbjuds, var och vad man ska göra. Det är fråga 1 i Johnnys måttstock (`mattstock/mattstock.md`; regeln under *Sektionerna*). Stämmer svaret inte med briefen och den primära handlingen är det ett fynd – högst `medel`, eftersom kriteriet har en källa (→ `3-2-granskning-och-kalibrering.md`). Testet gäller skelett och yta och körs i byggplanens steg 2 på varje riktnings första vy, innan resten av sajten byggs – en kontroll av första lagret, som på en 3D-skrivare (`BESLUT.md` 2026-10-15). Här är dess enda plats. *(en källa – bänken: 🎥 Jack Roberts-videon 2, som bygger på Krug; Krug är inte läst i original)* Textmängden per sektion (fallgrop 175) → `2-7-innehall.md`.
 
 ## 2.5 Yta (`2-5-yta.md`)
 

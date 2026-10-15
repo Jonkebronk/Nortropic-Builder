@@ -326,3 +326,21 @@ Claude föreslog ja till Astro statiskt för standardsajten (bilaga E 1.6) och i
 > Ja
 
 **Innebär:** Stacken i `guide/2-8-teknik-och-kvalitet.md` är bekräftad. I `guide/2-5-yta.md` är Inter och Lucide varken standard eller förbjudna, utan valet görs i varje stilkits `design.md`. Bilaga E 1.8 (integritetspolicy utan formulär) och 1.9 (sajter utan betalning) väntar till den första riktiga kunden.
+
+## 2026-10-15: Tre lärdomar från 3D-skrivaren
+
+**Status:** gäller.
+
+Johnny prövade hypotesen att flödet fungerar som en 3D-skrivare för hemsidor. Claude svarade att metaforen håller för hur vi bygger men inte för vad kunden betalar för, eftersom förvaltningen är produkten och karaktären inte får kopieras. Claude föreslog tre saker från metaforen:
+1. En provsajt för flödet, vår "Benchy".
+2. Branschprofiler i biblioteket.
+3. Blickprovet som kontroll av första lagret i steg 2.
+
+Johnny:
+
+> Ja, gör det och sedan gå vidare
+
+**Innebär:**
+1. Den första godkända övningssajten fryses och byggs om efter varje större ändring, och resultatet jämförs med den godkända versionen (`guide/3-2-granskning-och-kalibrering.md`, N2).
+2. En profil per bransch i `bibliotek/branscher/`, med måttstockens tabell som startvärden (`guide/2-4-skelett.md`, N2).
+3. Blickprovet körs i steg 2 på varje riktnings första vy i mobil, innan Johnny ser riktningarna (`guide/2-4-skelett.md`, `5-byggplan.md`).
