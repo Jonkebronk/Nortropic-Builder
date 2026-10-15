@@ -16,7 +16,7 @@ const r = sidfot.rubriker;
         {sidfot.platser.map((p) => (
           <li><strong>{p.namn}</strong><br />
             {p.karta
-              ? <a class="sidfot__adress" href={p.karta.href} data-apple={p.karta.apple} rel="noopener"><Ikon namn="plats" /><span>{p.adress}</span></a>
+              ? <a class="sidfot__adress" href={p.karta.href} data-apple={p.karta.apple} rel="noopener" aria-label={`${p.karta.text}: ${p.adress}`}><Ikon namn="plats" /><span>{p.adress}</span></a>
               : p.adress}
           </li>
         ))}

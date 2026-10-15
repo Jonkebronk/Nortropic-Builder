@@ -1,0 +1,51 @@
+---
+// Knapplisten i tumzonen på mobilen, läge 'nere' (Sidhuvud.astro). Boka är bred och primär, Ring är sekundär.
+// Den visas först när förstavyns eller sidtoppens egna knappar har scrollats ur bild, så att den aldrig dubblerar
+// eller täcker dem (Johnnys dom över Citykiropraktikern i mattstock/domar.jsonl). Fast höjd, hänsyn till iPhones
+// nederkant och scroll-padding i bas, så att den aldrig skymmer innehåll eller fokus (WCAG 2.2, 2.4.11).
+// Utan JavaScript ligger listen alltid synlig.
+import Knapp from '../komponenter/Knapp.astro';
+import type { StartInnehall } from '../innehall/typ';
+interface Props { innehall: StartInnehall; }
+const { boka, ring } = Astro.props.innehall;
+---
+<div class="kontaktlist" data-kontaktlist>
+  <Knapp href={boka.href} text={boka.kort ?? boka.text} ikon="kalender" />
+  <Knapp href={ring.href} text={ring.kort ?? ring.text} variant="sekundar" ikon="telefon" etikett={`Ring ${ring.nummer}`} />
+</div>
+
+<script>
+  const list = document.querySelector<HTMLElement>('[data-kontaktlist]');
+  const egna = document.querySelectorAll('.forstavy__knappar, .sidtopp__knappar');
+  const meny = document.getElementById('meny');
+  if (list) {
+    let egnaSyns = false, menyOppen = false;
+    const uppdatera = () => {
+      const dold = egnaSyns || menyOppen;
+      list.dataset.dold = String(dold);
+      list.inert = dold;
+    };
+    if (egna.length && 'IntersectionObserver' in window) {
+      const synliga = new Set<Element>();
+      new IntersectionObserver((poster) => {
+        for (const p of poster) p.isIntersecting ? synliga.add(p.target) : synliga.delete(p.target);
+        egnaSyns = synliga.size > 0; uppdatera();
+      }).observe(egna[0]);
+    }
+    meny?.addEventListener('toggle', (e) => { menyOppen = (e as ToggleEvent).newState === 'open'; uppdatera(); });
+  }
+</script>
+
+<style>
+  .kontaktlist {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 45;
+    display: grid; grid-template-columns: 1.6fr 1fr; gap: var(--k-a2);
+    padding: var(--k-a2) var(--k-a4) calc(var(--k-a2) + env(safe-area-inset-bottom));
+    background: var(--k-yta); border-top: 1px solid var(--k-linje); box-shadow: 0 -4px 16px rgb(0 0 0 / 0.06);
+    transition: transform 260ms var(--k-kurva), opacity 260ms var(--k-kurva);
+  }
+  .kontaktlist :global(.knapp) { min-height: 48px; padding-inline: 0.75rem; }
+  .kontaktlist[data-dold="true"] { transform: translateY(110%); opacity: 0; }
+  @media (prefers-reduced-motion: reduce) { .kontaktlist { transition: opacity 200ms linear; } .kontaktlist[data-dold="true"] { transform: none; } }
+  @media (min-width: 64rem) { .kontaktlist { display: none; } }
+</style>

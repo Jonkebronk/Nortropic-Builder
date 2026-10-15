@@ -11,6 +11,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 img, svg { display: block; max-width: 100%; height: auto; }
+/* Knapplisten nere på mobilen får aldrig skymma innehåll eller fokus (WCAG 2.2, 2.4.11). */
+@media (max-width: 63.99rem) {
+  html[data-lista="nere"] { scroll-padding-bottom: 6rem; }
+  html[data-lista="nere"] body { padding-bottom: calc(4.5rem + env(safe-area-inset-bottom)); }
+}
 h1, h2, h3 {
   font-family: var(--k-font-rubrik);
   font-weight: var(--k-rubrik-vikt);

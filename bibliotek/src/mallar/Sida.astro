@@ -5,16 +5,17 @@ import '../styles/bas.css';
 import '../styles/rorelse.css';
 import Sidhuvud from '../sektioner/Sidhuvud.astro';
 import Sidfot from '../sektioner/Sidfot.astro';
+import Kontaktlist from '../sektioner/Kontaktlist.astro';
 import type { StartInnehall } from '../innehall/typ';
 
 interface Props { kit: 'lugn' | 'varm' | 'djarv'; innehall: StartInnehall; titel: string; beskrivning: string; noindex?: boolean; rorelse?: 'sparsam' | 'mattlig'; }
 const { kit, innehall, titel, beskrivning, noindex = false, rorelse = 'sparsam' } = Astro.props;
 ---
 <!doctype html>
-<html lang="sv" data-kit={kit} data-rorelse={rorelse}>
+<html lang="sv" data-kit={kit} data-rorelse={rorelse} data-lista={innehall.mobilLista ?? 'uppe'}>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{titel}</title>
     <meta name="description" content={beskrivning} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
@@ -30,6 +31,7 @@ const { kit, innehall, titel, beskrivning, noindex = false, rorelse = 'sparsam' 
       <slot />
     </main>
     <Sidfot innehall={innehall} />
+    {innehall.mobilLista === 'nere' && <Kontaktlist innehall={innehall} />}
     <script>
       // På iPhone och iPad går kartlänkar med data-apple till Apple Kartor; annars till Google Maps.
       // En iPad med skrivbordsläge säger Macintosh men har pekskärm.

@@ -12,8 +12,9 @@ import nal from 'lucide-static/icons/sparkles.svg?raw';
 import vag from 'lucide-static/icons/waves.svg?raw';
 import foretag from 'lucide-static/icons/briefcase.svg?raw';
 import mejl from 'lucide-static/icons/mail.svg?raw';
+import stang from 'lucide-static/icons/x.svg?raw';
 
-const ikoner = { telefon, kalender, plats, klocka, stjarna, pil, meny, ryggrad, nal, vag, foretag, mejl } as const;
+const ikoner = { telefon, kalender, plats, klocka, stjarna, pil, meny, ryggrad, nal, vag, foretag, mejl, stang } as const;
 export type IkonNamn = keyof typeof ikoner;
 interface Props { namn: IkonNamn; }
 const { namn } = Astro.props;

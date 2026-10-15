@@ -12,11 +12,10 @@ const { praktiskt, ring } = Astro.props.innehall;
       {praktiskt.platser.map((p) => (
         <article class="kort praktiskt__plats">
           <h3>{p.namn}</h3>
-          <p class="praktiskt__adress"><Ikon namn="plats" /><span>{p.adress}</span></p>
+          <p><a class="praktiskt__adress" href={p.karta.href} data-apple={p.karta.apple} rel="noopener" aria-label={`${p.karta.text}: ${p.adress}`}><Ikon namn="plats" /><span>{p.adress}</span></a></p>
           <dl class="praktiskt__dagar">
             {p.dagar.map((d) => (<div><dt>{d.dag}</dt><dd>{d.tid}</dd></div>))}
           </dl>
-          <a href={p.karta.href} data-apple={p.karta.apple} rel="noopener">{p.karta.text}</a>
         </article>
       ))}
       <article class="kort praktiskt__pris">
@@ -36,8 +35,9 @@ const { praktiskt, ring } = Astro.props.innehall;
   .praktiskt { padding-top: var(--k-a7); }
   .praktiskt__rubrik { margin-bottom: var(--k-a5); }
   .praktiskt__rutnat { display: grid; gap: var(--k-a4); }
-  .praktiskt__adress { display: flex; gap: var(--k-a2); align-items: flex-start; color: var(--k-dampad); }
-  .praktiskt__adress :global(svg) { width: 1.1rem; height: 1.1rem; margin-top: 0.3rem; flex: none; }
+  /* Adressen är länken till vägbeskrivningen, som i sidfoten (Johnny 2026-10-15). */
+  .praktiskt__adress { display: inline-flex; gap: var(--k-a2); align-items: flex-start; color: var(--k-text); min-height: 24px; }
+  .praktiskt__adress :global(svg) { width: 1.1rem; height: 1.1rem; margin-top: 0.3rem; flex: none; color: var(--k-accent-text); }
   .praktiskt__dagar { margin: 0; display: grid; gap: var(--k-a1); }
   .praktiskt__dagar div { display: flex; justify-content: space-between; gap: var(--k-a4); border-bottom: 1px solid var(--k-linje); padding-block: var(--k-a2); }
   .praktiskt__dagar dt { font-weight: 600; }

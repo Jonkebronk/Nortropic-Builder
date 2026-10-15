@@ -11,7 +11,10 @@ export interface StartInnehall {
   beskrivning: string;
   foretag: { namn: string; logotyp?: Bild };
   boka: Lank & { kort?: string }; // kort: texten i sidhuvudet
-  ring: Lank & { nummer: string };
+  ring: Lank & { nummer: string; kort?: string }; // kort: texten i knapplisten
+  // Mobilen: 'uppe' = kontaktvägen fast i sidhuvudet; 'nere' = smalt sidhuvud och knapplist i tumzonen.
+  mobilLista?: 'uppe' | 'nere';
+  meny?: { oppna: string; stang: string; lankar: Lank[] };
   nav: Lank[];
   forstavy: {
     overrad: string;

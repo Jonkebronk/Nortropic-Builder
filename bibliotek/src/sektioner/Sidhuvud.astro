@@ -1,40 +1,80 @@
 ---
-// Sidhuvudet: kontaktvägen på varje sida, fast i toppen på mobilen (guide/2-3-struktur.md).
-// Menyn är en <details>-disclosure som fungerar utan JavaScript (guide/2-4-skelett.md, primitiverna).
+// Sidhuvudet. På datorn: namn, fyra synliga länkar, telefon och Boka (guide/2-3-struktur.md).
+// På mobilen finns två lägen (innehall.mobilLista):
+//  'uppe' – kontaktvägen fast i sidhuvudet, som Johnnys beslut 2026-10-15.
+//  'nere' – smalt sidhuvud med "Meny" som göms när man scrollar nedåt och kommer tillbaka uppåt
+//           (NN/g, Sticky Headers), och kontaktvägen i en knapplist i tumzonen (Kontaktlist.astro).
+// Menyn är en popover: Escape och klick utanför stänger den utan JavaScript (guide/2-4-skelett.md, primitiverna).
 import Ikon from '../komponenter/Ikon.astro';
+import Knapp from '../komponenter/Knapp.astro';
 import Bildruta from '../komponenter/Bildruta.astro';
 import type { StartInnehall } from '../innehall/typ';
 interface Props { innehall: StartInnehall; }
-const { foretag, boka, ring, nav } = Astro.props.innehall;
+const { foretag, boka, ring, nav, meny, mobilLista = 'uppe' } = Astro.props.innehall;
+const menyLankar = meny?.lankar ?? nav;
+const sida = Astro.url.pathname;
 ---
-<header class="sidhuvud">
+<header class="sidhuvud" data-sidhuvud data-lista={mobilLista}>
   <div class="behallare sidhuvud__rad">
     <a class="sidhuvud__namn" href="/">
       {foretag.logotyp && <span class="sidhuvud__logo"><Bildruta bild={foretag.logotyp} bredd={40} /></span>}
       <span>{foretag.namn}</span>
     </a>
     <nav class="sidhuvud__nav" aria-label="Huvudmeny">
-      <ul>{nav.map((l) => <li><a href={l.href}>{l.text}</a></li>)}</ul>
+      <ul>{nav.map((l) => <li><a href={l.href} aria-current={l.href === sida ? 'page' : undefined}>{l.text}</a></li>)}</ul>
     </nav>
     <div class="sidhuvud__kontakt">
       <a class="sidhuvud__ring" href={ring.href} aria-label={`Ring ${ring.nummer}`}>
         <Ikon namn="telefon" /><span class="sidhuvud__ringtext">{ring.nummer}</span>
       </a>
       <a class="knapp knapp--primar sidhuvud__boka" href={boka.href} rel="noopener">{boka.kort ?? boka.text}</a>
-      <details class="sidhuvud__meny">
-        <summary aria-label="Meny"><Ikon namn="meny" /></summary>
-        <ul>{nav.map((l) => <li><a href={l.href}>{l.text}</a></li>)}</ul>
-      </details>
+      <button class="sidhuvud__menyknapp" type="button" popovertarget="meny">
+        <Ikon namn="meny" /><span>{meny?.oppna ?? 'Meny'}</span>
+      </button>
+    </div>
+  </div>
+  <div id="meny" popover class="meny">
+    <div class="meny__topp">
+      <span class="meny__namn">{foretag.namn}</span>
+      <button class="meny__stang" type="button" popovertarget="meny" popovertargetaction="hide">
+        <Ikon namn="stang" /><span>{meny?.stang ?? 'Stäng'}</span>
+      </button>
+    </div>
+    <nav aria-label={meny?.oppna ?? 'Meny'}>
+      <ul class="meny__lankar">
+        {menyLankar.map((l) => <li><a href={l.href} aria-current={l.href === sida ? 'page' : undefined}>{l.text}</a></li>)}
+      </ul>
+    </nav>
+    <div class="meny__knappar">
+      <Knapp href={boka.href} text={boka.text} ikon="kalender" />
+      <Knapp href={ring.href} text={ring.text} variant="sekundar" ikon="telefon" />
     </div>
   </div>
 </header>
 
+<script>
+  // Läge 'nere' på mobilen: sidhuvudet göms vid scroll nedåt och kommer tillbaka vid scroll uppåt.
+  // Det kräver några pixlar åt samma håll, så att det inte blinkar (NN/g, Sticky Headers).
+  const h = document.querySelector<HTMLElement>('[data-sidhuvud][data-lista="nere"]');
+  if (h) {
+    let senast = window.scrollY;
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (Math.abs(y - senast) < 12) return;
+      h.dataset.dold = String(y > senast && y > 120);
+      senast = y;
+    }, { passive: true });
+    h.addEventListener('focusin', () => { h.dataset.dold = 'false'; });
+  }
+</script>
+
 <style>
   .sidhuvud {
     position: sticky; top: 0; z-index: 50;
-    background: color-mix(in srgb, var(--k-bg) 92%, transparent);
+    background: color-mix(in srgb, var(--k-bg) 94%, transparent);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid color-mix(in srgb, var(--k-linje) 70%, transparent);
+    transition: transform 320ms var(--k-kurva);
   }
   .sidhuvud__rad { display: flex; align-items: center; gap: var(--k-a2); min-height: 4rem; }
   .sidhuvud__namn {
@@ -46,10 +86,9 @@ const { foretag, boka, ring, nav } = Astro.props.innehall;
   .sidhuvud__logo { flex: none; display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 8px; background: var(--k-mork); padding: 5px; }
   .sidhuvud__logo :global(img) { width: 100%; height: auto; }
   .sidhuvud__nav { display: none; }
-  .sidhuvud__nav ul, .sidhuvud__meny ul { list-style: none; margin: 0; padding: 0; }
-  .sidhuvud__nav ul { display: flex; gap: var(--k-a5); }
-  .sidhuvud__nav a, .sidhuvud__meny a { color: var(--k-text); text-decoration: none; font-weight: 500; }
-  .sidhuvud__nav a:hover { text-decoration: underline; }
+  .sidhuvud__nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: var(--k-a5); }
+  .sidhuvud__nav a { color: var(--k-text); text-decoration: none; font-weight: 500; }
+  .sidhuvud__nav a:hover, .sidhuvud__nav a[aria-current] { text-decoration: underline; text-underline-offset: 0.3em; }
   .sidhuvud__kontakt { display: flex; align-items: center; gap: var(--k-a1); flex: none; }
   .sidhuvud__ring {
     display: inline-flex; align-items: center; justify-content: center; gap: var(--k-a2);
@@ -58,33 +97,58 @@ const { foretag, boka, ring, nav } = Astro.props.innehall;
   .sidhuvud__ring :global(svg) { width: 1.3rem; height: 1.3rem; }
   .sidhuvud__ringtext { display: none; }
   .sidhuvud__boka { min-height: 44px; padding: 0.5rem 0.9rem; white-space: nowrap; font-size: 0.95rem; }
-  .sidhuvud__meny summary {
-    list-style: none; display: grid; place-items: center; width: 48px; height: 48px; cursor: pointer; color: var(--k-text);
+
+  /* Menyknappen: ikon med ordet Meny och en ram, så att den syns som en knapp. */
+  .sidhuvud__menyknapp {
+    display: inline-flex; align-items: center; gap: 0.4rem; min-height: 44px; padding: 0.4rem 0.75rem;
+    font: inherit; font-weight: 600; font-size: 0.95rem; color: var(--k-text);
+    background: transparent; border: 1.5px solid var(--k-linje); border-radius: var(--k-radie-knapp); cursor: pointer;
   }
-  .sidhuvud__meny summary::-webkit-details-marker { display: none; }
-  .sidhuvud__meny summary :global(svg) { width: 1.5rem; height: 1.5rem; }
-  .sidhuvud__meny ul {
-    position: absolute; right: var(--k-a4); top: 4rem; min-width: 14rem;
-    background: var(--k-yta); border: 1px solid var(--k-linje); border-radius: var(--k-radie-kort);
-    padding: var(--k-a3); display: grid; gap: var(--k-a1);
+  .sidhuvud__menyknapp :global(svg) { width: 1.25rem; height: 1.25rem; }
+
+  /* Menypanelen glider in från höger. */
+  .meny {
+    position: fixed; inset: 0 0 0 auto; margin: 0; height: 100dvh; width: min(100%, 24rem); max-height: none;
+    padding: var(--k-a4) var(--k-a5) calc(var(--k-a5) + env(safe-area-inset-bottom));
+    border: 0; border-left: 1px solid var(--k-linje); background: var(--k-yta); color: var(--k-text);
+    overflow-y: auto; overscroll-behavior: contain;
+    transform: translateX(100%); transition: transform 300ms var(--k-kurva), display 300ms allow-discrete, overlay 300ms allow-discrete;
   }
-  .sidhuvud__meny li a { display: block; padding: var(--k-a3) var(--k-a4); }
+  .meny:popover-open { display: flex; flex-direction: column; gap: var(--k-a5); transform: none; }
+  @starting-style { .meny:popover-open { transform: translateX(100%); } }
+  .meny::backdrop { background: rgb(0 0 0 / 0.35); }
+  .meny__topp { display: flex; align-items: center; justify-content: space-between; gap: var(--k-a3); border-bottom: 1px solid var(--k-linje); padding-bottom: var(--k-a3); }
+  .meny__namn { font-family: var(--k-font-rubrik); font-weight: var(--k-rubrik-vikt); text-transform: var(--k-rubrik-versaler); font-size: 1.15rem; }
+  .meny__stang { display: inline-flex; align-items: center; gap: 0.35rem; min-height: 44px; padding: 0.4rem 0.6rem; font: inherit; font-weight: 600; color: var(--k-text); background: none; border: 0; cursor: pointer; }
+  .meny__stang :global(svg) { width: 1.3rem; height: 1.3rem; }
+  .meny__lankar { list-style: none; margin: 0; padding: 0; display: grid; }
+  .meny__lankar a { display: flex; align-items: center; min-height: 52px; color: var(--k-text); text-decoration: none; font-size: 1.15rem; font-weight: 500; border-bottom: 1px solid var(--k-linje); }
+  .meny__lankar a[aria-current] { color: var(--k-accent-text); font-weight: 600; }
+  .meny__knappar { display: grid; gap: var(--k-a3); margin-top: auto; }
+
+  /* Under 360 px: tätare sidhuvud så att namnet får plats. */
   @media (max-width: 25rem) { .sidhuvud__logo { display: none; } }
   @media (max-width: 22.5rem) {
     .sidhuvud__rad { width: min(100% - 2rem, var(--k-max)); gap: 2px; }
     .sidhuvud__namn { font-size: 0.9rem; }
-    .sidhuvud__meny summary { min-width: 42px; width: 42px; }
-    /* Branschens kontaktväg (boka) ligger kvar; telefonen finns i förstavyn och under Det praktiska. */
-    .sidhuvud__ring { display: none; }
     .sidhuvud__boka { padding: 0.45rem 0.7rem; font-size: 0.875rem; }
+    .sidhuvud__ring { display: none; }
+  }
+  /* Läge 'nere' på mobilen: inget telefon och ingen Boka i sidhuvudet; de ligger i knapplisten. */
+  @media (max-width: 63.99rem) {
+    .sidhuvud[data-lista="nere"] .sidhuvud__ring, .sidhuvud[data-lista="nere"] .sidhuvud__boka { display: none; }
+    .sidhuvud[data-lista="nere"][data-dold="true"] { transform: translateY(-100%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sidhuvud, .meny { transition: none; }
   }
   @media (min-width: 64rem) {
     .sidhuvud__rad { min-height: 5rem; gap: var(--k-a6); }
     .sidhuvud__nav { display: block; }
-    .sidhuvud__meny { display: none; }
+    .sidhuvud__menyknapp { display: none; }
     .sidhuvud__ringtext { display: inline; }
-    .sidhuvud__kontakt { gap: var(--k-a5); }
     .sidhuvud__namn { margin-right: 0; }
     .sidhuvud__nav { margin-right: auto; }
+    .sidhuvud__kontakt { gap: var(--k-a5); }
   }
 </style>
