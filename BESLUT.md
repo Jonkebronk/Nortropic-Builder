@@ -655,9 +655,25 @@ Johnny, 21:25:
 
 **Status:** gäller.
 
-Johnny klistrade kl. 21.58 in kommandot som lägger till Stitchs officiella MCP-server, `claude mcp add stitch --transport http --header "X-Goog-Api-Key: …" https://stitch.googleapis.com/mcp`. Nyckeln är utelämnad här.
+Johnny klistrade omkring kl. 21.34 in kommandot som lägger till Stitchs officiella MCP-server, `claude mcp add stitch --transport http --header "X-Goog-Api-Key: …" https://stitch.googleapis.com/mcp`. Nyckeln är utelämnad här.
 
 **Innebär:**
 - Stitchs MCP-server finns i byggsessionen med lokal scope. Nyckeln ligger i `~/.claude-bygg/.claude.json` och inte i repot. Servern svarade `✔ Connected`.
 - Guiden hade MCP-servern på N2 och Stitch-CLI:t på N1 (`guide/2-5-yta.md`, `bilaga-a-verktyg.md`). Johnnys val tar in MCP-servern redan nu.
 - Regeln i `2-5` gäller fortfarande: Stitch används när kiten tas fram, på provsidan med provinnehåll, och aldrig med firmans innehåll.
+
+## 2026-10-15: Inget Cloudflare eller Google-API för övningssajterna
+
+**Status:** gäller. Ändrar *Övningssajterna* i `guide/5-byggplan.md`, där övningssajterna skulle ligga på en förhandsadress bakom Cloudflare Access.
+
+Claude listade det som väntade på Johnny, bland annat ansökan om API-åtkomst för Google Business Profile och ett Cloudflare-konto för byrån inför steg 5.
+
+Johnny, omkring 21:35:
+
+> Google och Cloudflare gör vi inte för dessa test byggen tänker jag
+
+**Innebär:**
+- Övningssajterna publiceras inte, inte heller bakom Access, och visas bara lokalt.
+- Steg 5 övas inte i övningssajterna. Byrån behöver inget Cloudflare-konto för dem.
+- Ansökan om Google Business Profile-API:t görs inte för övningssajterna, utan i god tid före den första riktiga kunden.
+- Claude läser beskedet som att det gäller konton, publicering och API:er. Researchen i firmans publika Google-profil i steg 1 och firmans offentliga betyg i rapporten i steg 6 är kvar (`guide/2-1-strategi.md`, `2-9-drift-och-forvaltning.md`).

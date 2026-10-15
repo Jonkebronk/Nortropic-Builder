@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-15 kl. 21.55 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-15 kl. 21.40 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Kort
 
@@ -14,7 +14,7 @@ Detaljerna står i `BESLUT.md`.
 
 | Beslut | Var |
 |---|---|
-| **Övningssajter för verkliga lokala firmor**, en i taget, tills Johnny är nöjd. Firman har inte beställt sajten och kontaktas inte. Övningssajterna ligger högst på en förhandsadress bakom Access, och allt om firman finns bara i `sites/` | `guide/5-byggplan.md`, *Övningssajterna*; `2-1-strategi.md`, *Övningsläget* |
+| **Övningssajter för verkliga lokala firmor**, en i taget, tills Johnny är nöjd. Firman har inte beställt sajten och kontaktas inte. Övningssajterna publiceras inte och visas bara lokalt (ändrat kl. 21.35), och allt om firman finns bara i `sites/` | `guide/5-byggplan.md`, *Övningssajterna*; `2-1-strategi.md`, *Övningsläget* |
 | **Bygget görs på Johnnys Mac** med den nyaste Claude Code | `guide/3-3-sakerhet-och-installningar.md` |
 | **De tre första kiten** tas fram ur måttstocken: Lugn och luftig, Varm och välkomnande, Djärv och egen | `guide/2-5-yta.md` |
 | **Mobilens första skärm** svarar på vad, var och hur. Därefter följer *Det praktiska*. Sidhuvudet har kontaktvägen, fast i toppen på mobilen | `guide/2-4-skelett.md`, `2-3-struktur.md` |
@@ -25,6 +25,7 @@ Detaljerna står i `BESLUT.md`.
 | Astro statiskt är bekräftat. Inter och Lucide väljs per kit | `guide/2-8-teknik-och-kvalitet.md`, `2-5` |
 | **Läge, modell och effort är Johnnys inställningar, inte regler.** Byggsessionen körs i auto mode med Opus 5.5 på xhigh (kl. 20.13–20.14) | `BESLUT.md`; `guide/3-3` |
 | **Fritt mandat för förberedelserna:** mallarna i `mallar/` (kl. 20.30) | `BESLUT.md`; `guide/5-byggplan.md`, bilaga F |
+| **Inget Cloudflare eller Google-API för övningssajterna.** Steg 5 övas inte förrän den första riktiga kunden (kl. 21.35) | `BESLUT.md`; `guide/5-byggplan.md` |
 | **Inga spärrar.** Allt arbete med Nortropic-Builder, också sajtarbetet, görs från en session i repots rot i auto mode (kl. 21.16–21.20) | `BESLUT.md`; `guide/3-3` |
 
 ## Gjort på Macen 2026-10-15
@@ -60,15 +61,13 @@ Detaljerna står i `BESLUT.md`.
 ## Nästa steg – på Macen
 
 1. **Den första övningssajten är vald och skapad** i `sites/` ur mallen (Johnny 21:10, `BESLUT.md`). Firmans namn står bara där, i sajtens `progress.md`, som också håller läget.
-2. **Steg 1 pågår** (fullt mandat enligt planen, Johnny 21:25, `BESLUT.md`). Researchen före intervjun var klar kl. 21.55, och intervjun med Johnny i kundens ställe väntar. Läget och fynden står i sajtens `progress.md`.
+2. **Steg 1 pågår** (fullt mandat enligt planen, Johnny 21:25, `BESLUT.md`). Researchen före intervjun var klar kl. 21.30, och intervjun med Johnny i kundens ställe väntar. Läget och fynden står i sajtens `progress.md`.
 3. **Byggplanens steg 1–6**, med en genomgång efter sajten.
 
 ## Väntar på Johnny
 
-- **Stitch:** MCP-servern är tillagd och ansluten (Johnny 21:58, `BESLUT.md`). Nyckeln ligger i `~/.claude-bygg/.claude.json`. Den syns också i samtalets logg, så Johnny kan byta den när det passar, varefter Claude lägger in den nya. Stitch-CLI:t är inte inloggat, och om MCP-servern räcker i steg 2 är inte prövat.
+- **Stitch:** MCP-servern är tillagd och ansluten (Johnny omkring 21:34, `BESLUT.md`). Nyckeln ligger i `~/.claude-bygg/.claude.json`. Den syns också i samtalets logg, så Johnny kan byta den när det passar, varefter Claude lägger in den nya. Stitch-CLI:t är inte inloggat, och om MCP-servern räcker i steg 2 är inte prövat.
 - **Läsa sajtens `CLAUDE.md`** i `mallar/sajt/CLAUDE.md`. Claude skrev den med mandatet, och Johnny godkänner ändringar i `CLAUDE.md` (bilaga E 2.3).
-- **Ansökan om API-åtkomst för Google Business Profile.** Bara Johnny kan ansöka, och svaret tar upp till 14 dagar.
-- **Ett Cloudflare-konto för byrån** inför steg 5. Det är ett mänskligt klick, och övningssajterna ligger på byråns konto.
 - **Bilaga E:** avsnitt 1 och 2 är avgjorda. 1.8 (integritetspolicy) och 1.9 (betalning) väntar till den första riktiga kunden, och 2.4, 2.7 och 2.8 till förvaltningen. Avsnitt 3 gäller senare nivåer. Avsnitt 4 verifieras under bygget.
 - **Repot är publikt** (Johnny: "det ändrar vi sen"). Måttstockens domar över namngivna firmor pushades med Johnnys godkännande.
 
