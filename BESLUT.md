@@ -441,3 +441,17 @@ Johnny:
 > Ja
 
 **Innebär:** Ändringarna är införda i `2-6-rorelse.md`, `2-5-yta.md` (minimala kit har rörelse) och `5-byggplan.md`, steg 3. Johnnys domar på video avgör standardbudgeten för de följande sajterna. Regeln om att ingen text börjar på `opacity: 0` lyfts till N1.
+
+## 2026-10-15: Innehållslagret – kort text i företagets röst blir N1
+
+**Status:** gäller.
+
+Claude föreslog vid genomläsningen av `guide/2-7-innehall.md`:
+- A. En N1-regel om att texten är kort och låter som företaget. Den bygger på kundens egna ord, och i övningen på firmans formuleringar. Varje sektion säger en sak, och ordgränsen sätts efter de första övningssajterna.
+- B. Tre ställen som hamnat efter besluten: "Välkommen till …", vad som aldrig är självgående efter bildbeslutet, och att Johnny bekräftar fakta i övningen.
+
+Johnny:
+
+> Ja
+
+**Innebär:** Regeln står först under *Texterna* i `2-7-innehall.md`, med Johnnys ord ur måttstocken som grund. N2-reglerna där utvecklar den.

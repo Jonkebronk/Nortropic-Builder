@@ -1,6 +1,6 @@
 # 2.7 Innehåll
 
-**Status:** konsoliderad v1.0, 2026-10-15; ommärkt efter granskningen samma dag (`konsolidering/granskning-v1.0.md`). Utkast, inte genomgånget med Johnny.
+**Status:** konsoliderad v1.0, 2026-10-15; ommärkt efter granskningen samma dag (`konsolidering/granskning-v1.0.md`). **Genomläst med Johnny 2026-10-15**; rättelserna står i `BESLUT.md`.
 
 Sajtens texter, fakta och bilder. Här motverkas det generiska: det specifika kommer ur kundens faktabas, ord och foton, och det som saknas blir en fråga till kunden, aldrig en gissning. Vilket innehåll varje sida behöver bestäms i `2-2-omfattning.md`; här tas det fram. Hemvist för faktabasen, platshållarna, texterna och AI-signaturerna i text.
 
@@ -20,6 +20,7 @@ Sajtens texter, fakta och bilder. Här motverkas det generiska: det specifika ko
 
 Första vyns rubrik – tjänst och ort, aldrig *"Välkommen till …"* – står i `2-4-skelett.md`, *Sektionerna*.
 
+- [N1] **Texten är kort och låter som företaget.** Den byggs på kundens egna ord ur intervjun – i övningssajterna firmans egna formuleringar från dess sajt – och varje sektion säger en sak. En rad som kunde stå hos en konkurrent skrivs om (bytestestet nedan). Det är måttstockens fråga 2: Johnny underkände för mycket text – *"textmassan kortad till en tredjedel"*, *"tjänstetexterna kortade till en mening var"*, *"en vägg av SEO-text [...] ingen människa låter så"* – och godkände text som *"låter som kliniken ('vi älskar tänder')"* och *"låter som ägaren"*. Ingen ordgräns än: domarna säger kortare men inte hur kort, så gränsen sätts efter de första övningssajterna (*Ordgränsen* nedan). Instruktion och granskningskriterium – Johnnys måttstock (`mattstock/mattstock.md`; `BESLUT.md` 2026-10-15). Reglerna nedan utvecklar den.
 - [N2] **Texterna ligger i innehållsfiler som byggs ur faktabasen, inte i komponenterna.** Då kan samma innehåll visas i tre stilkit, och en omdesign rör inte texten. Här bor regeln för texterna; att komponenterna inte bär innehåll → `2-4-skelett.md`. 📄 *Websites for Normal People*; Astros content collections (`historik/karta/9-drift-forvaltning.md`; stacken → `2-8-teknik-och-kvalitet.md`)
 - [N2] **Texterna till sidorna som riktningarna visar skrivs före riktningarna.** Riktningarna är tre stilkit på samma innehåll (`BESLUT.md` 2026-10-15); i webb-pro styrde bristen på kundens ord och bilder aldrig bygget (webb-pro-genomgången §4). 🔧
 - [N2] **Konkret i stället för generiskt.** Varje löfte (*kvalitet*, *pålitlig*, *helhetslösning*) får en detalj ur faktabasen – vad, hur, när, till vilket pris – eller stryks (fallgrop 176). *"Pålitliga och byggda för att hålla"* blev *"sex spikar per takpanel, varje panel"*. Saknas detaljen blir det en fråga till kunden. 🎥 Jack Roberts-videon 2 (*Slop Monster*); 📄 marketingskills `copywriting` ("Specificity Over Vagueness")
@@ -39,7 +40,7 @@ Första vyns rubrik – tjänst och ort, aldrig *"Välkommen till …"* – stå
 
 - [N2] **Granskningskriterium:** *inte X utan Y*, grupper om tre, superlativ utan belägg, standardöppningar, självbesvarade frågor, långa tankstreck (fallgrop 129). På svenska också nominaliseringar, passiv som falsk formalitet och anglicismer; svenska läsare misstror superlativ. 🎥 Nate Herk 100-repon-videon (Wikipedia-redaktörernas guide via Humanizer; ⚠️ guiden inte läst); 📄 marketingskills `copywriting`, Anthropics `brand-review`, claude-humanizer-svenska (saknar licens – läs, kopiera inte)
 - [N2] **Granskningsförslag: inga versaler i rubriker och knappar,** utom etiketter som stilkitet anger (→ `2-5-yta.md`; fallgrop 196). *(En källa – bänken: Coding Sloth kallar det själv "a funny rule". Inte en kontroll, analysen §4.2.)*
-- [N2] **Svenska copyfynd som rapport, inte grind:** byråfraser (*skräddarsydda lösningar*, *kvalitet i fokus*), engelsk jargong, intern information (*vår nya hemsida*), *Välkommen till …* som rubrik, flera tankstreck i ett stycke, flera utropstecken per sida, tre stycken i rad som börjar med *Vi*. Ett fynd rättas eller motiveras – en fras kan vara rätt i kundens röst. *(En källa – bänken; 📄 webb-pro `kunskap/copy-kontroll.md`.)*
+- [N2] **Svenska copyfynd som rapport, inte grind:** byråfraser (*skräddarsydda lösningar*, *kvalitet i fokus*), engelsk jargong, intern information (*vår nya hemsida*), *Välkommen till …* som rubrik (på första vyn är det i stället N1-regeln i `2-4-skelett.md`), flera tankstreck i ett stycke, flera utropstecken per sida, tre stycken i rad som börjar med *Vi*. Ett fynd rättas eller motiveras – en fras kan vara rätt i kundens röst. *(En källa – bänken; 📄 webb-pro `kunskap/copy-kontroll.md`.)*
 - [N2] **Humanizer och Slop Monster är kandidater** (status → `bilaga-a-verktyg.md`). Båda är skrivna för engelska. Används en av dem körs den efter faktakontrollen, och ändrade texter faktakontrolleras igen.
 
 ### Bilder
@@ -114,9 +115,9 @@ N1-kontrollerna definieras bara i `2-8-teknik-och-kvalitet.md`, tabellen *N1 –
 
 ## Hur självgående
 
-På första sajten tittar Johnny på allt, och kunden bekräftar fakta (`5-byggplan.md`, steg 1). Punkterna nedan gäller när tillsynen minskar.
+På första sajten tittar Johnny på allt, och kunden bekräftar fakta – i övningssajterna Johnny i kundens ställe (`5-byggplan.md`, steg 1; `2-1-strategi.md`, *Övningsläget*). Punkterna nedan gäller när tillsynen minskar.
 
 - [N2] Texterna skrivs självgående ur faktabasen och kundens ord. Det som saknas blir frågor, och flödet väntar på svaren i stället för att gissa.
-- [N2] Aldrig självgående: bildkällan när foton saknas, logotyper och citat utan tillstånd, och AI-bilder som kunden vill visa som äkta.
+- [N2] Aldrig självgående: bilder som ser ut att visa kundens personal eller arbete utan att vara kundens, AI-bilder som kunden vill visa som äkta, och logotyper och citat utan tillstånd. Stock- och AI-bilder i övrigt är tillåtna enligt ärlighetsregeln (`BESLUT.md` 2026-10-15).
 - [N2] Språkgrinden körs på all text utan tillsyn, men bara mätta regler stoppar.
 - [N3] I förvaltningen går ändrade fakta till faktabasen, och kontrollen hittar sidorna som inte följt med. Priser, erbjudanden och juridiska texter publiceras aldrig utan Johnnys godkännande (→ `2-9-drift-och-forvaltning.md`).

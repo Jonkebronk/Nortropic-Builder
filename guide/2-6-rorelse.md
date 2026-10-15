@@ -1,6 +1,6 @@
 # 2.6 Rörelse
 
-**Status:** konsoliderad v1.0, 2026-10-15; ommärkt 2026-10-15 efter granskningen. Utkast, inte genomgånget med Johnny.
+**Status:** konsoliderad v1.0, 2026-10-15; ommärkt 2026-10-15 efter granskningen. **Genomläst med Johnny 2026-10-15**; rättelserna står i `BESLUT.md`.
 
 Rörelse är ett av lagren en webbyrå levererar utöver Garretts fem plan: övergångar, hover och rörelse vid scroll som stöder innehållet i stället för att stjäla uppmärksamhet. Standardprodukten är en vanlig flersidig företagssajt (`BESLUT.md` 2026-10-15), så rörelse är en förbättring ovanpå en sajt som fungerar utan den. Scrollytelling, Scroll World och rörlig grafik är tillval. Den första övningssajten byggs i två versioner, *sparsam* och *måttlig*, som Johnny dömer på video; den respekterar `prefers-reduced-motion`, och resten gäller från sajt 2.
 
