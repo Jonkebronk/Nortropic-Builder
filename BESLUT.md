@@ -650,3 +650,14 @@ Johnny, 21:25:
 - Claude kör byggplanen (`guide/5-byggplan.md`) för den första övningssajten utan att fråga mellan delmomenten.
 - Claude stannar där planen själv kräver Johnny och lägger fram det han ska se. Det gäller intervjun, där han svarar i kundens ställe, hans dom som avslutar varje steg, och mänskliga klick som inloggningar och konton.
 - Claude läser mandatet så. Det ändrar inte planens grindar.
+
+## 2026-10-15: Stitchs MCP-server i byggsessionen
+
+**Status:** gäller.
+
+Johnny klistrade kl. 21.58 in kommandot som lägger till Stitchs officiella MCP-server, `claude mcp add stitch --transport http --header "X-Goog-Api-Key: …" https://stitch.googleapis.com/mcp`. Nyckeln är utelämnad här.
+
+**Innebär:**
+- Stitchs MCP-server finns i byggsessionen med lokal scope. Nyckeln ligger i `~/.claude-bygg/.claude.json` och inte i repot. Servern svarade `✔ Connected`.
+- Guiden hade MCP-servern på N2 och Stitch-CLI:t på N1 (`guide/2-5-yta.md`, `bilaga-a-verktyg.md`). Johnnys val tar in MCP-servern redan nu.
+- Regeln i `2-5` gäller fortfarande: Stitch används när kiten tas fram, på provsidan med provinnehåll, och aldrig med firmans innehåll.

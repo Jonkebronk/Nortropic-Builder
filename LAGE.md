@@ -65,7 +65,7 @@ Detaljerna står i `BESLUT.md`.
 
 ## Väntar på Johnny
 
-- **`stitch login` före steg 2**, i en egen terminal och inte med `!`, så att inget hemligt hamnar i samtalet. Enligt `stitch status` kräver projekt, skärmar, fångster och designsystem dessutom en API-nyckel: `stitch login --api-key <nyckel>`. Nyckeln sparas i `~/.stitch/`, utanför repot.
+- **Stitch:** MCP-servern är tillagd och ansluten (Johnny 21:58, `BESLUT.md`). Nyckeln ligger i `~/.claude-bygg/.claude.json`. Den syns också i samtalets logg, så Johnny kan byta den när det passar, varefter Claude lägger in den nya. Stitch-CLI:t är inte inloggat, och om MCP-servern räcker i steg 2 är inte prövat.
 - **Läsa sajtens `CLAUDE.md`** i `mallar/sajt/CLAUDE.md`. Claude skrev den med mandatet, och Johnny godkänner ändringar i `CLAUDE.md` (bilaga E 2.3).
 - **Ansökan om API-åtkomst för Google Business Profile.** Bara Johnny kan ansöka, och svaret tar upp till 14 dagar.
 - **Ett Cloudflare-konto för byrån** inför steg 5. Det är ett mänskligt klick, och övningssajterna ligger på byråns konto.
@@ -76,7 +76,7 @@ Detaljerna står i `BESLUT.md`.
 
 - `mattstock/verktyg/` innehåller fångsten med Playwright (helsidesbilder i mobil och dator), bedömningssidan och analysen. De används för nya omgångar, till exempel för att kalibrera på systemets egna utkast.
 - **Push från Macen:** git har `osxkeychain` som inloggning och kan hänga på en behörighetsruta i nyckelringen. `gh` är inloggat som Jonkebronk och fungerar. Pusha med `git -c credential.helper= -c 'credential.helper=!gh auth git-credential' push origin main`, eller låt Johnny köra `gh auth setup-git` en gång, vilket ändrar hans globala git-konfiguration.
-- **Stitch-CLI:t 0.11.1** är installerat globalt med npm (2026-10-15) men är inte inloggat.
+- **Stitch:** CLI:t 0.11.1 är installerat globalt men inte inloggat. MCP-servern `stitch` (HTTP, lokal scope i `~/.claude-bygg`) är ansluten.
 - **Prov och ändringar av byggsessionens egen konfiguration:** i auto mode stoppade klassaren proven som *Auto-Mode Bypass*, läsningen av `.claude.json` som *Credential Exploration* och en ändring av `~/.claude-bygg/settings.json` som *Self-Modification*. Ändringen gick igenom när Johnny hade sagt till uttryckligen. Prov kan köras från en session i den vanliga konfigurationen.
 - `konsolidering/bygg_n1.py` genererar N1-sammanfattningen. Skriptet kräver Python 3.10 eller senare. På Macen är `python3` version 3.9, så kör det med `/opt/homebrew/bin/python3.12`.
 - Bedömningssidan med Johnnys domar finns som privat artefakt på claude.ai: <https://claude.ai/artifact/16Cz4NeibCYDDsKGD3sdsq>. Domarna finns också i `mattstock/domar.jsonl`.
