@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-16 kl. 00.46 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-16 kl. 00.57 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Kort
 
@@ -66,6 +66,7 @@ Detaljerna står i `BESLUT.md`.
 Johnny tog in fem av förslagen till checklistan och lade till ett sjätte. `mallar/granskning.md` är låst på nytt, och uppdraget står i `mattstock/granskare/uppdrag.md`. Hans fynd och anteckningar är åtgärdade i biblioteket och sajten. Kontrollskriptet har fått kontroll 2b: länkar till kartor, recensioner och sociala medier öppnas i ny flik på datorn.
    Beslutat omkring 00.32: branschen avgör om *Det praktiska* eller *Tjänster* kommer efter första vyn (`guide/2-4-skelett.md`; biblioteket: `forst` i innehållet). Övningssajten behåller *Var och när* först.
    Beslutat omkring 00.36: målet i Lighthouse är 100 i alla fyra kategorier (kontroll 9, median av tre efter en uppvärmning). Övningssajten får 100 i alla 14 mätningar.
+   Researchen om lokal SEO, AEO och GEO är klar (`kunskap/research/2026-10-16_seo-aeo-geo.md`). Den har 16 förslag med hemvist, som väntar på Johnnys beslut.
 4. **Nästa:** steg 6 (förvaltningsrapportens form) och genomgången efter sajten (`guide/5-byggplan.md`). Nästa mätning av granskaren görs på nya sajter och på systemets egna utkast.
 
 ## Väntar på Johnny
