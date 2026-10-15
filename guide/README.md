@@ -23,7 +23,7 @@ Guiden beskriver hur byrån bygger och förvaltar en sajt, lager för lager, och
 
 Johnnys skäl att börja om (`BESLUT.md` 2026-10-13): *"tiden det tar att bygga en hemsida är alldeles för lång och sen har vi fortfarande inte skapat en sida jag är nöjd med ännu"*. Projektet lyckas när byrån levererar:
 
-1. **Sajter som Johnny anser är bra.** Johnny tar fram **måttstocken** för vad som är bra (`BESLUT.md` 2026-10-15). Den blir grunden för granskarens kalibrering och för eval (`3-2-granskning-och-kalibrering.md`). Tills den finns gäller Johnnys dom, med en kort motivering.
+1. **Sajter som Johnny anser är bra.** **Måttstocken** för vad som är bra är Johnnys, godkänd 2026-10-15 ur hans domar över 39 sajter (`mattstock/mattstock.md`). Den består av tre frågor: förstår och når kunden företaget på mobilens första skärm, är det äkta, håller utförandet. Den är grunden för granskarens kalibrering och för eval (`3-2-granskning-och-kalibrering.md`). Johnnys dom över varje sajt avgör fortfarande.
 2. **Kunder som betalar för förvaltningen och stannar kvar** – förvaltningen är produkten (`4-foretaget.md`, `2-9-drift-och-forvaltning.md`).
 3. **Rimlig tid per sajt** – men först när kvaliteten sitter: ingen tidsbudget förrän Johnny är nöjd med det som byggs. Tiden mäts bara som underlag (`1-kundens-vag.md`).
 
