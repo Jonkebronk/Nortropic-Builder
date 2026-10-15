@@ -92,7 +92,7 @@ I första sajten gör Claude strukturen för hand efter N1-punkterna ovan. Det s
 - [N2] **Strukturskillen** destilleras sedan ur marketingskills `site-architecture` (MIT) och de första sajternas sidkartor (`bilaga-b-skills.md`). Tre av dess regler byts mot primärkällor: tre-klicksregeln (NN/g), brödsmulor som speglar adressen (Google) och 4–7 menyval (NN/g). 📄 [SKILL.md](https://github.com/coreyhaines31/marketingskills/blob/main/skills/site-architecture/SKILL.md)
 - [N2] **Verktyg:** Mermaid (Ta in); Screaming Frog Free för klickdjup och trädgraf, UXtweak eller Lyssna Free för trädtest, claude-seo `seo-local` som granskningslista (Pröva). Playwright kör nyckelresan redan i första sajten (→ `2-8`). Övriga kandidater och det som avstås (bland annat astro-breadcrumbs, GPL-3.0) → `bilaga-a-verktyg.md`.
 
-**Eget bibliotek:** standarduppsättningen ovan är den första sidkartsmallen. Branschmallarnas sidkartor → `2-2-omfattning.md`. Mönstren för meny, sidfot och brödsmulor → `2-4-skelett.md`.
+**Eget bibliotek:** standarduppsättningen ovan är den första sidkartsmallen. Branschprofilernas sidkartor → `2-2-omfattning.md`. Mönstren för meny, sidfot och brödsmulor → `2-4-skelett.md`.
 
 **Åtkomst vid kundbygget:** Search Console vid ombyggnad (ovan); Google-profilens sökfraser från N3.
 
@@ -108,7 +108,7 @@ Alla kontroller, deras grund och visningsbredderna står i `bilaga-c-kontroller.
 - [N2] **Kontroll som flaggar: klickdjupet.** Varje sida nås med högst två klick från startsidan. Det är en egenskap hos platta småföretagssajter, ingen allmän regel: tre-klicksregeln saknar belägg, och det som räknas är *information scent* och tydliga etiketter (📄 [NN/g](https://www.nngroup.com/articles/3-click-rule/)). *(en källa – bänken: Muellers uttalande 2018, [Search Engine Journal](https://searchenginejournal.com/google-click-depth-matters-seo-url-structure/256779/))*
 - [N2] **Trädtest med AI som rök-test:** trädet som ren text, 6–10 uppgifter i kundens ord utan menyns ord, minst fem körningar med slumpad ordning mellan syskon, inga personaprompter. Misslyckanden rapporteras som röda flaggor. Testet validerar aldrig: ChatGPT löste 9–10 av 10 uppgifter mot cirka 51 % för människor, och personas gör syntetiska svar trovärdigare men inte träffsäkrare. 📄 [MeasuringU](https://measuringu.com/chatgpt4-tree-test/), [NN/g, syntetiska användare](https://www.nngroup.com/articles/synthetic-users/), [Kuric m.fl. 2026](https://arxiv.org/abs/2605.18302)
 - [N2] **Trunk test per sidmall:** syns sajtens namn, sidans namn, huvudavsnitten, den lokala navigeringen och "du är här" inom några sekunder? Krugs sjätte fråga, sök, utgår på sajter utan sökfunktion. *(en källa – bänken: Krug)*
-- [N2] **Ett mänskligt trädtest per branschmall**, inte per kund, med en gratisnivå (UXtweak 30 svar i månaden). 📄 [NN/g, Tree Testing](https://www.nngroup.com/articles/tree-testing/)
+- [N2] **Ett mänskligt trädtest per branschprofil**, inte per kund, med en gratisnivå (UXtweak 30 svar i månaden). 📄 [NN/g, Tree Testing](https://www.nngroup.com/articles/tree-testing/)
 
 ## Hur självgående
 

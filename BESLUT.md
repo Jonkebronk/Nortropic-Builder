@@ -359,3 +359,18 @@ Johnny:
 > Ja
 
 **Innebär:** Grinden och faktabasen i N1 fungerar för övningssajterna (*Övningsläget* i `2-1-strategi.md`). Briefmallen har *var* och kontaktvägen, så att första skärmen enligt måttstockens fråga 1 har sitt underlag redan i briefen.
+
+## 2026-10-15: Omfattningslagret – undantag för övningssajterna, kontot, branschprofilen
+
+**Status:** gäller.
+
+Claude föreslog vid genomläsningen av `guide/2-2-omfattning.md`:
+- A. Ett undantag för övningssajterna i reglerna om att bara fånga kundens egen sajt och att inte bygga demosajter (fallgrop 119 och 153). En övningssajt är ingen demosajt så länge firman inte ser den. Att visa en för firman är Johnnys uttryckliga beslut.
+- B. Domänen och Cloudflare-kontot på kundens namn gäller riktiga kunder. Övningssajterna ligger på byråns konto.
+- C. Branschmallen (2-2) och branschprofilen (2-4) slås ihop till en branschprofil i `2-2`.
+
+Johnny:
+
+> Ja
+
+**Innebär:** Undantagen står i `2-2-omfattning.md` och `4-foretaget.md`. Branschprofilen i `bibliotek/branscher/` har tre delar: MoSCoW-listan, kontaktvägen på första skärmen och förebilderna ur måttstocken. Ordet *branschmall* är ersatt i hela guiden.

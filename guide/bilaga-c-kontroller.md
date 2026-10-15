@@ -101,7 +101,7 @@ Sju stoppar helt (1, 3, 4, 5, 6, 8, 10), två rapporterar (2, 9), och nr 7 stopp
 | C29 | Bytestestet: går ortnamnet att byta utan att texten blir fel är ortssidan en dörrsida | 2-3 Ortssidor | N2 | granskningskriterium | En källa – bänken: claude-seo `seo-local` | Granskaren |
 | C30 | Trädtest med AI som rök-test: minst fem körningar, slumpad ordning, misslyckanden blir röda flaggor; validerar aldrig | 2-3 Kontroll | N2 | kontroll | 📄 MeasuringU; NN/g om syntetiska användare; Kuric m.fl. 2026 | Delagent |
 | C31 | Trunk test per sidmall | 2-3 Kontroll | N2 | granskningskriterium | En källa – bänken: Krug | Granskaren |
-| C32 | Mänskligt trädtest per branschmall, inte per kund | 2-3 Kontroll | N2 | kontroll | 📄 NN/g, *Tree Testing* | Testpersoner (UXtweak, gratisnivå) |
+| C32 | Mänskligt trädtest per branschprofil, inte per kund | 2-3 Kontroll | N2 | kontroll | 📄 NN/g, *Tree Testing* | Testpersoner (UXtweak, gratisnivå) |
 
 ### Lager 2.4 Skelett
 

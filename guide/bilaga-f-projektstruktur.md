@@ -18,7 +18,7 @@ Nortropic-Builder/
 ├── guide/                    guiden v1.0
 ├── bibliotek/                [N1] eget Astro-projekt: komponenter, layout, sektioner, mallar,
 │   │                         provsida (2-4-skelett.md)
-│   ├── branscher/            [N2] branschprofiler: kontaktväg, sektioner, tillval, förebilder (2-4-skelett.md)
+│   ├── branscher/            [N2] branschprofiler: sidor, sektioner, kontaktväg, förebilder (2-2-omfattning.md)
 │   └── stilkit/              [N1] stilkiten med tokens, design.md och wireframe-kitet (2-5-yta.md)
 ├── mallar/                   [N1] briefmall och kärnfrågor (2-1-strategi.md), fakta.md-mall
 │                             (2-7-innehall.md), granskningsmall från steg 4 (3-2)
