@@ -30,5 +30,11 @@ const { kit, innehall, titel, beskrivning, noindex = false, rorelse = 'sparsam' 
       <slot />
     </main>
     <Sidfot innehall={innehall} />
+    <script>
+      // På iPhone och iPad går kartlänkar med data-apple till Apple Kartor; annars till Google Maps.
+      // En iPad med skrivbordsläge säger Macintosh men har pekskärm.
+      const apple = /iPhone|iPad|iPod/.test(navigator.userAgent) || (/Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
+      if (apple) document.querySelectorAll<HTMLAnchorElement>('a[data-apple]').forEach((a) => { if (a.dataset.apple) a.href = a.dataset.apple; });
+    </script>
   </body>
 </html>

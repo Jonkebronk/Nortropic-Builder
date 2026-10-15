@@ -2,6 +2,8 @@
 import type { ImageMetadata } from 'astro';
 
 export interface Lank { text: string; href: string; }
+// En kartlänk går till Google Maps, och på Apple-enheter till Apple Kartor om apple är satt (Sida.astro).
+export interface KartLank extends Lank { apple?: string; }
 export interface Bild { src: ImageMetadata | string; alt: string; width?: number; height?: number; }
 
 export interface StartInnehall {
@@ -21,7 +23,7 @@ export interface StartInnehall {
   };
   praktiskt: {
     rubrik: string;
-    platser: { namn: string; adress: string; dagar: { dag: string; tid: string }[]; karta: Lank }[];
+    platser: { namn: string; adress: string; dagar: { dag: string; tid: string }[]; karta: KartLank }[];
     pris: { rubrik: string; belopp: string; text: string };
     kontakt: { rubrik: string; text: string; epost?: Lank };
   };
@@ -30,5 +32,6 @@ export interface StartInnehall {
   fortroende: { rubrik: string; betyg: { varde: string; skala: string; antal: string; kalla: string }; citat: { text: string; kalla: string }[] };
   process: { rubrik: string; steg: { rubrik: string; text: string }[]; not?: string };
   nastaSteg: { rubrik: string; text: string };
-  sidfot: { platser: { namn: string; adress: string }[]; epost?: Lank; sociala: Lank[]; rad: string };
+  sidfot: { platser: { namn: string; adress: string; karta?: KartLank }[]; epost?: Lank; sociala: Lank[]; rad: string;
+    sidor?: Lank[]; rubriker?: { platser: string; kontakt: string; sidor: string } };
 }

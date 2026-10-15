@@ -16,7 +16,7 @@ const { praktiskt, ring } = Astro.props.innehall;
           <dl class="praktiskt__dagar">
             {p.dagar.map((d) => (<div><dt>{d.dag}</dt><dd>{d.tid}</dd></div>))}
           </dl>
-          <a href={p.karta.href} rel="noopener">{p.karta.text}</a>
+          <a href={p.karta.href} data-apple={p.karta.apple} rel="noopener">{p.karta.text}</a>
         </article>
       ))}
       <article class="kort praktiskt__pris">
