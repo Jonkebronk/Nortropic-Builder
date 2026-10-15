@@ -1,19 +1,25 @@
 ---
-// Nästa steg: sidan slutar med den primära handlingen (guide/2-3-struktur.md).
+// Nästa steg: sidan slutar med den primära handlingen (guide/2-3-struktur.md). Som standard Boka och Ring; en sida
+// med en annan primär handling skickar egen rubrik, text och knappar, som Ring och Mejla på en företagssida (Johnny 2026-10-16).
 import Knapp from '../komponenter/Knapp.astro';
-import type { StartInnehall } from '../innehall/typ';
-interface Props { innehall: StartInnehall; }
+import type { Knappval } from './Kontaktlist.astro';
+import type { Lank, StartInnehall } from '../innehall/typ';
+interface Props { innehall: StartInnehall; rubrik?: string; text?: string; primar?: Knappval; sekundar?: Lank; }
 const { nastaSteg, boka, ring } = Astro.props.innehall;
+const rubrik = Astro.props.rubrik ?? nastaSteg.rubrik;
+const text = Astro.props.text ?? nastaSteg.text;
+const primar = Astro.props.primar ?? { href: boka.href, text: boka.text, ikon: 'kalender' };
+const sekundar = Astro.props.sekundar ?? { href: ring.href, text: ring.text };
 ---
 <section class="nasta" aria-labelledby="nasta-rubrik">
   <div class="behallare nasta__ruta">
     <div class="nasta__text">
-      <h2 id="nasta-rubrik">{nastaSteg.rubrik}</h2>
-      <p>{nastaSteg.text}</p>
+      <h2 id="nasta-rubrik">{rubrik}</h2>
+      <p>{text}</p>
     </div>
     <div class="nasta__knappar">
-      <Knapp href={boka.href} text={boka.text} variant="pa-mork" ikon="kalender" />
-      <a class="nasta__ring" href={ring.href}>{ring.text}</a>
+      <Knapp href={primar.href} text={primar.text} variant="pa-mork" ikon={primar.ikon} etikett={primar.etikett} />
+      <a class="nasta__ring" href={sekundar.href}>{sekundar.text}</a>
     </div>
   </div>
 </section>

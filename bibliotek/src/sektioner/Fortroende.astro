@@ -15,7 +15,7 @@ const { fortroende } = Astro.props.innehall;
         <span>{fortroende.betyg.skala}<br /><span class="dampad">{fortroende.betyg.antal}</span></span>
       </p>
       <p class="dampad fortroende__kalla">{fortroende.betyg.kalla}</p>
-      {fortroende.lank && <p><a class="fortroende__lank" href={fortroende.lank.href} rel="noopener">{fortroende.lank.text}</a></p>}
+      {fortroende.lank && <p><a class="fortroende__lank" href={fortroende.lank.href} data-ny-flik rel="noopener">{fortroende.lank.text}</a></p>}
     </div>
     <ul class="fortroende__citat">
       {fortroende.citat.map((c) => (

@@ -5,10 +5,10 @@ import type { Bild } from '../innehall/typ';
 // prioritet: den största bilden i första vyn hämtas först (web.dev, Fetch Priority).
 interface Props { bild?: Bild; bredd: number; klass?: string; laddning?: 'eager' | 'lazy'; prioritet?: boolean; }
 const { bild, bredd, klass, laddning = 'lazy', prioritet = false } = Astro.props;
-// Be aldrig om en större bild än originalet.
+// Be aldrig om en större bild än originalet, men ta med originalet när den dubbla bredden är större,
+// så att skärmar med hög upplösning får den skarpaste bild som finns.
 const original = bild && typeof bild.src !== 'string' ? bild.src.width : Infinity;
-const bredder = [bredd, bredd * 2].filter((b) => b <= original);
-const widths = bredder.length ? bredder : [original];
+const widths = [...new Set([bredd, bredd * 2].map((b) => Math.min(b, original)))];
 ---
 {bild ? (
   typeof bild.src === 'string'

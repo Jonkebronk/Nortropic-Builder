@@ -1,6 +1,7 @@
 ---
 // Det praktiska: direkt efter första vyn – var och när, pris och telefon (guide/2-4-skelett.md).
 import Ikon from '../komponenter/Ikon.astro';
+import { hartPostnummer } from '../komponenter/text';
 import type { StartInnehall } from '../innehall/typ';
 interface Props { innehall: StartInnehall; }
 const { praktiskt, ring } = Astro.props.innehall;
@@ -12,7 +13,7 @@ const { praktiskt, ring } = Astro.props.innehall;
       {praktiskt.platser.map((p) => (
         <article class="kort praktiskt__plats">
           <h3>{p.namn}</h3>
-          <p><a class="praktiskt__adress" href={p.karta.href} data-apple={p.karta.apple} rel="noopener" aria-label={`${p.karta.text}: ${p.adress}`}><Ikon namn="plats" /><span>{p.adress}</span></a></p>
+          <p><a class="praktiskt__adress" href={p.karta.href} data-apple={p.karta.apple} data-ny-flik rel="noopener" aria-label={`${p.karta.text}: ${p.adress}`}><Ikon namn="plats" /><span>{hartPostnummer(p.adress)}</span></a></p>
           <dl class="praktiskt__dagar">
             {p.dagar.map((d) => (<div data-veckodag={d.nr}><dt>{d.dag}</dt><dd>{d.tid}</dd></div>))}
           </dl>

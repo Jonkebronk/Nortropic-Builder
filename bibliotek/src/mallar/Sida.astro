@@ -5,12 +5,13 @@ import '../styles/bas.css';
 import '../styles/rorelse.css';
 import Sidhuvud from '../sektioner/Sidhuvud.astro';
 import Sidfot from '../sektioner/Sidfot.astro';
-import Kontaktlist from '../sektioner/Kontaktlist.astro';
+import Kontaktlist, { type Knappval } from '../sektioner/Kontaktlist.astro';
 import type { StartInnehall } from '../innehall/typ';
 
 // strukturerad: JSON-LD för sökmotorer, t.ex. en klinik per mottagning (Google Search Central, LocalBusiness).
-interface Props { kit: 'lugn' | 'varm' | 'djarv'; innehall: StartInnehall; titel: string; beskrivning: string; noindex?: boolean; rorelse?: 'sparsam' | 'mattlig'; strukturerad?: object[]; }
-const { kit, innehall, titel, beskrivning, noindex = false, rorelse = 'sparsam', strukturerad = [] } = Astro.props;
+// lista: knapplistens knappar när sidans primära handling inte är Boka, t.ex. Ring och Mejla på en företagssida.
+interface Props { kit: 'lugn' | 'varm' | 'djarv'; innehall: StartInnehall; titel: string; beskrivning: string; noindex?: boolean; rorelse?: 'sparsam' | 'mattlig'; strukturerad?: object[]; lista?: { primar: Knappval; sekundar: Knappval }; }
+const { kit, innehall, titel, beskrivning, noindex = false, rorelse = 'sparsam', strukturerad = [], lista } = Astro.props;
 const adress = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
 const delning = Astro.site && innehall.foretag.delningsbild ? new URL(innehall.foretag.delningsbild, Astro.site).href : undefined;
 ---
@@ -38,19 +39,32 @@ const delning = Astro.site && innehall.foretag.delningsbild ? new URL(innehall.f
       (function () { var r = new URLSearchParams(location.search).get('rorelse'); if (r === 'mattlig' || r === 'sparsam') document.documentElement.dataset.rorelse = r; })();
     </script>
   </head>
-  <body>
+  <body data-ny-flik-text={innehall.nyFlikText}>
     <a class="hoppa" href="#innehall">Hoppa till innehållet</a>
     <Sidhuvud innehall={innehall} />
     <main id="innehall">
       <slot />
     </main>
     <Sidfot innehall={innehall} />
-    {(innehall.mobilLista ?? 'nere') === 'nere' && <Kontaktlist innehall={innehall} />}
+    {(innehall.mobilLista ?? 'nere') === 'nere' && <Kontaktlist innehall={innehall} {...lista} />}
     <script>
       // På iPhone och iPad går kartlänkar med data-apple till Apple Kartor; annars till Google Maps.
       // En iPad med skrivbordsläge säger Macintosh men har pekskärm.
       const apple = /iPhone|iPad|iPod/.test(navigator.userAgent) || (/Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
       if (apple) document.querySelectorAll<HTMLAnchorElement>('a[data-apple]').forEach((a) => { if (a.dataset.apple) a.href = a.dataset.apple; });
+      // Länkar till kartor, recensioner och sociala medier (data-ny-flik) öppnas i ny flik på datorn, så att besökaren har
+      // sajten kvar. På mobilen öppnas de i samma flik, där appen tar över (Johnny 2026-10-16; kontroll 2b i skript/kontroll.mjs).
+      // Skärmläsare får veta att en ny flik öppnas (WCAG-teknik G201).
+      if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        const ny = document.body.dataset.nyFlikText;
+        document.querySelectorAll<HTMLAnchorElement>('a[data-ny-flik]').forEach((a) => {
+          a.target = '_blank'; a.rel = 'noopener';
+          if (!ny) return;
+          const etikett = a.getAttribute('aria-label');
+          if (etikett) a.setAttribute('aria-label', `${etikett} ${ny}`);
+          else { const s = document.createElement('span'); s.className = 'sr-only'; s.textContent = ` ${ny}`; a.append(s); }
+        });
+      }
     </script>
   </body>
 </html>

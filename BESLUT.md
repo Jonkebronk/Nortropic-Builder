@@ -792,3 +792,41 @@ Johnny, omkring 23:42:
 - De fem ställningstagandena är N1-regler i `guide/2-3-struktur.md`, `2-4-skelett.md` och `2-8-teknik-och-kvalitet.md`.
 - När sajten är byggd och godkänd får kunden *Kundens lyft*: en kort, prioriterad lista med det som skulle lyfta sajten mest och som bara kunden kan lösa, med varför och hur (`guide/1-kundens-vag.md`, mallen `mallar/kundens-lyft.md`). Den lämnas vid leveransen och följs upp i månadsrapporten.
 - I övningssajterna skrivs listan men lämnas inte till firman.
+
+## 2026-10-16: Granskarens checklista efter den första mätningen; steg 4 avgjort
+
+**Status:** gäller.
+
+Granskaren mättes på måttstockens 31 sajter och granskade den första övningssajten (`mattstock/granskare/matning-2026-10-15.md`). Claude lade fram fem förslag till checklistan. Johnny, omkring 00:14:
+
+> De fem förslagen
+>
+> Ta in 1, men skriv det som en vägning, inte som ett undantag: saknad kontaktväg på första skärmen är svag när vad och var syns och äktheten är stark, och brister när vad eller var också saknas. FE Måleri och Hays är rätt exempel på det förra, NaturePure och Kierkegaard på det senare. Meningen “en hantverkare utan knapp och telefon på första skärmen fälls” stryks, för den var ett exempels ord som blev lag.
+>
+> Ta in 2 i den formen: två svaga ger en osäker dom, och osäkra domar går till mig. Inte “lutar åt den starkaste frågan”, för det blir en ny mekanisk regel. Granskaren ska stanna vid osäker och förklara vad som väger mot vad.
+>
+> Ta in 3, men med mindre precision än föreslaget: en stockbild i heron räknas på fråga 3 också, inte bara på fråga 2, eftersom valet att sätta stock i heron är ett utförandebeslut Nortropic gjort. Tillsammans med ett annat svagt tecken på utförandet (daterat typsnitt, “Välkommen till”, textmassa) brister fråga 3. Att kräva just “typsnitt” vore återigen ett exempel som blir lag.
+>
+> Ta in 4, och gör det synligt i granskning.md: en osäker dom är inte slutgiltig, den lämnas till Johnny med motiveringen. Mätningen visar att det är hela skillnaden mellan 71 % och 95 %.
+>
+> Ta in 5 som process. Nästa mätning sker på nya sajter och på systemets egna utkast.
+>
+> Ett sjätte, från det enda säkra felet: Color Wonder släpptes igenom med stöd av regeln om fångsttomrum. Lägg till att tomrum efter sista innehållet, före eller i sidfoten, sällan beror på fångsten, regeln gäller hero och mitt på sidan. Och påminn om att granskaren där bröt mot sin egen vägning: formulär på rörigt foto plus tre typsnitt är två svaga på fråga 3 och 2, vilket enligt checklistan ska ge underkänd, inte säker godkänd.
+>
+> Rätta också bildbeskrivningen i uppdraget innan nästa mätning, som förbehållet säger.
+
+Om övningssajtens fynd, i samma svar (det som gäller firman står ordagrant i sajtens `progress.md` och `domar.jsonl`):
+
+> Rätt observation men fel adress: 4 och 7 är sidkartan som släpat efter besluten. Rätta dokumentet, inte sajten. Det är ändå ett bra fynd, för det visar att granskaren läser briefen mot ytan, vilket är precis vad den ska göra.
+>
+> Fynd 3, loggsymbolen under 400 px: visa den. Sidhuvudet har plats ([firmans namn] och “Meny” fyller inte raden), och händerna är det enda som skiljer sidhuvudet från vilken textlogga som helst. Det var ett avsiktligt val som inte behövs.
+>
+> Vad granskaren missade: [fotot i förstavyn på datorn]. Vägbeskrivning i samma flik kunde den inte se, och det är rätt plats för det i de automatiska kontrollerna snarare än i granskarens ögon: externa länkar som ska öppnas i ny flik på datorn. Inget annat saknas. Att den dömde godkänd utan osäkerhet, som jag, är det viktigaste resultatet.
+
+**Innebär:**
+- `mallar/granskning.md` får förslag 1–4 och det sjätte i Johnnys form och låses på nytt med en ny SHA-256-summa. Uppdraget till granskaren står i `mattstock/granskare/uppdrag.md`, med rätt beskrivning av bilderna.
+- En osäker dom är inte slutgiltig. Den går till Johnny med motiveringen (`guide/3-2-granskning-och-kalibrering.md`).
+- Nästa mätning görs på nya sajter och på systemets egna utkast, eftersom alla 39 domar i måttstocken är använda.
+- Kontrollskriptet får en kontroll för länkar till kartor, recensioner och sociala medier: på datorn öppnas de i ny flik, på mobilen i samma flik så att appen tar över (`skript/kontroll.mjs`, `guide/2-8-teknik-och-kvalitet.md`).
+- Biblioteket: logotypsymbolen visas i sidhuvudet på alla bredder.
+- Steg 4 i den första övningssajten är avgjort.

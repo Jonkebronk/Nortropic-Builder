@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-16 kl. 00.10 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-16 kl. 00.30 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Kort
 
@@ -62,12 +62,12 @@ Detaljerna står i `BESLUT.md`.
 
 1. **Den första övningssajten är vald och skapad** i `sites/` ur mallen (Johnny 21:10, `BESLUT.md`). Firmans namn står bara där, i sajtens `progress.md`, som också håller läget.
 2. **Steg 1 och 2 är dömda** (Johnny omkring 22.23). Steg 1 är godkänt. Johnny valde Lugn och luftig, godkände Varm och underkände Djärv. Domarna står i sajtens `domar.jsonl`. Steg 3 är godkänt, och slutgranskningen är godkänd omkring 23.51 ("den bästa sajten i måttstocken"). Versionen är fryst med taggen `steg4-underlag`.
-3. **Steg 4, granskaren, är mätt och har granskat sajten.** Granskaren hade rätt på 12 av Johnnys 17 godkända (71 %) och 12 av 14 underkända (86 %). Av de 22 domar den var säker på var 21 rätt, och sex av sju fel var märkta osäkra. Resultatet, avvikelserna och fem förslag till checklistan står i `mattstock/granskare/matning-2026-10-15.md`. Över sajten dömde granskaren godkänd, som Johnny. Den hittade tio fynd och en av Johnnys fyra anteckningar helt. Jämförelsen står i sajtens `granskning-steg4.md`.
-4. **Efter steg 4:** åtgärda de fynd och anteckningar Johnny godtar. Sedan kommer steg 6 (förvaltningsrapportens form) och genomgången efter sajten (`guide/5-byggplan.md`).
+3. **Steg 4, granskaren, är klart** (Johnny omkring 00.14). Granskaren hade rätt på 12 av Johnnys 17 godkända (71 %) och 12 av 14 underkända (86 %). Av de 22 domar den var säker på var 21 rätt, och sex av sju fel var märkta osäkra. Resultatet, avvikelserna och fem förslag till checklistan står i `mattstock/granskare/matning-2026-10-15.md`. Över sajten dömde granskaren godkänd, som Johnny. Den hittade tio fynd och en av Johnnys fyra anteckningar helt. Jämförelsen står i sajtens `granskning-steg4.md`.
+Johnny tog in fem av förslagen till checklistan och lade till ett sjätte. `mallar/granskning.md` är låst på nytt, och uppdraget står i `mattstock/granskare/uppdrag.md`. Hans fynd och anteckningar är åtgärdade i biblioteket och sajten. Kontrollskriptet har fått kontroll 2b: länkar till kartor, recensioner och sociala medier öppnas i ny flik på datorn.
+4. **Nästa:** steg 6 (förvaltningsrapportens form) och genomgången efter sajten (`guide/5-byggplan.md`). Nästa mätning av granskaren görs på nya sajter och på systemets egna utkast.
 
 ## Väntar på Johnny
 
-- **Steg 4:** avgör vilka av granskarens fynd som var rätt (sajtens `granskning-steg4.md`). Avgör också vilka av de fem förslagen till checklistan som tas in (`mattstock/granskare/matning-2026-10-15.md`). En ändrad checklista mäts på nya domar, eftersom alla 39 är använda.
 - **Läsa sajtens `CLAUDE.md`** i `mallar/sajt/CLAUDE.md`. Claude skrev den med mandatet, och Johnny godkänner ändringar i `CLAUDE.md` (bilaga E 2.3).
 - **Bilaga E:** avsnitt 1 och 2 är avgjorda. 1.8 (integritetspolicy) och 1.9 (betalning) väntar till den första riktiga kunden, och 2.4, 2.7 och 2.8 till förvaltningen. Avsnitt 3 gäller senare nivåer. Avsnitt 4 verifieras under bygget.
 - **Repot är publikt** (Johnny: "det ändrar vi sen"). Måttstockens domar över namngivna firmor pushades med Johnnys godkännande.

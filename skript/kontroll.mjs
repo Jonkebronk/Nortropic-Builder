@@ -40,10 +40,13 @@ let sidor = [];
 if (existsSync(sitemapFil)) sidor = [...readFileSync(sitemapFil, 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => new URL(m[1]).pathname);
 else sidor = allaFiler(dist).filter((f) => f.endsWith('index.html')).map((f) => '/' + relative(dist, f).replace(/index\.html$/, ''));
 
+// Länkar som lämnar sajten för en karta, recensioner eller sociala medier: ny flik på datorn, samma flik på mobilen (kontroll 2b).
+const lamnar = /google\.[a-z.]+\/maps|maps\.google\.|maps\.apple\.com|g\.page\/|goo\.gl\/maps|facebook\.com|instagram\.com|linkedin\.com|openstreetmap\.org/;
+
 const browser = await chromium.launch();
 const per = {};
 for (const sida of sidor) {
-  const url = bas + sida; const r = (per[sida] = { konsol: [], bilder: [], axe: [], reflow: false, titel: '', beskrivning: '', h1: 0, forstaTel: false, forstaBoka: false, text: '', citat: [] });
+  const url = bas + sida; const r = (per[sida] = { konsol: [], bilder: [], axe: [], reflow: false, titel: '', beskrivning: '', h1: 0, forstaTel: false, forstaBoka: false, text: '', citat: [], nyFlik: [] });
   for (const [b, h, mobil] of [[320, 700, true], [375, 812, true], [1280, 800, false]]) {
     const ctx = await browser.newContext({ viewport: { width: b, height: h }, isMobile: mobil, hasTouch: mobil, locale: 'sv-SE' });
     const page = await ctx.newPage();
@@ -69,6 +72,11 @@ for (const sida of sidor) {
       Object.assign(r, d); r.bilder.push(...d.trasiga);
     }
     if (b !== 320) {
+      const nyFlik = !mobil;
+      const fel = await page.evaluate(([m, ny]) => [...document.querySelectorAll('a[href]')].filter((a) => new RegExp(m).test(a.href) && (a.target === '_blank') !== ny).map((a) => a.href), [lamnar.source, nyFlik]);
+      r.nyFlik.push(...fel.map((h) => `${b}px öppnas i ${nyFlik ? 'samma' : 'ny'} flik: ${h.slice(0, 70)}`));
+    }
+    if (b !== 320) {
       const axe = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22a', 'wcag22aa']).analyze();
       for (const v of axe.violations) r.axe.push(`${b}px ${v.id}: ${v.nodes.length} st`);
     }
@@ -80,6 +88,8 @@ await browser.close();
 // 2. Konsolfel och bilder
 const k2 = sidor.flatMap((s) => [...per[s].konsol.map((x) => `${s} konsol: ${x}`), ...per[s].bilder.map((x) => `${s} bild: ${x}`)]);
 lagg(2, 'Inga konsolfel; alla bilder laddas', 'Rapport', k2.length === 0, k2.length ? k2.slice(0, 6).join(' | ') : `${sidor.length} sidor utan fel`);
+const k2b = sidor.flatMap((s) => per[s].nyFlik.map((x) => `${s} ${x}`));
+lagg('2b', 'Kartor, recensioner och sociala medier: ny flik på datorn, samma flik på mobilen', 'Rapport', k2b.length === 0, k2b.length ? k2b.slice(0, 6).join(' | ') : `${sidor.length} sidor i 375 och 1280 px`);
 
 // 3. Reflow i 320 px
 const k3 = sidor.filter((s) => per[s].reflow);

@@ -15,7 +15,9 @@ const rubrikId = `${id ?? rubrik.toLowerCase().replace(/[^a-zåäö0-9]+/g, '-')
 
 <style>
   .text--yta { background: var(--k-yta); }
-  .text__inre { display: grid; gap: var(--k-a4); max-width: 46rem; margin-inline: auto; }
+  /* Spalten börjar vid behållarens vänsterkant som de andra sektionerna; bara radlängden begränsas (Johnny 2026-10-16). */
+  .text__inre { display: grid; gap: var(--k-a4); }
+  .text__inre > * { max-width: 46rem; }
   .text__punkter { margin: 0; padding-left: 1.25rem; display: grid; gap: var(--k-a2); }
   .text__punkter li::marker { color: var(--k-accent-text); }
   .text__not { font-size: 0.95rem; }

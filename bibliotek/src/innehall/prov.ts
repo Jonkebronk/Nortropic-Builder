@@ -6,6 +6,7 @@ export const provinnehall: StartInnehall = {
   titel: 'Exempelkliniken – kiropraktor i Exempelstad (provinnehåll)',
   beskrivning: 'Provsida för bibliotekets sektioner med påhittat innehåll.',
   foretag: { namn: 'Exempelkliniken' },
+  nyFlikText: '(öppnas i ny flik)',
   boka: { text: 'Boka tid online', kort: 'Boka tid', href: '#boka' },
   ring: { text: 'Ring 010-000 00 00', href: 'tel:+46100000000', nummer: '010-000 00 00' },
   nav: [

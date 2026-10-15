@@ -127,7 +127,6 @@ const sida = Astro.url.pathname;
   .meny__knappar { display: grid; gap: var(--k-a3); margin-top: auto; }
 
   /* Under 360 px: tätare sidhuvud så att namnet får plats. */
-  @media (max-width: 25rem) { .sidhuvud__logo { display: none; } }
   @media (max-width: 22.5rem) {
     .sidhuvud__rad { width: min(100% - 2rem, var(--k-max)); gap: 2px; }
     .sidhuvud__namn { font-size: 0.9rem; }

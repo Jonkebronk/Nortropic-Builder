@@ -7,6 +7,7 @@ export interface KartLank extends Lank { apple?: string; }
 export interface Bild { src: ImageMetadata | string; alt: string; width?: number; height?: number; }
 
 export interface StartInnehall {
+  nyFlikText?: string; // för skärmläsare när en länk öppnas i ny flik på datorn, t.ex. "(öppnas i ny flik)"
   titel: string;
   beskrivning: string;
   foretag: { namn: string; logotyp?: Bild; favikon?: string; hemskarmsikon?: string; delningsbild?: string };

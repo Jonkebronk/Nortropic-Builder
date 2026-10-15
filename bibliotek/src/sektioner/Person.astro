@@ -4,10 +4,13 @@ import Bildruta from '../komponenter/Bildruta.astro';
 import type { StartInnehall } from '../innehall/typ';
 interface Props { innehall: StartInnehall; }
 const { person } = Astro.props.innehall;
+// Fotot visas högst i halva originalets bredd, så att det är skarpt på skärmar med dubbel upplösning.
+// Ett litet original blir då en mindre bild i stället för en uppförstorad och suddig.
+const maxBredd = person.bild && typeof person.bild.src !== 'string' ? Math.min(384, Math.round(person.bild.src.width / 2)) : 384;
 ---
 <section class="sektion person" id={person.id} aria-labelledby="person-rubrik">
   <div class="behallare person__rutnat">
-    <div class="person__bild">
+    <div class="person__bild" style={`--person-max: ${maxBredd}px`}>
       <Bildruta bild={person.bild} bredd={360} klass="person__foto" />
     </div>
     <div class="person__text">
@@ -23,7 +26,7 @@ const { person } = Astro.props.innehall;
 
 <style>
   .person__rutnat { display: grid; gap: var(--k-a6); align-items: center; }
-  .person__bild { background: var(--k-yta); border-radius: var(--k-radie-kort); overflow: hidden; max-width: 24rem; justify-self: center; width: 100%; }
+  .person__bild { background: var(--k-yta); border-radius: var(--k-radie-kort); overflow: hidden; max-width: var(--person-max, 24rem); justify-self: center; width: 100%; }
   .person__bild :global(.person__foto) { width: 100%; height: auto; mix-blend-mode: multiply; }
   .person__text { display: grid; gap: var(--k-a4); max-width: 40rem; }
   .person__citat { margin: 0; padding-left: var(--k-a4); border-left: 3px solid var(--k-accent); font-family: var(--k-font-rubrik); font-size: 1.3rem; line-height: 1.35; }

@@ -1,7 +1,8 @@
 # Granskaren – checklista och roll
 
 <!-- Fryst för byggplanens steg 4 (guide/3-2-granskning-och-kalibrering.md; guide/5-byggplan.md). Ändras bara med Johnnys godkännande.
-     Bygger på mattstock/granskare/prompt.md och mattstock/mattstock.md, men utan citat om de sajter granskaren mäts på. -->
+     Bygger på mattstock/granskare/prompt.md och mattstock/mattstock.md. Ändrad efter den första mätningen med Johnnys godkännande
+     2026-10-16 (BESLUT.md; mattstock/granskare/matning-2026-10-15.md). Uppdraget till granskaren: mattstock/granskare/uppdrag.md. -->
 
 ## Roll
 
@@ -23,14 +24,19 @@ Svara på frågorna i ordning, och titta på mobilens första skärm först.
    *Brukar fälla:* stockbilder i stället för egna bilder, tillsammans med andra svagheter, eftersom stockbilder ensamma inte fäller. Text som ingen människa skrivit, som en vägg av upprepad SEO-text eller maskinöversatt språk. För mycket text.
 3. **Håller utförandet?** Layouten ska hålla på mobilen, och identiteten ska hänga ihop. Sajten ska vara färdig: inga tomrum, platshållare eller rester.
    *Brukar fälla:* en trasig mobil, som avklippt innehåll, text över bilder eller en meny mitt i en bild. Ofärdigt, som platshållare eller räknare i sidfoten. Daterat eller billigt utförande. Tre eller fler typsnitt. Stora tomma ytor. Snyggt utförande räcker inte ensamt.
+   *Stock i heron* räknas här också, inte bara på fråga 2, eftersom valet att sätta en stockbild i heron är ett utförandebeslut. Tillsammans med ett annat svagt tecken på utförandet, som ett daterat typsnitt, "Välkommen till" eller en textmassa, brister fråga 3.
 
-**Vägning:** *Underkänd* när en av frågorna brister helt, eller när två är svaga. *Godkänd* när ingen brister och högst en är svag. Då måste de andra bära. Gränsfallen är oftast tydlighet mot äkthet.
+**Vägning:** *Underkänd* när en av frågorna brister helt. *Godkänd* när ingen brister och högst en är svag. Då måste de andra bära. När två är svaga är domen *osäker*: stanna där och förklara vad som väger mot vad, i stället för att låta en regel avgöra. Gränsfallen är oftast tydlighet mot äkthet.
 
-**Branschen avgör kontaktvägen.** Hantverkare och jour ska kunna ringa och be om offert. Kliniker och skönhet ska kunna boka. Restauranger och kaféer ska visa meny, adress och öppettider. En konsult eller byrå kan klara sig med en tydlig kontaktsida, men en hantverkare utan knapp och telefon på första skärmen fälls.
+Håll vägningen också när du tycker om sajten. Ett formulär på ett rörigt foto och tre typsnitt är två svaga, och då kan domen inte vara säker godkänd.
+
+**Branschen avgör kontaktvägen.** Hantverkare och jour ska kunna ringa och be om offert. Kliniker och skönhet ska kunna boka. Restauranger och kaféer ska visa meny, adress och öppettider. En konsult eller byrå kan klara sig med en tydlig kontaktsida.
+
+**En saknad kontaktväg vägs.** När branschens kontaktväg saknas på mobilens första skärm är fråga 1 *svag* om vad och var syns och äktheten är stark. Exempel är en målare med ägarna framför firmabilen och "måleri i Umeå" i rubriken (FE Måleri), och ett snickeri med egna namngivna projekt (Hays Woodworking). Båda godkändes. Fråga 1 *brister* när vad eller var också saknas, som hos NaturePure och Kierkegaard nedan.
 
 **Rubriken "Välkommen till …"** säger inget i sig. Den fäller tillsammans med andra svagheter och drar bara ner när resten är starkt.
 
-**Tomma ytor kan bero på fångsten.** En animation eller video som inte hunnit laddas kan synas som ett svart eller tomt parti. Låt det inte ensamt avgöra.
+**Tomma ytor kan bero på fångsten.** En animation eller video som inte hunnit laddas kan synas som ett svart eller tomt parti i heron eller mitt på sidan. Låt det inte ensamt avgöra. Tomrum efter det sista innehållet, före eller i sidfoten, beror sällan på fångsten och räknas.
 
 ## Det du inte dömer
 
@@ -41,6 +47,8 @@ Hastighet, kontrast, SEO och kod sköts av de automatiska kontrollerna. Verksamh
 Ett omdöme, inte en rapport, i Johnnys form:
 
 1. **Dom:** *Godkänd* eller *Underkänd*. Lägg till *(osäker)* när det stod och vägde, och skriv åt vilket håll det lutade. En dom sätts alltid.
+
+   **En osäker dom är inte slutgiltig.** Den lämnas till Johnny med motiveringen, och han dömer själv. I den första mätningen var 21 av 22 säkra domar rätt (95 %), men bara 3 av 9 osäkra. Utan den skillnaden hade granskaren haft rätt på 71 % av de sajter som Johnny godkände.
 2. **Avgörande:** det som tippade domen, med det som syns.
 3. **För godkänt:** den minsta ändring som hade gett godkänt, om sajten är underkänd. Om den är godkänd, det som gör den bra.
 4. **Spelar ingen roll:** något du såg men inte lät väga.

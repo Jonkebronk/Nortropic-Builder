@@ -2,6 +2,7 @@
 // Sidfoten: mottagningarna med adressen som kartlänk, kontaktvägarna och en kort lista över sajtens sidor.
 // Besökare letar efter kontaktuppgifter och det som saknas i menyn i sidfoten (NN/g, Footers). Ingen text i komponenten.
 import Ikon from '../komponenter/Ikon.astro';
+import { hartPostnummer } from '../komponenter/text';
 import type { StartInnehall } from '../innehall/typ';
 interface Props { innehall: StartInnehall; }
 const { foretag, sidfot, ring } = Astro.props.innehall;
@@ -16,8 +17,8 @@ const r = sidfot.rubriker;
         {sidfot.platser.map((p) => (
           <li><strong>{p.namn}</strong><br />
             {p.karta
-              ? <a class="sidfot__adress" href={p.karta.href} data-apple={p.karta.apple} rel="noopener" aria-label={`${p.karta.text}: ${p.adress}`}><Ikon namn="plats" /><span>{p.adress}</span></a>
-              : p.adress}
+              ? <a class="sidfot__adress" href={p.karta.href} data-apple={p.karta.apple} data-ny-flik rel="noopener" aria-label={`${p.karta.text}: ${p.adress}`}><Ikon namn="plats" /><span>{hartPostnummer(p.adress)}</span></a>
+              : hartPostnummer(p.adress)}
           </li>
         ))}
       </ul>
@@ -27,7 +28,7 @@ const r = sidfot.rubriker;
       <ul class="sidfot__lista">
         <li><a href={ring.href}>{ring.nummer}</a></li>
         {sidfot.epost && <li><a href={sidfot.epost.href}>{sidfot.epost.text}</a></li>}
-        {sidfot.sociala.map((l) => <li><a href={l.href} rel="noopener">{l.text}</a></li>)}
+        {sidfot.sociala.map((l) => <li><a href={l.href} data-ny-flik rel="noopener">{l.text}</a></li>)}
       </ul>
     </div>
     {sidfot.sidor && (

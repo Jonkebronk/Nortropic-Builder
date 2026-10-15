@@ -1,17 +1,22 @@
 ---
-// Knapplisten i tumzonen på mobilen, läge 'nere' (Sidhuvud.astro). Boka är bred och primär, Ring är sekundär.
+// Knapplisten i tumzonen på mobilen, läge 'nere' (Sidhuvud.astro). Som standard är Boka bred och primär och Ring sekundär.
+// En sida med en annan primär handling skickar egna knappar, som Ring och Mejla på en företagssida (Johnny 2026-10-16).
 // Den visas först när förstavyns eller sidtoppens egna knappar har scrollats ur bild, så att den aldrig dubblerar
 // eller täcker dem (Johnnys dom över Citykiropraktikern i mattstock/domar.jsonl). Fast höjd, hänsyn till iPhones
 // nederkant och scroll-padding i bas, så att den aldrig skymmer innehåll eller fokus (WCAG 2.2, 2.4.11).
 // Utan JavaScript ligger listen alltid synlig.
 import Knapp from '../komponenter/Knapp.astro';
+import type { IkonNamn } from '../komponenter/Ikon.astro';
 import type { StartInnehall } from '../innehall/typ';
-interface Props { innehall: StartInnehall; }
+export interface Knappval { href: string; text: string; ikon?: IkonNamn; etikett?: string; }
+interface Props { innehall: StartInnehall; primar?: Knappval; sekundar?: Knappval; }
 const { boka, ring } = Astro.props.innehall;
+const primar = Astro.props.primar ?? { href: boka.href, text: boka.kort ?? boka.text, ikon: 'kalender' };
+const sekundar = Astro.props.sekundar ?? { href: ring.href, text: ring.kort ?? ring.text, ikon: 'telefon', etikett: `Ring ${ring.nummer}` };
 ---
 <div class="kontaktlist" data-kontaktlist>
-  <Knapp href={boka.href} text={boka.kort ?? boka.text} ikon="kalender" />
-  <Knapp href={ring.href} text={ring.kort ?? ring.text} variant="sekundar" ikon="telefon" etikett={`Ring ${ring.nummer}`} />
+  <Knapp href={primar.href} text={primar.text} ikon={primar.ikon} etikett={primar.etikett} />
+  <Knapp href={sekundar.href} text={sekundar.text} variant="sekundar" ikon={sekundar.ikon} etikett={sekundar.etikett} />
 </div>
 
 <script>
