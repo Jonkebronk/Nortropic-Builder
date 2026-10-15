@@ -2,7 +2,7 @@
 
 **Status:** konsoliderad v1.0, 2026-10-15; ommärkt 2026-10-15 efter granskningen. Utkast, inte genomgånget med Johnny.
 
-Rörelse är ett av lagren en webbyrå levererar utöver Garretts fem plan: övergångar, hover och rörelse vid scroll som stöder innehållet i stället för att stjäla uppmärksamhet. Standardprodukten är en vanlig flersidig företagssajt (`BESLUT.md` 2026-10-15), så rörelse är en förbättring ovanpå en sajt som fungerar utan den. Scrollytelling, Scroll World och rörlig grafik är tillval. Den första sajten har bara budgeten *sparsam* och respekterar `prefers-reduced-motion`; resten gäller från sajt 2.
+Rörelse är ett av lagren en webbyrå levererar utöver Garretts fem plan: övergångar, hover och rörelse vid scroll som stöder innehållet i stället för att stjäla uppmärksamhet. Standardprodukten är en vanlig flersidig företagssajt (`BESLUT.md` 2026-10-15), så rörelse är en förbättring ovanpå en sajt som fungerar utan den. Scrollytelling, Scroll World och rörlig grafik är tillval. Den första övningssajten byggs i två versioner, *sparsam* och *måttlig*, som Johnny dömer på video; den respekterar `prefers-reduced-motion`, och resten gäller från sajt 2.
 
 ## Vad byrån gör
 
@@ -13,7 +13,7 @@ WCAG 2.2 AA är golvet på alla nivåer (→ `2-8-teknik-och-kvalitet.md`), och 
 - [N1] **`prefers-reduced-motion` respekteras.** Med `reduce` förflyttas, skalas och roteras ingenting, varken vid laddning, scroll, hover, fokus eller i menyn. Opacitet och färg får stå kvar så att tillståndsbyten syns. Oskärpa räknas som rörelse. 📄 WCAG 2.3.3, tekniken C39 och erratan om oskärpa (`kunskap/research/2026-10-15_kompetensluckor-anteckningar/lager-6-7-rorelse-innehall.md` §7). Nivå AAA, över vårt golv, men C39 gör det nästan gratis.
   - [N2] Skript läser preferensen med `matchMedia` och följer ett byte medan sidan är öppen. 🔧
   - [N2] Scroll-drivna animationer och sidövergångar läggs inom `@media (prefers-reduced-motion: no-preference)`, eftersom en global återställning till 0,01 ms inte når dem (mätt i webb-pro 2026-10-12, webb-pros `kunskap/byggstandard.md` 3.5). ⚠️ Saknar primärkälla.
-- [N2] **Ingen text börjar på `opacity: 0` i CSS**, så att innehållet syns även om en animation aldrig körs. JavaScript-lagret är inte feltåligt (en källa – bänken; 📄 GOV.UK Service Manual, i `kunskap/research/2026-10-15_kompetensluckor-och-kandidater-per-lager.md`, lager 4). Regeln om HTML först och utan JavaScript → `2-4-skelett.md`.
+- [N1] **Ingen text börjar på `opacity: 0` i CSS**, så att innehållet syns även om en animation aldrig körs: utan JavaScript, med `reduce` och i en helsidesbild. Johnny och granskaren dömer på skärmbilder, och i måttstockens bilder syntes animationer som inte körts som tomma eller svarta partier (Kajens, Kierkegaard och We Care Car Care; `mattstock/mattstock.md`, *Gränser*). JavaScript-lagret är inte feltåligt (en källa – bänken; 📄 GOV.UK Service Manual, i `kunskap/research/2026-10-15_kompetensluckor-och-kandidater-per-lager.md`, lager 4). Regeln om HTML först och utan JavaScript → `2-4-skelett.md`.
 - [N2] **Rörelse som pågår mer än fem sekunder kan pausas.** Det som startar automatiskt, varar över fem sekunder och visas bredvid annat innehåll får en knapp för att pausa, stoppa eller dölja. 📄 WCAG 2.2.2 (nivå A). Rörelse som startar när något scrollas in räknas som automatisk. 🔧
 - [N2] **Inget blinkar tre gånger per sekund eller oftare.** 📄 WCAG 2.3.1 (nivå A), via webb-pros byggstandard 3.5.
 - [N2] **Längd och kurvor:** de flesta animationer 100–500 ms, cirka 100 ms för enkel återkoppling och 200–300 ms för t.ex. en dialogruta; vid 500 ms känns det segt. Ease-out vid entré, ease-in vid utgång. 📄 NN/g, Laubheimer 2020 (`lager-6-7-rorelse-innehall.md` §7).
@@ -24,13 +24,18 @@ WCAG 2.2 AA är golvet på alla nivåer (→ `2-8-teknik-och-kvalitet.md`), och 
 
 ### Rörelsebudget
 
-- [N1] **Den första sajten har budgeten sparsam.** Bara tillståndsbyten: hover, fokus, menyn och kvittens när formuläret skickas. Inget startar av sig självt eller när något scrollas in – inga in-animationer, automatiska karuseller, parallax eller blickfång – och sidövergångar väntar till sajt 2. Byggaren lägger inte till egen rörelse; annars lägger Claude till småanimationer på eget initiativ, som bilder som zoomar (fallgrop 4) (en källa – bänken; 🎥 *Stitch-videon*). Briefen anger budgeten under ton och intryck (→ `2-1-strategi.md`). 🔧 (ommärkningen 2026-10-15)
+Rörelsen hör till kitet (`2-5-yta.md`): varje kit har sina längder, kurvor och in-animationer i biblioteket, gjorda en gång med omsorg – långsamma och mjuka i *Lugn och luftig*, snabbare och tydligare i *Djärv och egen* (`BESLUT.md` 2026-10-15).
+
+- [N1] **Den första övningssajten byggs i två versioner, *sparsam* och *måttlig*, och Johnny dömer dem på video** i mobil och dator, i normal och snabb scroll (inspelning med Playwright). Hans domar avgör standardbudgeten för de följande sajterna (`BESLUT.md` 2026-10-15). Hypotesen är Johnnys: lite välgjord rörelse ger premiumkänsla, så länge prestandan inte lider. Johnnys domar i måttstocken säger inget om rörelse, eftersom de gjordes på stillbilder.
+  - *Sparsam*: bara tillståndsbyten – hover, fokus, menyn och kvittens när formuläret skickas. Inget startar av sig självt eller när något scrollas in, och sidövergångar väntar till sajt 2.
+  - *Måttlig*: som sparsam, plus diskreta in-animationer och mikrointeraktioner ur kitets rörelser, på villkor: bara bibliotekets färdiga rörelser; bara transform, opacitet och färg, 100–500 ms med ease-out (*Policyn*); `reduce` respekteras; innehållet syns även om animationen aldrig körs (regeln ovan); **första skärmens text animeras aldrig in**, eftersom en text som tonas in från osynlig kan fördröja LCP och budskapet i måttstockens fråga 1; och LCP och CLS blir inte sämre än i den sparsamma versionen (N1-kontroll 9, `2-8-teknik-och-kvalitet.md`). Inga automatiska karuseller, ingen parallax och inget blickfång.
+  - Byggaren lägger aldrig till egen rörelse utöver kitets. Annars lägger Claude till småanimationer på eget initiativ, som bilder som zoomar och allt som tonas in vid scroll (fallgrop 4) (en källa – bänken; 🎥 *Stitch-videon*) – premium kommer av återhållsamhet och precision, inte av mängd. Briefen anger budgeten under ton och intryck (→ `2-1-strategi.md`). 🔧 (ommärkningen 2026-10-15)
 - [N2] **Briefen anger sparsam, måttlig eller expressiv rörelse**, utifrån personen: ålder, ärende, enhet och brådska. En 70-åring som letar medicin vill inte scrolla genom en 3D-värld; en tonåring som köper hörlurar kan tycka att det är roligt 🎥 *Astra-videon*. Snyggt för fel person är också slop (fallgrop 164). Kitets standardbudget (→ `2-5-yta.md`) är utgångsläget. Källäget: nivåerna har en källa, en persons smak. WCAG 2.3.3 och NN/g stöder att rörelse ska vara återhållsam och gå att stänga av, men inte själva indelningen. Budgeten är ett granskningskriterium, inte en grind.
 - [N2] **Vad nivåerna tillåter** (förslag 🔧; *öppet – se `bilaga-e-oppna-fragor.md`*). Policyn gäller på alla nivåer.
 
 | Budget | Tillåtet |
 |---|---|
-| Sparsam | Tillståndsbyten (hover, fokus, meny, kvittens på formulär) och sidövergångar |
+| Sparsam | Tillståndsbyten (hover, fokus, meny, kvittens på formulär) och sidövergångar (sidövergångarna från sajt 2) |
 | Måttlig | Som sparsam, plus in-animationer när sektioner kommer in i bild |
 | Expressiv | Som måttlig, plus ett blickfång och scroll-drivna effekter |
 
@@ -44,7 +49,6 @@ Varför en budget: varje effekt kan se bra ut medan helheten blir jobbig för ö
 
 - [N2] **Sidövergångar med `@view-transition { navigation: auto; }`** inom `no-preference`, utan JavaScript; Firefox visar vanlig navigering. Inte Astros `<ClientRouter />`, som Astro själv säger "will increasingly become unnecessary" och som gör sajten till en SPA (CSP → `2-8-teknik-och-kvalitet.md`). Sidövergångar inom `no-preference` är *öppet – se `bilaga-e-oppna-fragor.md`*.
 - [N2] **In-animationer med Motions vanilla-API**, `animate` i mini-bygget (2,3 kB) och `inView` (0,5 kB), efter en `matchMedia`-kontroll.
-- [N2] **Innehållet syns utan att in-animationen har körts:** en helsidesbild och `reduce` visar allt. Johnny och granskaren dömer på skärmbilder, och i måttstockens bilder syntes animationer som inte körts som tomma eller svarta partier (s12, s16, s52 i `mattstock/mattstock.md`, *Gränser*). Första sajten har inga in-animationer (*Rörelsebudget*). 🔧
 - [N2] **Scroll-drivna CSS-animationer bara som förbättring**, inom `@supports (animation-timeline: view())` och `no-preference`, med synligt innehåll som grundläge. De är inte Baseline (Firefox har dem som förhandsversion).
 - [N2] **Färdiga rörelser och easing-tokens i biblioteket** (→ `2-4-skelett.md`), t.ex. ur Open Props (MIT) utan dess oändliga animationer och oskärpa.
 - [N2] **Avstå:** dotLottie (cirka 500 kB WASM, inget stöd för reducerad rörelse; undantag för kundens egna Lottie-filer), Lenis (scroll-kapning), AOS (inaktivt), animate.css (Hippocratic-licens), scroll-timeline-polyfillen (inaktiv) och astro-vtbot.
@@ -115,7 +119,7 @@ Att allt innehåll syns utan JavaScript är regel i `2-4-skelett.md` och kontrol
 
 ## Hur självgående
 
-I den första sajten tittar Johnny på hela bygget, och budgeten är sparsam (`5-byggplan.md`, steg 3).
+I den första sajten tittar Johnny på hela bygget och dömer de två rörelseversionerna på video (`5-byggplan.md`, steg 3).
 
 - [N2] **Självgående inom policyn och biblioteket** (`historik/karta/6-rorelse.md`): byggaren använder bibliotekets rörelser inom budgeten, och Johnny ser resultatet i slutgranskningen.
 - [N2] **Budgeten expressiv och blickfånget** godkänns av Johnny i briefen.

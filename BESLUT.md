@@ -421,3 +421,23 @@ Johnny:
 > Ja
 
 **Innebär:** Ändringarna är införda i `2-5-yta.md`. Kartans förslag på kit ersätts. Varje kit är godkänt först när Johnny har sett dess provsida. Bilaga E frågar nu bara vilka kit som följer efter de tre första.
+
+## 2026-10-15: Rörelse – premiumhypotesen prövas på video
+
+**Status:** gäller.
+
+Johnny, vid genomläsningen av `guide/2-6-rorelse.md`:
+
+> Är det inte lite rörelse och animationer som gör sidan lyxig? Så länge det inte är bekostnad på prestanda? Alltså premium känslan
+
+Claude svarade att välgjord rörelse bidrar till premiumkänslan, men att budgeten *sparsam* finns för att Claude annars överanimerar och för att animationer kan dölja innehåll. Måttstocken kan inte avgöra frågan, eftersom den gjordes på stillbilder. Claude föreslog fyra saker:
+- A. Dubbletten om innehåll som syns utan animation slås ihop.
+- B1. Rörelsen hör till kitet.
+- B2. Den första övningssajten byggs i två versioner, sparsam och måttlig, som Johnny dömer på video.
+- B3. Villkor för måttlig, bland annat att första skärmens text aldrig animeras in och att LCP och CLS inte blir sämre.
+
+Johnny:
+
+> Ja
+
+**Innebär:** Ändringarna är införda i `2-6-rorelse.md`, `2-5-yta.md` (minimala kit har rörelse) och `5-byggplan.md`, steg 3. Johnnys domar på video avgör standardbudgeten för de följande sajterna. Regeln om att ingen text börjar på `opacity: 0` lyfts till N1.
