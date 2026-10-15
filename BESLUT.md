@@ -455,3 +455,18 @@ Johnny:
 > Ja
 
 **Innebär:** Regeln står först under *Texterna* i `2-7-innehall.md`, med Johnnys ord ur måttstocken som grund. N2-reglerna där utvecklar den.
+
+## 2026-10-15: Teknik – byråns konto för övning, bokningslänk som primär handling, synlighet i kontroll 4
+
+**Status:** gäller.
+
+Claude föreslog vid genomläsningen av `guide/2-8-teknik-och-kvalitet.md`:
+- A. Övningssajterna ligger på byråns Cloudflare-konto.
+- B. Den primära handlingen får vara en länk till kundens befintliga bokningssystem. Att bygga en egen bokning är fortfarande väg D och står på *inte nu*-listan.
+- C. Kontroll 4 rapporterar också om kontaktvägen och en klickbar `tel:`-länk syns på mobilens första skärm i 375 px. Det är en rapport, inget stopp, och ingen ny kontroll.
+
+Johnny:
+
+> Ja
+
+**Innebär:** Ändringarna är införda i `2-8-teknik-och-kvalitet.md` och `bilaga-c-kontroller.md` (C4). N1 har fortfarande tio kontroller.
