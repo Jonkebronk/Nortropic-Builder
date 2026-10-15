@@ -43,7 +43,7 @@
   --k-a5: 1.5rem;
   --k-a6: 2.5rem;
   --k-a7: 4rem;
-  --k-sektion: clamp(4.5rem, 3rem + 6vw, 8.5rem);
+  --k-sektion: clamp(4rem, 3rem + 3.5vw, 6.25rem); /* minskat efter Johnnys dom 2026-10-15: "i största laget" */
   --k-max: 72rem;
 
   /* Radie och knappar */

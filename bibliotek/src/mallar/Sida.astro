@@ -1,0 +1,34 @@
+---
+// Den gemensamma sidmallen: dokumentet, sidhuvudet, huvudinnehållet och sidfoten.
+// Mallen sätter sidans landmärken och länken Hoppa till innehållet (guide/2-4-skelett.md).
+import '../styles/bas.css';
+import '../styles/rorelse.css';
+import Sidhuvud from '../sektioner/Sidhuvud.astro';
+import Sidfot from '../sektioner/Sidfot.astro';
+import type { StartInnehall } from '../innehall/typ';
+
+interface Props { kit: 'lugn' | 'varm' | 'djarv'; innehall: StartInnehall; titel: string; beskrivning: string; noindex?: boolean; rorelse?: 'sparsam' | 'mattlig'; }
+const { kit, innehall, titel, beskrivning, noindex = false, rorelse = 'sparsam' } = Astro.props;
+---
+<!doctype html>
+<html lang="sv" data-kit={kit} data-rorelse={rorelse}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titel}</title>
+    <meta name="description" content={beskrivning} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <script is:inline>
+      // Bara för jämförelsen av de två rörelseversionerna: ?rorelse=mattlig eller ?rorelse=sparsam.
+      (function () { var r = new URLSearchParams(location.search).get('rorelse'); if (r === 'mattlig' || r === 'sparsam') document.documentElement.dataset.rorelse = r; })();
+    </script>
+  </head>
+  <body>
+    <a class="hoppa" href="#innehall">Hoppa till innehållet</a>
+    <Sidhuvud innehall={innehall} />
+    <main id="innehall">
+      <slot />
+    </main>
+    <Sidfot innehall={innehall} />
+  </body>
+</html>

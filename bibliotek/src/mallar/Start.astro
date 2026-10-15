@@ -1,7 +1,6 @@
 ---
 // Startsidan satt ur bibliotekets sektioner. Sidan väljer stilkit genom att importera kitets CSS och sätta data-kit.
-import '../styles/bas.css';
-import Sidhuvud from '../sektioner/Sidhuvud.astro';
+import Sida from './Sida.astro';
 import Forstavy from '../sektioner/Forstavy.astro';
 import Praktiskt from '../sektioner/Praktiskt.astro';
 import Tjanster from '../sektioner/Tjanster.astro';
@@ -9,33 +8,17 @@ import Person from '../sektioner/Person.astro';
 import Fortroende from '../sektioner/Fortroende.astro';
 import Process from '../sektioner/Process.astro';
 import NastaSteg from '../sektioner/NastaSteg.astro';
-import Sidfot from '../sektioner/Sidfot.astro';
 import type { StartInnehall } from '../innehall/typ';
 
-interface Props { kit: 'lugn' | 'varm' | 'djarv'; innehall: StartInnehall; noindex?: boolean; }
-const { kit, innehall, noindex = false } = Astro.props;
+interface Props { kit: 'lugn' | 'varm' | 'djarv'; innehall: StartInnehall; noindex?: boolean; rorelse?: 'sparsam' | 'mattlig'; }
+const { kit, innehall, noindex = false, rorelse } = Astro.props;
 ---
-<!doctype html>
-<html lang="sv" data-kit={kit}>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{innehall.titel}</title>
-    <meta name="description" content={innehall.beskrivning} />
-    {noindex && <meta name="robots" content="noindex, nofollow" />}
-  </head>
-  <body>
-    <a class="hoppa" href="#innehall">Hoppa till innehållet</a>
-    <Sidhuvud innehall={innehall} />
-    <main id="innehall">
-      <Forstavy innehall={innehall} />
-      <Praktiskt innehall={innehall} />
-      <Tjanster innehall={innehall} />
-      <Person innehall={innehall} />
-      <Fortroende innehall={innehall} />
-      <Process innehall={innehall} />
-      <NastaSteg innehall={innehall} />
-    </main>
-    <Sidfot innehall={innehall} />
-  </body>
-</html>
+<Sida kit={kit} innehall={innehall} titel={innehall.titel} beskrivning={innehall.beskrivning} noindex={noindex} rorelse={rorelse}>
+  <Forstavy innehall={innehall} />
+  <Praktiskt innehall={innehall} />
+  <Tjanster innehall={innehall} />
+  <Person innehall={innehall} />
+  <Fortroende innehall={innehall} />
+  <Process innehall={innehall} />
+  <NastaSteg innehall={innehall} />
+</Sida>

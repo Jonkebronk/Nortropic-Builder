@@ -42,6 +42,8 @@ const { forstavy, boka, ring } = Astro.props.innehall;
   @media (max-width: 40rem) {
     .forstavy__knappar :global(.knapp) { flex: 1 1 100%; }
     .forstavy__bild { width: min(78%, 18rem); }
+    /* På mobilen ligger märkningen under fotot i stället för att skära in i det (Johnnys dom 2026-10-15). */
+    .forstavy__bild .markering { position: static; width: fit-content; margin: var(--k-a3) auto 0; }
   }
   @media (min-width: 56rem) {
     .forstavy { padding-top: var(--k-a7); }

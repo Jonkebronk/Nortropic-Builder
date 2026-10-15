@@ -1,0 +1,22 @@
+---
+// En textsektion: rubrik, några korta stycken, en punktlista och en not. Varje del är valfri utom rubriken.
+interface Props { id?: string; rubrik: string; stycken?: string[]; punkter?: string[]; not?: string; yta?: boolean; }
+const { id, rubrik, stycken = [], punkter = [], not, yta = false } = Astro.props;
+const rubrikId = `${id ?? rubrik.toLowerCase().replace(/[^a-zåäö0-9]+/g, '-')}-rubrik`;
+---
+<section class:list={['sektion', 'text', { 'text--yta': yta }]} id={id} aria-labelledby={rubrikId}>
+  <div class="behallare text__inre">
+    <h2 id={rubrikId}>{rubrik}</h2>
+    {stycken.map((s) => <p>{s}</p>)}
+    {punkter.length > 0 && <ul class="text__punkter">{punkter.map((p) => <li>{p}</li>)}</ul>}
+    {not && <p class="dampad text__not">{not}</p>}
+  </div>
+</section>
+
+<style>
+  .text--yta { background: var(--k-yta); }
+  .text__inre { display: grid; gap: var(--k-a4); max-width: 46rem; margin-inline: auto; }
+  .text__punkter { margin: 0; padding-left: 1.25rem; display: grid; gap: var(--k-a2); }
+  .text__punkter li::marker { color: var(--k-accent-text); }
+  .text__not { font-size: 0.95rem; }
+</style>
