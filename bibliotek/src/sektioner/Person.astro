@@ -2,8 +2,10 @@
 // Personen bakom verksamheten: bild, ett citat i egna ord och några belägg (TextBild i guide/2-4-skelett.md).
 import Bildruta from '../komponenter/Bildruta.astro';
 import type { StartInnehall } from '../innehall/typ';
-interface Props { innehall: StartInnehall; }
+// prioritet: fotot är sidans största element i första vyn, som på en sida om personen; det hämtas då direkt och först.
+interface Props { innehall: StartInnehall; prioritet?: boolean; }
 const { person } = Astro.props.innehall;
+const prioritet = Astro.props.prioritet ?? false;
 // Fotot visas högst i halva originalets bredd, så att det är skarpt på skärmar med dubbel upplösning.
 // Ett litet original blir då en mindre bild i stället för en uppförstorad och suddig.
 const maxBredd = person.bild && typeof person.bild.src !== 'string' ? Math.min(384, Math.round(person.bild.src.width / 2)) : 384;
@@ -11,7 +13,7 @@ const maxBredd = person.bild && typeof person.bild.src !== 'string' ? Math.min(3
 <section class="sektion person" id={person.id} aria-labelledby="person-rubrik">
   <div class="behallare person__rutnat">
     <div class="person__bild" style={`--person-max: ${maxBredd}px`}>
-      <Bildruta bild={person.bild} bredd={360} klass="person__foto" />
+      <Bildruta bild={person.bild} bredd={360} klass="person__foto" laddning={prioritet ? 'eager' : 'lazy'} prioritet={prioritet} />
     </div>
     <div class="person__text">
       <p class="overrad">{person.overrad}</p>

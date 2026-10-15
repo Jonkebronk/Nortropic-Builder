@@ -853,3 +853,20 @@ För den första övningssajten skulle ordningen ligga kvar. Johnny, omkring 00:
 - Regeln står i `guide/2-4-skelett.md`, *Mobilens första skärm*, och i startsidans standardordning. Branschprofilen tar upp den (`guide/2-2-omfattning.md`).
 - Biblioteket väljer ordningen med `forst: 'praktiskt' | 'tjanster'` i innehållet. Standard är `'praktiskt'`, och jämförelseväxeln `?ordning=` är borttagen.
 - Den första övningssajten behåller *Var och när* före *Behandlingar*.
+
+## 2026-10-16: Lighthouse 100 är målet
+
+**Status:** gäller.
+
+Kontrollskriptet visade 87–100 i prestanda. Det låga värdet kom från startsidan på mobilen, när den var den första sidan som mättes efter att Chrome startat. Varma körningar gav 100. Johnny, omkring 00:36:
+
+> Jag vill ju ha 100 på lighthouse, vi ska ha så hög presterande sidor som möjligt måste ju vara det vi strävar mot
+
+**Innebär:**
+- Kontroll 9 kräver 100 i prestanda, tillgänglighet, bästa praxis och SEO, i mobil och dator. Allt under 100 rapporteras och rättas eller motiveras. Kontrollen stoppar inte, eftersom ingen norm kräver 100. Google kallar 100 *"extremely challenging to achieve and not expected"*.
+- Mätningen ska vara stabil:
+  - En första körning värmer upp Chrome och räknas inte.
+  - Varje sida mäts tre gånger, och medianen räknas.
+  - Den lokala servern komprimerar som en riktig värd (`skript/kontroll.mjs`, `guide/2-8-teknik-och-kvalitet.md`).
+- Bygget lägger stilmallen i varje sida (`inlineStylesheets: 'always'`), så att första besöket slipper en blockerande hämtning. På en sida om personen hämtas fotot i första vyn direkt och först.
+- Den första övningssajten får 100 i alla 14 mätningar, och startsidan på mobilen får 100 också i det kalla läget.

@@ -3,6 +3,7 @@
 // Utfall per kontroll: ok, fel eller läsning. Avslutas med kod 1 om en stoppande kontroll faller.
 import { spawnSync } from 'node:child_process';
 import { createServer } from 'node:http';
+import { gzipSync } from 'node:zlib';
 import { readFileSync, existsSync, readdirSync, statSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, extname, relative } from 'node:path';
 import { chromium } from 'playwright';
@@ -23,13 +24,16 @@ const bygg = spawnSync('npx', ['astro', 'build'], { cwd: sajt, encoding: 'utf8' 
 lagg(1, 'astro build utan fel', 'Stopp', bygg.status === 0, bygg.status === 0 ? 'bygget gick igenom' : (bygg.stderr || bygg.stdout).slice(-400));
 if (bygg.status !== 0) skrivUt();
 
-// Liten statisk server för dist, så att inget beror på Astros bakgrundsprocesser.
+// Liten statisk server för dist, så att inget beror på Astros bakgrundsprocesser. Den komprimerar text med gzip,
+// som en riktig värd gör, så att Lighthouse mäter det besökaren får.
 const typer = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.avif': 'image/avif', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.woff': 'font/woff', '.xml': 'application/xml', '.txt': 'text/plain', '.ico': 'image/x-icon' };
 const server = createServer((req, svar) => {
   let p = decodeURIComponent(new URL(req.url, 'http://x').pathname);
   let fil = join(dist, p); if (existsSync(fil) && statSync(fil).isDirectory()) fil = join(fil, 'index.html');
   if (!existsSync(fil)) { const s = join(dist, '404.html'); svar.writeHead(404, { 'content-type': typer['.html'] }); return svar.end(existsSync(s) ? readFileSync(s) : 'saknas'); }
-  svar.writeHead(200, { 'content-type': typer[extname(fil)] || 'application/octet-stream' }); svar.end(readFileSync(fil));
+  const typ = typer[extname(fil)] || 'application/octet-stream', data = readFileSync(fil);
+  if (/text|xml|javascript|svg/.test(typ) && /gzip/.test(req.headers['accept-encoding'] || '')) { svar.writeHead(200, { 'content-type': typ, 'content-encoding': 'gzip', vary: 'accept-encoding' }); return svar.end(gzipSync(data)); }
+  svar.writeHead(200, { 'content-type': typ }); svar.end(data);
 });
 await new Promise((r) => server.listen(0, '127.0.0.1', r));
 const bas = `http://127.0.0.1:${server.address().port}`;
@@ -139,17 +143,23 @@ lagg('7b', 'En h1 per sida', 'Rapport', h1fel.length === 0, h1fel.length ? h1fel
 const k8 = sidor.flatMap((s) => per[s].axe.map((v) => `${s} ${v}`));
 lagg(8, 'axe WCAG 2.2 A/AA: 0 fel', 'Stopp', k8.length === 0, k8.length ? k8.slice(0, 8).join(' | ') : `0 fel på ${sidor.length} sidor i 375 och 1280 px`);
 
-// 9. Lighthouse
+// 9. Lighthouse: 100 i alla fyra kategorier, i mobil och dator (Johnny 2026-10-16). En första körning värmer upp Chrome och
+// räknas inte, eftersom den första sidan efter start kan få lägre prestanda. Varje sida mäts sedan tre gånger, och medianen
+// räknas, eftersom en enskild körning varierar (Lighthouse, docs/variability.md: medianen av fem är dubbelt så stabil som en).
 const chrome = await chromeLauncher.launch({ chromePath: chromium.executablePath(), chromeFlags: ['--headless=new'] });
+const kat = ['performance', 'accessibility', 'best-practices', 'seo'];
+const korning = async (url, conf) => (await lighthouse(url, { port: chrome.port, output: 'json', logLevel: 'error', onlyCategories: kat }, conf)).lhr.categories;
+await korning(bas + sidor[0]);
+const median = (a) => [...a].sort((x, y) => x - y)[Math.floor(a.length / 2)];
 const lh = [];
 for (const s of sidor) for (const [namn, conf] of [['mobil', undefined], ['dator', desktopConfig]]) {
-  const r = await lighthouse(bas + s, { port: chrome.port, output: 'json', logLevel: 'error', onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'] }, conf);
-  const c = r.lhr.categories; const p = (k) => Math.round(c[k].score * 100);
+  const varv = []; for (let i = 0; i < 3; i++) varv.push(await korning(bas + s, conf));
+  const p = (k) => median(varv.map((c) => Math.round(c[k].score * 100)));
   lh.push({ sida: s, namn, prestanda: p('performance'), tillganglighet: p('accessibility'), praxis: p('best-practices'), seo: p('seo') });
 }
 await chrome.kill();
-const k9 = lh.filter((x) => x.tillganglighet < 90 || x.praxis < 90 || x.seo < 90);
-lagg(9, 'Lighthouse tillgänglighet, praxis och SEO ≥ 90', 'Rapport', k9.length === 0, (k9.length ? 'under 90: ' + k9.map((x) => `${x.sida} ${x.namn} (${x.tillganglighet}/${x.praxis}/${x.seo})`).join(', ') + '; ' : '') + `prestanda ${Math.min(...lh.map((x) => x.prestanda))}–${Math.max(...lh.map((x) => x.prestanda))}`);
+const k9 = lh.filter((x) => x.prestanda < 100 || x.tillganglighet < 100 || x.praxis < 100 || x.seo < 100);
+lagg(9, 'Lighthouse 100 i prestanda, tillgänglighet, praxis och SEO (median av tre)', 'Rapport', k9.length === 0, k9.length ? 'under 100: ' + k9.map((x) => `${x.sida} ${x.namn} (${x.prestanda}/${x.tillganglighet}/${x.praxis}/${x.seo})`).join(', ') : `${lh.length} mätningar, alla 100`);
 
 // 10. Hemligheter i repot och i bygget
 const monster = [/AKIA[0-9A-Z]{16}/, /sk-(?:ant-|live_|proj-)?[A-Za-z0-9_-]{20,}/, /gh[pousr]_[A-Za-z0-9]{30,}/, /AIza[0-9A-Za-z_-]{35}/, /AQ\.[A-Za-z0-9_-]{30,}/, /xox[baprs]-[A-Za-z0-9-]{10,}/, /-----BEGIN [A-Z ]*PRIVATE KEY-----/, /(?:api[_-]?key|secret|token)["'\s]*[:=]\s*["'][A-Za-z0-9_\-]{16,}["']/i];
