@@ -21,11 +21,11 @@ Filer som behövs innan steg 1. **Alla är klara 2026-10-15** (`BESLUT.md`, *Fri
 | Fil | Var den beskrivs | Var den ligger |
 |---|---|---|
 | Kort `CLAUDE.md` för sajtarbetet | `3-4-larande-och-underhall.md` | `mallar/sajt/CLAUDE.md` |
-| `.claude/settings.json` med `permissions.deny` för push, deploy och `.env` | `3-3-sakerhet-och-installningar.md` | `mallar/sajt/.claude/settings.json`; byggrepots `.claude/settings.json` spärrar deploy och `.env` |
+| ~~`.claude/settings.json` med `permissions.deny` för push, deploy och `.env`~~ **Struket 2026-10-15:** inga spärrar (`BESLUT.md`, *Inga spärrar*) | `3-3-sakerhet-och-installningar.md` | – |
 | De åtta kärnfrågorna och briefmallen med sex rubriker | `2-1-strategi.md` | `mallar/karnfragor.md`, `mallar/brief.md` |
 | Faktamallen | `2-7-innehall.md` | `mallar/fakta.md` |
 
-En sajt startas med mallen och sessionen startas i sajtens katalog (`bilaga-f-projektstruktur.md`, *Så startas en sajt*).
+En sajt startas med mallen (`bilaga-f-projektstruktur.md`, *Så startas en sajt*) och byggs från byggsessionen i repots rot.
 
 Kontrollskriptet byggs i steg 3 och granskningsmallen i steg 4 – inte i förväg.
 

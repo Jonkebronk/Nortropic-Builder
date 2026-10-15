@@ -7,6 +7,7 @@
 **Tillägg kl. 20.15:** Läge, modell och effort är Johnnys inställningar och ingår inte i avgränsningen (`BESLUT.md` 2026-10-15, kl. 20.13–20.14). Byggsessionen körs i auto mode med Opus 5.5 på xhigh. Det som står nedan om Manual-läget och Fable 5.1 är ersatt. Efter inloggningen kördes `claude -p "/context"` och init-provet (`stream-json`) med `CLAUDE_CONFIG_DIR=~/.claude-bygg` från repots rot kl. 20.11, i Claude Code 2.1.300. Minnesfilerna var bara repots `CLAUDE.md`. Det fanns inga MCP-servrar och inga MCP-verktyg, alltså inga claude.ai-connectorer och inga Chrome-verktyg. Plugins var bara de fyra inbyggda och delagenterna bara de fem inbyggda. Skills var bara inbyggda, utan `design` och `design-sync`, och `memory_paths` saknades. Synken och connectorerna hålls alltså borta också inloggad. Kvar är Johnnys `/status`, `/skills` och `/mcp` i den interaktiva sessionen.
 **Tillägg kl. 20.25:** Den interaktiva byggsessionen laddar två inbyggda MCP-servrar som proven med `-p` inte visade, nämligen `claude-in-chrome` och `ide`. Se avsnitt 3, *Sett inifrån byggsessionen*.
 **Tillägg kl. 20.26:** Chrome-verktygen är spärrade, och Johnny har kört `/status`, `/skills` och `/mcp` i byggsessionen med beskedet *"allt är grönt"*. Avgränsningen är verifierad.
+**Tillägg kl. 21.16:** Johnny tog bort alla spärrar (`BESLUT.md` 2026-10-15, *Inga spärrar*). Proven nedan av Chrome-spärren och sajtkatalogen står kvar som belägg.
 
 ## Metod
 

@@ -28,7 +28,7 @@ Regeln för vad som får vara en grind står i `README.md`: en **låst kontroll*
 | N4 | 2 | 2 | 3 | 0 | 4 | 11 |
 | **Summa** | **41** | **49** | **51** | **32** | **20** | **193** |
 
-På N1 finns 12 kontroller, och de är de tio i `2-8` plus deny-reglerna (C166) och avgränsningen av byggsessionen (C167). De 16 grindarna på N1 är Johnnys och kundens godkännanden (stopp 1–6, omdirigeringskartan, nya sektioner, nya regler), kontrasten i kiten, formulärmönstret och flödets regler om belägg, färsk kontext, tid, tre utfall och kontroller före bygget. v0.74 hade ungefär 60 låsta kontroller och grindvillkor (analysen §7.1).
+På N1 finns 11 kontroller, och de är de tio i `2-8` plus avgränsningen av byggsessionen (C167). Deny-reglerna (C166) är strukna (`BESLUT.md` 2026-10-15, *Inga spärrar*). De 16 grindarna på N1 är Johnnys och kundens godkännanden (stopp 1–6, omdirigeringskartan, nya sektioner, nya regler), kontrasten i kiten, formulärmönstret och flödets regler om belägg, färsk kontext, tid, tre utfall och kontroller före bygget. v0.74 hade ungefär 60 låsta kontroller och grindvillkor (analysen §7.1).
 
 ## N1-kontrollerna
 
@@ -285,7 +285,7 @@ Sju stoppar helt (1, 3, 4, 5, 6, 8, 10), två rapporterar (2, 9), och nr 7 stopp
 | # | Kontroll | Var (fil, avsnitt) | Nivå | Typ | Grund | Hur den körs |
 |---|---|---|---|---|---|---|
 | C165 | Inga hooks i N1; behörighetsläge, modell och effort är Johnnys inställningar, inte regler (bevakad körning struken 2026-10-15) | 3-3 Första sajten | N1 | instruktion | `BESLUT.md` 2026-10-13 (små steg) och 2026-10-15 | – |
-| C166 | `permissions.deny` för `git push`, `wrangler deploy`, `versions deploy` och `.env`; push är också publicering | 3-3 Första sajten; 3-1; 2-8 Publicering | N1 | låst kontroll | 📄 verifieringen (syntaxen); 📄 cloudflare-stack (push publicerar) | Deny-regler i projektets `settings.json` |
+| C166 | `permissions.deny` för `git push`, `wrangler deploy`, `versions deploy` och `.env`; push är också publicering | 3-3 Första sajten; 3-1; 2-8 Publicering | – | struken 2026-10-15 (`BESLUT.md`, *Inga spärrar*) | 📄 verifieringen (syntaxen); 📄 cloudflare-stack (push publicerar) | – |
 | C167 | Byggsessionen avgränsas från användarnivån: före första sajten visar `/doctor` vilka skills, plugins och `CLAUDE.md` som laddas, och en körning i `claude --safe-mode` blir baslinje | 3-3 Första sajten; 3-4 `CLAUDE.md` hänvisar | N1 | kontroll | 📄 verifieringen §9; om `/doctor` visar detta är ⚠️ overifierat (öppet, bilaga E §4) | För hand före första sajten |
 | C168 | Läsförbud för byggarna med `permissions.deny`: kundens gamla sajt, referenserna, de dolda kontrollerna, `node_modules/`, byggmappar | 3-3 Skyddshook | N2 | låst kontroll | 📄 verifieringen §7; analysen M5 (ignore-filer verkar inte) | Deny-regler |
 | C169 | Sökning efter nyckelformat före varje automatisk commit; träff ger ingen commit | 3-3 Hemligheter | N2 | låst kontroll | En källa: 🎥 Agit-videon (fallgrop 26); 🔧 | Skript före commit |

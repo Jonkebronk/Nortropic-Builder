@@ -51,7 +51,6 @@
 - **Kunskapsbasen:** vilka källor som tas in först och vem som kontrollerar sammanfattningarna (`3-4-larande-och-underhall.md`).
 - **Tillval generellt:** ska varje tillval prövas i eval innan det tas in (`bilaga-a-verktyg.md`)?
 - **Jev** och andra externa beslutsmodeller: aktuellt alls, med tanke på kostnad och att data lämnar datorn?
-- **Hur hooks, skills och delagenter når sajtsessionen.** Sajtarbetet startas i `sites/<namn>/`, och då laddas inte byggrepots `.claude/` (prövat 2026-10-15, `3-3-sakerhet-och-installningar.md`). N2-hooken i `3-1` och `3-3` och skills i byggrepot måste alltså följa med mallen `mallar/sajt/` eller komma som plugin (`3-4`, N4).
 
 ## 4. Tekniska frågor att verifiera
 

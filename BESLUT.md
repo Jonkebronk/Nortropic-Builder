@@ -573,7 +573,7 @@ Johnny, 20:14:
 
 ## 2026-10-15: Chrome-verktygen spärras i byggsessionen
 
-**Status:** gäller.
+**Status:** ersatt av 2026-10-15, *Inga spärrar*.
 
 Inifrån den första byggsessionen såg Claude att den interaktiva sessionen laddar två inbyggda MCP-servrar som proven med `-p` inte visade: `claude-in-chrome` och `ide`. Chrome-verktygen använder Johnnys inloggade Chrome. Claude föreslog en deny-regel för `mcp__claude-in-chrome` i `~/.claude-bygg/settings.json` och att `ide` får vara kvar (`kunskap/research/2026-10-15_mac-avgransning.md`, *Sett inifrån byggsessionen*).
 
@@ -588,7 +588,7 @@ Johnny, 20:25:
 
 ## 2026-10-15: Fritt mandat för förberedelserna; sajtarbetet startas i sajtens katalog
 
-**Status:** gäller.
+**Status:** delvis ersatt av 2026-10-15, *Inga spärrar*: spärrarna, och att sajtarbetet startas i sajtens katalog. Mallarna gäller.
 
 Claude visade en krock. `Bash(git push *)` i byggrepots `.claude/settings.json` (`guide/3-3`) spärrar också pushen av byggrepot, och den har Johnny gett stående tillåtelse till. Claude föreslog att spärren läggs i varje sajts katalog och frågade om `cf deploy`, `cf builds` och `cf pages` skulle med.
 
@@ -616,3 +616,24 @@ Johnny, 21:10:
 - Steg 1 börjar för den första övningssajten.
 - Firmans namn står inte här. Allt om firman ligger privat i `sites/<namn>/` (`guide/5-byggplan.md`, *Övningssajterna*), och Johnnys ord står ordagrant i sajtens `progress.md`.
 - Stitch behövs i steg 2, när stilkiten provas på provsidan, och används aldrig med firmans innehåll (`guide/2-5-yta.md`). Stitch-CLI:t 0.11.1 är installerat, och inloggningen gör Johnny.
+
+## 2026-10-15: Inga spärrar
+
+**Status:** gäller. Ersätter Chrome-spärren och spärrarna ur *Fritt mandat för förberedelserna*.
+
+Claude förklarade varför det fanns spärrar. Sajtens inställningar hade deny-regler för push, deploy, `gh repo`, `gh api` och läsning av `.env`. Byggrepots inställningar spärrade deploy och `.env`, och `~/.claude-bygg` spärrade Chrome-verktygen. Claude rekommenderade att behålla dem.
+
+Johnny, 21:16:
+
+> wtf, ta bort alla spärrar vi behöver inte det
+
+Johnny, omkring 21:20:
+
+> bra, ta bort, jag ska kunna starta en session och kunna ha auto och göra ALLT vad gäller nortropic builder här.
+
+**Innebär:**
+- Det finns inga `permissions.deny` kvar: inte i `~/.claude-bygg/settings.json`, inte i byggrepot, där `.claude/settings.json` är borttagen, och inte i `mallar/sajt/` eller den första övningssajten, där `.claude/settings.json` också är borttagen. Chrome-verktygen laddas igen.
+- Allt arbete med Nortropic-Builder, också sajtarbetet, görs från en session i repots rot i auto mode. Sajtens `CLAUDE.md` laddas när Claude arbetar i sajtens katalog.
+- N1-regeln om `permissions.deny` i `guide/3-3` och kontrollen C166 i bilaga C är strukna.
+- Claude läser beskedet som att det gäller spärrarna, inte Johnnys regler. Att en kundsajt eller övningssajt publiceras, deployas och pushas först efter hans godkännande, och att hemligheter ligger utanför repot, står kvar som instruktioner (`CLAUDE.md`, *Skyddsräcken*; `guide/5-byggplan.md`, *Övningssajterna*). `.env` står kvar i `.gitignore`, eftersom den håller nycklar ur repot utan att stoppa Claude.
+- Auto mode-klassaren stoppade först ändringen av `~/.claude-bygg/settings.json` och mallens inställningar som *Self-Modification*. Efter Johnnys andra besked gick ändringen igenom.

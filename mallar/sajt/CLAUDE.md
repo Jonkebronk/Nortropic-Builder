@@ -4,13 +4,12 @@ Sajten byggs enligt byggrepots guide. Byggrepot ligger två nivåer upp (`../../
 
 ## Sessionen
 
-- Filen och spärrarna i `.claude/settings.json` gäller bara i en session som har startats i den här katalogen med `claude-bygg`. Har sessionen startats någon annanstans, stanna och be Johnny starta om här.
-- Byggrepots `CLAUDE.md` laddas inte här, eftersom den styr arbetet med byggsystemet. Byggrepot pushas inte härifrån.
+- Sajten byggs från byggsessionen i byggrepots rot (`claude-bygg`). Filen laddas när Claude arbetar i den här katalogen.
 
-## Hårda regler, spärrade i `.claude/settings.json`
+## Publicering och hemligheter
 
-- Ingen push, ingen deploy och ingen publicering. Johnny publicerar efter sitt godkännande (`guide/5-byggplan.md`, steg 5).
-- `.env` läses aldrig. Hemligheter hamnar aldrig i repot och når aldrig webbläsaren.
+- Sajten publiceras, deployas och pushas först när Johnny har godkänt det (`guide/5-byggplan.md`, steg 5).
+- Hemligheter hamnar aldrig i repot och når aldrig webbläsaren.
 
 ## Övningsläget (`guide/2-1-strategi.md`)
 

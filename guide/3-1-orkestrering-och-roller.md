@@ -88,7 +88,7 @@ Varvnummer och tidigare resultat: `3-2`.
 
 ## Behörighet i verktyget, inte i prompten
 
-I N1 räcker `permissions.deny` för push, publicering och `.env` (→ `3-3-sakerhet-och-installningar.md`). Det här tas in när roller blir egna agenter.
+I N1 finns inga spärrar (→ `3-3-sakerhet-och-installningar.md`). Det här tas in när roller blir egna agenter.
 
 - [N2] **Det en roll inte behöver ska den inte kunna.** En regel i prompten är ett förslag, en regel i verktyget en begränsning. Varför: *"999 gånger gör den det du vill, men den tusende kan bli dålig"*; instruktioner följs oftast men inte alltid (fallgrop 22). 🎥 VAULT- och 5000-timmarsvideon; 📄 [Claude Code: Skills](https://code.claude.com/docs/en/skills) (det som måste gälla varje gång hör hemma i hooks). Två källor.
 - [N2] **Så sätts behörigheten** i Claude Code 2.1.281 (📄 `kunskap/research/2026-10-14_claude-code-verifiering.md`):

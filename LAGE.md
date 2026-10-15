@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-15 kl. 21.15 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-15 kl. 21.25 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Kort
 
@@ -24,8 +24,8 @@ Detaljerna står i `BESLUT.md`.
 | **Provsajt ("Benchy"), branschprofiler och blickprov i steg 2**, efter jämförelsen med en 3D-skrivare | `guide/3-2`, `2-2-omfattning.md`, `2-4` |
 | Astro statiskt är bekräftat. Inter och Lucide väljs per kit | `guide/2-8-teknik-och-kvalitet.md`, `2-5` |
 | **Läge, modell och effort är Johnnys inställningar, inte regler.** Byggsessionen körs i auto mode med Opus 5.5 på xhigh (kl. 20.13–20.14) | `BESLUT.md`; `guide/3-3` |
-| **Chrome-verktygen spärras i byggsessionen** med en deny-regel i `~/.claude-bygg/settings.json` (kl. 20.25) | `BESLUT.md`; `guide/3-3` |
-| **Fritt mandat för förberedelserna.** Sajtarbetet startas i `sites/<namn>/` med spärrarna ur `mallar/sajt/`, och byggrepot pushas som förut (kl. 20.30) | `BESLUT.md`; `guide/3-3`, bilaga F |
+| **Fritt mandat för förberedelserna:** mallarna i `mallar/` (kl. 20.30) | `BESLUT.md`; `guide/5-byggplan.md`, bilaga F |
+| **Inga spärrar.** Allt arbete med Nortropic-Builder, också sajtarbetet, görs från en session i repots rot i auto mode (kl. 21.16–21.20) | `BESLUT.md`; `guide/3-3` |
 
 ## Gjort på Macen 2026-10-15
 
@@ -40,21 +40,19 @@ Detaljerna står i `BESLUT.md`.
 - **Johnny valde auto mode och Opus 5.5 på xhigh** och sa att det inte ska vara regelstyrt (`BESLUT.md`). Bevakad körning är struken ur `guide/3-3`, och C165 i bilaga C gäller nu bara att N1 inte har några hooks.
 - **Byggsessionen är verifierad och har tagit över** (kl. 20.26).
   - Inifrån laddade den interaktiva sessionen också `claude-in-chrome` och `ide`, vilket `-p` inte hade visat.
-  - Chrome-verktygen är spärrade med en deny-regel i `~/.claude-bygg/settings.json` (Johnny 20:25, `BESLUT.md`). De försvann direkt, utan omstart.
+  - Chrome-verktygen spärrades kl. 20.25 och släpptes igen kl. 21.16 (*Inga spärrar*).
   - `ide` publicerar ingenting och får vara kvar.
   - Johnny körde `/status`, `/skills` och `/mcp`: *"allt är grönt"*.
   - Arbetet med byggsystemet görs från och med nu i `claude-bygg`. En session är byggsessionen bara om `CLAUDE_CONFIG_DIR` är `~/.claude-bygg`.
   - Detaljerna står i `kunskap/research/2026-10-15_mac-avgransning.md`, *Sett inifrån byggsessionen*.
+- **Inga spärrar** (Johnny 21:16–21:20, `BESLUT.md`). Inga `permissions.deny` finns kvar någonstans, och Chrome-verktygen är tillbaka. Allt görs från en session i repots rot i auto mode, också sajtarbetet. Publicering efter Johnnys godkännande och hemligheter utanför repot står kvar som instruktioner i `CLAUDE.md`.
 - **Förberedelserna är klara** (kl. 20.30–20.45, med Johnnys fria mandat, `BESLUT.md`):
-  - **Sajtarbetet körs i en session som startats i `sites/<namn>/`.** Projektets inställningar läses bara från katalogen där sessionen startar (prövat), och därför stoppar sajtens spärr inte pushen av byggrepot.
-  - **Mallen `mallar/sajt/`** kopieras till varje sajt. Den innehåller `CLAUDE.md` (40 rader), `.claude/settings.json` och `.gitignore`. Spärren täcker push, `gh repo`, `gh api`, `wrangler deploy`, `cf deploy`, `cf builds`, `cf pages` och `.env`.
-  - **Prov med den riktiga mallen:** push, deploy och läsning av `.env` nekades. Bara sajtens `CLAUDE.md` laddades.
-  - **Byggrepots `.claude/settings.json`** spärrar deploy och `.env` men inte push.
+  - **Mallen `mallar/sajt/`** kopieras till varje sajt. Den innehåller `CLAUDE.md` (39 rader) och `.gitignore`.
   - **`mallar/karnfragor.md`, `mallar/brief.md` och `mallar/fakta.md`** är tagna ur `guide/2-1` och `2-7`.
 - **De största krockarna:**
   - Auto memory laddar webb-pros gamla ägarbeslut i varje session.
   - `superpowers` har en hook som styr arbetssättet.
-  - MCP-verktyg kan publicera förbi deny-reglerna.
+  - MCP-verktyg kan publicera.
   - `~/.claude/CLAUDE.md` säger åt Claude att använda `cf`.
   - `~/.claude/CLAUDE.md` laddas också med en egen `CLAUDE_CONFIG_DIR`, eftersom hemkatalogen är en överordnad katalog till repot.
 - **Det guiden såg på Windows finns inte på Macen:** 292 skills, `nortropic-stack` och de gamla delagenterna.
@@ -62,7 +60,7 @@ Detaljerna står i `BESLUT.md`.
 ## Nästa steg – på Macen
 
 1. **Den första övningssajten är vald och skapad** i `sites/` ur mallen (Johnny 21:10, `BESLUT.md`). Firmans namn står bara där, i sajtens `progress.md`, som också håller läget.
-2. **Johnny startar om sessionen i sajtens katalog** med `claude-bygg`. Sajtens spärrar gäller bara då. Sajtsessionen börjar med researchen före intervjun (steg 1).
+2. **Steg 1 börjar** i byggsessionen i repots rot, med researchen före intervjun. Johnny säger till när han vill köra.
 3. **Byggplanens steg 1–6**, med en genomgång efter sajten.
 
 ## Väntar på Johnny
@@ -79,6 +77,6 @@ Detaljerna står i `BESLUT.md`.
 - `mattstock/verktyg/` innehåller fångsten med Playwright (helsidesbilder i mobil och dator), bedömningssidan och analysen. De används för nya omgångar, till exempel för att kalibrera på systemets egna utkast.
 - **Push från Macen:** git har `osxkeychain` som inloggning och kan hänga på en behörighetsruta i nyckelringen. `gh` är inloggat som Jonkebronk och fungerar. Pusha med `git -c credential.helper= -c 'credential.helper=!gh auth git-credential' push origin main`, eller låt Johnny köra `gh auth setup-git` en gång, vilket ändrar hans globala git-konfiguration.
 - **Stitch-CLI:t 0.11.1** är installerat globalt med npm (2026-10-15) men är inte inloggat.
-- **Prov av byggsessionens egen konfiguration:** i auto mode stoppade klassaren dem som *Auto-Mode Bypass* och läsningen av `.claude.json` som *Credential Exploration*. Sådana prov körs från en session i den vanliga konfigurationen.
+- **Prov och ändringar av byggsessionens egen konfiguration:** i auto mode stoppade klassaren proven som *Auto-Mode Bypass*, läsningen av `.claude.json` som *Credential Exploration* och en ändring av `~/.claude-bygg/settings.json` som *Self-Modification*. Ändringen gick igenom när Johnny hade sagt till uttryckligen. Prov kan köras från en session i den vanliga konfigurationen.
 - `konsolidering/bygg_n1.py` genererar N1-sammanfattningen. Skriptet kräver Python 3.10 eller senare. På Macen är `python3` version 3.9, så kör det med `/opt/homebrew/bin/python3.12`.
 - Bedömningssidan med Johnnys domar finns som privat artefakt på claude.ai: <https://claude.ai/artifact/16Cz4NeibCYDDsKGD3sdsq>. Domarna finns också i `mattstock/domar.jsonl`.

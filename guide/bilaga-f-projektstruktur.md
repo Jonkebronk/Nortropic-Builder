@@ -22,8 +22,7 @@ Nortropic-Builder/
 │   └── stilkit/              [N1] stilkiten med tokens, design.md och wireframe-kitet (2-5-yta.md)
 ├── mallar/                   [N1] brief.md och karnfragor.md (2-1-strategi.md), fakta.md
 │   │                         (2-7-innehall.md), granskningsmall från steg 4 (3-2)
-│   └── sajt/                 [N1] kopieras till varje sajt: CLAUDE.md, .claude/settings.json
-│                             med spärrarna, .gitignore (3-3, 3-4)
+│   └── sajt/                 [N1] kopieras till varje sajt: CLAUDE.md och .gitignore (3-4)
 ├── skript/                   [N1] kontrollskriptet (Playwright) med N1-kontrollerna, byggs i steg 3
 │                             (2-8-teknik-och-kvalitet.md, bilaga-c-kontroller.md)
 ├── foretag/                  [N2] erbjudande.md, profil, kvitton.md, vanliga frågor (4-foretaget.md)
@@ -37,7 +36,6 @@ Nortropic-Builder/
 ├── konsolidering/            skrivregler och spårbarhet för v1.0
 ├── mattstock/                Johnnys måttstock: metod, urval, domar och måttstocken (3-2)
 ├── .claude/
-│   ├── settings.json         [N1] permissions.deny för deploy och .env, inte push (3-3)
 │   ├── skills/               [N1] egna skills (bilaga B); Stitchs agent-skills skriver till
 │   │                         .agents/skills – kopieras hit (3-4)
 │   ├── hooks/                [N2] grind-stopp.mjs m.fl. (3-1)
@@ -50,7 +48,6 @@ Nortropic-Builder/
 ```
 sites/<namn>/
 ├── CLAUDE.md                 [N1] flödets regler ur mallar/sajt/ (3-4); i N2 bara det sajtspecifika
-├── .claude/settings.json     [N1] spärren för push, deploy och .env ur mallar/sajt/ (3-3)
 ├── .gitignore                [N1] ur mallar/sajt/
 ├── brief.md                  [N1] briefen (2-1-strategi.md)
 ├── fakta.md                  [N1] faktabasen med källa per faktum; från N3 en mapp fakta/ med en fil per faktum (2-7)
@@ -82,7 +79,6 @@ sites/<namn>/
 ```sh
 mkdir -p sites/<namn> && cp -R mallar/sajt/. sites/<namn>/ && git -C sites/<namn> init
 cp mallar/brief.md mallar/fakta.md sites/<namn>/
-cd sites/<namn> && claude-bygg
 ```
 
-Sajtsessionen startas alltid i `sites/<namn>/`, eftersom spärrarna i sajtens `.claude/settings.json` bara gäller då (`3-3-sakerhet-och-installningar.md`).
+Sajten byggs sedan från byggsessionen i repots rot (`3-3-sakerhet-och-installningar.md`).
