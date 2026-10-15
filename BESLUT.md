@@ -540,7 +540,7 @@ Johnny:
 
 ## 2026-10-15: Byggsessionen avgränsas med en egen konfigurationskatalog
 
-**Status:** gäller.
+**Status:** delvis ersatt av 2026-10-15, *Läge, modell och effort är Johnnys inställningar*: Manual-läget och Fable 5.1. Övrigt gäller.
 
 Claude lade fram inventeringen av användarnivån på Macen (`kunskap/research/2026-10-15_mac-avgransning.md`) och tre frågor:
 - **Avgränsningen:** byggsessionen får en egen konfigurationskatalog, `~/.claude-bygg`. Den har Manual-läge, ingen synk från claude.ai, inga claude.ai-connectors och ingen auto memory. Hemkatalogens `CLAUDE.md` laddas inte, och de inbyggda `/design` och `/design-sync` är dolda. Modell och effort är som i dag, Fable 5.1 med xhigh.
@@ -552,3 +552,21 @@ Johnny, 19:45:
 > Ja till allt
 
 **Innebär:** Avgränsningen är beslutad och står i `guide/3-3-sakerhet-och-installningar.md`. Den räknas som klar först när verifieringen i den inloggade byggsessionen har visat att bara det avsedda laddas. Claude läste "allt" som att det också omfattar förslagen till rättelser i guiden i samma fil, avsnitt 5. De är införda i `3-3`, `3-5-live-visning.md`, `5-byggplan.md` och bilaga E avsnitt 4.
+
+## 2026-10-15: Läge, modell och effort är Johnnys inställningar
+
+**Status:** gäller.
+
+Efter inloggningen visade det sig att `~/.claude-bygg/settings.json` hade ändrats kl. 20.02, direkt efter Johnnys `/model` och `/effort` i byggsessionen. Filen sa auto mode i stället för Manual och Opus 5.5 i stället för Fable 5.1. Claude frågade om Manual och Fable skulle sättas tillbaka enligt beslutet kl. 19.45.
+
+Johnny, 20:13:
+
+> vi ska ha auto och inte manuel, det är mitt val. ändra detta
+
+> och vi ska ha opus på xhigh, inte fable.
+
+Johnny, 20:14:
+
+> dessa saker borde dock inte vara regelstyrda.
+
+**Innebär:** Byggsessionen körs i auto mode med Opus 5.5 på xhigh, som `~/.claude-bygg/settings.json` redan säger. Claude läser det sista beskedet som att behörighetsläge, modell och effort är Johnnys inställningar och inte står som regler eller kontroller i guiden, och att Claude inte föreslår att de sätts tillbaka. N1-regeln *Bevakad körning* är struken ur `guide/3-3-sakerhet-och-installningar.md`. Kvar av den är att N1 inte har några hooks, och C165 i bilaga C gäller bara det, som instruktion. Frågan om auto mode i bilaga E avsnitt 3 är avgjord. Modell och effort per roll från N2 i `3-3`, *Effort och modeller*, är oförändrade. Beslutet kl. 19.45 gäller i övrigt.

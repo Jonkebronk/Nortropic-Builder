@@ -47,7 +47,7 @@
 - **Kundens godkännande av prototyp:** alltid, eller bara vid större sajter.
 - **Autonomi:** när designval, rättningsrundor, standardändringar och publicering kan släppas utan Johnny. Alternativen och villkoren står i `3-2-granskning-och-kalibrering.md`; beslutet är Johnnys.
 - **Modeller och effort per roll, parallellitet och eval-budget** (`3-3-sakerhet-och-installningar.md`, `3-2`).
-- **Behörighetsläge och arbetsmiljö:** auto mode eller inte; terminal (krävs för mods) eller VS Code; `askUserQuestionTimeout` (`3-3`, `3-5-live-visning.md`).
+- **Arbetsmiljö:** terminal (krävs för mods) eller VS Code; `askUserQuestionTimeout` (`3-3`, `3-5-live-visning.md`). Behörighetsläget är avgjort: det är Johnnys inställning, inte en regel (`BESLUT.md` 2026-10-15).
 - **Kunskapsbasen:** vilka källor som tas in först och vem som kontrollerar sammanfattningarna (`3-4-larande-och-underhall.md`).
 - **Tillval generellt:** ska varje tillval prövas i eval innan det tas in (`bilaga-a-verktyg.md`)?
 - **Jev** och andra externa beslutsmodeller: aktuellt alls, med tanke på kostnad och att data lämnar datorn?

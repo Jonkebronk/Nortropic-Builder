@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-15 kl. 19.55 på Johnnys Mac, efter den första sessionen där.
+Uppdaterad 2026-10-15 kl. 20.20 på Johnnys Mac, efter inloggningen i byggsessionen.
 
 ## Kort
 
@@ -23,6 +23,7 @@ Detaljerna står i `BESLUT.md`.
 | **Granskaren** börjar med måttstocken och mäts först på måttstockens 31 sajter i steg 4 | `guide/3-2-granskning-och-kalibrering.md`, `5-byggplan.md` |
 | **Provsajt ("Benchy"), branschprofiler och blickprov i steg 2**, efter jämförelsen med en 3D-skrivare | `guide/3-2`, `2-2-omfattning.md`, `2-4` |
 | Astro statiskt är bekräftat. Inter och Lucide väljs per kit | `guide/2-8-teknik-och-kvalitet.md`, `2-5` |
+| **Läge, modell och effort är Johnnys inställningar, inte regler.** Byggsessionen körs i auto mode med Opus 5.5 på xhigh (kl. 20.13–20.14) | `BESLUT.md`; `guide/3-3` |
 
 ## Gjort på Macen 2026-10-15
 
@@ -32,10 +33,11 @@ Detaljerna står i `BESLUT.md`.
   - Byggsessionen avgränsas med `~/.claude-bygg`, och katalogens `settings.json` är skapad.
   - Claude Code är uppdaterad till 2.1.300.
   - Rättelserna är införda i `guide/3-3`, `3-5`, `5-byggplan` och bilaga E.
-  - Före inloggningen är det prövat att bara repots `CLAUDE.md`, inbyggda skills och Manual-läget laddas, utan MCP-servrar.
+  - Före inloggningen är det prövat att bara repots `CLAUDE.md` och inbyggda skills laddas, utan MCP-servrar.
+- **Johnny har loggat in i byggsessionen.** Efter inloggningen visade `claude -p "/context"` och init-provet med `~/.claude-bygg` att bara repots `CLAUDE.md` och inbyggda plugins, skills och delagenter laddas. Det fanns inga MCP-servrar, inga claude.ai-connectorer och ingen auto memory (`kunskap/research/2026-10-15_mac-avgransning.md`, *Tillägg kl. 20.15*).
+- **Johnny valde auto mode och Opus 5.5 på xhigh** och sa att det inte ska vara regelstyrt (`BESLUT.md`). Bevakad körning är struken ur `guide/3-3`, och C165 i bilaga C gäller nu bara att N1 inte har några hooks.
 - **De största krockarna:**
   - Auto memory laddar webb-pros gamla ägarbeslut i varje session.
-  - Auto mode är standard, och sedan 2.1.283 även när inget läge är satt.
   - `superpowers` har en hook som styr arbetssättet.
   - MCP-verktyg kan publicera förbi deny-reglerna.
   - `~/.claude/CLAUDE.md` säger åt Claude att använda `cf`.
@@ -44,11 +46,9 @@ Detaljerna står i `BESLUT.md`.
 
 ## Nästa steg – på Macen
 
-1. **Verifiera byggsessionen** (`guide/3-3`, N1). Johnny lägger in genvägen `claude-bygg`, startar den från repots rot och loggar in en gång med `/login`. Därefter:
-   - Johnny kör `/status`, `/context`, `/skills` och `/mcp` i byggsessionen.
-   - Claude kör `/context` och init-provet med `CLAUDE_CONFIG_DIR=~/.claude-bygg` och sparar utdata som belägg.
-   - Det som prövas är att synken, connectorerna och Chrome-verktygen håller sig borta när sessionen är inloggad.
-2. **Byggsessionen tar över.** Från och med nu körs arbetet med byggsystemet i `claude-bygg`, inte i den vanliga konfigurationen.
+1. **Avsluta verifieringen av byggsessionen** (`guide/3-3`, N1). Genvägen, inloggningen och Claudes prov är klara. Kvar är att Johnny kör `/status`, `/skills` och `/mcp` en gång i `claude-bygg`.
+   - I auto mode stoppade klassaren byggsessionens egna prov som *Auto-Mode Bypass* och läsningen av `.claude.json` som *Credential Exploration*. Proven kördes därför från en session i den vanliga konfigurationen.
+2. **Byggsessionen tar över.** Från och med nu körs arbetet med byggsystemet i `claude-bygg`, inte i den vanliga konfigurationen. En session är byggsessionen bara om `CLAUDE_CONFIG_DIR` är `~/.claude-bygg`, alltså om den startats med `claude-bygg`.
 3. **Förberedelserna** i `guide/5-byggplan.md`:
    - en kort `CLAUDE.md`
    - `.claude/settings.json` med `permissions.deny` för push, deploy och `.env`. Förslag: lägg till `cf deploy`, `cf builds` och `cf pages`.
@@ -58,7 +58,7 @@ Detaljerna står i `BESLUT.md`.
 
 ## Väntar på Johnny
 
-- **Genvägen och inloggningen i byggsessionen.** Kommandona står i `kunskap/research/2026-10-15_mac-avgransning.md`, avsnitt 3.
+- **`/status`, `/skills` och `/mcp` i byggsessionen**, en gång. Det förväntade utfallet står i `kunskap/research/2026-10-15_mac-avgransning.md`, avsnitt 3, *Så verifieras byggsessionen*. Raden om statusraden och Manual-läget gäller inte längre.
 - **Ansökan om API-åtkomst för Google Business Profile.** Bara Johnny kan ansöka, och svaret tar upp till 14 dagar.
 - **Ett Cloudflare-konto för byrån** inför steg 5. Det är ett mänskligt klick, och övningssajterna ligger på byråns konto.
 - **Bilaga E:** avsnitt 1 och 2 är avgjorda. 1.8 (integritetspolicy) och 1.9 (betalning) väntar till den första riktiga kunden, och 2.4, 2.7 och 2.8 till förvaltningen. Avsnitt 3 gäller senare nivåer. Avsnitt 4 verifieras under bygget.
