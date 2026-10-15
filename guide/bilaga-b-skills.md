@@ -92,7 +92,7 @@ Steg 5 (publicering) och steg 6 (den första rapporten) görs för hand (*Inte s
 | Skill | Nivå | Lager | Syfte | Ur v0.74 eller kartan | Destilleras ur |
 |---|---|---|---|---|---|
 | `intervju` | N2 | 1 | Utkastet blir en skill med hela intervjuguiden (→ 2-1) | v0.74 `brief-interview`; kartan lager 1 | Se utkastet |
-| `omfattning` | N2 | 2 | Top Tasks, MoSCoW, branschprofiler; ombyggnadsspåret med fångst, URL-inventering, omdirigeringar och före-mått (→ 2-2) | v0.74 fas 0b; kartan lager 2 | K9, K11, K12; inventeringen: branschmallarna byggs själva |
+| `omfattning` | N2 | 2 | Top Tasks, MoSCoW, branschprofiler; ombyggnadsspåret med fångst, URL-inventering, omdirigeringar och före-mått (→ 2-2) | v0.74 fas 0b; kartan lager 2 | K9, K11, K12; inventeringen: branschprofilerna byggs själva |
 | `struktur` | N2 | 3 | Sidkarta, sökord, menyer, nyckelresor (→ 2-3) | v0.74 fas 1 (sökord), brief 2b; kartan lager 3 | K18, K23 |
 | `skelett` | N2 | 4 | Regler för sektionsbiblioteket, nya sektioner, wireframes per sidtyp (→ 2-4) | v0.74 fas 2; kartan lager 4 | B9, B30, B43, K28, K29; inventeringen: sektionen Serviceområde byggs själva |
 | `yta` | N2 | 5 | Ta fram och förnya stilkit; tar över `riktningar` (→ 2-5) | v0.74 fas 2 (`design.md`, Stitch); kartan lager 5 | B5, B10, B11, B27, B35, B52, B54, B55, B58; Stitch, Inspo, Tastemaker |
