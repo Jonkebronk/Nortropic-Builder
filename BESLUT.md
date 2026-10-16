@@ -1154,3 +1154,16 @@ Johnny, omkring 12:47:
 - Bekräftelser till besökaren görs bara när kunden har Workers Paid. Annars skickas inga.
 - Mejl till prospekt skickas inte via någon sådan tjänst. Det kräver troligen samtycke enligt 19 § marknadsföringslagen (tolkning; tas med juristen).
 - Företagssakerna tas sist: bokföring, moms, kundavtal, biträdesavtal, incidentrutin och försäkring (luckorna i `inventering/` efter genomgången).
+
+## 2026-10-16: En minimal kreditering för komponenter från 21st.dev
+
+**Status:** gäller.
+
+Claude berättade att 21st.dev:s villkor (avsnitt 3, *"Last updated: July 20, 2026"*) kräver *"a clear and visible link back to the original component page on 21st.dev"* när komponenter kopieras till andra webbplatser. Det gäller också när komponentens licens är tillåtande. Johnny, omkring 13:05:
+
+> det är väl bara ha nånting minimalistiskt om du ska kräva mig att ha den referensen
+
+**Innebär:**
+- Finns blocket i ett öppet ursprungsrepo, till exempel Tailark eller Magic UI med MIT, hämtas det därifrån. Då gäller bara licensen, och ingen länk syns på sajten. Licenstexten följer med i koden.
+- Kommer en komponent bara från 21st.dev får sajten en minimal kreditering: en diskret rad eller sida, länkad från sidfoten, med länk till komponentens sida på 21st.dev. ⚖️ Om det räcker som *"clear and visible"* är en tolkning, inte juridisk rådgivning.
+- Komponenter med licensen "unknown" används som mönster, inte som kod.
