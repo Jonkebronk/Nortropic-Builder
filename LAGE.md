@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-16 kl. 11.51 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-16 kl. 12.05 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Kort
 
@@ -120,6 +120,7 @@ Johnny tog in fem av förslagen till checklistan och lade till ett sjätte. `mal
 
 ## Väntar på Johnny
 
+- **Genomgången efter övningssajten** (`guide/5-byggplan.md`) är skriven i sajtens `genomgang.md`. Förslagen G1–G13 ska godkännas eller strykas. Granskaren mättes om på de fyra egna utkasten, blint, och fick 3 av 4 rätt. Den missade Djärv: den såg att tonen var fel för en klinik men vägde det bara som svagt (förslag G13 till checklistan).
 - **Raden "I dag" i förstavyn** (C4) ska dömas: om första skärmen blir för trång.
 - **Texten om skatt och friskvårdsbidrag** på övningssajtens företagssida ska dömas.
 - **Omdirigeringarna:** 11 gamla adresser utan motsvarighet och WordPress-adresser får 404 i stället för att skickas till startsidan (sajtens `public/_redirects`, märkt förslag).
