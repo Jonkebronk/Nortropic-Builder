@@ -31,7 +31,7 @@ const { praktiskt, ring } = Astro.props.innehall;
           <h3>{praktiskt.kontakt.rubrik}</h3>
           <p><a class="telefon praktiskt__telefon" href={ring.href}><Ikon namn="telefon" />{ring.nummer}</a></p>
           <p class="dampad">{praktiskt.kontakt.text}</p>
-          {praktiskt.kontakt.epost && <p><a href={praktiskt.kontakt.epost.href}>{praktiskt.kontakt.epost.text}</a></p>}
+          {praktiskt.kontakt.epost && <p class="praktiskt__epost"><a href={praktiskt.kontakt.epost.href}>{praktiskt.kontakt.epost.text}</a></p>}
         </div>
       </article>
     </div>
@@ -59,6 +59,8 @@ const { praktiskt, ring } = Astro.props.innehall;
 </script>
 
 <style>
+  /* Fristående länk: minst 44 px hög på pekskärm (guide/2-4-skelett.md, kriteriet 44 × 44; kontroll 8p). */
+  @media (pointer: coarse) { .praktiskt__epost a { display: inline-block; padding-block: 0.7rem; } }
   .praktiskt { padding-top: var(--k-a7); }
   .praktiskt__rutnat { display: grid; gap: var(--k-a4); }
   /* Adressen är länken till vägbeskrivningen, som i sidfoten (Johnny 2026-10-15). */

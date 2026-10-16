@@ -1548,10 +1548,11 @@ function sida7d(page) {
 }
 async function sida7e(page, { sida, miljo }) {
   const rad = miljo.sidkarta.find((r) => rensa(r.adress).replace(/\/$/, '') === rensa(sida).replace(/\/$/, '')); if (!rad?.strangar.length) return [];
-  const t = await iSidan(page, () => { const m = document.querySelector('main') || document.body; const p = [...m.querySelectorAll('p')].find((x) => hText(x, 600).length >= 20); return [...document.querySelectorAll('h1')].map((x) => hText(x, 300)).concat([...m.querySelectorAll('h2')].map((x) => hText(x, 300)), p ? [hText(p, 600)] : []).join(' \n '); });
+  const t = await iSidan(page, () => { const m = document.querySelector('main') || document.body; const p = [...m.querySelectorAll('p:not(.overrad)')].find((x) => hText(x, 600).length >= 20); return [...document.querySelectorAll('h1')].map((x) => hText(x, 300)).concat([...m.querySelectorAll('h2')].map((x) => hText(x, 300)), p ? [hText(p, 600)] : []).join(' \n '); });
   const stopp = new Set(['i', 'och', 'på', 'för', 'en', 'ett', 'med', 'till', 'av', 'eller', 'vid', 'om', 'den', 'det', 'du', 'som', 'nära']);
   const stam = (o) => { for (const s of ['arna', 'erna', 'orna', 'ens', 'ets', 'ar', 'er', 'or', 'en', 'et', 'na', 'a', 'e', 'n', 's']) if (o.endsWith(s) && o.length - s.length >= 4) return o.slice(0, -s.length); return o; };
-  const ord = t.toLowerCase().match(/[\p{L}\d]+/gu) || [];
+  // Mjuka bindestreck (U+00AD) och ordbindningstecken (U+2060) tas bort först, så att Stötvågs\u00adbehandling räknas som ett ord.
+  const ord = t.toLowerCase().replace(/[\u00ad\u2060]/g, '').match(/[\p{L}\d]+/gu) || [];
   const finns = (lista) => lista.map((o) => o.toLowerCase()).filter((o) => !stopp.has(o)).every((o) => ord.some((w) => w.startsWith(stam(o))));
   const alternativ = (s) => { const ut = []; let forra = null; for (const d of s.split(/\s*\/\s*/).filter(Boolean)) { const o = d.split(/\s+/); if (o.length === 1 && forra) ut.push([...forra.slice(0, -1), o[0]]); else { ut.push(o); forra = o; } } return ut; };
   return rad.strangar.filter((s) => !alternativ(s).some(finns)).map((s) => `”${s}” finns inte i h1, h2 eller första stycket`);

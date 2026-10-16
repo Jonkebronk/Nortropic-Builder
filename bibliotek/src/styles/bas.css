@@ -55,6 +55,9 @@ strong, b { font-weight: 600; }
 a { color: var(--k-accent-text); text-underline-offset: 0.18em; }
 /* Markerad text i kitets accent, ljust blandad, så att texten behåller sin kontrast (premiumpasset P29). */
 ::selection { background: color-mix(in oklab, var(--k-accent) 28%, var(--k-bg)); color: var(--k-text); }
+/* Besökta länkar i löptext är något mörkare, så att besökaren ser var hen har varit; fristående länkar, menyer och knappar
+   behåller sin färg (NN/g, Change the Color of Visited Links; kontroll 8q). Blandningen håller kontrasten mot bakgrunden. */
+:where(p, li, dd) > a:not(.uppmaning, .knapp):visited { color: color-mix(in oklab, var(--k-accent-text) 65%, var(--k-text)); }
 /* Hover bara med mus eller styrplatta: på en pekskärm står hover-läget annars kvar efter trycket (Kowalski, mobile-native). */
 @media (hover: hover) and (pointer: fine) { a:hover { text-decoration-thickness: 2px; } }
 /* Fokusringen följer elementets egen radie; regeln sätter ingen egen (yta, detaljer.md). */

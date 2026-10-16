@@ -61,6 +61,8 @@ const schema = forstavy.idag && JSON.stringify(praktiskt.platser.flatMap((p) => 
     mask-image: linear-gradient(to bottom, #000 80%, transparent 100%);
   }
   .forstavy__betyg { display: flex; align-items: center; gap: var(--k-a2); font-size: var(--k-mindre); }
+  /* Fristående länk: minst 44 px hög på pekskärm (guide/2-4-skelett.md, kriteriet 44 × 44; kontroll 8p). */
+  @media (pointer: coarse) { .forstavy__betyg a { display: inline-block; padding-block: 0.7rem; } }
   /* Länken är en vanlig textrad: med inline-flex försvann mellanslaget efter betyget. Radhöjden ger minst 24 px att träffa. */
   .forstavy__betyg a { color: inherit; }
   .forstavy__betyg :global(svg) { width: var(--k-ikon-text); height: var(--k-ikon-text); fill: currentColor; color: inherit; flex: none; }

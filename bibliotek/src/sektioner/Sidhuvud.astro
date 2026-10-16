@@ -103,17 +103,21 @@ const aktuell = (l: Lank) => (l.href === sida ? 'page' : l.delar?.includes(sida)
     font-size: clamp(0.95rem, 0.8rem + 0.8vw, 1.2rem); color: var(--k-text); text-decoration: none; margin-right: auto;
     overflow-wrap: anywhere; line-height: 1.2;
   }
-  /* Logorutan behåller sina färger i forced colors; annars blir märket vitt på vitt (mcp-prov, Chrome DevTools forcedColors). */
-  .sidhuvud__logo { forced-color-adjust: none; flex: none; display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 8px; background: var(--k-mork); padding: 5px; }
+  /* I forced colors försvinner logorutans bakgrund och märket blir vitt på vitt. Det står kvar: bilden är dekor, namnet står som
+     text, och forced-color-adjust: none är förbjudet (bilaga C, C227; mcp-prov, allvar låg). */
+  .sidhuvud__logo { flex: none; display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 8px; background: var(--k-mork); padding: 5px; }
   .sidhuvud__logo :global(img) { width: 100%; height: auto; }
   /* Vid stor text i en smal vy avstavas namnet med bindestreck i stället för att delas var som helst (bas.css, rubrikerna). */
   @media (max-width: 22em) { .sidhuvud__namn { hyphens: auto; overflow-wrap: break-word; } }
+  @media (pointer: coarse) { .sidhuvud__namn { min-height: 44px; } }
   .sidhuvud__nav { display: none; }
   .sidhuvud__nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: var(--k-a5); }
   .sidhuvud__nav a { color: var(--k-text); text-decoration: none; font-weight: 400; }
   .sidhuvud__nav a[aria-current] { text-decoration: underline; text-underline-offset: 0.3em; }
   @media (hover: hover) and (pointer: fine) {
     .sidhuvud__nav a:hover, .sidhuvud__ring:hover .sidhuvud__ringtext, .sidhuvud__namn:hover > span:last-child { text-decoration: underline; text-underline-offset: 0.3em; }
+    /* Den aktuella länken är redan understruken, så hover gör strecket tjockare (kontroll 8o). */
+    .sidhuvud__nav a[aria-current]:hover { text-decoration-thickness: 2px; }
   }
   .sidhuvud__kontakt { display: flex; align-items: center; gap: var(--k-a1); flex: none; }
   .sidhuvud__ring {

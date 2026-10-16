@@ -83,6 +83,8 @@ const { id = 'hitta-hit', rubrik, platser, kakText, kakLank, kalla, apparEtikett
   .hittahit__appar { font-size: var(--k-mindre); }
   .hittahit__appar a { display: inline-block; min-height: 24px; padding-block: 2px; }
   .hittahit__kalla { margin-top: var(--k-a4); }
+  /* Fristående länk: minst 44 px hög på pekskärm (guide/2-4-skelett.md, kriteriet 44 × 44; kontroll 8p). */
+  @media (pointer: coarse) { .hittahit__kalla a { display: inline-block; padding-block: 0.9rem; } }
   /* Knappen skapas av skriptet och saknar därför komponentens stilattribut; reglerna är globala. */
   :global(.hittahit__google) { cursor: pointer; font: inherit; font-weight: var(--k-knapp-vikt); }
   @media (max-width: 40rem) { .hittahit__knappar .knapp, :global(.hittahit__google) { flex: 1 1 100%; width: 100%; } }

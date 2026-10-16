@@ -14,9 +14,12 @@ export const idag = "(function(){var p=document.currentScript.previousElementSib
 // Bara för jämförelsen av de två rörelseversionerna på bibliotekets provsidor: ?rorelse=mattlig eller ?rorelse=sparsam.
 export const rorelseJamforelse = "(function(){var r=new URLSearchParams(location.search).get('rorelse');if(r==='mattlig'||r==='sparsam')document.documentElement.dataset.rorelse=r;})();";
 
-// Knapplistens startläge (Kontaktlist.astro). Skriptet står direkt efter listen och körs medan sidan läses in: syns förstavyns
-// eller sidtoppens egna knappar ligger listen gömd från första målningen, i stället för att glida bort när modulen körs
-// (kontroll 13f; andra varvet, Apple HIG H1). Utan JavaScript syns listen alltid.
-export const kontaktlistStart = "(function(){var l=document.currentScript.previousElementSibling;if(matchMedia('(max-height: 30rem)').matches)return;var e=document.querySelector('.forstavy__knappar, .sidtopp__knappar');if(!e)return;var r=e.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight){l.dataset.dold='true';l.inert=true;}})();";
+// Knapplistens och samtyckesrutans startläge (Kontaktlist.astro, Samtycke.astro). Skriptet står direkt efter listen och körs medan
+// sidan läses in, med samma regler som modulerna: rutan visas redan här när inget giltigt val finns sparat, och listen ligger gömd
+// när förstavyns eller sidtoppens knappar syns, eller under rutan när rutan täcker dem. Då står både listen och rutan still från
+// första målningen, i stället för att glida på plats när modulerna körs (kontroll 13f; andra varvet, Apple HIG H1).
+// Mätningen ritar listen synlig först, så övergången stängs av för den första ändringen (via CSSOM, som CSP inte stoppar).
+// Utan JavaScript syns listen alltid, och rutan visas inte.
+export const kontaktlistStart = "(function(){var l=document.currentScript.previousElementSibling,d=document.documentElement,ruta=document.querySelector('[data-samtycke-ruta]');if(ruta&&ruta.hidden){var v=null;try{v=JSON.parse(localStorage.getItem('samtycke')||'null');}catch(x){}var g=Number(ruta.dataset.giltighet||182)*864e5;if(!(v&&v.version===Number(ruta.dataset.version||1)&&Date.now()-Date.parse(v.tid)<g))ruta.hidden=false;}if(matchMedia('(max-height: 30rem)').matches)return;var e=document.querySelector('.forstavy__knappar, .sidtopp__knappar'),oppen=!!ruta&&!ruta.hidden,smal=matchMedia('(max-width: 63.99rem)').matches;var ovan=false;if(e&&oppen){var k=e.getBoundingClientRect();ovan=k.top>=0&&k.bottom<=ruta.getBoundingClientRect().top;}if(oppen&&smal&&!ovan){d.setAttribute('data-lista-under-ruta','');return;}var syns=false;if(e){var r=e.getBoundingClientRect();syns=r.bottom>0&&r.top<innerHeight;}if(oppen||syns){l.style.transition='none';l.dataset.dold='true';l.inert=true;getComputedStyle(l).transform;requestAnimationFrame(function(){l.style.transition='';});}})();";
 
 export const alla = [samtyckeStandard, idag, rorelseJamforelse, kontaktlistStart];

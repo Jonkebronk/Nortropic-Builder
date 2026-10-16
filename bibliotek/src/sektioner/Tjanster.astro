@@ -38,8 +38,7 @@ const { tjanster } = Astro.props.innehall;
      (Heydon Pickering, Inclusive Components, Cards: pseudoelementet; andra varvet, skelett). */
   .tjanster__lista .kort { position: relative; }
   .tjanster__lank :global(a)::after { content: ''; position: absolute; inset: 0; border-radius: var(--k-radie-kort); }
-  .tjanster__lista .kort:has(:global(a:focus-visible)) { outline: 3px solid var(--k-fokus); outline-offset: 3px; }
-  .tjanster__lank :global(a:focus-visible) { outline: none; }
+
   @media (min-width: 40rem) { .tjanster__lista { grid-template-columns: repeat(2, 1fr); } }
   /* Fyra i rad på datorn; färre kort fyller raden i stället för att lämna tomma spalter (andra varvet, kvalitet N9). */
   @media (min-width: 72rem) { .tjanster__lista { grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); } }
