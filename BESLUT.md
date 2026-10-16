@@ -1393,3 +1393,15 @@ och skrev samtidigt:
 **Innebär:**
 - Claude lade in nyckeln på servern `google-developer-knowledge` i byggsessionens lokala konfiguration (`~/.claude-bygg/.claude.json`). Den står inte i repot, och Claude skriver den inte i någon fil här.
 - Nyckeln används bara till Developer Knowledge. Regeln om att nycklar inte klistras in i chatten gäller fortfarande för andra nycklar.
+
+## 2026-10-16: nanobanana och BrowserStack väntar
+
+**Status:** gäller. Ändrar *Alla MCP:er in nu …* (17.05) för de två servrarna, och skjuter upp provet med riktiga iPhone och Android i *Placeringarna i inventeringen blir beslut; riktiga prov med BrowserStack och VoiceOver* (17.40).
+
+Claude räknade upp vad som var kvar att lägga in med nyckel: Grounding Lite, nanobanana och BrowserStack. Johnny, kl. 20.08:
+
+> vi väntar med nano, browser
+
+**Innebär:**
+- Ingen nyckel till nanobanana (Gemini) eller BrowserStack nu. nanobanana och BrowserStack läggs inte till i byggsessionen.
+- Provet på riktiga iPhone och Android via BrowserStack väntar också. Hur skärmläsare prövas i stället (VoiceOver på iPhone för hand, TalkBack via BrowserStack) är fortfarande öppet i `kunskap/research/2026-10-16_tredje-varvet-till-johnny.md`.
