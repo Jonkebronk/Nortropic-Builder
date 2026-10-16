@@ -59,7 +59,7 @@ Här står de förslagen ur tredje varvets fem grupper: guiden 2-1–2-3, guiden
 | 47 | Felbanken som krav när kontrollskriptet ändras | Ja | – |
 | 48 | Ska sajterna klara 32 px text? | Ja, som rapport först | – |
 | 49 | Kontroll 6b med telefon och adress på varje sida | Ja | – |
-| 50 | Kvalitetsskillens tak på 15 fynd | Gäller inte normer och N1 | – |
+| 50 | Kvalitetsskillens tak på 15 fynd | **Avgjort 19.09: ja** (`BESLUT.md`) | – |
 | 51 | En andra uppgift innan någon skill kortas | Ja | – |
 | 52 | Patientomdömen och tystnadsplikten till juristen | Ja | – |
 
@@ -537,6 +537,8 @@ Grupperna `kontroller` och `baslinje-2` blev klara efter att listan skrevs. Dera
 - **Vid ja:** `skript/kontroll.mjs` (6b), `guide/2-8` (N1-tabellen), bilaga C.
 
 ### 50. Kvalitetsskillens tak på 15 fynd
+
+**Avgjort 2026-10-16 kl. 19.09:** Johnny: *"ditt förslag låter bra om fynd"* (`BESLUT.md`). Infört i princip 10; provet körs igen.
 
 - **Frågan:** I baslinjeprovet sköt taket ut ett N1-fynd (kontroll 2b) till löptext i två av tre körningar, och med skillen blev utfallet 87,9 % mot 90,9 % utan.
 - **Förslag:** taket gäller granskningar av design och biblioteksändringar; före publicering redovisas varje fynd mot en norm eller en N1-kontroll, också över 15. Kör sedan provet igen.

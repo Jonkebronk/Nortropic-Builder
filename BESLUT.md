@@ -1302,3 +1302,15 @@ Claude frågade om de 201 placeringarna i inventeringen (artefakten version 4) s
 **Innebär:**
 - Varje placering i `inventering/inventering.json` står nu som beslut i fältet `beslut`. Enskilda kan ändras senare, med en rad här.
 - Riktiga iPhone och Android prövas via BrowserStacks MCP när Johnny har lagt in nyckeln. VoiceOver på Macen prövas med Guidepup när Johnny själv har slagit på automationen i Systeminställningar; Claude ändrar inga system- eller säkerhetsinställningar.
+
+## 2026-10-16: Kvalitetsskillens tak på 15 fynd gäller inte fynd mot en norm eller N1 före publicering
+
+**Status:** gäller.
+
+Baslinjeprovet på skillen `kvalitet` (`kunskap/research/2026-10-16_baslinjer-2.md`) visade att taket på 15 fynd sköt ut ett N1-fynd (kontroll 2b) till en rad utanför listan i två av tre körningar, så att skillen fick 87,9 % mot 90,9 % utan. Claude föreslog att taket bara gäller granskningar av design och biblioteksändringar, att varje fynd mot en norm eller en N1-kontroll redovisas före publicering också över 15, och att provet körs igen (`kunskap/research/2026-10-16_tredje-varvet-till-johnny.md`, punkt 50). Johnny, kl. 19.09:
+
+> ditt förslag låter bra om fynd
+
+**Innebär:**
+- `.claude/skills/kvalitet/SKILL.md`, princip 10: högst 15 fynd i en granskning av design eller av en ändring i biblioteket. Före publicering redovisas varje fynd mot en norm eller en N1-kontroll, också över 15, i samma form som de andra.
+- Provet med och utan skillen körs igen på samma uppgift, och utfallet står i rapporten.
