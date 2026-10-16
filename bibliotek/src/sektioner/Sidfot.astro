@@ -8,7 +8,7 @@ interface Props { innehall: StartInnehall; }
 const { foretag, sidfot, ring } = Astro.props.innehall;
 const r = sidfot.rubriker;
 ---
-<footer class="sidfot">
+<footer class="sidfot" data-foretagsform={foretag.form ?? 'okand'}>
   <div class="behallare sidfot__rutnat">
     <p class="sidfot__namn">{foretag.namn}</p>
     <div>
@@ -39,7 +39,7 @@ const r = sidfot.rubriker;
     )}
   </div>
   <div class="behallare sidfot__rad">
-    {sidfot.uppgifter && <p class="sidfot__uppgifter">{sidfot.uppgifter.map((u, i) => <>{i > 0 && <span aria-hidden="true"> · </span>}<span>{u}</span></>)}</p>}
+    {foretag.form === 'bolag' && foretag.orgnr && <p class="sidfot__uppgifter">{foretag.namn} · Organisationsnummer {foretag.orgnr}</p>}
     {sidfot.policy && <ul class="sidfot__policy">{sidfot.policy.map((l) => <li><a href={l.href}>{l.text}</a></li>)}</ul>}
     {sidfot.rad && <p>{sidfot.rad}</p>}
   </div>

@@ -910,3 +910,30 @@ Johnny godkände den första rapporten (steg 6) och sa omkring 06:15:
 - **Bilder av personer** kräver samtycke enligt lagen om namn och bild i reklam, och samtycket står i `fakta.md`.
 - **Tillgänglighetsredogörelse** på alla sajter, enligt W3C:s minsta innehåll.
 - Den första övningssajten övar allt detta.
+
+## 2026-10-16: Företagsuppgifter som praxis, inte mer
+
+**Status:** gäller.
+
+Claude visade hur svenska sajter i praktiken visar företagsuppgifter: ingen klinik länkar till lagen för sitt yrke, och organisationsnumret saknas ofta. Claude föreslog att uppgifterna om legitimationen skulle flyttas från sidfoten till sidan Integritet och kakor (`kunskap/research/2026-10-16_lagkrav-pa-sajten.md`, tillägget). Johnny, omkring 06:47:
+
+> inget om patientsäkerthetslagen och vi kakor och samtycket, organisationsnummer är ju personnummer för enskilda företag så det är nog därför
+
+**Innebär:**
+- Sajten nämner inte lagen för yrket och inte registret. Yrkestiteln, till exempel *legitimerad kiropraktor*, står där den hör hemma i texten. ⚖️ 8 § e-handelslagen kräver mer för reglerade yrken. Avvikelsen är medveten och följer praxis.
+- Organisationsnumret visas i sidfoten för bolag. För en enskild firma är det ägarens personnummer och visas inte. Det avgör fråga 1.11 i bilaga E. Kontroll 6b kräver organisationsnumret bara när företagsformen är ett bolag.
+- Kakor och samtycke ska finnas (`2-8-teknik-och-kvalitet.md`). Hur det slås på följer i nästa beslut.
+
+## 2026-10-16: Kakor och samtycke vid behov
+
+**Status:** gäller.
+
+Claude frågade: *"Kakor och samtycke: ska sajterna alltid ha statistik med samtyckesbanner, eller bara när kunden behöver det?"* Johnny valde omkring 06:52:
+
+> Vid behov (Rekommenderas)
+
+Svarsalternativet löd: *"Samtyckesverktyget byggs i biblioteket enligt PTS krav: lika lätt att neka som att godkänna, samtycke per ändamål, inget laddas före svaret och det går att återkalla. Det slås på när kunden vill ha Google Analytics, Google Ads eller Meta, som ett prissatt tillval. Övningssajten tränar med verktyget påslaget men utan riktiga taggar. Övriga sajter har ingen banner och får 100 i Lighthouse."*
+
+**Innebär:**
+- Biblioteket får ett samtyckesverktyg. En sajt utan statistik eller annonser har ingen banner.
+- Statistik och annonser med kakor är ett prissatt tillval (`4-foretaget.md`).

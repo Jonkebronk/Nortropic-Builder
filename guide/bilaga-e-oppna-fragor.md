@@ -16,7 +16,7 @@
 | 1.8 | ~~Integritetspolicy utan formulär?~~ **Avgjort 2026-10-16:** ja, *Integritet och kakor* på alla sajter (`BESLUT.md`, `2-3-struktur.md`, `2-8`) | – | – |
 | 1.9 | **Byggs de första sajterna utan betalning?** | Claudes förslag ur en källa (`4-foretaget.md`); styr den första kundrelationen | Ja, för egna sajter och pilotsajter |
 | 1.10 | ~~Lucide och Inter som standard i stilkiten?~~ **Avgjort 2026-10-15:** inget globalt förbud; varje kit väljer (`BESLUT.md`, `2-5-yta.md`) | – | – |
-| 1.11 | **Organisationsnummer för en enskild firma i sidfoten?** | 8 § e-handelslagen kräver organisationsnummer, och för en enskild firma är det ägarens personnummer (`2-3-struktur.md`) | Fråga kunden. Står det redan på kundens fakturor och i Google-profilen, anges det |
+| 1.11 | ~~Organisationsnummer för en enskild firma i sidfoten?~~ **Avgjort 2026-10-16:** nej, det är ägarens personnummer. Bolag visar sitt (`BESLUT.md`, `2-3-struktur.md`) | – | – |
 
 ## 2. Styrning och skillnader mellan spåren
 

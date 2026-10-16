@@ -50,7 +50,7 @@ const lamnar = /google\.[a-z.]+\/maps|maps\.google\.|maps\.apple\.com|g\.page\/|
 const browser = await chromium.launch();
 const per = {};
 for (const sida of sidor) {
-  const url = bas + sida; const r = (per[sida] = { konsol: [], bilder: [], axe: [], reflow: false, titel: '', beskrivning: '', h1: 0, forstaTel: false, forstaBoka: false, text: '', citat: [], nyFlik: [], integritet: false, tillganglighet: false, orgnr: false });
+  const url = bas + sida; const r = (per[sida] = { konsol: [], bilder: [], axe: [], reflow: false, titel: '', beskrivning: '', h1: 0, forstaTel: false, forstaBoka: false, text: '', citat: [], nyFlik: [], integritet: false, tillganglighet: false, orgnr: false, form: 'okand' });
   for (const [b, h, mobil] of [[320, 700, true], [375, 812, true], [1280, 800, false]]) {
     const ctx = await browser.newContext({ viewport: { width: b, height: h }, isMobile: mobil, hasTouch: mobil, locale: 'sv-SE' });
     const page = await ctx.newPage();
@@ -71,7 +71,7 @@ for (const sida of sidor) {
           forstaTel: [...document.querySelectorAll('a[href^="tel:"]')].some(synligOvanVikningen),
           forstaBoka: [...document.querySelectorAll('a')].some((a) => /boka/i.test(a.textContent) && synligOvanVikningen(a)),
           integritet: !!document.querySelector('footer a[href*="/integritet"]'), tillganglighet: !!document.querySelector('footer a[href*="/tillganglighet"]'),
-          orgnr: /Organisationsnummer\D{0,3}\d{6}-?\d{4}/.test(document.querySelector('footer')?.innerText || ''),
+          orgnr: /Organisationsnummer\D{0,3}\d{6}-?\d{4}/.test(document.querySelector('footer')?.innerText || ''), form: document.querySelector('footer')?.dataset.foretagsform || 'okand',
           text: document.body.innerText, citat: [...document.querySelectorAll('blockquote')].map((q) => q.innerText.trim()), trasiga,
         };
       });
@@ -129,11 +129,15 @@ for (const f of allaFiler(dist).filter((f) => f.endsWith('.html'))) {
   for (const m of t.matchAll(/\[\[PLATSHÅLLARE[^\]]*\]\]|lorem ipsum|placeholder|platshållare|\bexempel\w*/gi)) platshallare.push(`${relative(dist, f)}: ${m[0]}`);
 }
 lagg(6, 'Inga platshållare i bygget', 'Stopp', platshallare.length === 0, platshallare.length ? platshallare.slice(0, 6).join(' | ') : 'noll träffar');
-// 6b. Lagkraven i sidfoten (BESLUT.md 2026-10-16): länk till Integritet och kakor och till Tillgänglighet, och organisationsnumret (8 § e-handelslagen).
+// 6b. Sidfoten (BESLUT.md 2026-10-16): länk till Integritet och kakor och till Tillgänglighet, och organisationsnumret när företaget är ett bolag.
+// En enskild firmas organisationsnummer är ägarens personnummer och visas inte.
 const k6b = [];
-for (const [falt, namn] of [['integritet', 'länk till Integritet och kakor'], ['tillganglighet', 'länk till Tillgänglighet'], ['orgnr', 'organisationsnummer']]) {
+for (const [falt, namn] of [['integritet', 'länk till Integritet och kakor'], ['tillganglighet', 'länk till Tillgänglighet']]) {
   const utan = sidor.filter((s) => !per[s][falt]); if (utan.length) k6b.push(`${namn} saknas på ${utan.length === sidor.length ? 'alla sidor' : utan.join(', ')}`);
 }
+const form = per[sidor[0]]?.form;
+if (form === 'okand') k6b.push('företagsformen är okänd, så det går inte att avgöra om organisationsnumret ska visas');
+else if (form === 'bolag' && sidor.some((s) => !per[s].orgnr)) k6b.push('organisationsnumret saknas, och företaget är ett bolag');
 lagg('6b', 'Integritetspolicy, tillgänglighetsredogörelse och organisationsnummer i sidfoten', 'Rapport', k6b.length === 0, k6b.length ? k6b.join('; ') : `${sidor.length} sidor`);
 
 // 7. Titel, beskrivning, sitemap och h1

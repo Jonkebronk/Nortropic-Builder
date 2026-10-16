@@ -11,7 +11,8 @@ export interface StartInnehall {
   nyFlikText?: string; // för skärmläsare när en länk öppnas i ny flik på datorn, t.ex. "(öppnas i ny flik)"
   titel: string;
   beskrivning: string;
-  foretag: { namn: string; logotyp?: Bild; favikon?: string; hemskarmsikon?: string; delningsbild?: string };
+  // form och orgnr: organisationsnumret visas i sidfoten för bolag men inte för en enskild firma, där det är ägarens personnummer (BESLUT.md 2026-10-16).
+  foretag: { namn: string; form?: 'bolag' | 'enskild'; orgnr?: string; logotyp?: Bild; favikon?: string; hemskarmsikon?: string; delningsbild?: string };
   boka: Lank & { kort?: string }; // kort: texten i sidhuvudet
   ring: Lank & { nummer: string; kort?: string }; // kort: texten i knapplisten
   // Mobilen: 'uppe' = kontaktvägen fast i sidhuvudet; 'nere' = smalt sidhuvud och knapplist i tumzonen.
@@ -42,7 +43,6 @@ export interface StartInnehall {
   nastaSteg: { rubrik: string; text: string };
   sidfot: { platser: { namn: string; adress: string; karta?: KartLank }[]; epost?: Lank; sociala: Lank[]; rad: string;
     sidor?: Lank[]; rubriker?: { platser: string; kontakt: string; sidor: string };
-    uppgifter?: string[]; // företagsuppgifter enligt 8 § e-handelslagen: firma, organisationsnummer, yrkestitel och register (guide/2-3-struktur.md)
     policy?: Lank[]; // Integritet och kakor, Tillgänglighet
   };
 }
