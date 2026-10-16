@@ -39,6 +39,8 @@ Ett kort per post, i den form Johnny bad om 2026-10-16:
 - **Öppna varje belägg igen** innan kortet skrivs, och stryk det som inte säger det kortet påstår. 📄 webb-pros `kirurg` (*Kontrollera beläggen*, egen).
 - **Johnnys skäl skrivs med** när han överprövar en dom, annars går intaget inte att kalibrera mot honom. I webb-pro saknade alla 44 överprövningar hans ord, och 41 var "håller med" (webb-pros `kunskap/KIRURG-OMDOMEN.md`).
 
+- **En MCP-server läses hel innan provet läggs upp:** varje verktyg med sin beskrivning, promptar, resurser och serverns instruktioner, och de flaggor eller kapabiliteter som slår på fler. De läses i källkoden där verktygen registreras, eller med verktygslåset för en server som redan ligger i byggsessionen; README är ett urval. Listan står i källkortet, och provets fall väljs ur den. Varför: 21st prövades med 2 av 51 verktyg, och domen fick rättas samma kväll (`kunskap/research/2026-10-16_verktyg-och-skills-full-potential.md`). Före första körningen skrivs också nyttokriteriet och facit ur en primärkälla, och anrop och kB redovisas per arm (övningssajtens `mcp-prov.md`).
+
 ## Domen
 
 Domen är ett förslag som Johnny avgör, i inventeringens termer: `skill: <namn>` (destilleras in), `bibliotek`, `kontroll`, `MCP: ta in`, `MCP: kräver konto`, `verktyg: ta in`, `senare: N2–N4` eller `släpp`.

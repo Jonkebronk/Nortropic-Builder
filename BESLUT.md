@@ -1584,3 +1584,16 @@ Claude lade fram mikroproven av luckorna 3–7 (`kunskap/research/2026-10-16_mik
 - `skelett/SKILL.md` och `struktur/SKILL.md` har en rad före kontrollistan om att det kontrollskriptet redan prövar tas ur skriptet, med vilken kontroll som hör till vilken punkt.
 - `kvalitet/sakerhet.md` har fältet `kind` från Astro 7.1 (faktarättelse).
 - Inga pekare förs in för luckorna 3–6.
+
+## 2026-10-16: ruflo avvisas, och intagsmallen för MCP-servrar
+
+**Status:** gäller.
+
+Claude lade fram två saker. Utvärderingen av ruflo (`kunskap/research/2026-10-16_ruflo.md`) med rekommendationen i tre rader: avvisa som installation, både nu och på N4; skälen (N1, avgränsningen med `~/.claude-bygg`, lärprincipen, `@latest` vid körning och tidigare dold kod); och ta idén i stället, en levande överblick efter våra lager och steg ur `progress.md` som statusrad eller lokal sida (`guide/3-5`, N2). Och mikroprovet av intagsmallen, översynens punkt 16 (`kunskap/research/2026-10-16_mikroprov-intag.md`), med frågan om raden i `larande/bevakning.md` skulle committas. Johnny, kl. 23.31:
+
+> vi kör enligt dina rekommendationer och ja committa
+
+**Innebär:**
+- ruflo installeras inte, varken nu eller på N4. Posten i `inventering/inventering.json` får beslutet *släpp*.
+- Den levande överblicken är redan planerad i `guide/3-5-live-visning.md` (*Planvyn*, *Utan mods*, N2); ruflos konsol (Overview, Cost, Events, Missions) är en referens när den byggs.
+- `larande/bevakning.md`, *Före domen*: en MCP-server läses hel (verktyg, promptar, resurser, instruktioner och flaggor) innan provet läggs upp, och fallen väljs ur listan.
