@@ -26,7 +26,7 @@ Ett underlag som räcker för alla senare lager och som kunden känner igen sig 
 
 ## Ut
 
-- `sites/<namn>/brief.md` enligt mallen i `guide/2-1-strategi.md` (*Briefmall*), med märkning per påstående.
+- `sites/<namn>/brief.md` enligt mallen i `guide/2-1-strategi.md` (*Briefmall*), med märkning per påstående. Rubrikerna är sex: sammanfattning, nordstjärna, besökare, primär handling, ton och intryck (med rörelsebudget: sparsam, måttlig eller expressiv) och får inte påstås.
 - `sites/<namn>/fakta.md` med källa, datum och hur varje faktum bekräftades (→ `guide/2-7-innehall.md`).
 - `sites/<namn>/intervju.md`: de förifyllda påståendena med källa, frågorna som ställdes och svaren ordagrant eller nära ordagrant.
 - En lista över det som saknas och vem som kan svara, till exempel bilder, samtycken och siffror.
