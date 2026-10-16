@@ -15,6 +15,7 @@ Grundreglerna står i guiden (→ `guide/2-3-struktur.md`, *Namn, adresser och m
 - **Vanliga ord, inga påhittade namn och inga överlappande val** (NN/g, [Category names](https://www.nngroup.com/articles/category-names-suck/), 2013). "Kontakt" heter Kontakt, eftersom besökare letar efter just det ordet (NN/g, *Contact Us*, 2019).
 - **Ingen meny efter målgrupp** (*Privat*, *Företag*): besökaren vet inte vilken grupp hon tillhör och innehållet dubbleras. En sida "För företag" kan finnas som sekundär väg (NN/g, [Audience-Based Navigation](https://www.nngroup.com/articles/audience-based-navigation/), 2015).
 - **Ingen lokal navigering i sidokolumn** på små sajter; kontextuella länkar till närliggande sidor räcker (NN/g, [Local Navigation](https://www.nngroup.com/articles/local-navigation/), 2021).
+- **Namnet och logotypen leder till startsidan, menyvalen står i besökarens viktighetsordning, och kontaktvägen syns utan att menyn öppnas** (i mobilen i knapplisten). Inga undermenyer i undermenyer och inga menyval som bara är en ikon. *(marketingskills `site-architecture`, `navigation-patterns.md`, *Anti-Patterns*; en källa – bänken, utom ikonerna: NN/g, [Icon Usability](https://www.nngroup.com/articles/icon-usability/))*
 
 ## Sidfoten
 

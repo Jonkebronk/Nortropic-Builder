@@ -73,6 +73,8 @@ flowchart TD
 
 Heldragna pilar är menyns och översikternas länkar, streckade pilar kontextuella länkar. Den primära handlingen är slutnoden, så att det syns att varje sida leder dit. Över ungefär 15 noder blir diagrammet svårläst; dela det då per zon.
 
+**Vid ombyggnad** visar diagrammet vad som händer med varje gammal sida, med färg och en text i noden, eftersom färg aldrig får bära betydelsen ensam (📄 WCAG 2.2, 1.4.1): *behålls*, *ny*, *flyttas* (med 301) och *tas bort* (med skäl). Den gamla och den nya strukturen kan stå bredvid varandra i två `subgraph`. Färgerna kommer ur sidkartans tabell, aldrig tvärtom. *(marketingskills `site-architecture`, `mermaid-templates.md`, *Color-Coding Conventions* och *Before/After Restructuring*; → skillen `omfattning`, `inventering.md`)*
+
 ### Navigationsspec
 
 | Zon | Innehåll i ordning | Not |

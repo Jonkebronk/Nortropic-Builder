@@ -4,10 +4,18 @@ Varianter byggs i biblioteket, aldrig i en kundsajt. I första sajten har varje 
 
 ## Hur en variantuppsättning ser ut
 
-- **En namngiven axel per uppsättning:** struktur (hur innehållet är ordnat), täthet, betoning (vad som syns först), typografi eller röst. Varianterna får namn efter vad de är – "Delad", "Bara text", "Redaktionell" – aldrig "A" och "B". *(en källa – bänken: Krehel, `variant`, MIT)*
-- **Riktigt innehåll och rätt antal poster.** En variant prövas med kundens text, en och tolv poster, långa sammansatta ord och saknad bild (→ `guide/2-4-skelett.md`, *Innehåll i värsta fall*). "Lorem ipsum and three rows make every structure look good" (Krehel).
-- **Varianterna ska skilja sig på riktigt.** De tas fram av isolerade agenter med var sin vinkel, och en kritiker kontrollerar skillnaden (→ `guide/2-4-skelett.md`, N2, fallgrop 77).
-- **Bedöms i 375 och 1280 px**, med samma kit, utan förvald favorit.
+Källor: Krehels `variant` (i webb-pro `better-variant`) och Kowalskis `prototype`, som säger nästan samma sak *(två praktiker, inte primärkällor – bänken)*.
+
+- **En del åt gången:** en sektion eller en komponent, inte en sida. "Förstavyn" är en del; "startsidan" är det inte.
+- **Läs marken först:** kitets tokens, sektionens grannar och bakgrund, och de bredder där den står. Varianterna ska kunna levereras i morgon.
+- **En namngiven axel per uppsättning:** struktur (hur innehållet är ordnat), täthet, betoning (vad som syns först), typografi eller röst. Varianterna får namn efter vad de är – "Delad", "Bara text", "Redaktionell" – aldrig "A" och "B". Uppsättningen skrivs ned innan något byggs, och inga två varianter har samma läge på axeln. Andra val följer av axeln i stället för att variera på egen hand.
+- **Tre varianter som standard, högst fem.** Har två glidit ihop under bygget stryks den ena: två verkligt olika riktningar är bättre än tre där den tredje är utfyllnad (Kowalski).
+- **Riktigt innehåll och rätt antal poster.** En variant prövas med kundens text, en och tolv poster, långa sammansatta ord och saknad bild (→ `guide/2-4-skelett.md`, *Innehåll i värsta fall*). "Lorem ipsum and three rows make every structure look good" (Krehel). Inga påhittade namn eller siffror: testdata märks som testdata (→ `guide/2-7-innehall.md`).
+- **Varianterna ska skilja sig på riktigt.** De tas fram av isolerade agenter med var sin vinkel, och en kritiker kontrollerar skillnaden (→ `guide/2-4-skelett.md`, N2, fallgrop 77). Skiljer de sig bara i accentfärg eller text är de en riktning.
+- **Bedöms i sitt sammanhang och i full storlek:** i mallen med sina riktiga grannar, en variant åt gången i 375 och 1280 px, med samma kit. Förminskade bilder sida vid sida förvränger avstånd och skala; en översiktsbild visar var skillnaderna finns, full storlek avgör. *(Krehel; Kowalski; ai-website-cloner-template, *Compare*)*
+- **Varje variant fungerar:** den renderas, varje interaktion svarar och konsolen är tom, innan Johnny ser den.
+- **Valet lämnas över med en tabell:** variant, läge på axeln, när den är rätt, vad den kostar – utan förvald favorit. Frågar Johnny svarar Claude utifrån hur ofta delen ses och kitets personlighet, inte utifrån vilken som var roligast att bygga.
+- **Efter valet** byggs den valda varianten in enligt bibliotekets konventioner, och de andra, väljaren och provkoden tas bort. Sök efter variantnamnen och parametern så att inget blir kvar.
 
 ## Variantgolvet
 
@@ -22,6 +30,9 @@ Golvet gäller alla varianter lika och är ingen axel. En variant som inte klara
 7. Fungerar med JavaScript av, eller är märkt som ö med kostnad och Johnnys dom (→ `guide/2-4-skelett.md`, N1, *HTML först*).
 8. Bara kitets tokens – inga hårdkodade färger, avstånd, radier eller typsnitt (→ `guide/2-4-skelett.md`, N1).
 9. Klickytor minst 24 × 24 px och 44 × 44 för knappar och fristående länkar (→ `guide/2-4-skelett.md`, *Kontroll*).
+10. Ingen semantisk färg mot sin betydelse (felrött på något som inte är ett fel), och inget tillstånd som bara visas med rörelse (📄 1.4.1).
+11. Varje felbesked säger hur man rättar (→ `guide/2-8-teknik-och-kvalitet.md`, formulär).
+12. Klarar 200 % text utan att något klipps eller hamnar över annat ([layout.md](layout.md), *Text som växer*).
 
 ## Källor och licens
 
@@ -56,6 +67,7 @@ Inte: fokusringar på 1 px (för svaga mot kitets fokusstil och WCAG 2.4.7), gla
 
 ## Verktyg när varianter tas fram
 
-- **Provsidan och gallerivyn** visar varianterna sida vid sida (→ `guide/2-4-skelett.md`, *Gallerivyn*). En väljare med URL-parameter (Krehels `?__variant=`) får finnas i provsidan men följer aldrig med till en kundsajt.
+- **Provsidan och gallerivyn** visar varianterna sida vid sida (→ `guide/2-4-skelett.md`, *Gallerivyn*) för överblick; domen fälls i full storlek (ovan). En väljare med URL-parameter (Krehels `?__variant=`, så att varje variant är en länk) får finnas i provsidan men följer aldrig med till en kundsajt.
+- **Väljaren står utanför designsystemet:** systemtypsnitt, en mörk neutral yta, inga kittokens, så att den aldrig blir en del av det som bedöms. Den står bredvid delen som en grupperad lista, eller ovanför som en `<select>` när det inte finns plats, och skymmer aldrig delen. Pilarna bläddrar, `H` gömmer den för skärmbilder, och tangenterna gäller inte när fokus står i ett fält. *(Krehel, `variant/picker.md` vid 4c66b1f)*
 - **Mätning av en referens:** se [referenser.md](referenser.md).
 - **Tillstånd per komponent:** se [interaktion.md](interaktion.md), *Tillstånd*.

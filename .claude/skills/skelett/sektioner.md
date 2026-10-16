@@ -34,6 +34,7 @@ Besökarens fråga per sektion och mallarnas standardordning står i guiden (→
 - **Varianter:** (a) kort med ikon, namn, en mening och länk (AW `Features2`, FD services-5, TL `features/two`) – 2 till 4 tjänster; (b) kompakt lista där hela raden är länken (AW `Features3`) – för mobilen och för sidor där tjänsterna redan har presenterats, till exempel en mottagningssida; (c) sidolista med fast rubrik och tjänsterna bredvid (FD services-2 och 6) – för 5 tjänster och fler på datorn.
 - **På tjänstesidan** står priset öppet, eller ett exempelpris för ett typiskt jobb när fast pris inte går (NN/g, [Show Prices for Common Scenarios](https://www.nngroup.com/articles/show-prices-for-common-scenarios/), 2006; → `guide/2-7-innehall.md`).
 - **Mobilen:** fyra kort över varandra blir lätt mer än en skärm; varianten (b) visar alla tjänster på en skärm. Upprepas samma tjänstesektion på flera sidor, välj den kompakta varianten utanför startsidan. 🔧
+- **Kortet är klickbart i sin helhet** när det har en enda länk, och länken står längst ned på samma linje i alla kort i raden (delad stapel, [layout.md](layout.md), *Primitiverna*).
 - **Kostnad:** 0 kB. Container queries (`@container`, Baseline "high" sedan 2025-08-14) låter korten anpassa sig efter sektionens bredd (TL, FD).
 
 ## Person och Om

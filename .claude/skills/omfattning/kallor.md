@@ -1,6 +1,6 @@
 # Källor för omfattning
 
-Läst 2026-10-16. Fullständiga källkort per inventeringspost finns i premiumpassets arbetsmapp; här står det skillen bygger på.
+Läst 2026-10-16 och jämfört regel för regel samma dag (andra varvet). Fullständiga källkort per inventeringspost finns i premiumpassets arbetsmapp; här står det skillen bygger på.
 
 ## Normer och leverantörernas dokumentation
 
@@ -25,8 +25,8 @@ Läst 2026-10-16. Fullständiga källkort per inventeringspost finns i premiumpa
 
 | Källa | Version | Licens och krav | Taget | Lämnat |
 |---|---|---|---|---|
-| [JCodesMore/ai-website-cloner-template](https://github.com/JCodesMore/ai-website-cloner-template), `.agents/skills/clone-website/SKILL.md` | commit `ee3f5a2`, 2026-10-05 | MIT | Karta gammal → ny, observera före bygget i flera bredder och tillstånd, läs faktiska värden, jämför i samma bredd och tillstånd | Återskapandet av designen, Next.js, shadcn |
-| [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills): `site-architecture` med `references/site-type-templates.md` och `platforms-and-migration.md`; `competitor-profiling` | commit `365b412`, 2026-10-15 | MIT | Mallen för små lokala företag, flytten (slå på omdirigeringar vid bytet, behåll gamla sitemapen en tid, följ 404 dagligen i två veckor), sett–härlett–betydelse och "Not observed ≠ absent" | SaaS-fälten, Firecrawl och DataForSEO som standardverktyg |
+| [JCodesMore/ai-website-cloner-template](https://github.com/JCodesMore/ai-website-cloner-template), `.agents/skills/clone-website/SKILL.md` | commit `ee3f5a2`, 2026-10-05 | MIT | Karta gammal → ny, observera före bygget i flera bredder och tillstånd, läs faktiska värden, jämför i samma bredd och tillstånd, utgående mål som följer med | Återskapandet av designen, Next.js, shadcn |
+| [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills): `site-architecture` med `references/site-type-templates.md` och `platforms-and-migration.md`; `competitor-profiling` | commit `365b412`, 2026-10-15 | MIT | Mallen för små lokala företag, flytten (slå på omdirigeringar vid bytet, behåll gamla sitemapen en tid, följ 404 dagligen i två veckor, metadata i inventeringen och stickprov vid bytet), sett–härlett–betydelse och "Not observed ≠ absent" | SaaS-fälten, Firecrawl och DataForSEO som standardverktyg |
 | [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins), `marketing/skills/competitive-brief` | commit `33eeda1`, 2026-10-15 | Apache-2.0 | Löfte, belägg, metod och unikt; femsekundersfrågan | Säljkort, positioneringskarta, kvartalsuppdatering |
 
 ## Verktyg

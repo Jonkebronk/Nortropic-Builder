@@ -21,10 +21,13 @@ Regeln står i guiden: varje sektion designas och prövas i mobilbredd före dat
 | Synlig tryckåterkoppling, aldrig ingen alls | Besökaren ska se att trycket gick fram; Kowalski sätter tap highlight till `transparent` med ett eget `:active`, Refero vill ha en avsiktlig highlight – båda ger återkoppling |
 | Fält med minst 16 px text och rätt `type`, `inputmode` och `autocomplete` | iOS zoomar in i mindre fält ⚠️ (Apples dokumentation inte verifierad) |
 | `overscroll-behavior: contain` på menypanelen, inte på `html` | Hindrar att sidan bakom rullar; `none` på dokumentet är för appar |
-| `user-select: none` bara på knappar, aldrig på länkar eller text | Besökaren ska kunna kopiera telefonnummer och adress |
-| `theme-color` per färgschema | Webbläsarens list får kitets färg |
+| `user-select: none` och `-webkit-touch-callout: none` bara på knappar (`<button>` och knappar som är länkar), aldrig på textlänkar eller text | Ett långt tryck markerar annars knappens etikett; besökaren ska kunna kopiera telefonnummer och adress, och långtrycket på en `tel:`-länk ger val som Kopiera |
+| `theme-color` med samma färg som sidhuvudets bakgrund, inte kitets accent; en per färgschema när kitet har mörkt läge | Webbläsarens list och statusraden smälter ihop med sidans topp |
+| `touch-action: manipulation` på knappar och länkar, aldrig på `body` eller `*` | WebKit tar bort tryckfördröjningen på 350 ms med `width=device-width` bara när sidan inte är inzoomad; den som zoomat in får fördröjningen tillbaka utan egenskapen. Nypzoom fungerar ändå. 📄 [WebKit, More Responsive Tapping on iOS](https://webkit.org/blog/5610/more-responsive-tapping-on-iOS/), 2015 |
+| `-webkit-text-size-adjust: 100%` på `html` | Hindrar att mobilwebbläsaren förstorar text på egen hand; inte `none`, som också stänger av användarens förstoring i vissa webbläsare ⚠️. 📄 [MDN, text-size-adjust](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/text-size-adjust) (inte Baseline) |
+| Mediefrågor på förmåga (`hover`, `pointer`, `env()`), aldrig gissning på bredd eller webbläsarsträng | Pekskärm och mus finns samtidigt: surfplatta med styrplatta, dator med pekskärm |
 
-Inte: `touch-action: manipulation` globalt (fördröjningen på 300 ms försvann 2014–2016, [Chrome for Developers](https://developer.chrome.com/blog/300ms-tap-delay-gone-away)), PWA- och Next-delarna.
+Inte: PWA-, app- och Next-delarna, `overscroll-behavior: none` på dokumentet (en sajt är ett dokument där sidan får studsa) och karusellernas `touch-action: pan-y` (vi har inga karuseller).
 
 ## Tumzonen och fasta element
 
@@ -37,6 +40,8 @@ Inte: `touch-action: manipulation` globalt (fördröjningen på 300 ms försvann
 - **Inget fast element skymmer fokus:** `scroll-padding-top` och `scroll-padding-bottom` motsvarar sidhuvudets och listens höjd. 📄 WCAG 2.2, [2.4.11 Focus Not Obscured (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html), AA.
 - **Vid låg höjd blir sidhuvud och list statiska** (400 % zoom, liggande telefon), som W3C rekommenderar för reflow (`BESLUT.md` 2026-10-16, C3; 📄 WCAG 2.2, [1.4.10 Reflow](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html)).
 - **Utan JavaScript ligger listen synlig** och sidan har utfyllnad nedtill så att inget hamnar under den.
+- **Med formulär göms listen när ett fält har fokus,** eftersom tangentbordet då tar halva skärmen och listen annars kan skymma fältet. `interactive-widget=resizes-content` i viewport-taggen låter tangentbordet krympa layouten i Chrome på Android ⚠️ (inte i Safari; stödet är inte prövat). 🔧 härlett ur 📄 WCAG 2.2, 2.4.11, och [MDN, viewport](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meta/name/viewport); Kowalski: pröva med tangentbordet uppe.
+- **Fasta element mäts också med större text:** vid 150 % text (24 px) i 375 × 812 är sidhuvud och list tillsammans större än vid 100 %; budgeten ovan gäller båda. Vid låg höjd i `rem` blir de statiska, och eftersom `rem` i mediefrågor följer webbläsarens teckenstorlek slår det till tidigare när texten är större.
 
 ## Reflow och zoom
 
@@ -45,9 +50,9 @@ Inte: `touch-action: manipulation` globalt (fördröjningen på 300 ms försvann
 
 ## Klickytor
 
-- Minst 24 × 24 CSS-px eller tillräckligt avstånd (📄 WCAG 2.2, 2.5.8, AA); 44 × 44 för knappar, menyknappen och fristående länkar som Nortropics nivå (→ `guide/2-4-skelett.md`, *Kontroll*).
+- Minst 24 × 24 CSS-px eller tillräckligt avstånd (📄 WCAG 2.2, 2.5.8, AA); 44 × 44 för knappar, menyknappen och fristående länkar som Nortropics nivå (→ `guide/2-4-skelett.md`, *Kontroll*). Fristående länkar är också sidfotens länklistor och menyns länkar: i mobilen får de utfyllnad upp till 44 px, och glyferna står minst 24 px isär ([layout.md](layout.md), *Ramlösa kontroller*).
 - NN/g rekommenderar minst 1 × 1 cm på pekskärm och större för primära handlingar ([Touch Targets on Touchscreens](https://www.nngroup.com/articles/touch-target-size/), 2019), och Hoober 9–10 mm för rader vid kanten. Knapplistens knappar, som sitter vid kanten, bör därför vara högre än 44 px – omkring 56 CSS-px ⚠️ (omräkningen från millimeter beror på skärmens täthet och är inte verifierad).
 
 ## Pröva på riktig telefon
 
-Emulering visar inte allt: adressfältets höjd, säkra ytor och hover efter tryck skiljer sig. Före leverans prövas sajten på en riktig, några år gammal telefon. *(Kowalski, `mobile-native`)*
+Emulering visar inte allt: hover som står kvar, tryckmarkeringen, adressfältets inverkan på höjden, zoom vid inmatning, tryckfördröjningen, studsen, säkra ytor och tangentbordet syns bara på en riktig telefon. Före leverans prövas sajten på en riktig, några år gammal telefon i Safari och Chrome: förhandsvisningen öppnas på datorns adress i det lokala nätet, med Safaris webbinspektör eller `chrome://inspect`, en gång med tangentbordet uppe och en gång liggande. Det som bara gick att kontrollera i koden skrivs som *inte prövat på telefon*. *(Kowalski, `mobile-native`, §11)*

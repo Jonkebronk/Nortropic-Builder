@@ -40,7 +40,7 @@ Baseline enligt [web-features](https://github.com/web-platform-dx/web-features) 
 ## Brödsmulor och hoppa-länk
 
 - **Brödsmulor** (när de används; om de behövs på en platt sajt → skillen `struktur`, `navigation.md`): `<nav aria-label="Brödsmulor">` med en `<ol>`, placerad före `<main>`, sista ledet är aktuell sida med `aria-current="page"` (W3C APG, [Breadcrumb](https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/); Accessible Astro `Breadcrumbs`; GOV.UK). Vilka sidor som får brödsmulor och vad de visar → skillen `struktur`, `navigation.md`.
-- **Hoppa till innehållet** är första fokuserbara element, syns när den får fokus och ligger över sidhuvudet (→ `guide/2-4-skelett.md`, N2). Accessible Astro flyttar dessutom fokus till målet med `tabindex="-1"`, vilket hjälper äldre webbläsare.
+- **Hoppa till innehållet** är första fokuserbara element, syns när den får fokus och ligger över sidhuvudet (→ `guide/2-4-skelett.md`, N2). Accessible Astro flyttar dessutom fokus till målet med `tabindex="-1"`, vilket hjälper äldre webbläsare. Den göms med klippning tills den får fokus, inte med en förskjutning i px, så att den inte syns när texten förstoras (GOV.UK, `govuk-visually-hidden-focusable`; [layout.md](layout.md), *Text som växer*).
 
 ## Tillstånd per komponent
 
@@ -53,7 +53,16 @@ Varje interaktiv komponent i biblioteket har sina tillstånd definierade en gån
 | Knapplist | dold vid sidans knappar, synlig, dold vid sista bandet, med samtyckesrutan öppen, låg höjd, utan JavaScript |
 | Sidhuvud | överst, gömt vid scroll nedåt, tillbaka vid scroll uppåt, med fokus i sig, låg höjd |
 | Kartan | bild, efter klick (inbäddad), utan samtycke |
-| Formulär (när det finns) | tomt, med fel, skickat, utan JavaScript (→ `guide/2-8-teknik-och-kvalitet.md`) |
+| Formulär (när det finns) | tomt, med fel, skickat, utan JavaScript, med tangentbordet uppe i mobilen (→ `guide/2-8-teknik-och-kvalitet.md`) |
+| Varje sektion | en och tolv poster, långa sammansatta ord, saknad bild, 200 % text |
+
+Så hålls registret ärligt *(Krehel, `state-machine`, MIT; en källa – bänken)*:
+
+- **Ett tillstånd som komponenten inte kan hamna i är inget tillstånd.** Inga grenar läggs till bara för provsidan; ett tillstånd som designen visar men koden saknar listas som saknat.
+- **Tillstånden matas in där komponenten tar emot data,** som props från provsidan, aldrig genom att komponenten ändras.
+- **Innehållet ser ut som kundens:** svenska namn på tjänster, riktiga tider och priser och det antal poster sajterna har, märkt som testdata. Tre rader "Test" får alla tillstånd att se bra ut.
+- **Efter varje visuell ändring bläddras alla tillstånd igen,** eftersom en rättelse i ett tillstånd ofta förstör ett annat.
+- Väljaren mellan tillstånd står utanför designsystemet, som variantväljaren ([varianter.md](varianter.md)), och finns bara på provsidan.
 
 ## React-öar
 

@@ -15,6 +15,7 @@ NN/g:s attribut med det flytten och faktabasen behöver.
 | Adress | Sökvägen, med och utan snedstreck om båda svarar | crawl |
 | Status i dag | 200, 301 till vad, 404 | crawl |
 | Titel och h1 | Som på sidan | crawl |
+| Metabeskrivning, canonical och strukturerad data | Som på sidan; den nya sidan ska inte bli sämre (en import av innehåll flyttar sällan detta) | crawl (marketingskills `site-architecture`, `platforms-and-migration.md`) |
 | Ämne och format | Tjänst, om, kontakt, nyhet, pdf, bild | revision |
 | Datum | Senast ändrad, om sidan säger det | crawl eller CMS |
 | Funnen i | Sitemap, crawl, interna länkar, Search Console, arkiv, bakåtlänkar | inventering |
@@ -61,6 +62,9 @@ Det som inte tas in: att återskapa den gamla designen och att bygga i Next.js. 
 ## Integrationer
 
 → `guide/2-2-omfattning.md`, *Integrationer, spårare och formulärmottagare* (N2). Kontrollera skript och nätverksanrop med Playwright. Resultatet förs in i `befintlig/integrationer.md`, och spårarna blir underlag till samtycket och integritetspolicyn.
+
+- **De utgående målen följer med:** bokningssystemets adress (också med förvald mottagning eller tjänst), betallänkar, kartlänkar, profiler i sociala medier och dokument som laddas ned. Varje mål prövas efter bygget, och en knapp som lovar något gör det. *(ai-website-cloner-template, `SKILL.md`: "Preserve real outbound destinations"; "Visible controls must perform the behavior they promise")*
+- **Frågesträngar och fragment** i gamla adresser är oftast tillstånd på samma sida, inte egna sidor; de får ett medvetet utfall i kartan (→ [flyttregler.md](flyttregler.md), `_redirects` matchar inte frågesträngar).
 
 ## Före-mått
 
