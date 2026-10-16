@@ -1,0 +1,71 @@
+# Lagkrav och policyer på en liten svensk företagssajt
+
+Research 2026-10-16 på Johnnys uppdrag: *"fixar med cookies/samtycke, policys och det vi saknar här då riktiga byggen ska ha de"* (`BESLUT.md` 2026-10-16). Den bygger vidare på `2026-10-14_dataoverforing-och-analys.md`, som tar upp kakor, analys, överföring till USA och vad en integritetspolicy måste innehålla, och på `2026-10-14_tillganglighetslagen.md`.
+
+**Märkning:** 📄 lagtext eller myndighet · ⚖️ tolkning, inte juridisk rådgivning · ⚠️ inte verifierat.
+
+## Kakor och samtycke
+
+- **Lagen:** 9 kap. 28 § LEK. Uppgifter får lagras i eller hämtas från besökarens utrustning bara med information och samtycke, utom när det är nödvändigt för en tjänst som besökaren uttryckligen har begärt. 📄 (citerad i `2026-10-14_dataoverforing-och-analys.md` §4.1)
+- **PTS:**
+  - *"För att få använda kakor (cookies) på din webbplats måste du först fråga om samtycke … Undantaget är nödvändiga kakor."*
+  - Samtycket ska vara *"frivilligt, specifikt, informerat och ges aktivt"* och ges för varje ändamål för sig.
+  - *"Det ska vara lika enkelt att tacka ja som nej"*, och lika lätt att återkalla som att ge.
+  - Förifyllda rutor, cookieväggar och knappar som "Jag förstår" godtas inte.
+  - Informationen ska säga ändamålen, om kakan är en tredjepartskaka, hur länge den sparas och vilka uppgifter som samlas in. Nödvändiga kakor är *"de som måste finnas för att webbplatsen ska fungera som det är tänkt"*.
+
+  📄 [PTS, Kakor](https://pts.se/internet-och-telefoni/kakor-cookies/)
+- **Utan kakor behövs ingen banner.** PTS säger inte uttryckligen att en sajt utan kakor slipper banner, men kravet på samtycke gäller bara kakor som inte är nödvändiga. ⚖️ En sajt utan kakor behöver därför ingen banner, men den bör säga att den inte sätter några.
+- **Tredjepartsinnehåll vid klick:** att ladda innehåll från tredje part, som en Google-karta, först vid ett klick med text om vem som sätter kakor och varför, är en vanlig lösning. ⚖️ Att klicket räknas som samtycke är vår tolkning. PTS har inte uttalat sig om lösningen ⚠️. Det säkraste är att inte bädda in kartan alls och bara länka till den.
+
+## Integritetspolicy
+
+- **Den behövs också utan formulär,** eftersom värdens loggar innehåller IP-adresser, och en IP-adress är en personuppgift. GDPR art. 13 kräver information när uppgifterna samlas in. Innehållet står i `2026-10-14_dataoverforing-och-analys.md` §5.2. Bilaga E, fråga 1.8, är avgjord (`BESLUT.md` 2026-10-16).
+- **En klinik har också journalplikt** enligt patientdatalagen för legitimerad personal. Policyn säger kort att det som rör behandlingen skrivs i en journal. ⚖️
+
+## Företagsuppgifter: 8 § e-handelslagen
+
+- **Allmänt:** *"namn, adress i etableringslandet och e-postadress"*, och i förekommande fall *organisationsnummer*, *registreringsnummer för mervärdesskatt* och *behörig tillståndsmyndighet*. 📄 [SFS 2002:562](https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-2002562-om-elektronisk-handel-och-andra_sfs-2002-562/)
+- **Reglerat yrke:** *"yrkestitel och den stat där denna erhållits"*, *"den yrkesorganisation eller liknande där tjänsteleverantören är registrerad"* och *"de bestämmelser som är tillämpliga på yrkesverksamheten och sättet att få tillgång till dem"*. 📄
+- **Tolkningar ⚖️:**
+  - Lagen gäller *informationssamhällets tjänster*, alltså tjänster som normalt utförs mot ersättning, på distans, elektroniskt och på mottagarens begäran. Att en företagssajt som marknadsför tjänster räknas dit är vår tolkning.
+  - För en legitimerad kiropraktor är registret Socialstyrelsens legitimationsregister (HOSP), och regelverket är patientsäkerhetslagen.
+  - Hälso- och sjukvård är som regel undantagen från moms, så det finns oftast inget momsnummer att ange ⚠️.
+- **Enskild firma:** organisationsnumret är ägarens personnummer, och om det ska stå på sajten är en fråga till kunden (bilaga E, fråga 1.11).
+
+## Bilder av personer
+
+- **Lag (1978:800) om namn och bild i reklam, 1 §:** *"Näringsidkare får icke vid marknadsföring av vara, tjänst eller annan nyttighet använda framställning i vilken annans namn eller bild utnyttjas"* utan samtycke. Lagen kräver inte att samtycket är skriftligt, men 2 § ger böter vid uppsåt eller grov oaktsamhet. 📄 [SFS 1978:800](https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-1978800-om-namn-och-bild-i-reklam_sfs-1978-800/)
+- **⚖️ GDPR:** en bild av en patient i behandling kan avslöja uppgifter om hälsa (art. 9) och kräver då uttryckligt samtycke. Samtycket dokumenteras i `fakta.md`.
+
+## Tillgänglighetsredogörelse
+
+- **W3C:s minsta innehåll:** ett åtagande, standarden (WCAG 2.2) och en kontaktväg. Rekommenderat: hur sajten är prövad, kända brister och datum. 📄 [W3C WAI](https://www.w3.org/WAI/planning/statements/)
+- **Lagkrav:** finns bara i vissa fall, enligt DOS-lagen (offentlig sektor, och vård med offentlig finansiering) och lagen 2023:254 (e-handel och bokning hos företag som inte är mikroföretag). Se `2026-10-14_tillganglighetslagen.md`. För alla andra är redogörelsen god praxis och billig, eftersom kontrollerna redan finns.
+
+## Det övningssajten nu har
+
+- Sidan *Integritet och kakor* (`/integritet/`): ansvarig, besöket och värden, bokning och kontakt, kakor, Google-kartan, rättigheterna och IMY.
+- Sidan *Tillgänglighet* (`/tillganglighet/`): åtagandet, WCAG 2.2 AA, hur sajten är prövad, det sajten inte styr över och en kontaktväg.
+- Sidfoten har firman, yrkestiteln med legitimation från Socialstyrelsen och länkar till policysidorna och patientsäkerhetslagen. Organisationsnumret saknas, eftersom det inte gick att hitta, och kontroll 6b rapporterar det.
+- Texten vid Google-kartan säger att Google får IP-adressen och sätter kakor, och länkar till sidan om kakor.
+- I `fakta.md` står samtycket för patienten på behandlingsfotot som *okänt*. Fotot används inte vid en publicering förrän samtycket är bekräftat.
+
+## Förslag utöver det som är gjort (väntar på Johnny)
+
+1. **Fråga i intervjun om lagkraven** (`mallar/karnfragor.md`):
+   - Har ni avtal med regionen? I så fall gäller DOS-lagen och dess krav på redogörelse.
+   - Har ni färre än 10 anställda och omsättning under 2 miljoner euro? I så fall gäller mikroföretagsundantaget i lag 2023:254.
+   - Vilken företagsform och vilket organisationsnummer har ni?
+   - Finns samtycke för personerna på era bilder?
+2. **Biträdesavtal mellan kunden och Nortropic** (GDPR art. 28) innan Nortropic förvaltar en publicerad sajt. Regeln finns redan som N3 i `4-foretaget.md`. Förslaget är att skrivandet blir en del av steg 5.
+3. **`security.txt`** (RFC 9116) med en kontaktväg för säkerhetsfel, på N2. ⚠️ Nyttan för en liten sajt är inte undersökt.
+4. **Kartan:** behåll inbäddningen vid klick (⚖️) eller ta bort den och bara länka. Johnny godkände lösningen i slutgranskningen. Att ta bort den är det säkraste.
+
+## Inte verifierat
+
+- Om PTS godtar ett klick med text som samtycke för en karta från tredje part.
+- Om en företagssajt är en *informationssamhällets tjänst* i e-handelslagens mening (vår tolkning: ja).
+- Firmans organisationsnummer och företagsform.
+- Momsbefrielsen för kiropraktik i det enskilda fallet.
+- Hur länge Cloudflare sparar loggarna. Policyn anger därför hur lagringstiden bestäms i stället för en tid.

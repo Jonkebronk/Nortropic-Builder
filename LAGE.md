@@ -1,12 +1,12 @@
 # Läget
 
-Uppdaterad 2026-10-16 kl. 06.07 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-16 kl. 06.35 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Kort
 
 - **Guiden v1.0 är genomläst med Johnny** 2026-10-15 i sin helhet: README, kundens väg, byggplanen, alla nio lagren, flödet 3.1–3.5, företaget och bilagorna. Varje rättelse står ordagrant i `BESLUT.md` med datumet 2026-10-15.
 - **Måttstocken är godkänd:** `mattstock/mattstock.md`. Den har tre frågor, mobilen först: förstår och når kunden företaget på mobilens första skärm, är det äkta, håller utförandet. Den bygger på Johnnys domar över 39 sajter (`mattstock/domar.jsonl`).
-- **N1 har 85 regler och tio automatiska kontroller.** Johnny godtog att taket på cirka 60 överskreds. Sammanfattningen genereras till `guide/n1-forsta-sajten.md` med `python konsolidering/bygg_n1.py`.
+- **N1 har 89 regler och tio automatiska kontroller.** Johnny godtog att taket på cirka 60 överskreds. Sammanfattningen genereras till `guide/n1-forsta-sajten.md` med `python konsolidering/bygg_n1.py`.
 
 ## Det viktigaste som beslutades 2026-10-15
 
@@ -76,7 +76,13 @@ Johnny tog in fem av förslagen till checklistan och lade till ett sjätte. `mal
    - `llms.txt` struken
 
    Kontrollregistret har fått Lighthouse 100, 2b och 7c. Guiden har 85 N1-punkter.
-4. **Steg 6:** rapporten är skriven och väntar på Johnnys dom (sajtens `rapporter/2026-10.md`, med ögonblicksbilden `2026-10.json`). Därefter kommer genomgången efter sajten (`guide/5-byggplan.md`). Nästa mätning av granskaren görs på nya sajter och på systemets egna utkast.
+4. **Steg 6 är godkänt** (Johnny omkring 06.15). Därefter infördes lagkraven på alla sajter (`BESLUT.md` 2026-10-16; `kunskap/research/2026-10-16_lagkrav-pa-sajten.md`):
+   - *Integritet och kakor* och *Tillgänglighet*
+   - företagsuppgifterna enligt 8 § e-handelslagen i sidfoten (kontroll 6b)
+   - ingen kakbanner utan kakor
+   - samtycke för bilder av personer
+
+   Fyra förslag väntar på Johnny: frågor i intervjun, biträdesavtal i steg 5, `security.txt` och Google-kartan. Bilaga E, fråga 1.11 (personnummer som organisationsnummer), väntar också. **Nästa:** genomgången efter sajten (`guide/5-byggplan.md`). Nästa mätning av granskaren görs på nya sajter och på systemets egna utkast.
 
 ## Väntar på Johnny
 

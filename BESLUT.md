@@ -894,3 +894,19 @@ Claude frågade: "Vilka förslag tar du in? Jag föreslår att de två rättelse
 - **N3:** AEO-mätningen flyttas från N4 till N3, med Bings AI Performance och API:erna från OpenAI, Perplexity och Gemini, ställda på kundens ort. Bara trenden räknas (`guide/2-9-drift-och-forvaltning.md`).
 - **Kundens lyft:** Bing Places och Apple Business Connect. Med lägre prioritet: samma uppgifter i svenska kataloger och branschregister.
 - **Stryks:** kandidaten `llms.txt`.
+
+## 2026-10-16: Kakor, samtycke, policyer och lagkrav på riktiga byggen
+
+**Status:** gäller.
+
+Johnny godkände den första rapporten (steg 6) och sa omkring 06:15:
+
+> ja, tycker vi  fixar med cookies/samtycke, policys och det vi saknar här då riktiga byggen ska ha de så behöver vi träna och om det är nåt mer vi saknar? think hard, iterate, best pratices, websearch
+
+**Innebär** (källorna står i `kunskap/research/2026-10-16_lagkrav-pa-sajten.md`; juridiska läsningar är ⚖️ tolkning, inte juridisk rådgivning):
+- **Integritetspolicy på alla sajter,** också utan formulär, eftersom värdens loggar innehåller IP-adresser. Policyn har en egen sida, *Integritet och kakor*, och innehållet följer GDPR art. 13. Det avgör fråga 1.8 i bilaga E.
+- **Kakor:** sajten sätter inga kakor som kräver samtycke och har därför ingen kakbanner. Sidan *Integritet och kakor* säger vilka kakor som finns (PTS). Tredjepartsinnehåll laddas först när besökaren klickar, och texten säger vem som sätter kakor och varför. Behöver en kund analys eller annat med kakor, gäller PTS krav på samtycke (`guide/2-8-teknik-och-kvalitet.md`).
+- **Företagsuppgifter i sidfoten** enligt 8 § e-handelslagen: namn, adress, e-post och organisationsnummer. För ett reglerat yrke anges också yrkestitel, register och tillämpliga regler. Kontroll 6b rapporterar när uppgifterna saknas.
+- **Bilder av personer** kräver samtycke enligt lagen om namn och bild i reklam, och samtycket står i `fakta.md`.
+- **Tillgänglighetsredogörelse** på alla sajter, enligt W3C:s minsta innehåll.
+- Den första övningssajten övar allt detta.

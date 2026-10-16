@@ -8,8 +8,8 @@ import Ikon from '../komponenter/Ikon.astro';
 import { hartPostnummer } from '../komponenter/text';
 import type { Bild, Lank, KartLank } from '../innehall/typ';
 interface Plats { namn: string; adress: string; extra?: string; karta: Bild; vagbeskrivning: KartLank; appar?: Lank[]; googleKarta: { text: string; href: string; embed: string } }
-interface Props { id?: string; rubrik: string; platser: Plats[]; kakText: string; kalla: Lank; apparEtikett?: string; }
-const { id = 'hitta-hit', rubrik, platser, kakText, kalla, apparEtikett } = Astro.props;
+interface Props { id?: string; rubrik: string; platser: Plats[]; kakText: string; kakLank?: Lank; kalla: Lank; apparEtikett?: string; }
+const { id = 'hitta-hit', rubrik, platser, kakText, kakLank, kalla, apparEtikett } = Astro.props;
 ---
 <section class="sektion hittahit" id={id} aria-labelledby={`${id}-rubrik`}>
   <div class="behallare">
@@ -27,7 +27,7 @@ const { id = 'hitta-hit', rubrik, platser, kakText, kalla, apparEtikett } = Astr
             <a class="knapp knapp--sekundar hittahit__google" href={p.googleKarta.href} data-ny-flik rel="noopener" data-embed={p.googleKarta.embed} data-titel={`Google-karta: ${p.adress}`}>{p.googleKarta.text}</a>
           </div>
           {p.appar && <p class="hittahit__appar">{apparEtikett} {p.appar.map((a, i) => <>{i > 0 && ' · '}<a href={a.href} data-ny-flik rel="noopener">{a.text}</a></>)}</p>}
-          <p class="dampad hittahit__kakor">{kakText}</p>
+          <p class="dampad hittahit__kakor">{kakText}{kakLank && <> <a href={kakLank.href}>{kakLank.text}</a></>}</p>
         </article>
       ))}
     </div>

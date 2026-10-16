@@ -1,7 +1,8 @@
 ---
-// En textsektion: rubrik, några korta stycken, en punktlista och en not. Varje del är valfri utom rubriken.
-interface Props { id?: string; rubrik: string; stycken?: string[]; punkter?: string[]; not?: string; yta?: boolean; }
-const { id, rubrik, stycken = [], punkter = [], not, yta = false } = Astro.props;
+// En textsektion: rubrik, några korta stycken, en punktlista, länkar och en not. Varje del är valfri utom rubriken.
+import type { Lank } from '../innehall/typ';
+interface Props { id?: string; rubrik: string; stycken?: string[]; punkter?: string[]; lankar?: Lank[]; not?: string; yta?: boolean; }
+const { id, rubrik, stycken = [], punkter = [], lankar = [], not, yta = false } = Astro.props;
 const rubrikId = `${id ?? rubrik.toLowerCase().replace(/[^a-zåäö0-9]+/g, '-')}-rubrik`;
 ---
 <section class:list={['sektion', 'text', { 'text--yta': yta }]} id={id} aria-labelledby={rubrikId}>
@@ -9,6 +10,7 @@ const rubrikId = `${id ?? rubrik.toLowerCase().replace(/[^a-zåäö0-9]+/g, '-')
     <h2 id={rubrikId}>{rubrik}</h2>
     {stycken.map((s) => <p>{s}</p>)}
     {punkter.length > 0 && <ul class="text__punkter">{punkter.map((p) => <li>{p}</li>)}</ul>}
+    {lankar.length > 0 && <ul class="text__lankar">{lankar.map((l) => <li><a href={l.href}>{l.text}</a></li>)}</ul>}
     {not && <p class="dampad text__not">{not}</p>}
   </div>
 </section>
@@ -21,4 +23,6 @@ const rubrikId = `${id ?? rubrik.toLowerCase().replace(/[^a-zåäö0-9]+/g, '-')
   .text__punkter { margin: 0; padding-left: 1.25rem; display: grid; gap: var(--k-a2); }
   .text__punkter li::marker { color: var(--k-accent-text); }
   .text__not { font-size: 0.95rem; }
+  .text__lankar { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--k-a2); }
+  .text__lankar a { display: inline-flex; min-height: 24px; align-items: center; }
 </style>

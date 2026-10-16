@@ -41,5 +41,8 @@ export interface StartInnehall {
   process: { rubrik: string; steg: { rubrik: string; text: string }[]; not?: string };
   nastaSteg: { rubrik: string; text: string };
   sidfot: { platser: { namn: string; adress: string; karta?: KartLank }[]; epost?: Lank; sociala: Lank[]; rad: string;
-    sidor?: Lank[]; rubriker?: { platser: string; kontakt: string; sidor: string } };
+    sidor?: Lank[]; rubriker?: { platser: string; kontakt: string; sidor: string };
+    uppgifter?: string[]; // företagsuppgifter enligt 8 § e-handelslagen: firma, organisationsnummer, yrkestitel och register (guide/2-3-struktur.md)
+    policy?: Lank[]; // Integritet och kakor, Tillgänglighet
+  };
 }

@@ -38,7 +38,11 @@ const r = sidfot.rubriker;
       </nav>
     )}
   </div>
-  <div class="behallare sidfot__rad"><p>{sidfot.rad}</p></div>
+  <div class="behallare sidfot__rad">
+    {sidfot.uppgifter && <p class="sidfot__uppgifter">{sidfot.uppgifter.map((u, i) => <>{i > 0 && <span aria-hidden="true"> · </span>}<span>{u}</span></>)}</p>}
+    {sidfot.policy && <ul class="sidfot__policy">{sidfot.policy.map((l) => <li><a href={l.href}>{l.text}</a></li>)}</ul>}
+    {sidfot.rad && <p>{sidfot.rad}</p>}
+  </div>
 </footer>
 
 <style>
@@ -50,7 +54,9 @@ const r = sidfot.rubriker;
   .sidfot__lista a { color: var(--k-text); display: inline-block; min-height: 24px; }
   .sidfot__adress { display: inline-flex !important; gap: var(--k-a1); align-items: flex-start; }
   .sidfot__adress :global(svg) { width: 1rem; height: 1rem; margin-top: 0.25rem; flex: none; color: var(--k-accent-text); }
-  .sidfot__rad { margin-top: var(--k-a6); color: var(--k-dampad); font-size: 0.85rem; }
+  .sidfot__rad { margin-top: var(--k-a6); color: var(--k-dampad); font-size: 0.85rem; display: grid; gap: var(--k-a3); }
+  .sidfot__policy { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--k-a2) var(--k-a5); }
+  .sidfot__policy a { color: var(--k-text); display: inline-flex; min-height: 24px; align-items: center; }
   @media (min-width: 48rem) { .sidfot__rutnat { grid-template-columns: repeat(2, 1fr); } }
   @media (min-width: 64rem) { .sidfot__rutnat { grid-template-columns: 1.2fr 1.4fr 1fr 1fr; } }
 </style>
