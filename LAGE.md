@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-16 kl. 16.38 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-16 kl. 17.20 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Kort
 
@@ -136,6 +136,12 @@ Johnny beslutade omkring 12.11 att kompetensen ur inventeringen ska in i alla la
   - stjärnan i textfärg (G3); ny ryggradsikon, prövad blint; kvittot i samtyckesrutan säger vad man valde
   - måttlig rörelse animerar inte första skärmen (B3); mjuk rullning bara utan reducerad rörelse; knapplisten är ett landmärke
   - Kundens lyft: fotobeställning i Googles fem kategorier, länkbytet och katalogerna
+- **MCP på övningssajten först** (Johnny omkring 17.00 och 17.05: *"vi ska ha in ALLA mcps nu"*, `BESLUT.md`). Spärren mot claude.ai-connectorer är borttagen, och alla servrar i inventeringen är tillagda i byggsessionen (lokal scope för repot). De syns i `/mcp` först efter omstart av `claude-bygg` från repots rot.
+  - **Anslutna:** Inspo, Chrome DevTools, Playwright, MDN, Astro Docs, Cloudflare Docs, Leonardo, Motion, Socket, shadcn, seo-monster, mcp-gsc och Mobbin (claude.ai-connector).
+  - **Johnny loggar in via `/mcp`:** 21st, DataForSEO, Figma och Cloudflare (Cloudflare helst med en läs-token).
+  - **Johnny lägger in nyckeln själv i ett eget terminalfönster från repots rot** (aldrig i chatten): Grounding Lite och Google Developer Knowledge (huvudet `X-Goog-Api-Key`; de godtar inte Claude Codes OAuth), nanobanana (`GEMINI_API_KEY`) och BrowserStack.
+  - **Nästa session:** kör verktygslåset (`python3 -I skript/mcp-verktygslas.py`) efter inloggningarna, och sedan varje servers prov mot övningssajten enligt MCP-gruppens rapport (sparad lokalt i sajtens `andra-varvet/mcp-jamforelse.md`, avsnitten *Per MCP* och *Nya kandidater*). Resultatet läggs fram för Johnny före nästa övningssajt.
+  - **Öppen fråga från Johnny:** varför byggsessionen är avgränsad med `~/.claude-bygg`. Claude har förklarat valet; Johnny avgör om avgränsningen ska stå kvar.
 - **Andra varvet** (från 14.25, Johnny: alla skills genomgångna, jämförda och reflekterade; Apples HIG; byggguider; MCP; bevakning): tolv grupper läste originalen i sin helhet, jämförde dem regel för regel och körde deras granskningar mot övningssajten. Sammanställningen står i `kunskap/research/2026-10-16_andra-varvet.md`.
   - Alla elva skills är uppdaterade, med fel rättade och det som saknades infört; Apples HIG finns i fem skills (`apple-hig.md`).
   - Inventeringen har 201 poster: 30 nya och 27 ändrade placeringar (artefakten version 4).
