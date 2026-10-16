@@ -76,8 +76,9 @@ svg[aria-hidden="true"] { stroke-width: 1.75px; }
 .knapp.telefon { white-space: normal; }
 /* Fristående länkar som uppmaning, fet och med pil (Uppmaning.astro). En vanlig radbruten länk, där sista ordet och pilen
    hålls ihop, så att pilen följer texten när länken bryts (premiumpasset 2026-10-16, P6). Höjden ger cirka 44 px att träffa. */
-.uppmaning { display: inline-block; padding-block: 0.6rem; font-weight: 600; }
-.uppmaning__slut { white-space: nowrap; }
+.uppmaning { display: inline-block; max-width: 100%; padding-block: 0.6rem; font-weight: 600; }
+/* Ordbindningstecknet (U+2060) håller ihop sista ordet och pilen men låter ett långt ord brytas vid 200 % text. */
+.uppmaning__slut { white-space: normal; }
 .uppmaning svg { display: inline-block; vertical-align: -0.15em; margin-left: 0.35em; width: var(--k-ikon-text); height: var(--k-ikon-text); }
 /* Personens egna ord: en linje i textfärgen utan citattecken. Omdömen från andra står med citattecken i kort (Fortroende). */
 .citat { margin: 0; padding-left: var(--k-a4); border-left: 3px solid var(--k-text); font-family: var(--k-font-rubrik); font-size: var(--k-citat); line-height: 1.35; max-width: var(--k-matt); }
@@ -87,11 +88,12 @@ svg[aria-hidden="true"] { stroke-width: 1.75px; }
   background: var(--k-mork); color: var(--k-pa-mork); padding: var(--k-a2) var(--k-a4); border-radius: var(--k-radie-knapp);
 }
 .hoppa:focus { top: var(--k-a2); }
-.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+/* Förankrad i övre vänstra hörnet: annars ligger rutan kvar där texten slutar och kan bredda sidan vid 200 % text. */
+.sr-only { position: absolute; top: 0; left: 0; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* Knappar */
 .knapp {
-  display: inline-flex; align-items: center; justify-content: center; gap: var(--k-a2);
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--k-a2); max-width: 100%;
   min-height: 48px; padding: 0.7rem 1.4rem;
   border-radius: var(--k-radie-knapp);
   border: var(--k-kantlinje) solid transparent;

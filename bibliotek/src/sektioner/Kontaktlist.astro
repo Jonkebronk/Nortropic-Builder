@@ -77,6 +77,7 @@ const sekundar = Astro.props.sekundar ?? { href: ring.href, text: ring.kort ?? r
   .kontaktlist :global(.knapp) { min-height: 48px; padding-inline: 0.75rem; }
   .kontaktlist[data-dold="true"] { transform: translateY(110%); opacity: 0; }
   @media (prefers-reduced-motion: reduce) { .kontaktlist { transition: opacity 200ms linear; } .kontaktlist[data-dold="true"] { transform: none; } }
-  @media (max-height: 30rem) { .kontaktlist { position: static; box-shadow: none; transition: none; } }
+  /* I flödet staplas knapparna, så att de får plats också vid 200 % text, där 30rem växer med texten (andra varvet 2026-10-16). */
+  @media (max-height: 30rem) { .kontaktlist { position: static; box-shadow: none; transition: none; grid-template-columns: 1fr; } }
   @media (min-width: 64rem) { .kontaktlist { display: none; } }
 </style>
