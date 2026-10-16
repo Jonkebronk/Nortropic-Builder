@@ -25,7 +25,7 @@ Efter Kowalskis tio standarder (📄 `review-animations`), anpassade:
 | 5 | Rätt ursprung | Popup som växer från mitten i stället för från sin knapp, eller entré från `scale(0)` |
 | 6 | Avbrytbar | `@keyframes` på något som kan utlösas igen |
 | 7 | Billiga egenskaper | Layoutegenskaper, `transition: all`, skugga eller oskärpa som animeras ofta |
-| 8 | Tillgänglig | Förflyttning med `reduce`, hover-rörelse utan `(hover: hover)`, eller `reduce` som också tar bort färgbytet |
+| 8 | Tillgänglig | Förflyttning med `reduce`, hover-rörelse utan `(hover: hover) and (pointer: fine)`, eller `reduce` som också tar bort färgbytet |
 | 9 | Asymmetrisk | Utgången är lika lång som entrén |
 | 10 | Sammanhållen | Rörelsen passar inte kitets personlighet, eller två delar rör sig på olika sätt utan skäl |
 

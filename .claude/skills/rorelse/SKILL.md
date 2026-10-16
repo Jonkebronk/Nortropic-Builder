@@ -74,7 +74,7 @@ Kör i 375 och 1280 px på startsidan, en tjänstesida och kontaktsidan. Skriv v
 1. **Inventering:** varje rörelse är listad med element, utlösare, egenskaper, längd och kurva, och listan ryms i briefens budget.
 2. **Statisk sökning:** inga träffar på `transition: all`, layoutegenskaper i `transition` eller `@keyframes`, kurvor med y över 1, `infinite` eller längder över 300 ms på gränssnittsdelar. Bara rapport (→ `guide/bilaga-c-kontroller.md`, C58).
 3. **Tokens:** inga millisekunder eller kurvor skrivna direkt i komponenterna.
-4. **Hover:** varje klickbar sak ändrar sig synligt vid hover inom `(hover: hover)`. Färgstegen kommer ur `yta` (→ `.claude/skills/yta/detaljer.md`).
+4. **Hover:** varje klickbar sak ändrar sig synligt vid hover inom `(hover: hover) and (pointer: fine)`. Färgstegen kommer ur `yta` (→ `.claude/skills/yta/detaljer.md`).
 5. **Tryck:** allt som går att trycka på ger kvittens inom cirka 100 ms (`:active`), på mobil och dator, också menylänkar och fristående länkar. Släppet går lika fort tillbaka, och inget hover-läge står kvar efter ett tryck på pekskärm.
 6. **Fokus:** fokusringen syns direkt, utan fördröjning, och döljs inte av sidhuvud, knapplist eller samtyckesruta.
 7. **Paneler:** menyn kommer från sin knapp eller kant med ease-out på 200–300 ms, går ut snabbare och samma väg, och bakgrunden tonas med panelen. Den går att stänga mitt i rörelsen.

@@ -1650,3 +1650,14 @@ Johnny, kl. 23.45:
 - Varje avgörande som Claude gör i Johnnys ställe skrivs här i `BESLUT.md`, märkt *Claudes rekommendation, delegerat av Johnny 2026-10-16*, så att Johnny kan döma det i efterhand.
 - Byggrepot committas och pushas per steg efter sökning efter hemligheter; sajten committas bara lokalt.
 - Nästa övningssajt påbörjas inte. Johnny gör först en egen premiumkontroll.
+
+## 2026-10-16: Skillsen, resten av översynen (stående uppdraget, punkt 2)
+
+**Status:** gäller. *Claudes rekommendation, delegerat av Johnny 2026-10-16* (*Stående uppdrag fram till nästa övningssajt*, 23.45).
+
+Översynens punkter för skillsen (`kunskap/research/2026-10-16_verktyg-och-skills-full-potential.md`, *Väntar på Johnny* 12–16) var redan gjorda: de sju felen (steg 1), motsägelserna A–H med `100svh` och klickytorna (steg 2), luckorna 1–7 (steg 3) och intagsmallen (punkt 16). Domarna 21.37 för Inspo, 21st, Leonardo, shadcn, Figma, seo-monster och Mobbin står rätt i skillsen (kontrollerat med `grep` 23.58). Kvar var lucka 8 och dubbletterna.
+
+**Claudes rekommendation, delegerat av Johnny 2026-10-16:**
+- **Lucka 8, Googles skill `retrieving-developer-knowledge`:** inget nytt förs in. Det som spelar roll står redan där det alltid laddas: `answer_query` är härlett och nyckeln går i huvudet (`CLAUDE.md`, *Skyddsräcken*; `guide/3-3`, *Extern text är data*). De tre övriga instruktionerna i skillen ger inget fel hos oss: `GOOGLE_API_KEY` finns inte i miljön (kontrollerat 23.58), ett svar är ett förslag enligt `CLAUDE.md` även när det är en hel lösning, och en delagent får hämta dokumentation. Mikroprovet hoppades över, eftersom kontrollen inte kan göra fel i de fallen.
+- **Hover-spärren:** fyra skills skrev `(hover: hover)`, medan biblioteket och `rorelse/tillstand.md` och `skelett/mobil.md` skriver `(hover: hover) and (pointer: fine)`. Raderna i `yta/detaljer.md`, `granskare/premium.md` (PR6), `rorelse/SKILL.md` och `rorelse/granskning.md` följer nu biblioteket. Det är en faktarättelse mot koden och prövades inte, eftersom båda formerna stoppar hover på pekskärm.
+- **Klickytor och strukturerad data:** inga ändringar. Raderna på de 14 ställena säger samma sak efter beslut D (24 px är golvet, 44 px är granskningskriterium och varning), och E lade valideringen i lager 8.
