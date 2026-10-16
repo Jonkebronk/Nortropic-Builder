@@ -9,7 +9,7 @@ AI:n anpassar ordalydelsen. Bokstaven anger ämnet i intervjuguiden och därmed 
 1. Berätta om den senaste kunden som anlitade er. Hur hittade de er, och vad hade de provat innan? (B)
 2. Var tappar ni kunder i dag? Berätta om senaste gången. (A)
 3. Vad händer när någon har fyllt i formuläret eller ringt? Vem tar emot det, och hur snabbt svarar ni? (F)
-4. Vad hade kunden gjort om ni inte fanns? (A)
+4. Vad hade den senaste kunden provat innan hen kom till er? När förlorade ni senast en kund till någon annan, och vart gick hen? (A)
 5. Hur många förfrågningar fick ni förra månaden, och hur vet ni det? (A, baslinje)
 6. Vad i det ni har i dag fungerar och ska finnas kvar? (C)
 7. Vilken sajt fungerar bra, tycker du, och vad gör den bra? Vilken fungerar dåligt? (D)
