@@ -6,7 +6,7 @@ Johnny beslutar. Claude föreslår, bygger och kontrollerar.
 
 ## Börja här
 
-0. Kör startsäkringen från repots rot: `skript/startsakring.sh`. Den uppdaterar Claude Code, npm-projekten, Playwrights webbläsare, MCP-servrar och plugins till senaste version och skriver vad som ändrades (`BESLUT.md` 2026-10-15).
+0. Kör startsäkringen från repots rot: `skript/startsakring.sh`. Den uppdaterar till senaste version och skriver vad som ändrades (`BESLUT.md` 2026-10-15 och 2026-10-16). Den täcker Claude Code, verktygen i Homebrew (Node på LTS-linjen), alla npm-projekt (biblioteket, skripten, måttstockens verktyg och sajterna), Playwrights webbläsare, MCP-servrar och plugins. Den bevakar källorna vi destillerar ur och bygger biblioteket och sajterna efteråt. Ett beroende som inte kan gå till senaste version rapporteras. `TORRT=1` visar bara vad som skulle ändras.
 1. Läs `LAGE.md`: läget, nästa steg och det som väntar på Johnny.
 2. Läs `guide/README.md` (principer, nivåer N1–N4, grind eller instruktion) och den fil i `guide/` som uppgiften gäller.
 3. Läs `BESLUT.md` när en fråga rör något Johnny redan avgjort. Beslut väger tyngst.

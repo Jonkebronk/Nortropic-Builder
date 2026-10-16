@@ -1118,3 +1118,20 @@ Johnny frågade omkring 12:25: *"varför kan vi inte ha java och react?"* Claude
 - React, Tailwind, Framer Motion (Motion) och annat JavaScript är tillåtna i biblioteket och på sajterna. Det gäller också komponenter från 21st.dev, Aceternity, React Bits och liknande, med licens per komponent.
 - Astro står kvar som ramverk. React används som öar i Astro: renderad till HTML vid bygget där det går, och laddad i webbläsaren (`client:visible` och liknande) där interaktionen kräver det.
 - Krockar med tidigare mål och beslut tas upp med Johnny när de uppstår, i stället för att stoppa på förhand. Det gäller Lighthouse 100, *HTML först*, ingen text som börjar osynlig och sparsam rörelse.
+
+## 2026-10-16: Startsäkringen täcker allt
+
+**Status:** gäller. Utökar *Startsäkringen – alltid senaste version* (2026-10-15).
+
+Johnny, omkring 12:35:
+
+> allt ska ju ingå i vår startsäkring också, har vi det nyaste av allt så vi inte släpar med uppdateringar.
+
+**Innebär:** `skript/startsakring.sh` uppdaterar också:
+- verktygen i Homebrew: gh, git, poppler, Python och Node på den LTS-linje som är installerad. En nyare LTS-linje rapporteras.
+- måttstockens verktyg (`mattstock/verktyg`), som saknades
+- Playwrights WebKit utöver Chromium
+
+Ett paket som inte kan gå till senaste version på grund av ett annat pakets krav uppdateras inte, rapporteras och stoppar inte de andra paketen. Det gäller till exempel TypeScript 7 mot @astrojs/check. @types/node följer den Node-version som används.
+
+Skriptet visar också versionen av MCP-servrar som startas med npx. Det bevakar källorna vi destillerar ur (`inventering/kallor-bevakning.json`, som skapas med källkorten), bygger biblioteket och sajterna efter uppdateringen och varnar om något går sönder. `TORRT=1` visar bara vad som skulle ändras. React, Tailwind, Motion och de nya skillsen följer med automatiskt, eftersom de ligger i npm-projekten och i repot.
