@@ -96,7 +96,7 @@ Förvaltningen ska se om sajten hittas, inte bara om den fungerar (fallgrop 121)
 - [N3] **Search Console läses som begränsad användare** (📄 `kunskap/research/2026-10-14_stitch-och-verktyg.md`, delvis bekräftat ⚠️). Sitemap kräver full behörighet och skickas in av Johnny vid lanseringen. mcp-gsc prövas för undersökning, med låst version och utan skrivverktyg (→ `bilaga-a-verktyg.md`).
 - [N3] **Google Business Profile saknar roll med bara läsrätt** – manager är lägsta (📄 samma rapport). Läsbegränsningen ligger därför hos oss: en egen tunn klient som bara läser, och skrivande anrop blockeras (→ `3-3`). Ändringar i profilen går som förslag till Johnny, recensionssvar som utkast till ägaren. API-ansökan besvaras inom 14 dagar och kräver en profil verifierad i minst 60 dagar – ansök nu (`LAGE.md`).
 - [N3] **Analys:** förfrågningar räknas i D1, trafik enligt valet i `2-8`; GA4 bara som tillval bakom samtycke.
-- [N3] **Cloudflare, prestanda, e-post:** `cloudflare/mcp` med en läs-token för rapport och övervakning och en separat, smal token för DNS och publicering; CrUX API med API-nyckel; Resend med nyckel per kund, bara för formulärtest och rapportutskick. 📄 anteckningarna, fråga 1 (domarna är förslag, → `bilaga-a-verktyg.md`)
+- [N3] **Cloudflare, prestanda, e-post:** `cloudflare/mcp` med en läs-token för rapport och övervakning och en separat, smal token för DNS och publicering; CrUX API med API-nyckel; e-post, också rapportutskicket, via Cloudflare (`BESLUT.md` 2026-10-16). 📄 anteckningarna, fråga 1 (domarna är förslag, → `bilaga-a-verktyg.md`)
 - [N3] **Kopplingar prövas som andra verktyg, med låst version** (→ `bilaga-a-verktyg.md`): i juli 2026 kraschade alla nya installationer av mcp-gsc när ett beroende släppte en ny huvudversion (fallgrop 98; 📄 anteckningarna, fråga 1).
 
 ### Lärdomar tillbaka till bygget
@@ -116,7 +116,7 @@ Den första sajten ger bara den första rapporten, dömd av Johnny (→ *Rapport
 - [N3] **Egen skill:** förvaltningsskillen (ändringstyper, standardkatalog, ändringsmetod, incident) och rapportskillen, ur pm3, ITIL 4, SRE, DORA och webb-pros `drift.md` och `andringsmetod.md` – utan webb-pros mekanik (terminalflik, lås, kvitteringar). Förslag, inte byggda.
 - [N2] **Rapportmallen** ur de godkända rapporterna (→ *Rapporten*).
 - [N3] **Eget bibliotek i förvaltningen:** standardkatalogen, förvaltningsplanen, *Så ändrar du på sajten*, Renovate-presetet.
-- [N3] **Åtkomst:** `cloudflare/mcp`, Search Console API, Business Profile API, CrUX API, Resend. Kandidater med domar: `kunskap/research/2026-10-15_kompetensluckor-och-kandidater-per-lager.md`, lager 9 (→ `bilaga-a-verktyg.md`).
+- [N3] **Åtkomst:** `cloudflare/mcp`, Search Console API, Business Profile API och CrUX API; e-posten via Cloudflare (`BESLUT.md` 2026-10-16). Kandidater med domar: `kunskap/research/2026-10-15_kompetensluckor-och-kandidater-per-lager.md`, lager 9 (→ `bilaga-a-verktyg.md`).
 
 **Förankring:** 📄 Google SRE-boken, 📄 DORA, ITIL 4 och pm3 via sekundärkällor ⚠️, 📄 InstaWP och ManageWP (leverantörer). Videor: se `kunskap/kallor.md`.
 
@@ -139,4 +139,4 @@ Lagret har inga egna grindar: det som publiceras passerar grindarna i `2-8`. Reg
 - [N3] **Johnny:** varje publicering, normala och akuta ändringar, rapporterna under piloten, Google-profilen, svar till kunden.
 - [N3] **Aldrig agent:** massutskick; priser, erbjudanden och juridiska texter utan Johnny; fakturering, avtal, radering (→ `4-foretaget.md`).
 - [N4] **Stoppen släpps ett i taget** när måtten visar att steget är pålitligt (fallgrop 70; → `3-2`). Det som görs för hand gång på gång blir automationskandidat (📄 SRE om toil; `guide/README.md`, princip 8). ITIL tillåter automatiskt godkännande av standardändringar; om de och beroendeuppdateringar får publiceras utan Johnnys klick när kontrollerna är gröna: *Öppet – se `guide/bilaga-e-oppna-fragor.md`*.
-- [N3] **Avtal och dataskydd:** Nortropic är sannolikt personuppgiftsbiträde åt kunderna, med Cloudflare, GitHub, Anthropic, Resend och 46elks som underbiträden; biträdesavtalet hör till förvaltningsavtalet (→ `2-2`, `4-foretaget.md`; tolkning, inte juridisk rådgivning). *Öppet – se `guide/bilaga-e-oppna-fragor.md`.*
+- [N3] **Avtal och dataskydd:** Nortropic är sannolikt personuppgiftsbiträde åt kunderna, med Cloudflare, GitHub, Anthropic och 46elks som underbiträden; biträdesavtalet hör till förvaltningsavtalet (→ `2-2`, `4-foretaget.md`; tolkning, inte juridisk rådgivning). *Öppet – se `guide/bilaga-e-oppna-fragor.md`.*

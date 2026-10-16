@@ -112,7 +112,7 @@ Stack och publicering → 2-8. Förslaget för en informationssajt är Astro sta
 | GitHub och GitHub CLI | Privat repo per sajt | 2-8 | prövas | N1, om sajten publiceras | v0.74 fas 7. Inloggningen gör Johnny | – |
 | Cloudflare Turnstile | Spamskydd för formulär, kontrolleras på servern | 2-8 | kandidat | N2, med formuläret (→ 2-8) | 📄 cloudflare-stack: gratis | – |
 | Cloudflare D1 i EU-jurisdiktion | Sparar formulärinskick | 2-8 | kandidat | N2, med formuläret | 📄 cloudflare-stack (`--jurisdiction=eu` när databasen skapas) | – |
-| Resend och [resend-mcp](https://github.com/resend/resend-mcp) | E-post från formuläret; MCP:n kan skicka | 2-8, 2-9 | kandidat | N2, med formuläret | 📄 `2026-10-14_dataoverforing-och-analys.md`: loggar och metadata lagras i USA. MCP:n har skrivrätt och används bara för formulärtester | B71 (Behåll) |
+| ~~Resend och resend-mcp~~ | **Struket 2026-10-16:** all e-post går via Cloudflare (`BESLUT.md`, *Resend stryks*; 2-8) | – | struket | – | – | B71 (släpp) |
 | [Cloudflare-pluginet](https://github.com/cloudflare/skills) och API-MCP:n `https://mcp.cloudflare.com/mcp` | Cloudflare Skills och Cloudflares MCP-servrar | 2-8, 2-9 | kandidat | N2 | 📄 cloudflare-stack: `/plugin marketplace add cloudflare/skills`; en begränsad token per kundkonto; skillnamnen overifierade | K76 (*cloudflare/mcp*: Ta in) |
 | Cloudflare Web Analytics | Analys utan kakor, men med skript i webbläsaren | 2-8 | kandidat | N2 | 📄 dataöverföring: om den slipper samtyckesbanner är osäkert (→ 2-8) | K80 (Ta in villkorat) |
 | Durable Objects | Bokningar som inte får krocka (väg D) | 2-8 | kandidat | N3 | 📄 cloudflare-stack; Workers Paid | – |

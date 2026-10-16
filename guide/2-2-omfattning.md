@@ -117,7 +117,7 @@ Lagkraven per kund bor här. Samtycke, analys och integritetspolicy → `guide/2
 **Avtal:**
 
 - [N3] **Kundavtalets lagkravsdelar.** Kundavtalet som helhet – ansvar, förvaltningens omfattning, vad som händer vid fel och juristgranskningen – står i `guide/4-foretaget.md`. Av lagkravsskäl ska det avgränsa åtagandet till "byggd enligt WCAG 2.2 AA, testad med metod X", aldrig "lagenlig" (fallgrop 188), och säga att efterlevnaden av tillgänglighetslagen och DOS-lagen är kundens ansvar som tjänsteleverantör. Det ska också säga att AI-genererade delar sannolikt saknar upphovsrättsligt skydd och exklusivitet, lista verktygen som använts och rekommendera varumärkesregistrering av logotypen; logotyper genereras inte med AI. Källa: 📄 researchen ovan.
-- [N3] **Biträdesavtal med varje kund** (GDPR art. 28), senast när sajten tar emot personuppgifter för en riktig verksamhet. Bilagan listar underbiträdena: Cloudflare, Resend, Google, GitHub och Supabase om det används. Källa: 📄 dataöverföringsresearchen §5.3.
+- [N3] **Biträdesavtal med varje kund** (GDPR art. 28), senast när sajten tar emot personuppgifter för en riktig verksamhet. Bilagan listar underbiträdena: Cloudflare, Google, GitHub och Supabase om det används. Källa: 📄 dataöverföringsresearchen §5.3.
 
 ## Vad som kommer ut
 

@@ -1135,3 +1135,22 @@ Johnny, omkring 12:35:
 Ett paket som inte kan gå till senaste version på grund av ett annat pakets krav uppdateras inte, rapporteras och stoppar inte de andra paketen. Det gäller till exempel TypeScript 7 mot @astrojs/check. @types/node följer den Node-version som används.
 
 Skriptet visar också versionen av MCP-servrar som startas med npx. Det bevakar källorna vi destillerar ur (`inventering/kallor-bevakning.json`, som skapas med källkorten), bygger biblioteket och sajterna efter uppdateringen och varnar om något går sönder. `TORRT=1` visar bara vad som skulle ändras. React, Tailwind, Motion och de nya skillsen följer med automatiskt, eftersom de ligger i npm-projekten och i repot.
+
+## 2026-10-16: Resend stryks – Cloudflare gäller för e-post
+
+**Status:** gäller. Ersätter "Mejl via Resend som standard" i `guide/2-8-teknik-och-kvalitet.md`.
+
+Johnny frågade omkring 12:43: *"Vi ska väl inte använda resend? vi kopplar kundens mejl via cloudflare?"* Claude svarade att Cloudflare täcker behovet:
+- Email Routing för kundens mejl på domänen, gratis
+- `send_email` till en verifierad adress för formulärets meddelande till kunden, gratis på alla planer
+- Email Service för bekräftelser till besökaren, med Workers Paid och fortfarande i beta
+
+Johnny, omkring 12:47:
+
+> stryk resend, cloudflare gäller. det är bra företagssakerna sist.
+
+**Innebär:**
+- All e-post går via Cloudflare. Resend stryks ur guiden (2-2, 2-8, 2-9 och bilaga A) och ur inventeringen.
+- Bekräftelser till besökaren görs bara när kunden har Workers Paid. Annars skickas inga.
+- Mejl till prospekt skickas inte via någon sådan tjänst. Det kräver troligen samtycke enligt 19 § marknadsföringslagen (tolkning; tas med juristen).
+- Företagssakerna tas sist: bokföring, moms, kundavtal, biträdesavtal, incidentrutin och försäkring (luckorna i `inventering/` efter genomgången).

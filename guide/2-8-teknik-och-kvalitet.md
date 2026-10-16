@@ -10,7 +10,7 @@ Lagret gör sajten till något som fungerar: den bygger, är snabb, tillgänglig
 
 | Sajttyp | Stack | Cloudflare-plan |
 |---|---|---|
-| **A. Informationssajt med formulär** (standard) | Astro statiskt som Worker med statiska tillgångar; Worker-route för formuläret; Turnstile; D1 i EU; mejl via Resend; statistik ur serverloggarna | **Pro** på zonen för statistiken, 20 USD/mån vid årsbetalning (`BESLUT.md` 2026-10-16) (+ Resend) |
+| **A. Informationssajt med formulär** (standard) | Astro statiskt som Worker med statiska tillgångar; Worker-route för formuläret; Turnstile; D1 i EU; mejl via Cloudflare (`send_email` till kundens verifierade adress); statistik ur serverloggarna | **Pro** på zonen för statistiken, 20 USD/mån vid årsbetalning (`BESLUT.md` 2026-10-16); Workers Paid bara om besökaren ska få en bekräftelse |
 | B. Inloggning | Som A + Supabase Auth med RLS; Astro SSR med `@astrojs/cloudflare` | Workers Paid ($5/mån) + Supabase |
 | C. Databas | Som A + D1 som huvuddatabas; Supabase bara för redigeringsvy eller relationer; R2 för bilder | Free, Paid vid tillväxt |
 | D. Bokning | Worker + D1; Durable Objects mot dubbelbokning; Cron Triggers för påminnelser | Workers Paid |
@@ -44,8 +44,13 @@ Lagret gör sajten till något som fungerar: den bygger, är snabb, tillgänglig
 - [N2] **D1 skapas i EU-jurisdiktion:** `npx wrangler d1 create <namn> --jurisdiction=eu`. Det går inte att ändra efteråt, och en location hint är ingen garanti. KV passar inte för inskick (en skrivning per sekund och nyckel). Bilagor läggs i R2; R2:s EU-jurisdiktion är ⚠️ inte bekräftad i researchen. 📄 research §3, §9
 - [N2] **Spamskydd i lager:** Turnstile (gratis), en dold fälla och en tidsfälla i formuläret, och gratisplanens enda WAF-regel för rate limiting på `/api/*` (per IP, 10 sekunder). Tidsfällan mäter en varaktighet på klientens klocka och släpper igenom när värdet saknas; webb-pro tappade riktiga förfrågningar när klientens tid jämfördes med serverns. Rate limiting-bindningen på Free är ⚠️ inte bekräftad. 📄 research §3, §6; 🔧 webb-pros `kunskap/formularsakerhet.md`
 - [N2] **Byggdetaljer:** mottagaradressen kommer ur miljön, aldrig ur formulärets data (annars ett öppet spamrelä); felbesked utan diagnostik; vanlig POST som fungerar utan JavaScript; tacksidan har `noindex` (texten → `2-7`). 🔧 webb-pros `formularsakerhet.md` och byggstandard 6.3
-- [N2] **Bara de uppgifter som behövs,** information och länk till integritetspolicyn vid formuläret, bestämd lagringstid och gallring efter den. Resend lagrar loggar och metadata i USA oavsett sändregion. 📄 `kunskap/research/2026-10-14_dataoverforing-och-analys.md` (nedan *dataöverföringsresearchen*) §3.3, §5.1
-- [N2] **Mejl via Resend som standard,** med `fetch` från Workern. Cloudflare Email Sending är i beta och kräver Workers Paid; byt när den är allmänt tillgänglig om kunden ändå har Paid. SPF, DKIM och DMARC för domänen som skickar. Kandidat: aviseringen till kunden via Cloudflares `send_email` till en verifierad adress (webb-pros leveransmall), sannolikt gratis och utan metadata hos Resend men ⚠️ otestad. 📄 research §3; Websites for Normal People
+- [N2] **Bara de uppgifter som behövs,** information och länk till integritetspolicyn vid formuläret, bestämd lagringstid och gallring efter den. 📄 `kunskap/research/2026-10-14_dataoverforing-och-analys.md` (nedan *dataöverföringsresearchen*) §3.3, §5.1
+- [N2] **All e-post går via Cloudflare** (`BESLUT.md` 2026-10-16, *Resend stryks*):
+  - Formulärets meddelande till kunden skickas med Workerns `send_email` till en verifierad adress. Det är gratis på alla planer (webb-pros leveransmall; ⚠️ otestat i Nortropic-Builder).
+  - Kundens egna adresser på domänen, som info@, skickas vidare med Email Routing till kundens inkorg. Det är gratis.
+  - En bekräftelse till besökaren kräver Cloudflare Email Service med Workers Paid, där 3 000 mejl per månad ingår. Tjänsten var i beta 2026-10-16, och utan Paid skickas ingen bekräftelse.
+  - SPF, DKIM och DMARC för domänen som skickar.
+  - 📄 [Cloudflare Email Service, priser](https://developers.cloudflare.com/email-service/platform/pricing/). 📄 research §3; Websites for Normal People
 - [N2] **Bekräftelsemejlet är mejlsäker HTML:** tabellayout, inbäddad CSS och en ren textversion, testat i Outlook, Gmail och Apple Mail före publicering. Mejlklienter stöder bara en del av CSS (fallgrop 193), och formulärtjänstens standardtext duger inte (fallgrop 183). Innehållet → `2-7`; testverktyget väljs senare ⚠️. 🎥 Jack Roberts designgeni-videon, Jack Roberts-videon 4 *(en källa – bänken)*
 - [N2] **Formulärtest som inte stör kunden:** testinskick märks (dolt fält eller testadress) och filtreras bort innan de når kunden (fallgrop 42). Testet följer inskicket hela vägen: sparat, mejlet accepterat, bekräftelsemejlet framme och det designade. Schemat → `2-9-drift-och-forvaltning.md`. 🔧
 - [N2] **Ingen automatisk omsändning när utfallet är okänt** – ett mejl som kanske gick fram blir då två. Varje inskick har status (*väntar, skickar, accepterad, fel*); en Cron Trigger (fem per konto på Free) får skicka om när felet är slutligt. 🔧 webb-pros leveransmall; research §3
@@ -71,7 +76,7 @@ Lagret gör sajten till något som fungerar: den bygger, är snabb, tillgänglig
 - [N1] **Integritetspolicy på alla sajter, på sidan *Integritet och kakor*** (GDPR art. 13; IMY), också utan formulär, eftersom värdens loggar innehåller IP-adresser. Innehållet följer dataöverföringsresearchen §5.2:
   - ansvarig (kunden) med kontaktuppgifter
   - ändamål och rättslig grund per behandling: besöket och värdens loggar, bokning, samtal och mejl, formuläret om det finns
-  - mottagare (Cloudflare, Resend, bokningssystemet, byrån som biträde)
+  - mottagare (Cloudflare, bokningssystemet, byrån som biträde)
   - överföring till USA och grunden
   - lagringstid eller hur den bestäms
   - rättigheterna och IMY
