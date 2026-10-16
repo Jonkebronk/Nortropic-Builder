@@ -54,6 +54,14 @@ Här står de förslagen ur tredje varvets fem grupper: guiden 2-1–2-3, guiden
 | 42 | Inställningar för fyra MCP-servrar | Ja | – |
 | 43 | Tre regler om flödet | Ja | – |
 | 44 | Placeringar som säger emot beslutet 17.40 och smalare landningar | Ja | – |
+| 45 | Stopp eller rapport för sju kontroller | Stopp för 3f, 14 och C58; övriga rapport | – |
+| 46 | TBT som stopp på en delad maskin | Stopp bara utan annan last | – |
+| 47 | Felbanken som krav när kontrollskriptet ändras | Ja | – |
+| 48 | Ska sajterna klara 32 px text? | Ja, som rapport först | – |
+| 49 | Kontroll 6b med telefon och adress på varje sida | Ja | – |
+| 50 | Kvalitetsskillens tak på 15 fynd | Gäller inte normer och N1 | – |
+| 51 | En andra uppgift innan någon skill kortas | Ja | – |
+| 52 | Patientomdömen och tystnadsplikten till juristen | Ja | – |
 
 ---
 
@@ -480,8 +488,68 @@ Här står de förslagen ur tredje varvets fem grupper: guiden 2-1–2-3, guiden
 - **Frågan:** Ska några placeringar i inventeringen rättas, eftersom de krockar med beslutet om BrowserStack och VoiceOver samma minut, eller eftersom källkortet ser dem smalare?
 - **Rekommendation:** ja till alla.
   - **BrowserStack MCP:** `beslut` "senare: N4" blir "MCP: kräver konto (betald plan; lokal server med BrowserStack Local)". Bara den lokala servern når `localhost`.
-  - **Guidepup:** `beslut` "senare: N2" blir "skill: kvalitet (`tillganglighet.md`, *Hjälpmedel*)", och C41 i bilaga C går från "för hand" till "skript, rapport", aldrig grind. Johnny bör **inte** köra `npx @guidepup/setup`: verktyget skriver behörigheter i TCC för bland annat sshd, bash och zsh och stänger av dikteringens automatik. De tre manuella stegen står i källkortet `guidepup.md`.
+  - **Guidepup:** `beslut` "senare: N2" blir "skill: kvalitet (`tillganglighet.md`, *Hjälpmedel*)", och C41 i bilaga C går från "för hand" till "skript, rapport", aldrig grind. Johnny bör **inte** köra `npx @guidepup/setup`: verktyget skriver behörigheter i TCC för bland annat sshd, bash och zsh och stänger av dikteringens automatik. De tre manuella stegen står i källkortet `guidepup.md`. *Tillägg 19.05:* Johnny körde `npx @guidepup/setup setup --macos-ignore-tcc-db`. Flaggan hoppar över TCC (*"Skipping automation permission setup"*), men setup 0.29.3 skrev ändå tre inställningar: `com.apple.VoiceOver4/default SCREnableAppleScript true`, `com.apple.VoiceOverTraining doNotShowSplashScreen true` och `com.apple.HIToolbox AppleDictationAutoEnable false` (📄 `lib/commands/setup/macOS/setup.js` och delfilerna, läst i npx-cachen). Fokusläget ändras bara med `--ci`. Vill Johnny ha tillbaka frågan om diktering kör han själv `defaults write com.apple.HIToolbox AppleDictationAutoEnable -bool true`; Claude ändrar inga systeminställningar.
   - **Smashing, Front-End Performance Checklist 2021:** "senare: N2" blir "släpp". Talet 170 kB är ett andrahandstal med tre olika omfång, FID och TTI är föråldrade, och Russell används redan (punkt 7).
   - **Smalare landningar** (allt står i respektive källkort): NN/g blir cirka tio frågor i `granskare/premium.md` och två rapportkontroller i `kvalitet/kontroller.md` (att `h1` inte animeras in, och att stilmallen har en regel för `:visited`; kontrollen läser stilmallen, eftersom `getComputedStyle` svarar som om länken är obesökt, enligt MDN). Opquast blir en kolumn med v5-nummer i bilaga C, inga kontroller på Opquast ensam. DIGG blir källa till svenska kriterienamn, aldrig golv. Front-End Checklist och A11Y Project används bara som korskontroll. Webflow blir ett kort avsnitt *Före den första publiceringen* i `drift/publicering.md`. Den heuristiska utvärderingen får en N2-instruktion i `omfattning/inventering.md` för diagnosen av kundens befintliga sajt, och Spencers regler (*No designing*, *No defending a design*) blir en rad i `granskare/SKILL.md`.
 - **Vid ja:** `inventering/inventering.json` (fältet `beslut`, med en rad i `BESLUT.md`), sedan `python3 inventering/bygg.py` och artefakten; `guide/bilaga-c-kontroller.md` (C41); skillsen ovan.
 - **Rör:** `BESLUT.md` 2026-10-16, *Placeringarna i inventeringen blir beslut; riktiga prov med BrowserStack och VoiceOver*.
+
+## Tillägg kl. 19.05: kontrollerna och baslinjerna
+
+Grupperna `kontroller` och `baslinje-2` blev klara efter att listan skrevs. Deras faktarättelser och hänvisningar är införda (commits `3c21e83` och `90997f0`). Här står det som ändrar en regel eller en mätregel.
+
+### 45. Stopp eller rapport för sju kontroller
+
+- **Frågan:** Beslutet 17.35 säger rapport om inte en norm eller två primärkällor bär regeln. En norm *tillåter* stopp men kräver det inte. Ska någon av de här gå från rapport till stopp?
+  - **8i, konsekvent navigering** (WCAG 3.2.3 och 3.2.6) och **8f, Escape och fokus** (2.1.1, 2.4.3). **Rekommendation:** rapport tills de har gått igenom på några sajter, sedan stopp.
+  - **3f, säkra ytor** (WebKits dokumentation). **Rekommendation:** stopp.
+  - **4c, bara bokningen i fylld accent** (G3, G5; Apple HIG). Ett beslut är ingen primärkälla, så den rapporterar. **Rekommendation:** rapport.
+  - **14, andra ursprung** (tredje part enligt 2-8). **Rekommendation:** stopp, om beslutet om tredje part godtas som grund.
+  - **10d–10f, CSP, DOM-sänkor och Fetch Metadata** (OWASP och csp-evaluator, ingen norm). **Rekommendation:** rapport.
+  - **C58 och studs** (13c; tre respektive två källor). **Rekommendation:** stopp för `transition: all` och layoutegenskaper, rapport för studs.
+  - **C81, interna länkar:** registret säger låst kontroll men grunden är 🔧. **Rekommendation:** rapport.
+- **Vid ja:** `skript/kontroll.mjs` (fältet `typ`) och `guide/bilaga-c-kontroller.md`.
+- **Rör:** `BESLUT.md` 2026-10-16, *Kompetensinventeringen görs klar*.
+
+### 46. TBT som stopp på en delad maskin
+
+- **Frågan:** Kontroll 9b stoppar på TBT i mobil. Med agenter igång gav en tom sida 32–450 ms och startsidan 353 ms (prestanda 92), fast den fick 100 kl. 14.48. Ett brusgolv är infört: ger en tom sida över 50 ms blir TBT en läsning. Det räckte inte i en körning.
+- **Alternativ:** (a) TBT stoppar bara när inget annat körs på maskinen och rapporterar annars; (b) median av fem i stället för tre (📄 Lighthouse, `docs/variability.md`); (c) ta bort brusgolvet.
+- **Rekommendation:** (a), med (b) som tillägg vid slutkontrollen. LCP och CLS stoppar som förut.
+- **Vid ja:** `skript/kontroll.mjs` (9b), `guide/2-8` (N2-tabellen), bilaga C (C79).
+
+### 47. Felbanken som krav när kontrollskriptet ändras
+
+- **Frågan:** Ska `node skript/kontroll.mjs --felbank` köras före varje ändring av `kontroll.mjs` som går in, med regeln att en kontroll som inte fångar sitt fel inte är klar?
+- **Rekommendation:** ja, i `guide/3-4`, *Kontroller åldras*. Felbanken tar cirka fyra minuter. I kvällens två körningar gick ett fall fel i den första (under last) och inget i den andra.
+
+### 48. Stor text: ska sajterna klara 32 px?
+
+- **Frågan:** Kontroll 3d rapporterar vid 24 och 32 px. På övningssajten delas rubrikord som "Trelleborg" och "Akupunktur" utan bindestreck vid båda storlekarna (bekräftat på skärmbild). WCAG 1.4.4 kräver 200 % utan förlust av innehåll eller funktion.
+- **Alternativ:** (a) 24 px (150 %) är gränsen och 32 px rapporteras; (b) 32 px krävs, med `hyphens: auto` och `lang="sv"` eller mindre rubrikskala vid stor text.
+- **Rekommendation:** (b), som rapport tills biblioteket klarar det.
+- **Vid ja:** `bibliotek/src` (rubrikskalan), `guide/2-4` eller `2-5`.
+
+### 49. Kontroll 6b med telefon och adress på varje sida
+
+- **Frågan:** Ska N1-kontrollen 6b också pröva att telefon och adress står i sidfoten på varje sida, som regeln i 2-3 säger?
+- **Rekommendation:** ja. Regeln är redan N1; kontrollen prövar den inte i dag. Opquast 105 godtar en kontaktsida, så stödet är Stanford och regeln själv.
+- **Vid ja:** `skript/kontroll.mjs` (6b), `guide/2-8` (N1-tabellen), bilaga C.
+
+### 50. Kvalitetsskillens tak på 15 fynd
+
+- **Frågan:** I baslinjeprovet sköt taket ut ett N1-fynd (kontroll 2b) till löptext i två av tre körningar, och med skillen blev utfallet 87,9 % mot 90,9 % utan.
+- **Förslag:** taket gäller granskningar av design och biblioteksändringar; före publicering redovisas varje fynd mot en norm eller en N1-kontroll, också över 15. Kör sedan provet igen.
+- **Rekommendation:** ja.
+- **Vid ja:** `.claude/skills/kvalitet/SKILL.md`, princip 10.
+
+### 51. En andra uppgift innan någon skill kortas
+
+- **Frågan:** `rorelse` (uppgift 1), `kvalitet` och `larande` lyfte inte på sina uppgifter. En uppgift per skill räcker inte för att stryka något.
+- **Rekommendation:** ja, en andra uppgift per skill där en regel ur `BESLUT.md` eller guidens format avgör, innan något kortas. `larande` lyfte inte, eftersom repots `CLAUDE.md` redan bär kärnreglerna i båda armarna.
+
+### 52. Patientomdömen och tystnadsplikten till juristen
+
+- **Frågan:** Två körningar utan skillen tog inte med patientens omdöme, med tystnadsplikten som skäl. Ska frågan om att visa patientomdömen på en vårdsajt läggas till juristen i bilaga E?
+- **Rekommendation:** ja, som fråga i bilaga E avsnitt 4. ⚖️ Tolkning, inte juridisk rådgivning. Beslutet 2026-10-15 (*Omdömen*) står tills vidare.
+
