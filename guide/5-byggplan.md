@@ -62,7 +62,7 @@ Ordningen nedan är en prognos, inte en plan. Varje ny mekanism ska kunna peka p
 | Nivå | Typiskt nästa |
 |---|---|
 | N2 – sajt 2–5 | Fler stilkit med alla axlar; fler sektioner och varianter; specialistgranskare; grindkontroll med Stop-hook och belägg; låsning av brief och kontroller; `state.json` och överlämningsfiler; designregelvakt; formulär med Turnstile och D1; staging med egna databasresurser; samtycke och integritetspolicy; SEO-kontrollerna; resultatlogg; `/security-review` |
-| N3 – förvaltning | Schemalagda kontroller per kund, visuell regression, ändringskö, ärendeagent, kundavtal och biträdesavtal, juridikfrågorna med jurist, omkalibrering av granskaren |
-| N4 – skala | Eval-svit, plugin med versioner, parallella byggen, sandlåda, mods och flödespanel, dolda kontroller, förslag ur lärandet i större skala, tillval som Variate och Scroll World |
+| N3 – förvaltning | Schemalagda kontroller per kund, visuell regression, ändringskö, ärendeagent, kundavtal och biträdesavtal, juridikfrågorna med jurist, omkalibrering av granskaren, **kundportalen** med månadsrapporten bakom inloggning (`2-9`) |
+| N4 – skala | Eval-svit, plugin med versioner, parallella byggen, sandlåda, mods och flödespanel, dolda kontroller, förslag ur lärandet i större skala, tillval som Variate och Scroll World, kundportalen med historik, ärenden och siffror direkt från källorna |
 
 Detaljerna står i respektive lager- och flödesfil under märket för nivån.

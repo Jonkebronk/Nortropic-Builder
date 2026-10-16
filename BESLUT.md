@@ -990,3 +990,16 @@ Claude jämförde vårt samtyckesverktyg med CookieConsent v3, Silktide och de k
 - **Logg över samtycken:** en Worker-route, `/api/samtycke`, sparar ett slumpat id, versionen, valen och sidan i D1, men ingen IP-adress. Den bygger på GDPR art. 7.1 och Googles *"Keep records of consent"*. Mallen ligger i `bibliotek/worker/`. Lagringstiden, 730 dagar, är Claudes förslag ⚠️.
 - **Kaklistan** på sidan Integritet och kakor byggs ur taggarna: namn, ändamål, lagringstid och om kakan är en tredjepartskaka (PTS).
 - Kontroll 6c prövar Consent Mode, loggen och kaklistan.
+
+## 2026-10-16: Kundportalen på Nortropics sajt
+
+**Status:** gäller som mål. Byggs när den första betalande kunden har månadsrapporter (princip 8).
+
+Johnny, omkring 08:00:
+
+> Jag tänker min långsiktliga plan är att på min hemsida en slags kundportal där kund kan logga in och se sin statistik, kan vi lägga till det i våran stor plan?
+
+**Innebär** (förslaget till utformning är Claudes, och detaljerna avgör Johnny när portalen byggs):
+- **N3, första versionen:** månadsrapporten visas också som en sida per kund och månad i en portal på Nortropics sajt, bakom inloggning. Siffrorna kommer ur samma ögonblicksbild som rapporten, alltså JSON per kund och månad (`guide/2-9-drift-och-forvaltning.md`), så portalen och rapporten kan aldrig visa olika saker. Inloggningen sker med Cloudflare Access och en engångskod till kundens e-post, och varje kund ser bara sitt. Access är gratis för upp till 50 användare. Därefter kostar det 7 dollar per användare och månad, och enligt Cloudflares community debiteras då alla platser ⚠️. Vid fler kunder byggs en egen inloggning.
+- **N4, när portalen växer:** historik och trender över månader, läget för Kundens lyft, ändringsärenden kopplade till ärendeagenten, AEO-trenden och siffror direkt från Google-profilens API, Search Console och Cloudflare.
+- Portalen ingår i förvaltningen (`guide/4-foretaget.md`, *Tjänstetrappan*).

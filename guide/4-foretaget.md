@@ -45,7 +45,7 @@ En designad 404-sida ingår i standardsajten → `2-3-struktur.md`.
 |---|---|---|---|
 | 1. Sajtgranskning | Rapport med belägg och förslag med nordstjärna | Kontrollerna mot kundens sajt (→ `2-8`), läckan och före-måttet (→ `2-1-strategi.md`, `2-2`), jämförelse mot förebild i siffror (→ `3-2`); Johnny går igenom | [N2] |
 | 2. Bygge | Standardsajten med tillval | → `1-kundens-vag.md`; flödet byggs i N1 på egna sajter eller pilotsajter (→ *Trappan av insatser*) | [N2] |
-| 3. Förvaltning | Produkten, löpande avtal | → `2-9`, rapport med nordstjärna och nästa begränsning | [N3] |
+| 3. Förvaltning | Produkten, löpande avtal | → `2-9`, rapport med nordstjärna och nästa begränsning, och kundportalen där kunden loggar in och ser sin statistik | [N3] |
 
 - [N3] **Förvaltningsavtal kräver nordstjärna** (→ `2-1-strategi.md`).
 - [N2] **Sajtgranskningen får sluta med "en sajt är inte er begränsning just nu"**, t.ex. när företaget inte kan ta emot fler kunder (fallgrop 173). Det kostar en försäljning men ger förtroende. 🎥 retainer-föredraget (idé) / 🔧.

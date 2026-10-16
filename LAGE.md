@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-16 kl. 07.31 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-16 kl. 08.03 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Kort
 
@@ -88,7 +88,8 @@ Johnny tog in fem av förslagen till checklistan och lade till ett sjätte. `mal
    - Cloudflare Pro på varje publicerad sajt, och månadsrapporten utan Google Analytics.
    - Kakor och samtycke vid behov. Biblioteket har ett eget samtyckesverktyg på cirka 1,7 kB, med kontroll 6c som stoppar, och övningssajten övar det. Verktyget har Consent Mode v2, en logg över samtycken (Worker och D1, mallen i `bibliotek/worker/`, prövad lokalt med `wrangler dev`) och en kaklista.
 
-   Väntar på Johnny: biträdesavtal i steg 5, `security.txt` och Google-kartan. **Nästa:** genomgången efter sajten (`guide/5-byggplan.md`). Nästa mätning av granskaren görs på nya sajter och på systemets egna utkast.
+   Väntar på Johnny: biträdesavtal i steg 5, `security.txt` och Google-kartan.
+   - **Långsiktigt mål (Johnny 08.00):** kundportalen på Nortropics sajt, där kunden loggar in och ser sin statistik. N3 i `guide/2-9-drift-och-forvaltning.md`, och den byggs när den första betalande kunden har månadsrapporter. **Nästa:** genomgången efter sajten (`guide/5-byggplan.md`). Nästa mätning av granskaren görs på nya sajter och på systemets egna utkast.
 
 ## Väntar på Johnny
 
