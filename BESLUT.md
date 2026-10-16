@@ -999,7 +999,11 @@ Johnny, omkring 08:00:
 
 > Jag tänker min långsiktliga plan är att på min hemsida en slags kundportal där kund kan logga in och se sin statistik, kan vi lägga till det i våran stor plan?
 
-**Innebär** (förslaget till utformning är Claudes, och detaljerna avgör Johnny när portalen byggs):
+Claude föreslog utformningen nedan. Johnny, omkring 08:05:
+
+> Det låter bra
+
+**Innebär** (utformningen är godkänd, och detaljerna prövas när portalen byggs):
 - **N3, första versionen:** månadsrapporten visas också som en sida per kund och månad i en portal på Nortropics sajt, bakom inloggning. Siffrorna kommer ur samma ögonblicksbild som rapporten, alltså JSON per kund och månad (`guide/2-9-drift-och-forvaltning.md`), så portalen och rapporten kan aldrig visa olika saker. Inloggningen sker med Cloudflare Access och en engångskod till kundens e-post, och varje kund ser bara sitt. Access är gratis för upp till 50 användare. Därefter kostar det 7 dollar per användare och månad, och enligt Cloudflares community debiteras då alla platser ⚠️. Vid fler kunder byggs en egen inloggning.
 - **N4, när portalen växer:** historik och trender över månader, läget för Kundens lyft, ändringsärenden kopplade till ärendeagenten, AEO-trenden och siffror direkt från Google-profilens API, Search Console och Cloudflare.
 - Portalen ingår i förvaltningen (`guide/4-foretaget.md`, *Tjänstetrappan*).
