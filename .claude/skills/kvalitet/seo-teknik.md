@@ -31,6 +31,8 @@ Allvaret följer claude-seos skala översatt till vår (📄 [claude-seo](https:
 
 **Tumregler blir varningar:** titel på 50–60 tecken, beskrivning på 150–160, nyckelord i adressen och de första hundra orden, minsta antal ord, antal interna länkar per sida, alt-text på 10–125 tecken, storleksgränser per bildfil och att vänta 3–4 veckor efter en ändring. Ingen av dem har en Google-källa, och ingen stoppar (→ `guide/2-8-teknik-och-kvalitet.md`, N2). De står här så att de inte tas in igen ur en extern skill.
 
+**Uppslag i Developer Knowledge.** När en regel slås upp med MCP-servern eller Googles skill `retrieving-developer-knowledge` räknas bara hämtade sidor som källa: `search_documents` och `get_documents` (i REST-API:t `documents:searchDocumentChunks`, `documents/…` och `documents:batchGet`). Ett svar från `answer_query` (`:answerQuery`) är text från en modell och är alltid *härlett*, också när skillen kallar det auktoritativt (`guide/README.md`, *Sett, härlett, okänt*). Regeln citeras ur sidan och märks 📄 med sidans adress (`BESLUT.md` 2026-10-16; `kunskap/kallkort/google-developer-knowledge-mcp.md`).
+
 ## Rendering, sitemap och nya sidor
 
 - **Huvudet står i HTML:en från bygget, och inget skript ändrar det.** Titel, beskrivning, kanonisk adress, robots och JSON-LD skrivs vid bygget; en React-ö eller ett skript sätter dem aldrig. Skiljer sig originalet och den renderade sidan kan Google välja vilken som helst, och med `noindex` i originalet kan renderingen hoppas över. 📄 [Google, JavaScript SEO basics](https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics)

@@ -1365,3 +1365,15 @@ Claude hade förklarat att Google Developer Knowledge och Grounding Lite inte g�
 - Skillen ligger i `.claude/skills/retrieving-developer-knowledge/` (google/skills, commit `730939d`, version 1.0.1, Apache-2.0). Claude lade till `--copy`, så att inga symlänkar eller `.agents/` hamnar i repot, och `-y`, eftersom kommandot inte kan svara på frågor i sessionen. `skills-lock.json` i roten håller källan och hashen. Filerna är granskade och identiska med källan: bara text, inga skript eller hooks.
 - Skillen ändras inte här, så att `npx skills update` kan ersätta den. Det som krockar med guiden står i `kunskap/kallkort/google-developer-knowledge-mcp.md`.
 - Den fungerar först när Johnny har lagt in nyckeln.
+
+## 2026-10-16: Svar från answer_query är härledda, och startsäkringen uppdaterar skills från andra repon
+
+**Status:** gäller.
+
+Efter installationen av Googles skill `retrieving-developer-knowledge` föreslog Claude två saker: en rad i `kvalitet/seo-teknik.md` om att svar från `answer_query` alltid räknas som härledda, också när Googles skill hämtar dem, och `npx skills update -p -y` i startsäkringen, så att skillen följer med till senaste version. Johnny, omkring 19.58:
+
+> ja till förslagen
+
+**Innebär:**
+- `.claude/skills/kvalitet/seo-teknik.md`: bara sidor hämtade med `search_documents` eller `get_documents` räknas som källa. Ett svar från `answer_query` är alltid *härlett* och citeras inte som regel.
+- Startsäkringen (avsnitt 5b) installerar om varje skill i `skills-lock.json` med `npx skills@latest add <källa> --skill <namn> --agent claude-code --copy -y`. Claude ändrade formen från förslaget, eftersom `npx skills update` installerar om utan `--copy` och då skulle lägga `.agents/` och symlänkar i repot (📄 skills 1.7.2, `dist/cli.mjs`, `updateProjectSkills`). En ny version syns som en ny hash i `skills-lock.json` och läses innan den committas.

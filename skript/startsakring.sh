@@ -118,6 +118,28 @@ else
   echo "⚠️ uppdatera varje plugin med: claude plugin update <namn>"
 fi
 
+# 5b. Skills från andra repon, listade i skills-lock.json (BESLUT.md 2026-10-16, *Svar från answer_query är härledda …*).
+#     `npx skills update` installerar om utan --copy och lägger .agents/ och symlänkar i repot, så varje skill
+#     installeras i stället om med samma flaggor som första gången: bara Claude Code och kopierade filer.
+#     En ny version syns som en ny hash i skills-lock.json; läs ändringen innan den committas.
+rubrik "Skills från andra repon"
+las="$ROT/skills-lock.json"
+lashash() { node -e 'const l=JSON.parse(require("node:fs").readFileSync(process.argv[1],"utf8")); console.log((l.skills||{})[process.argv[2]]?.computedHash||"")' "$las" "$1"; }
+if [[ -f "$las" ]]; then
+  while IFS=$'\t' read -r namn kalla; do
+    if [[ -n "$TORRT" ]]; then echo "skulle installeras om: $namn ur $kalla"; continue; fi
+    fore="$(lashash "$namn")"
+    if (cd "$ROT" && DISABLE_TELEMETRY=1 DO_NOT_TRACK=1 npx -y skills@latest add "$kalla" --skill "$namn" --agent claude-code --copy -y >/dev/null 2>&1); then
+      if [[ "$(lashash "$namn")" != "$fore" ]]; then
+        echo "uppdaterad: $namn (läs ändringen: git diff -- .claude/skills/$namn)"; andrat+=("skill $namn ur $kalla")
+      else echo "senaste: $namn"; fi
+    else varna "skillen $namn gick inte att installera om ur $kalla"; fi
+  done < <(node -e 'const l=JSON.parse(require("node:fs").readFileSync(process.argv[1],"utf8")); for (const [n,s] of Object.entries(l.skills||{})) console.log(n+"\t"+s.source)' "$las")
+  [[ -e "$ROT/.agents" ]] && varna ".agents/ finns i repot; skills ska ligga kopierade i .claude/skills/"
+else
+  echo "inga skills från andra repon"
+fi
+
 # 6. Källorna vi destillerar ur. inventering/kallor-bevakning.json listar repon med den commit vi läste
 #    ({"namn", "repo", "commit"}). Har ett repo fått nya commits rapporteras det, så att källkortet och skillen
 #    kan läsas om. Inget ändras automatiskt.

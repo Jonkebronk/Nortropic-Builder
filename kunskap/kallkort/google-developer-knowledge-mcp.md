@@ -67,3 +67,4 @@ Kräver ett Google Cloud-projekt med Developer Knowledge API påslaget (`gcloud 
   - Skillen föredrar `answer_query` för begreppsfrågor och kallar hämtad dokumentation *"100% authoritative"*. Hos oss är `answer_query` härlett (punkt 2 under *Det bästa vi kan ta*), och bara `search_documents` och `get_documents` räknas som källor.
   - Exemplen i `SKILL.md` lägger nyckeln i adressen (`?key=`). Huvudet `X-Goog-Api-Key`, som referensen också tillåter, håller den utanför adresser som loggas.
   - Beskrivningen är bred (gcloud, IAM, *"official documentation"*), så skillen kan laddas också när frågan gäller Cloud-delar vi inte använder.
+- **Beslutat 2026-10-16** (`BESLUT.md`, *Svar från answer_query är härledda …*): regeln om `answer_query` står i `.claude/skills/kvalitet/seo-teknik.md`, och startsäkringen (avsnitt 5b) installerar om skillen till senaste version med samma flaggor som första gången.
