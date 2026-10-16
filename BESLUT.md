@@ -999,7 +999,7 @@ Johnny, omkring 08:00:
 
 > Jag tänker min långsiktliga plan är att på min hemsida en slags kundportal där kund kan logga in och se sin statistik, kan vi lägga till det i våran stor plan?
 
-Claude föreslog utformningen nedan. Johnny, omkring 08:05:
+Claude föreslog utformningen nedan. Johnny, omkring 08:57:
 
 > Det låter bra
 
