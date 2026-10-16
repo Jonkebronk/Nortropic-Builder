@@ -63,6 +63,8 @@ Varje sida ska svara på besökarens frågor i den ordning de ställs, med den p
 
 Kör i 375 och 1280 px, med sticky sidhuvud och knapplist som besökaren ser dem, och i 320 px och vid låg höjd. Fynd skrivs med sida, element, förväntat, faktiskt, allvar och källa.
 
+**Det kontrollskriptet redan prövar tas ur skriptet, inte för hand:** `SNABB=1 node skript/kontroll.mjs sites/<namn>` från repots rot, med resultatet i `sites/<namn>/kontroller/senaste.json`; är filen äldre än bygget körs skriptet om. Punkt 1 har 4b, punkt 6 har 8d och 8f, punkt 8 har 3, 3b, 3c och 3d, punkt 10 har 7, 8 och 8m, punkt 11 delvis 13g och punkt 14 har 8o. Skriptet ger mätningen; omdömet i punkten görs ändå (→ `../kvalitet/kontroller.md`).
+
 1. **Blickprovet:** säger mobilens första skärm vad, var och hur, med kontaktvägen som knapp i skärmens övre halva? Syns det att sidan fortsätter (inget falskt golv) i 375 × 667 och 390 × 844? (→ `guide/2-4-skelett.md`, *Kontroll*)
 2. **Sektionsordning:** följer varje sida mallens ordning eller ett loggat antagande, och slutar sidan med sin primära handling?
 3. **Undersidornas topp:** finns sidans namn, primära handling och det besökaren behöver för att handla (tid, pris, plats) inom första skärmen i 375 px?

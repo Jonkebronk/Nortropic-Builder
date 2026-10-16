@@ -51,6 +51,8 @@ En besökare som landar var som helst på sajten – oftast från en sökning i 
 
 ## Kontrollista mot en sajt
 
+**Det kontrollskriptet redan prövar tas ur skriptet, inte för hand:** `SNABB=1 node skript/kontroll.mjs sites/<namn>` från repots rot, med resultatet i `sites/<namn>/kontroller/senaste.json`; är filen äldre än bygget körs skriptet om. Punkt 1 och 4 har 11 och 12c, punkt 2 har 7, punkt 3 har 8i, punkt 5 har 8m, punkt 6 har 4b och 6b, punkt 9 har 12 och 12b, punkt 10 har 4 och punkt 11 har 10b och 10c; kanonisk adress, sitemap och robots.txt har 7c och 12b–12e. Skriptet ger mätningen; omdömet i punkten görs ändå, och länkarna i huvudinnehållet (punkt 4) ser skriptet inte (→ `../kvalitet/kontroller.md`).
+
 1. **Standarduppsättningen:** finns varje sida i sidkartan på sajten, och varje sida på sajten i sidkartan? Har varje huvudtjänst en sida, och finns en översiktssida när de är fler än en?
 2. **Namnen:** samma namn i menyn (dator och mobil), sidfoten, `h1` och `<title>` för varje sida (G4).
 3. **Menyn:** syns den alltid på datorn? Leder varje menyval till en sida? Är aktuell sida markerad synligt och med `aria-current`? Är menyn samma, i samma ordning, på alla sidor (📄 WCAG 2.2, 3.2.3)? Börjar varje val med det bärande ordet?

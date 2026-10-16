@@ -1571,3 +1571,16 @@ Claude lade fram mikroprovet av lucka 1 (`kunskap/research/2026-10-16_mikroprov-
 - `kvalitet/webblasarverktyg.md` är en ny faktafil om Chrome DevTools MCP, med pekare från `kvalitet/SKILL.md` och `kvalitet/kontroller.md`.
 - `guide/2-8` och bilaga A beskriver Chrome DevTools roll enligt domen 21.37.
 - Från lucka 2 körs kontrollen först; visar den inte felet stryks tillägget utan att den nya armen körs (`larande/skills.md`, *Gör kontrollen utan vägledning inte felet finns inget att rätta*).
+
+## 2026-10-16: Skillsen steg 3, luckorna 3–7
+
+**Status:** gäller.
+
+Claude lade fram mikroproven av luckorna 3–7 (`kunskap/research/2026-10-16_mikroprov-lucka3-7.md`). Kontrollen visade inte felen i luckorna 3–6 (seo-monster, Developer Knowledge, Astro Docs, video) eller för rörelse i lucka 7. För skelett och struktur visade den att kontrollistan prövades för hand (2 och 4 av 5), och den nya raden tog bort felet (0 och 0 av 5). Claude frågade om luckorna 3–7 skulle committas som de stod. Johnny, kl. 22.59:
+
+> ja
+
+**Innebär:**
+- `skelett/SKILL.md` och `struktur/SKILL.md` har en rad före kontrollistan om att det kontrollskriptet redan prövar tas ur skriptet, med vilken kontroll som hör till vilken punkt.
+- `kvalitet/sakerhet.md` har fältet `kind` från Astro 7.1 (faktarättelse).
+- Inga pekare förs in för luckorna 3–6.
