@@ -1252,9 +1252,9 @@
    "sort": "Material",
    "forslag": "Extrahera",
    "kommentar": "Till sektions- och komponentbiblioteket.",
-   "beslut": "MCP: kräver konto (gratis Hobby-nyckel räcker för provet; Builder först när biblioteket visat behov) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
-   "placering": "MCP: kräver konto (gratis Hobby-nyckel räcker för provet; Builder först när biblioteket visat behov)",
-   "placering_motivering": "Sökningen är gratis och ger metadata; två hämtningar per dag räcker för provet med tre sektioner (P25, P26, P27). Samma block från Tailark och Magic UI går att hämta ur shadcn-registren utan 21st och utan kreditering (BESLUT 2026-10-16 kl. 13.05). npm-paketet är bara en proxy till 21st.dev, så verktygen kan ändras utan ny version, och verktygslåset behövs. Källa: 21st.dev/mcp.md och pricing.md, magic-mcp src/index.ts, läst 2026-10-16. (andra varvet 2026-10-16, mcp)",
+   "beslut": "MCP: kräver konto, begränsad (sök för idéer; hämta bara komponenter utan state; licensen ur komponentens .md-sida och ursprungsrepot) (Johnny 2026-10-16 kl. 21.37: \"ja, det blir bra\"; ersätter MCP: kräver konto från 17.40)",
+   "placering": "MCP: kräver konto, begränsad (sök för idéer; hämta bara komponenter utan state; licensen ur komponentens .md-sida och ursprungsrepot)",
+   "placering_motivering": "Sökningen är gratis och ger metadata; två hämtningar per dag räcker för provet med tre sektioner (P25, P26, P27). Samma block från Tailark och Magic UI går att hämta ur shadcn-registren utan 21st och utan kreditering (BESLUT 2026-10-16 kl. 13.05). npm-paketet är bara en proxy till 21st.dev, så verktygen kan ändras utan ny version, och verktygslåset behövs. Källa: 21st.dev/mcp.md och pricing.md, magic-mcp src/index.ts, läst 2026-10-16. (andra varvet 2026-10-16, mcp) Översynen 2026-10-16: licensen står inte i MCP-svaret utan på komponentens .md-sida (21st.dev/@<författare>/components/<slug>.md) och i ursprungsrepot, och fältet kan vara fel åt båda hållen. Designkontexten i get_inspiration ändrade inte rangordningen i fyra prov, och 25 verktyg skriver (BESLUT.md 2026-10-16 kl. 21.37, Domarna över MCP-servrarna efter översynen). Johnnys konto är betalt utan dagsgräns (get_usage 2026-10-16, källkortet).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/21st.md"
   },
   {
@@ -1284,9 +1284,9 @@
    "sort": "Referens",
    "forslag": "Byggverktyg",
    "kommentar": "Flöden till struktur, skärmar till skelett.",
-   "beslut": "MCP: kräver konto (Mobbin Pro; Johnny läser villkoren avsnitt 3 och 10.1 före köpet) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
-   "placering": "MCP: kräver konto (Mobbin Pro; Johnny läser villkoren avsnitt 3 och 10.1 före köpet)",
-   "placering_motivering": "Villkoren (gällande från 2026-05-16, nu publika) förbjuder att AI-verktyg skapar 'derivative works' av innehållet och säger att 'All derivative works produced with the use of the Services … belong to Mobbin'. MCP får användas för 'internal business use'. Tolkning, inte juridisk rådgivning: referenser blir iakttagelser i ord för Johnny och granskaren, aldrig förlaga till en sektion, och inga skärmbilder sparas i repot. Beslutet kl. 13.12 kräver redan att villkoren läses. Pro kostar minst 45 USD per kvartal. Källa: mobbin.com/terms och pricing.md, läst 2026-10-16. (andra varvet 2026-10-16, mcp)",
+   "beslut": "släpp (Johnny 2026-10-16 kl. 21.37: \"ja, det blir bra\"; ersätter MCP: kräver konto från 17.40)",
+   "placering": "släpp",
+   "placering_motivering": "Villkoren (gällande från 2026-05-16, nu publika) förbjuder att AI-verktyg skapar 'derivative works' av innehållet och säger att 'All derivative works produced with the use of the Services … belong to Mobbin'. MCP får användas för 'internal business use'. Tolkning, inte juridisk rådgivning: referenser blir iakttagelser i ord för Johnny och granskaren, aldrig förlaga till en sektion, och inga skärmbilder sparas i repot. Beslutet kl. 13.12 kräver redan att villkoren läses. Pro kostar minst 45 USD per kvartal. Källa: mobbin.com/terms och pricing.md, läst 2026-10-16. (andra varvet 2026-10-16, mcp) Översynen 2026-10-16: plattformarna är bara ios och web (dator), och mobilwebb finns inte. Mobbin är en claude.ai-connector som Johnny kopplar bort själv, och de 62 bilderna från Mobbin i sessionens tool-results/ är raderade (BESLUT.md 2026-10-16 kl. 21.37, Domarna över MCP-servrarna efter översynen; kl. 21.42).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/mobbin-mcp.md"
   },
   {
@@ -1300,9 +1300,9 @@
    "sort": "Referens",
    "forslag": "Byggverktyg",
    "kommentar": "",
-   "beslut": "MCP: ta in (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
-   "placering": "MCP: ta in",
-   "placering_motivering": "Den hostade slutpunkten är gratis och kräver inget konto (Together-nyckeln är valfri); används bara när kit tas fram, med skärmbilderna till Johnny och granskaren, och ingen JSX går in i biblioteket utan att klädas i kitet.",
+   "beslut": "MCP: ta in, begränsad (get_design_system, find_by_color, compare och referensindexet, där bara strukturen tas) (Johnny 2026-10-16 kl. 21.37: \"ja, det blir bra\"; ersätter MCP: ta in från 17.40)",
+   "placering": "MCP: ta in, begränsad (get_design_system, find_by_color, compare och referensindexet, där bara strukturen tas)",
+   "placering_motivering": "Den hostade slutpunkten är gratis och kräver inget konto (Together-nyckeln är valfri); används bara när kit tas fram, med skärmbilderna till Johnny och granskaren, och ingen JSX går in i biblioteket utan att klädas i kitet. Översynen 2026-10-16: med detail: concise och maxTokens på högst 2500. Ur referensindexet tas strukturen, inte koden, som i provet bröt mot HTML och tog bort fokusringen (BESLUT.md 2026-10-16 kl. 21.37, Domarna över MCP-servrarna efter översynen).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/inspo.md"
   },
   {
@@ -1316,9 +1316,9 @@
    "sort": "Material",
    "forslag": "Extrahera",
    "kommentar": "Rörelser till biblioteket.",
-   "beslut": "MCP: kräver konto (Motion+) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
-   "placering": "MCP: kräver konto (Motion+)",
-   "placering_motivering": "Den öppna servern (mcp.motion.dev) ger dokumentationssökning, som vi redan läser direkt på motion.dev. Det inventeringen ville extrahera – exempel och Motion UI till biblioteket – och MotionScore-granskningen kräver Motion+ med inloggning via OAuth: Solo som engångsavgift för en person, Team som årsavgift per plats för två eller fler. Johnny avgör. Inte installerad.",
+   "beslut": "släpp (Johnny 2026-10-16 kl. 21.42: \"vi kan släppa motion om de är lika bra\"; ersätter MCP: kräver konto från 17.40)",
+   "placering": "släpp",
+   "placering_motivering": "Den öppna servern (mcp.motion.dev) ger dokumentationssökning, som vi redan läser direkt på motion.dev. Det inventeringen ville extrahera – exempel och Motion UI till biblioteket – och MotionScore-granskningen kräver Motion+ med inloggning via OAuth: Solo som engångsavgift för en person, Team som årsavgift per plats för två eller fler. Johnny avgör. Inte installerad. Översynen 2026-10-16: servern har ett verktyg, och en sökning på API-namn ger gratis dokumentation och exempel. Servern är borttagen ur byggsessionen och ur inventering/mcp-servrar.json, och Motions dokumentation läses i motion.dev/llms.txt (BESLUT.md 2026-10-16 kl. 21.42, Motion släpps, låset godtas för Playwright och Mobbins bilder raderas).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/motion-mcp.md"
   },
   {
@@ -1332,9 +1332,9 @@
    "sort": "Verktyg",
    "forslag": "Behåll",
    "kommentar": "Kör med --no-performance-crux, så att adresser inte skickas till Google.",
-   "beslut": "MCP: ta in (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
-   "placering": "MCP: ta in",
-   "placering_motivering": "För diagnos när en kontroll fallerar, inte som grind: spårning och LCP-delar, take_snapshot, emulate (forced-colors, reducerad rörelse, strypning), konsol och nätverk; visar också vad en React-ö kostar vid hydrering. Version 1.11.0, Apache-2.0, inget konto. Alltid med --no-usage-statistics (statistiken till Google är annars på), --no-performance-crux och --isolated. Kontrollskriptet kör redan Lighthouse och axe själv.",
+   "beslut": "MCP: ta in (vidgad roll: lägesprov med forced colors, kontrast och reducerad rörelse, skärminspelning, samtycke i isolerad kontext och INP) (Johnny 2026-10-16 kl. 21.37: \"ja, det blir bra\"; ersätter MCP: ta in från 17.40)",
+   "placering": "MCP: ta in (vidgad roll: lägesprov med forced colors, kontrast och reducerad rörelse, skärminspelning, samtycke i isolerad kontext och INP)",
+   "placering_motivering": "För diagnos när en kontroll fallerar, inte som grind: spårning och LCP-delar, take_snapshot, emulate (forced-colors, reducerad rörelse, strypning), konsol och nätverk; visar också vad en React-ö kostar vid hydrering. Version 1.11.0, Apache-2.0, inget konto. Alltid med --no-usage-statistics (statistiken till Google är annars på), --no-performance-crux och --isolated. Kontrollskriptet kör redan Lighthouse och axe själv. Översynen 2026-10-16 vidgade rollen: emulate med forcedColors, prefersContrast och prefersReducedMotion, screencast_start och screencast_stop för video, new_page med isolatedContext för samtycket och INP via spårning. Lighthouse via MCP ger inget utöver kontroll 9 (BESLUT.md 2026-10-16 kl. 21.37, Domarna över MCP-servrarna efter översynen).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/chrome-devtools.md"
   },
   {
@@ -1348,9 +1348,9 @@
    "sort": "Åtkomst",
    "forslag": "Behåll",
    "kommentar": "När kunden har Figma.",
-   "beslut": "MCP: kräver konto (Figma; kundens fil, Dev- eller Full-plats för fler än 20 anrop/mån) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
-   "placering": "MCP: kräver konto (Figma; kundens fil, Dev- eller Full-plats för fler än 20 anrop/mån)",
-   "placering_motivering": "Bara när en kund har en Figmafil; används med build-design från N2.",
+   "beslut": "MCP: kräver konto (Figma; bara läsverktygen; kundens fil, Dev- eller Full-plats för fler än 20 anrop/mån) (Johnny 2026-10-16 kl. 21.37: \"ja, det blir bra\"; ersätter MCP: kräver konto från 17.40)",
+   "placering": "MCP: kräver konto (Figma; bara läsverktygen; kundens fil, Dev- eller Full-plats för fler än 20 anrop/mån)",
+   "placering_motivering": "Bara när en kund har en Figmafil; används med build-design från N2. Översynen 2026-10-16: get_motion_context och search_design_system läggs till bland läsverktygen. 18 verktyg skriver eller drar krediter och används inte (BESLUT.md 2026-10-16 kl. 21.37, Domarna över MCP-servrarna efter översynen).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/figma-mcp.md"
   },
   {
@@ -1574,9 +1574,9 @@
    "roll": "Search Console för agenter: gamla adresser med trafik till omdirigeringskartan, sedan rapporter i förvaltningen.",
    "flagga": "Lås versionen; en SDK-uppdatering i juli 2026 fick nya installationer att krascha.",
    "din_lank": false,
-   "beslut": "senare: N3 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
+   "beslut": "senare: N3 (Johnny 2026-10-16 kl. 21.37: \"ja, det blir bra\"; bekräftar senare: N3 från 17.40)",
    "placering": "senare: N3",
-   "placering_motivering": "Minsta behörighet går inte att få: omfånget är hela 'webmasters' (gsc_server.py rad 106), och en token med bara läsrätt misslyckas och raderar tokenfilen (#56). Fel returneras som lyckade svar (#53), perioderna byter plats (#42), och två verktygsbeskrivningar säger 'ALWAYS call this first'. Vid den första flytten räcker en export ur Search Consoles gränssnitt för omdirigeringskartan. I förvaltningen prövas seo-monster med bara webmasters.readonly först. Källa: repot vid d49eea9 och ärendena, läst 2026-10-16. (andra varvet 2026-10-16, mcp)",
+   "placering_motivering": "Minsta behörighet går inte att få: omfånget är hela 'webmasters' (gsc_server.py rad 106), och en token med bara läsrätt misslyckas och raderar tokenfilen (#56). Fel returneras som lyckade svar (#53), perioderna byter plats (#42), och två verktygsbeskrivningar säger 'ALWAYS call this first'. Vid den första flytten räcker en export ur Search Consoles gränssnitt för omdirigeringskartan. seo-monster går inte heller med bara webmasters.readonly, eftersom 0.9.3 alltid begär webmasters, indexing och analytics.readonly (⚠️ läst i koden). Källa: repot vid d49eea9 och ärendena, läst 2026-10-16. (andra varvet 2026-10-16, mcp) Översynen 2026-10-16: servern begär färre omfång än seo-monster, som inte används för Search Console. Med en klientfil öppnar varje anrop en webbläsare (BESLUT.md 2026-10-16 kl. 21.37, Domarna över MCP-servrarna efter översynen).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/mcp-gsc.md"
   },
   {
@@ -2022,9 +2022,9 @@
    "roll": "Färgskalor mot målkontrast, med egen MCP och agent-skill.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "MCP: ta in (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
-   "placering": "MCP: ta in",
-   "placering_motivering": "Den lokala MCP-servern (@adobe/leonardo-mcp, stdio, utan konto och nyckel) räknar accent- och neutralsteg mot målkvoter med wcag2 när ett kit tas fram eller kundens accent läggs in, vilket behövs nu för accentens steg (revisionens fynd 2); inget skeppas. Läs cli.js före installation, och notera apca-w3-licensen och sårbara beroenden (ärende #202).",
+   "beslut": "MCP: ta in (bara check-contrast och convert-color) (Johnny 2026-10-16 kl. 21.37: \"ja, det blir bra\"; ersätter MCP: ta in från 17.40)",
+   "placering": "MCP: ta in (bara check-contrast och convert-color)",
+   "placering_motivering": "Den lokala MCP-servern (@adobe/leonardo-mcp, stdio, utan konto och nyckel) räknar accent- och neutralsteg mot målkvoter med wcag2 när ett kit tas fram eller kundens accent läggs in, vilket behövs nu för accentens steg (revisionens fynd 2); inget skeppas. Läs cli.js före installation, och notera apca-w3-licensen och sårbara beroenden (ärende #202). Översynen 2026-10-16: bara generate-theme är trasig, eftersom servern lägger en lista i structuredContent (src/server.js rad 55–58). Biblioteket 1.1.0 ger ogiltig OKLCH, så kitskriptet använder HEX och Color.js (BESLUT.md 2026-10-16 kl. 21.37, Domarna över MCP-servrarna efter översynen).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/adobe-leonardo.md"
   },
   {
@@ -2630,9 +2630,9 @@
    "roll": "Hela Cloudflares API för agenter; ersätter de föråldrade domänservrarna.",
    "flagga": "En läs-token för rapport och övervakning, och en smal token för DNS och deploy.",
    "din_lank": false,
-   "beslut": "MCP: kräver konto (kundens Cloudflare-konto och en kontoägd läs-token per kund: Account Analytics Read, Workers Scripts Read, Workers Tail Read, Account Settings Read, zonens Analytics Read och DNS Read) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
-   "placering": "MCP: kräver konto (kundens Cloudflare-konto och en kontoägd läs-token per kund: Account Analytics Read, Workers Scripts Read, Workers Tail Read, Account Settings Read, zonens Analytics Read och DNS Read)",
-   "placering_motivering": "Officiell och aktiv (Apache-2.0, 962 ★, senaste commit 2026-10-13). Servern har inget eget läsläge, så det är token som begränsar. Därför gäller token före OAuth för agenter, och agenten får aldrig publicerings- eller DNS-token. IP-filtrerade tokens stöds inte. Kända fel: DNS Read via OAuth (ärende 202) och tidsgräns i execute (290). Används när någon undersöker; schemalagda kontroller är skript (guide 2-9). Behörighetstabellen står i drift/publicering.md.",
+   "beslut": "MCP: ta in (byråns konto med OAuth; på kundens konto en kontoägd läs-token per kund: Account Analytics Read, Workers Scripts Read, Workers Tail Read, Account Settings Read, zonens Analytics Read och DNS Read) (Johnny 2026-10-16 kl. 21.37: \"ja, det blir bra\" och kl. 21.49: \"3:an ska vi ite göra\"; ersätter MCP: kräver konto från 17.40)",
+   "placering": "MCP: ta in (byråns konto med OAuth; på kundens konto en kontoägd läs-token per kund: Account Analytics Read, Workers Scripts Read, Workers Tail Read, Account Settings Read, zonens Analytics Read och DNS Read)",
+   "placering_motivering": "Officiell och aktiv (Apache-2.0, 962 ★, senaste commit 2026-10-13). Servern har inget eget läsläge, så det är token som begränsar. Därför gäller token före OAuth för agenter, och agenten får aldrig publicerings- eller DNS-token. IP-filtrerade tokens stöds inte. Kända fel: DNS Read via OAuth (ärende 202) och tidsgräns i execute (290). Används när någon undersöker; schemalagda kontroller är skript (guide 2-9). Behörighetstabellen står i drift/publicering.md. Johnny 2026-10-16: behåll (kl. 21.37). Byggsessionen behåller OAuth mot byråns konto, och andra varvets råd om läs-token hellre än OAuth gäller inte det kontot. En läs-token per kund står kvar för kundernas konton (BESLUT.md 2026-10-16 kl. 21.49, Ingen läs-token för byråns Cloudflarekonto). OAuth har rollen Super Administrator, så skrivande anrop kräver Johnnys ja per gång (kl. 21.44, Regler för MCP-servrar och verktyg).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/cloudflare-mcp.md"
   },
   {
@@ -2726,9 +2726,9 @@
    "roll": "Search Console för många sajter i en vy.",
    "flagga": "Prova en månad mot mcp-gsc och behåll en av dem.",
    "din_lank": false,
-   "beslut": "MCP: kräver konto (Google: OAuth-klient i ett Google Cloud-projekt och Nortropics konto som användare på varje kunds Search Console-egendom) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
-   "placering": "MCP: kräver konto (Google: OAuth-klient i ett Google Cloud-projekt och Nortropics konto som användare på varje kunds Search Console-egendom)",
-   "placering_motivering": "Ger en portföljvy över många egendomar (gsc_portfolio_summary). Men standardsamtycket begär skrivscopen webmasters och indexing, och verktygen för sitemap och indexering är på utan spärr. Bara webmasters.readonly får ges, i linje med läsrätten i guide 2-9. Projektet har tre bidragsgivare och 548 ★. Ärende 12 visar att ordräkningen bara klarar ASCII, vilket kan påverka svenska ⚠️. Prövas en månad mot mcp-gsc när första kunden har Search Console [N3]. mcp-gsc:s README kräver Full access för tjänstekontot.",
+   "beslut": "MCP: ta in (bara för att prova sajten efter publicering; inte för Search Console; aldrig mot den lokala förhandsvisningen) (Johnny 2026-10-16 kl. 21.37: \"ja, det blir bra\"; ersätter MCP: kräver konto från 17.40)",
+   "placering": "MCP: ta in (bara för att prova sajten efter publicering; inte för Search Console; aldrig mot den lokala förhandsvisningen)",
+   "placering_motivering": "Ger en portföljvy över många egendomar (gsc_portfolio_summary). Men samtycket i 0.9.3 begär alltid webmasters (skriv), indexing och analytics.readonly och avvisar en token utan dem (auth.py rad 23, clients/gsc.py och cli.py; ⚠️ läst i koden, inte prövat med en token). Att bara ge webmasters.readonly, i linje med läsrätten i guide 2-9, går alltså inte, och omfånget är bredare än mcp-gsc:s. Verktygen för sitemap och indexering är på utan spärr. Projektet har tre bidragsgivare och 548 ★. Ärende 12 (\"every non-Latin page is reported as render-blind and keyword-stuffed\") gäller svenska: provet 2026-10-16 flaggade \"och\". Prövas en månad mot mcp-gsc när första kunden har Search Console [N3]. mcp-gsc:s README kräver Full access för tjänstekontot. Johnny: behåll för röktestet efter publicering, till exempel redirect_chain_audit, check_canonical, mixed_content_check och sitemap_health (redirect_chain_audit flaggar inte 302 och 307), men inte för Search Console. Kör den aldrig mot den lokala förhandsvisningen, eftersom canonical och sitemap pekar på den riktiga domänen (BESLUT.md 2026-10-16 kl. 21.37, Domarna över MCP-servrarna efter översynen).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/avansaber-seo-monster.md"
   },
   {
@@ -3302,9 +3302,9 @@
    "roll": "Mozillas experimentella server (MPL-2.0, mdn/mcp, push 2026-10-14) har tre läsande verktyg: search, get-doc och get-compat (Browser Compatibility Data).",
    "flagga": "",
    "din_lank": false,
-   "beslut": "MCP: ta in (efter provet; med huvudet X-Moz-1st-Party-Data-Opt-Out: 1) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
-   "placering": "MCP: ta in (efter provet; med huvudet X-Moz-1st-Party-Data-Opt-Out: 1)",
-   "placering_motivering": "Mozillas experimentella server (MPL-2.0, mdn/mcp, push 2026-10-14) har tre läsande verktyg: search, get-doc och get-compat (Browser Compatibility Data). Den täcker påståenden om webbläsarstöd i guiden: lucka 4.4 (Popover), P47 (policy för webbläsarstöd) och P57 (scroll-drivna animationer). Den kräver inget konto. Mozilla sparar sökväg, BCD-nyckel och User-Agent (Glean); huvudet stänger av det. Provet: sex frågor med och utan servern, med web-features som facit. Lager 8 (även 4 och 6). (andra varvet 2026-10-16, mcp) Huvudet stänger av Glean, inte serverloggen, som skriver frågetexten och User-Agent; inga kunduppgifter i frågan (mdn/mcp logging/mixin.js, dfecbe7).",
+   "beslut": "släpp (Johnny 2026-10-16 kl. 21.37: \"ja, det blir bra\"; ersätter MCP: ta in från 17.40)",
+   "placering": "släpp",
+   "placering_motivering": "Mozillas experimentella server (MPL-2.0, mdn/mcp, push 2026-10-14) har tre läsande verktyg: search, get-doc och get-compat (Browser Compatibility Data). Den täcker påståenden om webbläsarstöd i guiden: lucka 4.4 (Popover), P47 (policy för webbläsarstöd) och P57 (scroll-drivna animationer). Den kräver inget konto. Mozilla sparar sökväg, BCD-nyckel och User-Agent (Glean); huvudet stänger av det. Provet: sex frågor med och utan servern, med web-features som facit. Lager 8 (även 4 och 6). (andra varvet 2026-10-16, mcp) Huvudet stänger av Glean, inte serverloggen, som skriver frågetexten och User-Agent; inga kunduppgifter i frågan (mdn/mcp logging/mixin.js, dfecbe7). Provet 2026-10-16: alla 42 statusrader i kvalitet/modern-html-css.md stämmer mot web-features 3.43.0. Status hämtas i stället ur web-features med ett skript, och servern är borttagen ur byggsessionen (BESLUT.md 2026-10-16 kl. 21.37, Domarna över MCP-servrarna efter översynen).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/mdn-mcp.md"
   },
   {
@@ -3318,9 +3318,9 @@
    "roll": "Officiella dokumentationsservrar utan konto: mcp.docs.astro.build (ett verktyg; frågan går via Netlify till kapa.ai; docs.astro.build saknar llms.txt) och docs.mcp.cloudflare.com (två verktyg, readOnlyHint).",
    "flagga": "",
    "din_lank": false,
-   "beslut": "MCP: ta in (efter provet; behåll bara den som slår WebFetch) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
-   "placering": "MCP: ta in (efter provet; behåll bara den som slår WebFetch)",
-   "placering_motivering": "Officiella dokumentationsservrar utan konto: mcp.docs.astro.build (ett verktyg; frågan går via Netlify till kapa.ai; docs.astro.build saknar llms.txt) och docs.mcp.cloudflare.com (två verktyg, readOnlyHint). De täcker stackens fakta för lager 8 och 9. Provet: fem frågor per server med facit. Kunduppgifter står aldrig i frågan. Verktygslistorna lästes 2026-10-16. (andra varvet 2026-10-16, mcp)",
+   "beslut": "Astro Docs: MCP: ta in; Cloudflare Docs: släpp (Johnny 2026-10-16 kl. 21.37: \"ja, det blir bra\"; ersätter MCP: ta in från 17.40)",
+   "placering": "Astro Docs: MCP: ta in; Cloudflare Docs: släpp",
+   "placering_motivering": "Officiella dokumentationsservrar utan konto: mcp.docs.astro.build (ett verktyg; frågan går via Netlify till kapa.ai; docs.astro.build saknar llms.txt) och docs.mcp.cloudflare.com (två verktyg, readOnlyHint). De täcker stackens fakta för lager 8 och 9. Provet: fem frågor per server med facit. Kunduppgifter står aldrig i frågan. Verktygslistorna lästes 2026-10-16. (andra varvet 2026-10-16, mcp) Provet 2026-10-16: indexet i Cloudflare Docs saknar sidan om D1 Time Travel, som driftskillen bygger på, och servern är borttagen ur byggsessionen. Astro Docs behålls (BESLUT.md 2026-10-16 kl. 21.37, Domarna över MCP-servrarna efter översynen).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/astro-docs-och-cloudflare-docs-mcp.md"
   },
   {
@@ -3334,9 +3334,9 @@
    "roll": "Korpusen omfattar web.dev, developer.chrome.com och developers.google.com, alltså Search Central och Business Profile (korpusreferensen, läst 2026-10-16).",
    "flagga": "",
    "din_lank": false,
-   "beslut": "MCP: kräver konto (Google Cloud-projekt och API-nyckel begränsad till Developer Knowledge API) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
-   "placering": "MCP: kräver konto (Google Cloud-projekt och API-nyckel begränsad till Developer Knowledge API)",
-   "placering_motivering": "Korpusen omfattar web.dev, developer.chrome.com och developers.google.com, alltså Search Central och Business Profile (korpusreferensen, läst 2026-10-16). Det är guidens viktigaste primärkällor för kompetenssäkring. Bara get_documents används som källa, inte answer_query. Pris och loggning anges inte ⚠️. Beslutet om inget Google-API gäller övningssajterna, inte dokumentation, men Johnny avgör. (andra varvet 2026-10-16, mcp)",
+   "beslut": "MCP: ta in (API-nyckel begränsad till Developer Knowledge API; bara search_documents och get_documents citeras, answer_query är härlett) (Johnny 2026-10-16 kl. 21.37: \"ja, det blir bra\"; ersätter MCP: kräver konto från 17.40)",
+   "placering": "MCP: ta in (API-nyckel begränsad till Developer Knowledge API; bara search_documents och get_documents citeras, answer_query är härlett)",
+   "placering_motivering": "Korpusen omfattar web.dev, developer.chrome.com och developers.google.com, alltså Search Central och Business Profile (korpusreferensen, läst 2026-10-16). Det är guidens viktigaste primärkällor för kompetenssäkring. Bara get_documents används som källa, inte answer_query. Pris och loggning anges inte ⚠️. Beslutet om inget Google-API gäller övningssajterna, inte dokumentation, men Johnny avgör. (andra varvet 2026-10-16, mcp) Nyckeln ligger i byggsessionens lokala konfiguration, utanför repot (BESLUT.md 2026-10-16, Nyckeln till Developer Knowledge som klistrades in i chatten behålls). I översynen 2026-10-16 var servern den enda kontrollen som hittade en flyttad sida som guiden citerar. Svar från answer_query är härledda, och nyckeln skickas i huvudet (BESLUT.md 2026-10-16 kl. 21.37, Domarna över MCP-servrarna efter översynen; kl. 21.44, Regler för MCP-servrar och verktyg).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/google-developer-knowledge-mcp.md"
   },
   {
@@ -3366,9 +3366,9 @@
    "roll": "shadcn-registrets index (443 register) har @tailark, @magicui, @aceternity och @react-bits men inte 21st. Indexet (462 register) har @tailark (Tailark Pro, kräver konto), @magicui, @aceternity och @react-bits men inte 21st. Tailarks öppna MIT-block ligger i @tailark-oss (https://oss.tailark.com/r/{name}.json), som inte finns i indexet.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "verktyg: ta in (CLI:n; MCP-delen behövs inte) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
-   "placering": "verktyg: ta in (CLI:n; MCP-delen behövs inte)",
-   "placering_motivering": "shadcn-registrets index (443 register) har @tailark, @magicui, @aceternity och @react-bits men inte 21st. Det är vägen till block ur ursprungsrepot som beslutet kl. 13.05 föreskriver, med tydlig licens och utan kvot eller kreditering. MCP-servern i shadcn 4.21.5 har sju verktyg, bland dem get_audit_checklist ('Make sure to run the tool after all required steps'), som kan konkurrera med kvalitetsskillen. Ingen telemetri hittades. Lager 4, biblioteksarbetet. (andra varvet 2026-10-16, mcp)",
+   "beslut": "verktyg: ta in (CLI:n) och MCP: ta in för att läsa (components.json utanför repot) (Johnny 2026-10-16 kl. 21.37: \"ja, det blir bra\"; ersätter verktyg: ta in från 17.40)",
+   "placering": "verktyg: ta in (CLI:n) och MCP: ta in för att läsa (components.json utanför repot)",
+   "placering_motivering": "shadcn-registrets index (443 register) har @tailark, @magicui, @aceternity och @react-bits men inte 21st. Det är vägen till block ur ursprungsrepot som beslutet kl. 13.05 föreskriver, med tydlig licens och utan kvot eller kreditering. MCP-servern i shadcn 4.21.5 har sju verktyg, bland dem get_audit_checklist ('Make sure to run the tool after all required steps'), som kan konkurrera med kvalitetsskillen. Ingen telemetri hittades. Lager 4, biblioteksarbetet. (andra varvet 2026-10-16, mcp) Översynen 2026-10-16: MCP-servern fungerar fullt ut mot en components.json utanför repot, och @tailark-oss är öppet medan bara @tailark är Pro. Servern startas i en katalog utanför repot där components.json bara har registries (@tailark-oss, @magicui), eftersom den läser konfigurationen ur arbetskatalogen. add körs aldrig mot tredje part (skelett/react-i-astro.md) (BESLUT.md 2026-10-16 kl. 21.37, Domarna över MCP-servrarna efter översynen).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/shadcn-cli-tailark-magicui.md"
   },
   {
@@ -3382,9 +3382,9 @@
    "roll": "Microsofts server (Apache-2.0, ingen telemetri) kör WebKit och Firefox med enhetsemulering och spelar in video med kapitel.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "MCP: ta in (efter provet; --isolated, lokala adresser) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
-   "placering": "MCP: ta in (efter provet; --isolated, lokala adresser)",
-   "placering_motivering": "Microsofts server (Apache-2.0, ingen telemetri) kör WebKit och Firefox med enhetsemulering och spelar in video med kapitel. Den låter en agent utforska sajten i motorer som chrome-devtools inte når (lucka 8.2 delvis, 6.3). Den ersätter inte riktiga telefoner eller kontrollskriptet. Provet: uppgifterna 'boka en tid' och 'hitta adressen och parkeringen' i WebKit med iPhone-emulering; nytta är ett fynd som kontrollskriptet och granskaren missade. README: 'not a security boundary'. (andra varvet 2026-10-16, mcp)",
+   "beslut": "MCP: ta in (WebKit med iPhone-profil, video och tester via --caps, utdata utanför repot) (Johnny 2026-10-16 kl. 21.37: \"ja, det blir bra\"; ersätter MCP: ta in från 17.40)",
+   "placering": "MCP: ta in (WebKit med iPhone-profil, video och tester via --caps, utdata utanför repot)",
+   "placering_motivering": "Microsofts server (Apache-2.0, ingen telemetri) kör WebKit och Firefox med enhetsemulering och spelar in video med kapitel. Den låter en agent utforska sajten i motorer som chrome-devtools inte når (lucka 8.2 delvis, 6.3). Den ersätter inte riktiga telefoner eller kontrollskriptet. Provet: uppgifterna 'boka en tid' och 'hitta adressen och parkeringen' i WebKit med iPhone-emulering; nytta är ett fynd som kontrollskriptet och granskaren missade. README: 'not a security boundary'. (andra varvet 2026-10-16, mcp) Efter provet och översynen 2026-10-16 körs servern med --browser webkit --device \"iPhone 15\" --caps=devtools,testing,config, --output-dir utanför repot och --no-webmcp. --device ensamt byter inte motor till WebKit (BESLUT.md 2026-10-16 kl. 21.37, Domarna över MCP-servrarna efter översynen; verktygslåset godtog den nya listan kl. 21.42).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/playwright-mcp.md"
   },
   {
