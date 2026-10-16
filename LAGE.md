@@ -22,7 +22,7 @@ Uppdaterad 2026-10-16 kl. 19.39 på Johnnys Mac, i den första byggsessionen (`c
   ```
   Nycklarna skaffas i Google Cloud (Maps Grounding Lite och Developer Knowledge API, var sin begränsad nyckel; Grounding Lite kräver fakturering), Google AI Studio (Gemini, betald nivå i EES) och BrowserStacks *Account Settings* (betald plan).
 - **Verktygslåset** (`python3 -I skript/mcp-verktygslas.py`, körs också i startsäkringen): 14 av 21 servrar är låsta, också Grounding Lite och Developer Knowledge, vars verktygslistor är öppna. Olåsta står på en egen rad med skälet: OAuth-servrarna (Figma, Cloudflare, 21st, DataForSEO), Mobbin (claude.ai-connector) och de som inte är tillagda. Nycklar läses ur byggsessionens konfiguration och skrivs aldrig ut. Kör det efter att nycklarna är inlagda; godta en ändring med `--uppdatera` först när Johnny har sett den.
-- Kör varje servers prov mot övningssajten enligt MCP-gruppens rapport, sparad lokalt i sajtens `andra-varvet/mcp-jamforelse.md` (*Per MCP*, *Nya kandidater*). Skriv resultatet per server i sajtens `mcp-prov.md`: vad som gjordes, vad det gav, och om servern behålls. Lägg fram det för Johnny.
+- **MCP-proven är körda** (2026-10-16 kväll, Johnny: *"Prova varje mot övningsajten"*). Resultatet per server och domarna, som är förslag, står i sajtens `mcp-prov.md`. Kort: behåll Chrome DevTools, Playwright (med WebKit, iPhone och utdata utanför repot), Astro Docs, Developer Knowledge, seo-monster (N3), Cloudflare (med läs-token) och Figma. Begränsa Inspo och 21st. Släpp MDN, Cloudflare Docs, Mobbin, Leonardo-MCP:n, shadcn-MCP:n och Motion. **Väntar på Johnny:** domarna och åtta punkter i slutet av `mcp-prov.md`, bland dem nortropic.se (HTTPS-tvång, TLS 1.0, HSTS, DNSSEC och CAA är av eller saknas) och bilderna från Mobbin i sessionens `tool-results/`.
 
 **2. Gör klart övningssajten.** Den är klar när allt nedan är gjort:
 - **Johnnys domar** som väntar: bilderna före och efter och videorna av sparsam och måttlig rörelse (skickade 2026-10-16); grupp B i sajtens `premiumpass.md` (28 fynd); raden *I dag* (C4); texten om skatt och friskvårdsbidrag; 404 för gamla adresser (`public/_redirects`); provsidorna för Varm och Djärv (G8, G9); och **frågelistan** `kunskap/research/2026-10-16_tredje-varvet-till-johnny.md`: 57 punkter i påverkansordning, där punkt 50 är avgjord (19.09). Andra varvets kvarvarande frågor står där (menyn i mobilen 2, smak i kiten 8, bevakningsloopen B1–B8 38).
@@ -40,7 +40,7 @@ Uppdaterad 2026-10-16 kl. 19.39 på Johnnys Mac, i den första byggsessionen (`c
 - **Verktygslåset** är rättat (se steg 1), och `bygg_n1.py` går med Macens python3.
 - **Skärmläsare:** VoiceOver på Macen med Guidepup prövades och valdes bort (Johnny 19.38, `BESLUT.md`); erfarenheterna står i `kunskap/kallkort/guidepup.md`. Hur skärmläsare prövas i stället är fråga 57.
 
-**Det som inte är gjort, så att ingen tror det:** inget är prövat på riktig iPhone, Android eller med skärmläsare (BrowserStack väntar på nyckeln; fråga 57). MCP-proven mot övningssajten är inte körda. Ingen skill är kortad: en andra uppgift per skill behövs först (fråga 51). Frågelistans 56 öppna punkter väntar på Johnny.
+**Det som inte är gjort, så att ingen tror det:** inget är prövat på riktig iPhone, Android eller med skärmläsare (BrowserStack väntar på nyckeln; fråga 57). MCP-proven är körda men domarna väntar på Johnny (`mcp-prov.md`). Ingen skill är kortad: en andra uppgift per skill behövs först (fråga 51). Frågelistans 56 öppna punkter väntar på Johnny.
 
 ## Kort
 
