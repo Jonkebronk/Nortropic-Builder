@@ -92,3 +92,4 @@ Körs i 375 och 1280 px, mot alla sidor och mot samtyckesrutan, 404-sidan och kv
 | `video.md` | Undertexter, KB-Whisper, whisper.cpp, FFmpeg |
 | `sprakgrind.md` | Vale, Hunspell sv_SE, LIX och mätningen före en hård regel |
 | `kallor.md` | Källorna med version och licens, luckor och förslag till Johnny |
+| `apple-hig.md` | Apples HIG för texten: *välj* i stället för *klicka*, *vi* i fel, inställningsetiketter, tomma lägen, inkluderande text och bilder, sidtitlar och foton från iPhone |

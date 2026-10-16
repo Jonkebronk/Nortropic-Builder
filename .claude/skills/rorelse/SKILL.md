@@ -96,6 +96,7 @@ Kör i 375 och 1280 px på startsidan, en tjänstesida och kontaktsidan. Skriv v
 | [granskning.md](granskning.md) | Hur rörelse granskas: grinden, standarderna, åtgärdsordningen och formen på fynden |
 | [ordlista.md](ordlista.md) | Svenska ord för rörelseeffekter, så att en referens kan beskrivas exakt |
 | [motion.md](motion.md) | Motion i React-öar och dess JavaScript-API: valordningen CSS, `animate()` och Motion för React, LazyMotion, reducerad rörelse och budget per nivå (ur `kunskap/research/2026-10-16_tailwind-och-motion-i-astro.md`) |
+| [apple-hig.md](apple-hig.md) | Apples HIG för rörelsen: rörelse som aldrig bär ensam, samma väg in och ut, inget som rör sig vid laddning, HIG:s lista för reducerad rörelse och vad som gäller för Emil Kowalskis `apple-design` |
 
 ## Källor
 
