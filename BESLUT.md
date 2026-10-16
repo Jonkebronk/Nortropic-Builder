@@ -1221,3 +1221,9 @@ Johnny frågade om byrån kan hjälpa en kund som vill ha något annat än stand
 - Varje branschgrupp och varje tillval övas på en övningssajt innan den första riktiga kunden. Övningsläget gäller som förut: verkliga lokala firmor som inte kontaktas, inget publiceras och allt om firman ligger i `sites/` (`guide/5-byggplan.md`, *Övningssajterna*).
 - Varje övningssajt lämnar en grund efter sig: branschprofilen i `bibliotek/branscher/` (`guide/2-2-omfattning.md`) och, för ett tillval, det som behövs för att bygga och förvalta det igen.
 - Ordningen och vilka tillval som övas föreslår Claude i `guide/5-byggplan.md`, och Johnny beslutar.
+
+Claude lade fram serien i `guide/5-byggplan.md` och frågade om ordningen och om Johnny har erfarenhet eller nätverk i någon bransch, som i så fall går först (`guide/4-foretaget.md`). Johnny, omkring 14.42:
+
+> jag godtar båda.
+
+**Innebär:** serien och ordningen gäller: klinik (klar), hantverk, restaurang, butik, konsult, skönhet och tjänst eller event, med tillvalen i tabellen. En bransch där Johnny har erfarenhet eller nätverk får gå först när han nämner den; ingen är nämnd, så ordningen gäller.

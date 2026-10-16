@@ -58,7 +58,7 @@ Börja nu – lång ledtid:
 
 - [N1] **Varje bransch och varje tillval övas innan den första kunden,** så att byrån har en grund och ett proof of concept (`BESLUT.md` 2026-10-16, *Övningssajter för varje bransch och varje tillval före den första kunden*). Varje övningssajt lämnar branschprofilen i `bibliotek/branscher/` (`2-2-omfattning.md`) och, för ett tillval, det som behövs för att bygga och förvalta det igen: delarna i biblioteket, kontrollen, lagkraven och vad förvaltningen omfattar. Före ett tillval läses dess lagkrav och leverantörens villkor.
 
-**Förslag till serien** (Claude 2026-10-16; Johnny beslutar ordningen och vilka tillval som övas). Branschgrupperna är måttstockens (`mattstock/mattstock.md`, *Branschen avgör vilken kontaktväg som räknas*). Nivån säger vem som bär den svåra delen: *tillval* byggs i samma teknik, *integration* betyder att en etablerad tjänst sköter betalning eller bokning och vi bygger allt runt den.
+**Serien** (Claudes förslag, godkänt av Johnny 2026-10-16 omkring 14.42: *"jag godtar båda."*). En bransch där Johnny har erfarenhet eller nätverk får gå först när han nämner den. Branschgrupperna är måttstockens (`mattstock/mattstock.md`, *Branschen avgör vilken kontaktväg som räknas*). Nivån säger vem som bär den svåra delen: *tillval* byggs i samma teknik, *integration* betyder att en etablerad tjänst sköter betalning eller bokning och vi bygger allt runt den.
 
 | | Branschgrupp | Tillval som övas | Nivå | Varför i den ordningen |
 |---|---|---|---|---|
