@@ -1044,3 +1044,17 @@ Johnny, omkring 10:24:
 > Det ser bra ut
 
 **Innebär:** regeln står i `guide/2-8-teknik-och-kvalitet.md`, *Samtycke och analys*. Om EU-domstolen ogiltigförklarar ramverket (överklagandet C-703/25 P) prövas frågan igen.
+
+## 2026-10-16: "Cookies", inte "kakor", på företagssajter
+
+**Status:** gäller.
+
+Johnny frågade omkring 11:30: *"Skriver man kakor kaka eller skriver svenska hemsidor cookies? alltså att det inte översätts."*
+
+Claude läste 40 svenska sajter. Alla nio myndigheter skriver "kakor", ibland "kakor (cookies)". 15 av 17 företag och alla fyra privata vårdgivare skriver "cookies". Språkrådet godtar "kaka" men råder att skriva "cookie" inom parentes (`kunskap/research/2026-10-16_lagkrav-pa-sajten.md`, sista tillägget). Claude rekommenderade "cookies" för företag och "kakor" för myndighetskunder.
+
+Johnny valde, omkring 11:38:
+
+> Cookies (Rekommenderas)
+
+**Innebär:** företagssajter skriver "cookies" i samtyckesrutan, sidfoten ("Integritet och cookies", "Cookieinställningar") och policyn. Regeln står i `guide/2-8-teknik-och-kvalitet.md`, *Samtycke och analys*.

@@ -201,7 +201,7 @@ lagg(6, 'Inga platshållare i bygget', 'Stopp', platshallare.length === 0, plats
 // 6b. Sidfoten (BESLUT.md 2026-10-16): länk till Integritet och kakor, och organisationsnumret när företaget är ett bolag.
 // En enskild firmas organisationsnummer är ägarens personnummer och visas inte.
 const k6b = [];
-for (const [falt, namn] of [['integritet', 'länk till Integritet och kakor']]) {
+for (const [falt, namn] of [['integritet', 'länk till integritetssidan']]) {
   const utan = sidor.filter((s) => !per[s][falt]); if (utan.length) k6b.push(`${namn} saknas på ${utan.length === sidor.length ? 'alla sidor' : utan.join(', ')}`);
 }
 const form = per[sidor[0]]?.form;
@@ -250,10 +250,10 @@ let harRuta = false;
     if ((await korda()).length) k6c.push('skript körda efter nej');
     if ((await kakor()).length) k6c.push(`kakor efter nej: ${(await kakor()).join(', ')}`);
     const installningar = p.locator('[data-samtycke-installningar]');
-    if (!(await installningar.count())) k6c.push('knappen Kakinställningar saknas');
+    if (!(await installningar.count())) k6c.push('knappen för cookieinställningar saknas');
     else {
       await installningar.first().click();
-      if (!(await p.locator('[data-samtycke-ruta]').isVisible())) k6c.push('Kakinställningar öppnar inte rutan');
+      if (!(await p.locator('[data-samtycke-ruta]').isVisible())) k6c.push('knappen för cookieinställningar öppnar inte rutan');
       else {
         await p.locator('[data-samtycke-svar="ja"]').click(); await p.waitForTimeout(300);
         jaPoster = poster.length - nejPoster;
@@ -263,7 +263,7 @@ let harRuta = false;
     }
     if (logg && jaPoster !== null && jaPoster !== 1) k6c.push(`loggen fick ${jaPoster} anrop för ett ja, väntat 1`);
     await p.goto(bas + '/integritet/', { waitUntil: 'networkidle' });
-    if (vilande && !(await p.locator('.kaklista').count())) k6c.push('kaklistan saknas på Integritet och kakor');
+    if (vilande && !(await p.locator('.kaklista').count())) k6c.push('kaklistan saknas på integritetssidan');
   }
   await b6.close();
 }

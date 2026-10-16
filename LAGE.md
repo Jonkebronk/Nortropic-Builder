@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-16 kl. 11.04 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-16 kl. 11.48 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Kort
 
@@ -113,11 +113,14 @@ Johnny tog in fem av förslagen till checklistan och lade till ett sjätte. `mal
    - Kontrollskriptet har sju nya underkontroller: 1b, 2c, 3b, 5b, 8b, 10b och 10c. Guiden (2-4, 2-8) och bilaga C är uppdaterade, och N1 har 92 punkter.
    - Johnny frågade om USA måste stå i samtyckesrutan. Svaret var nej, och han godkände den nya texten omkring 10.24 (`BESLUT.md`).
    - Kontroll 5b stoppar publicering tills patienten på behandlingsfotot har samtyckt, och det är avsiktligt.
+   - Omkring 11.38 valde Johnny ordet "cookies" i stället för "kakor" på företagssajter. I stickprovet skriver myndigheter "kakor" och företag "cookies" (`BESLUT.md`).
+   - Skatten på företagshälsa är skild från friskvårdsbidraget efter Johnnys fråga: friskvårdsbidraget gäller akupunktur men inte kiropraktik. Texten väntar på hans dom.
    - **Långsiktigt mål (Johnny 08.00):** kundportalen på Nortropics sajt, där kunden loggar in och ser sin statistik. N3 i `guide/2-9-drift-och-forvaltning.md`, och den byggs när den första betalande kunden har månadsrapporter. **Nästa:** genomgången efter sajten (`guide/5-byggplan.md`). Nästa mätning av granskaren görs på nya sajter och på systemets egna utkast.
 
 ## Väntar på Johnny
 
 - **Raden "I dag" i förstavyn** (C4) ska dömas: om första skärmen blir för trång.
+- **Texten om skatt och friskvårdsbidrag** på övningssajtens företagssida ska dömas.
 - **Omdirigeringarna:** 11 gamla adresser utan motsvarighet och WordPress-adresser får 404 i stället för att skickas till startsidan (sajtens `public/_redirects`, märkt förslag).
 - **Kartbilderna** ritas nu ur OpenStreetMap-data via Overpass i stället för ur rutor, eftersom OSM:s policy för rutor inte tillåter förbyggda bilder. För riktiga kunder behövs ett beslut om egen eller betald Overpass-server (`skript/karta.mjs`).
 - **Läsa sajtens `CLAUDE.md`** i `mallar/sajt/CLAUDE.md`. Claude skrev den med mandatet, och Johnny godkänner ändringar i `CLAUDE.md` (bilaga E 2.3).

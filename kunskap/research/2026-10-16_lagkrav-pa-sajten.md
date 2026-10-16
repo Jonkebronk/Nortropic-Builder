@@ -161,3 +161,42 @@ Enligt p. 65 ska andra personuppgiftsansvariga som förlitar sig på samtycket n
 **Praxis.** Svenska rutor skriver ofta *"vi och våra partners"* utan att nämna några partner, och några nämner USA i policyn som tredje land utan tillräckligt skydd. Det senare stämmer inte för certifierade mottagare sedan 2023. CNIL:s exempel på första lagret är en mening per ändamål med webbplatsen och "tredje parter" som subjekt, och listan över parter finns ett klick bort. Det är andrahandsuppgifter, eftersom CNIL:s egen text inte gick att läsa.
 
 **Den nya texten** följer p. 64–65 i en mening per sak: *"Kliniken vill använda kakor för statistik och annonser. Då får Google och Meta uppgifter om ditt besök. Du kan ändra dig när som helst under Kakinställningar längst ner."* Därtill länken *Läs mer om kakor*. Lagringstid, tredjepartskakor och USA står i kaklistan och på integritetssidan.
+
+## Tillägg 2026-10-16: "kakor" eller "cookies"
+
+Johnny frågade: *"Skriver man kakor kaka eller skriver svenska hemsidor cookies? alltså att det inte översätts."*
+
+**Språkvården.** Språkrådet godtar "kaka" som svensk ersättning för cookie i webbsammanhang. Rådet är att lägga till "cookie" inom parentes (📄 [Isof, Frågelådan](https://frageladan.isof.se/visasvar.py?svar=79951)). PTS skriver "Kakor (cookies)" (📄 [PTS](https://pts.se/internet-och-telefoni/kakor-cookies/)).
+
+**Praxis: stickprov 2026-10-16.** Claude läste startsidornas HTML med curl och räknade länktexter och ord i sidans text. Samtyckesverktyg som laddas med JavaScript syns inte. Av 40 sajter gick 37 att läsa:
+
+| Grupp | "kakor" | "cookies" |
+|---|---|---|
+| Myndigheter och kommuner (Försäkringskassan, 1177, Migrationsverket, IMY, PTS, Krisinformation, Polisen, Malmö stad; Skatteverket enligt sökträff) | 9 av 9, varav två "kakor (cookies)" | 0 |
+| Företag (bland annat IKEA, Apoteket, Apotea, Kry, Swedbank, SEB, Handelsbanken, Systembolaget, SVT, Aftonbladet, Blocket, Folksam och If) | 2 av 17: SEB och Systembolaget | 15 av 17 |
+| Privat vård (Capio, Aleris, Praktikertjänst, Doktor.se) | 0 | 4 av 4 |
+
+De vanliga samtyckesverktygen (Cookiebot, OneTrust, Usercentrics) skriver också "cookies". **Slutsats:** en patient på en privat kliniks sajt möter "cookies" nästan överallt, och "kakor" signalerar myndighet. Johnny valde "cookies" (`BESLUT.md` 2026-10-16).
+
+
+## Tillägg 2026-10-16: skatt vid företagshälsa och friskvårdsbidrag
+
+Johnny frågade: *"Det du skriver om skatt på företagshälsa eller väl kopplat mot friskvårdspengar som arbetstagare får av arbetsgivare? så det kanske ska formuleras annorlunda"*.
+
+Det handlar om två skilda regelverk. Båda är ⚖️ tolkningar, inte skatterådgivning.
+
+1. **Arbetsgivaren betalar behandlingen** (📄 [Skatteverket, Hälso- och sjukvård](https://www.skatteverket.se/foretag/arbetsgivare/lonochersattning/formaner/halsoochsjukvard.4.3016b5d91791bf54679186d.html), läst 2026-10-16):
+   - Fri hälso- och sjukvård är en skattepliktig förmån, med undantag.
+   - Förebyggande behandling och rehabilitering är skattefria. Förebyggande behandling ska hjälpa den anställda att fortsätta arbeta, och arbetsgivaren ska bedöma varje anställd och kunna visa behovet och syftet.
+2. **Friskvårdsbidraget** (📄 [Skatteverket, Personalvårdsförmån, motion och friskvård](https://www.skatteverket.se/foretag/arbetsgivare/lonochersattning/formaner/personalvardsformanmotionochfriskvard.4.3016b5d91791bf546791431.html), läst 2026-10-16):
+   - Bidraget är högst 5 000 kr per år, med samma belopp och villkor för alla.
+   - Det gäller bland annat *"behandlingar som är avstressande eller som syftar till att förebygga och motverka ömhet och stelhet (till exempel massage, akupunktur och örtbad)"*.
+   - *"Behandlingar som är hälsovård, sjukvård eller skönhetsvård omfattas inte."*
+   - Skatteverkets skrivelse från 2009-04-08, som numera ligger i arkivet, säger att kiropraktor- och naprapatbehandling av uppkomna besvär är hälso- och sjukvård. Enklare massage kan vara friskvård.
+   - Riksdagsmotioner om att låta friskvårdsbidraget gälla kiropraktik och naprapati har inte lett till någon ändring.
+
+**Praxis i branschen:**
+- Malmö Kiropraktorklinik svarar i sin FAQ att friskvårdsbidraget inte gäller kiropraktik men gäller massage.
+- Limbra tar emot friskvårdsbidrag för massage och förebyggande behandling via friskvårdsportalerna och skriver inget om skatt på sin företagssida.
+
+**Texten på övningssajten** skiljer på de två regelverken. Företagshälsans avsnitt heter *Skatt och friskvårdsbidrag* och länkar till båda Skatteverkets sidor. Kiropraktik och akupunktur har var sin fråga om friskvårdsbidraget.
