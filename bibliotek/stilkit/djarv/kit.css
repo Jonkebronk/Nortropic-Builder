@@ -38,7 +38,9 @@
   /* Lägre tak, så att rubriken inte lämnar ett ensamt "I" på datorn (Johnnys dom 2026-10-16 väntar). Sänkt igen 2026-10-17 från
      clamp(2.5rem, 1.3rem + 4.6vw, 5rem): med 0,05 em spärrning bröts "i Exempelstad" (hårt mellanslag) mitt i ordet i 360–375 och
      900–1920 px; med det här värdet bryts inget ord i 353–1920 px i Chromium och WebKit (Playwright mot provsidan). Döms på G9. */
-  --k-h1: clamp(2.25rem, 1rem + 4vw, 4.5rem);
+  /* Versaler med 0,05 em spärrning är breda: "och Trelleborg", bundet med hårt mellanslag, ska rymmas på en rad i förstavyns
+     spalt i 360–1920 px (mätt på övningssajtens provsida 2026-10-17). */
+  --k-h1: clamp(2rem, 1rem + 3.6vw, 4.1rem);
   --k-h2: clamp(1.9rem, 1.4rem + 2.4vw, 3.4rem);
   --k-h3: 1.25rem;
   --k-brod: 1.0625rem;

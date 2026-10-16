@@ -27,7 +27,7 @@
 
 **Det som fyller platsen när dekoren är borta** (förslag): skalan, med de stora versalrubrikerna, och färgytan i den mörka förstavyn.
 
-**Kräver av kunden** (förslag): foton med tydliga motiv som tål en mörk förstavy och en kontur, och korta namn och rubriker, eftersom versaler i 800 med spärrning tar plats (h1 upp till 4,5 rem).
+**Kräver av kunden** (förslag): foton med tydliga motiv som tål en mörk förstavy och en kontur, och korta namn och rubriker, eftersom versaler i 800 med spärrning tar plats (h1 upp till 4,1 rem).
 
 **Antimönster:**
 - Orange som yta, förstavy eller fotoram; rosa som bakgrund; färgade kort (Johnnys dom 2026-10-15; `BESLUT.md` 2026-10-16, G9).
@@ -70,7 +70,7 @@ Uppmätt med Playwright 2026-10-15. Ingen identitet, text eller bild är lånad.
 
 **Ändrat 2026-10-17** (`BESLUT.md` 2026-10-16, *Frågelistan efter tredje varvet avgörs*, punkt 18 a):
 - Versalrubrikerna har radhöjd 1,05 i stället för 1,0 och spärrning 0,05 em i stället för −0,005 em, enligt C53 och `yta/typografi.md` (1,02–1,08). Inget undantag från C53.
-- h1 är sänkt från `clamp(2.5rem, 1.3rem + 4.6vw, 5rem)` till `clamp(2.25rem, 1rem + 4vw, 4.5rem)`, så att inget ord på provsidan bryts mitt i ordet i 353–1920 px (Chromium och WebKit).
+- h1 är sänkt från `clamp(2.5rem, 1.3rem + 4.6vw, 5rem)` till `clamp(2.25rem, 1rem + 4vw, 4.5rem)`, så att inget ord på provsidan bryts mitt i ordet i 353–1920 px (Chromium och WebKit). Med övningssajtens *och Trelleborg* bröts ordet ändå i 1024–1920 px, så h1 är `clamp(2rem, 1rem + 3.6vw, 4.1rem)` (mätt i Chromium 2026-10-17 i 320–1920 px).
 - **Ändringarna döms av Johnny på provsidan (G9).**
 - `prefers-contrast: more` (punkt 22, ovan).
 
