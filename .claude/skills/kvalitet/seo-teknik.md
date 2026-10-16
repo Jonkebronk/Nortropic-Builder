@@ -29,7 +29,20 @@ Allvaret följer claude-seos skala översatt till vår (📄 [claude-seo](https:
 | Bilder | `<img>` med alt-text, inte CSS-bakgrund, för bilder som ska hittas. Beskrivande filnamn. | 📄 [Google Images](https://developers.google.com/search/docs/appearance/google-images) |
 | Rubriker och längd | Ingen magisk mängd rubriker eller ord, och ordningen spelar ingen roll för Google. En `h1` per sida är vår kodstandard (kontroll 7b). | 📄 [SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide) |
 
-**Tumregler blir varningar:** titel på 50–60 tecken, beskrivning på 150–160, nyckelord i adressen och de första hundra orden, och minsta antal ord. Ingen av dem stoppar (→ `guide/2-8-teknik-och-kvalitet.md`, N2).
+**Tumregler blir varningar:** titel på 50–60 tecken, beskrivning på 150–160, nyckelord i adressen och de första hundra orden, minsta antal ord, antal interna länkar per sida, alt-text på 10–125 tecken, storleksgränser per bildfil och att vänta 3–4 veckor efter en ändring. Ingen av dem har en Google-källa, och ingen stoppar (→ `guide/2-8-teknik-och-kvalitet.md`, N2). De står här så att de inte tas in igen ur en extern skill.
+
+## Rendering, sitemap och nya sidor
+
+- **Huvudet står i HTML:en från bygget, och inget skript ändrar det.** Titel, beskrivning, kanonisk adress, robots och JSON-LD skrivs vid bygget; en React-ö eller ett skript sätter dem aldrig. Skiljer sig originalet och den renderade sidan kan Google välja vilken som helst, och med `noindex` i originalet kan renderingen hoppas över. 📄 [Google, JavaScript SEO basics](https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics)
+- **Interna länkar går till den kanoniska formen:** https, samma värd och snedstreck på slutet, som i sitemapen. 📄 [Google, Consolidate duplicate URLs](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls)
+- **`lastmod` följer sidans eget innehåll.** Datumet flyttas när sidans huvudinnehåll, länkar eller strukturerade data ändras, inte när en gemensam fil ändras. Samma datum på alla sidor tyder på fel. robots.txt har en `Sitemap:`-rad med absolut adress. 📄 [Google, Build a sitemap](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap) (*"consistently and verifiably accurate"*)
+- **Fel i sitemapen vägs så:** en adress som inte svarar 200 eller har `noindex` är `hög`, en omdirigerad adress `medel`, samma `lastmod` överallt `låg`. `priority` och `changefreq` kräver ingen åtgärd. 📄 claude-seo, `seo-sitemap`; Google ovan
+- **Bakåtknappen fungerar alltid.** `pushState` och `replaceState` används bara efter något besökaren gjort, aldrig för att hålla kvar besökaren (Googles spampolicy om kapad bakåtknapp). 📄 [Google, spam policies](https://developers.google.com/search/docs/essentials/spam-policies)
+- **Varje HTML-fil är under 2 MB.** Googlebot läser de första 2 MB per adress; inlinad CSS och JSON-LD räknas med. 📄 [Search Central-bloggen 2026-03-31](https://developers.google.com/search/blog/2026/03/crawler-blog-post)
+- **Delningsbilden föreställer sidan.** Google avråder från en generisk bild som logotypen. En gemensam bild duger tills kunden har egna bilder. 📄 [Google Images](https://developers.google.com/search/docs/appearance/google-images)
+- **AI-ytorna kräver indexering, ett tillåtet utdrag och att sajten är med i Search Consoles kontroll för generativ AI** (standard *ta med*, för alla sajter sedan 2026-08-31). `nosnippet` och `max-snippet` används inte. 📄 [Google, AI optimization guide](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide); [Search Console Help](https://support.google.com/webmasters/answer/16908024)
+- **En ny sida** länkas från sina närmaste sidor med beskrivande text, har unik titel och beskrivning, en `h1` i linje med titeln, en självrefererande kanonisk adress och strukturerad data där typen stöds, står i sitemapen, har innehållet i HTML:en och leder till den primära handlingen. Efter publiceringen begärs indexering en gång. 📄 marketingskills, `rankings-push.md`; Google ovan
+- **Vid en ändring jämförs SEO-huvudet med förra godkända bygget** per sida: titel, kanonisk adress, robots, `h1`, JSON-LD och status. Försvunnen kanonisk adress, ny `noindex` och borttagen JSON-LD är regressioner (→ `kontroller.md`, *Vid ändring*). 📄 claude-seo, `seo-drift`
 
 ## Strukturerad data
 
@@ -51,7 +64,9 @@ Ur marketingskills och claude-seo, prövade mot Google (📄 marketingskills, se
 - Ort och tjänst i titel och `h1` där det är sant, en sida per kärntjänst och en klickbar `tel:`-länk (→ `guide/2-3-struktur.md`).
 - **Inget självpublicerat betyg.** claude-seo rekommenderar `aggregateRating` i `LocalBusiness`, och det strider mot Googles riktlinjer och guiden; den delen tas inte in.
 - Mät samtal och bokningar, inte bara placeringar (→ `guide/2-9-drift-och-forvaltning.md`).
+- **Lokala problem felsöks i ordning:** först en profil som är fel, dubblerad, overifierad eller avstängd, sedan kontaktfakta och länkar, sedan efterfrågan som sajten inte svarar på, sist förtroendet (omdömen, kataloger). Kartytan och de organiska träffarna hålls isär, och vi lovar ingen placering: kartytan bygger på relevans, avstånd och hur känt företaget är, och en sökning från kontoret bevisar inget. 📄 marketingskills, `local-seo.md`; [Google Business Profile, lokal ranking](https://support.google.com/business/answer/7091)
+- **Bytestestet och andelen gemensam text på platssidorna** är granskningskriterier med en källa (→ `struktur/platser.md`) och rapporteras, aldrig som stopp.
 
 ## Det som kontrollskriptet inte ser i dag
 
-Förslagen står i `kontroller.md`: kanonisk adress och Open Graph per sida, `lastmod` i sitemapen, JSON-LD mot vokabulären och faktabasen, och interna länkar och ankare.
+Förslagen står i `kontroller.md`: kanonisk adress och Open Graph per sida, interna länkar till den kanoniska formen, `lastmod` per sida, JSON-LD mot vokabulären och faktabasen, huvudet i byggd HTML, storleken per sida, och SEO-drift mellan byggen.

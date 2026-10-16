@@ -1,6 +1,6 @@
 ---
 name: kvalitet
-description: Säkrar och granskar en sajts tekniska kvalitet – tillgänglighet enligt WCAG 2.2 AA, prestanda och Core Web Vitals, säkerhetshuvuden och CSP, teknisk SEO och strukturerad data, modern HTML och CSS och JavaScript-kostnaden i React-öar – och säger vilka kontroller som ska köras och vad de inte ser; använd när en sajt ska kontrolleras före Johnnys dom eller före publicering, när kontrollskriptet ska byggas ut, när en sektion, komponent eller React-ö ska in i biblioteket, eller när någon frågar om axe, Lighthouse, INP, CLS, CSP, huvuden, JSON-LD, sitemap, tangentbordet eller skärmläsare.
+description: Säkrar och granskar en sajts tekniska kvalitet – tillgänglighet enligt WCAG 2.2 AA, formulär, prestanda och Core Web Vitals, säkerhetshuvuden och CSP, teknisk SEO och strukturerad data, modern HTML och CSS och JavaScript-kostnaden i React-öar – och stresstestar komponenter med långa namn, stor text, tomma fält och smala skärmar; använd när en sajt ska kontrolleras före Johnnys dom eller före publicering, när en ändring i biblioteket ska granskas, när kontrollskriptet ska byggas ut, när en sektion, komponent eller React-ö ska in i biblioteket, eller när någon frågar om axe, Lighthouse, INP, CLS, CSP, huvuden, JSON-LD, sitemap, tangentbordet, skärmläsare eller "vad händer med ett långt namn".
 ---
 
 # Kvalitet – teknik och kvalitet (lager 8)
@@ -43,6 +43,7 @@ Skillen gör också skillnaden mellan "0 fel i axe" och "tillgänglig" synlig. I
 
 - **En revision** med fynd per sida och element: vad, varför (källa), åtgärd med fil och rad, vad det ger besökaren och allvar (hög, medel, låg). Ett fynd mot ett kriterium med en källa får högst `medel` (`guide/bilaga-b-skills.md`).
 - **Täckningen:** vad som prövades automatiskt, halvautomatiskt och för hand, i vilka webbläsare och bredder, och vad som inte gick att pröva. Det som inte kunde prövas är "ej verifierat" och inget fynd (📄 Krehel, better-interface).
+- **Utlåtandet:** *stoppa* när något `hög` finns kvar, annars *godkänn*, och de övriga fynden står kvar som arbete. Ett godkännande gäller bara de områden som täckningen visar som granskade; ett område vars delfil eller ägande skill inte användes skrivs *inte granskat* med skälet (📄 Krehel, better-interface, `review-format.md`).
 - **Förslag på kontroller**, med grunden. En norm eller två oberoende primärkällor krävs för *stopp*, annars blir det *rapport* (`guide/README.md`, *Grind eller instruktion*).
 
 ## Principer
@@ -50,11 +51,32 @@ Skillen gör också skillnaden mellan "0 fel i axe" och "tillgänglig" synlig. I
 1. **Koden avgör där svaret är känt; omdömet går till Johnny.** Deterministiska kontroller körs utan tillsyn, och visuella och juridiska bedömningar går till honom (→ `guide/2-8-teknik-och-kvalitet.md`, *Hur självgående*).
 2. **Norm före tumregel.** WCAG, Googles Search Central, web.dev, MDN och OWASP bär regler. Titel på 50–60 tecken, 44 px och radlängd är varningar (📄 [Google, title links](https://developers.google.com/search/docs/appearance/title-link): ingen gräns).
 3. **Läs det automatiken lämnar.** axe:s `incomplete` är noder som inte gick att avgöra, och en grind på bara `violations` släpper igenom dem tyst (📄 [axe-core API](https://github.com/dequelabs/axe-core/blob/v4.14.0/doc/API.md)).
-4. **Pröva som besökaren.** Chromium och WebKit, 375 och 1280 px, tangentbord, menyn öppen och tillstånden efter interaktion, med och utan JavaScript (→ `tillganglighet.md`).
+4. **Pröva som besökaren.** Chromium och WebKit, 375 och 1280 px, tangentbord, menyn öppen och tillstånden efter interaktion, med och utan JavaScript, och med stor text och långa namn (→ `tillganglighet.md`, `prov.md`). Safari på iPhone har egna regler (→ `apple-hig.md`).
 5. **Mät brusiga värden rätt.** Uppvärmning och median (`BESLUT.md` 2026-10-16), en vilande maskin och en kalibrering för INP (→ `prestanda.md`).
 6. **Plattformen först.** Inbyggd HTML före ARIA, och ARIA före skript: *"No ARIA is better than Bad ARIA"* (📄 [W3C APG, Read Me First](https://www.w3.org/WAI/ARIA/apg/practices/read-me-first/)). Nya funktioner används efter Baseline-status med en reserv (→ `modern-html-css.md`).
 7. **JavaScript har ett pris som mäts per sida.** En ö hydreras bara där interaktionen kräver det, och kostnaden syns i TBT, INP och bytes (→ `prestanda.md`, *React-öar*; `BESLUT.md` 2026-10-16, *React, Tailwind och JavaScript tillåts*).
-8. **Bevis, inte intryck.** Varje fynd pekar på ett element och en fil, och ett påstående om rendering kräver att renderingen setts (📄 Krehel, better-interface).
+8. **Bevis, inte intryck.** Varje fynd pekar på ett element och en fil, och ett påstående om rendering kräver att renderingen setts; ett påstående om koden kräver koden. En skärmbild ensam bär inget kodfynd, och koden ensam bär inget renderingsfynd (📄 Krehel, better-interface).
+9. **Billigaste rättelsen först:** ta bort (ett ARIA-attribut som ett inbyggt element gör onödigt, en animation på något som används ofta), använd plattformen, återanvänd en befintlig token, rätta ett värde, och lägg till något nytt sist. Lägger koden till det som en borttagning hade löst är det i sig ett fynd (📄 Krehel, better-interface).
+10. **En rotorsak är ett fynd,** med alla platser i samma rad, och en rättelse i en token eller delad komponent går före samma symptom i ett löv. Högst 15 fynd; en kort granskning eller inga fynd är ett giltigt resultat (samma källa).
+11. **Projektets egna regler läses först** – guiden, `BESLUT.md`, kitets `design.md` – och avgör smak, men aldrig en utlösare eller ett WCAG-krav. Orsakas ett fynd av en regel eller en delad token rapporteras det en gång, mot källan (samma källa).
+
+## Utlösare som alltid är `hög`
+
+När den ägande delfilen bekräftat symptomet är det `hög`, oavsett hur liten ytan är (📄 Krehel, better-interface, *Escalation triggers*; varje rad vilar på WCAG 2.2 där numret står):
+
+- en kontroll utan namn i tillgänglighetsträdet (4.1.2)
+- en kontroll som får fokus men inte visar det (2.4.7)
+- något som nås med pekare men inte med tangentbord (2.1.1)
+- rörelse eller något som spelar av sig självt utan hänsyn till reducerad rörelse (2.2.2; → `guide/2-6-rorelse.md`)
+- innehåll eller en kontroll som klipps, överlappar eller inte nås i 320 px eller vid 200 % zoom (1.4.10, 1.4.4)
+- text vars uppmätta kontrast inte når kravet (1.4.3)
+- betydelse som bara bärs av färg (1.4.1)
+- avkortat innehåll utan väg till hela värdet
+- innehåll som bara nås bortom en scrollkant eller en utfällning utan synlig signal
+- ett fel som inte säger hur det rättas (3.3.3)
+- ett tillstånd som bara visas med rörelse, så att inget finns kvar när animationen inte körs
+
+Utlösarna rangordnas före alla andra fynd, och taket på 15 får aldrig vara skälet till att en utlösare inte rapporteras. Allvaret `hög` för andra fynd kräver ett numrerat kriterium på nivå A eller AA eller en uppgift som inte går att slutföra (→ `tillganglighet.md`, *Två varv och allvar*).
 
 ## Förbud
 
@@ -106,21 +128,33 @@ Varje punkt säger vad som ska vara sant. Hur det prövas, och med vilken källa
 
 **Modern HTML och CSS** (`modern-html-css.md`)
 
-16. Mönstren använder plattformens element (`popover`, `<details name>`, `<dialog>`, `inert`), och varje funktion som inte är *Widely available* har en reserv.
+16. Mönstren använder plattformens element (`popover`, `<details name>`, `<dialog>`, `inert`), och varje funktion som inte är *Widely available* har en reserv. Statusen är slagen i MDN och web-features, inte i en extern guide.
 
 **Biblioteket** (`prov.md`)
 
-17. En ny eller ändrad sektion har klarat provlistan med värsta data, 320 px, zoom, forced-colors och tangentbord.
+17. En ny eller ändrad sektion har klarat provlistan med värsta data, 320 px, zoom, 24 och 32 px grundstorlek, forced-colors och tangentbord.
+
+**Detaljer som besökaren märker** (Vercel, *Web Interface Guidelines*; delfilerna)
+
+18. Inga mönster ur *Mönster som alltid är fel* (`tillganglighet.md`) i källkoden eller den byggda HTML:en.
+19. Varje länk och knapp har synlig hover och tryck på dator, och inget hover-läge står kvar efter ett tryck på pekskärm (→ `yta/detaljer.md`, *Tillstånd*).
+20. Tal och enhet, telefonnummer och datum bryts inte isär (hårt mellanslag), och inga `...` eller raka citattecken står i löptext (→ `innehall/mikrotext.md`, `yta/typografi.md`).
+
+**Formulär** (`formular.md`), när sajten har ett
+
+21. Etiketter, tokens för autofyll, skicka-knappen aktiv, fel efter skick med sammanfattning och koppling, och statusbeskedet i en behållare som fanns före.
 
 ## Delfiler
 
 | Fil | Innehåll |
 |---|---|
-| `tillganglighet.md` | axe i två motorer, `incomplete`, kriterierna som kräver människa, tangentbord, namn, forced-colors, textavstånd, React-komponenter |
-| `prestanda.md` | Core Web Vitals, LCP, CLS, INP i labbet med kalibrering, mäthygien, bfcache, JavaScript-budget och hydrering |
-| `sakerhet.md` | Huvuden mot OWASP, strikt CSP i meta och huvud, csp-evaluators regler, Observatorys poäng, CSP för öar, Workerns svar mot ASVS |
-| `seo-teknik.md` | Prioritetsordningen, Googles regler, JSON-LD mot vokabulären och faktabasen, lokala kontroller, tumregler som varningar |
-| `modern-html-css.md` | Policy för webbläsarstöd, mönster med Baseline-status och reserv |
-| `prov.md` | Provlistan för sektioner och komponenter, ur break och break-ui |
+| `tillganglighet.md` | Två varv och allvar, axe i två motorer, `incomplete`, kriterierna som kräver människa, tangentbord och fokus, namn, statusbesked, träffytor, forced-colors, stor text, mönster som alltid är fel, React-komponenter |
+| `prestanda.md` | Core Web Vitals, LCP, CLS, INP i labbet med kalibrering, våra egna skript, video, mäthygien, bfcache, JavaScript-budget och hydrering |
+| `sakerhet.md` | Huvuden mot OWASP, strikt CSP i meta och huvud, csp-evaluators regler, Observatorys poäng, CSP för öar och tredjepartsskript (`'strict-dynamic'`), DOM-sänkor och Trusted Types, Workerns svar mot ASVS med Fetch Metadata |
+| `seo-teknik.md` | Prioritetsordningen, Googles regler, rendering, sitemap och nya sidor, JSON-LD mot vokabulären och faktabasen, lokala kontroller och felsökningsordning, tumregler som varningar |
+| `modern-html-css.md` | Policy för webbläsarstöd, mönster med Baseline-status och reserv, ordningsregler för CSS, avstavning och `translate` |
+| `apple-hig.md` | Apples HIG och WebKit för Safari på iPhone: vilka inställningar som når en webbsida, vad som prövas i Playwrights WebKit och vad som kräver en riktig iPhone |
+| `formular.md` | Fälten, skicka, fel och integritet i formulär, och hur de prövas |
+| `prov.md` | Provlistan för sektioner och komponenter, ur break och break-ui, med svenska värstafall och felsignaturer |
 | `kontroller.md` | Vad kontrollskriptet täcker och inte, förslagen på nya kontroller, verktygen och hur de körs, granskning vid ändring |
 | `kallor.md` | Källor, versioner och licenser |

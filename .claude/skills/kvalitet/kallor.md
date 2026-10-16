@@ -1,6 +1,6 @@
 # Källor
 
-Lästa 2026-10-16. Externa skills och verktyg är destillerade med egna ord; ingen text eller kod är kopierad. Källkorten med licens, underhåll och risker per post togs fram i premiumpasset 2026-10-16, och besluten per post står i inventeringen (`inventering/inventering.json`, fältet `beslut`).
+Lästa 2026-10-16, och i andra varvet samma dag jämförda regel för regel med originalen i webb-pro (commit 668b03c) och uppströms. Externa skills och verktyg är destillerade med egna ord; ingen text eller kod är kopierad. Källkorten med licens, underhåll och risker per post togs fram i premiumpasset 2026-10-16, och besluten per post står i inventeringen (`inventering/inventering.json`, fältet `beslut`).
 
 ## Normer och primärkällor
 
@@ -18,20 +18,27 @@ Lästa 2026-10-16. Externa skills och verktyg är destillerade med egna ord; ing
 | [WebAIM Million](https://webaim.org/projects/million/) | 2026 | Vad automatiken hittar |
 | [GDS, accessibility tool audit](https://alphagov.github.io/accessibility-tool-audit/); [GOV.UK, Testing with assistive technologies](https://www.gov.uk/service-manual/technology/testing-with-assistive-technologies) | 2018; underlaget från 2016 ⚠️ | Verktygens täckning, hjälpmedel |
 | [schema.org-vokabulären](https://schema.org/version/latest/schemaorg-current-https.jsonld) | hämtad 2026-10-16 | JSON-LD-kontrollen |
+| [WCAG-teknikerna ARIA21 och ARIA22](https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA22), [WAI-ARIA 1.2](https://www.w3.org/TR/wai-aria-1.2/), [APG, Names and Descriptions](https://www.w3.org/WAI/ARIA/apg/practices/names-and-descriptions/) | läst 2026-10-16 | Fel i formulär, statusbesked, namn |
+| [GOV.UK Design System](https://design-system.service.gov.uk/) (*Validation*, *Error message*, *Button*, *Select*) | läst 2026-10-16 | `formular.md` |
+| [W3C i18n, Personal names](https://www.w3.org/International/questions/qa-personal-names) | läst 2026-10-16 | Namnfält |
+| [MDN browser-compat-data](https://github.com/mdn/browser-compat-data) (`hyphens`, `Sec-Fetch-Site`) och web-features 3.43.0 i `skript/node_modules` | hämtad 2026-10-16 | Status i `modern-html-css.md` och `sakerhet.md` |
+| [OWASP CSRF Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html), [W3C Fetch Metadata](https://www.w3.org/TR/fetch-metadata/), [web.dev Strict CSP](https://web.dev/articles/strict-csp), [hstspreload.org](https://hstspreload.org/) | läst 2026-10-16 | `sakerhet.md` |
+| Google Search Central: [JavaScript SEO basics](https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics), [spam policies](https://developers.google.com/search/docs/essentials/spam-policies), [AI optimization guide](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide), [crawler-bloggen 2026-03-31](https://developers.google.com/search/blog/2026/03/crawler-blog-post) | läst 2026-10-16 | `seo-teknik.md`, *Rendering, sitemap och nya sidor* |
 | [Astro, client directives](https://docs.astro.build/en/reference/directives-reference/#client-directives) | läst 2026-10-16 | Hydrering av öar |
 
 ## Externa skills (destillerade, inte installerade)
 
 | Inventeringens namn | Källa | Licens | Hamnar i |
 |---|---|---|---|
-| better-accessibility | [jakubkrehel/skills](https://github.com/jakubkrehel/skills), `skills/better-accessibility`, commit 4c66b1f | MIT | `tillganglighet.md` |
-| better-interface | samma, `skills/better-interface` och syskonskillsen | MIT | Principerna (bevis, ej verifierat, billigaste fix), `tillganglighet.md` |
+| better-accessibility | [jakubkrehel/skills](https://github.com/jakubkrehel/skills), `skills/better-accessibility`, commit 4c66b1f (mappen oförändrad sedan 4650b9c, 2026-10-06; samma som webb-pros kopia) | MIT | `tillganglighet.md`, `formular.md` |
+| better-interface | samma, `skills/better-interface` och syskonskillsen (oförändrad sedan da5f6d5) | MIT | Principerna (bevis, billigaste rättelsen, en rotorsak, projektets regler), *Utlösare*, utlåtandet |
 | better-interface-review | samma, heter `interface-review` i repot | MIT | `kontroller.md`, *Vid ändring* |
 | better-break | samma, heter `break` i repot | MIT | `prov.md` |
-| emil-break-ui | [emilkowalski/skills](https://github.com/emilkowalski/skills), `skills/break-ui`, commit 2d22863 | MIT | `prov.md` |
-| modern-web-guidance | [GoogleChrome/modern-web-guidance](https://github.com/GoogleChrome/modern-web-guidance), v0.0.194, commit b31dc0a | Apache-2.0 (delar bygger på MDN, CC-BY-SA) | `modern-html-css.md`, `prestanda.md` |
-| marketingskills: seo-audit | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills), seo-audit v2.2.1 | MIT | `seo-teknik.md` |
-| claude-seo | [AgriciDaniel/claude-seo](https://github.com/AgriciDaniel/claude-seo), v2.4.2 | MIT | `seo-teknik.md` (skalan, sitemap, lokala kontroller utom betyg) |
+| emil-break-ui | [emilkowalski/skills](https://github.com/emilkowalski/skills), `skills/break-ui`, commit 2d22863 (mappen oförändrad sedan e8a175d) | MIT | `prov.md` |
+| modern-web-guidance | [GoogleChrome/modern-web-guidance](https://github.com/GoogleChrome/modern-web-guidance), v0.0.194, commit b31dc0a (senaste 2026-10-16; webb-pros kopia är v0.0.193). Alla 187 guider lästa i andra varvet | Apache-2.0 (delar bygger på MDN, CC-BY-SA) | `modern-html-css.md`, `prestanda.md`, `sakerhet.md`, `tillganglighet.md`, `formular.md` |
+| Vercel Web Interface Guidelines och `web-design-guidelines` | [vercel-labs/web-interface-guidelines](https://github.com/vercel-labs/web-interface-guidelines), commit 434b7f9 (2026-10-05), `README.md` och `command.md`; [vercel.com/design/guidelines](https://vercel.com/design/guidelines); skillen i [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) hämtar `command.md` vid varje körning | MIT | `tillganglighet.md` (*Mönster som alltid är fel*), `formular.md`, `prestanda.md` (*Video*), kontrollistan 18–20; ytdetaljerna står i `yta/` |
+| marketingskills: seo-audit | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills), seo-audit v2.2.1, commit 365b412 (oförändrad 2026-10-16) | MIT | `seo-teknik.md` |
+| claude-seo | [AgriciDaniel/claude-seo](https://github.com/AgriciDaniel/claude-seo), v2.4.2, commit 4b99de2 (oförändrad 2026-10-16) | MIT | `seo-teknik.md` (skalan, sitemapens allvar, rendering, drift, lokala kontroller utom betyg) |
 
 MIT och Apache-2.0 tillåter att vi bygger vidare. Kopieras väsentliga delar ska copyright- och licenstexten följa med; destillering med egna ord kopierar ingen text (tolkning, inte juridisk rådgivning).
 
@@ -57,3 +64,4 @@ MIT och Apache-2.0 tillåter att vi bygger vidare. Kopieras väsentliga delar sk
 - `kunskap/research/2026-10-15_kompetensluckor-anteckningar/lager-8-teknik-kvalitet.md` (kallas *lager-8-anteckningarna*): verktyg, trösklar och tillgänglighetstestning, läget 2026-10-13.
 - `kunskap/research/2026-10-16_seo-aeo-geo.md`: lokal SEO och AI-sökning.
 - Revisionen av övningssajten 2026-10-16: iakttagelserna om WebKit, bfcache, INP-brus, belastning och `bypassCSP` som står i delfilerna.
+- Andra varvet 2026-10-16: stresstestet med 24 och 32 px grundstorlek, långa företagsnamn och e-postadresser, tomma fält och antal, och granskningen med Vercels riktlinjer punkt för punkt. Iakttagelserna står i `prov.md`, `tillganglighet.md` och `modern-html-css.md`.

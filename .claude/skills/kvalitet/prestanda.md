@@ -18,6 +18,7 @@ Värdena gäller 75:e percentilen av verkliga besök, mobil och dator var för s
 ## LCP
 
 - LCP-resursen syns i HTML:en, inte bara i CSS eller skript. Den får `fetchpriority="high"`, och aldrig `loading="lazy"` (📄 [web.dev, Optimize LCP](https://web.dev/articles/optimize-lcp); [web.dev, Fetch Priority](https://web.dev/articles/fetch-priority)).
+- **En bild per sida och bredd får `fetchpriority="high"`,** och aldrig tillsammans med `loading="lazy"`. Fler höga prioriteter konkurrerar och tar bort vinsten. På övningssajtens ortssidor har kartan hög prioritet också i mobilen, där den ligger under första vyn; det är godtagbart men ingen vinst (iakttaget 2026-10-16). 📄 web.dev, Fetch Priority [tumregel]
 - Fördelningen ska ungefär vara 40 % TTFB, under 10 % laddningsfördröjning, 40 % laddning och under 10 % renderingsfördröjning. En lång fördröjning betyder att resursen upptäcks för sent (📄 samma).
 - **Lat laddning bara utanför första vyn, i varje bredd.** En bild som ligger i första vyn på datorn men under vikningen på mobilen laddas inte lat på datorn, eller får en egen variant (📄 [web.dev, Lazy loading](https://web.dev/articles/browser-level-image-lazy-loading)). Webbläsaren hämtar en lat bild först efter layout.
 - På en sida som börjar med text är LCP ofta rubriken eller ingressen. Då avgör typsnittet och stilmallen, inte bilden. Biblioteket lägger stilmallen i sidan och har reservtypsnitt med `size-adjust` (`BESLUT.md` 2026-10-16; iakttaget i revisionen).
@@ -35,10 +36,24 @@ Värdena gäller 75:e percentilen av verkliga besök, mobil och dator var för s
 - **Kalibrera.** I headless på en belastad maskin gav en tom sida med en knapp 150–190 ms INP, och sajtens interaktioner 70–200 ms med under 5 ms bearbetning (revisionen 2026-10-16). Presentationstiden var alltså brus från miljön. Ett INP-värde i labbet jämförs med en tom sida i samma körning och bedöms på fördröjning och bearbetning.
 - **CPU-strypning** finns bara i Chromium (`Emulation.setCPUThrottlingRate` via CDP). Lighthouse mobil stryper fyra gånger.
 
+## Våra egna skript
+
+Biblioteket har få skript, men varje ö och varje inline-skript följer detta (📄 [web.dev, Optimize long tasks](https://web.dev/articles/optimize-long-tasks); [web.dev, layout thrashing](https://web.dev/articles/avoid-large-complex-layouts-and-layout-thrashing); MWG, `performance/`) [tumregler]:
+
+- **Ett skript som arbetar längre än cirka 50 ms i följd lämnar över huvudtråden** med `scheduler.yield()` där den finns, annars med ett löfte runt `setTimeout(…, 0)` (Limited, så reserven krävs). Annars väntar ett klick på arbetet, och det syns som inmatningsfördröjning i INP.
+- **Alla mått läses först, stilarna skrivs sedan.** Mått som läses mellan skrivningar tvingar fram en ny layout varje gång. Storlek som ska följas, som samtyckesrutans höjd, följs med `ResizeObserver`.
+- **Lyssnare på `scroll`, `touchmove` och `wheel` är passiva och lätta;** tungt arbete väntar till `scrollend` (Newly 2025-12) eller en paus i scrollandet.
+- **`content-visibility: auto`** används bara på långa sidor, aldrig i första vyn och alltid med `contain-intrinsic-size: auto <mått>`. Tangentbordet prövas genom de dolda delarna efteråt.
+
+## Video
+
+En video har `width`, `height`, `poster` och `preload="none"` eller `metadata`, och WebM står före MP4. Autoplay bara ljudlöst, kort och inom rörelsebudgeten, aldrig vid `prefers-reduced-motion: reduce`, och med en pausknapp när den pågår längre än 5 s (→ `guide/2-6-rorelse.md`). En slinga är video, inte en animerad GIF. `loading="lazy"` på video finns bara i Chrome 150. 📄 [MDN, video](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/video); [web.dev, Replace GIFs with videos](https://web.dev/articles/replace-gifs-with-videos); Vercel, *Web Interface Guidelines*; WCAG 2.2, 2.2.2 [tumregel, norm för pausen]
+
 ## Mäthygien
 
 - **Uppvärmning och median** enligt beslutet. Lighthouse anger att medianen av fem körningar är dubbelt så stabil som en (📄 [Lighthouse, variability.md](https://github.com/GoogleChrome/lighthouse/blob/main/docs/variability.md)).
 - **En vilande maskin.** Samma dokument räknar lokal belastning till de största felkällorna. I revisionen gav en sida med 4 kB JavaScript TBT 595 ms när lastmedelvärdet var 15 på 8 kärnor. Prestandamätningen ska därför vänta, eller märkas osäker, när lasten (`uptime`) är högre än antalet kärnor. 🔧 Gränsen är vårt förslag.
+- **Komprimering i produktion** prövas i röktestet: HTML, CSS och JS svarar med `content-encoding`. Den lokala servern visar inte hur Cloudflare gör ⚠️. [tumregel]
 - **Poängen är en fördelning,** och ett enstaka brott ger en ny körning, inte en rättning (📄 [Chrome for Developers, Performance scoring](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring); → `guide/2-8-teknik-och-kvalitet.md`, *Hur självgående*).
 
 ## bfcache
@@ -57,6 +72,9 @@ React, Tailwind och Motion är tillåtna som öar i Astro, och krockar med Light
 - **Varje ö mäts för sig** när den tas in i biblioteket: bytes med gzip, TBT på en provsida, INP för dess interaktioner och axe efter hydrering (→ `prov.md`; `tillganglighet.md`, *React-komponenter*).
 - **Motion och scrollstyrd rörelse** körs på `transform` och `opacity`, så att layouten inte räknas om (📄 MWG, rörelseguiderna; → `guide/2-6-rorelse.md`).
 - Lighthouses granskningar `bootup-time`, `mainthread-work-breakdown` och `unused-javascript` visar vad öarna kostar.
+- **Budgeten står på två ställen och skiljer sig:** här 50 kB med gzip före första interaktion, i `skelett/react-i-astro.md` 75 kB komprimerat och 100 kB totalt. En siffra ska gälla; valet ligger hos Johnny (premiumpasset P39).
+- **Speculation rules** (Limited, bara Chromium) ersätter Astros `prefetch` bara med dokumentregler och måttlig `eagerness`, med `/api/` och tacksidan undantagna. Inline-regler kräver en hash eller `'inline-speculation-rules'` i CSP:n; huvudet `Speculation-Rules` med en JSON-fil undviker inline-skript. 📄 [MDN, Speculation-Rules](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Speculation-Rules) [tumregel]
+- ⚠️ **Förhämtning kan räknas som besök.** Övningssajten har `prefetchAll` vid hovring, och statistiken tas ur Cloudflares serverloggar. Om förhämtningar räknas som sidvisningar är inte prövat; det prövas innan månadsrapporten bygger på siffrorna.
 
 ## Tredje part
 
