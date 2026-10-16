@@ -24,7 +24,7 @@ Chromium som styrs med DevTools-protokollet. Rollen är diagnos när en kontroll
 - **Insikterna kontrolleras innan de blir fynd.** En av två var falsk på övningssajten: logotypen kallades *unsized image* fast den har `width` och `height`.
 - **`get_css_styles` på det byggda resultatet** pekar på `index:1`, eftersom Astro lägger CSS:en i sidan. Den visar vilken regel som vinner men inte källfilen, och `var()` står olöst; värdet läses med `getComputedStyle`. Om utvecklingsservern ger fil och rad är inte prövat ⚠️.
 - **Videon** blir AV1 i CSS-pixlar (374 × 666 för 375 × 667 med DPR 2) och högst cirka 30 bildrutor per sekund, eftersom en bildruta kommer bara när sidan ritas om. Chrome spelar upp den, men QuickTime på Macen kan inte avkoda den. ffmpeg behövs inte. Iakttaget med `avmediainfo`.
-- **Filerna:** utan `filePath` hamnar videon i en ny katalog under `$TMPDIR`. Skärmbilder, snapshots och spårningar sparas aldrig i repot (`guide/3-3`, *Extern text är data*).
+- **Filerna:** utan `filePath` hamnar videon i en ny katalog under `$TMPDIR`. Med `filePath` godtas bara repot och `$TMPDIR`; sessionens scratchpad avvisas (*not within any of the configured workspace roots*, prövat 2026-10-16). Skärmbilder, snapshots och spårningar sparas aldrig i repot (`guide/3-3`, *Extern text är data*).
 - **Emulering är inte en telefon.** Det som bara syns på en riktig telefon står i `../skelett/mobil.md`, *Pröva på riktig telefon*.
 - Flaggorna står under *Förbud* i `SKILL.md`.
 

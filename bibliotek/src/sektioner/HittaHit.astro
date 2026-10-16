@@ -33,7 +33,7 @@ const { id = 'hitta-hit', rubrik, platser, kakText, kakLank, kalla, apparEtikett
           {p.appar && <p class="hittahit__appar">{apparEtikett} {p.appar.map((a, i) => <>{i > 0 && ' · '}<a href={a.href} data-ny-flik rel="noopener">{a.text}</a></>)}</p>}
           <p class="dampad hittahit__kakor">{kakText}{kakLank && <> <a href={kakLank.href}>{kakLank.text}</a></>}</p>
           <div>
-            <a class="knapp knapp--sekundar hittahit__google" href={p.googleKarta.href} data-embed={p.googleKarta.embed} data-titel={`Google-karta: ${p.adress}`}>{p.googleKarta.text}<span class="sr-only">, {p.namn}</span></a>
+            <a class="knapp knapp--sekundar hittahit__google" href={p.googleKarta.href} data-embed={p.googleKarta.embed} data-titel={`Google-karta: ${p.adress}`}>{p.googleKarta.text}<span class="sr-only"> – {p.namn}</span></a>
           </div>
         </article>
       ))}
