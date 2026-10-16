@@ -44,7 +44,8 @@ p { margin: 0; text-wrap: pretty; }
 a { color: var(--k-accent-text); text-underline-offset: 0.18em; }
 /* Hover bara med mus eller styrplatta: på en pekskärm står hover-läget annars kvar efter trycket (Kowalski, mobile-native). */
 @media (hover: hover) and (pointer: fine) { a:hover { text-decoration-thickness: 2px; } }
-:focus-visible { outline: 3px solid var(--k-fokus); outline-offset: 3px; border-radius: 4px; }
+/* Fokusringen följer elementets egen radie; regeln sätter ingen egen (yta, detaljer.md). */
+:focus-visible { outline: 3px solid var(--k-fokus); outline-offset: 3px; }
 [data-yta="mork"] :focus-visible { outline-color: var(--k-fokus-pa-mork); }
 
 .behallare { width: min(100% - 2 * var(--k-a5), var(--k-max)); margin-inline: auto; }

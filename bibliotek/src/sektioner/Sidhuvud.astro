@@ -150,6 +150,9 @@ const aktuell = (l: Lank) => (l.href === sida ? 'page' : l.delar?.includes(sida)
   .meny__lankar { list-style: none; margin: 0; padding: 0; display: grid; }
   .meny__lankar a { display: flex; align-items: center; min-height: 52px; color: var(--k-text); text-decoration: none; font-size: var(--k-storre); font-weight: 400; border-bottom: 1px solid var(--k-linje); }
   .meny__lankar a[aria-current] { color: var(--k-accent-text); font-weight: 600; }
+  /* Tryckkvittens på sidhuvudets och menyns tryckytor, samma färgsteg som knapp-ton (rörelseskillen, kontrollpunkt 5). */
+  .sidhuvud__menyknapp:active, .sidhuvud__ring:active, .meny__stang:active, .meny__lankar a:active { background: color-mix(in srgb, currentColor 14%, transparent); }
+  .sidhuvud__ring:active { border-radius: var(--k-radie-knapp); }
   .meny__knappar { display: grid; gap: var(--k-a3); margin-top: auto; }
 
   /* Under 360 px: tätare sidhuvud så att namnet får plats. */
