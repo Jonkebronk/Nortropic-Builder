@@ -1,38 +1,41 @@
 ---
 // Personen bakom verksamheten: bild, ett citat i egna ord och några belägg (TextBild i guide/2-4-skelett.md).
 import Bildruta from '../komponenter/Bildruta.astro';
+import Uppmaning from '../komponenter/Uppmaning.astro';
 import type { StartInnehall } from '../innehall/typ';
 // prioritet: fotot är sidans största element i första vyn, som på en sida om personen; det hämtas då direkt och först.
 interface Props { innehall: StartInnehall; prioritet?: boolean; }
 const { person } = Astro.props.innehall;
 const prioritet = Astro.props.prioritet ?? false;
 // Fotot visas högst i halva originalets bredd, så att det är skarpt på skärmar med dubbel upplösning.
-// Ett litet original blir då en mindre bild i stället för en uppförstorad och suddig.
-const maxBredd = person.bild && typeof person.bild.src !== 'string' ? Math.min(384, Math.round(person.bild.src.width / 2)) : 384;
+// Ett litet original blir då en mindre bild i stället för en uppförstorad och suddig. Bredden kommer ur bildens
+// width-attribut, så att sidan inte behöver något style-attribut (CSP utan 'unsafe-inline').
+const bredd = person.bild && typeof person.bild.src !== 'string' ? Math.min(384, Math.round(person.bild.src.width / 2)) : 384;
 ---
-<section class="sektion person" id={person.id} aria-labelledby="person-rubrik">
+<section class="sektion person" id={person.id} data-yta="bg">
   <div class="behallare person__rutnat">
-    <div class="person__bild" style={`--person-max: ${maxBredd}px`}>
-      <Bildruta bild={person.bild} bredd={360} klass="person__foto" laddning={prioritet ? 'eager' : 'lazy'} prioritet={prioritet} />
+    <div class="person__bild">
+      <Bildruta bild={person.bild} bredd={bredd} klass="person__foto" laddning={prioritet ? 'eager' : 'lazy'} prioritet={prioritet} />
     </div>
     <div class="person__text">
       <p class="overrad">{person.overrad}</p>
-      <h2 id="person-rubrik">{person.rubrik}</h2>
-      <blockquote class="person__citat"><p>{person.citat}</p></blockquote>
+      <h2>{person.rubrik}</h2>
+      <blockquote class="citat"><p>{person.citat}</p></blockquote>
       {person.text.map((t) => <p>{t}</p>)}
       <ul class="person__fakta">{person.fakta.map((f) => <li>{f}</li>)}</ul>
-      <a href={person.lank.href} class="person__lank">{person.lank.text}</a>
+      <Uppmaning href={person.lank.href} text={person.lank.text} />
     </div>
   </div>
 </section>
 
 <style>
   .person__rutnat { display: grid; gap: var(--k-a6); align-items: center; }
-  .person__bild { background: var(--k-yta); border-radius: var(--k-radie-kort); overflow: hidden; max-width: var(--person-max, 24rem); justify-self: center; width: 100%; }
-  .person__bild :global(.person__foto) { width: 100%; height: auto; mix-blend-mode: multiply; }
-  .person__text { display: grid; gap: var(--k-a4); max-width: 40rem; }
-  .person__citat { margin: 0; padding-left: var(--k-a4); border-left: 3px solid var(--k-accent); font-family: var(--k-font-rubrik); font-size: 1.3rem; line-height: 1.35; }
+  /* Fotot ligger vid behållarens vänsterkant som texten, med lite luft ovanför huvudet (kvalitetsgranskningen 2026-10-16, D17). */
+  .person__bild { background: var(--k-yta); border-radius: var(--k-radie-kort); overflow: hidden; justify-self: start; width: fit-content; max-width: 100%; padding-top: var(--k-a4); }
+  /* Bredden kommer ur bildens width-attribut, så att platsen är reserverad innan bilden har laddats (ingen layoutförskjutning). */
+  .person__bild :global(.person__foto) { max-width: 100%; height: auto; mix-blend-mode: multiply; }
+  .person__text { display: grid; gap: var(--k-a4); max-width: 40rem; justify-items: start; }
+  .person__text > p:not(.overrad) { max-width: var(--k-matt); }
   .person__fakta { margin: 0 0 var(--k-a3); padding-left: 1.2rem; display: grid; gap: var(--k-a1); color: var(--k-dampad); }
-  .person__lank { font-weight: 600; }
-  @media (min-width: 56rem) { .person__rutnat { grid-template-columns: 0.8fr 1.2fr; gap: var(--k-a7); } }
+  @media (min-width: 56rem) { .person__rutnat { grid-template-columns: auto 1fr; gap: var(--k-a7); } }
 </style>

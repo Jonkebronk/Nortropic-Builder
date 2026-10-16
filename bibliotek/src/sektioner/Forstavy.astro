@@ -4,27 +4,38 @@
 import Knapp from '../komponenter/Knapp.astro';
 import Bildruta from '../komponenter/Bildruta.astro';
 import Ikon from '../komponenter/Ikon.astro';
+import { idag } from '../komponenter/inlineskript.mjs';
 import type { StartInnehall } from '../innehall/typ';
 interface Props { innehall: StartInnehall; }
-const { forstavy, boka, ring, fortroende } = Astro.props.innehall;
+const { forstavy, boka, ring, fortroende, praktiskt } = Astro.props.innehall;
+const schema = forstavy.idag && JSON.stringify(praktiskt.platser.flatMap((p) => p.dagar.filter((d) => d.nr !== undefined).map((d) => [d.nr, d.dag.toLowerCase(), p.namn, d.tid])));
 ---
-<section class="forstavy" aria-labelledby="forstavy-rubrik">
+<section class="forstavy">
   <div class="behallare forstavy__rutnat">
     <div class="forstavy__text">
       <p class="overrad">{forstavy.overrad}</p>
-      <h1 id="forstavy-rubrik">{forstavy.rubrik}</h1>
+      <h1>{forstavy.rubrik}</h1>
       <p class="forstavy__ingress">{forstavy.ingress}</p>
+      {forstavy.idag && (
+        <>
+          <p class="forstavy__idag" data-forstavy-idag data-schema={schema} data-text={forstavy.idag.text} data-stangt={forstavy.idag.stangt} hidden></p>
+          <script is:inline set:html={idag} />
+        </>
+      )}
       <div class="forstavy__knappar">
         <Knapp href={boka.href} text={boka.text} ikon="kalender" />
         <Knapp href={ring.href} text={ring.text} variant="sekundar" ikon="telefon" />
       </div>
+      {/* Betyget länkar till omdömena, där källan, datumet och raden om kontrollen står (12 c § MFL; kvalitetsgranskningen 2026-10-16, J13). */}
       {forstavy.visaBetyg && (
-        <p class="forstavy__betyg"><Ikon namn="stjarna" /><span><strong>{fortroende.betyg.varde}</strong> {fortroende.betyg.skala} · {fortroende.betyg.antal}</span></p>
+        <p class="forstavy__betyg"><Ikon namn="stjarna" />{fortroende.id
+          ? <a href={`#${fortroende.id}`}><strong>{fortroende.betyg.varde}</strong>{' '}{fortroende.betyg.skala} · {fortroende.betyg.antal}</a>
+          : <span><strong>{fortroende.betyg.varde}</strong>{' '}{fortroende.betyg.skala} · {fortroende.betyg.antal}</span>}</p>
       )}
     </div>
     <div class="forstavy__bild">
       <div class="forstavy__bildyta">
-        <Bildruta bild={forstavy.bild} bredd={340} klass="forstavy__foto" laddning="eager" prioritet />
+        <Bildruta bild={forstavy.bild} bredd={240} storlek="(max-width: 40rem) min(58vw, 213px), 240px" klass="forstavy__foto" laddning="eager" prioritet />
       </div>
       {forstavy.markering && <p class="markering">{forstavy.markering}</p>}
     </div>
@@ -36,10 +47,11 @@ const { forstavy, boka, ring, fortroende } = Astro.props.innehall;
   .forstavy__rutnat { display: grid; gap: var(--k-a6); align-items: center; }
   .forstavy__text { display: grid; gap: var(--k-a4); }
   .forstavy__text .overrad { color: inherit; opacity: 0.9; }
-  .forstavy__ingress { font-size: 1.125rem; max-width: 34rem; }
+  .forstavy__ingress { font-size: 1.125rem; max-width: var(--k-matt); }
+  .forstavy__idag { font-weight: 600; font-variant-numeric: tabular-nums; }
   .forstavy__knappar { display: flex; flex-wrap: wrap; gap: var(--k-a3); margin-top: var(--k-a2); }
   .forstavy__knappar :global(.knapp--sekundar) { color: inherit; }
-  .forstavy__bild { position: relative; justify-self: center; width: min(100%, 22rem); }
+  .forstavy__bild { position: relative; justify-self: center; }
   .forstavy__bildyta { display: grid; place-items: end center; overflow: hidden; padding-top: var(--k-a5); aspect-ratio: 4 / 5; }
   /* Fotot får aldrig bli högre än ytan. Ett frilagt foto slutar ofta mitt i något, som en hand eller en modell, och tonas
      därför ut mot underkanten i stället för att få ett hårt snitt (Johnnys anteckning 2026-10-15 och 2026-10-16). */
@@ -48,18 +60,23 @@ const { forstavy, boka, ring, fortroende } = Astro.props.innehall;
     -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent 100%);
     mask-image: linear-gradient(to bottom, #000 80%, transparent 100%);
   }
-  .forstavy__betyg { display: flex; align-items: center; gap: var(--k-a2); font-size: 0.95rem; }
-  .forstavy__betyg :global(svg) { width: 1.1rem; height: 1.1rem; fill: currentColor; color: var(--k-accent-text); flex: none; }
-  .forstavy__bild .markering { position: absolute; right: -0.25rem; bottom: 1.25rem; margin: 0; }
+  .forstavy__betyg { display: flex; align-items: center; gap: var(--k-a2); font-size: var(--k-mindre); }
+  /* Länken är en vanlig textrad: med inline-flex försvann mellanslaget efter betyget. Radhöjden ger minst 24 px att träffa. */
+  .forstavy__betyg a { color: inherit; }
+  .forstavy__betyg :global(svg) { width: var(--k-ikon-text); height: var(--k-ikon-text); fill: currentColor; color: var(--k-accent-text); flex: none; }
+  /* Märkningen ligger under fotot i stället för att skära in i det (Johnnys dom 2026-10-15), på alla bredder: på surfplattan
+     hamnade den annars över personens hand (kvalitetsgranskningen 2026-10-16, D12). På datorn står den under bildytans högra hörn. */
+  .forstavy__bild .markering { width: fit-content; margin: var(--k-a3) auto 0; }
+  /* Fotot visas högst så stort att det förstoras cirka 1,4 gånger på en skärm med dubbel upplösning (D7). Det fyller 74 % av
+     ytan, så ytan är högst 20rem tills kunden har ett större original (Kundens lyft). */
+  .forstavy__bild { width: min(100%, 20rem); }
   @media (max-width: 40rem) {
     .forstavy__knappar :global(.knapp) { flex: 1 1 100%; }
     .forstavy__bild { width: min(78%, 18rem); }
-    /* På mobilen ligger märkningen under fotot i stället för att skära in i det (Johnnys dom 2026-10-15). */
-    .forstavy__bild .markering { position: static; width: fit-content; margin: var(--k-a3) auto 0; }
   }
   @media (min-width: 56rem) {
     .forstavy { padding-top: var(--k-a7); }
     .forstavy__rutnat { grid-template-columns: 1.25fr 1fr; gap: var(--k-a7); }
-    .forstavy__bild { width: min(100%, 24rem); }
+    .forstavy__bild .markering { margin-right: 0; }
   }
 </style>

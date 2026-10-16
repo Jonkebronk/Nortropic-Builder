@@ -1,15 +1,18 @@
 ---
 // Vanliga frågor som utfällbara <details name>, utan JavaScript (guide/2-4-skelett.md, primitiverna).
-interface Props { rubrik: string; fragor: { fraga: string; svar: string }[]; }
-const { rubrik, fragor } = Astro.props;
+// Spalten börjar vid behållarens vänsterkant som de andra sektionerna, och svaret börjar under frågans text.
+// Webbläsarens triangel byts mot Lucides chevron, så att alla ikoner har samma stil (kvalitetsgranskningen 2026-10-16, D3 och D21).
+import Ikon from '../komponenter/Ikon.astro';
+interface Props { rubrik: string; fragor: { fraga: string; svar: string }[]; id?: string; }
+const { rubrik, fragor, id = 'fragor' } = Astro.props;
 ---
-<section class="sektion fragor" aria-labelledby="fragor-rubrik">
+<section class="sektion fragor" id={id} aria-labelledby={`${id}-rubrik`} data-yta="bg">
   <div class="behallare fragor__inre">
-    <h2 id="fragor-rubrik">{rubrik}</h2>
+    <h2 id={`${id}-rubrik`}>{rubrik}</h2>
     <div class="fragor__lista">
       {fragor.map((f) => (
         <details name="fragor" class="fragor__post">
-          <summary>{f.fraga}</summary>
+          <summary><span>{f.fraga}</span><Ikon namn="chevron" /></summary>
           <p>{f.svar}</p>
         </details>
       ))}
@@ -18,9 +21,16 @@ const { rubrik, fragor } = Astro.props;
 </section>
 
 <style>
-  .fragor__inre { display: grid; gap: var(--k-a5); max-width: 46rem; margin-inline: auto; }
+  .fragor__inre { display: grid; gap: var(--k-a5); }
+  .fragor__inre > * { max-width: 46rem; }
   .fragor__lista { display: grid; gap: var(--k-a2); }
-  .fragor__post { background: var(--k-yta); border-radius: var(--k-radie-kort); border: 1px solid var(--k-linje); }
-  .fragor__post summary { cursor: pointer; padding: var(--k-a4) var(--k-a5); font-weight: 600; min-height: 48px; list-style-position: inside; }
-  .fragor__post p { padding: 0 var(--k-a5) var(--k-a4); }
+  .fragor__post { background: var(--k-yta); border-radius: var(--k-radie-kort); }
+  .fragor__post summary {
+    display: flex; justify-content: space-between; align-items: center; gap: var(--k-a4);
+    cursor: pointer; padding: var(--k-a4) var(--k-a5); font-weight: 600; min-height: 48px; list-style: none;
+  }
+  .fragor__post summary::-webkit-details-marker { display: none; }
+  .fragor__post summary :global(svg) { width: var(--k-ikon-text); height: var(--k-ikon-text); flex: none; transition: transform var(--k-tid) var(--k-kurva); }
+  .fragor__post[open] summary :global(svg) { transform: rotate(180deg); }
+  .fragor__post p { padding: 0 var(--k-a5) var(--k-a4); max-width: calc(var(--k-matt) + 2 * var(--k-a5)); }
 </style>

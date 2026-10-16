@@ -1,34 +1,60 @@
 ---
 // Sidtoppen på en undersida: sidans enda h1, en kort ingress och kontaktvägen (guide/2-3-struktur.md).
+// faktakort: på datorn ett litet kort till höger med det besökaren behöver för att boka, till exempel dagar och pris
+// (Johnny 2026-10-16, kvalitetsgranskningen C5). På mobilen står samma uppgifter i sidfoten, så kortet visas bara från 56rem.
 import Knapp from '../komponenter/Knapp.astro';
+import Uppmaning from '../komponenter/Uppmaning.astro';
 import type { IkonNamn } from '../komponenter/Ikon.astro';
 import type { Lank } from '../innehall/typ';
+export interface Faktakort { rubrik: string; rader: { etikett: string; text: string }[]; lank?: Lank; }
 // boka är den primära knappen och ring den sekundära; ikonerna kan bytas, t.ex. ring och mejla på en företagssida.
-interface Props { overrad?: string; rubrik: string; ingress: string; boka?: Lank; ring?: Lank; lank?: Lank; primarIkon?: IkonNamn; sekundarIkon?: IkonNamn; }
-const { overrad, rubrik, ingress, boka, ring, lank, primarIkon = 'kalender', sekundarIkon = 'telefon' } = Astro.props;
+// not: en kort rad under knapparna, t.ex. vad man väljer i bokningen.
+interface Props { overrad?: string; rubrik: string; ingress: string; boka?: Lank; ring?: Lank; not?: string; lank?: Lank; primarIkon?: IkonNamn; sekundarIkon?: IkonNamn; faktakort?: Faktakort; }
+const { overrad, rubrik, ingress, boka, ring, not, lank, primarIkon = 'kalender', sekundarIkon = 'telefon', faktakort } = Astro.props;
 ---
-<section class="sidtopp" aria-labelledby="sidtopp-rubrik">
-  <div class="behallare sidtopp__text">
-    {overrad && <p class="overrad">{overrad}</p>}
-    <h1 id="sidtopp-rubrik">{rubrik}</h1>
-    <p class="sidtopp__ingress">{ingress}</p>
-    {(boka || ring) && (
-      <div class="sidtopp__knappar">
-        {boka && <Knapp href={boka.href} text={boka.text} ikon={primarIkon} />}
-        {ring && <Knapp href={ring.href} text={ring.text} variant="sekundar" ikon={sekundarIkon} />}
+<section class="sidtopp">
+  <div class="behallare sidtopp__rutnat">
+    <div class="sidtopp__text">
+      {overrad && <p class="overrad">{overrad}</p>}
+      <h1>{rubrik}</h1>
+      <p class="sidtopp__ingress">{ingress}</p>
+      {(boka || ring) && (
+        <div class="sidtopp__knappar">
+          {boka && <Knapp href={boka.href} text={boka.text} ikon={primarIkon} />}
+          {ring && <Knapp href={ring.href} text={ring.text} variant="sekundar" ikon={sekundarIkon} />}
+        </div>
+      )}
+      {not && <p class="dampad sidtopp__not">{not}</p>}
+      {lank && <div><Uppmaning href={lank.href} text={lank.text} /></div>}
+    </div>
+    {faktakort && (
+      <div class="kort sidtopp__fakta">
+        <h2 class="sidtopp__faktarubrik">{faktakort.rubrik}</h2>
+        <dl>{faktakort.rader.map((r) => <div><dt>{r.etikett}</dt><dd>{r.text}</dd></div>)}</dl>
+        {faktakort.lank && <Uppmaning href={faktakort.lank.href} text={faktakort.lank.text} />}
       </div>
     )}
-    {lank && <p><a class="sidtopp__lank" href={lank.href}>{lank.text}</a></p>}
   </div>
 </section>
 
 <style>
   .sidtopp { padding-block: var(--k-a6) var(--k-a6); }
+  .sidtopp__rutnat { display: grid; gap: var(--k-a6); align-items: start; }
   .sidtopp__text { display: grid; gap: var(--k-a4); }
   .sidtopp h1 { font-size: clamp(2rem, 1.5rem + 2.4vw, 3.25rem); max-width: 22ch; }
-  .sidtopp__ingress { font-size: 1.125rem; max-width: 40rem; }
-  .sidtopp__lank { font-weight: 600; display: inline-flex; min-height: 44px; align-items: center; }
+  .sidtopp__ingress { font-size: 1.125rem; max-width: var(--k-matt-ingress); }
   .sidtopp__knappar { display: flex; flex-wrap: wrap; gap: var(--k-a3); margin-top: var(--k-a2); }
+  .sidtopp__not { font-size: var(--k-mindre); }
+  .sidtopp__fakta { display: none; }
+  .sidtopp__faktarubrik { font-size: var(--k-h3); }
+  .sidtopp__fakta dl { margin: 0; display: grid; }
+  .sidtopp__fakta dl div { display: grid; gap: var(--k-a1); padding-block: var(--k-a2); border-bottom: 1px solid var(--k-linje); }
+  .sidtopp__fakta dt { font-weight: 600; }
+  .sidtopp__fakta dd { margin: 0; }
   @media (max-width: 40rem) { .sidtopp__knappar :global(.knapp) { flex: 1 1 100%; } }
-  @media (min-width: 56rem) { .sidtopp { padding-block: var(--k-a7) var(--k-a6); } }
+  @media (min-width: 56rem) {
+    .sidtopp { padding-block: var(--k-a7) var(--k-a6); }
+    .sidtopp__rutnat:has(.sidtopp__fakta) { grid-template-columns: minmax(0, 1.6fr) minmax(17rem, 1fr); gap: var(--k-a7); }
+    .sidtopp__fakta { display: flex; }
+  }
 </style>

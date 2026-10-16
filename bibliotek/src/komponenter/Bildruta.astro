@@ -1,19 +1,23 @@
 ---
 // En bild med bredd och höjd, optimerad av Astro när den är importerad. Saknas bilden ritas en neutral form i koden.
-import { Image } from 'astro:assets';
+// Importerade bilder levereras som AVIF med WebP som reserv: AVIF gav 32–40 % mindre filer för sajtens foton och kartor
+// (kvalitetsgranskningen 2026-10-16, K9; web.dev, Use modern image formats).
+import { Picture } from 'astro:assets';
 import type { Bild } from '../innehall/typ';
-// prioritet: den största bilden i första vyn hämtas först (web.dev, Fetch Priority).
-interface Props { bild?: Bild; bredd: number; klass?: string; laddning?: 'eager' | 'lazy'; prioritet?: boolean; }
-const { bild, bredd, klass, laddning = 'lazy', prioritet = false } = Astro.props;
-// Be aldrig om en större bild än originalet, men ta med originalet när den dubbla bredden är större,
+// bredd: den största bredd bilden visas i, i CSS-pixlar. storlek: sizes-attributet, som beskriver hur bred bilden är i layouten
+// (HTML Standard, img sizes); utan det gäller bredd. prioritet: den största bilden i första vyn hämtas först (web.dev, Fetch Priority).
+interface Props { bild?: Bild; bredd: number; storlek?: string; klass?: string; laddning?: 'eager' | 'lazy'; prioritet?: boolean; }
+const { bild, bredd, storlek, klass, laddning = 'lazy', prioritet = false } = Astro.props;
+// Bredderna för 1x, 1,5x, 2x och 3x, aldrig större än originalet. Originalet kommer med när en större bredd behövs,
 // så att skärmar med hög upplösning får den skarpaste bild som finns.
 const original = bild && typeof bild.src !== 'string' ? bild.src.width : Infinity;
-const widths = [...new Set([bredd, bredd * 2].map((b) => Math.min(b, original)))];
+const visad = Math.min(bredd, original);
+const widths = [...new Set([1, 1.5, 2, 3].map((f) => Math.min(Math.round(bredd * f), original)))];
 ---
 {bild ? (
   typeof bild.src === 'string'
     ? <img class={klass} src={bild.src} alt={bild.alt} width={bild.width ?? bredd} height={bild.height} loading={laddning} decoding="async" />
-    : <Image class={klass} src={bild.src} alt={bild.alt} widths={widths} sizes={`${Math.min(bredd, original)}px`} loading={laddning} fetchpriority={prioritet ? 'high' : undefined} />
+    : <Picture class={klass} src={bild.src} alt={bild.alt} width={visad} widths={widths} sizes={storlek ?? `${visad}px`} formats={['avif', 'webp']} fallbackFormat="webp" loading={laddning} fetchpriority={prioritet ? 'high' : undefined} />
 ) : (
   <svg class={klass} viewBox="0 0 120 150" role="img" aria-label="Platshållare för bild">
     <rect width="120" height="150" fill="currentColor" opacity="0.08" />

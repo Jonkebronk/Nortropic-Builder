@@ -8,19 +8,20 @@ const { innehall, rubrik, ingress, etiketter, yta = false } = Astro.props;
 const verktyg = (innehall.taggar ?? []).filter((t) => t.verktyg);
 ---
 {verktyg.length > 0 && (
-  <section class:list={['sektion', 'kaklista', { 'kaklista--yta': yta }]} aria-labelledby="kaklista-rubrik">
+  <section class:list={['sektion', 'kaklista', { 'kaklista--yta': yta }]} id="kaklista" aria-labelledby="kaklista-rubrik" data-yta={yta ? 'yta' : 'bg'}>
     <div class="behallare kaklista__inre">
       <h2 id="kaklista-rubrik">{rubrik}</h2>
       {ingress && <p>{ingress}</p>}
-      <ul class="kaklista__verktyg">
+      <ul class="kaklista__verktyg" role="list">
         {verktyg.map((t) => (
           <li class="kort">
             <h3>{t.verktyg!.namn} <span class="dampad kaklista__kategori">({etiketter.kategori[t.kategori]})</span></h3>
-            <p class="dampad">{t.verktyg!.leverantor}{t.verktyg!.policy && <> · <a href={t.verktyg!.policy.href}>{t.verktyg!.policy.text}</a></>}</p>
+            <p class="dampad">{t.verktyg!.leverantor}{t.verktyg!.policy && <> · <a href={t.verktyg!.policy.href} data-ny-flik rel="noopener">{t.verktyg!.policy.text}</a></>}</p>
+            {t.verktyg!.mottagare && <p>{t.verktyg!.mottagare}</p>}
             <dl class="kaklista__kakor">
               {t.verktyg!.kakor.map((k) => (
                 <div>
-                  <dt><code>{k.namn}</code></dt>
+                  <dt><code>{k.namn}</code>{k.doman && <span class="dampad"> på {k.doman}</span>}</dt>
                   <dd>{k.andamal} {etiketter.sparas} {k.lagringstid}. {k.tredjepart ? etiketter.tredjepart : etiketter.forstapart}</dd>
                 </div>
               ))}
@@ -36,11 +37,11 @@ const verktyg = (innehall.taggar ?? []).filter((t) => t.verktyg);
   .kaklista--yta { background: var(--k-yta); }
   .kaklista__inre { display: grid; gap: var(--k-a4); }
   .kaklista__inre > * { max-width: 46rem; }
+  .kaklista__inre > p { max-width: var(--k-matt); }
   .kaklista__verktyg { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--k-a4); }
-  .kaklista__verktyg h3 { font-size: 1.1rem; }
-  .kaklista__kategori { font-weight: 400; font-size: 0.95rem; }
+  .kaklista__kategori { font-weight: 400; font-size: var(--k-mindre); }
   .kaklista__kakor { margin: var(--k-a3) 0 0; display: grid; gap: var(--k-a3); }
   .kaklista__kakor dt { font-weight: 600; }
-  .kaklista__kakor dd { margin: 0; font-size: 0.95rem; }
+  .kaklista__kakor dd { margin: 0; font-size: var(--k-mindre); max-width: var(--k-matt); }
   .kaklista__kakor code { font-size: 0.95em; overflow-wrap: anywhere; }
 </style>

@@ -5,6 +5,10 @@
 // eller täcker dem (Johnnys dom över Citykiropraktikern i mattstock/domar.jsonl). Fast höjd, hänsyn till iPhones
 // nederkant och scroll-padding i bas, så att den aldrig skymmer innehåll eller fokus (WCAG 2.2, 2.4.11).
 // Utan JavaScript ligger listen alltid synlig.
+// Vid låg höjd (liggande telefon, 400 % zoom) ligger listen sist i flödet i stället för fast, så att texten får plats
+// (Johnny 2026-10-16, kvalitetsgranskningen C3; WCAG 2.2, 1.4.10).
+// Medan samtyckesrutan är öppen göms listen, utom när rutan täcker förstavyns knappar på en liten skärm. Då ligger listen
+// under rutan, så att Boka och Ring alltid går att nå (kvalitetsgranskningen 2026-10-16, U1).
 import Knapp from '../komponenter/Knapp.astro';
 import type { IkonNamn } from '../komponenter/Ikon.astro';
 import type { StartInnehall } from '../innehall/typ';
@@ -24,11 +28,24 @@ const sekundar = Astro.props.sekundar ?? { href: ring.href, text: ring.kort ?? r
   const egna = document.querySelectorAll('.forstavy__knappar, .sidtopp__knappar');
   const meny = document.getElementById('meny');
   if (list) {
-    let egnaSyns = false, menyOppen = false, samtyckeOppen = !!document.querySelector('[data-samtycke-ruta]:not([hidden])');
+    const ruta = document.querySelector<HTMLElement>('[data-samtycke-ruta]');
+    let egnaSyns = false, menyOppen = false, samtyckeOppen = !!ruta && !ruta.hidden;
+    const lag = matchMedia('(max-height: 30rem)'), smal = matchMedia('(max-width: 63.99rem)');
+    // Syns förstavyns eller sidtoppens knappar helt ovanför samtyckesrutan?
+    const egnaOvanRutan = () => {
+      if (!egna.length || !ruta) return false;
+      const k = egna[0].getBoundingClientRect();
+      return k.top >= 0 && k.bottom <= ruta.getBoundingClientRect().top;
+    };
     const uppdatera = () => {
-      const dold = egnaSyns || menyOppen || samtyckeOppen;
+      const underRuta = samtyckeOppen && smal.matches && !lag.matches && !menyOppen && !egnaOvanRutan();
+      const dold = !lag.matches && !underRuta && (egnaSyns || menyOppen || samtyckeOppen);
       list.dataset.dold = String(dold);
       list.inert = dold;
+      if (document.documentElement.hasAttribute('data-lista-under-ruta') !== underRuta) {
+        document.documentElement.toggleAttribute('data-lista-under-ruta', underRuta);
+        document.dispatchEvent(new CustomEvent('kontaktlist'));
+      }
     };
     if (egna.length && 'IntersectionObserver' in window) {
       const synliga = new Set<Element>();
@@ -37,9 +54,12 @@ const sekundar = Astro.props.sekundar ?? { href: ring.href, text: ring.kort ?? r
         egnaSyns = synliga.size > 0; uppdatera();
       }).observe(egna[0]);
     }
+    lag.addEventListener('change', uppdatera); smal.addEventListener('change', uppdatera);
+    window.addEventListener('scroll', () => { if (samtyckeOppen) uppdatera(); }, { passive: true });
     meny?.addEventListener('toggle', (e) => { menyOppen = (e as ToggleEvent).newState === 'open'; uppdatera(); });
-    // Samtyckesrutan ligger också nere, så listen göms medan den är öppen.
     document.addEventListener('samtyckeruta', (e) => { samtyckeOppen = (e as CustomEvent<boolean>).detail; uppdatera(); });
+    // Samtyckesrutan kan redan vara öppnad innan skriptet här körs, och en sida utan egna knappar får ingen signal från observatören.
+    uppdatera();
   }
 </script>
 
@@ -54,5 +74,6 @@ const sekundar = Astro.props.sekundar ?? { href: ring.href, text: ring.kort ?? r
   .kontaktlist :global(.knapp) { min-height: 48px; padding-inline: 0.75rem; }
   .kontaktlist[data-dold="true"] { transform: translateY(110%); opacity: 0; }
   @media (prefers-reduced-motion: reduce) { .kontaktlist { transition: opacity 200ms linear; } .kontaktlist[data-dold="true"] { transform: none; } }
+  @media (max-height: 30rem) { .kontaktlist { position: static; box-shadow: none; transition: none; } }
   @media (min-width: 64rem) { .kontaktlist { display: none; } }
 </style>

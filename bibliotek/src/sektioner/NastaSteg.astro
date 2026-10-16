@@ -1,25 +1,27 @@
 ---
 // Nästa steg: sidan slutar med den primära handlingen (guide/2-3-struktur.md). Som standard Boka och Ring; en sida
 // med en annan primär handling skickar egen rubrik, text och knappar, som Ring och Mejla på en företagssida (Johnny 2026-10-16).
+// Den sekundära handlingen är en knapp med ljus kantlinje, som i förstavyn och sidtoppen, så att samma handling ser likadan ut
+// på hela sidan (kvalitetsgranskningen 2026-10-16, D26).
 import Knapp from '../komponenter/Knapp.astro';
 import type { Knappval } from './Kontaktlist.astro';
-import type { Lank, StartInnehall } from '../innehall/typ';
-interface Props { innehall: StartInnehall; rubrik?: string; text?: string; primar?: Knappval; sekundar?: Lank; }
+import type { StartInnehall } from '../innehall/typ';
+interface Props { innehall: StartInnehall; rubrik?: string; text?: string; primar?: Knappval; sekundar?: Knappval; }
 const { nastaSteg, boka, ring } = Astro.props.innehall;
 const rubrik = Astro.props.rubrik ?? nastaSteg.rubrik;
 const text = Astro.props.text ?? nastaSteg.text;
 const primar = Astro.props.primar ?? { href: boka.href, text: boka.text, ikon: 'kalender' };
-const sekundar = Astro.props.sekundar ?? { href: ring.href, text: ring.text };
+const sekundar = Astro.props.sekundar ?? { href: ring.href, text: ring.text, ikon: 'telefon' };
 ---
-<section class="nasta" aria-labelledby="nasta-rubrik">
+<section class="nasta" data-yta="mork">
   <div class="behallare nasta__ruta">
     <div class="nasta__text">
-      <h2 id="nasta-rubrik">{rubrik}</h2>
+      <h2>{rubrik}</h2>
       <p>{text}</p>
     </div>
     <div class="nasta__knappar">
       <Knapp href={primar.href} text={primar.text} variant="pa-mork" ikon={primar.ikon} etikett={primar.etikett} />
-      <a class="nasta__ring" href={sekundar.href}>{sekundar.text}</a>
+      <Knapp href={sekundar.href} text={sekundar.text} variant="sekundar" ikon={sekundar.ikon} etikett={sekundar.etikett} />
     </div>
   </div>
 </section>
@@ -27,8 +29,9 @@ const sekundar = Astro.props.sekundar ?? { href: ring.href, text: ring.text };
 <style>
   .nasta { background: var(--k-mork); color: var(--k-pa-mork); padding-block: var(--k-sektion); }
   .nasta__ruta { display: grid; gap: var(--k-a5); align-items: center; }
-  .nasta__text { display: grid; gap: var(--k-a3); max-width: 40rem; }
-  .nasta__knappar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--k-a5); }
-  .nasta__ring { color: var(--k-pa-mork); font-weight: 600; min-height: 44px; display: inline-flex; align-items: center; }
+  .nasta__text { display: grid; gap: var(--k-a3); max-width: var(--k-matt); }
+  .nasta__knappar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--k-a3); }
+  .nasta__knappar :global(.knapp--sekundar) { color: var(--k-pa-mork); }
+  @media (max-width: 40rem) { .nasta__knappar :global(.knapp) { flex: 1 1 100%; } }
   @media (min-width: 56rem) { .nasta__ruta { grid-template-columns: 1.4fr 1fr; } .nasta__knappar { justify-content: flex-end; } }
 </style>

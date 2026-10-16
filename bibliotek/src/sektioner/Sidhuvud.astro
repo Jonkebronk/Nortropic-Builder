@@ -5,29 +5,37 @@
 //           (NN/g, Sticky Headers), och kontaktvägen i en knapplist i tumzonen (Kontaktlist.astro).
 //  'uppe' – kontaktvägen fast i sidhuvudet.
 // Menyn är en popover: Escape och klick utanför stänger den utan JavaScript (guide/2-4-skelett.md, primitiverna).
+// Den stängs också när fokus lämnar den, så att Tab inte hamnar på sidan bakom panelen (WCAG 2.2, 2.4.11).
+// knappar: sidans egna knappar när den primära handlingen inte är Boka, t.ex. Ring och Mejla på en företagssida (Johnny 2026-10-16).
 import Ikon from '../komponenter/Ikon.astro';
 import Knapp from '../komponenter/Knapp.astro';
 import Bildruta from '../komponenter/Bildruta.astro';
-import type { StartInnehall } from '../innehall/typ';
-interface Props { innehall: StartInnehall; }
+import type { Lank, StartInnehall } from '../innehall/typ';
+import type { Knappval } from './Kontaktlist.astro';
+interface Props { innehall: StartInnehall; knappar?: { primar: Knappval; sekundar: Knappval }; }
 const { foretag, boka, ring, nav, meny, mobilLista = 'nere' } = Astro.props.innehall;
+const knappar = Astro.props.knappar;
 const menyLankar = meny?.lankar ?? nav;
 const sida = Astro.url.pathname;
+// Exakt sida får aria-current="page"; en sida som hör till länken får aria-current="true" (WAI-ARIA, aria-current).
+const aktuell = (l: Lank) => (l.href === sida ? 'page' : l.delar?.includes(sida) ? 'true' : undefined);
 ---
 <header class="sidhuvud" data-sidhuvud data-lista={mobilLista}>
   <div class="behallare sidhuvud__rad">
     <a class="sidhuvud__namn" href="/">
-      {foretag.logotyp && <span class="sidhuvud__logo"><Bildruta bild={foretag.logotyp} bredd={40} /></span>}
+      {foretag.logotyp && <span class="sidhuvud__logo"><Bildruta bild={foretag.logotyp} bredd={40} laddning="eager" /></span>}
       <span>{foretag.namn}</span>
     </a>
     <nav class="sidhuvud__nav" aria-label="Huvudmeny">
-      <ul>{nav.map((l) => <li><a href={l.href} aria-current={l.href === sida ? 'page' : undefined}>{l.text}</a></li>)}</ul>
+      <ul>{nav.map((l) => <li><a href={l.href} aria-current={aktuell(l)}>{l.text}</a></li>)}</ul>
     </nav>
     <div class="sidhuvud__kontakt">
-      <a class="sidhuvud__ring" href={ring.href} aria-label={`Ring ${ring.nummer}`}>
-        <Ikon namn="telefon" /><span class="sidhuvud__ringtext">{ring.nummer}</span>
+      <a class="telefon sidhuvud__ring" href={ring.href}>
+        <Ikon namn="telefon" /><span class="sr-only">Ring </span><span class="sidhuvud__ringtext">{ring.nummer}</span>
       </a>
-      <a class="knapp knapp--primar sidhuvud__boka" href={boka.href} rel="noopener">{boka.kort ?? boka.text}</a>
+      {knappar
+        ? <a class="knapp knapp--sekundar sidhuvud__boka" href={knappar.sekundar.href}>{knappar.sekundar.text}</a>
+        : <a class="knapp knapp--primar sidhuvud__boka" href={boka.href} rel="noopener">{boka.kort ?? boka.text}</a>}
       <button class="sidhuvud__menyknapp" type="button" popovertarget="meny">
         <Ikon namn="meny" /><span>{meny?.oppna ?? 'Meny'}</span>
       </button>
@@ -42,12 +50,17 @@ const sida = Astro.url.pathname;
     </div>
     <nav aria-label={meny?.oppna ?? 'Meny'}>
       <ul class="meny__lankar">
-        {menyLankar.map((l) => <li><a href={l.href} aria-current={l.href === sida ? 'page' : undefined}>{l.text}</a></li>)}
+        {menyLankar.map((l) => <li><a href={l.href} aria-current={aktuell(l)}>{l.text}</a></li>)}
       </ul>
     </nav>
     <div class="meny__knappar">
-      <Knapp href={boka.href} text={boka.text} ikon="kalender" />
-      <Knapp href={ring.href} text={ring.text} variant="sekundar" ikon="telefon" />
+      {knappar ? <>
+        <Knapp href={knappar.primar.href} text={knappar.primar.text} ikon={knappar.primar.ikon} etikett={knappar.primar.etikett} />
+        <Knapp href={knappar.sekundar.href} text={knappar.sekundar.text} variant="sekundar" ikon={knappar.sekundar.ikon} etikett={knappar.sekundar.etikett} />
+      </> : <>
+        <Knapp href={boka.href} text={boka.text} ikon="kalender" />
+        <Knapp href={ring.href} text={ring.text} variant="sekundar" ikon="telefon" />
+      </>}
     </div>
   </div>
 </header>
@@ -66,6 +79,12 @@ const sida = Astro.url.pathname;
     }, { passive: true });
     h.addEventListener('focusin', () => { h.dataset.dold = 'false'; });
   }
+  // Menyn stängs när fokus lämnar panelen, så att Tab inte hamnar på element som panelen täcker.
+  const meny = document.getElementById('meny');
+  meny?.addEventListener('focusout', (e) => {
+    const till = (e as FocusEvent).relatedTarget as Node | null;
+    if (till && !meny.contains(till) && meny.matches(':popover-open')) meny.hidePopover();
+  });
 </script>
 
 <style>
@@ -81,30 +100,30 @@ const sida = Astro.url.pathname;
     display: flex; align-items: center; gap: var(--k-a2); min-width: 0;
     font-family: var(--k-font-rubrik); font-weight: var(--k-rubrik-vikt); text-transform: var(--k-rubrik-versaler);
     font-size: clamp(0.95rem, 0.8rem + 0.8vw, 1.2rem); color: var(--k-text); text-decoration: none; margin-right: auto;
-    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    overflow-wrap: anywhere; line-height: 1.2;
   }
   .sidhuvud__logo { flex: none; display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 8px; background: var(--k-mork); padding: 5px; }
   .sidhuvud__logo :global(img) { width: 100%; height: auto; }
   .sidhuvud__nav { display: none; }
   .sidhuvud__nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: var(--k-a5); }
-  .sidhuvud__nav a { color: var(--k-text); text-decoration: none; font-weight: 500; }
+  .sidhuvud__nav a { color: var(--k-text); text-decoration: none; font-weight: 400; }
   .sidhuvud__nav a:hover, .sidhuvud__nav a[aria-current] { text-decoration: underline; text-underline-offset: 0.3em; }
   .sidhuvud__kontakt { display: flex; align-items: center; gap: var(--k-a1); flex: none; }
   .sidhuvud__ring {
     display: inline-flex; align-items: center; justify-content: center; gap: var(--k-a2);
     min-width: 48px; min-height: 48px; color: var(--k-text); text-decoration: none; font-weight: 600;
   }
-  .sidhuvud__ring :global(svg) { width: 1.3rem; height: 1.3rem; }
+  .sidhuvud__ring :global(svg) { width: var(--k-ikon); height: var(--k-ikon); }
   .sidhuvud__ringtext { display: none; }
-  .sidhuvud__boka { min-height: 44px; padding: 0.5rem 0.9rem; white-space: nowrap; font-size: 0.95rem; }
+  .sidhuvud__boka { min-height: 44px; padding: 0.5rem 0.9rem; white-space: nowrap; font-size: var(--k-mindre); }
 
   /* Menyknappen: ikon med ordet Meny och en ram, så att den syns som en knapp. */
   .sidhuvud__menyknapp {
     display: inline-flex; align-items: center; gap: 0.4rem; min-height: 44px; padding: 0.4rem 0.75rem;
-    font: inherit; font-weight: 600; font-size: 0.95rem; color: var(--k-text);
+    font: inherit; font-weight: 600; font-size: var(--k-mindre); color: var(--k-text);
     background: transparent; border: 1.5px solid var(--k-linje); border-radius: var(--k-radie-knapp); cursor: pointer;
   }
-  .sidhuvud__menyknapp :global(svg) { width: 1.25rem; height: 1.25rem; }
+  .sidhuvud__menyknapp :global(svg) { width: var(--k-ikon-text); height: var(--k-ikon-text); }
 
   /* Menypanelen glider in från höger. */
   .meny {
@@ -118,11 +137,11 @@ const sida = Astro.url.pathname;
   @starting-style { .meny:popover-open { transform: translateX(100%); } }
   .meny::backdrop { background: rgb(0 0 0 / 0.35); }
   .meny__topp { display: flex; align-items: center; justify-content: space-between; gap: var(--k-a3); border-bottom: 1px solid var(--k-linje); padding-bottom: var(--k-a3); }
-  .meny__namn { font-family: var(--k-font-rubrik); font-weight: var(--k-rubrik-vikt); text-transform: var(--k-rubrik-versaler); font-size: 1.15rem; }
+  .meny__namn { font-family: var(--k-font-rubrik); font-weight: var(--k-rubrik-vikt); text-transform: var(--k-rubrik-versaler); font-size: var(--k-storre); }
   .meny__stang { display: inline-flex; align-items: center; gap: 0.35rem; min-height: 44px; padding: 0.4rem 0.6rem; font: inherit; font-weight: 600; color: var(--k-text); background: none; border: 0; cursor: pointer; }
-  .meny__stang :global(svg) { width: 1.3rem; height: 1.3rem; }
+  .meny__stang :global(svg) { width: var(--k-ikon); height: var(--k-ikon); }
   .meny__lankar { list-style: none; margin: 0; padding: 0; display: grid; }
-  .meny__lankar a { display: flex; align-items: center; min-height: 52px; color: var(--k-text); text-decoration: none; font-size: 1.15rem; font-weight: 500; border-bottom: 1px solid var(--k-linje); }
+  .meny__lankar a { display: flex; align-items: center; min-height: 52px; color: var(--k-text); text-decoration: none; font-size: var(--k-storre); font-weight: 400; border-bottom: 1px solid var(--k-linje); }
   .meny__lankar a[aria-current] { color: var(--k-accent-text); font-weight: 600; }
   .meny__knappar { display: grid; gap: var(--k-a3); margin-top: auto; }
 
@@ -140,6 +159,14 @@ const sida = Astro.url.pathname;
   }
   @media (prefers-reduced-motion: reduce) {
     .sidhuvud, .meny { transition: none; }
+  }
+  /* Vid mycket låg höjd (400 % zoom, liggande mobil) är sidhuvudet statiskt (WCAG 2.2, Understanding 1.4.10; Johnny 2026-10-16). */
+  @media (max-height: 30rem) {
+    .sidhuvud, .sidhuvud[data-dold="true"] { position: static; transform: none; }
+  }
+  /* Utan Popover API göms menyknappen, så att den aldrig blir en knapp som inte gör något; sidfoten har alla sidor. */
+  @supports not selector(:popover-open) {
+    .sidhuvud__menyknapp, .meny { display: none; }
   }
   @media (min-width: 64rem) {
     .sidhuvud__rad { min-height: 5rem; gap: var(--k-a6); }

@@ -1007,3 +1007,40 @@ Claude föreslog utformningen nedan. Johnny, omkring 08:57:
 - **N3, första versionen:** månadsrapporten visas också som en sida per kund och månad i en portal på Nortropics sajt, bakom inloggning. Siffrorna kommer ur samma ögonblicksbild som rapporten, alltså JSON per kund och månad (`guide/2-9-drift-och-forvaltning.md`), så portalen och rapporten kan aldrig visa olika saker. Inloggningen sker med Cloudflare Access och en engångskod till kundens e-post, och varje kund ser bara sitt. Access är gratis för upp till 50 användare. Därefter kostar det 7 dollar per användare och månad, och enligt Cloudflares community debiteras då alla platser ⚠️. Vid fler kunder byggs en egen inloggning.
 - **N4, när portalen växer:** historik och trender över månader, läget för Kundens lyft, ändringsärenden kopplade till ärendeagenten, AEO-trenden och siffror direkt från Google-profilens API, Search Console och Cloudflare.
 - Portalen ingår i förvaltningen (`guide/4-foretaget.md`, *Tjänstetrappan*).
+
+## 2026-10-16: Kvalitetsgranskningen – ja på allt
+
+**Status:** gäller.
+
+Johnny bad om en granskning *"utifrån litteratur, metoder, principer, best practices, dokumentation, olika perspektiv … så vi är världsklass på varje liten sak"*. Sex granskare med ren kontext hittade 136 fynd (`sites/<övningssajten>/kvalitetsgranskning-2026-10-16.md`). Claude föreslog:
+- att rätta de 85 fynd som bryter mot standard, lag, praxis eller Johnnys beslut (A)
+- att svara på 10 frågor till kunden i kundens ställe (B)
+- 10 beslut med en rekommendation för varje (C)
+
+Johnny, omkring 09:37:
+
+> Ja på allt
+
+**Innebär** (C enligt Claudes rekommendationer):
+1. Övningssajten får en egen sida per mottagning, med eget innehåll per ort, och varje mottagnings `url` i den strukturerade datan pekar dit.
+2. Listorna *"Patienter söker bland annat för"* behålls med meningen *"[behandlaren] undersöker först om behandlingen passar dina besvär"*.
+3. Sidhuvudet och knapplisten blir statiska vid mycket låg skärmhöjd (400 % zoom, liggande mobil), som W3C rekommenderar för 1.4.10.
+4. Raden "I dag" prövas i förstavyn, och Johnny dömer om första skärmen blir för trång.
+5. Undersidornas topp på datorn får ett litet faktakort med tider och pris i den tomma högra halvan.
+6. Accentfärgen används bara till knappar, länkar och "I dag". De dekorativa rollerna blir mörkgröna eller dämpade (Johnnys regel ur domen över Djärv).
+7. Kartbilderna blir dämpade, i gråskala med en egen nål i accentfärg, och skarpa på retinaskärmar.
+8. Sidhuvudets knapp följer sidans primära handling, till exempel Ring på företagssidan.
+9. Färre landmärken: bara de sektioner man vill hoppa till får `aria-labelledby` (`guide/2-4-skelett.md`).
+10. Uppgifterna om det reglerade yrket visas inte, som Johnny tidigare har beslutat.
+
+## 2026-10-16: Samtyckesrutans första lager utan USA
+
+**Status:** gäller.
+
+Johnny, omkring 10:15: *"Behöver det verkligen stå usa där? Kan vi inte formulera oss bättre? Omvärldsbevaka, Websearcha hur man formulerar sig där"*. Claude läste EDPB:s riktlinjer 05/2020 om samtycke (p. 64–65 och 71), PTS och Googles policy för användarsamtycke (`kunskap/research/2026-10-16_lagkrav-pa-sajten.md`, sista tillägget). Information om överföringen till USA krävs i rutan bara när adekvansbeslut saknas (p. 64 vi). Google och Meta är certifierade enligt Data Privacy Framework, så uppgiften står i integritetspolicyn (art. 13.1 f). Claude föreslog en ny text med en mening per krav: vem som frågar, ändamålen, vilka som får uppgifterna och att man kan ändra sig.
+
+Johnny, omkring 10:24:
+
+> Det ser bra ut
+
+**Innebär:** regeln står i `guide/2-8-teknik-och-kvalitet.md`, *Samtycke och analys*. Om EU-domstolen ogiltigförklarar ramverket (överklagandet C-703/25 P) prövas frågan igen.

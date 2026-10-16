@@ -3,6 +3,13 @@
 @import "@fontsource/instrument-sans/400.css";
 @import "@fontsource/instrument-sans/600.css";
 
+/* Reservfont med Instrument Sans mått, så att texten inte hoppar när typsnittet laddats (web.dev, CSS size-adjust).
+   Värdena är uträknade ur typsnittens tabeller med fontTools 2026-10-16: viktad bredd för gemena mot Arial och Arial Bold. */
+@font-face { font-family: "Instrument Sans reserv"; src: local("Arial"), local("ArialMT"); font-weight: 400;
+  size-adjust: 103.25%; ascent-override: 93.95%; descent-override: 24.21%; line-gap-override: 0%; }
+@font-face { font-family: "Instrument Sans reserv"; src: local("Arial Bold"), local("Arial-BoldMT"); font-weight: 600;
+  size-adjust: 98.15%; ascent-override: 98.83%; descent-override: 25.47%; line-gap-override: 0%; }
+
 [data-kit="lugn"] {
   /* Färg */
   --k-bg: #f6f3ee;
@@ -15,13 +22,16 @@
   --k-accent-text: #a4532e;
   --k-mork: #22382f;
   --k-pa-mork: #f6f3ee;
+  /* Fokusringen: accenten på ljusa ytor, den ljusa färgen på mörka (WCAG 2.2, 1.4.11, minst 3:1). */
+  --k-fokus: var(--k-accent-text);
+  --k-fokus-pa-mork: var(--k-pa-mork);
   --k-dekor: #ebe3d8;
   --k-forstavy-bg: var(--k-bg);
   --k-forstavy-text: var(--k-text);
 
   /* Typsnitt: Instrument Sans (OFL), självhostat */
-  --k-font-rubrik: "Instrument Sans", system-ui, sans-serif;
-  --k-font-brod: "Instrument Sans", system-ui, sans-serif;
+  --k-font-rubrik: "Instrument Sans", "Instrument Sans reserv", system-ui, sans-serif;
+  --k-font-brod: "Instrument Sans", "Instrument Sans reserv", system-ui, sans-serif;
   --k-font-markering: var(--k-font-brod);
   --k-rubrik-vikt: 600;
   --k-rubrik-versaler: none;
@@ -29,8 +39,19 @@
   --k-rubrik-radhojd: 1.1;
   --k-h1: clamp(2.3rem, 1.5rem + 3.6vw, 4.1rem);
   --k-h2: clamp(1.65rem, 1.3rem + 1.5vw, 2.5rem);
-  --k-h3: 1.2rem;
+  --k-h3: clamp(1.2rem, 1.1rem + 0.4vw, 1.375rem);
   --k-brod: 1.0625rem;
+  /* Typsnittsskalan: fem storlekar utöver rubrikerna (Bringhurst 3.1.1, Don't compose without a scale). */
+  --k-liten: 0.85rem;
+  --k-mindre: 0.95rem;
+  --k-storre: 1.25rem;
+  --k-citat: 1.3rem;
+  /* Radlängd: cirka 66 tecken i brödtexten, inom 45–75 (Bringhurst 2.1.2). */
+  --k-matt: 34rem;
+  --k-matt-ingress: 36rem;
+  /* Ikoner: i löptext och fristående (Lucide, Stroke width). */
+  --k-ikon-text: 1.125rem;
+  --k-ikon: 1.375rem;
   --k-radhojd: 1.7;
   --k-overrad-versaler: uppercase;
   --k-overrad-spatiering: 0.12em;

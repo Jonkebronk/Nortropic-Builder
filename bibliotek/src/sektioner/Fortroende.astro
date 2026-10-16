@@ -1,28 +1,30 @@
 ---
 // Förtroende: betyget med källa och datum, och några omdömen med plattform och datum (guide/2-7-innehall.md).
 // Under omdömena står om och hur de kontrolleras, eftersom sajten ger tillgång till konsumentrecensioner (12 c § MFL).
+// Ett förkortat omdöme markeras med […] i innehållet.
 import Ikon from '../komponenter/Ikon.astro';
+import Uppmaning from '../komponenter/Uppmaning.astro';
 import type { StartInnehall } from '../innehall/typ';
 interface Props { innehall: StartInnehall; }
 const { fortroende } = Astro.props.innehall;
 ---
-<section class="sektion fortroende" aria-labelledby="fortroende-rubrik">
+<section class="sektion fortroende" id={fortroende.id} data-yta="bg">
   <div class="behallare">
-    <div class="fortroende__huvud">
-      <h2 id="fortroende-rubrik">{fortroende.rubrik}</h2>
+    <div class="sektion__huvud">
+      <h2>{fortroende.rubrik}</h2>
       <p class="fortroende__betyg">
         <span class="fortroende__stjarna"><Ikon namn="stjarna" /></span>
         <span class="fortroende__varde">{fortroende.betyg.varde}</span>
         <span>{fortroende.betyg.skala}<br /><span class="dampad">{fortroende.betyg.antal}</span></span>
       </p>
       <p class="dampad fortroende__kalla">{fortroende.betyg.kalla}</p>
-      {fortroende.lank && <p><a class="fortroende__lank" href={fortroende.lank.href} data-ny-flik rel="noopener">{fortroende.lank.text}</a></p>}
+      {fortroende.lank && <div><Uppmaning href={fortroende.lank.href} text={fortroende.lank.text} nyFlik /></div>}
     </div>
-    <ul class="fortroende__citat">
+    <ul class="fortroende__citat" role="list">
       {fortroende.citat.map((c) => (
         <li class="kort">
           <blockquote><p>”{c.text}”</p></blockquote>
-          <p class="dampad">{c.kalla}</p>
+          <p class="dampad fortroende__kalla">{c.kalla}</p>
         </li>
       ))}
     </ul>
@@ -31,15 +33,15 @@ const { fortroende } = Astro.props.innehall;
 </section>
 
 <style>
-  .fortroende__huvud { display: grid; gap: var(--k-a3); margin-bottom: var(--k-a6); }
   .fortroende__betyg { display: flex; align-items: center; gap: var(--k-a3); }
   .fortroende__stjarna { color: var(--k-accent-text); }
   .fortroende__stjarna :global(svg) { width: 2rem; height: 2rem; fill: currentColor; }
   .fortroende__varde { font-family: var(--k-font-rubrik); font-weight: var(--k-rubrik-vikt); font-size: var(--k-h2); line-height: 1; }
-  .fortroende__kalla { font-size: 0.9rem; }
-  .fortroende__lank { font-weight: 600; display: inline-flex; min-height: 44px; align-items: center; }
+  .fortroende__kalla { font-size: var(--k-liten); }
   .fortroende__citat { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--k-a4); }
-  .fortroende__citat blockquote { margin: 0; font-size: 1.1rem; }
-  .fortroende__kontroll { margin-top: var(--k-a4); font-size: 0.9rem; }
+  .fortroende__citat blockquote { margin: 0; font-size: var(--k-storre); line-height: 1.5; }
+  /* Källraden ligger längst ner i kortet, på samma linje i alla kort (D16). */
+  .fortroende__citat .fortroende__kalla { margin-top: auto; }
+  .fortroende__kontroll { margin-top: var(--k-a5); font-size: var(--k-liten); max-width: 66ch; }
   @media (min-width: 48rem) { .fortroende__citat { grid-template-columns: repeat(3, 1fr); } }
 </style>

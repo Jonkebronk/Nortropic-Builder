@@ -11,12 +11,18 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 img, svg { display: block; max-width: 100%; height: auto; }
+/* Picture med AVIF och WebP (Bildruta.astro) ska inte ändra layouten: bilden är själv rutans barn. */
+picture { display: contents; }
 /* Knapplisten nere på mobilen får aldrig skymma innehåll eller fokus (WCAG 2.2, 2.4.11). */
 @media (max-width: 63.99rem) {
   html[data-lista="nere"] { scroll-padding-bottom: 6rem; }
   html[data-lista="nere"] body { padding-bottom: calc(4.5rem + env(safe-area-inset-bottom)); }
 }
+/* Långa sammansatta ord som Stötvågsbehandling bryts i stället för att spilla över (WCAG-teknik C33). */
+h1, h2, h3, p, li, dt, dd, a, blockquote { overflow-wrap: break-word; }
+/* Bara mjuka bindestreck (&shy;) delar ord, så att ortnamn och andra namn aldrig delas av webbläsaren. */
 h1, h2, h3 {
+  hyphens: manual;
   font-family: var(--k-font-rubrik);
   font-weight: var(--k-rubrik-vikt);
   text-transform: var(--k-rubrik-versaler);
@@ -31,19 +37,40 @@ h3 { font-size: var(--k-h3); line-height: 1.25; }
 p { margin: 0; text-wrap: pretty; }
 a { color: var(--k-accent-text); text-underline-offset: 0.18em; }
 a:hover { text-decoration-thickness: 2px; }
-:focus-visible { outline: 3px solid var(--k-accent-text); outline-offset: 3px; border-radius: 4px; }
+:focus-visible { outline: 3px solid var(--k-fokus); outline-offset: 3px; border-radius: 4px; }
+[data-yta="mork"] :focus-visible { outline-color: var(--k-fokus-pa-mork); }
 
 .behallare { width: min(100% - 2 * var(--k-a5), var(--k-max)); margin-inline: auto; }
 .sektion { padding-block: var(--k-sektion); }
+/* Två sektioner med samma yta i följd delar ett avstånd, också när ett skript ligger mellan dem
+   (Every Layout, The Stack: avståndet läggs en gång per gräns). Förstavyn och sidtoppen har egna avstånd och räknas inte. */
+:is([data-yta="bg"] + [data-yta="bg"], [data-yta="bg"] + script + [data-yta="bg"], [data-yta="bg"] + script + script + [data-yta="bg"],
+    [data-yta="yta"] + [data-yta="yta"], [data-yta="yta"] + script + [data-yta="yta"], [data-yta="yta"] + script + script + [data-yta="yta"],
+    [data-yta="dekor"] + [data-yta="dekor"], [data-yta="dekor"] + script + [data-yta="dekor"]) { padding-top: 0; }
+/* Rubriken och en valfri ingress före sektionens innehåll, med samma avstånd i alla sektioner. */
 .sektion__huvud { display: grid; gap: var(--k-a3); margin-bottom: var(--k-a6); max-width: 44rem; }
+.sektion__huvud > p { max-width: var(--k-matt); }
+/* Överraden: samma etikett överallt, dämpad, eftersom accenten bara används till handlingar (Johnny 2026-10-16). */
 .overrad {
-  font-size: 0.85rem;
+  font-size: var(--k-liten);
   font-weight: 600;
   text-transform: var(--k-overrad-versaler);
   letter-spacing: var(--k-overrad-spatiering);
-  color: var(--k-accent-text);
+  color: var(--k-dampad);
 }
+/* Ikoner i två storlekar, med samma linjetjocklek oavsett storlek (Lucide, Stroke width). */
+.ikon-text { width: var(--k-ikon-text); height: var(--k-ikon-text); flex: none; }
+svg[aria-hidden="true"] :is(path, circle, rect, line, polyline, polygon) { vector-effect: non-scaling-stroke; }
+svg[aria-hidden="true"] { stroke-width: 1.75px; }
 .dampad { color: var(--k-dampad); }
+/* Ett telefonnummer bryts aldrig mellan två rader (html-validate, tel-non-breaking). Typsnitten saknar det hårda bindestrecket
+   U+2011, så numret hålls ihop med CSS i stället för med specialtecken. */
+.telefon { white-space: nowrap; }
+/* Fristående länkar som uppmaning, fet och med pil (Uppmaning.astro). */
+.uppmaning { display: inline-flex; align-items: center; gap: var(--k-a2); min-height: 44px; font-weight: 600; }
+.uppmaning svg { width: var(--k-ikon-text); height: var(--k-ikon-text); flex: none; }
+/* Personens egna ord: en linje i textfärgen utan citattecken. Omdömen från andra står med citattecken i kort (Fortroende). */
+.citat { margin: 0; padding-left: var(--k-a4); border-left: 3px solid var(--k-text); font-family: var(--k-font-rubrik); font-size: var(--k-citat); line-height: 1.35; max-width: var(--k-matt); }
 
 .hoppa {
   position: absolute; left: var(--k-a4); top: -100px; z-index: 100;
@@ -68,12 +95,22 @@ a:hover { text-decoration-thickness: 2px; }
 .knapp--pa-mork { background: var(--k-pa-mork); color: var(--k-mork); border-color: var(--k-pa-mork); }
 .knapp:hover { transform: translateY(-1px); }
 
-/* Kort */
+/* Kort: en kolumn, så att en länk eller källrad sist kan läggas längst ner med margin-top: auto (Gestalt, gemensam linje). */
 .kort {
   background: var(--k-yta);
   border-radius: var(--k-radie-kort);
   padding: var(--k-a5);
-  display: grid; gap: var(--k-a3); align-content: start;
+  display: flex; flex-direction: column; gap: var(--k-a3);
+}
+@media (max-width: 25rem) { .kort { padding: var(--k-a4); } }
+
+/* Vid mycket låg höjd, som vid 400 % zoom eller liggande mobil, blir sidhuvudet och knapplisten statiska,
+   så att de inte tar halva skärmen (WCAG 2.2, Understanding 1.4.10; Johnny 2026-10-16). */
+@media (max-height: 30rem) {
+  /* Sidhuvudet och knapplisten sätter själva position: static i sina komponenter, så inget fast skymmer fokus. */
+  html { scroll-padding-top: var(--k-a3); }
+  html[data-lista="nere"] { scroll-padding-bottom: 0; }
+  html[data-lista="nere"] body { padding-bottom: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {

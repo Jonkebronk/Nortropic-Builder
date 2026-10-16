@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-16 kl. 08.02 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-16 kl. 11.04 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Kort
 
@@ -88,11 +88,38 @@ Johnny tog in fem av förslagen till checklistan och lade till ett sjätte. `mal
    - Cloudflare Pro på varje publicerad sajt, och månadsrapporten utan Google Analytics.
    - Kakor och samtycke vid behov. Biblioteket har ett eget samtyckesverktyg på cirka 1,7 kB, med kontroll 6c som stoppar, och övningssajten övar det. Verktyget har Consent Mode v2, en logg över samtycken (Worker och D1, mallen i `bibliotek/worker/`, prövad lokalt med `wrangler dev`) och en kaklista.
 
-   Väntar på Johnny: biträdesavtal i steg 5, `security.txt` och Google-kartan.
+   Väntar på Johnny: biträdesavtal i steg 5 och Google-kartan. `security.txt` kom med i kvalitetsgranskningen.
+5. **Kvalitetsgranskningen är genomförd** (Johnny: *"Ja på allt"* omkring 09.37, `BESLUT.md`).
+   - Sex granskare med ren kontext hittade 136 fynd. Alla rättelser är införda i biblioteket och övningssajten: 85 åtgärder, 10 kundsvar och 10 beslut.
+   - En ny granskare prövade om de 22 höga fynden, och de kvarvarande är rättade.
+   - Nytt i biblioteket:
+     - samtyckesrutan enligt EDPB och PTS, med giltighet, bekräftelse och luft nedtill
+     - `data-yta` för avstånden
+     - typsnittsskalan och radlängden som tokens
+     - reservfont med samma mått som typsnittet
+     - AVIF och sizes efter layouten
+     - faktakort i sidtoppen
+     - raden "I dag" i förstavyn
+     - `Uppmaning` för fristående länkar
+     - en egen ryggradsikon
+     - CSP med hashar (`komponenter/inlineskript.mjs`)
+   - I sajten:
+     - en sida per mottagning
+     - integritetssidan enligt art. 13
+     - `_headers`, `_redirects`, `security.txt` och 404 i Workern
+     - en Worker som validerar
+     - kartor i gråskala i 1440 × 880
+     - typkontroll med `astro check`
+   - Kontrollskriptet har sju nya underkontroller: 1b, 2c, 3b, 5b, 8b, 10b och 10c. Guiden (2-4, 2-8) och bilaga C är uppdaterade, och N1 har 92 punkter.
+   - Johnny frågade om USA måste stå i samtyckesrutan. Svaret var nej, och han godkände den nya texten omkring 10.24 (`BESLUT.md`).
+   - Kontroll 5b stoppar publicering tills patienten på behandlingsfotot har samtyckt, och det är avsiktligt.
    - **Långsiktigt mål (Johnny 08.00):** kundportalen på Nortropics sajt, där kunden loggar in och ser sin statistik. N3 i `guide/2-9-drift-och-forvaltning.md`, och den byggs när den första betalande kunden har månadsrapporter. **Nästa:** genomgången efter sajten (`guide/5-byggplan.md`). Nästa mätning av granskaren görs på nya sajter och på systemets egna utkast.
 
 ## Väntar på Johnny
 
+- **Raden "I dag" i förstavyn** (C4) ska dömas: om första skärmen blir för trång.
+- **Omdirigeringarna:** 11 gamla adresser utan motsvarighet och WordPress-adresser får 404 i stället för att skickas till startsidan (sajtens `public/_redirects`, märkt förslag).
+- **Kartbilderna** ritas nu ur OpenStreetMap-data via Overpass i stället för ur rutor, eftersom OSM:s policy för rutor inte tillåter förbyggda bilder. För riktiga kunder behövs ett beslut om egen eller betald Overpass-server (`skript/karta.mjs`).
 - **Läsa sajtens `CLAUDE.md`** i `mallar/sajt/CLAUDE.md`. Claude skrev den med mandatet, och Johnny godkänner ändringar i `CLAUDE.md` (bilaga E 2.3).
 - **Bilaga E:** avsnitt 1 och 2 är avgjorda. 1.8 (integritetspolicy) och 1.9 (betalning) väntar till den första riktiga kunden, och 2.4, 2.7 och 2.8 till förvaltningen. Avsnitt 3 gäller senare nivåer. Avsnitt 4 verifieras under bygget.
 - **Repot är publikt** (Johnny: "det ändrar vi sen"). Måttstockens domar över namngivna firmor pushades med Johnnys godkännande.

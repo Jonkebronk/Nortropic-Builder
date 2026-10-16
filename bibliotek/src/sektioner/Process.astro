@@ -1,13 +1,14 @@
 ---
 // Process: hur första besöket eller uppdraget går till, i numrerade steg (guide/2-4-skelett.md).
+// Listan har role="list", eftersom VoiceOver i Safari annars läser en lista utan punkter som vanlig text (WebKit, bugg 170179).
 import type { StartInnehall } from '../innehall/typ';
 interface Props { innehall: StartInnehall; }
 const { process } = Astro.props.innehall;
 ---
-<section class="sektion process" aria-labelledby="process-rubrik">
+<section class="sektion process" data-yta="yta">
   <div class="behallare">
-    <h2 id="process-rubrik" class="process__rubrik">{process.rubrik}</h2>
-    <ol class="process__steg">
+    <div class="sektion__huvud"><h2>{process.rubrik}</h2></div>
+    <ol class="process__steg" role="list">
       {process.steg.map((s) => (
         <li class="kort"><h3>{s.rubrik}</h3><p class="dampad">{s.text}</p></li>
       ))}
@@ -18,13 +19,13 @@ const { process } = Astro.props.innehall;
 
 <style>
   .process { background: var(--k-yta); }
-  .process__rubrik { margin-bottom: var(--k-a6); }
   .process__steg { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--k-a4); counter-reset: steg; }
   .process__steg li { counter-increment: steg; background: var(--k-bg); }
+  /* Stegsiffran är dekor och får textens färg; accenten är till för handlingar (Johnny 2026-10-16, C6). */
   .process__steg li::before {
     content: counter(steg);
-    font-family: var(--k-font-rubrik); font-weight: var(--k-rubrik-vikt); font-size: 2rem; line-height: 1; color: var(--k-accent-text);
+    font-family: var(--k-font-rubrik); font-weight: var(--k-rubrik-vikt); font-size: 2rem; line-height: 1; color: var(--k-text);
   }
-  .process__not { margin-top: var(--k-a5); max-width: 40rem; }
+  .process__not { margin-top: var(--k-a5); max-width: var(--k-matt); }
   @media (min-width: 48rem) { .process__steg { grid-template-columns: repeat(3, 1fr); } }
 </style>

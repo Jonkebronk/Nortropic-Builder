@@ -1,0 +1,9 @@
+---
+// En fristående länk som uppmaning, till exempel Mer om oss eller Läs alla recensioner: fet och med pil, samma utförande
+// överallt (kvalitetsgranskningen 2026-10-16, D20). Länkar inne i löptext är vanliga understrukna länkar.
+// nyFlik: länken öppnas i ny flik på datorn (Sida.astro, data-ny-flik).
+import Ikon from './Ikon.astro';
+interface Props { href: string; text: string; nyFlik?: boolean; }
+const { href, text, nyFlik = false } = Astro.props;
+---
+<a class="uppmaning" href={href} {...(nyFlik ? { 'data-ny-flik': '', rel: 'noopener' } : {})}>{text}<Ikon namn="pil" /></a>

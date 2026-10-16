@@ -1,33 +1,38 @@
 ---
 // Hitta hit: kartbild, adress och vägbeskrivning per plats (NN/g, Contact Us: adressen länkad till kartappen).
 // Kartbilden ligger på den egna servern, så inget laddas från tredje part när sidan öppnas (guide/2-8-teknik-och-kvalitet.md).
-// Google-kartan laddas först när besökaren klickar, med ett besked om att Google då sätter kakor. Utan JavaScript
-// öppnar samma länk Google Maps.
+// Google-kartan laddas först när besökaren klickar, och beskedet om att Google då sätter kakor står före knappen.
+// Utan JavaScript är det en länk till Google Maps; med JavaScript blir den en knapp, eftersom den då ändrar sidan (WAI-ARIA APG, Button).
 import Bildruta from '../komponenter/Bildruta.astro';
 import Ikon from '../komponenter/Ikon.astro';
 import { hartPostnummer } from '../komponenter/text';
 import type { Bild, Lank, KartLank } from '../innehall/typ';
-interface Plats { namn: string; adress: string; extra?: string; karta: Bild; vagbeskrivning: KartLank; appar?: Lank[]; googleKarta: { text: string; href: string; embed: string } }
+// tips: korta rader om hur man tar sig dit, t.ex. buss, parkering och hiss.
+interface Plats { namn: string; adress: string; extra?: string; tips?: string[]; karta: Bild; vagbeskrivning: KartLank; appar?: Lank[]; googleKarta: { text: string; href: string; embed: string } }
 interface Props { id?: string; rubrik: string; platser: Plats[]; kakText: string; kakLank?: Lank; kalla: Lank; apparEtikett?: string; }
 const { id = 'hitta-hit', rubrik, platser, kakText, kakLank, kalla, apparEtikett } = Astro.props;
 ---
-<section class="sektion hittahit" id={id} aria-labelledby={`${id}-rubrik`}>
+<section class="sektion hittahit" id={id} aria-labelledby={`${id}-rubrik`} data-yta="bg">
   <div class="behallare">
-    <h2 id={`${id}-rubrik`} class="hittahit__rubrik">{rubrik}</h2>
+    <div class="sektion__huvud"><h2 id={`${id}-rubrik`}>{rubrik}</h2></div>
     <div class="hittahit__rutnat">
       {platser.map((p) => (
         <article class="kort hittahit__plats">
           <div class="hittahit__karta" data-karta>
-            <Bildruta bild={p.karta} bredd={720} klass="hittahit__bild" />
+            {/* Kartbilden är 1440 px bred och visas högst 720 px bred, så den är skarp också på skärmar med dubbel upplösning (D8, K13). */}
+            <Bildruta bild={p.karta} bredd={720} storlek="(min-width: 56rem) min(calc(50vw - 5rem), 33rem), calc(100vw - 6rem)" klass="hittahit__bild" />
           </div>
           <h3>{p.namn}</h3>
           <p class="hittahit__adress"><Ikon namn="plats" /><span>{hartPostnummer(p.adress)}{p.extra && <><br /><span class="dampad">{p.extra}</span></>}</span></p>
+          {p.tips && <ul class="hittahit__tips">{p.tips.map((x) => <li>{x}</li>)}</ul>}
           <div class="hittahit__knappar">
-            <a class="knapp knapp--primar" href={p.vagbeskrivning.href} data-apple={p.vagbeskrivning.apple} data-ny-flik rel="noopener">{p.vagbeskrivning.text}</a>
-            <a class="knapp knapp--sekundar hittahit__google" href={p.googleKarta.href} data-ny-flik rel="noopener" data-embed={p.googleKarta.embed} data-titel={`Google-karta: ${p.adress}`}>{p.googleKarta.text}</a>
+            <a class="knapp knapp--primar" href={p.vagbeskrivning.href} data-apple={p.vagbeskrivning.apple} data-ny-flik rel="noopener"><Ikon namn="plats" /><span>{p.vagbeskrivning.text}<span class="sr-only"> till {p.namn}</span></span></a>
           </div>
           {p.appar && <p class="hittahit__appar">{apparEtikett} {p.appar.map((a, i) => <>{i > 0 && ' · '}<a href={a.href} data-ny-flik rel="noopener">{a.text}</a></>)}</p>}
           <p class="dampad hittahit__kakor">{kakText}{kakLank && <> <a href={kakLank.href}>{kakLank.text}</a></>}</p>
+          <div>
+            <a class="knapp knapp--sekundar hittahit__google" href={p.googleKarta.href} data-embed={p.googleKarta.embed} data-titel={`Google-karta: ${p.adress}`}>{p.googleKarta.text}<span class="sr-only">, {p.namn}</span></a>
+          </div>
         </article>
       ))}
     </div>
@@ -36,39 +41,46 @@ const { id = 'hitta-hit', rubrik, platser, kakText, kakLank, kalla, apparEtikett
 </section>
 
 <script>
-  // Klick på "Visa i Google Maps här" byter kartbilden mot Google-kartan på plats. Först då kontaktas Google.
+  // Med JavaScript blir länken en knapp som byter kartbilden mot Google-kartan på plats. Först då kontaktas Google.
   document.querySelectorAll<HTMLAnchorElement>('.hittahit__google').forEach((lank) => {
-    lank.addEventListener('click', (e) => {
-      const ruta = lank.closest('.hittahit__plats')?.querySelector<HTMLElement>('[data-karta]');
-      if (!ruta || !lank.dataset.embed) return;
-      e.preventDefault();
+    const ruta = lank.closest('.hittahit__plats')?.querySelector<HTMLElement>('[data-karta]');
+    if (!ruta || !lank.dataset.embed) return;
+    const knapp = document.createElement('button');
+    knapp.type = 'button';
+    knapp.className = lank.className;
+    knapp.append(...lank.childNodes);
+    lank.replaceWith(knapp);
+    knapp.addEventListener('click', () => {
       const ram = document.createElement('iframe');
-      ram.src = lank.dataset.embed;
+      ram.src = lank.dataset.embed!;
       ram.title = lank.dataset.titel ?? 'Google-karta';
-      ram.loading = 'lazy';
-      ram.referrerPolicy = 'no-referrer-when-downgrade';
       ram.className = 'hittahit__ram';
       ruta.replaceChildren(ram);
-      lank.remove();
-      ram.focus();
+      // Fokus flyttas till kartan innan knappen tas bort, så att den inte faller till sidans början (WCAG 2.2, 2.4.3).
+      ram.tabIndex = 0;
+      ram.focus({ preventScroll: true });
+      ruta.scrollIntoView({ block: 'nearest' });
+      knapp.remove();
     });
   });
 </script>
 
 <style>
-  .hittahit__rubrik { margin-bottom: var(--k-a5); }
-  /* Efter Det praktiska med samma bakgrund blir avståndet annars dubbelt (Johnnys dom 2026-10-15). */
-  :global(.praktiskt) + .hittahit { padding-top: 0; }
   .hittahit__rutnat { display: grid; gap: var(--k-a4); }
   .hittahit__karta { aspect-ratio: 18 / 11; overflow: hidden; border-radius: calc(var(--k-radie-kort) - 4px); background: var(--k-linje); }
+  /* Ramen runt kartan när fokus är i den: iframen själv får ingen synlig fokusmarkering, och overflow skulle klippa den (WCAG 2.2, 2.4.7). */
+  .hittahit__karta:focus-within { outline: 3px solid var(--k-fokus); outline-offset: 3px; }
   .hittahit__karta :global(.hittahit__bild), .hittahit__karta :global(.hittahit__ram) { width: 100%; height: 100%; object-fit: cover; border: 0; display: block; }
   .hittahit__adress { display: flex; gap: var(--k-a2); align-items: flex-start; }
-  .hittahit__adress :global(svg) { width: 1.1rem; height: 1.1rem; margin-top: 0.3rem; flex: none; color: var(--k-accent-text); }
+  .hittahit__adress :global(svg) { width: var(--k-ikon-text); height: var(--k-ikon-text); margin-top: 0.3rem; flex: none; color: var(--k-dampad); }
+  .hittahit__tips { margin: 0; padding-left: 1.2rem; display: grid; gap: var(--k-a1); font-size: var(--k-mindre); }
   .hittahit__knappar { display: flex; flex-wrap: wrap; gap: var(--k-a3); }
-  .hittahit__kakor, .hittahit__kalla { font-size: 0.85rem; }
-  .hittahit__appar { font-size: 0.95rem; }
+  .hittahit__kakor, .hittahit__kalla { font-size: var(--k-liten); max-width: 66ch; }
+  .hittahit__appar { font-size: var(--k-mindre); }
   .hittahit__appar a { display: inline-block; min-height: 24px; padding-block: 2px; }
   .hittahit__kalla { margin-top: var(--k-a4); }
-  @media (max-width: 40rem) { .hittahit__knappar .knapp { flex: 1 1 100%; } }
+  /* Knappen skapas av skriptet och saknar därför komponentens stilattribut; reglerna är globala. */
+  :global(.hittahit__google) { cursor: pointer; font: inherit; font-weight: var(--k-knapp-vikt); }
+  @media (max-width: 40rem) { .hittahit__knappar .knapp, :global(.hittahit__google) { flex: 1 1 100%; width: 100%; } }
   @media (min-width: 56rem) { .hittahit__rutnat { grid-template-columns: repeat(2, 1fr); } }
 </style>

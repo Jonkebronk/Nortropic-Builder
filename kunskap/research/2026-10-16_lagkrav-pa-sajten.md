@@ -141,3 +141,23 @@ Johnny frågade om vårt eget verktyg är bäst enligt bästa praxis: *"måste j
 1. Consent Mode v2-signaler, alltså `gtag('consent', 'default'|'update', …)`, i taggarnas kod.
 2. En logg över samtycken på servern, en Worker med D1, eftersom Google kräver *"Keep records of consent"*.
 3. En lista över varje verktygs kakor på sidan *Integritet och kakor*, enligt PTS: namn, ändamål, tredjepart och lagringstid.
+
+## Tillägg 2026-10-16: första lagret i samtyckesrutan, och om USA ska stå där
+
+Johnnys fråga: *"Behöver det verkligen stå usa där? Kan vi inte formulera oss bättre?"* Kvalitetsgranskningen (fynd J1) hade föreslagit meningen "Uppgifterna kan föras över till USA" i första lagret och hänvisat till EDPB 05/2020 p. 64.
+
+**Vad som måste stå för att samtycket ska vara informerat.** EDPB:s riktlinjer 05/2020 om samtycke räknar upp minst sex saker i p. 64:
+- den personuppgiftsansvariges identitet
+- ändamålet med varje behandling
+- vilka slags uppgifter
+- rätten att återkalla
+- automatiserade beslut, där sådana finns
+- (vi) *"the possible risks of data transfers due to absence of an adequacy decision and of appropriate safeguards"*
+
+Enligt p. 65 ska andra personuppgiftsansvariga som förlitar sig på samtycket namnges, och biträden behöver inte namnges där. Enligt p. 71 får informationen ges i lager när utrymmet är litet. PTS kräver ändamål, om kakan är en tredjepartskaka, lagringstid, vilka kakor, vilka uppgifter och att samtycket kan återkallas (📄 [PTS, Kakor](https://pts.se/internet-och-telefoni/kakor-cookies/), läst 2026-10-16). PTS säger inte att allt måste stå i första lagret, och nämner inte tredje land. Googles policy för användarsamtycke kräver att varje part som tar emot uppgifter namnges, men nämner inte USA (📄 [Google, EU user consent policy](https://www.google.com/about/company/user-consent-policy/)).
+
+**USA.** Punkt vi gäller bara när ett adekvansbeslut och skyddsåtgärder enligt art. 46 saknas. Kommissionens beslut om Data Privacy Framework från den 10 juli 2023 är ett adekvansbeslut för certifierade organisationer (📄 [EDPB, informationsblad om adekvansbeslutet](https://www.edpb.europa.eu/system/files/2024-12/edpb_informationnoteadequacydecisionus_sv.pdf)). Google LLC har certifierat sig (📄 [Google, Privacy frameworks](https://policies.google.com/privacy/frameworks), läst 2026-10-16), och det har Meta Platforms också (📄 [Metas DPF-meddelande](https://privacycenter.instagram.com/policies/data_privacy_framework), gällande från 2024-07-30). Överföringen ska alltså stå i integritetspolicyn (GDPR art. 13.1 f, att ett adekvansbeslut finns), men behöver inte stå i rutan ⚖️ (tolkning, inte juridisk rådgivning). Tribunalen avslog talan mot ramverket den 3 september 2025 i Latombe mot kommissionen. Överklagandet C-703/25 P är inte avgjort, och faller ramverket prövas frågan igen (📄 [WilmerHale 2025-12-01](https://www.wilmerhale.com/insights/blogs/wilmerhale-privacy-and-cybersecurity-law/20251201-european-court-of-justice-to-review-challenge-to-eu-us-data-privacy-framework)).
+
+**Praxis.** Svenska rutor skriver ofta *"vi och våra partners"* utan att nämna några partner, och några nämner USA i policyn som tredje land utan tillräckligt skydd. Det senare stämmer inte för certifierade mottagare sedan 2023. CNIL:s exempel på första lagret är en mening per ändamål med webbplatsen och "tredje parter" som subjekt, och listan över parter finns ett klick bort. Det är andrahandsuppgifter, eftersom CNIL:s egen text inte gick att läsa.
+
+**Den nya texten** följer p. 64–65 i en mening per sak: *"Kliniken vill använda kakor för statistik och annonser. Då får Google och Meta uppgifter om ditt besök. Du kan ändra dig när som helst under Kakinställningar längst ner."* Därtill länken *Läs mer om kakor*. Lagringstid, tredjepartskakor och USA står i kaklistan och på integritetssidan.

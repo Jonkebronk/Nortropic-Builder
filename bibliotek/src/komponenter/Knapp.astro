@@ -12,7 +12,7 @@ interface Props {
 const { href, text, variant = 'primar', ikon, extern = false, etikett } = Astro.props;
 ---
 <a
-  class={`knapp knapp--${variant}`}
+  class={`knapp knapp--${variant}${href.startsWith('tel:') ? ' telefon' : ''}`}
   href={href}
   aria-label={etikett}
   {...(extern ? { rel: 'noopener', target: '_blank' } : {})}

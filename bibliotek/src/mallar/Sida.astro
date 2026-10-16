@@ -7,12 +7,14 @@ import Sidhuvud from '../sektioner/Sidhuvud.astro';
 import Sidfot from '../sektioner/Sidfot.astro';
 import Kontaktlist, { type Knappval } from '../sektioner/Kontaktlist.astro';
 import Samtycke from '../sektioner/Samtycke.astro';
+import { samtyckeStandard, rorelseJamforelse as rorelseJamforelseSkript } from '../komponenter/inlineskript.mjs';
 import type { StartInnehall } from '../innehall/typ';
 
 // strukturerad: JSON-LD för sökmotorer, t.ex. en klinik per mottagning (Google Search Central, LocalBusiness).
-// lista: knapplistens knappar när sidans primära handling inte är Boka, t.ex. Ring och Mejla på en företagssida.
-interface Props { kit: 'lugn' | 'varm' | 'djarv'; innehall: StartInnehall; titel: string; beskrivning: string; noindex?: boolean; rorelse?: 'sparsam' | 'mattlig'; strukturerad?: object[]; lista?: { primar: Knappval; sekundar: Knappval }; }
-const { kit, innehall, titel, beskrivning, noindex = false, rorelse = 'sparsam', strukturerad = [], lista } = Astro.props;
+// lista: knapplistens och sidhuvudets knappar när sidans primära handling inte är Boka, t.ex. Ring och Mejla på en företagssida.
+// rorelseJamforelse: bara på provsidor som jämför de två rörelseversionerna med ?rorelse=; en vanlig sajt bär inte skriptet.
+interface Props { kit: 'lugn' | 'varm' | 'djarv'; innehall: StartInnehall; titel: string; beskrivning: string; noindex?: boolean; rorelse?: 'sparsam' | 'mattlig'; rorelseJamforelse?: boolean; strukturerad?: object[]; lista?: { primar: Knappval; sekundar: Knappval }; }
+const { kit, innehall, titel, beskrivning, noindex = false, rorelse = 'sparsam', rorelseJamforelse = false, strukturerad = [], lista } = Astro.props;
 const adress = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
 const delning = Astro.site && innehall.foretag.delningsbild ? new URL(innehall.foretag.delningsbild, Astro.site).href : undefined;
 ---
@@ -25,32 +27,31 @@ const delning = Astro.site && innehall.foretag.delningsbild ? new URL(innehall.f
     <meta name="description" content={beskrivning} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     {adress && !noindex && <link rel="canonical" href={adress} />}
-    {innehall.foretag.favikon && <link rel="icon" href={innehall.foretag.favikon} type="image/png" />}
+    {innehall.foretag.favikon && <link rel="icon" href={innehall.foretag.favikon} type="image/png" sizes="48x48" />}
+    {innehall.foretag.favikonStor && <link rel="icon" href={innehall.foretag.favikonStor} type="image/png" sizes="96x96" />}
     {innehall.foretag.hemskarmsikon && <link rel="apple-touch-icon" href={innehall.foretag.hemskarmsikon} />}
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="sv_SE" />
     <meta property="og:site_name" content={innehall.foretag.namn} />
     <meta property="og:title" content={titel} />
     <meta property="og:description" content={beskrivning} />
-    {adress && <meta property="og:url" content={adress} />}
+    {adress && !noindex && <meta property="og:url" content={adress} />}
+    {/* Delningsbilden är 1200 × 630 px (skript/ikoner.mjs). Måtten låter tjänsterna visa den direkt vid första delningen (Open Graph protocol, ogp.me). */}
     {delning && <meta property="og:image" content={delning} />}
-    {strukturerad.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
-    {innehall.samtycke?.googleSamtyckeslage && (
-      <script is:inline>
-        // Consent Mode v2: allt nekat tills besökaren svarar, före alla Googles taggar (Google, Set up consent mode). Inget sparas i webbläsaren.
-        window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); }
-        gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', wait_for_update: 500 });
-      </script>
-    )}
-    <script is:inline>
-      // Bara för jämförelsen av de två rörelseversionerna: ?rorelse=mattlig eller ?rorelse=sparsam.
-      (function () { var r = new URLSearchParams(location.search).get('rorelse'); if (r === 'mattlig' || r === 'sparsam') document.documentElement.dataset.rorelse = r; })();
-    </script>
+    {delning && <meta property="og:image:width" content="1200" />}
+    {delning && <meta property="og:image:height" content="630" />}
+    {delning && innehall.foretag.delningsbildText && <meta property="og:image:alt" content={innehall.foretag.delningsbildText} />}
+    {delning && <meta name="twitter:card" content="summary_large_image" />}
+    {/* < skrivs som \u003c så att en text i datan aldrig kan avsluta skripttaggen (OWASP, XSS Prevention Cheat Sheet). */}
+    {strukturerad.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d).replace(/</g, '\\u003c')} />)}
+    {/* Consent Mode v2 före alla Googles taggar; texten och dess CSP-hash kommer ur komponenter/inlineskript.mjs. */}
+    {innehall.samtycke?.googleSamtyckeslage && <script is:inline set:html={samtyckeStandard} />}
+    {rorelseJamforelse && <script is:inline set:html={rorelseJamforelseSkript} />}
   </head>
   <body data-ny-flik-text={innehall.nyFlikText}>
     <a class="hoppa" href="#innehall">Hoppa till innehållet</a>
     <Samtycke innehall={innehall} />
-    <Sidhuvud innehall={innehall} />
+    <Sidhuvud innehall={innehall} knappar={lista} />
     <main id="innehall">
       <slot />
     </main>

@@ -17,6 +17,9 @@
   --k-accent-text: #3f5a35;
   --k-mork: #27431f;
   --k-pa-mork: #f3ede2;
+  /* Fokusringen: accenten på ljusa ytor, den ljusa färgen på mörka (WCAG 2.2, 1.4.11, minst 3:1). */
+  --k-fokus: var(--k-accent-text);
+  --k-fokus-pa-mork: var(--k-pa-mork);
   --k-dekor: #dce3d2;
   --k-dekor-2: #9c4f32;
   --k-forstavy-bg: var(--k-bg);
@@ -34,6 +37,17 @@
   --k-h2: clamp(1.7rem, 1.35rem + 1.6vw, 2.6rem);
   --k-h3: 1.25rem;
   --k-brod: 1.0625rem;
+  /* Typsnittsskalan: fem storlekar utöver rubrikerna (Bringhurst 3.1.1, Don't compose without a scale). */
+  --k-liten: 0.85rem;
+  --k-mindre: 0.95rem;
+  --k-storre: 1.25rem;
+  --k-citat: 1.3rem;
+  /* Radlängd: cirka 66 tecken i brödtexten, inom 45–75 (Bringhurst 2.1.2). */
+  --k-matt: 34rem;
+  --k-matt-ingress: 36rem;
+  /* Ikoner: i löptext och fristående (Lucide, Stroke width). */
+  --k-ikon-text: 1.125rem;
+  --k-ikon: 1.375rem;
   --k-radhojd: 1.65;
   --k-overrad-versaler: none;
   --k-overrad-spatiering: 0;

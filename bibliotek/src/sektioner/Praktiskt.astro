@@ -1,32 +1,38 @@
 ---
 // Det praktiska: direkt efter första vyn – var och när, pris och telefon (guide/2-4-skelett.md).
 import Ikon from '../komponenter/Ikon.astro';
+import Uppmaning from '../komponenter/Uppmaning.astro';
 import { hartPostnummer } from '../komponenter/text';
 import type { StartInnehall } from '../innehall/typ';
 interface Props { innehall: StartInnehall; }
 const { praktiskt, ring } = Astro.props.innehall;
 ---
-<section class="sektion praktiskt" id="praktiskt" aria-labelledby="praktiskt-rubrik" data-idag-text={praktiskt.idagText}>
+<section class="sektion praktiskt" id="praktiskt" aria-labelledby="praktiskt-rubrik" data-idag-text={praktiskt.idagText} data-yta="bg">
   <div class="behallare">
-    <h2 id="praktiskt-rubrik" class="praktiskt__rubrik">{praktiskt.rubrik}</h2>
+    <div class="sektion__huvud"><h2 id="praktiskt-rubrik">{praktiskt.rubrik}</h2></div>
     <div class="praktiskt__rutnat">
       {praktiskt.platser.map((p) => (
         <article class="kort praktiskt__plats">
           <h3>{p.namn}</h3>
-          <p><a class="praktiskt__adress" href={p.karta.href} data-apple={p.karta.apple} data-ny-flik rel="noopener" aria-label={`${p.karta.text}: ${p.adress}`}><Ikon namn="plats" /><span>{hartPostnummer(p.adress)}</span></a></p>
+          <p><a class="praktiskt__adress" href={p.karta.href} data-apple={p.karta.apple} data-ny-flik rel="noopener"><Ikon namn="plats" /><span>{hartPostnummer(p.adress)}<span class="sr-only"> – {p.karta.text}</span></span></a></p>
           <dl class="praktiskt__dagar">
             {p.dagar.map((d) => (<div data-veckodag={d.nr}><dt>{d.dag}</dt><dd>{d.tid}</dd></div>))}
           </dl>
+          {p.sida && <Uppmaning href={p.sida.href} text={p.sida.text} />}
         </article>
       ))}
       <article class="kort praktiskt__pris">
-        <h3>{praktiskt.pris.rubrik}</h3>
-        <p class="praktiskt__belopp">{praktiskt.pris.belopp}</p>
-        <p class="dampad">{praktiskt.pris.text}</p>
-        <h3 class="praktiskt__kontaktrubrik">{praktiskt.kontakt.rubrik}</h3>
-        <p><a class="praktiskt__telefon" href={ring.href}><Ikon namn="telefon" />{ring.nummer}</a></p>
-        <p class="dampad">{praktiskt.kontakt.text}</p>
-        {praktiskt.kontakt.epost && <p><a href={praktiskt.kontakt.epost.href}>{praktiskt.kontakt.epost.text}</a></p>}
+        <div class="praktiskt__del">
+          <h3>{praktiskt.pris.rubrik}</h3>
+          <p class="praktiskt__belopp">{praktiskt.pris.belopp}</p>
+          <p class="dampad">{praktiskt.pris.text}</p>
+        </div>
+        <div class="praktiskt__del">
+          <h3>{praktiskt.kontakt.rubrik}</h3>
+          <p><a class="telefon praktiskt__telefon" href={ring.href}><Ikon namn="telefon" />{ring.nummer}</a></p>
+          <p class="dampad">{praktiskt.kontakt.text}</p>
+          {praktiskt.kontakt.epost && <p><a href={praktiskt.kontakt.epost.href}>{praktiskt.kontakt.epost.text}</a></p>}
+        </div>
       </article>
     </div>
   </div>
@@ -34,9 +40,11 @@ const { praktiskt, ring } = Astro.props.innehall;
 
 <script>
   // Markerar dagens rad, så att besökaren ser var mottagningen är i dag. Utan JavaScript syns tiderna som vanligt.
+  // Veckodagen räknas i mottagningens tidszon och inte i besökarens (kvalitetsgranskningen 2026-10-16, K22).
   const s = document.querySelector<HTMLElement>('.praktiskt[data-idag-text]');
   if (s) {
-    const idag = String(new Date().getDay());
+    const dag = new Intl.DateTimeFormat('en-US', { weekday: 'short', timeZone: 'Europe/Stockholm' }).format(new Date());
+    const idag = String(['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(dag));
     s.querySelectorAll<HTMLElement>(`[data-veckodag="${idag}"]`).forEach((rad) => {
       rad.classList.add('praktiskt__idag');
       const m = document.createElement('span'); m.className = 'praktiskt__idagmarkering'; m.textContent = s.dataset.idagText ?? '';
@@ -47,21 +55,29 @@ const { praktiskt, ring } = Astro.props.innehall;
 
 <style>
   .praktiskt { padding-top: var(--k-a7); }
-  .praktiskt__rubrik { margin-bottom: var(--k-a5); }
   .praktiskt__rutnat { display: grid; gap: var(--k-a4); }
   /* Adressen är länken till vägbeskrivningen, som i sidfoten (Johnny 2026-10-15). */
   .praktiskt__adress { display: inline-flex; gap: var(--k-a2); align-items: flex-start; color: var(--k-text); min-height: 24px; }
-  .praktiskt__adress :global(svg) { width: 1.1rem; height: 1.1rem; margin-top: 0.3rem; flex: none; color: var(--k-accent-text); }
+  .praktiskt__adress :global(svg) { width: var(--k-ikon-text); height: var(--k-ikon-text); margin-top: 0.3rem; flex: none; color: var(--k-dampad); }
   .praktiskt__dagar { margin: 0; display: grid; gap: var(--k-a1); }
   .praktiskt__dagar div { display: flex; justify-content: space-between; gap: var(--k-a4); border-bottom: 1px solid var(--k-linje); padding-block: var(--k-a2); }
   .praktiskt__dagar dt { font-weight: 600; }
   .praktiskt__dagar dd { margin: 0; font-variant-numeric: tabular-nums; }
   .praktiskt__dagar :global(.praktiskt__idag) { font-weight: 700; }
-  .praktiskt__dagar :global(.praktiskt__idagmarkering) { display: inline-block; margin-left: var(--k-a2); padding: 0 var(--k-a2); border-radius: 999px; background: var(--k-accent); color: var(--k-pa-accent); font-size: 0.8rem; font-weight: 600; }
+  .praktiskt__dagar :global(.praktiskt__idagmarkering) { display: inline-block; margin-left: var(--k-a2); padding: 0 var(--k-a2); border-radius: 999px; background: var(--k-accent); color: var(--k-pa-accent); font-size: var(--k-liten); font-weight: 600; }
   .praktiskt__belopp { font-family: var(--k-font-rubrik); font-weight: var(--k-rubrik-vikt); font-size: var(--k-h2); line-height: 1; }
-  .praktiskt__kontaktrubrik { margin-top: var(--k-a4); }
-  .praktiskt__telefon { display: inline-flex; align-items: center; gap: var(--k-a2); font-weight: 600; font-size: 1.2rem; min-height: 44px; }
-  .praktiskt__telefon :global(svg) { width: 1.2rem; height: 1.2rem; }
-  @media (min-width: 48rem) { .praktiskt__rutnat { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 64rem) { .praktiskt__rutnat { grid-template-columns: repeat(3, 1fr); } }
+  .praktiskt__pris { gap: var(--k-a5); }
+  .praktiskt__del { display: grid; gap: var(--k-a2); align-content: start; }
+  .praktiskt__telefon { display: inline-flex; align-items: center; gap: var(--k-a2); font-weight: 600; font-size: var(--k-storre); min-height: 44px; }
+  .praktiskt__telefon :global(svg) { width: var(--k-ikon); height: var(--k-ikon); }
+  /* På surfplattan ligger pris och kontakt i ett brett kort under de två mottagningarna, så att inget kort står ensamt
+     med en tom yta bredvid (kvalitetsgranskningen 2026-10-16, D11). */
+  @media (min-width: 48rem) {
+    .praktiskt__rutnat { grid-template-columns: repeat(2, 1fr); }
+    .praktiskt__pris { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 64rem) {
+    .praktiskt__rutnat { grid-template-columns: repeat(3, 1fr); align-items: start; }
+    .praktiskt__pris { grid-column: auto; display: flex; }
+  }
 </style>
