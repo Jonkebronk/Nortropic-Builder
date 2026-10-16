@@ -1377,3 +1377,19 @@ Efter installationen av Googles skill `retrieving-developer-knowledge` föreslog
 **Innebär:**
 - `.claude/skills/kvalitet/seo-teknik.md`: bara sidor hämtade med `search_documents` eller `get_documents` räknas som källa. Ett svar från `answer_query` är alltid *härlett* och citeras inte som regel.
 - Startsäkringen (avsnitt 5b) installerar om varje skill i `skills-lock.json` med `npx skills@latest add <källa> --skill <namn> --agent claude-code --copy -y`. Claude ändrade formen från förslaget, eftersom `npx skills update` installerar om utan `--copy` och då skulle lägga `.agents/` och symlänkar i repot (📄 skills 1.7.2, `dist/cli.mjs`, `updateProjectSkills`). En ny version syns som en ny hash i `skills-lock.json` och läses innan den committas.
+
+## 2026-10-16: Nyckeln till Developer Knowledge som klistrades in i chatten behålls
+
+**Status:** gäller för den här nyckeln. Undantag från *Alla MCP:er in nu …* (17.05), där nycklar aldrig klistras in i chatten och Johnny lägger in dem själv.
+
+Johnny skapade nyckeln till Developer Knowledge API och klistrade in den i chatten. Claude påpekade att nyckeln då ligger i chattloggen och i sessionens lokala loggar, att den är begränsad till Developer Knowledge API (Googles publika dokumentation) men att den som får tag på den kan använda projektets kvot, och rekommenderade att radera den och skapa en ny. Johnny valde:
+
+> Behåll, Claude lägger in den
+
+och skrev samtidigt:
+
+> du får köra den, det gör inget.
+
+**Innebär:**
+- Claude lade in nyckeln på servern `google-developer-knowledge` i byggsessionens lokala konfiguration (`~/.claude-bygg/.claude.json`). Den står inte i repot, och Claude skriver den inte i någon fil här.
+- Nyckeln används bara till Developer Knowledge. Regeln om att nycklar inte klistras in i chatten gäller fortfarande för andra nycklar.
