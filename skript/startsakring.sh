@@ -101,6 +101,13 @@ claude mcp list 2>&1 | sed -E 's/(Key|key|token|Token|Bearer)[^ ]*:? *[^ ]+/\1 <
 for p in $(claude mcp list 2>/dev/null | grep -oE 'npx -y [^ ]+@latest' | awk '{print $3}' | sed 's/@latest$//' | sort -u); do
   echo "$p: senaste är $(npm view "$p" version 2>/dev/null)"
 done
+# Playwright MCP kör WebKit med iPhone-profil (BESLUT.md 2026-10-16, *Domarna över MCP-servrarna*) och behöver den
+# WebKit-version som dess egen playwright-core kräver, som kan skilja sig från projektens.
+if [[ -z "$TORRT" ]]; then
+  (cd "$ROT" && npx -y @playwright/mcp@latest install-browser webkit >/dev/null 2>&1) && echo "Playwright MCP:s WebKit: aktuell" || varna "Playwright MCP:s WebKit kunde inte installeras"
+else
+  echo "skulle installera Playwright MCP:s WebKit"
+fi
 # Verktygslåset: varje servers verktygslista och instruktioner jämförs med den låsta (BESLUT.md 2026-10-16, Senaste version
 # med verktygslås …). En ändring rapporteras och godtas av Johnny med: python3 -I skript/mcp-verktygslas.py --uppdatera
 # Servrar som låset inte når (OAuth, claude.ai-connector, inte tillagd) står på en rad som olåsta.

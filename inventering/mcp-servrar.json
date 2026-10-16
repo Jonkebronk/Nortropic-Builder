@@ -16,29 +16,11 @@
   ]
  },
  {
-  "namn": "mdn",
-  "url": "https://mcp.mdn.mozilla.net/",
-  "huvud": {
-   "X-Moz-1st-Party-Data-Opt-Out": "1"
-  }
- },
- {
   "namn": "astro-docs",
   "url": "https://mcp.docs.astro.build/mcp"
  },
  {
-  "namn": "cloudflare-docs",
-  "url": "https://docs.mcp.cloudflare.com/mcp"
- },
- {
-  "namn": "playwright",
-  "kommando": [
-   "npx",
-   "-y",
-   "@playwright/mcp@latest",
-   "--headless",
-   "--isolated"
-  ]
+  "namn": "playwright"
  },
  {
   "namn": "leonardo",
@@ -89,13 +71,7 @@
   "inloggning": true
  },
  {
-  "namn": "shadcn",
-  "kommando": [
-   "npx",
-   "-y",
-   "shadcn@latest",
-   "mcp"
-  ]
+  "namn": "shadcn"
  },
  {
   "namn": "seo-monster",

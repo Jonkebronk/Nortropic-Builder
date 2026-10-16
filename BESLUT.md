@@ -1455,3 +1455,35 @@ Under MCP-proven läste Claude zonen nortropic.se på Johnnys Cloudflarekonto (H
 > nej, inge adobe
 
 **Innebär:** inga ärenden hos Adobe. Felen står i `kunskap/kallkort/adobe-leonardo.md`, och kitskriptet använder HEX och Color.js.
+
+## 2026-10-16: Domarna över MCP-servrarna efter översynen
+
+**Status:** gäller. Ändrar *Alla MCP:er in nu …* (17.05) för de servrar som släpps.
+
+Claude lade fram domarna efter MCP-proven och översynen (`kunskap/research/2026-10-16_verktyg-och-skills-full-potential.md`) som en numrerad lista och bad om ja till alla eller de nummer som skulle ändras, och om Motion skulle behållas eller släppas. Johnny, kl. 21.37:
+
+> ja, det blir bra
+
+| # | Server | Dom |
+|---|---|---|
+| 1 | Chrome DevTools | Behåll, och vidga rollen till prov av lägen (forced colors, kontrast, reducerad rörelse), skärminspelning, samtycke i isolerad kontext och INP |
+| 2 | Playwright MCP | Behåll med ny konfiguration: WebKit med iPhone-profil, video och tester (`--caps`), utdata utanför repot |
+| 3 | Astro Docs | Behåll |
+| 4 | Developer Knowledge | Behåll |
+| 5 | MDN | Släpp; status ur web-features med ett skript |
+| 6 | Cloudflare Docs | Släpp |
+| 7 | seo-monster | Behåll för att prova sajten efter publicering; inte för Search Console; aldrig mot den lokala förhandsvisningen |
+| 8 | mcp-gsc | Senare (N3) |
+| 9 | Cloudflare | Behåll; valet mellan OAuth och läs-token är en egen fråga |
+| 10 | Figma | Behåll, bara läsverktygen |
+| 11 | 21st | Begränsa: sök för idéer, hämta bara komponenter utan state, licensen ur komponentens `.md`-sida och ursprungsrepot |
+| 12 | Inspo | Begränsa till `get_design_system`, `find_by_color`, `compare` och referensindexet (bara strukturen) |
+| 13 | Mobbin | Släpp |
+| 14 | Leonardo | Behåll för kontrast och färgomvandling |
+| 15 | shadcn | Behåll för att läsa, med `components.json` utanför repot |
+
+**Innebär:**
+- Byggsessionens konfiguration ändras därefter: MDN och Cloudflare Docs tas bort; Playwright får `--browser webkit --device "iPhone 15" --caps=devtools,testing,config --output-dir` utanför repot och `--no-webmcp`; shadcn startas i `~/.claude-bygg/shadcn/`, där en `components.json` med bara `registries` (`@tailark-oss`, `@magicui`) ligger utanför repot. Flaggan `-c` räckte inte, eftersom servern läser konfigurationen ur arbetskatalogen. Ändringarna gäller från nästa omstart.
+- Mobbin är en claude.ai-connector, som Johnny själv kopplar bort.
+- Motion (16) var oavgjord i listan och är inte avgjord av svaret; servern står kvar tills Johnny säger annat.
+- Domarna förs in i `inventering/inventering.json` (fältet `beslut`) tillsammans med skillsen (Johnny tidigare samma kväll, *"ta den ihop med"*).

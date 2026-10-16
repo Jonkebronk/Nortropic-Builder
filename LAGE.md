@@ -22,6 +22,17 @@ Uppdaterad 2026-10-16 kl. 19.39 på Johnnys Mac, i den första byggsessionen (`c
   ```
   Nycklarna skaffas i Google Cloud (Maps Grounding Lite och Developer Knowledge API, var sin begränsad nyckel; Grounding Lite kräver fakturering), Google AI Studio (Gemini, betald nivå i EES) och BrowserStacks *Account Settings* (betald plan).
 - **Verktygslåset** (`python3 -I skript/mcp-verktygslas.py`, körs också i startsäkringen): 14 av 21 servrar är låsta, också Grounding Lite och Developer Knowledge, vars verktygslistor är öppna. Olåsta står på en egen rad med skälet: OAuth-servrarna (Figma, Cloudflare, 21st, DataForSEO), Mobbin (claude.ai-connector) och de som inte är tillagda. Nycklar läses ur byggsessionens konfiguration och skrivs aldrig ut. Kör det efter att nycklarna är inlagda; godta en ändring med `--uppdatera` först när Johnny har sett den.
+- **Domarna över MCP-servrarna är beslutade** (`BESLUT.md` 2026-10-16, 21.37). Byggsessionens konfiguration är ändrad efter dem:
+  - MDN och Cloudflare Docs är borttagna.
+  - Playwright kör WebKit med iPhone 15, `--caps=devtools,testing,config`, utdata i `~/.claude-bygg/playwright-utdata` och `--no-webmcp`. WebKit 2368 är installerad, och startsäkringen installerar den.
+  - shadcn startas i `~/.claude-bygg/shadcn/` med `@tailark-oss` och `@magicui`.
+  - `inventering/mcp-servrar.json` följer konfigurationen.
+  
+  **Väntar på Johnny:**
+  - Starta om `claude-bygg`, så att ändringarna gäller.
+  - Koppla bort Mobbin-connectorn i claude.ai.
+  - Godta verktygslåsets ändring för Playwright (19 nya verktyg) med `python3 -I skript/mcp-verktygslas.py --uppdatera`.
+  - Avgör Motion: behåll eller släpp.
 - **Översynen av verktyg och skills mot sin fulla potential är gjord** (2026-10-16 kväll, Johnny: *"det här behöver du se över på samtliga skills att de används mot sin fulla potential"*, omfattning *båda*). Den står i `kunskap/research/2026-10-16_verktyg-och-skills-full-potential.md` och ändrar flera av MCP-provets domar och två av Claudes påståenden. **Väntar på Johnny:** 21 punkter i avsnittet *Väntar på Johnny*, och rättelserna i källkorten, som är fakta och inte regler. Källkorten och guidens tre rader om seo-monsters omfång är rättade (Johnny: *"rätta"*). Skills, konfiguration och inventering är inte ändrade. Seo-monster-raden i `drift/verktyg.md` och i `inventering.json` rättas tillsammans med skillsen. `.playwright-mcp/` står i `.gitignore`.
 - **MCP-proven är körda** (2026-10-16 kväll, Johnny: *"Prova varje mot övningsajten"*). Resultatet per server och domarna, som är förslag, står i sajtens `mcp-prov.md`. Kort: behåll Chrome DevTools, Playwright (med WebKit, iPhone och utdata utanför repot), Astro Docs, Developer Knowledge, seo-monster (N3), Cloudflare (med läs-token) och Figma. Begränsa Inspo och 21st. Släpp MDN, Cloudflare Docs, Mobbin, Leonardo-MCP:n, shadcn-MCP:n och Motion. **Väntar på Johnny:** domarna och åtta punkter i slutet av `mcp-prov.md`, bland dem bilderna från Mobbin i sessionens `tool-results/`. Inställningarna på nortropic.se är parkerade: domänen byggs senare (`BESLUT.md` 2026-10-16, 21.01).
 
