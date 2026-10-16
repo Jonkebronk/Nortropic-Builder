@@ -1440,4 +1440,8 @@ Under MCP-proven läste Claude zonen nortropic.se på Johnnys Cloudflarekonto (H
 
 **Innebär:**
 - Claude läser eller ändrar inget på nortropic.se nu. Fynden från provet ligger kvar i övningssajtens `mcp-prov.md` som parkerade och tas upp när byråns sajt byggs.
-- Prov mot Cloudflarekontot görs inte utan att Johnny tillfrågats.
+- Prov mot Cloudflarekontot är tillåtna, också läsning av nortropic.se. Johnny rättade kl. 21.01, sedan Claude först skrivit att prov kräver att han tillfrågas:
+
+  > nej det är okej att prova, jag frågade bara då det var random
+
+  Proven gör bara läsningar. Ingenting ändras på domänen förrän sajten byggs.
