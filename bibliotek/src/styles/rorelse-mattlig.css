@@ -1,15 +1,8 @@
 /* Måttlig rörelse (guide/2-6-rorelse.md): ett tillval för restaurang, café och den djärva riktningen (Johnny 2026-10-15).
    Importeras av sidor med rorelse='mattlig' och av bibliotekets provsida för jämförelsen. */
+/* Första skärmen, förstavyn och sidtoppen, animeras aldrig in: budskapet och ofta LCP-bilden ska synas direkt
+   (BESLUT.md 2026-10-15, B3; premiumpasset 2026-10-16, P17). Rörelsen börjar under första skärmen. */
 @media (prefers-reduced-motion: no-preference) {
-  [data-rorelse="mattlig"] .forstavy__text > *,
-  [data-rorelse="mattlig"] .forstavy__bild,
-  [data-rorelse="mattlig"] .sidtopp__text > * {
-    animation: rorelse-in calc(var(--k-tid) * 1.5) var(--k-kurva) both;
-  }
-  [data-rorelse="mattlig"] .forstavy__text > :nth-child(2), [data-rorelse="mattlig"] .sidtopp__text > :nth-child(2) { animation-delay: 70ms; }
-  [data-rorelse="mattlig"] .forstavy__text > :nth-child(3), [data-rorelse="mattlig"] .sidtopp__text > :nth-child(3) { animation-delay: 140ms; }
-  [data-rorelse="mattlig"] .forstavy__text > :nth-child(4), [data-rorelse="mattlig"] .sidtopp__text > :nth-child(4) { animation-delay: 210ms; }
-  [data-rorelse="mattlig"] .forstavy__bild { animation-delay: 160ms; animation-duration: calc(var(--k-tid) * 2); }
 
   @supports (animation-timeline: view()) {
     [data-rorelse="mattlig"] main > section:not(.forstavy, .sidtopp) .behallare > * {
@@ -27,6 +20,5 @@
   }
 }
 
-@keyframes rorelse-in { from { opacity: 0.7; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 @keyframes rorelse-upp { from { opacity: 0.7; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 @keyframes sidhuvud-skugga { to { box-shadow: 0 6px 20px rgb(0 0 0 / 0.06); } }

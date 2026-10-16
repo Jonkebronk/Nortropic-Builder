@@ -1,16 +1,18 @@
 ---
 // Sidtoppen på en undersida: sidans enda h1, en kort ingress och kontaktvägen (guide/2-3-struktur.md).
 // faktakort: på datorn ett litet kort till höger med det besökaren behöver för att boka, till exempel dagar och pris
-// (Johnny 2026-10-16, kvalitetsgranskningen C5). På mobilen står samma uppgifter i sidfoten, så kortet visas bara från 56rem.
+// (Johnny 2026-10-16, kvalitetsgranskningen C5). På mobilen står kortet under knapparna, så att mobilen inte får sämre
+// innehåll än datorn (premiumpasset 2026-10-16, P2). faktakortMobil={false} döljer det i mobilen, där det skulle trycka ned
+// något viktigare, som ett porträtt. En rad med href blir en länk, t.ex. telefon eller e-post.
 import Knapp from '../komponenter/Knapp.astro';
 import Uppmaning from '../komponenter/Uppmaning.astro';
 import type { IkonNamn } from '../komponenter/Ikon.astro';
 import type { Lank } from '../innehall/typ';
-export interface Faktakort { rubrik: string; rader: { etikett: string; text: string }[]; lank?: Lank; }
+export interface Faktakort { rubrik: string; rader: { etikett: string; text: string; href?: string }[]; lank?: Lank; }
 // boka är den primära knappen och ring den sekundära; ikonerna kan bytas, t.ex. ring och mejla på en företagssida.
 // not: en kort rad under knapparna, t.ex. vad man väljer i bokningen.
-interface Props { overrad?: string; rubrik: string; ingress: string; boka?: Lank; ring?: Lank; not?: string; lank?: Lank; primarIkon?: IkonNamn; sekundarIkon?: IkonNamn; faktakort?: Faktakort; }
-const { overrad, rubrik, ingress, boka, ring, not, lank, primarIkon = 'kalender', sekundarIkon = 'telefon', faktakort } = Astro.props;
+interface Props { overrad?: string; rubrik: string; ingress: string; boka?: Lank; ring?: Lank; not?: string; lank?: Lank; primarIkon?: IkonNamn; sekundarIkon?: IkonNamn; faktakort?: Faktakort; faktakortMobil?: boolean; }
+const { overrad, rubrik, ingress, boka, ring, not, lank, primarIkon = 'kalender', sekundarIkon = 'telefon', faktakort, faktakortMobil = true } = Astro.props;
 ---
 <section class="sidtopp">
   <div class="behallare sidtopp__rutnat">
@@ -28,9 +30,9 @@ const { overrad, rubrik, ingress, boka, ring, not, lank, primarIkon = 'kalender'
       {lank && <div><Uppmaning href={lank.href} text={lank.text} /></div>}
     </div>
     {faktakort && (
-      <div class="kort sidtopp__fakta">
+      <div class:list={['kort sidtopp__fakta', { 'sidtopp__fakta--bara-dator': !faktakortMobil }]}>
         <h2 class="sidtopp__faktarubrik">{faktakort.rubrik}</h2>
-        <dl>{faktakort.rader.map((r) => <div><dt>{r.etikett}</dt><dd>{r.text}</dd></div>)}</dl>
+        <dl>{faktakort.rader.map((r) => <div><dt>{r.etikett}</dt><dd>{r.href ? <a class:list={[{ telefon: r.href.startsWith('tel:') }]} href={r.href}>{r.text}</a> : r.text}</dd></div>)}</dl>
         {faktakort.lank && <Uppmaning href={faktakort.lank.href} text={faktakort.lank.text} />}
       </div>
     )}
@@ -45,7 +47,7 @@ const { overrad, rubrik, ingress, boka, ring, not, lank, primarIkon = 'kalender'
   .sidtopp__ingress { font-size: 1.125rem; max-width: var(--k-matt-ingress); }
   .sidtopp__knappar { display: flex; flex-wrap: wrap; gap: var(--k-a3); margin-top: var(--k-a2); }
   .sidtopp__not { font-size: var(--k-mindre); }
-  .sidtopp__fakta { display: none; }
+  .sidtopp__fakta--bara-dator { display: none; }
   .sidtopp__faktarubrik { font-size: var(--k-h3); }
   .sidtopp__fakta dl { margin: 0; display: grid; }
   .sidtopp__fakta dl div { display: grid; gap: var(--k-a1); padding-block: var(--k-a2); border-bottom: 1px solid var(--k-linje); }
@@ -55,6 +57,6 @@ const { overrad, rubrik, ingress, boka, ring, not, lank, primarIkon = 'kalender'
   @media (min-width: 56rem) {
     .sidtopp { padding-block: var(--k-a7) var(--k-a6); }
     .sidtopp__rutnat:has(.sidtopp__fakta) { grid-template-columns: minmax(0, 1.6fr) minmax(17rem, 1fr); gap: var(--k-a7); }
-    .sidtopp__fakta { display: flex; }
+    .sidtopp__fakta, .sidtopp__fakta--bara-dator { display: flex; }
   }
 </style>

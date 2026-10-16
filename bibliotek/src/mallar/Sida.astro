@@ -23,6 +23,7 @@ const delning = Astro.site && innehall.foretag.delningsbild ? new URL(innehall.f
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    {innehall.foretag.temafarg && <meta name="theme-color" content={innehall.foretag.temafarg} />}
     <title>{titel}</title>
     <meta name="description" content={beskrivning} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}

@@ -11,7 +11,7 @@ const { rubrik, fragor, id = 'fragor' } = Astro.props;
     <h2 id={`${id}-rubrik`}>{rubrik}</h2>
     <div class="fragor__lista">
       {fragor.map((f) => (
-        <details name="fragor" class="fragor__post">
+        <details name={id} class="fragor__post">
           <summary><span>{f.fraga}</span><Ikon namn="chevron" /></summary>
           <p>{f.svar}</p>
         </details>

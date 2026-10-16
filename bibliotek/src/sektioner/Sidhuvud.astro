@@ -36,7 +36,7 @@ const aktuell = (l: Lank) => (l.href === sida ? 'page' : l.delar?.includes(sida)
       {knappar
         ? <a class="knapp knapp--sekundar sidhuvud__boka" href={knappar.sekundar.href}>{knappar.sekundar.text}</a>
         : <a class="knapp knapp--primar sidhuvud__boka" href={boka.href} rel="noopener">{boka.kort ?? boka.text}</a>}
-      <button class="sidhuvud__menyknapp" type="button" popovertarget="meny">
+      <button class="sidhuvud__menyknapp knapp-ton" type="button" popovertarget="meny">
         <Ikon namn="meny" /><span>{meny?.oppna ?? 'Meny'}</span>
       </button>
     </div>
@@ -44,7 +44,8 @@ const aktuell = (l: Lank) => (l.href === sida ? 'page' : l.delar?.includes(sida)
   <div id="meny" popover class="meny">
     <div class="meny__topp">
       <span class="meny__namn">{foretag.namn}</span>
-      <button class="meny__stang" type="button" popovertarget="meny" popovertargetaction="hide">
+      {/* autofocus: fokus flyttas in i panelen när den öppnas (HTML, popover focusing steps; WAI-ARIA APG, Dialog), och tillbaka till Meny när den stängs. */}
+      <button class="meny__stang knapp-ton" type="button" popovertarget="meny" popovertargetaction="hide" autofocus>
         <Ikon namn="stang" /><span>{meny?.stang ?? 'Stäng'}</span>
       </button>
     </div>
@@ -107,7 +108,10 @@ const aktuell = (l: Lank) => (l.href === sida ? 'page' : l.delar?.includes(sida)
   .sidhuvud__nav { display: none; }
   .sidhuvud__nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: var(--k-a5); }
   .sidhuvud__nav a { color: var(--k-text); text-decoration: none; font-weight: 400; }
-  .sidhuvud__nav a:hover, .sidhuvud__nav a[aria-current] { text-decoration: underline; text-underline-offset: 0.3em; }
+  .sidhuvud__nav a[aria-current] { text-decoration: underline; text-underline-offset: 0.3em; }
+  @media (hover: hover) and (pointer: fine) {
+    .sidhuvud__nav a:hover, .sidhuvud__ring:hover .sidhuvud__ringtext { text-decoration: underline; text-underline-offset: 0.3em; }
+  }
   .sidhuvud__kontakt { display: flex; align-items: center; gap: var(--k-a1); flex: none; }
   .sidhuvud__ring {
     display: inline-flex; align-items: center; justify-content: center; gap: var(--k-a2);
@@ -125,20 +129,23 @@ const aktuell = (l: Lank) => (l.href === sida ? 'page' : l.delar?.includes(sida)
   }
   .sidhuvud__menyknapp :global(svg) { width: var(--k-ikon-text); height: var(--k-ikon-text); }
 
-  /* Menypanelen glider in från höger. */
+  /* Menypanelen glider in från höger, och bakgrunden tonas med den. Utgången är kortare än entrén, cirka 0,7 gånger
+     (NN/g, Animation Duration; Kowalski, Modal), så att menyn stängs utan att man väntar på den (premiumpasset 2026-10-16, P3). */
   .meny {
     position: fixed; inset: 0 0 0 auto; margin: 0; height: 100dvh; width: min(100%, 24rem); max-height: none;
     padding: var(--k-a4) var(--k-a5) calc(var(--k-a5) + env(safe-area-inset-bottom));
     border: 0; border-left: 1px solid var(--k-linje); background: var(--k-yta); color: var(--k-text);
     overflow-y: auto; overscroll-behavior: contain;
-    transform: translateX(100%); transition: transform 300ms var(--k-kurva), display 300ms allow-discrete, overlay 300ms allow-discrete;
+    transform: translateX(100%); transition: transform 210ms var(--k-kurva), display 210ms allow-discrete, overlay 210ms allow-discrete;
   }
-  .meny:popover-open { display: flex; flex-direction: column; gap: var(--k-a5); transform: none; }
+  .meny:popover-open { display: flex; flex-direction: column; gap: var(--k-a5); transform: none; transition-duration: 300ms; }
   @starting-style { .meny:popover-open { transform: translateX(100%); } }
-  .meny::backdrop { background: rgb(0 0 0 / 0.35); }
+  .meny::backdrop { background: rgb(0 0 0 / 0.35); opacity: 0; transition: opacity 210ms linear, display 210ms allow-discrete, overlay 210ms allow-discrete; }
+  .meny:popover-open::backdrop { opacity: 1; transition-duration: 300ms; }
+  @starting-style { .meny:popover-open::backdrop { opacity: 0; } }
   .meny__topp { display: flex; align-items: center; justify-content: space-between; gap: var(--k-a3); border-bottom: 1px solid var(--k-linje); padding-bottom: var(--k-a3); }
   .meny__namn { font-family: var(--k-font-rubrik); font-weight: var(--k-rubrik-vikt); text-transform: var(--k-rubrik-versaler); font-size: var(--k-storre); }
-  .meny__stang { display: inline-flex; align-items: center; gap: 0.35rem; min-height: 44px; padding: 0.4rem 0.6rem; font: inherit; font-weight: 600; color: var(--k-text); background: none; border: 0; cursor: pointer; }
+  .meny__stang { display: inline-flex; align-items: center; gap: 0.35rem; min-height: 44px; padding: 0.4rem 0.6rem; font: inherit; font-weight: 600; color: var(--k-text); background: none; border: 0; border-radius: var(--k-radie-knapp); cursor: pointer; }
   .meny__stang :global(svg) { width: var(--k-ikon); height: var(--k-ikon); }
   .meny__lankar { list-style: none; margin: 0; padding: 0; display: grid; }
   .meny__lankar a { display: flex; align-items: center; min-height: 52px; color: var(--k-text); text-decoration: none; font-size: var(--k-storre); font-weight: 400; border-bottom: 1px solid var(--k-linje); }
@@ -157,8 +164,13 @@ const aktuell = (l: Lank) => (l.href === sida ? 'page' : l.delar?.includes(sida)
     .sidhuvud[data-lista="nere"] .sidhuvud__ring, .sidhuvud[data-lista="nere"] .sidhuvud__boka { display: none; }
     .sidhuvud[data-lista="nere"][data-dold="true"] { transform: translateY(-100%); }
   }
+  /* Med reducerad rörelse glider inget: panelen tonas in, eftersom opacitet inte är rörelse (WCAG 2.2, 2.3.3). */
   @media (prefers-reduced-motion: reduce) {
-    .sidhuvud, .meny { transition: none; }
+    .sidhuvud { transition: none; }
+    .meny, .meny:popover-open { transform: none; }
+    .meny { opacity: 0; transition: opacity 150ms linear, display 150ms allow-discrete, overlay 150ms allow-discrete; }
+    .meny:popover-open { opacity: 1; }
+    @starting-style { .meny:popover-open { opacity: 0; } }
   }
   /* Vid mycket låg höjd (400 % zoom, liggande mobil) är sidhuvudet statiskt (WCAG 2.2, Understanding 1.4.10; Johnny 2026-10-16). */
   @media (max-height: 30rem) {

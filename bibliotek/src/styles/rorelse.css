@@ -1,10 +1,10 @@
 /* Rörelsen i två versioner (guide/2-6-rorelse.md). Tider och kurvor kommer ur stilkitet.
-   Sparsam: bara tillståndsbyten, alltså färg vid hover och fokus.
-   Måttlig: förstavyn glider in vid laddning, sektionerna tonas upp när de kommer in i bild,
+   Sparsam: bara tillståndsbyten: färg vid hover och fokus, en kort kvittens när en knapp trycks och menyn (guide/2-6-rorelse.md).
+   Måttlig: sektionerna under första skärmen tonas upp när de kommer in i bild (första skärmens text animeras aldrig in, B3),
    korten lyfter vid hover och sidhuvudet får en skugga när sidan scrollas.
    Ingen text börjar osynlig: lägsta opacitet är 0,7 (Johnnys dom 2026-10-15). Sparsam är standard. Med prefers-reduced-motion: reduce står allt still (bas.css).
    Den måttliga versionen ligger i rorelse-mattlig.css och importeras bara av sidor som använder den, så att sajter med sparsam rörelse inte bär den. */
-html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+/* Mjuk rullning bara när besökaren inte har bett om reducerad rörelse (WCAG-teknik C39). */
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 
-[data-rorelse="sparsam"] .knapp:hover { transform: none; }
+[data-rorelse="sparsam"] .knapp:hover:not(:active) { transform: none; }

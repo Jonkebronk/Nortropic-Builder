@@ -23,7 +23,7 @@ const s = Astro.props.innehall.samtycke;
         <legend class="sr-only">{s.valj}</legend>
         {s.kategorier.map((k) => (
           <label class="samtycke__kategori">
-            <input type="checkbox" name={k.id} />
+            <input type="checkbox" name={k.id} data-kvittonamn={k.namn.toLowerCase()} />
             <span><strong>{k.namn}.</strong> {k.text}</span>
           </label>
         ))}
@@ -33,13 +33,13 @@ const s = Astro.props.innehall.samtycke;
         <button type="button" class="knapp knapp--sekundar" data-samtycke-svar="ja">{s.godkann}</button>
         <button type="button" class="knapp knapp--sekundar" data-samtycke-svar="nej">{s.neka}</button>
         <button type="button" class="knapp knapp--sekundar" data-samtycke-svar="spara" hidden>{s.spara}</button>
-        <button type="button" class="samtycke__valj" data-samtycke-visa-val data-valj={s.valj} data-dolj={s.dolj} aria-expanded="false" aria-controls="samtycke-val">{s.valj}</button>
+        <button type="button" class="samtycke__valj knapp-ton" data-samtycke-visa-val data-valj={s.valj} data-dolj={s.dolj} aria-expanded="false" aria-controls="samtycke-val">{s.valj}</button>
       </div>
     </div>
     {/* Bekräftelsen efter svaret: fokus flyttas hit, så att skärmläsare får veta vad som hände (WCAG 2.2, 4.1.3 och 2.4.3). */}
-    <div class="samtycke__kvitto" data-samtycke-kvitto tabindex="-1" role="status" hidden data-ja={s.kvitto.ja} data-nej={s.kvitto.nej} data-val={s.kvitto.val}>
+    <div class="samtycke__kvitto" data-samtycke-kvitto tabindex="-1" role="status" hidden data-ja={s.kvitto.ja} data-nej={s.kvitto.nej} data-val={s.kvitto.val} data-val-mall={s.kvitto.valMall}>
       <p><span data-samtycke-kvittotext></span> {s.kvitto.andra}</p>
-      <button type="button" class="samtycke__valj" data-samtycke-stang>{s.kvitto.stang}</button>
+      <button type="button" class="samtycke__valj knapp-ton" data-samtycke-stang>{s.kvitto.stang}</button>
     </div>
   </section>
 )}
@@ -162,7 +162,12 @@ const s = Astro.props.innehall.samtycke;
       aktivera(val);
       // Rutan byts mot en kort bekräftelse som får fokus. Den stängs med knappen eller när fokus lämnar rutan.
       const text = ruta.querySelector<HTMLElement>('[data-samtycke-kvittotext]')!;
-      text.textContent = (svar === 'ja' ? kvitto.dataset.ja : svar === 'nej' ? kvitto.dataset.nej : kvitto.dataset.val) ?? '';
+      // Egna val: kvittot säger vad besökaren valde, så att nej syns som nej (GOV.UK, Confirmation pages; premiumpasset P13).
+      // Inget ikryssat är ett nej och allt ikryssat ett ja; annars fylls mallen med kategoriernas namn.
+      const lista = (n: string[]) => n.length > 1 ? `${n.slice(0, -1).join(', ')} och ${n[n.length - 1]}` : n[0] ?? '';
+      const ja = rutor.filter((r) => r.checked).map((r) => r.dataset.kvittonamn ?? r.name), nej = rutor.filter((r) => !r.checked).map((r) => r.dataset.kvittonamn ?? r.name);
+      const egna = kvitto.dataset.valMall ? (!ja.length ? kvitto.dataset.nej : !nej.length ? kvitto.dataset.ja : kvitto.dataset.valMall.replace('{ja}', lista(ja)).replace('{nej}', lista(nej))) : kvitto.dataset.val;
+      text.textContent = (svar === 'ja' ? kvitto.dataset.ja : svar === 'nej' ? kvitto.dataset.nej : egna) ?? '';
       visaVal(false);
       fraga.hidden = true; kvitto.hidden = false;
       kvitto.focus({ preventScroll: true });
@@ -216,7 +221,7 @@ const s = Astro.props.innehall.samtycke;
   .samtycke__knappar { display: grid; grid-template-columns: 1fr 1fr; gap: var(--k-a2); }
   .samtycke__knappar :global(.knapp) { padding-inline: 0.75rem; min-height: 44px; padding-block: 0.5rem; }
   .samtycke__knappar [data-samtycke-svar="spara"] { grid-column: 1 / -1; }
-  .samtycke__valj { grid-column: 1 / -1; justify-self: center; background: none; border: 0; padding: 0.25rem 0.5rem; min-height: 44px; font: inherit; font-size: 0.9rem; font-weight: 600; color: var(--k-text); text-decoration: underline; cursor: pointer; }
+  .samtycke__valj { grid-column: 1 / -1; justify-self: center; background: none; border: 0; border-radius: var(--k-radie-knapp); padding: 0.25rem 0.5rem; min-height: 44px; font: inherit; font-size: 0.9rem; font-weight: 600; color: var(--k-text); text-decoration: underline; cursor: pointer; }
   .samtycke__kvitto { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--k-a1) var(--k-a3); padding-block: var(--k-a1); }
   .samtycke__kvitto:focus-visible { outline-offset: 6px; }
   /* På låga skärmar, som en liten telefon, blir rutan kompakt så att den skymmer så lite som möjligt (NN/g, Cookie Permissions 101, riktlinje 6). */

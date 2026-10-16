@@ -14,15 +14,16 @@ import Knapp from '../komponenter/Knapp.astro';
 import type { IkonNamn } from '../komponenter/Ikon.astro';
 import type { StartInnehall } from '../innehall/typ';
 export interface Knappval { href: string; text: string; ikon?: IkonNamn; etikett?: string; }
-interface Props { innehall: StartInnehall; primar?: Knappval; sekundar?: Knappval; }
+// etikett: landmärkets namn för skärmläsare; listen är en nav, så att den finns i landmärkeslistan (axe region; premiumpasset P16).
+interface Props { innehall: StartInnehall; primar?: Knappval; sekundar?: Knappval; etikett?: string; }
 const { boka, ring } = Astro.props.innehall;
 const primar = Astro.props.primar ?? { href: boka.href, text: boka.kort ?? boka.text, ikon: 'kalender' };
 const sekundar = Astro.props.sekundar ?? { href: ring.href, text: ring.kort ?? ring.text, ikon: 'telefon', etikett: `Ring ${ring.nummer}` };
 ---
-<div class="kontaktlist" data-kontaktlist>
+<nav class="kontaktlist" data-kontaktlist aria-label={Astro.props.etikett ?? 'Boka eller ring'}>
   <Knapp href={primar.href} text={primar.text} ikon={primar.ikon} etikett={primar.etikett} />
   <Knapp href={sekundar.href} text={sekundar.text} variant="sekundar" ikon={sekundar.ikon} etikett={sekundar.etikett} />
-</div>
+</nav>
 
 <script>
   const list = document.querySelector<HTMLElement>('[data-kontaktlist]');

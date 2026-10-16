@@ -30,7 +30,8 @@ const { tjanster } = Astro.props.innehall;
   .tjanster { background: color-mix(in srgb, var(--k-dekor) 45%, var(--k-bg)); }
   .tjanster__lista { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--k-a4); }
   /* Ikonen är dekor och får textens färg; accenten är till för handlingar (Johnny 2026-10-16, C6). */
-  .tjanster__ikon { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 50%; background: var(--k-bg); color: var(--k-text); }
+  /* Cirkeln har dekorfärgen, så att den syns mot kortets vita yta; med bakgrundsfärgen var kontrasten 1,11:1 (premiumpasset P7). */
+  .tjanster__ikon { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 50%; background: var(--k-dekor); color: var(--k-text); }
   .tjanster__ikon :global(svg) { width: var(--k-ikon); height: var(--k-ikon); }
   .tjanster__lank { margin-top: auto; }
   @media (min-width: 40rem) { .tjanster__lista { grid-template-columns: repeat(2, 1fr); } }

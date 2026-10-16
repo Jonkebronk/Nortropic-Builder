@@ -5,5 +5,8 @@
 import Ikon from './Ikon.astro';
 interface Props { href: string; text: string; nyFlik?: boolean; }
 const { href, text, nyFlik = false } = Astro.props;
+// Sista ordet och pilen hålls ihop, så att pilen följer texten när länken bryts (bas.css, .uppmaning__slut).
+const ord = text.trim().split(/\s+/);
+const sista = ord.pop();
 ---
-<a class="uppmaning" href={href} {...(nyFlik ? { 'data-ny-flik': '', rel: 'noopener' } : {})}>{text}<Ikon namn="pil" /></a>
+<a class="uppmaning" href={href} {...(nyFlik ? { 'data-ny-flik': '', rel: 'noopener' } : {})}>{ord.length > 0 && `${ord.join(' ')} `}<span class="uppmaning__slut">{sista}<Ikon namn="pil" /></span></a>

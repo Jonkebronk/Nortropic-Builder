@@ -63,7 +63,7 @@ const schema = forstavy.idag && JSON.stringify(praktiskt.platser.flatMap((p) => 
   .forstavy__betyg { display: flex; align-items: center; gap: var(--k-a2); font-size: var(--k-mindre); }
   /* Länken är en vanlig textrad: med inline-flex försvann mellanslaget efter betyget. Radhöjden ger minst 24 px att träffa. */
   .forstavy__betyg a { color: inherit; }
-  .forstavy__betyg :global(svg) { width: var(--k-ikon-text); height: var(--k-ikon-text); fill: currentColor; color: var(--k-accent-text); flex: none; }
+  .forstavy__betyg :global(svg) { width: var(--k-ikon-text); height: var(--k-ikon-text); fill: currentColor; color: inherit; flex: none; }
   /* Märkningen ligger under fotot i stället för att skära in i det (Johnnys dom 2026-10-15), på alla bredder: på surfplattan
      hamnade den annars över personens hand (kvalitetsgranskningen 2026-10-16, D12). På datorn står den under bildytans högra hörn. */
   .forstavy__bild .markering { width: fit-content; margin: var(--k-a3) auto 0; }

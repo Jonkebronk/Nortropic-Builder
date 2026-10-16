@@ -63,7 +63,8 @@ const { praktiskt, ring } = Astro.props.innehall;
   .praktiskt__dagar div { display: flex; justify-content: space-between; gap: var(--k-a4); border-bottom: 1px solid var(--k-linje); padding-block: var(--k-a2); }
   .praktiskt__dagar dt { font-weight: 600; }
   .praktiskt__dagar dd { margin: 0; font-variant-numeric: tabular-nums; }
-  .praktiskt__dagar :global(.praktiskt__idag) { font-weight: 700; }
+  /* 600: kitet laddar 400 och 600, och 700 skulle ritas som 600 (CSS Fonts 4, närmaste vikt). */
+  .praktiskt__dagar :global(.praktiskt__idag) { font-weight: 600; }
   .praktiskt__dagar :global(.praktiskt__idagmarkering) { display: inline-block; margin-left: var(--k-a2); padding: 0 var(--k-a2); border-radius: 999px; background: var(--k-accent); color: var(--k-pa-accent); font-size: var(--k-liten); font-weight: 600; }
   .praktiskt__belopp { font-family: var(--k-font-rubrik); font-weight: var(--k-rubrik-vikt); font-size: var(--k-h2); line-height: 1; }
   .praktiskt__pris { gap: var(--k-a5); }

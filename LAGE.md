@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-16 kl. 12.16 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-16 kl. 13.56 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Kort
 
@@ -118,19 +118,30 @@ Johnny tog in fem av förslagen till checklistan och lade till ett sjätte. `mal
    - Omkring 11.50 strök Johnny referensregeln och kodregeln: *"vi kan kopiera helt fritt och göra som vi vill"* (`BESLUT.md`). Claude följer ändå upphovsrätten och marknadsföringslagen och kopierar inte andras texter, bilder, kännetecken eller kod utan licens.
    - **Långsiktigt mål (Johnny 08.00):** kundportalen på Nortropics sajt, där kunden loggar in och ser sin statistik. N3 i `guide/2-9-drift-och-forvaltning.md`, och den byggs när den första betalande kunden har månadsrapporter. **Nästa:** genomgången efter sajten (`guide/5-byggplan.md`). Nästa mätning av granskaren görs på nya sajter och på systemets egna utkast.
 
-## Pågår: kompetensen in i alla lager (från 12.11)
+## Kompetensen in i alla lager (från 12.11)
 
 Johnny beslutade omkring 12.11 att kompetensen ur inventeringen ska in i alla lager (`BESLUT.md`, *Kompetensen in i alla lager*).
 - **G1–G13 är införda**, och stilkiten Varm och Djärv är rättade (G8 och G9). Provsidorna väntar på Johnnys dom.
 - **MCP-servrarna Inspo och Chrome DevTools** är tillagda i byggsessionen. Chrome DevTools körs utan statistik och CrUX-anrop. De som kräver konto väntar på Johnny.
-- **Nio arbetare bygger lagerskills** i `.claude/skills/`: strategi, omfattning, struktur, skelett, yta, rörelse, innehåll, kvalitet, drift, granskare och lärande. De destilleras ur guiden, inventeringens 171 poster och källorna.
-  - Varje arbetare reviderar också övningssajten mot sin skill, föreslår ett beslut per post och listar luckorna, alltså det litteraturen kräver som vi saknar.
-  - Underlaget ligger i scratch tills det är granskat.
+- **Elva skills i `.claude/skills/`:** strategi, omfattning, struktur, skelett, yta, rörelse, innehåll, kvalitet, drift, granskare och lärande (bilaga B).
+- **Inventeringen:** varje post av 171 har ett *förslag* till placering med motivering och en länk till sitt källkort (skill 66, senare 27, släpp 22, bibliotek 17, MCP 15, kontroll 14, verktyg 10). Artefakten är publicerad. `beslut` står *ej fattat* utom Resend och Refero. Källkorten ligger i `kunskap/kallkort/` (172 st), och startsäkringen bevakar 128 repon.
+- **Luckorna** är sammanställda i `kunskap/research/2026-10-16_luckor-per-lager.md`: 93 luckor, varav 24 med vikt hög. De fem viktigaste: inga riktiga besökare prövar sajten, inga riktlinjer för kundens egna bilder, marknadsrätten för påståenden i vård är inte läst, bara Chromium prövas och ingen prövar med riktiga hjälpmedel.
+- **Premiumpasset på övningssajten:** åtta revisioner är sammanslagna till `sites/<sajt>/premiumpass.md` med 57 fynd: A 19 (rätta nu), B 28 (Johnny beslutar) och C 10 (senare). **Grupp A är genomförd** i biblioteket och sajten (commits `e8dd132` och framåt):
+  - sidhuvudet på en rad i 1024 px; ingen vågrät scroll vid 200 % textstorlek (förut 7 av 10 sidor)
+  - hover bara med mus, färg vid hover och tryck och en kort tryckkvittens; menyn tar fokus och bakgrunden tonas
+  - *Sök vård direkt* enligt 1177 (sex tecken, akutmottagningen och 1177), flyttad före processen och avgränsad
+  - raden *I dag* visar nästa mottagning efter stängning; kartan laddas direkt på ortssidorna (LCP)
+  - faktakortet syns också i mobilen; kontaktsidan har ett kort med telefon och e-post
+  - Om-sidan: h1 börjar med menyns namn (G4); processens rubriker berättar; aktiv form; samma ord för samma sak; länkar till mottagningarna
+  - stjärnan i textfärg (G3); ny ryggradsikon, prövad blint; kvittot i samtyckesrutan säger vad man valde
+  - måttlig rörelse animerar inte första skärmen (B3); mjuk rullning bara utan reducerad rörelse; knapplisten är ett landmärke
+  - Kundens lyft: fotobeställning i Googles fem kategorier, länkbytet och katalogerna
 - **Nästa:**
-  1. Granska skillsen och committa dem.
-  2. För in besluten i `inventering.json` och publicera artefakten.
-  3. Kör premiumpasset på sajten efter revisionerna, så att Johnny kan döma före och efter.
-  4. Lägg fram luckorna för kompetensutveckling.
+  1. Johnny dömer premiumpasset på bilderna före och efter.
+  2. Johnny tar ställning till grupp B i `premiumpass.md` och till placeringarna i inventeringen ("ja på alla placeringar" gör dem till beslut).
+  3. Luckorna med vikt hög blir förslag till kompetensutveckling, sorterade efter vad nästa sajt behöver.
+  4. Startsäkringen körs på riktigt (`skript/startsakring.sh`). Den torra körningen visade bland annat lucide 1.58 och wrangler 4.151.1.
+  5. Kontrollskriptet: taggen `wcag22a` i kontroll 8 matchar ingen axe-regel, och nya kontroller är föreslagna (premiumpasset P44).
 
 ## Spår för senare
 
@@ -144,6 +155,9 @@ Johnny beslutade omkring 12.11 att kompetensen ur inventeringen ska in i alla la
 
 ## Väntar på Johnny
 
+- **Premiumpasset:** döm bilderna före och efter, och grupp B i sajtens `premiumpass.md`. Där står bland annat porträttet i Om-sidans topp, menyn i mobilen, en översiktssida för Behandlingar, accentsteg, typskala och rörelsetokens per kit, JS-budgeten, CSP med React och Motion, sidbyten med `@view-transition` och en säkerhetskopia av `sites/`, eftersom sajtens repo bara finns på Macen.
+- **Inventeringens placeringar** (förslag på alla 171 poster) och MCP-servrarna som kräver konto: cloudflare/mcp, seo-monster, Gemini och nanobanana, Motion+, 21st, Mobbin, Figma, Google Business Profile API, Grounding Lite, mcp-gsc och DataForSEO. Logga in i en ny session när listan är godkänd.
+- **Luckorna** i `kunskap/research/2026-10-16_luckor-per-lager.md`: vilka som ska tas först.
 - **Genomgången efter övningssajten** (`guide/5-byggplan.md`) är skriven i sajtens `genomgang.md`. Förslagen G1–G13 ska godkännas eller strykas. Granskaren mättes om på de fyra egna utkasten, blint, och fick 3 av 4 rätt. Den missade Djärv: den såg att tonen var fel för en klinik men vägde det bara som svagt (förslag G13 till checklistan).
 - **Raden "I dag" i förstavyn** (C4) ska dömas: om första skärmen blir för trång.
 - **Texten om skatt och friskvårdsbidrag** på övningssajtens företagssida ska dömas.

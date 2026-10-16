@@ -8,7 +8,7 @@
 |---|---|
 | Färger | Varmvit bakgrund `#f6f3ee`, mörkgrön text `#22382f`, terrakotta accent `#a4532e` (5,45:1 med vit text) |
 | Typsnitt | Instrument Sans 400 och 600, SIL Open Font License 1.1, självhostat via `@fontsource/instrument-sans` |
-| Avstånd | Luftigt, med sektioner på 4,5–8,5 rem |
+| Avstånd | Luftigt, med sektioner på 4–6,25 rem (minskat efter Johnnys dom 2026-10-15, *i största laget*) |
 | Radie | 10 px på knappar och 14 px på kort |
 | Rörelse | 400 ms, mjuk inbromsning |
 | Ikoner | Lucide, ISC |

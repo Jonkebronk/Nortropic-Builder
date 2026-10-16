@@ -34,12 +34,16 @@ const { fortroende } = Astro.props.innehall;
 
 <style>
   .fortroende__betyg { display: flex; align-items: center; gap: var(--k-a3); }
-  .fortroende__stjarna { color: var(--k-accent-text); }
+  /* Stjärnan i textfärgen: accenten används bara till handlingar (G3; premiumpasset 2026-10-16, P5). */
+  .fortroende__stjarna { color: var(--k-text); }
   .fortroende__stjarna :global(svg) { width: 2rem; height: 2rem; fill: currentColor; }
   .fortroende__varde { font-family: var(--k-font-rubrik); font-weight: var(--k-rubrik-vikt); font-size: var(--k-h2); line-height: 1; }
   .fortroende__kalla { font-size: var(--k-liten); }
   .fortroende__citat { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--k-a4); }
   .fortroende__citat blockquote { margin: 0; font-size: var(--k-storre); line-height: 1.5; }
+  /* Det inledande citattecknet hänger utanför vänsterkanten, så att textens kant blir rak (MDN, hanging-punctuation). */
+  .fortroende__citat blockquote p { text-indent: -0.4em; }
+  @supports (hanging-punctuation: first) { .fortroende__citat blockquote p { text-indent: 0; hanging-punctuation: first; } }
   /* Källraden ligger längst ner i kortet, på samma linje i alla kort (D16). */
   .fortroende__citat .fortroende__kalla { margin-top: auto; }
   .fortroende__kontroll { margin-top: var(--k-a5); font-size: var(--k-liten); max-width: 66ch; }
