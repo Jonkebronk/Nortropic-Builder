@@ -6,8 +6,10 @@
 // Därtill N2-kontrollerna ur andra varvets förslag, byggda 2026-10-16 (BESLUT.md 2026-10-16, *Kompetensinventeringen görs klar*): rapport
 // om inte en norm eller två oberoende primärkällor bär regeln. Registret och grunden per kontroll: guide/bilaga-c-kontroller.md.
 // Användning från repots rot: node skript/kontroll.mjs sites/<namn>. SNABB=1 hoppar över Lighthouse (kontroll 9 och 9b) och inget annat;
-// BARA_N1=1 hoppar över N2-kontrollerna. Felbanken: node skript/kontroll.mjs --felbank [nr …] kör N2-kontrollerna mot skript/felbank/,
-// där varje kontroll ska fallera på sin felsida och gå igenom på ren.html och ren-2.html.
+// SLUT=1 är slutkontrollen: Lighthouse mäter varje sida fem gånger i stället för tre (BESLUT.md 2026-10-16, frågelistan efter tredje
+// varvet, punkt 46); BARA_N1=1 hoppar över N2-kontrollerna. Felbanken: node skript/kontroll.mjs --felbank [nr …] kör N2-kontrollerna mot
+// skript/felbank/, där varje kontroll ska fallera på sin felsida och gå igenom på ren.html och ren-2.html. Ett felfall med stopp: true ska ge
+// minst ett stoppande fynd, och ett med stopp: false bara rapporterande fynd.
 // Utfall per kontroll: ok, fel eller läsning. Avslutas med kod 1 om en stoppande kontroll faller. Resultatet, med verktygens versioner,
 // skrivs i sites/<sajt>/kontroller/senaste.json och sparas också som kontroller/<tid>.json, så att mätningar går att jämföra över tid.
 import { spawnSync, spawn } from 'node:child_process';
@@ -32,7 +34,13 @@ const kraver = createRequire(import.meta.url);
 // Taggarna för axe. axe-core har ingen regel med taggen wcag22a (axe-core 4.14.0: axe.getRules() och doc/API.md, *Axe-core Tags*, som
 // listar wcag2a, wcag2aa, wcag21a, wcag21aa och wcag22aa); den enda regeln för WCAG 2.2, target-size, har wcag22aa.
 const AXE_TAGGAR = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'];
-const typer = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.avif': 'image/avif', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.woff': 'font/woff', '.xml': 'application/xml', '.txt': 'text/plain', '.ico': 'image/x-icon' };
+const typer = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.avif': 'image/avif', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.woff': 'font/woff', '.xml': 'application/xml', '.txt': 'text/plain', '.ico': 'image/x-icon', '.webmanifest': 'application/manifest+json' };
+// Lighthouse mäter varje sida tre gånger, och fem vid slutkontrollen (SLUT=1); medianen räknas (9 och 9b).
+const MATVARV = process.env.SLUT ? 5 : 3, MATVARV_ORD = MATVARV === 5 ? 'fem' : 'tre';
+// TBT stoppar bara när ingen annan last finns på maskinen (punkt 46): andra processer än skriptet, dess barn och dess förfäder får
+// tillsammans använda högst så här många procent av en kärna i varje stickprov under mätningen (🔧 startvärde 2026-10-16: en ledig Mac
+// gav cirka 30 %, och en annan session med Playwright igång 70–90 %).
+const LEDIG_CPU = 50;
 // Länkar som lämnar sajten för en karta, recensioner eller sociala medier: ny flik på datorn, samma flik på mobilen (kontroll 2b).
 const lamnar = /google\.[a-z.]+\/maps|maps\.google\.|maps\.apple\.com|g\.page\/|goo\.gl\/maps|facebook\.com|instagram\.com|linkedin\.com|openstreetmap\.org/;
 // Hjälpfunktionerna som N2-kontrollerna kör i sidan (iSidan). De skickas som text, så att de fungerar trots sidans CSP.
@@ -82,7 +90,7 @@ const browser = await chromium.launch();
 verktyg.chromium = browser.version();
 const per = {};
 for (const sida of alla) {
-  const url = bas + sida; const r = (per[sida] = { status: 0, konsol: [], bilder: [], axe: [], reflow: 0, titel: '', beskrivning: '', h1: 0, forstaTel: false, forstaBoka: false, text: '', citat: [], nyFlik: [], integritet: false, tillganglighet: false, orgnr: false, form: 'okand', kakor: [], fokuserade: 0, skymda: new Set(), ringar: new Map(), ringarRaknade: new Set(), ringarBild: new Set() });
+  const url = bas + sida; const r = (per[sida] = { status: 0, konsol: [], bilder: [], axe: [], reflow: 0, titel: '', beskrivning: '', h1: 0, forstaTel: false, forstaBoka: false, text: '', citat: [], nyFlik: [], integritet: false, tillganglighet: false, orgnr: false, form: 'okand', fotText: '', fotTel: [], kakor: [], fokuserade: 0, skymda: new Set(), ringar: new Map(), ringarRaknade: new Set(), ringarBild: new Set() });
   for (const [b, h, mobil] of [[320, 700, true], [375, 812, true], [1280, 800, false]]) {
     const ctx = await browser.newContext({ viewport: { width: b, height: h }, isMobile: mobil, hasTouch: mobil, locale: 'sv-SE' });
     const page = await ctx.newPage();
@@ -108,6 +116,7 @@ for (const sida of alla) {
           forstaBoka: [...document.querySelectorAll('a')].some((a) => /boka/i.test(a.textContent) && synligOvanVikningen(a)),
           integritet: !!document.querySelector('footer a[href*="/integritet"]'), tillganglighet: !!document.querySelector('footer a[href*="/tillganglighet"]'),
           orgnr: /Organisationsnummer\D{0,3}\d{6}-?\d{4}/.test(document.querySelector('footer')?.innerText || ''), form: document.querySelector('footer')?.dataset.foretagsform || 'okand',
+          fotText: document.querySelector('footer')?.innerText || '', fotTel: [...(document.querySelector('footer')?.querySelectorAll('a[href^="tel:"]') || [])].map((a) => a.getAttribute('href')),
           text: document.body.innerText, citat: [...document.querySelectorAll('blockquote')].map((q) => q.innerText.trim()), trasiga,
         };
       });
@@ -217,7 +226,12 @@ for (const [falt, namn] of [['integritet', 'länk till integritetssidan']]) {
 const form = per[sidor[0]]?.form;
 if (form === 'okand') k6b.push('företagsformen är okänd, så det går inte att avgöra om organisationsnumret ska visas');
 else if (form === 'bolag' && sidor.some((s) => !per[s].orgnr)) k6b.push('organisationsnumret saknas, och företaget är ett bolag');
-lagg('6b', 'Integritetspolicy och organisationsnummer i sidfoten', 'Rapport', k6b.length === 0, k6b.length ? k6b.join('; ') : `${sidor.length} sidor`);
+// Telefonen och adressen ur fakta.md står i sidfoten på varje sida (guide 2-3, N1: telefon, adress och mejl på varje sida; frågelistan
+// efter tredje varvet, punkt 49). Telefonen jämförs som siffror (0 eller +46), adressen som gatan före första kommatecknet.
+const pa = (sidlista) => (sidlista.length === sidor.length ? 'alla sidor' : sidlista.join(', '));
+if (telFakta) { const utan = sidor.filter((s) => !sidfotHarTelefon(per[s].fotText, per[s].fotTel, telFakta)); if (utan.length) k6b.push(`telefonen ur fakta.md saknas i sidfoten på ${pa(utan)}`); }
+for (const gata of faktaGator(fakta)) { const utan = sidor.filter((s) => !normText(per[s].fotText).includes(normText(gata))); if (utan.length) k6b.push(`adressen ”${gata}” saknas i sidfoten på ${pa(utan)}`); }
+lagg('6b', 'Integritetspolicy, organisationsnummer, telefon och adress i sidfoten', 'Rapport', k6b.length === 0, k6b.length ? k6b.join('; ') : `${sidor.length} sidor, med telefon${faktaGator(fakta).length ? ' och adress' : ''} ur fakta.md`);
 
 // 6c. Kakor och samtycke (9 kap. 28 § LEK; PTS; BESLUT.md 2026-10-16). Inga kakor sätts vid ett besök utan svar, på någon sida.
 // Har sajten en samtyckesruta prövas den på startsidan: inget körs före svaret, Godkänn och Neka ser likadana ut, ett nej håller
@@ -290,9 +304,10 @@ lagg(7, 'Unik titel och beskrivning per sida; sitemap.xml finns', 'Stopp', k7.le
 const h1fel = sidor.filter((s) => per[s].h1 !== 1);
 lagg('7b', 'En h1 per sida', 'Rapport', h1fel.length === 0, h1fel.length ? h1fel.map((s) => `${s}: ${per[s].h1}`).join(', ') : 'en h1 på varje sida');
 // 7c. robots.txt stänger inte ute sökrobotarna (BESLUT.md 2026-10-16). Gruppen för roboten gäller, annars gruppen för *.
-// Applebot följer Googlebots regler när den saknar en egen grupp (Apple, support.apple.com/en-us/119829).
+// Applebot följer Googlebots regler när den saknar en egen grupp (Apple, support.apple.com/en-us/119829). Claude-SearchBot är sökningen i
+// Claude (Anthropic, support.claude.com, artikel 8896518; frågelistan efter tredje varvet, punkt 11).
 const robotsFil = join(dist, 'robots.txt');
-const sokrobotar = ['Googlebot', 'Bingbot', 'OAI-SearchBot', 'PerplexityBot', 'Applebot', 'Google-Extended'];
+const sokrobotar = ['Googlebot', 'Bingbot', 'OAI-SearchBot', 'PerplexityBot', 'Claude-SearchBot', 'Applebot', 'Google-Extended'];
 const k7c = existsSync(robotsFil) ? utestangda(readFileSync(robotsFil, 'utf8'), sokrobotar) : ['robots.txt saknas'];
 lagg('7c', 'robots.txt släpper in sökrobotarna', 'Rapport', k7c.length === 0, k7c.length ? `stängs ute: ${k7c.join(', ')}` : `${sokrobotar.join(', ')} släpps in`);
 
@@ -318,15 +333,16 @@ if (!process.env.BARA_N1) await korNya(miljo);
 if (process.env.SNABB) { lagg(9, 'Lighthouse', 'Rapport', null, 'hoppades över (SNABB=1)'); }
 else {
 // 9. Lighthouse: 100 i alla fyra kategorier, i mobil och dator (Johnny 2026-10-16). En första körning värmer upp Chrome och
-// räknas inte, eftersom den första sidan efter start kan få lägre prestanda. Varje sida mäts sedan tre gånger, och medianen
-// räknas, eftersom en enskild körning varierar (Lighthouse, docs/variability.md: medianen av fem är dubbelt så stabil som en).
+// räknas inte, eftersom den första sidan efter start kan få lägre prestanda. Varje sida mäts sedan tre gånger, och fem med SLUT=1,
+// och medianen räknas, eftersom en enskild körning varierar (Lighthouse, docs/variability.md: medianen av fem är dubbelt så stabil som en).
 // 404-sidan mäts inte: Lighthouse underkänner SEO för en sida med status 404. Maskinens last skrivs med, eftersom prestandan
-// varierar med den (variability.md); är lasten högre än antalet kärnor är prestandan osäker (förslaget 9c).
+// varierar med den (variability.md); är lasten högre än antalet kärnor är prestandan osäker (förslaget 9c). Andra processers
+// CPU under mätningen avgör om TBT får stoppa (9b).
 const lh = await lighthouseMat(bas, sidor);
 const last = loadavg()[0], karnor = cpus().length;
-const lastText = `; lasten ${last.toFixed(1)} av ${karnor} kärnor${last > karnor ? ', så prestandan är osäker' : ''}; TBT på en tom sida ${Math.round(lh.brus)} ms`;
+const lastText = `; lasten ${last.toFixed(1)} av ${karnor} kärnor${last > karnor ? ', så prestandan är osäker' : ''}; TBT på en tom sida ${Math.round(lh.brus)} ms; ${annanLastText(lh)}`;
 const k9 = lh.filter((x) => x.prestanda < 100 || x.tillganglighet < 100 || x.praxis < 100 || x.seo < 100);
-lagg(9, 'Lighthouse 100 i prestanda, tillgänglighet, praxis och SEO (median av tre)', 'Rapport', k9.length === 0, (k9.length ? 'under 100: ' + k9.map((x) => `${x.sida} ${x.namn} (${x.prestanda}/${x.tillganglighet}/${x.praxis}/${x.seo})`).join(', ') : `${lh.length} mätningar, alla 100`) + lastText);
+lagg(9, `Lighthouse 100 i prestanda, tillgänglighet, praxis och SEO (median av ${MATVARV_ORD})`, 'Rapport', k9.length === 0, (k9.length ? 'under 100: ' + k9.map((x) => `${x.sida} ${x.namn} (${x.prestanda}/${x.tillganglighet}/${x.praxis}/${x.seo})`).join(', ') : `${lh.length} mätningar, alla 100`) + lastText);
 if (!process.env.BARA_N1) laggNy('9b', lighthouseFynd(lh), { okText: `${lh.length} mätningar inom LCP 2 500 ms, CLS 0,1 och TBT 200 ms${lastText}`, antalSidor: sidor.length });
 }
 
@@ -537,6 +553,32 @@ function utestangda(text, robotar) {
     return x && x.disallow.includes('/') && !x.allow.includes('/');
   });
 }
+// 6b. Gatorna i fakta.md: raderna Adress och Mottagning …, gatan före första kommatecknet (Storgatan 1, 111 22 Ort → Storgatan 1).
+function faktaGator(text) {
+  return [...text.matchAll(/^\|\s*(?:Adress|Mottagning)[^|]*\|\s*([^|]+?)\s*\|/gim)].map((x) => x[1].split(',')[0].trim()).filter((g) => /\p{L}/u.test(g) && /\d/.test(g));
+}
+// 6b. Telefonen ur fakta.md (siffror, med 0 först) i sidfotens text eller i en tel:-länk där, med 0 eller +46.
+function sidfotHarTelefon(fotText, fotTel, tel) {
+  const s = `${String(fotText).replace(/\D/g, '')} ${(fotTel || []).map((h) => String(h).replace(/\D/g, '')).join(' ')}`;
+  return s.includes(tel) || s.includes('46' + tel.replace(/^0/, ''));
+}
+// 9 och 9b. Hur mycket CPU andra processer än skriptet använder: summan av ps %cpu (procent av en kärna) för allt utom skriptet, dess
+// barn (Chrome, wrangler) och dess förfäder (skalet och sessionen som startade det), med de som använder mest.
+function annanLast() {
+  const ps = spawnSync('ps', ['-A', '-o', 'pid=,ppid=,pcpu=,comm='], { encoding: 'utf8', env: { ...process.env, LC_ALL: 'C' } });
+  const rader = (ps.stdout || '').trim().split('\n').map((r) => r.trim().match(/^(\d+)\s+(\d+)\s+([\d.]+)\s+(.*)$/)).filter(Boolean)
+    .map((x) => ({ pid: Number(x[1]), ppid: Number(x[2]), cpu: Number(x[3]), namn: x[4].split('/').pop() }));
+  if (!rader.length) return { summa: null, topp: [] };
+  const perPid = new Map(rader.map((r) => [r.pid, r])), egna = new Set([process.pid]);
+  for (let p = perPid.get(process.pid)?.ppid; p && p !== 1 && !egna.has(p); p = perPid.get(p)?.ppid) egna.add(p);
+  for (let andrad = true; andrad;) { andrad = false; for (const r of rader) if (!egna.has(r.pid) && r.ppid !== 1 && egna.has(r.ppid)) { egna.add(r.pid); andrad = true; } }
+  const andra = rader.filter((r) => !egna.has(r.pid) && r.pid > 1).sort((a, b) => b.cpu - a.cpu);
+  return { summa: Math.round(andra.reduce((s, r) => s + r.cpu, 0)), topp: andra.slice(0, 3).filter((r) => r.cpu >= 5).map((r) => `${r.namn} ${Math.round(r.cpu)} %`) };
+}
+function annanLastText(lh) {
+  if (lh.annan?.summa === null || lh.annan?.summa === undefined) return 'andra processers last gick inte att läsa, så TBT rapporterar';
+  return `andra processer upp till ${lh.annan.summa} % av en kärna${lh.annan.topp.length ? ` (${lh.annan.topp.join(', ')})` : ''}, så TBT ${lh.ledig ? 'kan stoppa' : 'rapporterar'}`;
+}
 function allaFiler(d) { return existsSync(d) ? readdirSync(d, { withFileTypes: true }).flatMap((e) => e.isDirectory() ? allaFiler(join(d, e.name)) : [join(d, e.name)]) : []; }
 function skrivUt() {
   console.log(`Kontrollskriptet mot ${sajt} – ${new Date().toLocaleString('sv-SE')}`);
@@ -582,7 +624,10 @@ function verktygsversioner(sajtKatalog) {
 }
 
 // Lighthouse mot sidorna: en uppvärmning och sedan varv körningar per sida och läge, med medianen av poängen och mätvärdena (9 och 9b).
-async function lighthouseMat(basUrl, sidlista, { varv = 3, lagen = [['mobil', undefined], ['dator', desktopConfig]] } = {}) {
+// Andra processers CPU läses före, efter brusgolvet och efter varje sida och läge; maskinen räknas som ledig när varje stickprov är
+// under LEDIG_CPU (lh.ledig), och det högsta står i lh.annan.
+async function lighthouseMat(basUrl, sidlista, { varv = MATVARV, lagen = [['mobil', undefined], ['dator', desktopConfig]] } = {}) {
+  const stickprov = [annanLast()];
   const chrome = await chromeLauncher.launch({ chromePath: chromium.executablePath(), chromeFlags: ['--headless=new'] });
   try {
     const kat = ['performance', 'accessibility', 'best-practices', 'seo'];
@@ -595,25 +640,31 @@ async function lighthouseMat(basUrl, sidlista, { varv = 3, lagen = [['mobil', un
     await new Promise((k) => tom.listen(0, '127.0.0.1', k));
     const brus = []; for (let i = 0; i < varv; i++) brus.push((await korning(`http://127.0.0.1:${tom.address().port}/`)).audits['total-blocking-time']?.numericValue ?? 0);
     tom.close();
-    const lh = []; lh.brus = median(brus);
+    const lh = []; lh.brus = median(brus); stickprov.push(annanLast());
     for (const s of sidlista) for (const [namn, conf] of lagen) {
       const v = []; for (let i = 0; i < varv; i++) v.push(await korning(basUrl + s, conf));
+      stickprov.push(annanLast());
       const p = (k) => median(v.map((c) => Math.round((c.categories[k].score ?? 0) * 100)));
       const m = (a) => median(v.map((c) => c.audits[a]?.numericValue ?? 0));
       const g = (a) => v.map((c) => c.audits[a]?.score).filter((x) => typeof x === 'number');
       lh.push({ sida: s, namn, prestanda: p('performance'), tillganglighet: p('accessibility'), praxis: p('best-practices'), seo: p('seo'), lcp: m('largest-contentful-paint'), cls: m('cumulative-layout-shift'), tbt: m('total-blocking-time'), bfcache: g('bf-cache'), lcpUpptackt: g('lcp-discovery-insight') });
     }
+    const lasta = stickprov.filter((x) => x.summa !== null);
+    lh.annan = lasta.length === stickprov.length ? lasta.reduce((a, x) => (x.summa > a.summa ? x : a)) : { summa: null, topp: [] };
+    lh.ledig = lh.annan.summa !== null && lh.annan.summa < LEDIG_CPU;
     return lh;
   } finally { await chrome.kill(); }
 }
-// 9b. LCP ≤ 2 500 ms, CLS ≤ 0,1 och TBT ≤ 200 ms (web.dev, Core Web Vitals; guide 2-8, N2: Prestanda i labb) stoppar i mobil och
-// rapporteras i dator; bfcache och LCP-bildens upptäckt rapporteras (web.dev, bfcache; Lighthouse lcp-discovery-insight).
-// TBT räknas bara när brusgolvet (en tom sida) är under 50 ms; annars blir det en läsning.
+// 9b. LCP ≤ 2 500 ms och CLS ≤ 0,1 (web.dev, Core Web Vitals; guide 2-8, N2: Prestanda i labb) stoppar i mobil och rapporteras i dator.
+// TBT ≤ 200 ms stoppar i mobil bara när maskinen är ledig (lh.ledig) och rapporterar annars (punkt 46). Brusgolvet står kvar: ger en
+// tom sida i samma Chrome och läge över 50 ms TBT blir sidornas TBT en läsning. bfcache och LCP-bildens upptäckt rapporteras (web.dev,
+// bfcache; Lighthouse lcp-discovery-insight).
 function lighthouseFynd(lh) {
   const ut = [], osaker = lh.brus > 50;
   for (const x of lh) {
-    const over = [x.lcp > 2500 && `LCP ${Math.round(x.lcp)} ms`, x.cls > 0.1 && `CLS ${x.cls.toFixed(3).replace('.', ',')}`, !osaker && x.tbt > 200 && `TBT ${Math.round(x.tbt)} ms`].filter(Boolean);
+    const over = [x.lcp > 2500 && `LCP ${Math.round(x.lcp)} ms`, x.cls > 0.1 && `CLS ${x.cls.toFixed(3).replace('.', ',')}`].filter(Boolean);
     if (over.length) ut.push({ sida: x.sida, text: `${x.namn}: ${over.join(', ')}`, stopp: x.namn === 'mobil' });
+    if (!osaker && x.tbt > 200) ut.push({ sida: x.sida, text: `${x.namn}: TBT ${Math.round(x.tbt)} ms${x.namn === 'mobil' && !lh.ledig ? ' (rapport: annan last på maskinen)' : ''}`, stopp: x.namn === 'mobil' && lh.ledig });
     if (osaker && x.tbt > 200) ut.push({ sida: x.sida, text: `${x.namn}: TBT ${Math.round(x.tbt)} ms är osäker, eftersom en tom sida gav ${Math.round(lh.brus)} ms`, info: true });
     if (x.bfcache.some((s) => s < 1)) ut.push({ sida: x.sida, text: `${x.namn}: sidan kan inte läggas i bfcache` });
     if (x.lcpUpptackt.some((s) => s < 1)) ut.push({ sida: x.sida, text: `${x.namn}: LCP-bilden upptäcks sent (lcp-discovery-insight)` });
@@ -625,6 +676,8 @@ function lighthouseFynd(lh) {
 // N2-kontrollerna. Varje kontroll har nr, namn, typ och felbank (felsidor i skript/felbank/ där den ska fallera) och antingen
 // vyer + sida (körs i en ny webbläsarflik per sida och vy) eller kor (hela sajten på en gång). Ett fynd är { text, stopp?, info? };
 // info räknas inte som fel. En kontroll av typen Stopp stoppar med alla sina fynd, andra bara med fynd som har stopp: true.
+// Stopp eller rapport följer BESLUT.md 2026-10-16, *Frågelistan efter tredje varvet avgörs*, punkt 45: stopp för 3f, 14 och 13c
+// (transition: all och layoutegenskaper), rapport för 4c, 8f, 8i, 10d–10f, 11 och studs.
 function nyaKontroller() {
   const vy = (bredd, hojd, mobil, extra = {}) => ({ namn: `${bredd} px`, bredd, hojd, mobil, ...extra });
   const V320 = vy(320, 700, true), V375 = vy(375, 812, true), V1024 = vy(1024, 768, false), V1280 = vy(1280, 800, false);
@@ -643,7 +696,7 @@ function nyaKontroller() {
     // 3e. Sidhuvudet på en rad i 1024 och 1280 px: inget bryts, inget överlappar (kvalitetsgruppens fynd N1, andra varvet).
     { nr: '3e', namn: 'Sidhuvudet på en rad i 1024 och 1280 px', typ: 'Rapport', vyer: [V1024, V1280], sida: sida3e, felbank: fel('3e') },
     // 3f. Säkra ytor: med viewport-fit=cover använder stilarna env(safe-area-inset-left) och -right (WebKit, Designing Websites for iPhone X).
-    { nr: '3f', namn: 'Säkra ytor med viewport-fit=cover', typ: 'Rapport', kor: k3f, felbank: fel('3f') },
+    { nr: '3f', namn: 'Säkra ytor med viewport-fit=cover', typ: 'Stopp', kor: k3f, felbank: [{ sidor: ['/fel-3f.html'], stopp: true }] },
     // 4c. Accenten: i varje fönster högst en sorts handling fylld med accentfärgen, och accenten bara på handlingar (BESLUT G3 och G5).
     { nr: '4c', namn: 'Accentfyllning: en sorts handling per fönster, bara på handlingar', typ: 'Rapport', vyer: [V375, V1280], sida: sida4c, felbank: fel('4c') },
     // 4d. Ingen ruta över första skärmen vid ankomst utom samtyckesrutan (guide 2-4, N1; tröskeln 30 % är andra varvets, ⚠️ egen).
@@ -654,6 +707,8 @@ function nyaKontroller() {
     { nr: '7e', namn: 'Söksträngen finns på sin sida', typ: 'Rapport', vyer: [V1280], krav: (m) => (m.sidkarta ? null : 'ingen sidkarta.md'), sida: sida7e, felbank: fel('7e') },
     // 7f. Inga understrukna mellanrum: ingen länk har ett synligt mellanslag före en ikon (flödet F2, andra varvet).
     { nr: '7f', namn: 'Inga understrukna mellanrum före en ikon', typ: 'Rapport', vyer: [V1280], sida: sida7f, felbank: fel('7f') },
+    // 7g. Inget långt tankstreck (—) i synlig text (guide 2-7, C68; Språkrådet, Myndigheternas skrivregler 13.8; punkt 30).
+    { nr: '7g', namn: 'Inget långt tankstreck i synlig text', typ: 'Rapport', vyer: [V1280], sida: sida7g, felbank: fel('7g') },
     // 8c. axe med WCAG 2.2 A/AA i WebKit (guide 2-8, N2: Tillgänglighet, C86).
     { nr: '8c', namn: 'axe i WebKit', typ: 'Stopp', vyer: [vy(375, 812, true, { motor: 'webkit' }), vy(1280, 800, false, { motor: 'webkit' })], sida: sida8c, felbank: fel('8c') },
     // 8d. axe med menyn öppen (guide 2-8, N2: Tillgänglighet, C86). Samtyckesrutan öppen prövas redan i 8; formulärfel saknas.
@@ -676,8 +731,14 @@ function nyaKontroller() {
     { nr: '8n', namn: 'Ingen rubrik i summary och ingen text i CSS content', typ: 'Rapport', vyer: [V1280], sida: sida8n, felbank: fel('8n') },
     // 8o. Hover och tryck: varje sorts länk och knapp ändras vid hover i 1280 px, och inget hover-läge står kvar efter ett tryck i 375 px (Vercel; Krehel).
     { nr: '8o', namn: 'Hover och tryck', typ: 'Rapport', vyer: [V1280, V375], sida: sida8o, felbank: fel('8o') },
+    // 8p. 44 × 44 på pekskärm: knappar, menyknappen och fristående länkar, också sidfotens och menyns länklistor, i 375 px med pekskärm
+    // (Apple HIG, Accessibility; WCAG 2.2, 2.5.5, AAA; C36; punkt 16). Golvet 24 × 24 (2.5.8) prövas av axe i 8 och 8c.
+    { nr: '8p', namn: 'Träffytor 44 × 44 px på pekskärm', typ: 'Rapport', vyer: [V375], sida: sida8p, felbank: fel('8p') },
+    // 8q. Besökta länkar syns: stilmallen har en regel för :visited med en färg (NN/g, 113 Design Guidelines; MDN, Privacy and the
+    // :visited selector: getComputedStyle svarar som om länken är obesökt, så stilmallen läses; punkt 44).
+    { nr: '8q', namn: 'Stilmallen har en regel för :visited', typ: 'Rapport', kor: k8q, felbank: fel('8q') },
     // 9b. Lighthouses mätvärden ur samma körningar som 9 (C79). Körs med Lighthouse och hoppas över med SNABB=1.
-    { nr: '9b', namn: 'LCP, CLS och TBT (median av tre); bfcache och LCP-bildens upptäckt', typ: 'Stopp (mobil), rapport (dator, bfcache, upptäckt)', lighthouse: true, kor: k9b, felbank: fel('9b') },
+    { nr: '9b', namn: `LCP, CLS och TBT (median av ${MATVARV_ORD}); bfcache och LCP-bildens upptäckt`, typ: 'Stopp (LCP och CLS i mobil; TBT i mobil när maskinen är ledig), rapport (dator, TBT under last, bfcache, upptäckt)', lighthouse: true, kor: k9b, felbank: fel('9b') },
     // 9f. Prioritet och video: högst en fetchpriority="high", aldrig med loading="lazy"; video med mått, poster och preload (web.dev; MDN).
     { nr: '9f', namn: 'Prioritet och video', typ: 'Rapport', kor: k9f, felbank: fel('9f') },
     // 10c+. CORP på sidorna och /_astro/ (MDN; OWASP Secure Headers). Körs mot wrangler dev.
@@ -705,14 +766,17 @@ function nyaKontroller() {
     { nr: '12f', namn: 'Storlek och historik', typ: 'Rapport', kor: k12f, felbank: fel('12f') },
     // 12g. JSON-LD i detalj: @context https://schema.org, absoluta adresser, inga platshållare (Google, riktlinjerna; claude-seo).
     { nr: '12g', namn: 'JSON-LD i detalj', typ: 'Rapport', kor: k12g, felbank: fel('12g') },
+    // 12h. Favicon (kvadratisk, helst större än 48 × 48 px), apple-touch-icon och webbmanifest finns (Google, Favicon in Search; punkt 25).
+    { nr: '12h', namn: 'Favicon, apple-touch-icon och webbmanifest', typ: 'Rapport', kor: k12h, felbank: fel('12h') },
     // 13. Byggd CSS: ingen tidslinje i animation-förkortningen och ingen förkortning som Chromium avvisar, animation-timeline efter
     // animation, @starting-style efter sin regel, allow-discrete med reserv (MDN, animation, @starting-style och transition-behavior; C58b).
     { nr: '13', namn: 'Byggd CSS: tidslinje, ordning och reserv', typ: 'Rapport', kor: k13, felbank: fel('13') },
     // 13b. Rullist, mask, justering och forced-color-adjust (MDN; WCAG 1.4.3).
     { nr: '13b', namn: 'Rullist, mask, justerad text och forced-color-adjust', typ: 'Rapport', vyer: [V375, V1280], sida: sida13b, felbank: fel('13b') },
     // 13c. Rörelse i byggd CSS (C58): inte transition: all, bara transform, opacitet och färg, inga studsande kurvor, scroll-drivet och
-    // scroll-behavior: smooth inom no-preference (guide 2-6).
-    { nr: '13c', namn: 'Rörelse i byggd CSS (C58)', typ: 'Rapport', kor: k13c, felbank: fel('13c') },
+    // scroll-behavior: smooth inom no-preference (guide 2-6). transition: all och animerade layoutegenskaper stoppar (web.dev, Basques och
+    // Andrew 2020; Motion; GSAP; punkt 15 b och 45); övrigt rapporteras.
+    { nr: '13c', namn: 'Rörelse i byggd CSS (C58)', typ: 'Stopp (transition: all och layoutegenskaper), rapport (studs, andra egenskaper, scroll-drivet, smooth)', kor: k13c, felbank: [{ sidor: ['/fel-13c.html'], stopp: true }, { sidor: ['/fel-13c-studs.html'], stopp: false }] },
     // 13d. Reducerad rörelse (C56): med reduce ändrar ingen animation transform, translate, scale, rotate eller filter, och ingen scroll-driven animation är aktiv.
     { nr: '13d', namn: 'Reducerad rörelse: inget förflyttas (C56)', typ: 'Rapport', vyer: [vy(375, 812, true, { ctx: { reducedMotion: 'reduce' } }), vy(1280, 800, false, { ctx: { reducedMotion: 'reduce' } })], sida: sida13d, felbank: fel('13d') },
     // 13e. Fem sekunder (C57): skärmbilder efter 6 och 7 s utan interaktion är lika, eller så finns en pausknapp (WCAG 2.2.2).
@@ -722,8 +786,12 @@ function nyaKontroller() {
     { nr: '13f', namn: 'Första skärmen står still', typ: 'Rapport', vyer: [V375, V1280], fore: fore13f, sida: sida13f, felbank: fel('13f') },
     // 13g. Ingen text börjar osynlig: utan JavaScript har ingen text opacitet 0 (guide 2-6, N1).
     { nr: '13g', namn: 'Ingen text osynlig utan JavaScript', typ: 'Rapport', vyer: [vy(375, 812, true, { ctx: { javaScriptEnabled: false } }), vy(1280, 800, false, { ctx: { javaScriptEnabled: false } })], sida: sida13g, felbank: fel('13g') },
+    // 13h. h1 animeras inte in: under de första tre sekunderna har varken h1, något i den eller något runt den en animation på opacitet,
+    // läge, form eller klippning (också med fördröjning eller scroll-driven), och h1:s opacitet och transform står still (NN/g, Homepage
+    // Design 5.3 och 113 Design Guidelines; punkt 44).
+    { nr: '13h', namn: 'h1 animeras inte in', typ: 'Rapport', vyer: [V375, V1280], fore: fore13h, sida: sida13h, felbank: fel('13h') },
     // 14. Inga förfrågningar till andra ursprung vid första laddningen utan svar på samtycket (guide 2-8, N1, tredje part).
-    { nr: '14', namn: 'Inga förfrågningar till andra ursprung vid laddning', typ: 'Rapport', vyer: [V375], fore: fore14, sida: (page, { minne }) => [...minne.andra].map((o) => `förfrågan till ${o}`), felbank: fel('14') },
+    { nr: '14', namn: 'Inga förfrågningar till andra ursprung vid laddning', typ: 'Stopp', vyer: [V375], fore: fore14, sida: (page, { minne }) => [...minne.andra].map((o) => `förfrågan till ${o}`), felbank: [{ sidor: ['/fel-14.html'], stopp: true }] },
   ];
 }
 
@@ -843,11 +911,13 @@ async function felbank(urval) {
       const t0 = Date.now();
       const fynd = await korKontroll(k, m);
       if (m.webkitP) wk.p = m.webkitP;
-      const riktiga = fynd.filter((f) => !f.info);
-      const ok = fall.ska === 'fel' ? riktiga.length > 0 : riktiga.length === 0;
+      const riktiga = fynd.filter((f) => !f.info), stoppande = riktiga.filter((f) => f.stopp).length;
+      // stopp: true kräver minst ett stoppande fynd, stopp: false att inget fynd stoppar.
+      const ok = fall.ska === 'fel' ? riktiga.length > 0 && (fall.stopp === undefined || (fall.stopp ? stoppande > 0 : stoppande === 0)) : riktiga.length === 0;
       if (!ok) fel++;
       const visa = sammanfatta(fall.ska === 'fel' && !riktiga.length ? fynd : riktiga, fall.sidor.length);
-      console.log(`${k.nr.padEnd(5)} ${(ok ? 'ok' : 'FEL').padEnd(4)} ${fall.ska === 'fel' ? 'fångar' : 'ren   '} ${fall.sidor.join(' ').padEnd(30)} ${riktiga.length} fynd${visa.length ? ': ' + visa.slice(0, 3).join(' | ').slice(0, 300) : ''} (${((Date.now() - t0) / 1000).toFixed(1)} s)`);
+      const vad = fall.ska === 'ren' ? 'ren    ' : fall.stopp === true ? 'stoppar' : fall.stopp === false ? 'rapport' : 'fångar ';
+      console.log(`${k.nr.padEnd(5)} ${(ok ? 'ok' : 'FEL').padEnd(4)} ${vad} ${fall.sidor.join(' ').padEnd(30)} ${riktiga.length} fynd${stoppande ? ` (${stoppande} stoppar)` : ''}${visa.length ? ': ' + visa.slice(0, 3).join(' | ').slice(0, 300) : ''} (${((Date.now() - t0) / 1000).toFixed(1)} s)`);
     }
   }
   await brow.close(); if (wk.p) await (await wk.p).close(); s.close();
@@ -1196,6 +1266,57 @@ function k12g(m) {
   return ut;
 }
 
+// 12h. Ikonerna i varje sidas huvud: <link rel="icon"> där minst en är kvadratisk och helst större än 48 × 48 px (SVG räknas som skalbar),
+// <link rel="apple-touch-icon"> och <link rel="manifest"> med giltig JSON, och filerna finns (Google, Favicon in Search).
+async function k12h(m) {
+  const ut = [], matt = new Map();
+  const fil = (href, s) => { try { const u = new URL(href, 'http://intern' + s); return u.host === 'intern' ? sidfil(m.rot, u.pathname) : null; } catch { return null; } };
+  for (const s of m.sidor) {
+    const html = lasSida(m, s); if (!html) continue;
+    const lankar = taggar(html, 'link').map((t) => ({ rel: (attr(t, 'rel') || '').toLowerCase().split(/\s+/), href: attr(t, 'href') })).filter((l) => l.href);
+    const ikoner = lankar.filter((l) => l.rel.includes('icon')), apple = lankar.filter((l) => l.rel.includes('apple-touch-icon') || l.rel.includes('apple-touch-icon-precomposed')), manifest = lankar.filter((l) => l.rel.includes('manifest'));
+    if (!ikoner.length) ut.push({ sida: s, text: 'ingen <link rel="icon">' });
+    else {
+      const storlekar = [];
+      for (const l of ikoner) {
+        const f = fil(l.href, s); if (!f) { ut.push({ sida: s, text: `ikonen ${l.href} finns inte i bygget` }); continue; }
+        if (!matt.has(f)) matt.set(f, await bildMatt(f)); const x = matt.get(f); if (x) storlekar.push(x);
+      }
+      const kvadrat = storlekar.filter((x) => Math.abs(x.b - x.h) < 0.5);
+      if (storlekar.length && !kvadrat.length) ut.push({ sida: s, text: `ingen kvadratisk favicon (${storlekar.map((x) => `${x.b} × ${x.h}`).join(', ')})` });
+      else if (kvadrat.length && !kvadrat.some((x) => x.skalbar || x.b > 48)) ut.push({ sida: s, text: `favicon högst ${Math.max(...kvadrat.map((x) => x.b))} px; helst större än 48 × 48 px` });
+    }
+    if (!apple.length) ut.push({ sida: s, text: 'ingen <link rel="apple-touch-icon">' });
+    for (const l of apple) if (!fil(l.href, s)) ut.push({ sida: s, text: `apple-touch-icon ${l.href} finns inte i bygget` });
+    if (!manifest.length) ut.push({ sida: s, text: 'inget webbmanifest (<link rel="manifest">, site.webmanifest)' });
+    for (const l of manifest) {
+      const f = fil(l.href, s); if (!f) { ut.push({ sida: s, text: `webbmanifestet ${l.href} finns inte i bygget` }); continue; }
+      try { JSON.parse(readFileSync(f, 'utf8')); } catch { ut.push({ sida: s, text: `webbmanifestet ${l.href} är inte giltig JSON` }); }
+    }
+  }
+  return ut;
+}
+// Bredd och höjd för en ikonfil: PNG och ICO ur huvudet, SVG ur viewBox eller width och height (skalbar), annat med sharp.
+async function bildMatt(f) {
+  const b = readFileSync(f), typ = extname(f).toLowerCase();
+  if (b.length > 24 && b.readUInt32BE(0) === 0x89504e47) return { b: b.readUInt32BE(16), h: b.readUInt32BE(20) };
+  if (typ === '.ico' && b.length >= 22 && b.readUInt16LE(2) === 1) { let st = { b: 0, h: 0 }; for (let i = 0; i < b.readUInt16LE(4) && 6 + 16 * i + 2 <= b.length; i++) { const x = { b: b[6 + 16 * i] || 256, h: b[7 + 16 * i] || 256 }; if (x.b * x.h > st.b * st.h) st = x; } return st.b ? st : null; }
+  if (typ === '.svg') {
+    const t = b.toString('utf8'), rot = t.match(/<svg\b[^>]*>/i)?.[0] || '';
+    const vb = (attr(rot, 'viewBox') || '').trim().split(/[\s,]+/).map(Number);
+    if (vb.length === 4 && vb[2] > 0 && vb[3] > 0) return { b: vb[2], h: vb[3], skalbar: true };
+    const [w, h] = [parseFloat(attr(rot, 'width')), parseFloat(attr(rot, 'height'))]; return w > 0 && h > 0 ? { b: w, h, skalbar: true } : null;
+  }
+  try { const x = await (await import('sharp')).default(b).metadata(); return x.width ? { b: x.width, h: x.height } : null; } catch { return null; }
+}
+// 8q. En regel för :visited med en färgegenskap i någon av sidornas stilmallar. Webbläsaren låter bara färger ändras för :visited, och
+// getComputedStyle svarar som om länken är obesökt (MDN, Privacy and the :visited selector), så stilmallen läses i stället för sidan.
+function k8q(m) {
+  const farg = /^(color|background-color|background|border(-(top|right|bottom|left|block|inline)(-(start|end))?)?(-color)?|outline(-color)?|text-decoration(-color)?|text-emphasis-color|column-rule(-color)?|caret-color|fill|stroke)$/;
+  for (const { text } of cssFiler(m)) for (const r of tolkaCss(text)) if (/:visited\b/i.test(forfader(r).concat(r.val).join(' ')) && r.dekl.some((d) => farg.test(d.p))) return [];
+  return [{ text: 'ingen regel för :visited med en färg i stilmallarna, så besökta länkar ser ut som obesökta' }];
+}
+
 // En enkel tolk för byggd (minifierad) CSS: regler i dokumentordning med selektor, förfäder (at-regler och nästling) och deklarationer.
 // Varje deklaration får ett löpnummer i, så att ordningen går att jämföra över regler.
 function tolkaCss(text) {
@@ -1256,19 +1377,22 @@ async function k13c(m) {
   const diskreta = /^(display|overlay|visibility|content-visibility)$/;
   const tid = /^-?[\d.]+m?s$/i, kurva = /^(ease|ease-in|ease-out|ease-in-out|linear|step-start|step-end|(cubic-bezier|steps|linear)\(.*\))$/i;
   const nopref = (r) => forfader(r).some((x) => /prefers-reduced-motion\s*:\s*no-preference/i.test(x));
-  const ut = new Map(), lagg2 = (t) => ut.set(t, { text: t });
+  // Layoutegenskaper: de som flyttar eller ändrar storlek på rutor och därför kräver ny layout i varje bildruta (web.dev, Basques och
+  // Andrew 2020). transition: all och animerade layoutegenskaper stoppar; andra egenskaper utöver transform, opacitet och färg rapporteras.
+  const layout = /^(width|height|(min|max)-(width|height)|((min|max)-)?(inline|block)-size|top|right|bottom|left|inset(-.+)?|margin(-.+)?|padding(-.+)?|border(-(top|right|bottom|left|block|inline)(-(start|end))?)?(-width)?|font|font-size|line-height|letter-spacing|word-spacing|gap|row-gap|column-gap|flex(-basis|-grow|-shrink)?|grid-template(-columns|-rows)?|grid-(row|column)(-start|-end)?)$/;
+  const ut = new Map(), lagg2 = (t, stopp = false) => ut.set(t, { text: t, stopp });
   for (const { namn, text } of cssFiler(m)) {
     for (const r of tolkaCss(text)) {
       const iKeyframes = forfader(r).some((x) => /^@(-webkit-)?keyframes/i.test(x));
       for (const d of r.dekl) {
-        if (iKeyframes && !d.p.startsWith('--') && !tillatna.test(d.p)) lagg2(`${namn}: @keyframes ${forfader(r).find((x) => /keyframes/i.test(x)).split(/\s+/)[1]} animerar ${d.p}`);
-        if (d.p === 'transition-property') for (const e of delaPa(d.v, ',')) { if (e === 'all') lagg2(`${namn}: ${r.val}: transition-property: all`); else if (!tillatna.test(e) && !diskreta.test(e) && e !== 'none' && !e.startsWith('var(')) lagg2(`${namn}: ${r.val}: övergång på ${e}`); }
+        if (iKeyframes && !d.p.startsWith('--') && !tillatna.test(d.p)) lagg2(`${namn}: @keyframes ${forfader(r).find((x) => /keyframes/i.test(x)).split(/\s+/)[1]} animerar ${d.p}${layout.test(d.p) ? ' (layoutegenskap)' : ''}`, layout.test(d.p));
+        if (d.p === 'transition-property') for (const e of delaPa(d.v, ',')) { if (e === 'all') lagg2(`${namn}: ${r.val}: transition-property: all`, true); else if (!tillatna.test(e) && !diskreta.test(e) && e !== 'none' && !e.startsWith('var(')) lagg2(`${namn}: ${r.val}: övergång på ${e}${layout.test(e) ? ' (layoutegenskap)' : ''}`, layout.test(e)); }
         if (d.p === 'transition') for (const del of delaPa(d.v, ',')) {
           const tok = delaPa(del, ' ').filter((x) => !tid.test(x) && !kurva.test(x) && !/^(allow-discrete|normal)$/i.test(x));
           if (tok.some((x) => x.startsWith('var('))) continue;
           const e = tok[0] || 'all';
-          if (e === 'all') lagg2(`${namn}: ${r.val}: transition: ${del.slice(0, 40)} (all${tok[0] ? '' : ' utan angiven egenskap'})`);
-          else if (!tillatna.test(e) && !diskreta.test(e) && e !== 'none') lagg2(`${namn}: ${r.val}: övergång på ${e}`);
+          if (e === 'all') lagg2(`${namn}: ${r.val}: transition: ${del.slice(0, 40)} (all${tok[0] ? '' : ' utan angiven egenskap'})`, true);
+          else if (!tillatna.test(e) && !diskreta.test(e) && e !== 'none') lagg2(`${namn}: ${r.val}: övergång på ${e}${layout.test(e) ? ' (layoutegenskap)' : ''}`, layout.test(e));
         }
         for (const x of d.v.matchAll(/cubic-bezier\(([^)]*)\)/gi)) { const [, y1, , y2] = x[1].split(',').map(Number); if (y1 < 0 || y1 > 1 || y2 < 0 || y2 > 1) lagg2(`${namn}: ${r.val} ${d.p}: studsande kurva cubic-bezier(${x[1]})`); }
         for (const x of d.v.matchAll(/\blinear\(([^)]*)\)/gi)) if (delaPa(x[1], ',').some((pkt) => { const n = Number(pkt.split(/\s+/)[0]); return n < 0 || n > 1; })) lagg2(`${namn}: ${r.val} ${d.p}: studsande kurva linear(${x[1].slice(0, 30)})`);
@@ -1454,6 +1578,18 @@ function sida7f(page) {
     return [...ut];
   });
 }
+// 7g. Långt tankstreck (—) i synlig text; ett utdrag runt varje.
+function sida7g(page) {
+  return iSidan(page, () => {
+    const ut = new Set();
+    for (const n of hTextnoder()) {
+      const e = n.parentElement; if (!hSynlig(e) || hDold(e) || e.closest('code, pre, kbd, samp')) continue;
+      const t = n.textContent.replace(/\s+/g, ' ');
+      for (const x of t.matchAll(/—/g)) ut.add(`långt tankstreck: ”${t.slice(Math.max(0, x.index - 30), x.index + 30).trim()}”`);
+    }
+    return [...ut];
+  });
+}
 async function sida8c(page) { return (await new AxeBuilder({ page }).withTags(AXE_TAGGAR).analyze()).violations.map((v) => `${v.id}: ${v.nodes.length} st`); }
 async function sida8d(page) {
   const knapp = page.locator('button[popovertarget]:not([popovertargetaction="hide"]), button[aria-controls][aria-expanded="false"]').filter({ visible: true }).first();
@@ -1620,6 +1756,48 @@ async function sida8o(page, { vy, miljo }) {
   }
   return ut;
 }
+// 8p. Träffytor i 375 px med pekskärm. Mäts: knappar (button, role=button, input-knappar, summary) och fristående länkar, alltså länkar
+// vars närmaste block inte har annan text än länkar och knappar (en länk i löptext är undantagen, som i WCAG 2.5.8). En yta under
+// 44 × 44 px prövas med elementFromPoint i en ruta på 44 × 44 runt mitten, så att en träffyta som vidgats (t.ex. med ::after) räknas.
+// Sedan öppnas menyn, som i 8d, och länkarna och knapparna i den mäts.
+async function sida8p(page) {
+  const mat = (rotId) => iSidan(page, (rotId) => {
+    const rot = rotId ? document.getElementById(rotId) : document.body; if (!rot) return [];
+    const blockAv = (e) => { for (let x = e.parentElement; x && x !== document.body; x = x.parentElement) if (!/^(inline|contents)/.test(getComputedStyle(x).display)) return x; return document.body; };
+    const iLopText = (e) => {
+      const w = document.createTreeWalker(blockAv(e), NodeFilter.SHOW_TEXT);
+      for (let n = w.nextNode(); n; n = w.nextNode()) { const p = n.parentElement; if (p.closest('a[href], button, [role="button"], script, style, noscript, template') || !hSynlig(p)) continue; if (/[\p{L}\d]/u.test(n.textContent)) return true; }
+      return false;
+    };
+    const vidgad = (e) => {
+      e.scrollIntoView({ block: 'center', inline: 'nearest', behavior: 'instant' });
+      const q = e.getBoundingClientRect(), cx = (q.left + q.right) / 2, cy = (q.top + q.bottom) / 2, bredd = document.documentElement.clientWidth;
+      return [[-1, -1], [0, -1], [1, -1], [-1, 0], [1, 0], [-1, 1], [0, 1], [1, 1]].every(([dx, dy]) => {
+        const x = Math.min(Math.max(cx + dx * 21.5, 0.5), bredd - 0.5), y = Math.min(Math.max(cy + dy * 21.5, 0.5), innerHeight - 0.5);
+        const t = document.elementFromPoint(x, y); return !!t && (t === e || e.contains(t));
+      });
+    };
+    const ut = [];
+    for (const e of rot.querySelectorAll('a[href], button, [role="button"], input[type="submit"], input[type="button"], input[type="reset"], summary')) {
+      if (!hSynlig(e) || hDold(e) || e.matches(':disabled')) continue;
+      const q = e.getBoundingClientRect(); if (q.bottom + scrollY <= 0 || q.right + scrollX <= 0) continue;
+      if (e.matches('a[href]') && iLopText(e)) continue;
+      if (q.width >= 43.5 && q.height >= 43.5) continue;
+      if (vidgad(e)) continue;
+      ut.push(`${hNamn(e)}: ${Math.round(q.width)} × ${Math.round(q.height)} px${Math.min(q.width, q.height) < 24 ? ', under golvet 24 × 24' : ''}`);
+    }
+    return ut;
+  }, rotId);
+  const ut = await mat(null);
+  const knapp = page.locator('button[popovertarget]:not([popovertargetaction="hide"]), button[aria-controls][aria-expanded="false"]').filter({ visible: true }).first();
+  if (await knapp.count()) {
+    const id = await knapp.evaluate((e) => e.getAttribute('popovertarget') || e.getAttribute('aria-controls'));
+    await page.evaluate(() => scrollTo({ top: 0, behavior: 'instant' }));
+    await knapp.click(); await page.waitForTimeout(400);
+    for (const x of await mat(id)) ut.push(`med menyn öppen: ${x}`);
+  }
+  return ut;
+}
 function sida13b(page) {
   return iSidan(page, () => {
     const ut = new Set();
@@ -1701,6 +1879,43 @@ function sida13g(page) {
     }
     return [...ut];
   });
+}
+// 13h. Under de första tre sekunderna, i varje bildruta: animationer (CSS, övergångar och Web Animations, också i fördröjning och
+// scroll-drivna) på h1, på något i h1 eller på något runt h1 som ändrar opacitet, läge, form, klippning eller storlek, och h1:s egen
+// opacitet (med förfäderna) och transform. Animeringar med JavaScript som skriver stilen direkt syns som en ändrad opacitet eller transform.
+async function fore13h(ctx) {
+  await ctx.addInitScript(() => {
+    const t0 = performance.now(), sedda = new WeakSet(), r = (window.__h1in = { klar: false, anim: [], andras: false });
+    const inEgenskap = /^(opacity|transform|translate|scale|rotate|filter|clip-?path|clip|top|left|right|bottom|inset|margin.*|padding.*|width|height|max-?height|max-?width|letter-?spacing|visibility)$/i;
+    const namn = (x) => `${x.tagName.toLowerCase()}${x.id ? '#' + x.id : x.classList[0] ? '.' + x.classList[0] : ''}`;
+    let forsta = null;
+    const steg = () => {
+      const h1 = document.querySelector('h1');
+      if (h1) {
+        const runt = []; for (let x = h1.parentElement; x && x !== document.documentElement; x = x.parentElement) runt.push(x);
+        for (const a of document.getAnimations()) {
+          if (sedda.has(a)) continue; const m = a.effect?.target; if (!m) continue;
+          const var_ = m === h1 ? 'h1' : h1.contains(m) ? `${namn(m)} i h1` : runt.includes(m) ? `${namn(m)} runt h1` : null; if (!var_) continue;
+          const props = [...new Set((a.effect.getKeyframes?.() || []).flatMap((k) => Object.keys(k)))].filter((p) => inEgenskap.test(p));
+          if (!props.length) continue;
+          sedda.add(a); r.anim.push(`${var_}: ${a.animationName || a.transitionProperty || 'animation'} (${props.join(', ')})${a.timeline && typeof DocumentTimeline !== 'undefined' && !(a.timeline instanceof DocumentTimeline) ? ', scroll-driven' : ''}`);
+        }
+        let op = 1; for (let x = h1; x && x.nodeType === 1; x = x.parentElement) op *= Number(getComputedStyle(x).opacity);
+        const s = getComputedStyle(h1), sig = [op.toFixed(2), s.transform, s.translate, s.scale, s.rotate, s.filter, s.clipPath].join('|');
+        if (forsta === null) forsta = sig; else if (sig !== forsta) r.andras = true;
+      }
+      if (performance.now() - t0 < 3000) requestAnimationFrame(steg); else r.klar = true;
+    };
+    requestAnimationFrame(steg);
+  });
+}
+async function sida13h(page) {
+  await page.waitForFunction(() => window.__h1in?.klar, null, { timeout: 8000 }).catch(() => {});
+  const r = await page.evaluate(() => window.__h1in || null);
+  if (!r) return [{ text: 'mätningen startade inte', info: true }];
+  const ut = r.anim.map((x) => `${x} animeras under de första tre sekunderna`);
+  if (r.andras && !ut.length) ut.push('h1 ändrar opacitet eller transform under de första tre sekunderna');
+  return ut;
 }
 async function fore14(ctx, page, m, minne) {
   minne.andra = new Set(); const ursprung = new URL(m.bas).origin;

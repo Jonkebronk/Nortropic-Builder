@@ -1,0 +1,7 @@
+{
+  "name": "Rörfirman",
+  "short_name": "Rörfirman",
+  "start_url": "/ren.html",
+  "display": "browser",
+  "icons": [{ "src": "/ren-ikon.png", "sizes": "180x180", "type": "image/png" }]
+}

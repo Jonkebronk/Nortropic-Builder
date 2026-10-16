@@ -1,6 +1,6 @@
 # Kontroller och verktyg
 
-De tio N1-kontrollerna och N2-tabellen definieras i `guide/2-8-teknik-och-kvalitet.md`, *Kontroll*, och körs av `skript/kontroll.mjs` (`node skript/kontroll.mjs sites/<namn>` från repots rot; `SNABB=1` hoppar över Lighthouse). Här står vad skriptet ser och inte ser, förslagen på nya kontroller och hur verktygen används.
+De tio N1-kontrollerna och N2-tabellen definieras i `guide/2-8-teknik-och-kvalitet.md`, *Kontroll*, och körs av `skript/kontroll.mjs` (`node skript/kontroll.mjs sites/<namn>` från repots rot; `SNABB=1` hoppar över Lighthouse, och `SLUT=1` mäter med Lighthouse fem gånger i stället för tre vid slutkontrollen). Här står vad skriptet ser och inte ser, förslagen på nya kontroller och hur verktygen används.
 
 ## Vad skriptet täcker
 
@@ -11,12 +11,12 @@ De tio N1-kontrollerna och N2-tabellen definieras i `guide/2-8-teknik-och-kvalit
 | 3, 3b | Omflöde i 320 px; fokus som skyms, med Tab framåt och bakåt | Zoom 200 %; textavstånd (1.4.12) prövas i 8g |
 | 4, 4b | Primära handlingen hela vägen; synlig i första vyn | |
 | 5, 5b | Stöd för faktaläsningen; samtycke till bilder | |
-| 6, 6b, 6c | Platshållare, sidfoten, cookies och samtyckesrutan | |
-| 7, 7b, 7c | Titel, beskrivning, sitemap, `h1`, robots.txt | Kanonisk adress och Open Graph prövas i 12b, `lastmod` i 12d och JSON-LD i 12 och 12g |
+| 6, 6b, 6c | Platshållare, sidfoten (också telefonen och adressen ur `fakta.md` på varje sida), cookies och samtyckesrutan | |
+| 7, 7b, 7c | Titel, beskrivning, sitemap, `h1`, robots.txt (också Claude-SearchBot) | Kanonisk adress och Open Graph prövas i 12b, `lastmod` i 12d och JSON-LD i 12 och 12g |
 | 8, 8b | axe med WCAG 2.2-taggarna i Chromium; fokusringens kontrast | WebKit och menyn öppen prövas i 8c och 8d; incomplete och best-practice i 8e |
-| 9 | Lighthouse 100, median av tre | Mätvärdena prövas i 9b; maskinens last står som upplysning i 9 |
+| 9 | Lighthouse 100, median av tre (fem med `SLUT=1`) | Mätvärdena prövas i 9b; maskinens last och andra processers CPU står som upplysning i 9 |
 | 10, 10b, 10c | Hemligheter; 404 och huvuden mot `wrangler dev` | CSP:ns innehåll prövas i 10d och Workerns svar på POST i 10f |
-| N2 (2d–14) | Andra varvets förslag, 45 kontroller, byggda 2026-10-16 med felbank (`skript/felbank/`, `--felbank`); `BARA_N1=1` hoppar över dem | Se `guide/bilaga-c-kontroller.md`, C58b och C196–C230 |
+| N2 (2d–14) | Andra varvets förslag och tilläggen efter frågelistan efter tredje varvet, 50 kontroller, byggda 2026-10-16 med felbank (`skript/felbank/`, `--felbank`); `BARA_N1=1` hoppar över dem | Se `guide/bilaga-c-kontroller.md`, C36, C58, C58b, C68, C83 och C196–C232 |
 
 ## Det skriptet inte kan
 
@@ -38,9 +38,9 @@ Förslagen ur revisionen 2026-10-16. Alla utom 9c (en upplysning i kontroll 9), 
 | 8g | Textavstånd | WCAG:s värden som stilmall med `bypassCSP`; inget klipps, ingen sidledsscroll | Stopp (klippt text), rapport (sidledsscroll) | 📄 WCAG 2.2, 1.4.12 | N2 |
 | 8h | Forced-colors | Skärmbild med `forcedColors: 'active'`; fokusringen är en `outline` | Rapport | 📄 MDN, forced-colors | N2 |
 | 8i | Konsekvent navigering och hjälp | `ariaSnapshot()` av sidhuvud och sidfot jämförs mellan sidorna; kontaktvägen i samma DOM-ordning | Rapport | 📄 WCAG 2.2, 3.2.3 och 3.2.6 | N2 |
-| 9b | Lighthouses mätvärden | LCP ≤ 2 500 ms, CLS ≤ 0,1, TBT ≤ 200 ms ur `lhr.audits` i samma körningar som 9; granskningarna `bf-cache` och `lcp-discovery-insight` | Stopp för mätvärdena i mobil; rapport i dator och för granskningarna | 📄 web.dev, Core Web Vitals och bfcache | N2; ersätter Lighthouse CI |
+| 9b | Lighthouses mätvärden | LCP ≤ 2 500 ms, CLS ≤ 0,1, TBT ≤ 200 ms ur `lhr.audits` i samma körningar som 9; granskningarna `bf-cache` och `lcp-discovery-insight`. Brusgolvet (en tom sida över 50 ms TBT gör TBT till en läsning) står kvar, och andra processers CPU läses med `ps` under mätningen | Stopp för LCP och CLS i mobil, och för TBT i mobil bara när maskinen är ledig (andra processer under 50 % av en kärna); rapport i dator, för TBT under last och för granskningarna (`BESLUT.md` 2026-10-16, *Frågelistan efter tredje varvet avgörs*, punkt 46) | 📄 web.dev, Core Web Vitals och bfcache | N2; ersätter Lighthouse CI |
 | 9c | Belastningen | Prestanda mäts inte, eller märks osäker, när lastmedelvärdet är högre än antalet kärnor | Rapport | 📄 Lighthouse, variability.md | N2 |
-| 9d | JavaScript per sida | Skript med gzip per sida, och vilka öar som har `client:load` eller `client:only` | Rapport | 🔧 eget startvärde (→ `prestanda.md`) | N2 |
+| 9d | JavaScript per sida | Skript med gzip per sida mot budgeten 75 kB före första interaktion och 100 kB för hela sidan (`guide/2-8-teknik-och-kvalitet.md`, N2-tabellen, *JavaScript-budget*), och vilka öar som har `client:load` eller `client:only` | Rapport | 🔧 eget startvärde (→ `prestanda.md`) | N2 |
 | 9e | INP och CLS i resorna | Menyn, frågorna, kartan, samtycket och varje ö; inmatningsfördröjning plus bearbetning per interaktion, med en tom sida som kalibrering; hela `duration` rapporteras | Rapport; 🔧 startvärde 100 ms för fördröjning plus bearbetning | 📄 web.dev, INP; web-vitals | N2 |
 | 10d | CSP-lint | csp-evaluator på den sammanslagna policyn (meta och `_headers`): 0 HIGH och 0 SYNTAX | Rapport | 📄 OWASP CSP Cheat Sheet; csp-evaluator | N2 |
 | 11 | Interna länkar | En egen genomgång av länkar, källor och ankare i `dist`, 0 trasiga, eftersom lychee inte är installerat (förslaget var lychee `--offline --root-dir <abs dist> --include-fragments --index-files index.html`) | Rapport | lychees exitkod; N2-tabellen | N2 |
@@ -82,9 +82,21 @@ Ur jämförelsen med originalen (better-accessibility, better-interface, break o
 | 10g | HTTPS i produktion | `http://<domän>/` ger 301 eller 308 till https på samma värd; HSTS `max-age` ≥ 31536000 | Stopp efter publicering | 📄 RFC 6797; hstspreload.org | N2 |
 | 13 | CSS i rätt ordning | Byggd CSS: `animation-timeline` före `animation` i samma regel, `@starting-style` före sin regel, `allow-discrete` utan reserv | Rapport | 📄 MDN | N2 |
 | 13b | Rullist och mask | `scrollbar-width: none` på en yta som scrollar, `mask-image` på element med text, `text-align: justify`, `forced-color-adjust: none` | Rapport | 📄 MDN; WCAG 1.4.3 | N2 |
-| 14 | Inga förfrågningar till andra ursprung vid laddning | Nätverksloggen vid första laddningen utan interaktion: allt går till sajtens ursprung | Rapport; stopp om Johnny godtar beslutet som grund (`kunskap/research/2026-10-16_tredje-varvet-till-johnny.md`, punkt 45) | `guide/2-8-teknik-och-kvalitet.md` N1 (beslut); CSP:n | N2 |
+| 14 | Inga förfrågningar till andra ursprung vid laddning | Nätverksloggen vid första laddningen utan interaktion: allt går till sajtens ursprung | Stopp (`BESLUT.md` 2026-10-16, *Frågelistan efter tredje varvet avgörs*, punkt 45) | `guide/2-8-teknik-och-kvalitet.md` N1 (beslut); CSP:n | N2 |
 | 15 | Reserven håller | Provsidan och sajten i Firefox och WebKit: innehåll, meny och kontaktvägar nås, axe 0 fel | Rapport | MDN-status; policyn i `modern-html-css.md` | N2 |
 | 16 | SEO-drift mellan byggen | Titel, kanonisk adress, robots, `h1`, JSON-LD och status jämförs med förra godkända bygget | Rapport | claude-seo `seo-drift` | N3 |
+
+### Ur frågelistan efter tredje varvet (byggda 2026-10-16)
+
+`BESLUT.md` 2026-10-16, *Frågelistan efter tredje varvet avgörs*. Samma beslut gör 3f, 14 och 13c (`transition: all` och layoutegenskaper) till stopp och låter 4c, 8f, 8i, 10d–10f, 11 och studs rapportera (punkt 45). Felbanken prövar stoppet: ett felfall med `stopp: true` ska ge ett stoppande fynd, ett med `stopp: false` bara rapport (`fel-13c-studs.html`).
+
+| Nr | Kontroll | Hur | Typ | Grund | Nivå |
+|---|---|---|---|---|---|
+| 7g | Inget långt tankstreck | Synlig text i 1280 px, utom `code` och `pre`: inget `—` | Rapport | 📄 Språkrådet, *Myndigheternas skrivregler* 13.8; C68 (punkt 30) | N2 |
+| 8p | Träffytor 44 × 44 på pekskärm | 375 px med pekskärm: knappar, `summary` och fristående länkar (länkar i löptext räknas inte), också i den öppna menyn; en ruta under 44 × 44 prövas med `elementFromPoint` runt mitten, så att en vidgad träffyta räknas. Golvet 24 × 24 prövas av axe (`target-size`) i 8 och 8c | Rapport | 📄 Apple HIG, *Accessibility*; WCAG 2.2, 2.5.5 (AAA); C36 (punkt 16) | N2 |
+| 8q | Besökta länkar syns | Byggd CSS: en regel för `:visited` med en färg. `getComputedStyle` svarar som om länken är obesökt, så stilmallen läses | Rapport | 📄 NN/g, *113 Design Guidelines* (2001); MDN, *Privacy and the :visited selector*; `kunskap/kallkort/nng-homepage-design.md` (punkt 44) | N2 |
+| 12h | Favicon, Apple-ikon och webbmanifest | Varje sidas huvud: `<link rel="icon">` med minst en kvadratisk ikon större än 48 × 48 px eller SVG, `<link rel="apple-touch-icon">` och `<link rel="manifest">` med giltig JSON; filerna finns i bygget | Rapport | 📄 Google, *Favicon in Search* (2026-08-28); C83 (punkt 25) | N2 |
+| 13h | `h1` animeras inte in | 375 och 1280 px, de första tre sekunderna: `document.getAnimations()` på `h1`, i den och runt den (opacitet, läge, form, klippning, storlek; också med fördröjning och scroll-driven) och `h1`:s opacitet och transform i varje bildruta | Rapport | 📄 NN/g, *Homepage Design* 2024, 5.3, och Nielsen 2001; `nng-homepage-design.md` (punkt 44) | N2 |
 
 Utvidgning av C56 (rörelse, ägs av `guide/2-6-rorelse.md`): med `reducedMotion: 'reduce'` ska `document.getAnimations()` inte ha någon animation som ändrar `transform`, `translate`, `scale`, `rotate` eller `filter`, och ingen `animation-timeline` ska vara aktiv. 📄 WCAG 2.3.3 (C39, SCR40).
 

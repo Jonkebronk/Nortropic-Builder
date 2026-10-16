@@ -8,6 +8,7 @@ body { margin: 0; font-family: system-ui, sans-serif; line-height: 1.5; color: #
 .sidhuvud ul, .sidfot ul { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0; padding: 0; list-style: none; }
 .namn { font-weight: 700; color: #1a1a1a; text-decoration: none; }
 a { color: #1a4fa0; }
+main a:visited { color: #5a2d82; }
 .knapp { display: inline-block; padding: 0.5rem 1rem; border: 2px solid var(--k-accent); background: var(--k-accent); color: #fff; text-decoration: none; transition: background-color 0.15s; }
 .menyknapp { padding: 0.5rem; border: 0; background: none; font: inherit; color: inherit; }
 #meny { padding: 1rem; border: 1px solid #ccc; opacity: 1; transition: opacity 0.2s; transition: opacity 0.2s, display 0.2s allow-discrete, overlay 0.2s allow-discrete; }
@@ -26,4 +27,10 @@ th, td { padding: 0.25rem 0.5rem; border: 1px solid #ccc; text-align: left; }
   .namn:hover { text-decoration: underline; }
   .knapp:hover { background: #8f3a16; border-color: #8f3a16; color: #fff; }
   button:hover, summary:hover { background: #eee; }
+}
+/* Träffytor på pekskärm: knappar, menyknappen och fristående länkar minst 44 × 44 px (8p); med mus räcker golvet 24 × 24. */
+@media (pointer: coarse) {
+  .namn, .sidhuvud nav a, .uppmaning { display: inline-block; min-width: 44px; padding-block: 10px; }
+  button { min-width: 44px; min-height: 44px; }
+  summary { padding-block: 10px; }
 }
