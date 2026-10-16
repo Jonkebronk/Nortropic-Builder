@@ -1676,3 +1676,52 @@ Frågelistan `kunskap/research/2026-10-16_tredje-varvet-till-johnny.md` hade 57 
 - **24, lokala belägg som bild:** prov på nästa övningssajt; frågan står i bilaga E tills dess.
 - **27:** nej, G5 står kvar. **28:** vänta. **37:** väntar på Socket-provet, som kräver OAuth (Socket väntar, 20.11). **42:** avgjord av *Domarna över MCP-servrarna* (21.37) och *Regler för MCP-servrar och verktyg* (21.43): Johnnys ja per gång i stället för deny-regler; shadcn behålls för läsning.
 - **Skills som ändrar beteende** (43 c, 54, 56) mikroprovas enligt `larande/skills.md`; 54 och 56 visade felet redan i baslinjeprovet.
+
+## 2026-10-17: Övningssajten – premiumpassets grupp B, raden I dag, skatten, 404 och andra varvets fynd
+
+**Status:** gäller. *Claudes rekommendation, delegerat av Johnny 2026-10-16* (*Stående uppdrag fram till nästa övningssajt*, punkt 3). Johnny dömer i efterhand, bland annat vid sin premiumkontroll.
+
+Underlaget är två kartläggningar 2026-10-17 av premiumpassets grupp B och av andra varvets och kontrollskriptets öppna fynd. Gjort i biblioteket (`a77c0e0`) och sajten (lokalt `fd4b4f8`):
+
+- **Raden *I dag* (C4):** står kvar. Helgdagar och avvikande tider väntar på grupp C (P48). P20 står kvar enligt Johnnys *"acceptera"*.
+- **Skatt och friskvårdsbidrag:** texten står kvar. Första meningen är omskriven med huvudsatsen först (andra varvet C9): *"Förmånen är skattefri om företaget betalar behandling som ska förebygga besvär …"*.
+- **404 för gamla adresser (P40):**
+  - Adresserna utan motsvarighet får 404, som förslaget i `_redirects`.
+  - De gamla sitemaps skickas inte längre till den nya. De omdirigerade adresserna står i `public/gamla-adresser.xml`.
+- **Grupp B, genomfört:**
+  - P23: översiktssidan `/behandlingar/`, dit menyvalet leder.
+  - P24: runt porträtt i Om Peters första vy.
+  - P25: de fyra allmänna frågorna på Kontakt.
+  - P26: vägbeskrivningen som sekundär knapp.
+  - P27: Process som tidslinje i mobilen.
+  - P29: `::selection`.
+  - P35: guiden, frågelistan 15 a.
+  - P37: sista bandet på startsidan säger något nytt.
+  - P38: klasser som standard, och `style-src-attr` bara för en ö som kräver det.
+  - P39: 75 och 100 kB som rapport, frågelistan 7.
+  - P47: frågelistan 4.
+- **Grupp B, inte genomfört:**
+  - P22: menyn, avgjord som frågelistan 2 b.
+  - P28: 56 px i knapplisten, som kräver prov på riktig telefon.
+  - P30–P33: skuggor, typskala, radhöjd och rörelsetokens. Det är smak i godkända kit, och radhöjden avgörs av frågelistan 8.
+  - P36: fotot, som kräver kundens samtycke.
+  - P41: mätning via `/boka/`, ny mekanik utan analys på övningssajten.
+  - P42: repo för sajten, som kräver Johnnys konto.
+  - P43: staging och karenstid. Karenstiden väntar på Socket-provet.
+  - P45: checklistan är låst.
+  - P46: hooken är Johnnys konfiguration. Granskarens agent är gjord (frågelistan 39).
+- **Andra varvets sajtfynd:**
+  - rättat inom beslut, se commit-texterna
+  - innehållsgruppens förslag H1–H3, H5, H6, H8, B2–B5, B8, B9, C5 och C7–C11
+  - ryggskott i förstavyns ingress (frågelistan 3)
+  - CORP med undantag för publika bilder (frågelistan 6)
+  - webbmanifest (25)
+  - avstavning vid stor text (48 b)
+
+  Inte rättat:
+  - H4 och H7, som går emot U19 och J13.
+  - C1, där förstavyns dagar nu är en hel mening med ryggskottsraden.
+  - Svar som kräver kunden: C3, C4, C6 och parkeringen.
+  - Sidfotens rubriker, som står kvar enligt D10.
+- **Provsidorna G8 och G9:** `/prov/varm/` och `/prov/djarv/` i sajten, med sajtens innehåll och Peters foto, noindex och utanför `sitemap.xml`. Johnny dömer kiten där.
+- **`'strict-dynamic'` (frågelistan 10):** provat och inte infört. Astros moduler stoppades. Frågan står i bilaga E.

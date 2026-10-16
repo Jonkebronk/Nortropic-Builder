@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-16 kl. 23.55 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-17 kl. 00.25 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Stående uppdrag (Johnny 2026-10-16 kl. 23.45) – gäller före allt nedan
 
@@ -24,6 +24,21 @@ Ordagrant i `BESLUT.md`, *Stående uppdrag fram till nästa övningssajt*. Claud
    - provsidorna för Varm och Djärv
 
    Rätta i biblioteket när felet är generellt och i sajten när det är sajtens.
+
+   **Läget 00.25:**
+   - **Frågelistan är avgjord** (`BESLUT.md`, *Frågelistan efter tredje varvet avgörs*).
+     - Guidetexten är införd (`badbc22`).
+     - Mikroproven: 54 behållen, 43 c och 56 strukna (`kunskap/research/2026-10-17_mikroprov-fragelistan.md`).
+   - **Biblioteket och sajten:**
+     - Andra varvets och kontrollskriptets fynd inom beslut och grupp B är rättade (`a77c0e0`, sajtens `fd4b4f8`; `BESLUT.md`, *Övningssajten – premiumpassets grupp B …*).
+     - `'strict-dynamic'` är provat och inte infört.
+   - **Pågår, två delagenter:**
+     - **Kontrollskriptet** (frågelistan 1, 6, 7, 11, 15 b, 16, 25, 26, 30, 44, 45, 46, 49 och 57 i `skript/kontroll.mjs`, `guide/2-8`, bilaga C och `kvalitet/kontroller.md`). Ej committat. Efteråt: rätta 7e (mjukt bindestreck i `kontroll.mjs`) och skriv in CSP-provet i 2-8.
+     - **Skills, kit och inventering** (frågelistan 7, 8, 15 c, 18 a, 19, 22, 44, 51, 55 och 57 i `.claude/skills/`, `bibliotek/stilkit/` och `inventering/`). Ej committat. Efteråt:
+       - kopiera kiten till sajtens `stilkit/`
+       - bygg inventeringen
+       - publicera artefakten https://claude.ai/artifact/ASZcbmg8qc9ThMusGjRZpe
+   - **Kvar i punkt 3:** granska `/prov/varm/` och `/prov/djarv/` efter kitändringarna, kör kontrollskriptet och rätta det som återstår.
 4. **Avslut:** kontrollskriptet helt, tillägget i sajtens `genomgang.md`, `progress.md` och `LAGE.md`.
 
 ## Nästa session – börja här (skrivet 2026-10-16 kl. 19.39)
