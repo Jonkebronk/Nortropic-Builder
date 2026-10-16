@@ -102,7 +102,9 @@ def main():
         f"{totalt} regler och tabellrader, plus de tio kontrollerna och verktygen nedan.",
         "",
     ]
-    (GUIDE / "n1-forsta-sajten.md").write_text("\n".join(huvud + delar) + "\n", encoding="utf-8", newline="\n")
+    # open med newline i stället för write_text(newline=…), som kräver Python 3.10; Macens python3 är 3.9.
+    with open(GUIDE / "n1-forsta-sajten.md", "w", encoding="utf-8", newline="\n") as ut:
+        ut.write("\n".join(huvud + delar) + "\n")
     print(totalt, "N1-punkter")
 
 
