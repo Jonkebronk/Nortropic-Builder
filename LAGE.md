@@ -129,18 +129,19 @@ Johnny beslutade omkring 12.11 att kompetensen ur inventeringen ska in i alla la
 - **Premiumpasset på övningssajten:** åtta revisioner är sammanslagna till `sites/<sajt>/premiumpass.md` med 57 fynd: A 19 (rätta nu), B 28 (Johnny beslutar) och C 10 (senare). **Grupp A är genomförd** i biblioteket och sajten (commits `e8dd132` och framåt):
   - sidhuvudet på en rad i 1024 px; ingen vågrät scroll vid 200 % textstorlek (förut 7 av 10 sidor)
   - hover bara med mus, färg vid hover och tryck och en kort tryckkvittens; menyn tar fokus och bakgrunden tonas
-  - *Sök vård direkt* enligt 1177 (sex tecken, akutmottagningen och 1177), flyttad före processen och avgränsad
+  - rutan *Sök vård direkt* är borttagen efter Johnnys beslut omkring 14.10: *"det är ju trots allt ett företag som säljer sina tjänster, inte ett sjukhus"*
   - raden *I dag* visar nästa mottagning efter stängning; kartan laddas direkt på ortssidorna (LCP)
   - faktakortet syns också i mobilen (ett kort på kontaktsidan prövades och ströks, eftersom det upprepade *Var och när*)
   - Om-sidan: h1 börjar med menyns namn (G4); processens rubriker berättar; aktiv form; samma ord för samma sak; länkar till mottagningarna
   - stjärnan i textfärg (G3); ny ryggradsikon, prövad blint; kvittot i samtyckesrutan säger vad man valde
   - måttlig rörelse animerar inte första skärmen (B3); mjuk rullning bara utan reducerad rörelse; knapplisten är ett landmärke
   - Kundens lyft: fotobeställning i Googles fem kategorier, länkbytet och katalogerna
+- **Startsäkringen kördes på riktigt** omkring 14.05: node@24 och poppler i Homebrew, lucide 1.58, wrangler 4.151.1 och Playwright 1.64.1 i måttstockens verktyg. TypeScript 7 fällde sajtens bygge (`astro check` stöder det inte), så skriptet håller nu TypeScript på 6 och skriver skälet vid varje körning. Skriptet rapporterade också Homebrew som misslyckat fast uppgraderingen gick igenom; det läser nu av resultatet efteråt.
 - **Nästa:**
   1. Johnny dömer premiumpasset på bilderna före och efter.
   2. Johnny tar ställning till grupp B i `premiumpass.md` och till placeringarna i inventeringen ("ja på alla placeringar" gör dem till beslut).
   3. Luckorna med vikt hög blir förslag till kompetensutveckling, sorterade efter vad nästa sajt behöver.
-  4. Startsäkringen körs på riktigt (`skript/startsakring.sh`). Den torra körningen visade bland annat lucide 1.58 och wrangler 4.151.1.
+  4. Läs om källkorten för de 9 av 128 bevakade repon som har ändrats sedan de lästes: bygg-sajt, chrome-devtools, CSS scroll-drivna animationer, CSS @view-transition, faster-whisper och Remotion (två repon), FFmpeg, Harmony med flera, och Showboat och design-critique.
   5. Kontrollskriptet: taggen `wcag22a` i kontroll 8 matchar ingen axe-regel, och nya kontroller är föreslagna (premiumpasset P44).
 
 ## Spår för senare

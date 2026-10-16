@@ -38,12 +38,17 @@ rubrik "Homebrew"
 if command -v brew >/dev/null 2>&1; then
   formler="gh git poppler python@3.12 $(brew list --formula 2>/dev/null | grep -E '^node@[0-9]+$' | tr '\n' ' ')"
   brew update >/dev/null 2>&1
-  gamla="$(brew outdated --formula $formler 2>/dev/null)"
+  gamla="$(brew outdated --formula --quiet $formler 2>/dev/null)"
   if [[ -z "$gamla" ]]; then echo "senaste: $formler"
   elif [[ -n "$TORRT" ]]; then echo "skulle uppdateras: $(echo "$gamla" | tr '\n' ' ')"
   else
-    brew upgrade $formler >/dev/null 2>&1 || varna "brew upgrade misslyckades för: $gamla"
-    while IFS= read -r f; do [[ -n "$f" ]] && { echo "uppdaterad: $f"; andrat+=("brew: $f"); }; done <<< "$gamla"
+    brew upgrade $formler >/dev/null 2>&1
+    # brew kan avsluta med fel trots att formlerna uppgraderades (t.ex. vid länkning), så resultatet läses av igen.
+    kvar="$(brew outdated --formula --quiet $formler 2>/dev/null)"
+    while IFS= read -r f; do
+      [[ -z "$f" ]] && continue
+      if grep -qx "$f" <<< "$kvar"; then varna "brew upgrade misslyckades för $f"; else echo "uppdaterad: $f"; andrat+=("brew: $f"); fi
+    done <<< "$gamla"
   fi
   nodmajor="$(node --version | sed -E 's/^v([0-9]+).*/\1/')"
   lts="$(curl -s --max-time 10 https://nodejs.org/dist/index.json | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{try{const v=JSON.parse(s).find(x=>x.lts);console.log(v?v.version.replace(/^v(\d+).*/,"$1"):"")}catch{console.log("")}})')"
@@ -62,7 +67,12 @@ for dir in "$ROT/bibliotek" "$ROT/skript" "$ROT/mattstock/verktyg" "$ROT"/sites/
   rubrik "npm: ${dir#"$ROT"/}"
   paket="$(node -e 'const p=require(process.argv[1]); console.log(Object.keys({...p.dependencies,...p.devDependencies}).join(" "))' "$dir/package.json")"
   [[ -n "$paket" ]] || { echo "inga beroenden"; continue; }
-  mal() { if [[ "$1" == "@types/node" ]]; then printf '@types/node@%s' "$(node --version | sed -E 's/^v([0-9]+).*/\1/')"; else printf '%s@latest' "$1"; fi; }
+  # Paket som hålls på en huvudversion tills ett annat paket stöder nästa. Skälet rapporteras vid varje körning, så att det
+  # inte glöms bort. TypeScript 7 stöds inte av astro check (startsäkringen 2026-10-16: bygget föll med typescript 7.0.2).
+  hall() { case "$1" in typescript) echo 6 ;; esac; }
+  hallskal() { case "$1" in typescript) echo "astro check stöder inte TypeScript 7" ;; esac; }
+  mal() { if [[ "$1" == "@types/node" ]]; then printf '@types/node@%s' "$(node --version | sed -E 's/^v([0-9]+).*/\1/')"; elif [[ -n "$(hall "$1")" ]]; then printf '%s@%s' "$1" "$(hall "$1")"; else printf '%s@latest' "$1"; fi; }
+  for p in $paket; do [[ -n "$(hall "$p")" ]] && varna "${dir#"$ROT"/}: $p hålls på version $(hall "$p") ($(hallskal "$p")); senaste är $(npm view "$p" version 2>/dev/null)"; done
   if [[ -n "$TORRT" ]]; then (cd "$dir" && npm outdated 2>/dev/null) || true; continue; fi
   [[ -d "$dir/node_modules" ]] || (cd "$dir" && npm install --no-audit --no-fund >/dev/null 2>&1)
   fore_json="$(cd "$dir" && npm ls --depth=0 --json 2>/dev/null)"

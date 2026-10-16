@@ -2,19 +2,15 @@
 // En textsektion: rubrik, några korta stycken, ett citat, en punktlista, länkar och en not. Varje del är valfri utom rubriken.
 // yta: vit bakgrund i stället för sidans. Sektionen är ingen landmärkesregion; den hittas genom sin rubrik (Johnny 2026-10-16, C9).
 import type { Lank } from '../innehall/typ';
-// efter: stycken efter punkterna, t.ex. vart man vänder sig när listan inte räcker.
-// varning: en avgränsad ruta för det som har allvarliga följder, som när man ska söka vård i stället för att boka (GOV.UK, Warning text).
-// Rutan har en kraftig kant i textfärgen och ingen accent, eftersom accenten bara används till handlingar (G3).
-interface Props { id?: string; rubrik: string; stycken?: string[]; citat?: string; punkter?: string[]; efter?: string[]; lankar?: Lank[]; not?: string; yta?: boolean; varning?: boolean; }
-const { id, rubrik, stycken = [], citat, punkter = [], efter = [], lankar = [], not, yta = false, varning = false } = Astro.props;
+interface Props { id?: string; rubrik: string; stycken?: string[]; citat?: string; punkter?: string[]; lankar?: Lank[]; not?: string; yta?: boolean; }
+const { id, rubrik, stycken = [], citat, punkter = [], lankar = [], not, yta = false } = Astro.props;
 ---
 <section class:list={['sektion', 'text', { 'text--yta': yta }]} id={id} data-yta={yta ? 'yta' : 'bg'}>
-  <div class:list={['behallare text__inre', { 'text__varning': varning }]}>
+  <div class="behallare text__inre">
     <h2>{rubrik}</h2>
     {stycken.map((s) => <p>{s}</p>)}
     {citat && <blockquote class="citat"><p>{citat}</p></blockquote>}
     {punkter.length > 0 && <ul class="text__punkter">{punkter.map((p) => <li>{p}</li>)}</ul>}
-    {efter.map((s) => <p>{s}</p>)}
     {lankar.length > 0 && <ul class="text__lankar">{lankar.map((l) => <li><a href={l.href}>{l.text}</a></li>)}</ul>}
     {not && <p class="dampad text__not">{not}</p>}
   </div>
@@ -22,8 +18,6 @@ const { id, rubrik, stycken = [], citat, punkter = [], efter = [], lankar = [], 
 
 <style>
   .text--yta { background: var(--k-yta); }
-  .text__varning { border-left: 5px solid var(--k-text); padding-left: var(--k-a5); }
-  .text--yta .text__varning { background: var(--k-bg); padding: var(--k-a5); border-radius: 0 var(--k-radie-kort) var(--k-radie-kort) 0; }
   /* Spalten börjar vid behållarens vänsterkant som de andra sektionerna (Johnny 2026-10-16). Brödtexten hålls kring
      66 tecken per rad (Bringhurst 2.1.2; kvalitetsgranskningen 2026-10-16, D5); rubriken får vara bredare. */
   .text__inre { display: grid; gap: var(--k-a4); }

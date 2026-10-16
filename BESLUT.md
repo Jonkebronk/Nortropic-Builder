@@ -1177,3 +1177,13 @@ Claude jämförde Mobbin, Refero och Inspo. Förslaget var Inspo (gratis, redan 
 > då skippar vi refero om du anser det.
 
 **Innebär:** Referos MCP-server tas inte in, och posten `refero` får beslutet "släpp". Skillen `refero-design` är en metod för referenser, med referenslås och beslutslogg, och destilleras som förut. Mobbin kopplas in med Johnnys konto, efter att villkoren för kommersiell användning har lästs inloggad.
+
+## 2026-10-16: Ingen ruta om när man ska söka vård
+
+**Status:** gäller.
+
+Övningssajten hade en sektion *Sök vård direkt* på sidan om kiropraktik: tecknen från 1177 på när man ska söka vård i stället för att boka, och i premiumpasset också akutmottagningen och 1177, flyttad före processen och avgränsad som en varning. Sektionen kom in med kvalitetsgranskningen (U14). Johnny, omkring 14.10:
+
+> 1117 grejen är overkill, den behövs inte, det är ju trots allt ett företag som säljer sina tjänster, inte ett sjukhus
+
+**Innebär:** sektionen tas bort från övningssajten, och biblioteket behåller inte varningsrutan och styckena efter punkterna som byggdes för den. Guiden och skillsen kräver ingen sådan information, och 1177 används fortfarande som källa för alt-texter. Beslutet gäller övningssajten; om det ska bli en regel för alla vårdnära kunder säger Johnny till.
