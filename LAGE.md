@@ -1,6 +1,29 @@
 # Läget
 
-Uppdaterad 2026-10-16 kl. 23.35 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-16 kl. 23.50 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+
+## Stående uppdrag (Johnny 2026-10-16 kl. 23.45) – gäller före allt nedan
+
+Ordagrant i `BESLUT.md`, *Stående uppdrag fram till nästa övningssajt*. Claude gör punkterna 1–4 i ordning utan att fråga för varje steg. Avgöranden i Johnnys ställe skrivs i `BESLUT.md`, märkta *Claudes rekommendation, delegerat av Johnny 2026-10-16*. Byggrepot committas och pushas per steg efter sökning efter hemligheter; sajten committas bara lokalt. **Nästa övningssajt påbörjas inte**: Johnny gör först en egen premiumkontroll.
+
+1. **Resten av "Fixa alla"** (Mobbin får vara):
+   - Videorna, gjort 23.42: nya videor på `sites/torsokliniken/video/index.html`, de gamla i `video/2026-10-15/`, skriptet i `video/spela-in.cjs`, sajtens `f4cb69a`.
+   - Verktygslåset läser promptar, resurser och flaggor: pågår, skriptet är skrivet men inte kört.
+   - Startsäkringen bevakar guidens Google-sidor via Developer Knowledge: ej påbörjat.
+   - Statusskriptet på web-features: ej påbörjat.
+2. **Skillsen:** resten av luckorna och översynens punkter. Mikroprov bara där kontrollen troligen gör fel; rena fakta förs in direkt med en notering om varför provet hoppades över.
+3. **Övningssajten:**
+   - andra varvets sajtfynd som inte är rättade
+   - kontrollskriptets N2-fynd
+   - grupp B i `premiumpass.md`
+   - de öppna punkterna i frågelistan
+   - raden I dag
+   - texten om skatt och friskvårdsbidrag
+   - 404 och `_redirects`
+   - provsidorna för Varm och Djärv
+
+   Rätta i biblioteket när felet är generellt och i sajten när det är sajtens.
+4. **Avslut:** kontrollskriptet helt, tillägget i sajtens `genomgang.md`, `progress.md` och `LAGE.md`.
 
 ## Nästa session – börja här (skrivet 2026-10-16 kl. 19.39)
 

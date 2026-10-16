@@ -1610,3 +1610,43 @@ Claude listade det som återstod: verktygslåset ska läsa också promptar och r
 - Mobbin-connectorn får vara kvar; punkten stryks ur *Väntar på Johnny*.
 - Claudes rekommendation för punkt 2: raden i bilaga A delas. Dynamiska arbetsflöden (Workflow-verktyget) för breda uppgifter som korsverifieras ligger på N2, som i `guide/3-1`, *Bred eller djup*; `/batch` med en worktree per agent för parallella byggsteg ligger kvar på N4 (`3-1`, *Parallella steg*).
 - De andra punkterna rättas och prövas en i taget.
+
+## 2026-10-16: Stående uppdrag fram till nästa övningssajt
+
+**Status:** gäller tills punkterna 1–4 är gjorda.
+
+Johnny, kl. 23.45:
+
+> Stående uppdrag från mig, gäller fram till att vi är redo för nästa övningssajt:
+>
+> Gör alla kvarvarande ändringar enligt dina egna rekommendationer, utan att fråga mig
+> för varje steg. Skriv det här uppdraget ordagrant i BESLUT.md med datum och klockslag
+> först. Där du avgör något i mitt ställe gäller din rekommendation som beslut, märkt
+> "Claudes rekommendation, delegerat av Johnny <datum>", så att jag kan döma det i efterhand.
+>
+> Omfattning, i den här ordningen:
+> 1. Det som återstår av "Fixa alla": videorna in på sajtens videosida, verktygslåset läser
+>    promptar/resurser/flaggor, startsäkringen bevakar guidens Google-sidor via Developer
+>    Knowledge, statusskriptet på web-features. Mobbin låter vi vara.
+> 2. Skillsen: resten av luckorna och översynens punkter. Mikroprova bara där kontrollen
+>    troligen gör fel; för in rena fakta direkt och notera varför provet hoppades över.
+> 3. Övningssajten: andra varvets sajtfynd som inte är rättade, kontrollskriptets N2-fynd,
+>    grupp B i premiumpass.md, de öppna punkterna i frågelistan, raden I dag, texten om skatt
+>    och friskvårdsbidrag, 404/_redirects och provsidorna för Varm och Djärv. Rätta i
+>    biblioteket när felet är generellt och i sajten när det är sajtens.
+> 4. Avslut: kör kontrollskriptet helt, skriv tillägget i sajtens genomgang.md, uppdatera
+>    progress.md och LAGE.md.
+>
+> Committa och pusha byggrepot per steg efter sökning efter hemligheter;
+> sajten committas bara lokalt.
+>
+> Klart när punkterna 1–4 är gjorda. Börja inte på nästa sajt för jag ska göra en premium kontroll på egen hand då.
+>
+> Uppdatera LAGE.md före varje
+> paus så att arbetet kan fortsätta efter en kontextsammanfattning.
+
+**Innebär:**
+- Claude genomför punkterna 1–4 i ordning utan att fråga för varje steg.
+- Varje avgörande som Claude gör i Johnnys ställe skrivs här i `BESLUT.md`, märkt *Claudes rekommendation, delegerat av Johnny 2026-10-16*, så att Johnny kan döma det i efterhand.
+- Byggrepot committas och pushas per steg efter sökning efter hemligheter; sajten committas bara lokalt.
+- Nästa övningssajt påbörjas inte. Johnny gör först en egen premiumkontroll.
