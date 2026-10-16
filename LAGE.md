@@ -1,16 +1,17 @@
 # Läget
 
-Uppdaterad 2026-10-16 kl. 17.23 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-16 kl. 19.39 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
-## Nästa session – börja här (skrivet 2026-10-16 kl. 17.23)
+## Nästa session – börja här (skrivet 2026-10-16 kl. 19.39)
 
 **Målet, i Johnnys ord omkring 17.20:** *"nu ska vi få alla mcps att fungera … Så ska vi göra klart den [övningssajten] innan vi startar nästa."* Gör stegen i ordning. Ett steg är klart först när resultatet är prövat och Johnny har sett det.
 
-**0. Starta och kontrollera.** Kör startsäkringen (`CLAUDE.md`, steg 0) och kontrollera att övningssajten bygger och visas: `npm run build` i `sites/<sajt>/` och förhandsvisningen på `http://127.0.0.1:4322/` (`npx astro preview --port 4322 --host 127.0.0.1` i sajtens katalog om den inte körs). Läs `git log --oneline -40`, så att du ser vad som gjordes 2026-10-16.
+**0. Starta och kontrollera.** Kör startsäkringen (`CLAUDE.md`, steg 0) och kontrollera att övningssajten bygger och visas: `npm run build` i `sites/<sajt>/` och förhandsvisningen på `http://127.0.0.1:4322/` (`npx astro preview --port 4322 --host 127.0.0.1` i sajtens katalog om den inte körs). Läs `git log --oneline -60`, så att du ser vad som gjordes 2026-10-16.
 
 **1. Få alla MCP:er att fungera** (`BESLUT.md` 2026-10-16, *Alla MCP:er in nu …* och *Senaste version med verktygslås …*).
 - Kontrollera med `/mcp` och `claude mcp list` att servrarna syns. Alla ligger i lokal scope för repot i `~/.claude-bygg`; avgränsningen står kvar (Johnny 17.18).
-- Johnny loggar in via `/mcp` på 21st, DataForSEO, Figma och Cloudflare (Cloudflare helst med en läs-token). Grounding Lite, Google Developer Knowledge, nanobanana och BrowserStack lägger han in med nyckel i ett eget terminalfönster; Nycklar klistras aldrig in i chatten. Kommandona, körda från repots rot med nyckeln i stället för platshållaren:
+- Johnny loggar in via `/mcp` på 21st, DataForSEO, Figma, Cloudflare (helst med en läs-token) och Socket. Socket svarar på verktygslistan utan konto men kräver OAuth för anrop, och ärendet om `401 invalid_token` i Claude Code är öppet (SocketDev/socket-mcp #185).
+- Grounding Lite, Google Developer Knowledge, nanobanana och BrowserStack lägger Johnny in med nyckel i ett eget terminalfönster; nycklar klistras aldrig in i chatten. Kommandona, körda från repots rot med nyckeln i stället för platshållaren:
   ```
   CLAUDE_CONFIG_DIR=$HOME/.claude-bygg claude mcp remove grounding-lite
   CLAUDE_CONFIG_DIR=$HOME/.claude-bygg claude mcp add --transport http grounding-lite https://mapstools.googleapis.com/mcp --header "X-Goog-Api-Key: DIN_NYCKEL"
@@ -20,19 +21,26 @@ Uppdaterad 2026-10-16 kl. 17.23 på Johnnys Mac, i den första byggsessionen (`c
   CLAUDE_CONFIG_DIR=$HOME/.claude-bygg claude mcp add browserstack -e BROWSERSTACK_USERNAME=DITT_NAMN -e BROWSERSTACK_ACCESS_KEY=DIN_NYCKEL -- npx -y @browserstack/mcp-server@latest
   ```
   Nycklarna skaffas i Google Cloud (Maps Grounding Lite och Developer Knowledge API, var sin begränsad nyckel; Grounding Lite kräver fakturering), Google AI Studio (Gemini, betald nivå i EES) och BrowserStacks *Account Settings* (betald plan).
-- Kör verktygslåset efter inloggningarna: `python3 -I skript/mcp-verktygslas.py` (låser servrar med nyckel, rapporterar ändringar; servrar med OAuth och Mobbin står som olåsta, eftersom skriptet inte når deras token).
+- **Verktygslåset** (`python3 -I skript/mcp-verktygslas.py`, körs också i startsäkringen): 14 av 21 servrar är låsta, också Grounding Lite och Developer Knowledge, vars verktygslistor är öppna. Olåsta står på en egen rad med skälet: OAuth-servrarna (Figma, Cloudflare, 21st, DataForSEO), Mobbin (claude.ai-connector) och de som inte är tillagda. Nycklar läses ur byggsessionens konfiguration och skrivs aldrig ut. Kör det efter att nycklarna är inlagda; godta en ändring med `--uppdatera` först när Johnny har sett den.
 - Kör varje servers prov mot övningssajten enligt MCP-gruppens rapport, sparad lokalt i sajtens `andra-varvet/mcp-jamforelse.md` (*Per MCP*, *Nya kandidater*). Skriv resultatet per server i sajtens `mcp-prov.md`: vad som gjordes, vad det gav, och om servern behålls. Lägg fram det för Johnny.
 
 **2. Gör klart övningssajten.** Den är klar när allt nedan är gjort:
-- **Johnnys domar** som väntar: bilderna före och efter och videorna av sparsam och måttlig rörelse (skickade 2026-10-16); grupp B i sajtens `premiumpass.md` (28 fynd); raden *I dag* (C4); texten om skatt och friskvårdsbidrag; 404 för gamla adresser (`public/_redirects`); provsidorna för Varm och Djärv (G8, G9); andra varvets kvarvarande förslag (bevakningsloopen B1–B8, K5 och K6 i granskarens checklista, smak i kiten, menyn i mobilen; `kunskap/research/2026-10-16_andra-varvet.md`); placeringarna i inventeringen ("ja på alla placeringar" gör dem till beslut).
-- **Andra varvets sajtfynd som inte är rättade:** samla dem ur avsnitten om nya fynd i sajtens `andra-varvet/*-jamforelse.md` (bland annat namn och rubriker som skiljer sig mellan sidor, tre länkstilar, fyra kortnät i rad på startsidan, sidfotens rubriker mindre än brödtexten, Kontakt utan bokningsbandet). Det som ligger inom beslut rättas i biblioteket och kopieras till sajten; smak och struktur går till Johnny.
-- **Gruppernas textförslag till guiden och bilagorna** (cirka 80, i rapporterna under *Förslag till filer jag inte äger*): faktarättelser med primärkälla förs in; det som ändrar en regel blir förslag till Johnny.
-- **Föreslagna kontroller:** textstorlek 32 px, den byggda CSS:en, söksträngen på sin sida, bara bokningen fylld accent, inga understrukna mellanrum och en felbank. Johnny väljer vilka som byggs.
-- **Slutet:** kontrollskriptet utan `SNABB` (Lighthouse 100; 5b stoppar avsiktligt tills samtycket till behandlingsfotot finns), Johnnys slutdom, ett tillägg i sajtens `genomgang.md` om andra varvet och `LAGE.md`.
+- **Johnnys domar** som väntar: bilderna före och efter och videorna av sparsam och måttlig rörelse (skickade 2026-10-16); grupp B i sajtens `premiumpass.md` (28 fynd); raden *I dag* (C4); texten om skatt och friskvårdsbidrag; 404 för gamla adresser (`public/_redirects`); provsidorna för Varm och Djärv (G8, G9); och **frågelistan** `kunskap/research/2026-10-16_tredje-varvet-till-johnny.md`: 57 punkter i påverkansordning, där punkt 50 är avgjord (19.09). Andra varvets kvarvarande frågor står där (menyn i mobilen 2, smak i kiten 8, bevakningsloopen B1–B8 38).
+- **Andra varvets sajtfynd som inte är rättade:** samla dem ur avsnitten om nya fynd i sajtens `andra-varvet/*-jamforelse.md` (bland annat namn och rubriker som skiljer sig mellan sidor, tre länkstilar, fyra kortnät i rad på startsidan, sidfotens rubriker mindre än brödtexten, Kontakt utan bokningsbandet).
+- **Kontrollskriptets nya N2-fynd på övningssajten** (`SNABB=1`, 19.06; bara 5b stoppar): 2g Trusted Types blockerar provtaggarna; 3d rubrikord delas utan bindestreck vid 24 och 32 px (fråga 48); 3f säkra ytor vid sidorna saknas; 4c två sorters handlingar i accent i samma fönster; 7d tal och enhet med vanligt mellanslag; 7e söksträngar som inte står i h1, h2 eller första stycket; 8m kartlänkar med samma namn och olika mål på kontaktsidan; 8o hover saknas på några element; 10c+ `Cross-Origin-Resource-Policy`; 10f `/api/samtycke` ger 400 i stället för 403 vid `Sec-Fetch-Site: cross-site`; 12d samma `lastmod` på alla adresser; 13 `allow-discrete` utan reserv; 13f knapplisten rör sig under första sekunden. Det som ligger inom beslut rättas i biblioteket och kopieras till sajten; smak och struktur går till Johnny.
+- **Slutet:** kontrollskriptet utan `SNABB` (Lighthouse 100; 5b stoppar avsiktligt tills samtycket till behandlingsfotot finns; 9b stoppar på TBT när maskinen är belastad, fråga 46), Johnnys slutdom, ett tillägg i sajtens `genomgang.md` om andra och tredje varvet, och `LAGE.md`.
 
 **3. Därefter nästa övningssajt:** hantverk (`guide/5-byggplan.md`, *Serien*), med måttstockens underkända snickare i tre orter (s04) som kandidat.
 
-**Det som inte är gjort, så att ingen tror det:** kompetensen ur inventeringen är destillerad in i de elva skillsen, men gruppernas förslag till guiden är inte införda, de föreslagna kontrollerna är inte byggda, placeringarna är förslag tills Johnny sagt ja, bara skillen `drift` har en baslinje, och inget är prövat på riktig iPhone, Android eller med skärmläsare.
+**Tredje varvet är klart** (Johnny omkring 17.35, *Kompetensinventeringen görs klar*):
+- **Guiden och bilagorna:** gruppernas faktarättelser och förtydliganden är införda i 2-1–2-9, 3-1–3-4 och bilagorna A–F; det som ändrar en regel står i frågelistan.
+- **Inventeringen:** 201 poster, alla placeringar är beslut (17.40), 202 källkort, och Guidepup är släpp (19.38). Artefakten är version 8. Bevakningen har 112 repon med full commit. Luckorna är 101: av de 93 gamla är 2 åtgärdade, 26 delvis och 65 kvar, och 8 är nya.
+- **Kontrollerna:** 45 N2-kontroller i `skript/kontroll.mjs` (36 rapport, 9 stopp där en norm bär regeln) med en felbank: `node skript/kontroll.mjs --felbank` (cirka 4 min) ska ge *"Alla 45 kontroller fångar sitt fel …"*. Bilaga C har 230 rader. Inte byggda, med skäl i `kvalitet/kontroller.md`: 8j, 8k, 9d, 9e, 9g, 10g, 11b, 15 och 16.
+- **Baslinjerna:** alla elva skills är mätta med och utan (`larande/baslinje.md`; `kunskap/research/2026-10-16_baslinjer-1.md` och `-2.md`). Skillsen tillför byråns egna regler och format, inte grunderna. Kvalitetsskillens tak på 15 fynd gäller inte normer och N1 (beslut 19.09); omprovet gav 100 %.
+- **Verktygslåset** är rättat (se steg 1), och `bygg_n1.py` går med Macens python3.
+- **Skärmläsare:** VoiceOver på Macen med Guidepup prövades och valdes bort (Johnny 19.38, `BESLUT.md`); erfarenheterna står i `kunskap/kallkort/guidepup.md`. Hur skärmläsare prövas i stället är fråga 57.
+
+**Det som inte är gjort, så att ingen tror det:** inget är prövat på riktig iPhone, Android eller med skärmläsare (BrowserStack väntar på nyckeln; fråga 57). MCP-proven mot övningssajten är inte körda. Ingen skill är kortad: en andra uppgift per skill behövs först (fråga 51). Frågelistans 56 öppna punkter väntar på Johnny.
 
 ## Kort
 
@@ -156,8 +164,8 @@ Johnny beslutade omkring 12.11 att kompetensen ur inventeringen ska in i alla la
 - **G1–G13 är införda**, och stilkiten Varm och Djärv är rättade (G8 och G9). Provsidorna väntar på Johnnys dom.
 - **MCP-servrarna Inspo och Chrome DevTools** är tillagda i byggsessionen. Chrome DevTools körs utan statistik och CrUX-anrop. De som kräver konto väntar på Johnny.
 - **Elva skills i `.claude/skills/`:** strategi, omfattning, struktur, skelett, yta, rörelse, innehåll, kvalitet, drift, granskare och lärande (bilaga B).
-- **Inventeringen:** varje post av 171 har ett *förslag* till placering med motivering och en länk till sitt källkort (skill 66, senare 27, släpp 22, bibliotek 17, MCP 15, kontroll 14, verktyg 10). Artefakten är publicerad. `beslut` står *ej fattat* utom Resend och Refero. Källkorten ligger i `kunskap/kallkort/` (172 st), och startsäkringen bevakar 128 repon.
-- **Luckorna** är sammanställda i `kunskap/research/2026-10-16_luckor-per-lager.md`: 93 luckor, varav 24 med vikt hög. De fem viktigaste: inga riktiga besökare prövar sajten, inga riktlinjer för kundens egna bilder, marknadsrätten för påståenden i vård är inte läst, bara Chromium prövas och ingen prövar med riktiga hjälpmedel.
+- **Inventeringen** (läget vid andra varvet): 171 poster med förslag till placering och källkort. Läget nu står i *Nästa session*, under *Tredje varvet är klart*.
+- **Luckorna** är sammanställda i `kunskap/research/2026-10-16_luckor-per-lager.md`: 93 luckor, varav 24 med vikt hög (101 efter tredje varvet; se *Nästa session*). De fem viktigaste: inga riktiga besökare prövar sajten, inga riktlinjer för kundens egna bilder, marknadsrätten för påståenden i vård är inte läst, bara Chromium prövas och ingen prövar med riktiga hjälpmedel.
 - **Premiumpasset på övningssajten:** åtta revisioner är sammanslagna till `sites/<sajt>/premiumpass.md` med 57 fynd: A 19 (rätta nu), B 28 (Johnny beslutar) och C 10 (senare). **Grupp A är genomförd** i biblioteket och sajten (commits `e8dd132` och framåt):
   - sidhuvudet på en rad i 1024 px; ingen vågrät scroll vid 200 % textstorlek (förut 7 av 10 sidor)
   - hover bara med mus, färg vid hover och tryck och en kort tryckkvittens; menyn tar fokus och bakgrunden tonas
@@ -169,8 +177,8 @@ Johnny beslutade omkring 12.11 att kompetensen ur inventeringen ska in i alla la
   - måttlig rörelse animerar inte första skärmen (B3); mjuk rullning bara utan reducerad rörelse; knapplisten är ett landmärke
   - Kundens lyft: fotobeställning i Googles fem kategorier, länkbytet och katalogerna
 - **MCP på övningssajten först** (Johnny omkring 17.00 och 17.05: *"vi ska ha in ALLA mcps nu"*, `BESLUT.md`). Spärren mot claude.ai-connectorer är borttagen, och alla servrar i inventeringen är tillagda i byggsessionen (lokal scope för repot). De syns i `/mcp` först efter omstart av `claude-bygg` från repots rot.
-  - **Anslutna:** Inspo, Chrome DevTools, Playwright, MDN, Astro Docs, Cloudflare Docs, Leonardo, Motion, Socket, shadcn, seo-monster, mcp-gsc och Mobbin (claude.ai-connector).
-  - **Johnny loggar in via `/mcp`:** 21st, DataForSEO, Figma och Cloudflare (Cloudflare helst med en läs-token).
+  - **Anslutna:** Inspo, Chrome DevTools, Playwright, MDN, Astro Docs, Cloudflare Docs, Leonardo, Motion, shadcn, seo-monster, mcp-gsc och Mobbin (claude.ai-connector).
+  - **Johnny loggar in via `/mcp`:** 21st, DataForSEO, Figma, Cloudflare (helst med en läs-token) och Socket.
   - **Johnny lägger in nyckeln själv i ett eget terminalfönster från repots rot** (aldrig i chatten): Grounding Lite och Google Developer Knowledge (huvudet `X-Goog-Api-Key`; de godtar inte Claude Codes OAuth), nanobanana (`GEMINI_API_KEY`) och BrowserStack.
   - **Nästa session:** kör verktygslåset (`python3 -I skript/mcp-verktygslas.py`) efter inloggningarna, och sedan varje servers prov mot övningssajten enligt MCP-gruppens rapport (sparad lokalt i sajtens `andra-varvet/mcp-jamforelse.md`, avsnitten *Per MCP* och *Nya kandidater*). Resultatet läggs fram för Johnny före nästa övningssajt.
   - **Avgränsningen med `~/.claude-bygg` står kvar** (Johnny omkring 17.18). Det som ska in läggs till där; något ur den vanliga `~/.claude` flyttas hit på begäran.
@@ -197,7 +205,7 @@ Johnny beslutade omkring 12.11 att kompetensen ur inventeringen ska in i alla la
 
 - **Andra varvets förslag** (`kunskap/research/2026-10-16_andra-varvet.md`): avgjorda 17.00 är e-posten (förklarad, guiden rättad), senaste version med verktygslås, Mobbin och videon. Kvar: bevakningsloopen B1–B8, K5 och K6 i granskarens checklista, smak i kiten och menyn i mobilen. Videorna av sparsam och måttlig rörelse väntar på Johnnys dom.
 - **Premiumpasset:** döm bilderna före och efter, och grupp B i sajtens `premiumpass.md`. Där står bland annat porträttet i Om-sidans topp, menyn i mobilen, en översiktssida för Behandlingar, accentsteg, typskala och rörelsetokens per kit, JS-budgeten, CSP med React och Motion, sidbyten med `@view-transition` och en säkerhetskopia av `sites/`, eftersom sajtens repo bara finns på Macen.
-- **Inventeringens placeringar** (förslag på alla 201 poster, artefakten version 4). MCP-servrarna är tillagda; inloggningarna står i *Nästa session – börja här*.
+- **Frågelistan efter tredje varvet** (`kunskap/research/2026-10-16_tredje-varvet-till-johnny.md`): 57 punkter, 50 avgjord. Placeringarna i inventeringen är beslut sedan 17.40.
 - **Luckorna** i `kunskap/research/2026-10-16_luckor-per-lager.md`: vilka som ska tas först.
 - **Genomgången efter övningssajten** (sajtens `genomgang.md`): G1–G13 är godkända och införda (Johnny 12.07). Provsidorna för Varm och Djärv (G8, G9) väntar på Johnnys dom.
 - **Raden "I dag" i förstavyn** (C4) ska dömas: om första skärmen blir för trång.
