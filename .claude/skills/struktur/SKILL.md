@@ -59,7 +59,7 @@ En besökare som landar var som helst på sajten – oftast från en sökning i 
 6. **Kontaktvägen och företagsuppgifterna** på varje sida, som guiden kräver (→ `guide/2-3-struktur.md`, N1).
 7. **Brödsmulor:** om de finns – typisk väg, aktuell sida sist och olänkad, samma som i `BreadcrumbList`?
 8. **Ortssidor:** klarar varje sida bytestestet, och har den adress, tider, väg dit och länk till de andra mottagningarna, också i mobilen?
-9. **Strukturerad data:** stämmer namn, adress och telefon med det som syns och med Google-profilen? En lokal verksamhet per mottagning på rätt sida, sammanbunden med organisationen? Validerad i Rich Results Test?
+9. **Strukturerad data:** stämmer namn, adress och telefon med det som syns och med Google-profilen? En lokal verksamhet per mottagning på rätt sida, sammanbunden med organisationen? Valideringen (Rich Results Test och kontrollskriptet) hör till lager 8 (→ `kvalitet/seo-teknik.md`; `strukturerad-data.md`; `BESLUT.md` 2026-10-16, *Motsägelserna i skillsen*).
 10. **Nyckelresan:** går den hela vägen från sökningen till den primära handlingen i mobil och dator (kontroll 4)?
 11. **404 och omdirigeringar:** visar 404 vägar vidare, och leder gamla adresser rätt (→ `guide/2-3-struktur.md`; kontroll 10b och 10c)?
 

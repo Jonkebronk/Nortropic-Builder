@@ -69,7 +69,7 @@ Mönster att söka efter i biblioteket och sajten, med åtgärd. *(Krehel, `bett
 |---|---|---|
 | `1fr` med lång text i grid | Kolumnen växer och spiller över | `minmax(0, 1fr)` och `min-width: 0` |
 | `100vw` | Tar med rullisten och ger horisontell scroll | `100%` |
-| `100vh` på första vyn | Fel höjd när mobilens adressfält visas och göms | `min-height: 100svh`; `100dvh` bara för helskärmspaneler |
+| `100vh` på första vyn | Fel höjd när mobilens adressfält visas och göms, och en första vy i full höjd ser färdig ut (falskt golv, princip 5) | Ingen höjd i viewport-enheter på första vyn; innehållet bestämmer höjden. `svh` och `dvh` bara för paneler i full höjd, som menyn (`BESLUT.md` 2026-10-16, *Motsägelserna i skillsen*) |
 | Fast `height` på en textlåda | Text klipps vid zoom | `min-height` |
 | `@media` inuti en återanvändbar sektion | Sektionen beter sig fel i en smal spalt | `@container` |
 | `container-type` på ett element som krymper efter innehållet | Kollapsar till 0 | Ge det en bredd |

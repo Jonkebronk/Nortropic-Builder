@@ -15,7 +15,7 @@ Regeln står i guiden: varje sektion designas och prövas i mobilbredd före dat
 | Regel | Skäl |
 |---|---|
 | `<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">`, aldrig `user-scalable=no` eller `maximum-scale=1` | Zoomspärr bryter 📄 WCAG 2.2, 1.4.4; `viewport-fit=cover` behövs för säkra ytor |
-| Första vyn har `min-height` i `svh`, aldrig `vh`; `dvh` bara för helskärmspaneler som menyn | `vh` räknar med att adressfältet är dolt, `dvh` ger hopp under scrollning |
+| Första vyn har ingen höjd i viewport-enheter; innehållet bestämmer höjden, och nästa sektion syns i 375 × 667 (princip 5). `svh` för paneler i full höjd och `dvh` bara för helskärmspaneler som menyn, aldrig `vh` | En första vy i full höjd ser färdig ut (falskt golv); `vh` räknar med att adressfältet är dolt, `dvh` ger hopp under scrollning (`BESLUT.md` 2026-10-16, *Motsägelserna i skillsen*) |
 | `env(safe-area-inset-*)` på alla sidor där innehåll når kanten: `-bottom` på knapplisten och menypanelen, och `max(<kitets marginal>, env(safe-area-inset-left))` respektive `-right` på sidhuvud, innehåll och list | Annars hamnar knapparna under hemindikatorn och texten under sensorhuset i liggande läge; marginalen får aldrig bli mindre än kitets (📄 WebKit, [Designing Websites for iPhone X](https://webkit.org/blog/7929/designing-websites-for-iphone-x/)) |
 | `:hover`-stilar inom `@media (hover: hover) and (pointer: fine)`; tryckåterkoppling med `:active` | Hover fastnar annars efter ett tryck på pekskärm |
 | Synlig tryckåterkoppling, aldrig ingen alls | Besökaren ska se att trycket gick fram; Kowalski sätter tap highlight till `transparent` med ett eget `:active`, Refero vill ha en avsiktlig highlight – båda ger återkoppling |

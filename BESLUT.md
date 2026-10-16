@@ -1528,3 +1528,32 @@ Claude listade det som återstod av översynen: (1) skillsen och inventeringen, 
 - Byggsessionen behåller OAuth mot byråns Cloudflarekonto. Andra varvets råd om läs-token hellre än OAuth (`BESLUT.md` 2026-10-16, *Alla MCP:er in nu …*) gäller inte byråns konto. Regeln om en läs-token per kund i `drift` står kvar för kundernas konton.
 - INP på övningssajten mäts om enligt `kvalitet/prestanda.md` (Playwright, Event Timing, en tom sida som kalibrering, bedömning på fördröjning plus bearbetning).
 - Skillsen och inventeringen ändras enligt översynen (`kunskap/research/2026-10-16_verktyg-och-skills-full-potential.md`). Faktarättelser prövas med formprovet; ändringar som ska ändra beteendet prövas med och utan enligt `larande/skills.md` innan de behålls.
+
+## 2026-10-16: Motsägelserna i skillsen
+
+**Status:** gäller för A–G. H väntar på Johnnys svar på Claudes rekommendation.
+
+Claude lade fram åtta motsägelser i och mellan skillsen, med förslag på A–G, och H som ett val. Johnny, omkring kl. 22.05:
+
+> vi kör enligt dina rekommendationer
+
+**Innebär:**
+- **A:** Första vyn får ingen höjd i viewport-enheter; innehållet bestämmer höjden (skelettets princip 5). `svh` och `dvh` används bara för paneler i full höjd (`skelett/layout.md`, `mobil.md`).
+- **B:** Granskarens PG5 följer ytans regel om avstavning: `hyphens: manual` i rubriker, `auto` i brödtext först efter prov (`granskare/premium.md`).
+- **C:** Granskarens PS3 följer `yta/farg.md` och G3. Accentens andel rapporteras, men den är inget fynd så länge accenten bara ligger på handlingar.
+- **D:** 44 px är granskningskriterium och varning. Regeln och golvet är WCAG 2.5.8, 24 px (`skelett/apple-hig.md`).
+- **E:** Valideringen av strukturerad data hör till lager 8 (`struktur/SKILL.md`).
+- **F:** Siffrorna för React och Motion kommer ur provbygget i React-researchen (`rorelse`, `skelett`).
+- **G:** Granskaren tar alla sidor i 375, 768 och 1280 px enligt `guide/3-2` (`granskare`).
+- A, B och C ändrar vad agenterna gör och prövas med ett mikroprov, fem körningar med och fem utan, enligt `larande/skills.md`, innan de behålls.
+- **H** (`<details name>` mot att frågor hoppar) avgjord: *Vanliga frågor utan name* (kl. 22.08).
+
+## 2026-10-16: Vanliga frågor utan name
+
+**Status:** gäller. Ändrar `guide/2-4-skelett.md` (vanliga frågor med `<details name>`) och avgör H i *Motsägelserna i skillsen*.
+
+Rörelseskillen hade mätt att frågan besökaren trycker på hoppar 74–103 px uppåt när `<details name>` stänger ett öppet svar ovanför, och skelettskillen hade NN/g:s råd att flera paneler får vara öppna. Claude rekommenderade att vanliga frågor får vara öppna flera samtidigt, alltså `<details>` utan `name`: inget hopp, inget JavaScript, och besökaren kan jämföra svar. Johnny, kl. 22.12:
+
+> ja
+
+**Innebär:** `guide/2-4` (två rader), bibliotekets `Fragor.astro`, övningssajtens kopia och skillsen `skelett`, `kvalitet` och `rorelse` säger `<details>` utan `name` för vanliga frågor. `details name` står kvar i statustabellen i `kvalitet/modern-html-css.md` som funktion, men används inte för vanliga frågor.

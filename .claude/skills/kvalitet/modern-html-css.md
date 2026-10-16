@@ -1,6 +1,6 @@
 # Modern HTML och CSS
 
-Primitiverna (`<details name>`, `popover`-menyn, `<dialog>`) och regeln *HTML först* står i `guide/2-4-skelett.md`. Här står policyn för webbläsarstöd, statusen per funktion och vad som ska vara sant om de används.
+Primitiverna (`<details>`, `popover`-menyn, `<dialog>`) och regeln *HTML först* står i `guide/2-4-skelett.md`. Här står policyn för webbläsarstöd, statusen per funktion och vad som ska vara sant om de används.
 
 ## Policy för webbläsarstöd
 
@@ -21,7 +21,7 @@ Status enligt web-features, som är facit (📄 [web-features](https://github.co
 | `<dialog>` med `showModal()`, `::backdrop` | Widely | Modal dialog: inert bakgrund, Escape, `aria-modal` inbyggt | Stängknapp synlig; ingen `tabindex` på dialogen (📄 [MDN, dialog](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog)) |
 | `inert` | Widely | Gömda paneler och listor utanför fokus | |
 | `<details>` och `<summary>` | Widely | Utfällbart utan skript | Rubrik inuti `<summary>` prövas med skärmläsare (→ `guide/2-4-skelett.md`) |
-| `<details name>` | Newly (2024-09) | Dragspel där en öppnas i taget | Utan stöd öppnas flera; det skadar inget |
+| `<details name>` | Newly (2024-09) | Används inte för vanliga frågor, där flera svar får vara öppna (`BESLUT.md` 2026-10-16, *Vanliga frågor utan name*) | Utan stöd öppnas flera; det skadar inget |
 | `popover` och `popovertarget` | Newly ⚠️ (MDN 2024-04, web-features 2025-01) | Mobilmenyn, lätta paneler | `@supports not selector(:popover-open)` döljer knappen; länkarna finns i sidfoten |
 | Invoker commands (`command`, `commandfor`) | Newly (2025-12) | Öppna dialog utan skript | Länk eller skript som reserv (→ `guide/2-4-skelett.md`, N2) |
 | `loading="lazy"` på `img` och `iframe` | Widely (2026-06) | Bilder och ramar under första vyn | Aldrig på LCP-bilden. Fördröjer bara med JavaScript påslaget |

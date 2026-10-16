@@ -37,7 +37,7 @@ Varje sektion besvarar en fråga besökaren har. Listan är kartans utkast (inte
 | Utfört arbete | Har ni gjort sådant förut? | Bara med egna bilder (`2-7`) |
 | Så går det till | Vad händer om jag hör av mig? | Stegen i ordning |
 | Serviceområde | Kommer ni hit? | Finns inte i något granskat bibliotek och designas från grunden: orterna som text, valfri statisk karta, samma orter som `areaServed` (`2-8`) |
-| Vanliga frågor | Vad kostar det, hur lång tid tar det? | `<details name>`; svaren finns i HTML:en |
+| Vanliga frågor | Vad kostar det, hur lång tid tar det? | `<details>` utan `name`, så att flera svar kan vara öppna; svaren finns i HTML:en (`BESLUT.md` 2026-10-16, *Vanliga frågor utan name*) |
 | Kontakt | Hur ber jag om offert, och när svarar ni? | Kontaktvägar, tider och förfrågan; formuläret → `2-8` |
 | Hitta hit | Var ligger ni? | Bara vid besöksadress: adressen som text och en länk till vägbeskrivning; inbäddad karta kräver samtycke (`2-8`) |
 | Nästa steg | Vad gör jag nu? | Avslutar varje sida med den primära handlingen |
@@ -58,7 +58,7 @@ De tre riktningarna i `5-byggplan.md`, steg 2, visar startsidan i tre stilkit me
 
 | Behov | Primitiv | Källa |
 |---|---|---|
-| Vanliga frågor, utfällbart | `<details name>` (Baseline; `name` i alla stora webbläsare sedan 2024). Dölj aldrig det de flesta behöver. | [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/details), [GOV.UK Details](https://design-system.service.gov.uk/components/details/) |
+| Vanliga frågor, utfällbart | `<details>` utan `name`: flera svar får vara öppna, så att besökaren kan jämföra, och frågan hoppar inte när ett annat svar stängs (med `name` hoppade den 74–103 px på övningssajten). Dölj aldrig det de flesta behöver. (`BESLUT.md` 2026-10-16, *Vanliga frågor utan name*; NN/g, [Accordions on Desktop](https://www.nngroup.com/articles/accordions-on-desktop/)) | [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/details), [GOV.UK Details](https://design-system.service.gov.uk/components/details/) |
 | Mobilmeny | På datorn syns menyns länkar i sidhuvudet (`BESLUT.md` 2026-10-15: *"På datorn är sidhuvudet oförändrat"*), och huvudmenyn har få länkar (`2-3`). På mobilen en knapp med ordet "Meny" som öppnar en `popover`-panel med alla sidor och kontaktvägen; Escape och klick utanför stänger den och fokus går tillbaka till knappen. Aldrig ARIA-rollen `menu`; `aria-current="page"` (`BESLUT.md` 2026-10-15). | [W3C APG](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/), [MDN popover](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) |
 | Bild i större format | Länk till bilden; från N2 `<dialog>` med Invoker Commands som förbättring | [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Invoker_Commands_API) |
 | Formulär | Vanliga fält med `<label>`, validering på servern | [GOV.UK Validation](https://design-system.service.gov.uk/patterns/validation/), → `2-8` |

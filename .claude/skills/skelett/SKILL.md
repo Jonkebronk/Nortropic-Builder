@@ -69,7 +69,7 @@ Kör i 375 och 1280 px, med sticky sidhuvud och knapplist som besökaren ser dem
 4. **Om-sidan:** syns personen (foto, namn, yrke) i första vyn på mobil och dator?
 5. **Knappar:** samma stil och samma etikett (eller en kortform av den) för samma handling överallt; högst en primär handling per vy; knapplisten dubblerar inte knappar som redan syns.
 6. **Mobilmenyn:** knappen säger "Meny" och står skild från namnet, öppnar en panel utan JavaScript, Escape stänger och fokus går tillbaka, Tab lämnar inte panelen öppen bakom sig, aktuell sida är markerad synligt och med `aria-current`, och tjänsterna står direkt i panelen.
-7. **Vanliga frågor:** `<details name>`, en unik grupp per sektion, svaren går att hitta med sökfunktionen, inget som alla behöver är dolt.
+7. **Vanliga frågor:** `<details>` utan `name`, så att flera svar kan vara öppna (`BESLUT.md` 2026-10-16, *Vanliga frågor utan name*), svaren går att hitta med sökfunktionen, inget som alla behöver är dolt.
 8. **Reflow och fokus:** ingen horisontell scroll i 320 px, inget klipps vid låg höjd, fokus skyms aldrig av sidhuvud eller knapplist (→ `guide/bilaga-c-kontroller.md`, kontroll 3 och 3b). Samma prov med webbläsarens teckenstorlek 24 och 32 px i 375 px (princip 16).
 9. **Läsordning:** tabba igenom sidan – följer fokus den visuella ordningen?
 10. **Landmärken och rubriker:** en `h1`, en `h2` per sektion, regioner bara för hoppmål, Hoppa till innehållet först (→ kontroll 8).

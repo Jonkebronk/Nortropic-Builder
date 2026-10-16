@@ -1,6 +1,6 @@
 # Interaktionsmönster, tillstånd och öar
 
-Primitivtabellen – `<details name>`, mobilmenyn som popover, bild i större format, formulär och komplexa widgets – står i guiden (→ `guide/2-4-skelett.md`, *HTML först*). Här står kraven på varje mönster, tillstånden som ska prövas och reglerna för React-öar.
+Primitivtabellen – `<details>` för vanliga frågor, mobilmenyn som popover, bild i större format, formulär och komplexa widgets – står i guiden (→ `guide/2-4-skelett.md`, *HTML först*). Här står kraven på varje mönster, tillstånden som ska prövas och reglerna för React-öar.
 
 Baseline enligt [web-features](https://github.com/web-platform-dx/web-features) 3.43.0: `<details>` high (2020), `details name` low (2024-09-03), `::details-content` low (2025-09-16), Popover low (2025-01-27), Invoker Commands low (2025-12-12), `<dialog>` high (2022), `@starting-style` low (2024-08-06). Inte Baseline: `<dialog closedby>`, `popover="hint"`, `interpolate-size`, `hidden="until-found"`, scroll-drivna animationer.
 
@@ -21,7 +21,7 @@ Baseline enligt [web-features](https://github.com/web-platform-dx/web-features) 
 
 - **`<details>` med `<summary>`, och `name` för en exklusiv grupp.** Varje sektion får ett eget `name`, så att två grupper på samma sida inte kopplas ihop.
 - **Svaren finns i HTML:en** och syns utan JavaScript; Chromium öppnar ett stängt `<details>` när sökfunktionen träffar texten ⚠️ (Safari och Firefox inte prövade).
-- **Exklusiv grupp eller inte:** `name` stänger de andra frågorna när en öppnas. NN/g råder till att flera paneler får vara öppna samtidigt, så att besökaren kan jämföra svar ([Accordions on Desktop](https://www.nngroup.com/articles/accordions-on-desktop/), 2023). Guiden föreskriver `<details name>` (→ `guide/2-4-skelett.md`, primitiverna); att släppa `name` för vanliga frågor är ett förslag till Johnny.
+- **Ingen exklusiv grupp:** vanliga frågor har inget `name`, så att flera svar kan vara öppna och frågan inte hoppar när ett annat svar stängs (`BESLUT.md` 2026-10-16, *Vanliga frågor utan name*). NN/g råder till att flera paneler får vara öppna samtidigt, så att besökaren kan jämföra svar ([Accordions on Desktop](https://www.nngroup.com/articles/accordions-on-desktop/), 2023).
 - **Bara för det som några behöver.** Det de flesta behöver står öppet; inga dragspel i dragspel; pröva innehållet utan dragspel först (GOV.UK, [Details](https://design-system.service.gov.uk/components/details/) och [Accordion](https://design-system.service.gov.uk/components/accordion/)).
 - **Rubriken i `<summary>`** annonserades inte av JAWS och TalkBack i O'Haras prov ⚠️ (2018–2021); pröva med aktuella skärmläsare eller lägg frågan som ren text (→ `guide/2-4-skelett.md`, N2).
 - **Animation av öppningen** med `::details-content` och `interpolate-size` bara under `prefers-reduced-motion: no-preference` (Accessible Astro, `AccordionItem`). Utan stöd öppnas den direkt, vilket är godtagbart.

@@ -21,7 +21,7 @@ En granskare med ren kontext säger det Johnny hade sagt om det byggda och hitta
 ## In
 
 - Det `mattstock/granskare/uppdrag.md` anger: mobilens hela sida, datorns första skärm och datorns hela sida, i dubbel upplösning, och för Nortropics egna sajter också `brief.md`, `fakta.md`, `sidkarta.md`, sajtens och kitets `design.md`.
-- För premiumpasset: alla sidor i 375 och 1280 px sektion för sektion, tillstånden och, när sajten har rörelse, video. Vad som ska fångas står i [underlag.md](underlag.md). Den körande förhandsvisningen får öppnas, bara för att läsa.
+- För premiumpasset: alla sidor i 375, 768 och 1280 px sektion för sektion (`guide/3-2`), tillstånden och, när sajten har rörelse, video. Vad som ska fångas står i [underlag.md](underlag.md). Den körande förhandsvisningen får öppnas, bara för att läsa.
 - **Aldrig:** byggarens logg, `progress.md`, `domar.jsonl`, varvnummer, tidigare granskningar eller resonemang från huvudsessionen (`guide/3-1`, rolltabellen; `guide/3-2`, *Granskaren vet inte vilket varv det är*).
 
 ## Ut

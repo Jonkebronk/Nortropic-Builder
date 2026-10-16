@@ -128,7 +128,7 @@ Varje punkt säger vad som ska vara sant. Hur det prövas, och med vilken källa
 
 **Modern HTML och CSS** (`modern-html-css.md`)
 
-16. Mönstren använder plattformens element (`popover`, `<details name>`, `<dialog>`, `inert`), och varje funktion som inte är *Widely available* har en reserv. Statusen är slagen i web-features, som är facit (`modern-html-css.md`), inte i en extern guide.
+16. Mönstren använder plattformens element (`popover`, `<details>`, `<dialog>`, `inert`), och varje funktion som inte är *Widely available* har en reserv. Statusen är slagen i web-features, som är facit (`modern-html-css.md`), inte i en extern guide.
 
 **Biblioteket** (`prov.md`)
 

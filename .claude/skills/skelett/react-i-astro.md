@@ -13,7 +13,7 @@ Delfil till `SKILL.md` (utkast 2026-10-16, förslag tills Johnny sagt ja). När 
 ## Vad som ska uppnås
 
 1. **Astro först.** Innehåll, rubriker, bilder, länkar, navigation och formulärens HTML skrivs i `.astro`. 📄 [Astro, Islands](https://docs.astro.build/en/concepts/islands/)
-2. **Plattformen före React.** `<details name>`, `popover`, `<dialog>` och små `<script>` i Astro används när de räcker. → `interaktion.md`; `guide/2-4-skelett.md`, primitiverna
+2. **Plattformen före React.** `<details>`, `popover`, `<dialog>` och små `<script>` i Astro används när de räcker. → `interaktion.md`; `guide/2-4-skelett.md`, primitiverna
 3. **React utan direktiv är fritt.** En `.tsx` utan hooks och händelser blir HTML vid bygget och kostar 0 kB. 📄 [Astro, directives](https://docs.astro.build/en/reference/directives-reference/#client-directives); 🔧 mätt (researchen §10)
 4. **En ö bara för verkligt tillstånd:** bokningskalender, prisräknare, filter, flerstegsformulär som förbättring, eller ett licensierat block som Johnny har godkänt på provsidan.
 5. **Ön sätts av en Astro-sektion** som ger den innehållet som serialiserbara props. Ingen text och inga kunduppgifter i `.tsx`. 📄 [Astro, framework components](https://docs.astro.build/en/guides/framework-components/); → `guide/2-4-skelett.md`, *Hur sektionerna byggs*
@@ -37,7 +37,7 @@ Delfil till `SKILL.md` (utkast 2026-10-16, förslag tills Johnny sagt ja). När 
 - **Inget Radix Accordion, Collapsible eller NavigationMenu för innehåll som ska synas utan JavaScript.** Stängt innehåll och portaler finns inte i HTML:en. 📄 [radix-ui/primitives](https://github.com/radix-ui/primitives), `presence.tsx` och `portal.tsx`
 - **Inga inline-skript från öar** (`dangerouslySetInnerHTML` med skript) och ingen `AnimatePresence mode="popLayout"`. Inline-skript går bara via `inlineskript.mjs`. 📄 [Astro #16678](https://github.com/withastro/astro/issues/16678)
 - **Ingen React-`action` med klientfunktion** för något som måste fungera utan JavaScript; formuläret har ett riktigt `action`. 📄 [React, form](https://react.dev/reference/react-dom/components/form)
-- **Ingen `motion`-komponent** (43 kB) och ingen `domMax` utan skäl. 📄 Motion, bundle size
+- **Ingen `motion`-komponent** (+38 kB brotli i provbygget) och ingen `domMax` utan skäl. 📄 Motion, bundle size
 - **Ingen `npx shadcn add`** mot tredje part i biblioteket; registerposten läses som data. Ingen kod med licensen "unknown". 📄 [shadcn, namespaces](https://ui.shadcn.com/docs/registry/namespace); källkortet `kunskap/kallkort/21st.md`. shadcn-MCP:n startas i `~/.claude-bygg/shadcn/`, med registren `@tailark-oss` och `@magicui` i en components.json utanför repot, och används för att läsa (`BESLUT.md` 2026-10-16, *Domarna över MCP-servrarna …*, 21.37). `@tailark` kräver Pro, men `@tailark-oss` är öppet (`kunskap/kallkort/shadcn-cli-tailark-magicui.md`).
 - **Inga barrel-importer** av ikon- och komponentbibliotek i en ö. 📄 vercel-labs/agent-skills, `bundle-barrel-imports`
 - **Ingen `useMemo`, `useCallback` eller `memo` utan uppmätt behov,** och React Compiler slås inte på förrän en sajt visar behov. 📄 [React Compiler 1.0](https://react.dev/blog/2025/10/07/react-compiler-1)
@@ -53,4 +53,4 @@ Delfil till `SKILL.md` (utkast 2026-10-16, förslag tills Johnny sagt ja). När 
 - Sidan med JavaScript av visar allt innehåll, och menyn och kontaktvägarna fungerar.
 - `eslint .` och `astro check` ger 0 fel (uppsättningen i researchen §11).
 
-Intaget av ett block från 21st eller shadcn följer listan i researchen §11, *Så tas en 21st- eller shadcn-komponent in och granskas*. Siffran för React-körtiden i `interaktion.md` (cirka 56 kB gzip, extern mätning) ersätts av mätningen här.
+Intaget av ett block från 21st eller shadcn följer listan i researchen §11, *Så tas en 21st- eller shadcn-komponent in och granskas*. Siffrorna för React och Motion i skelett och rörelse kommer ur provbygget ovan (`BESLUT.md` 2026-10-16, *Motsägelserna i skillsen*).

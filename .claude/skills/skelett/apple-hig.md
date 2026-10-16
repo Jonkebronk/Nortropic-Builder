@@ -22,7 +22,7 @@ Källa: 📄 Apple, [Human Interface Guidelines](https://developer.apple.com/des
 
 ## Träffytor och avstånd
 
-- **Knappar, menyknappen och fristående länkar är minst 44 × 44 CSS-px.** HIG:s standard är 44 × 44 pt och minimum 28 × 28 pt i iOS. Det är en andra primärkälla bredvid WCAG 2.5.5 (AAA, 44 px) för guidens granskningskriterium. WCAG 2.5.8 (24 px eller avstånd) är golvet. 📄 HIG *Accessibility* (*Mobility*) och *Buttons* (*"a hit region of at least 44x44 pt"*); → `guide/2-4-skelett.md`, N2-kriteriet om 44 × 44.
+- **Knappar, menyknappen och fristående länkar är minst 44 × 44 CSS-px, som granskningskriterium och varning.** Regeln och golvet är WCAG 2.5.8 (24 px eller avstånd); 44 px under det är aldrig `hög` (→ `kvalitet/tillganglighet.md`; `BESLUT.md` 2026-10-16, *Motsägelserna i skillsen*). HIG:s standard är 44 × 44 pt och minimum 28 × 28 pt i iOS. Det är en andra primärkälla bredvid WCAG 2.5.5 (AAA, 44 px) för guidens granskningskriterium. WCAG 2.5.8 (24 px eller avstånd) är golvet. 📄 HIG *Accessibility* (*Mobility*) och *Buttons* (*"a hit region of at least 44x44 pt"*); → `guide/2-4-skelett.md`, N2-kriteriet om 44 × 44.
 - **Avståndet mellan mål räknas lika mycket som storleken:** cirka 12 px runt mål med synlig ram eller fyllning och cirka 24 px runt mål utan. En lista med länkar på 26 px höjd och 12 px mellanrum (som en sidfot) klarar WCAG men inte HIG:s minimum. 📄 HIG *Accessibility* (*"Consider spacing between controls as important as size"*).
 - **Länkar i löptext** omfattas inte av 44 px (WCAG 2.5.8, undantaget *inline*), men en lista med länkar är ingen löptext.
 

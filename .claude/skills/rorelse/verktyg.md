@@ -13,14 +13,14 @@ Delfil till `SKILL.md`. React, Tailwind, Motion och GSAP är tillåtna, och Astr
 | Rörelse som följer scrollen | CSS `animation-timeline` | 0 | Regeln inom `no-preference` och `@supports` |
 | Styrning från skript med CSS:ens prestanda | WAAPI, `element.animate()` | Några rader | `matchMedia` (SCR40) |
 | In-animation när något scrollas in, sekvenser, fjädrar | Motion vanilla: `inView` 0,5 kB, `animate` mini 3,2 kB, hybrid 22 kB | 0,5–22 kB | `matchMedia` själv ⚠️ ([reducerad.md](reducerad.md)) |
-| Rörelse i en React-ö som redan finns: utgång när ett element tas bort, layoutanimation, drag | Motion för React: `m` med `LazyMotion` cirka 5 kB plus `domAnimation` 24 kB, eller hela `motion` 43 kB | 5–43 kB plus React | `<MotionConfig reducedMotion="user">` |
+| Rörelse i en React-ö som redan finns: utgång när ett element tas bort, layoutanimation, drag | Motion för React: `m` med `LazyMotion` och `domAnimation`, eller hela `motion` | +27 kB brotli med `m`, +38 kB med `motion`, ovanpå React-körtiden (provbygget, → `skelett/react-i-astro.md`) | `<MotionConfig reducedMotion="user">` |
 | Långa tidslinjer, scrollytelling med fästa sektioner | GSAP och ScrollTrigger | 28 + 18 kB | `gsap.matchMedia()` |
 
 **Källor till tabellen:**
 - Valordningen: 📄 Kowalski, `animate` steg 3 (MIT); 📄 Motion, `best-practices/css-or-motion.md` (*"Pick the simplest tool that does the job well cross-browser"*).
 - Motions storlekar: 📄 motion.dev/docs/animate, /inview och /react-reduce-bundle-size, lästa 2026-10-16. Motion anger storlekarna själv; de är inte mätta här.
 - GSAP: mätt 2026-10-16 på `gsap` 3.15.0 från npm; `gsap.min.js` 28,3 kB och `ScrollTrigger.min.js` 18,0 kB komprimerade med gzip.
-- React-ön: mätt 2026-10-16 på `react` och `react-dom` 19.3.1: klientdelen är cirka 78 kB minifierad och komprimerad med gzip (75,0 + 3,5 kB). Det kommer före Motions egen kostnad.
+- React-ön: den första ön på en sida drar in React-körtiden, 60 kB brotli eller 69 kB gzip, mätt i ett provbygge med Astro 7.4 och React 19.3.1. Det kommer före Motions egen kostnad. Siffrorna för budgeten står på ett ställe: `skelett/react-i-astro.md` och researchen (`kunskap/research/2026-10-16_react-och-javascript-i-astro.md`, tabellen över provbygget; `BESLUT.md` 2026-10-16, *Motsägelserna i skillsen*).
 
 **Därför:**
 - Sparsam rörelse behöver aldrig JavaScript för rörelsen. Alla tillstånd i [tillstand.md](tillstand.md) är CSS.

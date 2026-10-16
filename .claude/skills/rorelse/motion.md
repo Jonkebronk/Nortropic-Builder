@@ -15,7 +15,7 @@ Delfil till `SKILL.md`. Den gäller när och hur Motion (paketet `motion`, tidig
 | Budget | Motion | Varför |
 |---|---|---|
 | Sparsam | Ingen. CSS gör tillståndsbytena (`transition`, `@starting-style`) | Allt i budgeten är tillståndsbyten, och de är Baseline i CSS. 📄 web-features 3.43.0 |
-| Måttlig | Vanilla `inView` + `animate` från `motion/mini`, eller CSS, för in-animationer under första skärmen | 3,6 kB med gzip mot 29 kB och mer för React-varianten. 🔧 researchen §6.3 |
+| Måttlig | Vanilla `inView` + `animate` från `motion/mini`, eller CSS, för in-animationer under första skärmen | 3,6 kB med gzip mot 27 kB brotli och mer för React-varianten, plus React-körtiden. 🔧 researchen §6.3 |
 | Expressiv | Motion för React i en ö | Fjädrar, sekvenser och scroll; bara med Johnnys ja |
 | Alla | Motion för React i en ö som redan finns för interaktionen: utgång när ett element tas bort (`AnimatePresence`), layout (`layout`, `layoutId`) och drag | Det klarar inte CSS. 📄 motion.dev/docs/react |
 
@@ -31,7 +31,7 @@ En React-ö laddas aldrig för rörelsens skull (→ [verktyg.md](verktyg.md)).
 | Måttlig | Högst cirka 4 kB med gzip |
 | Expressiv | Redovisas, och sidan mäts i Lighthouse före och efter (N1-kontroll 9, → `guide/2-8-teknik-och-kvalitet.md`) |
 
-**Uppmätt med rolldown, som Astro 7 använder, och gzip:** 🔧 researchen §6.3
+**Uppmätt med rolldown och gzip, isolerat per paket:** 🔧 researchen §6.3. Det är en jämförelse mellan varianterna. Siffrorna för sidans budget kommer ur provbygget i Astro (React-körtiden 60 kB brotli; `m` +27 kB, `motion` +38 kB; → `skelett/react-i-astro.md`; `BESLUT.md` 2026-10-16, *Motsägelserna i skillsen*).
 
 | Vad | Storlek |
 |---|---|

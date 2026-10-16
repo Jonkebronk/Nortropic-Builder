@@ -1,5 +1,5 @@
 ---
-// Vanliga frågor som utfällbara <details name>, utan JavaScript (guide/2-4-skelett.md, primitiverna).
+// Vanliga frågor som utfällbara <details> utan name, så att flera svar kan vara öppna och frågan inte hoppar, utan JavaScript (guide/2-4-skelett.md, primitiverna; BESLUT.md 2026-10-16).
 // Spalten börjar vid behållarens vänsterkant som de andra sektionerna, och svaret börjar under frågans text.
 // Webbläsarens triangel byts mot Lucides chevron, så att alla ikoner har samma stil (kvalitetsgranskningen 2026-10-16, D3 och D21).
 import Ikon from '../komponenter/Ikon.astro';
@@ -11,7 +11,7 @@ const { rubrik, fragor, id = 'fragor' } = Astro.props;
     <h2 id={`${id}-rubrik`}>{rubrik}</h2>
     <div class="fragor__lista">
       {fragor.map((f) => (
-        <details name={id} class="fragor__post">
+        <details class="fragor__post">
           <summary><span>{f.fraga}</span><Ikon namn="chevron" /></summary>
           <p>{f.svar}</p>
         </details>

@@ -14,7 +14,7 @@ Som i `mattstock/granskare/uppdrag.md`: `<id>-m.jpg` (hela mobilsidan, 390 punkt
 
 | Vad | Hur | Kriterier |
 |---|---|---|
-| Varje sida i 375 och 1280 px, sektion för sektion | Helsida i dubbel upplösning, beskuren i delar om cirka 900 px höjd | PU2, PF1–PF8, PS, PG4 |
+| Varje sida i 375, 768 och 1280 px, sektion för sektion (`guide/3-2`, N1; `BESLUT.md` 2026-10-16, *Motsägelserna i skillsen*) | Helsida i dubbel upplösning, beskuren i delar om cirka 900 px höjd | PU2, PF1–PF8, PS, PG4 |
 | Den primära handlingen och varje toppuppgift i mobilen | Fönsterbild per steg i 375 × 667, länkens mål (`href`, ny flik eller inte) och fokus efter varje steg. Externa länkar följs inte | PU1 |
 | Rubrikerna | Sidans `h1` och `h2` som text, i dokumentets ordning, utan dolda element som en stängd samtyckesruta | PU3 |
 | Startsidan och en undersida i 320, 768, 1024 och 1440 px, och liggande mobil (844 × 390) | Fönsterbilder | PF5, PG5 |

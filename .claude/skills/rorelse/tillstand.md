@@ -48,7 +48,7 @@ Delfil till `SKILL.md`. Sparsam betyder att bara det besökaren själv utlöser 
 
 - Chevronen vänds 180° på 150–200 ms med entrékurvan. Med `reduce` byter den läge direkt.
 - **Svaret visas direkt.** Att fälla ut höjden och tona in svaret avvisas i sparsam: texten ska vara läsbar i samma ögonblick den syns, och höjdanimation kostar layout i varje bildruta. 📄 Kowalski, *RECIPES.md* (*Accordion*); `BESLUT.md` 2026-10-15. Tekniken finns, `::details-content` i Chrome 131, Safari 18.4 och Firefox 143 och `interpolate-size` bara i Chrome 129 (MDN browser-compat-data), om Johnny vill pröva den i måttlig. En höjd som animeras till ett fast mått blir fel vid 200 % textstorlek. 📄 Kowalski, `animate-expo` steg 9 (*Text scales*).
-- **Exklusiva svar hoppar.** Med `<details name>` stängs det öppna svaret när ett annat öppnas, och frågan besökaren tryckte på flyttar sig uppåt med det stängda svarets höjd (uppmätt 74–103 px på övningssajten 2026-10-16). Det är ett tillstånd som hoppar, och det löses med strukturen, inte med rörelse: låt flera svar vara öppna (→ `.claude/skills/skelett/`). 📄 Kowalski, `find-animation-opportunities` (*Teleporting state*).
+- **Exklusiva svar hoppar.** Med `<details name>` stängs det öppna svaret när ett annat öppnas, och frågan besökaren tryckte på flyttar sig uppåt med det stängda svarets höjd (uppmätt 74–103 px på övningssajten 2026-10-16). Det är ett tillstånd som hoppar, och det löses med strukturen, inte med rörelse: flera svar får vara öppna, och vanliga frågor har inget `name` (`BESLUT.md` 2026-10-16, *Vanliga frågor utan name*; → `.claude/skills/skelett/interaktion.md`). 📄 Kowalski, `find-animation-opportunities` (*Teleporting state*).
 
 ## Kvittens på formulär
 

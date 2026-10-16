@@ -59,7 +59,7 @@ Besökarens fråga per sektion och mallarnas standardordning står i guiden (→
 
 ## Vanliga frågor
 
-- **Varianter:** (a) en spalt med `<details name>` (biblioteket, AW `FAQs`, HU faqs); (b) två spalter på datorn – rubrik, ingress och "Hittar du inte svaret? Ring …" till vänster, frågorna till höger, fast vid scroll (TL `faqs/two`, FD faqs-2); (c) alltid öppen lista med frågorna som rubriker (AW `FAQs collapsible={false}`) – när svaren är korta eller alla behöver dem (GOV.UK, *Accordion*).
+- **Varianter:** (a) en spalt med `<details>` utan `name` (biblioteket, AW `FAQs`, HU faqs); (b) två spalter på datorn – rubrik, ingress och "Hittar du inte svaret? Ring …" till vänster, frågorna till höger, fast vid scroll (TL `faqs/two`, FD faqs-2); (c) alltid öppen lista med frågorna som rubriker (AW `FAQs collapsible={false}`) – när svaren är korta eller alla behöver dem (GOV.UK, *Accordion*).
 - **Placering:** frågor som gäller alla tjänster (betalning, avbokning, remiss, besökstid) hör till startsidan eller kontaktsidan; frågor om en behandling hör till dess sida. 🔧
 - **Kostnad:** 0 kB med `<details>`. TL:s och FD:s dragspel är Radix eller skript och döljer svaren utan JavaScript – ta layouten, behåll `<details>` ([interaktion.md](interaktion.md)).
 
