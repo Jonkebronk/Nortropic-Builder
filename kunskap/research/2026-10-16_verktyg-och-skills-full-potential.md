@@ -194,7 +194,7 @@ Kvällens första prov står i övningssajtens `mcp-prov.md` (lokalt).
 
 **Skills** (varje ändring prövas med och utan, enligt `larande/skills.md`)
 
-12. Rätta de sju felen.
+12. Rätta de sju felen. Samtidigt rättas seo-monsters omfång i `drift/verktyg.md:13` och i `inventering/inventering.json`, med ombyggd inventering och ny artefakt (Johnny: *"ta den ihop med"*, efter att källkorten och guiden rättats).
 13. Lös motsägelsen om `100svh`.
 14. Lös motsägelserna mellan skills.
 15. Lägg in verktygen enligt luckorna 1–7.
