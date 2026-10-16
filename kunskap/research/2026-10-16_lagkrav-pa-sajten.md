@@ -69,3 +69,48 @@ Research 2026-10-16 på Johnnys uppdrag: *"fixar med cookies/samtycke, policys o
 - Firmans organisationsnummer och företagsform.
 - Momsbefrielsen för kiropraktik i det enskilda fallet.
 - Hur länge Cloudflare sparar loggarna. Policyn anger därför hur lagringstiden bestäms i stället för en tid.
+
+## Tillägg 2026-10-16: praxis och vad kakor ger
+
+Johnny frågade vad kakor ger och om det är rimligt att länka till patientsäkerhetslagen: *"aldrig sett andra sidor göra detta … så vi inte overkillar det"*.
+
+### Praxis: vad svenska sajter visar
+
+Jag läste startsidorna på sex sajter ur måttstocken, varav fyra kliniker, en massagesalong och en advokatbyrå, den 16 oktober 2026:
+
+| Sajt | Yrkestitel | Org.nr | Integritetspolicy | Kakverktyg | Lagen för yrket |
+|---|---|---|---|---|---|
+| Citykiropraktikern | "Legitimerad kiropraktor" som ett säljargument | nej | – | ja | nej |
+| Fungera (fysioterapi) | legitimerade fysioterapeuter | nej | ja | ja | nej |
+| Stångå Tandklinik | – | platshållaren "000000-00" | dataskyddspolicy och cookiepolicy | ja | nej. Menyn har sidan "Patientsäkerhet" |
+| Bright Tandhälsa | – | nej | ja | ja | nej |
+| Kroppsbalans | – | nej | – | nej | nej |
+| Klara Advokatbyrå | – | ja | ja | nej | "Advokatsamfundsmedlemskap" under rubriken "Juridisk information" |
+
+**Slutsats:**
+- Ingen klinik länkar till lagen för yrket. Advokatbyråer visar medlemskapet i Advokatsamfundet.
+- Organisationsnumret saknas ofta.
+- En integritetspolicy är vanlig.
+- Konsumentverket fann redan 2011 att bara 32 % av 713 granskade företag följde e-handelslagens informationskrav fullt ut. 📄 Konsumentverket via [Göteborgs stad](https://goeteborgs-stad.mynewsdesk.com/pressreleases/webbfoeretagens-kontaktuppgifter-foeljer-lagen-men-de-kan-vara-svaara-att-hitta-3131296.pdf)
+- Jag hittade inga sanktioner för att uppgifterna om ett reglerat yrke saknas ⚠️.
+
+**Lagtexten** säger ändå att informationen ska finnas *"på ett enkelt, direkt och stadigvarande sätt"*. Den kräver inte att den står i sidfoten. Kommentaren i propositionen till hur bestämmelserna ska anges har jag inte kunnat läsa ⚠️ (📄 [prop. 2001/02:150](https://lagen.nu/prop/2001/02:150)). ⚖️ En mening på en sida som sidfoten länkar till uppfyller troligen kravet utan att ta plats.
+
+### Vad kakor ger
+
+- **Statistik med Google Analytics:** besökarnas väg, källor och konverteringar. Kräver samtycke enligt PTS.
+- **Google Ads:** konverteringar och remarketing. Googles policy för användarsamtycke kräver *"legally valid consent"* för kakor och annonsanpassning, sparade samtycken och ett tydligt sätt att återkalla. 📄 [Google EU user consent policy](https://www.google.com/about/company/user-consent-policy/). Consent Mode v2 behövs enligt leverantörerna för remarketing i EES. ⚠️ Det bygger på andrahandskällor.
+- **Meta-pixeln:** konverteringar och remarketing på Facebook och Instagram. Kräver samtycke innan pixeln laddas (9 kap. 28 § LEK). Metas egna villkor kräver samtycke enligt andrahandskällor ⚠️.
+- **Hur många som säger ja:** Didomi anger 84,8 % samtycke i Nordeuropa 2025. Det är en leverantörs siffra, och Sverige redovisas inte separat ⚠️. Resten av besökarna syns inte i datan.
+- **Vad det kostar:**
+  - en banner på mobilens första skärm, alltså där måttstocken mäter
+  - skript som drar ner Lighthouse
+  - policytext och register över samtycken
+  - data som ändå är ofullständig
+- **Vad som finns utan kakor:**
+  - Google-profilen: samtal, vägbeskrivningar och klick till sajten
+  - Search Console: sökord och klick
+  - bokningssystemet: bokningarna, som är nordstjärnan
+  - värdens serverbaserade statistik
+
+  Det räcker för en liten firma som inte annonserar.
