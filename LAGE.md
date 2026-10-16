@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-16 kl. 12.05 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-16 kl. 12.16 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Kort
 
@@ -117,6 +117,20 @@ Johnny tog in fem av förslagen till checklistan och lade till ett sjätte. `mal
    - Skatten på företagshälsa är skild från friskvårdsbidraget efter Johnnys fråga: friskvårdsbidraget gäller akupunktur men inte kiropraktik. Texten väntar på hans dom.
    - Omkring 11.50 strök Johnny referensregeln och kodregeln: *"vi kan kopiera helt fritt och göra som vi vill"* (`BESLUT.md`). Claude följer ändå upphovsrätten och marknadsföringslagen och kopierar inte andras texter, bilder, kännetecken eller kod utan licens.
    - **Långsiktigt mål (Johnny 08.00):** kundportalen på Nortropics sajt, där kunden loggar in och ser sin statistik. N3 i `guide/2-9-drift-och-forvaltning.md`, och den byggs när den första betalande kunden har månadsrapporter. **Nästa:** genomgången efter sajten (`guide/5-byggplan.md`). Nästa mätning av granskaren görs på nya sajter och på systemets egna utkast.
+
+## Pågår: kompetensen in i alla lager (från 12.11)
+
+Johnny beslutade omkring 12.11 att kompetensen ur inventeringen ska in i alla lager (`BESLUT.md`, *Kompetensen in i alla lager*).
+- **G1–G13 är införda**, och stilkiten Varm och Djärv är rättade (G8 och G9). Provsidorna väntar på Johnnys dom.
+- **MCP-servrarna Inspo och Chrome DevTools** är tillagda i byggsessionen. Chrome DevTools körs utan statistik och CrUX-anrop. De som kräver konto väntar på Johnny.
+- **Nio arbetare bygger lagerskills** i `.claude/skills/`: strategi, omfattning, struktur, skelett, yta, rörelse, innehåll, kvalitet, drift, granskare och lärande. De destilleras ur guiden, inventeringens 171 poster och källorna.
+  - Varje arbetare reviderar också övningssajten mot sin skill, föreslår ett beslut per post och listar luckorna, alltså det litteraturen kräver som vi saknar.
+  - Underlaget ligger i scratch tills det är granskat.
+- **Nästa:**
+  1. Granska skillsen och committa dem.
+  2. För in besluten i `inventering.json` och publicera artefakten.
+  3. Kör premiumpasset på sajten efter revisionerna, så att Johnny kan döma före och efter.
+  4. Lägg fram luckorna för kompetensutveckling.
 
 ## Väntar på Johnny
 
