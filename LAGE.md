@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-16 kl. 23.52 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-16 kl. 23.55 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Stående uppdrag (Johnny 2026-10-16 kl. 23.45) – gäller före allt nedan
 
@@ -12,7 +12,7 @@ Ordagrant i `BESLUT.md`, *Stående uppdrag fram till nästa övningssajt*. Claud
    - Startsäkringen bevakar guidens Google-sidor (`skript/google-sidor.py`, `b4bafd9`): 53 sidor, alla finns.
    - Statusskriptet på web-features (`skript/baseline.mjs`, `8556f04`): 40 av 40 rader stämmer.
    - **Punkt 1 är klar** (2026-10-16, 23.52).
-2. **Skillsen:** resten av luckorna och översynens punkter. Mikroprov bara där kontrollen troligen gör fel; rena fakta förs in direkt med en notering om varför provet hoppades över.
+2. **Skillsen – klar 23.54** (`BESLUT.md`, *Skillsen, resten av översynen*): punkterna 12–16 var redan gjorda; hover-spärren följer biblioteket i fyra skills; lucka 8 utan tillägg; klickytor och strukturerad data oförändrade.
 3. **Övningssajten:**
    - andra varvets sajtfynd som inte är rättade
    - kontrollskriptets N2-fynd
