@@ -70,7 +70,7 @@ sites/<namn>/
 ├── checkpoints.json          [N2] funktionslistan där bara passes och bevis ändras (3-1)
 ├── resultat.jsonl            [N2] resultatlogg per runda (3-2)
 ├── beslutskarta.md           [N2] beslut med motivering (2-1)
-├── larande-forslag.md        [N2] förslag till lärdomar, ändrar inget (3-4)
+├── genomgang.md             [N2] genomgången efter sajten och förslagen G1 …, ändrar inget (3-4, 5-byggplan)
 ├── befintlig/                [N1 vid ombyggnad] fångad sajt, urler.md, integrationer.md (2-2)
 ├── andringar/ko.md           [N3] ändringskön (2-9-drift-och-forvaltning.md)
 └── forvaltning/              [N3] rapporter och schemalagda kontroller (2-9)

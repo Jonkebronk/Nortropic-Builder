@@ -139,10 +139,11 @@ Varje punkt säger vad som ska vara sant. Hur det prövas, och med vilken källa
 18. Inga mönster ur *Mönster som alltid är fel* (`tillganglighet.md`) i källkoden eller den byggda HTML:en.
 19. Varje länk och knapp har synlig hover och tryck på dator, och inget hover-läge står kvar efter ett tryck på pekskärm (→ `yta/detaljer.md`, *Tillstånd*).
 20. Tal och enhet, telefonnummer och datum bryts inte isär (hårt mellanslag), och inga `...` eller raka citattecken står i löptext (→ `innehall/mikrotext.md`, `yta/typografi.md`).
+20b. Sidfoten, samtyckesrutan och policyn skriver *cookies*, inte *kakor*, på företagssajter; *kakor* bara för myndighetskunder (`BESLUT.md` 2026-10-16, *"Cookies", inte "kakor"*).
 
 **Formulär** (`formular.md`), när sajten har ett
 
-21. Etiketter, tokens för autofyll, skicka-knappen aktiv, fel efter skick med sammanfattning och koppling, och statusbeskedet i en behållare som fanns före.
+21. Etiketter, tokens för autofyll, skicka-knappen aktiv, fel efter skick med sammanfattning och koppling, och statusbeskedet i en behållare som fanns före. Spamskydd i lager: Turnstile som valideras på servern, en dold fälla och en tidsfälla (→ `guide/2-8-teknik-och-kvalitet.md`, *Formulär*, N2).
 
 ## Delfiler
 

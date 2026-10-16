@@ -31,7 +31,7 @@ Texter och bilder som är kundens egna, korta, sanna och lätta att använda. Be
 ## Principer
 
 1. **Fakta bara ur faktabasen.** Det som saknas blir en platshållare och en fråga, aldrig en gissning. Ändrad text faktakontrolleras igen. (→ 2-7, N1)
-2. **Kundens ord först.** Ägarens och kundernas egna formuleringar bär texten; citat och omdömen återges ordagrant med plattform och datum. (→ 2-7; `rost.md`)
+2. **Kundens ord först.** Ägarens och kundernas egna formuleringar bär texten; citat och omdömen återges ordagrant med plattform och datum, med namn bara med samtycke (→ 2-7, N2), och under omdömena står en rad om de kontrolleras och hur (→ 2-7, N1; 12 c § marknadsföringslagen; ⚖️ tolkning, inte juridisk rådgivning). (→ 2-7; `rost.md`)
 3. **Besökarens fråga först.** Det viktigaste överst, en sak per sektion, rubriker som ensamma berättar sidans innehåll. (`text.md`; Myndigheternas skrivregler kap. 1–2; NN/g)
 4. **Konkret och styrkbart.** Varje löfte får en detalj ur faktabasen eller stryks; en rad som en konkurrent kunde skriva skrivs om. (→ 2-7, bytestestet; `rost.md`, rösttestet; `text.md`)
 5. **Klarspråk:** aktiva verb, vardagsord, korta meningar, *du* till besökaren och *ni* till företag, inga förkortningar på webben. (`text.md`)
@@ -65,6 +65,7 @@ Texter och bilder som är kundens egna, korta, sanna och lätta att använda. Be
 Körs i 375 och 1280 px, mot alla sidor och mot samtyckesrutan, 404-sidan och kvittona. Varje punkt pekar på regeln.
 
 1. **Faktakontrollen:** varje faktapåstående finns i `fakta.md`; inga platshållare kvar vid publicering (→ 2-8, N1-kontroll 5 och 6).
+1b. **Omdömen:** ordagranna, med plattform och datum, utan namn utan samtycke och med en rad om kontrollen (→ 2-7, N1 och N2; `BESLUT.md` 2026-10-15, *Omdömen*).
 2. **Första vyns rubrik** säger tjänst och ort (→ 2-4, N1).
 3. **Bytestestet** på varje rubrik och ingress; generiska löften har en detalj eller stryks (→ 2-7).
 4. **AI-mönster:** inga träffar på mönster märkta *ensam*; flera svaga i samma stycke skrivs om (`ai-monster.md`).

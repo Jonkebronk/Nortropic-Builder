@@ -11,7 +11,7 @@ De tio N1-kontrollerna och N2-tabellen definieras i `guide/2-8-teknik-och-kvalit
 | 3, 3b | Omflöde i 320 px; fokus som skyms, med Tab framåt och bakåt | Textavstånd (1.4.12), zoom 200 % |
 | 4, 4b | Primära handlingen hela vägen; synlig i första vyn | |
 | 5, 5b | Stöd för faktaläsningen; samtycke till bilder | |
-| 6, 6b, 6c | Platshållare, sidfoten, kakor och samtyckesrutan | |
+| 6, 6b, 6c | Platshållare, sidfoten, cookies och samtyckesrutan | |
 | 7, 7b, 7c | Titel, beskrivning, sitemap, `h1`, robots.txt | Kanonisk adress, Open Graph, `lastmod`, JSON-LD |
 | 8, 8b | axe med WCAG 2.2-taggarna i Chromium; fokusringens kontrast | WebKit och menyn öppen prövas i 8c och 8d; incomplete och best-practice i 8e |
 | 9 | Lighthouse 100, median av tre | Mätvärdena bakom poängen, maskinens belastning |
