@@ -1544,7 +1544,7 @@
    "din_lank": false,
    "beslut": "skill: strategi (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: strategi",
-   "placering_motivering": "Bara principerna, med egna ord, i strategi (intervjuhantverk.md, SKILL.md punkt 4 och 11): en fråga i taget, icke-ledande, påtagliga belägg, framåtrörelse, sammanfattning med betyg 1–4. Koden och prompttexten är icke-kommersiellt licensierade och används inte. Guidens två regler som tillskrivs dem finns inte i nuvarande config.py; förslag om rättad källa. Källkort: kallkort/geiecke-och-jaravels-intervjuplattform.md.",
+   "placering_motivering": "Bara principerna, med egna ord, i strategi (intervjuhantverk.md, SKILL.md punkt 4 och 11): en fråga i taget, icke-ledande, påtagliga belägg, framåtrörelse, sammanfattning med betyg 1–4. Koden och prompttexten är icke-kommersiellt licensierade och används inte. Guidens två regler som tillskrivs dem finns i nuvarande config.py (General Instructions: föreslå aldrig svar, och how eller what före why), så källan står; rättat 2026-10-16. Källkort: kallkort/geiecke-och-jaravels-intervjuplattform.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/geiecke-och-jaravels-intervjuplattform.md"
   },
   {

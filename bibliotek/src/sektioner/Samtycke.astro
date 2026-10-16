@@ -187,7 +187,7 @@ const s = Astro.props.innehall.samtycke;
       if (Math.abs(scrollY - rullStart) > 48) stangKvitto();
     }, { passive: true });
 
-    // Kakinställningar i sidfoten öppnar rutan igen med de val som gäller, så att det är lika lätt att ändra sig.
+    // Cookieinställningar i sidfoten öppnar rutan igen med de val som gäller, så att det är lika lätt att ändra sig.
     // Har besökaren sagt ja till något står det att sidan laddas om om ett ja tas tillbaka.
     document.querySelectorAll<HTMLElement>('[data-samtycke-installningar]').forEach((b) => b.addEventListener('click', () => {
       const v = las();

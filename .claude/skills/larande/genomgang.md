@@ -47,7 +47,7 @@ För varje sidospår eller omtag som tog mer än cirka 15 minuter: vad hände, v
 
 En loop eller hook är bara rätt svar när måttet är entydigt ([loopen.md](loopen.md)).
 
-Leta också i agentens miljö, inte bara i sajten: tog det lång tid att hitta en fil eller en uppgift (en pekare saknas), fanns en kontroll som inte var inkopplad, var ett verktygsanrop onödigt dyrt, och står det instruktioner i `CLAUDE.md` eller en skill som inte ändrar något? Ett mekaniskt fel blir en kontroll; ett omdömesfel blir ett kriterium hos granskaren. 📄 Matt Pocock, `skills/engineering/retro` (MIT, commit `49dd158`).
+Leta också i agentens miljö, inte bara i sajten: tog det lång tid att hitta en fil eller en uppgift (en pekare saknas), fanns en kontroll som inte var inkopplad, var ett verktygsanrop onödigt dyrt, och står det instruktioner i `CLAUDE.md` eller en skill som inte ändrar något? Ett mekaniskt fel blir ett förslag till kontroll (tabellen ovan); ett omdömesfel blir ett kriterium hos granskaren. 📄 Matt Pocock, `skills/engineering/retro` (MIT, commit `49dd158`).
 
 ## 4. Förslagen
 

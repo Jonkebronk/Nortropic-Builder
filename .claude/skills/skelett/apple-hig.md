@@ -17,6 +17,7 @@ Källa: 📄 Apple, [Human Interface Guidelines](https://developer.apple.com/des
 
 - **Med `viewport-fit=cover` får allt innehåll vid en kant utfyllnad från `env(safe-area-inset-*)` på alla fyra sidor,** inte bara nedtill. I liggande läge täcker sensorhuset vänster eller höger kant, och sidans egna marginaler räcker inte. Använd `max()`, så att marginalen aldrig blir mindre än kitets: `padding-inline: max(var(--k-a4), env(safe-area-inset-left)) max(var(--k-a4), env(safe-area-inset-right))`. 📄 HIG *Layout*, *Guides and safe areas*; WebKit, *Designing Websites for iPhone X* (*"Safe area insets are not a replacement for margins"*).
 - **Utan `viewport-fit=cover` fyller Safari kanterna med `<html>`- eller `<body>`-bakgrunden.** Sidans bakgrundsfärg sätts därför på `html` eller `body`, inte bara på en omslutande `div`. 📄 WebKit, samma artikel (*"The inset area is filled with the page's background-color"*).
+- **iPhone Duo, Apples vikbara iPhone, ger ytterligare ett skäl till säkra ytor vid sidorna.** Ytterdisplayen är *"wider and shorter"*, systemet lägger verktygsfält och flikfält på sidan, och HIG säger *"Use safe areas to make sure controls don't cover your content"*. 📄 HIG *Designing for iPhone Duo* (2026-09-09). Om Safari ger webbsidor säkra ytor på iPhone Duo är okänt ⚠️.
 - **Prövas på riktig iPhone eller i Xcodes simulator i liggande läge.** Playwrights WebKit på datorn har inga säkra ytor, så `env()` blir 0 och felet syns inte där. 🔧 iakttaget 2026-10-16.
 
 ## Träffytor och avstånd

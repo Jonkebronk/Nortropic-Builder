@@ -40,6 +40,6 @@ Originalen lästes om mot skillen. Uppströms hade inget nytt i de filer som anv
 
 - pm-skills säger sig följa Mom Test men har hypotetiska frågor (trollstaven, "What would you give up").
 - Dunfords intervjuskript har en hypotetisk fråga ("If [product] disappeared tomorrow …"), och guidens kärnfråga 4 är byggd på samma sätt.
-- marketingskills föreslår fem varför i följd. Guiden säger "hur kommer det sig" i stället för varför och anger Geiecke och Jaravel, men deras nuvarande `config.py` och NN/g använder "Why is this important to you?" som följdfråga.
+- marketingskills föreslår fem varför i följd. Guiden säger "hur kommer det sig" i stället för varför, med stöd i Geiecke och Jaravels `config.py` (*General Instructions*: "how" eller "what" före "why"). Fem varför i följd tas därför inte in.
 - `obviously-awesome` säger två till fyra värdeteman, `competitive-brief` en till två skillnader. De gäller olika saker: värdetemana är vad besökaren får, skillnaderna det texten lyfter. Strategin tar båda.
 - `smb-onboard` tillåter en följdfråga och "do not drill further", eftersom den är en snabb introduktion. Jobbintervjun kräver fler följdfrågor. Strategin följer jobbintervjun men har `smb-onboard`s korta läge (tre ämnen) när ägaren har bråttom (→ `guide/2-1-strategi.md`).

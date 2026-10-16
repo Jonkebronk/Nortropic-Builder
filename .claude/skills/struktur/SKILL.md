@@ -44,7 +44,7 @@ En besökare som landar var som helst på sajten – oftast från en sökning i 
 - Ingen tre-klicksregel, ingen gräns på 4–7 menyval och inga brödsmulor som speglar adressen som regel – de tre reglerna i marketingskills `site-architecture` som saknar belägg (NN/g; Google).
 - Inga ordgränser per sidtyp och inga siffror för antal länkar per tusen ord (📄 Google, *Creating helpful content*: "(No, we don't.)"; marketingskills och claude-seo motsäger varandra).
 - Ingen navigation, inga länkar och ingen strukturerad data som bara finns efter att JavaScript körts (📄 Google, crawlbara länkar).
-- Ingen strukturerad data om något som inte syns på sidan, inget eget stjärnbetyg och ingen FAQPage motiverad med sökresultat (→ `guide/2-3-struktur.md`, N2; `BESLUT.md` 2026-10-15).
+- Ingen strukturerad data om något som inte syns på sidan, inget eget stjärnbetyg och ingen `FAQPage` (→ `guide/2-3-struktur.md`, N2; `BESLUT.md` 2026-10-15 och 2026-10-16, *Lokal SEO, AEO och GEO*).
 - Ingen ny sida, sidtyp eller ortssida utanför standarduppsättningen utan att den motiveras i sidkartan och, för ortssidor, Johnnys beslut (→ `guide/2-3-struktur.md`).
 - Inga ändrade adresser vid ombyggnad utan omdirigering eller beslut att sidan tas bort (→ `guide/2-2-omfattning.md`).
 - Ingen gatuadress på sajten eller i datan för en verksamhet som inte tar emot kunder där (→ [platser.md](platser.md)).

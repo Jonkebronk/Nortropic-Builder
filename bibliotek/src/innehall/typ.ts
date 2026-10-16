@@ -18,7 +18,7 @@ export interface StartInnehall {
     // valMall: kvittot vid egna val, med {ja} och {nej} för kategoriernas namn, t.ex. "Du har sagt ja till {ja} och nej till {nej}."
     kvitto: { ja: string; nej: string; val: string; valMall?: string; andra: string; stang: string; omladdning: string } };
   // Skript som kräver samtycke, till exempel Google Analytics eller Meta-pixeln. De laddas först när besökaren har sagt ja till kategorin.
-  // verktyg: det som visas i kaklistan på sidan Integritet och kakor (PTS: namn, ändamål, tredjepart och lagringstid).
+  // verktyg: det som visas i kaklistan på sidan Integritet och cookies (PTS: namn, ändamål, tredjepart och lagringstid).
   taggar?: { kategori: 'statistik' | 'marknadsforing'; src?: string; kod?: string;
     // mottagare: vem som får uppgifterna, t.ex. "Uppgifterna skickas till Google." (PTS; kvalitetsgranskningen 2026-10-16, U4). doman: var en tredjepartskaka sätts.
     verktyg?: { namn: string; leverantor: string; mottagare?: string; policy?: Lank; kakor: { namn: string; doman?: string; andamal: string; lagringstid: string; tredjepart: boolean }[] } }[];
@@ -65,6 +65,6 @@ export interface StartInnehall {
   // om: en kort rad under namnet, t.ex. vem som tar emot. dagar: när mottagningen har öppet, under adressen.
   sidfot: { om?: string; platser: { namn: string; adress: string; dagar?: string; karta?: KartLank }[]; epost?: Lank; sociala: Lank[]; rad: string;
     sidor?: Lank[]; rubriker?: { platser: string; kontakt: string; sidor: string };
-    policy?: Lank[]; // Integritet och kakor, Tillgänglighet
+    policy?: Lank[]; // Integritet och cookies, Tillgänglighet
   };
 }

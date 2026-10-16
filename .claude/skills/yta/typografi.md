@@ -31,7 +31,7 @@ Delfil till `SKILL.md`. Typsnitt, skala, radhöjd, spärrning, radlängd, siffro
 
 ## Spärrning
 
-- **Spärrningen följer storleken** (versaler och långa sifferrader spärras alltid, Bringhurst 2.1.6): rubriker från cirka 24 px −0,01 till −0,02 em (större rubrik, mer negativ), brödtext 0, versaletiketter +0,05–0,12 em. Alltid i `em`. 📄 Krehel, *Letter-spacing by size*; Butterick (versaler 5–12 %); Apples typografi via Emil Kowalski, `apple-design` (MIT; Apple-föredraget inte läst i original ⚠️).
+- **Spärrningen följer storleken** (versaler och långa sifferrader spärras alltid, Bringhurst 2.1.6): rubriker från cirka 24 px −0,01 till −0,02 em (större rubrik, mer negativ), brödtext 0, versaletiketter +0,05–0,12 em. Alltid i `em`. 📄 Krehel, *Letter-spacing by size*; Butterick (versaler 5–12 %); Emil Kowalski, `apple-design` (MIT). Regeln gäller typsnitt utan egen spärrningstabell: Apples SF Pro har negativ spärrning kring 17 pt och positiv från 24 pt (📄 Apple HIG, *Typography*, *Tracking values*), så ett typsnitt med egna mått eller optiska storlekar följer dem (→ `apple-hig.md`).
 - **Kerning är alltid på.** `font-kerning: none` är aldrig en lösning. 📄 Butterick; Krehel.
 
 ## Radlängd

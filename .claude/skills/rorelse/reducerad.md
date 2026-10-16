@@ -23,7 +23,7 @@ Delfil till `SKILL.md`. Regeln att `prefers-reduced-motion` respekteras står i 
   - rörelse åt ett annat håll än scrollen
   - zoom och skalning över en stor yta
   - stora rotationer i 3D.
-- 📄 Apple HIG, *Motion*: undvik svängningar runt 0,2 Hz, ge en stillastående referensram och tona ut och in i stället för att flytta något stort.
+- 📄 Apple HIG, *Motion*, avsnittet *visionOS* (skrivet för headset, men om samma känslighet): undvik svängningar runt 0,2 Hz, ge en stillastående referensram och tona ut och in i stället för att flytta något stort.
 
 ## Mönster
 

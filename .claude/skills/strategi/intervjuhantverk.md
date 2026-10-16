@@ -21,7 +21,7 @@ Delfil till `strategi`. Reglerna för intervjun bor i `guide/2-1-strategi.md`, *
 | Minst en fråga kan visa att briefens antagande är fel | Den som bara letar belägg för det hen tror hittar dem, och då är svaret värdelöst | 📄 marketingskills `customer-research/references/interviews-and-surveys.md`, *Prove yourself wrong, not right*; 📄 *The Mom Test* via wondelai `mom-test` (*"Ask the scary questions you've been avoiding"*) |
 | Skriv ner ord som bär känsla, ordagrant | Oro och besvär som kunden tar upp själv och med starka ord väger tyngst | 📄 marketingskills `customer-research`, *Extraction Framework* (2) |
 
-**Om "varför".** Guiden säger "Hur kommer det sig" i stället för "varför", som kan låta dömande, och anger Geiecke och Jaravel som källa (`guide/2-1-strategi.md`, *Oskrivna regler*). Deras `config.py` (commit `9429776`, 2026-02-07) har inte den regeln, och både den och NN/g (Rosala 2021) använder "Why is this important to you?" som följdfråga. Regeln behålls som en stilfråga 🔧. Källan i guiden bör rättas (förslag till Johnny).
+**Om "varför".** Guiden säger "Hur kommer det sig" i stället för "varför", som kan låta dömande (`guide/2-1-strategi.md`, *Oskrivna regler*). Geiecke och Jaravels `config.py` (commit `9429776`, *General Instructions*) säger samma sak: hellre öppna frågor med "how" eller "what" än "why". Deras exempel på följdfrågor har ändå "Why is this important to you?", liksom NN/g (Rosala 2021). En följdfråga om vad som är viktigt för kunden är alltså tillåten.
 
 ## Omformuleringar
 

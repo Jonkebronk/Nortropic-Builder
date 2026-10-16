@@ -13,7 +13,7 @@
 | 1.5 | ~~Tidsbudget per sajt~~ **Avgjort 2026-10-15:** ingen tidsbudget förrän Johnny är nöjd med det som byggs; tiden mäts som underlag (`BESLUT.md`, `1-kundens-vag.md`) | – | – |
 | 1.6 | ~~Bekräfta Astro statiskt för standardsajten~~ **Avgjort 2026-10-15:** ja, Astro statiskt (`BESLUT.md`, `2-8-teknik-och-kvalitet.md`) | – | – |
 | 1.7 | ~~Intervjuns form~~ **Avgjort 2026-10-15:** ett samtal som Johnny leder med AI:n som stöd (`BESLUT.md`); om det sker på plats, i telefon eller i video avgörs per kund | – | – |
-| 1.8 | ~~Integritetspolicy utan formulär?~~ **Avgjort 2026-10-16:** ja, *Integritet och kakor* på alla sajter (`BESLUT.md`, `2-3-struktur.md`, `2-8`) | – | – |
+| 1.8 | ~~Integritetspolicy utan formulär?~~ **Avgjort 2026-10-16:** ja, *Integritet och cookies* på alla sajter (`BESLUT.md`, `2-3-struktur.md`, `2-8`) | – | – |
 | 1.9 | **Byggs de första sajterna utan betalning?** | Claudes förslag ur en källa (`4-foretaget.md`); styr den första kundrelationen | Ja, för egna sajter och pilotsajter |
 | 1.10 | ~~Lucide och Inter som standard i stilkiten?~~ **Avgjort 2026-10-15:** inget globalt förbud; varje kit väljer (`BESLUT.md`, `2-5-yta.md`) | – | – |
 | 1.11 | ~~Organisationsnummer för en enskild firma i sidfoten?~~ **Avgjort 2026-10-16:** nej, det är ägarens personnummer. Bolag visar sitt (`BESLUT.md`, `2-3-struktur.md`) | – | – |

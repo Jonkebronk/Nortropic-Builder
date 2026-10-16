@@ -79,7 +79,7 @@ Kriterierna arbetas in i den egna granskaren, en i taget (`bilaga-b-skills.md`, 
 | [designer-skills](https://github.com/Owl-Listener/designer-skills) | *screen critique*, *perception laws* | 3-2 | kandidat (destillera) | N2 | 🎥 designskills-videon | – |
 | [Meng To](https://github.com/MengTo/Skills) | *Awwwards quality sites*; *video to super prompt* för referenser | 3-2, 2-1 | kandidat | N2 | 🎥 designskills-videon. Filmisk stil – en stilskill | – |
 | [Landing Page Design](https://github.com/elayadesign/ai-design-skills) | Den primära handlingen som kriterium | 3-2 | kandidat (destillera) | N2 | 🎥 designskills-videon | – |
-| [web-design-guidelines](https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines) (Vercel Labs) | Underhållna riktlinjer för webbgränssnitt | 3-2 | kandidat (destillera) | N2 | 🎥 designnivå-videon; Vercels Web Interface Guidelines är förankring i kompetensrapporten (lager 5) | – |
+| [web-design-guidelines](https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines) (Vercel Labs) | Underhållna riktlinjer för webbgränssnitt | 3-2 | destillerad i kvalitet och yta (deras `kallor.md`); installeras inte | N2 | 🎥 designnivå-videon; Vercels Web Interface Guidelines är förankring i kompetensrapporten (lager 5) | – |
 | [UI Skills](https://github.com/ibelick/ui-skills) (MCP) | Designskills från flera upphovspersoner, väljs automatiskt | 2-6 | avvisat som installation | – | 🎥 Inspo-videon. Laddas utanför vår kontroll; 2-6 installerar den inte | – |
 | [ADHD](https://github.com/UditAkhourii/adhd) | Spridd idégenerering med isolerade agenter | 2-5 | kandidat | N2 | 🎥 ADHD-videon. Installeras i `.agents` och måste länkas till `.claude` | – |
 | [Arena](https://github.com/Jakeschincariol/arena-skill) | Parvis utslagsturnering mellan alternativ | 2-5 | kandidat (bänken) | N4 | 🎥 Jack Roberts repo-video ⚠️ | – |
@@ -254,8 +254,8 @@ Inget att installera; nivån anger när funktionen tas i bruk. Verifierat i 📄
 
 Johnny beslutade 2026-10-16 att alla MCP-servrar i inventeringen läggs till nu (`BESLUT.md`, *Alla MCP:er in nu …*). De ligger i lokal scope för repot i `~/.claude-bygg/.claude.json`, aldrig i `.mcp.json` (→ 3-3). Listan står i `inventering/mcp-servrar.json`, och verktygslåset sparar verktygslistorna i `inventering/mcp-verktyg/` (*Senaste version och verktygslås* ovan). Varje server prövas på övningssajten innan nästa övningssajt börjar (`BESLUT.md` 2026-10-16, *Senaste version med verktygslås …*; proven och läget i `LAGE.md`).
 
-- **Anslutna utan konto eller med claude.ai-connector:** Inspo, Chrome DevTools, Playwright MCP, MDN, Astro Docs, Cloudflare Docs, Leonardo, Motion, Socket, shadcn, seo-monster, mcp-gsc och Mobbin.
-- **Väntar på Johnnys inloggning via `/mcp`:** 21st, DataForSEO, Figma och Cloudflare.
+- **Anslutna utan konto eller med claude.ai-connector:** Inspo, Chrome DevTools, Playwright MCP, MDN, Astro Docs, Cloudflare Docs, Leonardo, Motion, shadcn, seo-monster, mcp-gsc och Mobbin.
+- **Väntar på Johnnys inloggning via `/mcp`:** 21st, DataForSEO, Figma, Cloudflare och Socket. Socket svarar på `tools/list` utan konto, men den värdade servern kräver OAuth på varje anrop, och ärendet om `401 invalid_token` i Claude Code är öppet (📄 SocketDev/socket-mcp, `docs/service.md`; [#185](https://github.com/SocketDev/socket-mcp/issues/185); `kunskap/kallkort/socket-mcp.md`).
 - **Väntar på en nyckel som Johnny lägger in i ett eget terminalfönster:** Grounding Lite, Google Developer Knowledge, nanobanana och BrowserStack.
 - **Råden från andra varvet gäller vid inloggningen** (samma beslut): Cloudflare med läs-token, mcp-gsc kräver skrivomfång i Search Console (avsnitt 7), Grounding Lites villkor om lagring är en fråga till juristen (`bilaga-e-oppna-fragor.md`, avsnitt 4), och nanobananas standardmodeller är avvecklade.
 

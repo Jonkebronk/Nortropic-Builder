@@ -8,5 +8,5 @@
 - **Det bästa vi kan ta:** principerna ovan och avslutningen med sammanfattning och betyg 1–4.
 - **Var det hamnar hos oss:** skillen `strategi`, `intervjuhantverk.md` (*Grundreglerna*, *Avslutningen*) och `SKILL.md` punkt 4 och 11.
 - **Passar vår stack?** Koden används inte: den är Python och Streamlit och får inte användas kommersiellt. Principerna är stackoberoende. Intervjun i vår intervju leds av Johnny med AI-stöd, inte av AI ensam.
-- **Risker och flaggor:** licensen. Två regler som guiden tillskriver Geiecke och Jaravel finns inte i nuvarande `config.py`: "föreslå aldrig svar, inte ens ett tema" och "hur" i stället för "varför". Den nuvarande filen har tvärtom "Why is this important to you?" som exempel på följdfråga. Reglerna kan komma från artikeln eller en äldre version (⚠️ ej verifierat). Förslag till Johnny: rätta källhänvisningen i `guide/2-1-strategi.md`.
+- **Risker och flaggor:** licensen. Båda reglerna som guiden tillskriver Geiecke och Jaravel finns i nuvarande `config.py` (*General Instructions*, sett 2026-10-16): aldrig föreslå svar, inte ens ett brett tema, och hellre fråga "how" eller "what" än "why", som kan låta dömande. Exemplen på följdfrågor har ändå "Why is this important to you?".
 - **Inloggning:** nej. Colab-exemplet kräver en egen API-nyckel och används inte.

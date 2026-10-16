@@ -60,7 +60,7 @@ Skrivs enligt svensk norm. 📄 Myndigheternas skrivregler, kap. 12 (Språkråde
 - Grupper i en uppräkning skiljs med semikolon när det redan finns komma inom grupperna: *Måndag och onsdag i Lund; tisdag, torsdag och fredag i Ystad.* Annars läses orten som en dag i listan. 📄 Myndigheternas skrivregler 13.4
 - Datum i löptext: *16 oktober 2026*, inte *2026-10-16*.
 - Belopp: *690 kr*, *1 250 kr*, med fast mellanslag i tusental, och *kr* utan punkt. Inte *SEK* i löptext. (*:-* nämns inte i normen ⚠️.)
-- Telefonnummer grupperas: *070-123 45 67*, *08-713 10 00*. I `tel:`-länken står numret internationellt utan nolla (*+46701234567*); formatet i länken har ingen källa ⚠️.
+- Telefonnummer grupperas: *070-123 45 67*, *08-713 10 00*. I `tel:`-länken står numret internationellt utan nolla (*+46701234567*). 📄 [RFC 3966](https://www.rfc-editor.org/rfc/rfc3966) §5.1.4 (globala nummer börjar med +) och §5.1.5 (lokala nummer kräver `phone-context`); Opquast v5, regel 128; DIGG, arkiverad R90.
 - Veckodagar skrivs ut i löptext. Förkortningar som *mån–fre* är vanliga i tabeller men saknar svensk norm ⚠️.
 - **En rad som räknar ut *i dag* säger det som gäller just nu:** dagens tider medan det är öppet, och efter stängning eller en stängd dag också nästa tillfälle (*Stängt nu. Nästa mottagning: måndag 8.00–18.00.*). *(Härlett ur NN/g, Designing Empty States: visa systemets verkliga läge.)*
 

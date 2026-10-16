@@ -26,7 +26,7 @@ Regeln står i guiden: LocalBusiness på start- och kontaktsidan, Service på va
 - **`areaServed` är giltig schema.org men finns inte bland de egenskaper Google listar för LocalBusiness** (uppdaterad 2026-09-08). Behåll den för serviceområdet (→ guiden), men förvänta ingen synlig effekt i Google.
 - **Namn, adress och telefon stämmer** mellan sidan, datan och Google-profilen ([platser.md](platser.md)).
 - **Inget eget stjärnbetyg** (`aggregateRating` för egna omdömen) (`BESLUT.md` 2026-10-15, *Ställningstaganden*).
-- **FAQPage ger inget resultat i Google sedan juni 2026;** behåll den bara om innehållet syns och finns där av andra skäl (→ `guide/2-3-struktur.md`, N2).
+- **Ingen `FAQPage`** (`BESLUT.md` 2026-10-16, *Lokal SEO, AEO och GEO*). Google slutade visa FAQ-resultat 7 maj 2026 och tog bort dokumentationen 15 juni 2026 (📄 [Search documentation updates](https://developers.google.com/search/updates)). Synliga vanliga frågor behålls (→ `guide/2-3-struktur.md`, N2).
 - **Datan finns i HTML:en från bygget,** aldrig bara efter att JavaScript körts.
 - **Escapa `<`** i JSON-LD, så att text i datan inte kan avsluta skripttaggen (OWASP; så gör övningssajtens `Sida.astro`).
 

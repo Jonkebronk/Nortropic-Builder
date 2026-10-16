@@ -51,6 +51,7 @@ En React-ö laddas aldrig för rörelsens skull (→ [verktyg.md](verktyg.md)).
 6. **Vanilla-anrop följer inställningen.** Före varje `animate` eller `inView` läses `matchMedia('(prefers-reduced-motion: reduce)')`, och ett byte följs med `change`. Motions dokumentation för vanilla-API:t säger inget om reducerad rörelse. 📄 motion.dev/docs/animate, /inview; WCAG SCR40.
 7. **Ön laddas när den behövs.** `client:visible` eller `client:idle` används hellre än `client:load`, om interaktionen inte behövs direkt. 📄 docs.astro.build, *Framework components*.
 8. **En fjäder som ska ta över farten från en gest anges med fysik** (`stiffness`, `damping`, `mass`). En fjäder med `duration` eller `bounce` räknas som tidsstyrd och börjar från fart noll, så en avbruten dragning tappar farten. Kowalskis recept för dra för att stänga, `{ type: "spring", duration: 0.5, bounce: 0.2 }`, gör därför inte det det lovar. 📄 Motion, `motion-dom/src/animation/generators/spring.ts` (*"Time-defined springs ignore inherited velocity"*, commit `2d27b04`); Kowalski-ärende #32 (öppet). Sällan aktuellt: dragning hör till expressiv budget och kräver ett tryckalternativ (WCAG 2.5.7).
+9. **Ingen animation genom React-tillstånd.** En egen animation skriver till `ref.current.style` eller ett motion value, aldrig `setState` i varje bildruta. 📄 Kowalski, `animation-performance` (MIT), `SKILL.md` rad 127–140 *(en källa – bänken)*.
 
 ## Förbud
 
