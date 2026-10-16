@@ -5,7 +5,7 @@
 @import "@fontsource/inter/600.css";
 
 [data-kit="djarv"] {
-  /* Färg: starka block i orange, rosa och blått mot bläck och benvitt */
+  /* Färg: bläck och benvitt med svarta konturer; orange bara till knappar och länkar (Johnnys dom 2026-10-15; G9). */
   --k-bg: #f8f8f2;
   --k-yta: #ffffff;
   --k-text: #112229;
@@ -19,10 +19,9 @@
   /* Fokusringen: accenten på ljusa ytor, den ljusa färgen på mörka (WCAG 2.2, 1.4.11, minst 3:1). */
   --k-fokus: var(--k-accent-text);
   --k-fokus-pa-mork: var(--k-pa-mork);
-  --k-dekor: #ffb3ef;
-  --k-dekor-2: #147c98;
-  --k-forstavy-bg: #ff6b35;
-  --k-forstavy-text: #112229;
+  --k-dekor: #e9e7dc;
+  --k-forstavy-bg: var(--k-mork);
+  --k-forstavy-text: var(--k-pa-mork);
 
   /* Typsnitt: Bricolage Grotesque och Inter (OFL), självhostade */
   --k-font-rubrik: "Bricolage Grotesque", system-ui, sans-serif;
@@ -32,7 +31,7 @@
   --k-rubrik-versaler: uppercase;
   --k-rubrik-spatiering: -0.005em;
   --k-rubrik-radhojd: 0.95;
-  --k-h1: clamp(2.5rem, 1.3rem + 5.6vw, 6rem);
+  --k-h1: clamp(2.5rem, 1.3rem + 4.6vw, 5rem); /* Lägre tak, så att rubriken inte lämnar ett ensamt "I" på datorn (Johnnys dom 2026-10-16 väntar). */
   --k-h2: clamp(1.9rem, 1.4rem + 2.4vw, 3.4rem);
   --k-h3: 1.25rem;
   --k-brod: 1.0625rem;
@@ -75,19 +74,19 @@
   --k-kurva: cubic-bezier(0.3, 0.9, 0.3, 1.2);
 }
 
-/* Kitets egna drag: förstavyn som ett orange block, porträttet på rosa och en rund märkning som en etikett. */
-[data-kit="djarv"] .forstavy .knapp--primar {
-  background: var(--k-mork);
-  color: var(--k-pa-mork);
-  border-color: var(--k-mork);
-}
+/* Kitets egna drag: förstavyn i den mörka marinen, porträttet på en benvit yta med kontur och en rund märkning som en etikett.
+   Johnnys "för godkänt" 2026-10-15: behåll typsnittet och de svarta konturerna, byt den orange förstavyn mot den mörka marinen,
+   ta bort rosa som bakgrundsfärg och använd orange bara till knappar och länkar (BESLUT.md 2026-10-16, G9). */
 [data-kit="djarv"] .forstavy .knapp--sekundar {
-  border-color: var(--k-mork);
-  color: var(--k-mork);
+  border-color: var(--k-pa-mork);
+  color: var(--k-pa-mork);
 }
+[data-kit="djarv"] .forstavy :focus-visible { outline-color: var(--k-fokus-pa-mork); }
+[data-kit="djarv"] .forstavy .forstavy__betyg svg { color: var(--k-accent); }
 [data-kit="djarv"] .forstavy__bildyta {
-  background: var(--k-dekor);
-  border: var(--k-kantlinje) solid var(--k-mork);
+  background: var(--k-bg);
+  color: var(--k-text);
+  border: var(--k-kantlinje) solid var(--k-pa-mork);
   border-radius: var(--k-radie-bild);
 }
 [data-kit="djarv"] .markering {
@@ -96,7 +95,8 @@
   width: 7.5rem;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: var(--k-dekor);
+  background: var(--k-yta);
+  color: var(--k-text);
   border: var(--k-kantlinje) solid var(--k-mork);
   font-family: var(--k-font-rubrik);
   font-weight: 800;
@@ -109,8 +109,5 @@
 [data-kit="djarv"] .kort {
   border: var(--k-kantlinje) solid var(--k-linje);
 }
-[data-kit="djarv"] .tjanster .kort:nth-child(4n + 1) { background: var(--k-dekor); }
-[data-kit="djarv"] .tjanster .kort:nth-child(4n + 2) { background: var(--k-dekor-2); color: #ffffff; }
-[data-kit="djarv"] .tjanster .kort:nth-child(4n + 2) a { color: #ffffff; }
 /* Namnet i sidhuvudet med gemener, så att det får plats bredvid kontaktvägen på mobilen. */
 [data-kit="djarv"] .sidhuvud .sidhuvud__namn { text-transform: none; letter-spacing: -0.01em; }

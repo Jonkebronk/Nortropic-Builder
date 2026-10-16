@@ -17,7 +17,7 @@ export const provinnehall: StartInnehall = {
   ],
   forstavy: {
     overrad: 'Legitimerad kiropraktor',
-    rubrik: 'Kiropraktor i Exempelstad och Provby',
+    rubrik: 'Kiropraktor i\u00a0Exempelstad och\u00a0Provby', // hårt mellanslag efter i och och: ett kort ord står inte ensamt i radslut
     ingress: 'Vi tar emot i Exempelstad på måndagar och onsdagar och i Provby resten av veckan.',
     markering: '500 kr per besök',
   },

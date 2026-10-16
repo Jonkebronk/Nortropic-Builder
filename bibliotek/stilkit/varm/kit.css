@@ -21,6 +21,8 @@
   --k-fokus: var(--k-accent-text);
   --k-fokus-pa-mork: var(--k-pa-mork);
   --k-dekor: #dce3d2;
+  /* Ljus sand bakom porträttet i förstavyn, så att den gröna knappen bredvid får kontrast (Johnnys dom 2026-10-15; G8). */
+  --k-dekor-ljus: #ebe1cf;
   --k-dekor-2: #9c4f32;
   --k-forstavy-bg: var(--k-bg);
   --k-forstavy-text: var(--k-text);
@@ -76,21 +78,22 @@
   --k-kurva: cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Kitets egna drag: porträttet i en rund, salviagrön yta och en handskriven anteckning i terrakotta. */
+/* Kitets egna drag: porträttet i en rund, sandfärgad yta, och en handskriven etikett i terrakotta utanför förstavyn.
+   Förstavyn har högst två typsnitt, Fraunces och Figtree; handstilen Caveat finns bara på överraderna längre ner på sidan
+   (Johnnys dom 2026-10-15: "tre typsnitt på första skärmen är ett mer än nödvändigt"; BESLUT.md 2026-10-16, G8). */
 [data-kit="varm"] .forstavy__bildyta {
-  background: var(--k-dekor);
+  background: var(--k-dekor-ljus);
   border-radius: 46% 54% 50% 50% / 52% 48% 52% 48%;
 }
 [data-kit="varm"] .markering {
-  font-family: var(--k-font-markering);
-  font-size: 1.6rem;
+  font-family: var(--k-font-brod);
+  font-size: var(--k-mindre);
   font-weight: 600;
   color: var(--k-dekor-2);
-  line-height: 1.1;
-  transform: rotate(-3deg);
+  line-height: 1.2;
   background: var(--k-yta);
   border-radius: 999px;
-  padding: var(--k-a1) var(--k-a4);
+  padding: var(--k-a2) var(--k-a4);
   box-shadow: 0 2px 10px rgb(42 38 32 / 0.12);
 }
 [data-kit="varm"] .overrad {
@@ -98,4 +101,9 @@
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--k-dekor-2);
+}
+[data-kit="varm"] .forstavy .overrad, [data-kit="varm"] .sidtopp .overrad {
+  font-family: var(--k-font-brod);
+  font-size: var(--k-liten);
+  color: inherit;
 }

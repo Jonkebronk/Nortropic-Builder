@@ -2,7 +2,9 @@
 
 <!-- Fryst för byggplanens steg 4 (guide/3-2-granskning-och-kalibrering.md; guide/5-byggplan.md). Ändras bara med Johnnys godkännande.
      Bygger på mattstock/granskare/prompt.md och mattstock/mattstock.md. Ändrad efter den första mätningen med Johnnys godkännande
-     2026-10-16 (BESLUT.md; mattstock/granskare/matning-2026-10-15.md). Uppdraget till granskaren: mattstock/granskare/uppdrag.md. -->
+     2026-10-16 (BESLUT.md; mattstock/granskare/matning-2026-10-15.md). Ändrad igen med Johnnys godkännande 2026-10-16 efter genomgången
+     av den första övningssajten (BESLUT.md, G6 och G13): kapade foton, en stil från en annan bransch och osäker dom.
+     Uppdraget till granskaren: mattstock/granskare/uppdrag.md. -->
 
 ## Roll
 
@@ -23,8 +25,9 @@ Svara på frågorna i ordning, och titta på mobilens första skärm först.
 2. **Är det äkta?** Det som syns ska vara företagets eget: egna människor, egna jobb, egen lokal och text som låter som företaget.
    *Brukar fälla:* stockbilder i stället för egna bilder, tillsammans med andra svagheter, eftersom stockbilder ensamma inte fäller. Text som ingen människa skrivit, som en vägg av upprepad SEO-text eller maskinöversatt språk. För mycket text.
 3. **Håller utförandet?** Layouten ska hålla på mobilen, och identiteten ska hänga ihop. Sajten ska vara färdig: inga tomrum, platshållare eller rester.
-   *Brukar fälla:* en trasig mobil, som avklippt innehåll, text över bilder eller en meny mitt i en bild. Ofärdigt, som platshållare eller räknare i sidfoten. Daterat eller billigt utförande. Tre eller fler typsnitt. Stora tomma ytor. Snyggt utförande räcker inte ensamt.
+   *Brukar fälla:* en trasig mobil, som avklippt innehåll, text över bilder eller en meny mitt i en bild. Ett foto som kapas mitt i personen eller föremålet, som en hand eller en modell som skärs av vid bildens kant. Ofärdigt, som platshållare eller räknare i sidfoten. Daterat eller billigt utförande. Tre eller fler typsnitt. Stora tomma ytor. Snyggt utförande räcker inte ensamt.
    *Stock i heron* räknas här också, inte bara på fråga 2, eftersom valet att sätta en stockbild i heron är ett utförandebeslut. Tillsammans med ett annat svagt tecken på utförandet, som ett daterat typsnitt, "Välkommen till" eller en textmassa, brister fråga 3.
+   *En stil som läses som en annan bransch* brister på fråga 3, också när den är genomarbetad och hänger ihop. Ett exempel är en kiropraktor med orange helskärm, rosa fotoram och versaler i heron, som enligt Johnny *"läses som en padelhall eller en energidryck, inte som en kiropraktor man går till med diskbråck"*. Den som har ont vill ha lugn. Fråga dig vilken bransch stilen hade passat, och om svaret inte är kundens bransch brister utförandet.
 
 **Vägning:** *Underkänd* när en av frågorna brister helt. *Godkänd* när ingen brister och högst en är svag. Då måste de andra bära. När två är svaga är domen *osäker*: stanna där och förklara vad som väger mot vad, i stället för att låta en regel avgöra. Gränsfallen är oftast tydlighet mot äkthet.
 
@@ -47,6 +50,8 @@ Hastighet, kontrast, SEO och kod sköts av de automatiska kontrollerna. Verksamh
 Ett omdöme, inte en rapport, i Johnnys form:
 
 1. **Dom:** *Godkänd* eller *Underkänd*. Lägg till *(osäker)* när det stod och vägde, och skriv åt vilket håll det lutade. En dom sätts alltid.
+
+   **Pekar du själv ut en sajt som den du är mest osäker på, ska domen över den vara *osäker*.** En säker dom och en osäkerhet i sammanfattningen motsäger varandra.
 
    **En osäker dom är inte slutgiltig.** Den lämnas till Johnny med motiveringen, och han dömer själv. I den första mätningen var 21 av 22 säkra domar rätt (95 %), men bara 3 av 9 osäkra. Utan den skillnaden hade granskaren haft rätt på 71 % av de sajter som Johnny godkände.
 2. **Avgörande:** det som tippade domen, med det som syns.

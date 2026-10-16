@@ -18,17 +18,17 @@ Regeln för vad som får vara en grind står i `README.md`: en **låst kontroll*
 
 ## Sammanställning
 
-192 kontroller, grindar och kriterier (C54 struken 2026-10-16).
+194 kontroller, grindar och kriterier (C54 struken, C194 och C195 tillagda 2026-10-16).
 
 | Nivå | låst kontroll | grind | kontroll | granskningskriterium | instruktion | Summa |
 |---|---|---|---|---|---|---|
-| N1 | 9 | 16 | 3 | 4 | 3 | 35 |
+| N1 | 9 | 17 | 3 | 5 | 3 | 37 |
 | N2 | 23 | 22 | 34 | 26 | 11 | 116 |
 | N3 | 7 | 9 | 11 | 1 | 2 | 30 |
 | N4 | 2 | 2 | 3 | 0 | 4 | 11 |
-| **Summa** | **41** | **49** | **51** | **31** | **20** | **192** |
+| **Summa** | **41** | **50** | **51** | **32** | **20** | **194** |
 
-På N1 finns 11 kontroller, och de är de tio i `2-8` plus avgränsningen av byggsessionen (C167). Deny-reglerna (C166) är strukna (`BESLUT.md` 2026-10-15, *Inga spärrar*). De 16 grindarna på N1 är Johnnys och kundens godkännanden (stopp 1–6, omdirigeringskartan, nya sektioner, nya regler), kontrasten i kiten, formulärmönstret och flödets regler om belägg, färsk kontext, tid, tre utfall och kontroller före bygget. v0.74 hade ungefär 60 låsta kontroller och grindvillkor (analysen §7.1).
+På N1 finns 11 kontroller, och de är de tio i `2-8` plus avgränsningen av byggsessionen (C167). Deny-reglerna (C166) är strukna (`BESLUT.md` 2026-10-15, *Inga spärrar*). De 17 grindarna på N1 är Johnnys och kundens godkännanden (stopp 1–6 och 3b, omdirigeringskartan, nya sektioner, nya regler), kontrasten i kiten, formulärmönstret och flödets regler om belägg, färsk kontext, tid, tre utfall och kontroller före bygget. v0.74 hade ungefär 60 låsta kontroller och grindvillkor (analysen §7.1).
 
 ## N1-kontrollerna
 
@@ -253,11 +253,13 @@ Sju stoppar helt (1, 3, 4, 5, 6, 8, 10), två rapporterar (2, 9), och nr 7 stopp
 | C136 | Kontrollskriptet skrivs före bygget och ska fallera; Claude beskriver varje kontroll för Johnny i en mening | 3-2 Körbara kontroller; 5 steg 3 | N1 | grind | Två källor (lyft): 🎥 loop-videon + 🎥 Coding Sloth-videon | Claude skriver; Johnny ser |
 | C137 | En granskare, en checklista, en referens – från steg 4: varje rad pekar på ett kriterium i lagren; underlaget är brief, faktabas och skärmdumpar i 375, 768 och 1280 px, sektion för sektion i full upplösning. Från N2 också Johnnys bedömda exempel som referens | 3-2 Granskaren; B `granska` | N1 | granskningskriterium | 📄 *Best practices*; 🎥 gauntlet-videon + 📄 Zheng m.fl. 2023 + 📄 Prometheus; 📄 Anthropic, *Prompting Claude Fable 5.1* (crop tool recipe) | Granskaren |
 | C138 | Checklistan i markdown: tre utfall per kriterium, och *för lite information* räknas aldrig som godkänt; varje brist blir ett fynd med element, förväntat, faktiskt och allvar; fynd mot ett kriterium med en källa får högst `medel` | 3-2 Granskaren | N1 | grind | Tre utfall två källor: 🎥 repo-videon (Reticle) + 📄 Anthropic, *Demystifying evals*; fälten en källa (🎥 Hermes-loopvideon); allvaret 🔧 | Huvudsessionen skaffar mer underlag eller frågar Johnny |
+| C195 | Granskarens checklista, fråga 3: ett foto som kapas mitt i personen eller föremålet, och en stil som läses som en annan bransch, fäller; pekar granskaren själv ut den mest osäkra sajten blir domen osäker | 3-2 Granskaren; `mallar/granskning.md` | N1 | granskningskriterium | Johnnys domar (hero-fotot i steg 4, Djärv i steg 2; `BESLUT.md` 2026-10-16, G6 och G13); en källa – bänken | Granskaren |
 | C139 | Stopp 2 – riktningar: startsidan i tre stilkit; Johnny kan stryka, med kort motivering i `domar.jsonl`, innan kunden väljer | 3-2 Stoppen; 2-5 Tre riktningar; 5 steg 2 | N1 | grind | Beslut: `BESLUT.md` 2026-10-13 och 2026-10-15 | Johnny, sedan kunden |
 | C140 | Stopp 3 – bygget: varje kontroll i en mening före bygget, sajten i webbläsaren under bygget och till sist slutgranskningen – Johnny testar själv i mobil och dator efter en sammanfattning med belägg ur `progress.md`; varje avvisning får en kort motivering | 3-2 Stoppen; Slutgranskningen; 5 steg 3 | N1 | grind | 🎥 Shopify-videon; motiveringen 📄 Husain | Johnny |
 | C141 | Stopp 4 – granskaren: fynden bredvid Johnnys egen dom över samma sajt; Johnny avgör vilka som var rätt, och avvikelserna loggas i `domar.jsonl` | 3-2 Stoppen; Kalibrering; 5 steg 4 | N1 | grind | 🔧; 📄 Husain (godkänt eller underkänt med skriven kritik) | Johnny |
 | C142 | Stopp 5 – publicering, om sajten publiceras: alltid Johnnys godkännande; i förvaltningen också normala och akuta ändringar och återställning | 3-2 Stoppen; 2-8 Publicering; 2-9; 5 steg 5 | N1 | grind | Beslut: `BESLUT.md` 2026-10-13 och 2026-10-14 | Johnny |
 | C143 | Stopp 6 – första rapporten: Johnny dömer den innan den går till kunden | 3-2 Stoppen; 2-9 Rapporten; 5 steg 6 | N1 | grind | 🔧 | Johnny |
+| C194 | Stopp 3b – kvalitetsgranskningen (från den andra övningssajten): sex granskare med ren kontext, en per perspektiv; fynden sorteras i A (Claude rättar), B (frågor till kunden) och C (Johnny avgör); de höga fynden prövas om av en ny granskare innan Johnny slutgranskar | 3-2 När en granskare inte räcker; 5 steg 3b | N1 | grind | Johnnys beslut (`BESLUT.md` 2026-10-16, G10); 🔧 den första övningssajten, 136 fynd | Sex delagenter och en omprövare; Johnny avgör C |
 | C144 | Nya regler: ingen lärdom ändrar något av sig själv; en dom blir regel, kontroll eller kriterium bara när Johnny säger det. Släpps aldrig: ändring av låsta filer, nya regler, utskick till kundens kundlista | 3-4 Lärdomar blir förslag (N1); 3-2 Stoppen (N2); README princip 9–10 | N1 | grind | 🔧 (webb-pro-lärdom); 📄 Simon Willison via anteckningarna | Johnny |
 | C145 | Briefens mätbara krav blir egna körbara kontroller utöver de tio; Johnny godkänner dem, från N2 i planvyn, och de låses | 3-2 Körbara kontroller; 3-5 Planvyn | N2 | grind | Två källor: 🎥 loop-videon + 🎥 Coding Sloth-videon | Johnny |
 | C146 | Täckningstabell: varje del av briefen – sida, innehållselement, primär handling, krav – kopplas till minst en kontroll eller ett granskningskriterium; en del utan koppling markeras före bygget | 3-2 Körbara kontroller; 3-5 Planvyn | N2 | kontroll | 🔧 (v0.74 fas 1b); 🎥 Unlazy-videon (en källa – bänken) | Planvyn |
