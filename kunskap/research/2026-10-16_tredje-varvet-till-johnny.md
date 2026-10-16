@@ -588,3 +588,14 @@ Gruppen `baslinje-1` mätte `strategi`, `omfattning`, `struktur`, `skelett` och 
 - **Rekommendation:** ja. Förstavyns N1-regel (tjänst och ort) gäller startsidan och tjänstesidorna oförändrad.
 - **Vid ja:** `.claude/skills/struktur/platser.md`.
 
+## Tillägg kl. 19.38: skärmläsarprovet
+
+Johnny valde bort VoiceOver på Macen med Guidepup (`BESLUT.md`, *VoiceOver på Macen med Guidepup används inte*). Guidepup-delen av punkt 44 faller bort; Guidepup är *släpp* i inventeringen.
+
+### 57. Hur prövas skärmläsare i stället?
+
+- **Frågan:** Beslutet 17.40 ville ha prov med skärmläsare. Mac-metoden är bortvald. Ska vi pröva på annat sätt, och i så fall hur?
+- **Alternativ:** (a) VoiceOver på iPhone för hand, med ett manus på tio minuter som Claude skriver (svep genom första skärmen, rotorns rubriker, ring och boka); (b) TalkBack och VoiceOver på riktiga telefoner via BrowserStack Live, som har skärmläsare på svenska (📄 BrowserStack, *Screen Reader on iOS*), när nyckeln finns; (c) bara axe, kontrollskriptet och C41 för hand.
+- **Rekommendation:** (a) en gång per övningssajt, och (b) när BrowserStack är inlagt. Det motsvarar GOV.UK:s miniminivå för mobil (VoiceOver på iOS och TalkBack).
+- **Vid ja:** `guide/bilaga-c-kontroller.md` (C41), `.claude/skills/kvalitet/tillganglighet.md`.
+

@@ -32,6 +32,15 @@ Ett Node-bibliotek som styr riktiga skärmläsare – VoiceOver på macOS, NVDA 
 - **Kontaktlistens länkar** har namn som säger vad som händer.
 
 ## Var det hamnar hos oss
+**Beslut 2026-10-16 kl. 19.38: släpp.** Johnny: *"vi kör inte denna test metodik."* (`BESLUT.md`, *VoiceOver på Macen med Guidepup används inte*). Texten nedan står kvar som historik.
+
+**Provet på Johnnys Mac 2026-10-16** (macOS 26.3, Node 24.22, Guidepup 0.36.3, svenskt språk):
+- **Monteringen av Guidepups inställningar** skapar länkar i `~/Library/Group Containers/group.com.apple.VoiceOver/Library/Preferences/` och gav `EPERM`, också i Johnnys eget terminalfönster. Appgruppers behållare skyddas av SIP sedan Sequoia (Apple Developer Forums, tråd 756701). Med fullständig skivåtkomst för Terminal gick monteringen igenom. Guidepup har inget sätt att hoppa över steget; provet kopplade bort `mountGuidepupPreferences` och körde VoiceOver med användarens egna inställningar, som i ärende #178.
+- **Starten:** VoiceOver kom igång på 0,5 s med `VoiceOverStarter` men svarade på AppleScript först efter cirka 1,6 s. Guidepup väntar 500 ms och aktiverar sedan; felet `-600` (appen är inte öppen) ger inget omförsök, bara en tidsgräns med engelsk text (ärende #177, rättat i `main` 2026-10-16, inte utgivet). Omförsök i provet löste det.
+- **Svenska:** `@guidepup/playwright` letar efter orden *item chooser* och *web content* för att nå webbinnehållet, och fungerar därför inte på en svensk Mac. Provet tryckte Tab in på sidan i stället.
+- **Utfallet:** startsidan lästes i rätt ordning med namngivna landmärken och rubriker, men tre av cirka 55 rader var mätfel (Safari svarade inte vid första Tab, två tomma fraser och en överhoppad rubrik). Inget nytt fynd jämfört med axe och kontrollskriptet.
+- **Varför metoden valdes bort:** fel skärmläsare för sajternas besökare (på mobil använder 70,6 % VoiceOver på iPhone; på dator har VoiceOver på Mac 9,7 %, 📄 [WebAIM, Screen Reader User Survey #10](https://webaim.org/blog/screen-reader-user-survey-10-results/)), den mäter text och inte upplevelse (📄 [GOV.UK Service Manual, Testing with assistive technologies](https://www.gov.uk/service-manual/technology/testing-with-assistive-technologies)), och den är skör.
+
 **Placeringen "senare: N2" är inaktuell.** Den står som beslut i fältet `beslut` ("Ja på alla", omkring 17.40), men samma minut beslutade Johnny *"BrowserStack och VoiceOver (Rekommenderas)"*: VoiceOver prövas med Guidepup när han själv har slagit på automationen (`BESLUT.md`, sista avsnittet). Förslag till huvudsessionen: **skill: kvalitet** (`tillganglighet.md`, *Hjälpmedel*), med en hänvisning från `skelett/interaktion.md` för menyn och frågorna, och C41 från "För hand" till "skript, rapport". Ett prov med skärmläsare blir aldrig grind: utfallet beror på VoiceOvers version och språk.
 
 **Det Johnny slår på själv** (Guidepups manuella väg; Claude ändrar inga system- eller säkerhetsinställningar):

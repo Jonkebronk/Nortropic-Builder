@@ -3462,9 +3462,9 @@
    "roll": "Automatiserar VoiceOver och NVDA (github.com/guidepup/guidepup, MIT) för prov av menyn, vanliga frågor och knapplisten med skärmläsare, som guide/2-4 kräver från N2 men saknar verktyg för (skelett-struktur-luckor M5 i fö",
    "flagga": "",
    "din_lank": false,
-   "beslut": "senare: N2 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
-   "placering": "senare: N2",
-   "placering_motivering": "Automatiserar VoiceOver och NVDA (github.com/guidepup/guidepup, MIT) för prov av menyn, vanliga frågor och knapplisten med skärmläsare, som guide/2-4 kräver från N2 men saknar verktyg för (skelett-struktur-luckor M5 i första varvet). Prövas på provsidan när biblioteket får nästa interaktiva komponent. (andra varvet 2026-10-16, skelett-struktur)",
+   "beslut": "släpp (Johnny 2026-10-16 kl. 19.38: \"vi kör inte denna test metodik.\"; ersätter senare: N2 från 17.40)",
+   "placering": "släpp",
+   "placering_motivering": "Automatiserar VoiceOver och NVDA (github.com/guidepup/guidepup, MIT) för prov av menyn, vanliga frågor och knapplisten med skärmläsare, som guide/2-4 kräver från N2 men saknar verktyg för (skelett-struktur-luckor M5 i första varvet). Prövas på provsidan när biblioteket får nästa interaktiva komponent. (andra varvet 2026-10-16, skelett-struktur) Provet på Macen kördes 2026-10-16 med två omvägar runt Guidepup 0.36.3 på macOS 26.3; Johnny valde bort metoden (BESLUT.md 2026-10-16, VoiceOver på Macen med Guidepup används inte).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/guidepup.md"
   },
   {

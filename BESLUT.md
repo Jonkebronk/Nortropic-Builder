@@ -1326,3 +1326,16 @@ Guidepup 0.36.3 skapar vid varje start länkar i `~/Library/Group Containers/gro
 **Innebär:**
 - Johnny slår själv på *Fullständig skivåtkomst* för appen Terminal, inte för VS Code där byggsessionen körs, kör provet och slår av det direkt efteråt. Claude ändrar inga system- eller säkerhetsinställningar.
 - Att behörigheten räcker är inte verifierat förrän provet har gått ⚠️.
+
+## 2026-10-16: VoiceOver på Macen med Guidepup används inte som testmetod
+
+**Status:** gäller. Ändrar *Placeringarna i inventeringen blir beslut; riktiga prov med BrowserStack och VoiceOver* (17.40) i den del som gäller VoiceOver på Macen, och avslutar *VoiceOver-provet med fullständig skivåtkomst för Terminal en stund* (19.12).
+
+Provet kördes på Johnnys Mac efter två omvägar runt Guidepup 0.36.3 på macOS 26.3: inga monterade inställningar, och omförsök när VoiceOver inte svarar inom 500 ms efter starten (felet -600 ger inget omförsök). VoiceOver läste övningssajtens startsida i Safari, men tre av cirka 55 rader var mätfel och inget nytt fynd kom fram. Claude bedömde metoden: fel skärmläsare för sajternas besökare (på mobil använder 70,6 % VoiceOver på iPhone, på dator har VoiceOver på Mac 9,7 %; 📄 WebAIM, *Screen Reader User Survey #10*), den mäter text och inte upplevelse (📄 GOV.UK Service Manual, *Testing with assistive technologies*: *"Test with the actual device or technology where possible"*), den är skör, och axe och kontrollskriptet prövar redan det den såg. Claude föreslog VoiceOver på iPhone för hand och TalkBack via BrowserStack. Johnny, kl. 19.38:
+
+> vi kör inte denna test metodik.
+
+**Innebär:**
+- Inget automatiskt skärmläsarprov med Guidepup på Macen. Guidepup placeras som *släpp* i inventeringen, och C41 i bilaga C står kvar som prov för hand.
+- Skriptet ligger bara i sessionens scratchpad och följer inte med repot. Erfarenheterna står i källkortet `kunskap/kallkort/guidepup.md`.
+- Hur skärmläsare prövas i stället (VoiceOver på iPhone för hand, TalkBack via BrowserStack) är inte avgjort; frågan står i `kunskap/research/2026-10-16_tredje-varvet-till-johnny.md`.
