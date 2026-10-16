@@ -29,6 +29,8 @@ En tabell: Johnnys rättelse, räckvidd, orsak och var den hamnade eller föresl
 
 Källa: → `guide/3-4`, *Orsaken klassas före förslaget* och *Var en regel hör hemma*.
 
+**Leta rättelserna i Johnnys ord, också de som inte står som domar.** Fyra tecken: ett förbud ("inte så"), en rättelse ("nej, det ska vara …"), irritation och upprepning (samma sak sagd två gånger). Lägre vikt: en tanke han prövar högt, en förklaring till Claude, ett engångsfel och en smakfråga. 📄 hookify, `agents/conversation-analyzer.md` (Apache-2.0; signalerna och undantagen, läst 2026-10-16). Pluginen installeras inte (nedan).
+
 **Felanalys före klassning.** Läs först varje rättelse och varje miss som en fri anteckning med egna ord, utan färdiga kategorier. Gruppera sedan anteckningarna i felsorter, och för felsorterna vidare mellan sajterna, så att det som återkommer syns. 📄 Husain och Shankar, [Evals FAQ](https://hamel.dev/blog/posts/evals-faq/) (fri kodning, sedan gruppering till en "failure taxonomy"). Det agenten faktiskt skrev när den hoppade över något loggas ordagrant, som handlingar och utdata (→ `guide/3-4`, *Backa med handlingar*).
 
 ## 3. Tidsförluster: vad hade fångat dem?
@@ -58,3 +60,5 @@ Förslag till `CLAUDE.md` eller en skill visas som en diff med en rad *Varför*,
 ## 5. Efter Johnnys svar
 
 Johnnys svar står ordagrant i `BESLUT.md`. Förslagen han säger ja till förs in i sina hemvister i samma varv, och en låst fil får en ny kontrollsumma (→ `guide/3-1`, *När ett beslut ändrar sajten*).
+
+**Infört är inte verifierat.** Ett förslag som förts in står som *infört*. Det blir *verifierat* först när nästa granskning, kontrollkörning eller sajt visar att felet är borta. Kommer felet tillbaka öppnas förslaget igen med den nya rapporten, och felsorten räknas en gång till. 📄 webb-pros `backlog` (statusen *verifierad* sätts av den granskning som prövar rättelsen, egen); → `guide/3-4`, *Förbättringsjournal*.

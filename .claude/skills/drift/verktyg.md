@@ -17,7 +17,6 @@ Urvalskriterierna står i `guide/bilaga-a-verktyg.md`. Inget här är installera
 | **Uptime Kuma** | Senare, om byrån ändå har en server | N3 | Egen server med beständig volym | MIT | Monitor för domänutgång bara för toppdomäner med RDAP. Version 2.5.6. |
 | **Plausible** eller **Umami** | Släpp | – | – | AGPL-3.0 (Plausible CE), MIT (Umami) | Javascript-mätning kräver samtycke enligt vår läsning (`guide/2-8-teknik-och-kvalitet.md`), och då finns GA4 som tillval. Omprövas om EU:s undantag för egen publikmätning antas ⚠️ (rådets text 2026-10-02). |
 | **46elks** | Senare | N4 | Konto och nummer, 3 EUR i månaden ⚠️ (pris från 2026-10-13) | Tjänst | Ingen signatur på webhooken beskriven ⚠️ |
-| **Resend Receiving** | Senare | N4 | Konto; Resend är redan kandidat för mejl (→ `guide/2-8-teknik-och-kvalitet.md`) | Tjänst | Pris för inkommande mejl okänt ⚠️ |
 | **Pages CMS** | Senare | N4 | Hostad app med skrivrätt i kundens repo, eller egen drift med PostgreSQL | MIT | Senaste commit på huvudgrenen 2026-06-08 |
 | **Changesets** | Senare | N4 | – | MIT | Version 3 under utveckling |
 | **DNSControl** | Senare; zonexport för hand tills dess | N3–N4 | DNS-token med *Zone Read*, *DNS Edit* och *SSL and Certificates Edit* | MIT | 382 bidragsgivare, version 5.5.0 |

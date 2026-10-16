@@ -1,6 +1,6 @@
 ---
 name: larande
-description: Gör flödet bättre mellan sajterna utan att Johnnys ord blir mekanik – genomgången efter en sajt, förslag på var rättelser hör hemma, mätningen av granskaren, nya eller ändrade skills, intag av nya verktyg och loopar med /goal eller Stop-hook; använd efter en sajt, när en skill, kontroll eller granskare ska ändras eller mätas, när ett verktyg bedöms, eller när arbete ska köras i loop.
+description: Gör flödet bättre mellan sajterna utan att Johnnys ord blir mekanik – genomgången efter en sajt, förslag på var rättelser hör hemma, mätningen av granskaren, nya eller ändrade skills och provet med och utan, intag av nya verktyg och loopar med /goal eller Stop-hook; använd efter en sajt, när en skill, kontroll eller granskare ska ändras eller mätas mot en baslinje, när ett verktyg bedöms, eller när arbete ska köras i loop.
 ---
 
 # Lärandet
@@ -25,6 +25,7 @@ Varje sajt ska göra nästa bättre. Det Johnny rättar, det granskaren missar o
 | Mätningen av granskaren | [matning.md](matning.md) | en mätrapport med TPR, TNR och säkra mot osäkra domar |
 | Loopar och långa körningar | [loopen.md](loopen.md) | ett valt mönster med mått, tak och belägg |
 | En ny eller ändrad skill | [skills.md](skills.md) | skillen och provet med och utan |
+| Baslinjen för våra egna skills | [baslinje.md](baslinje.md) | med- och utan-arm per skill, med påståenden och utfall |
 | Intag av ett nytt verktyg, repo eller en skill | [bevakning.md](bevakning.md) | ett källkort och en dom |
 
 ## In
@@ -51,9 +52,9 @@ Varje sajt ska göra nästa bättre. Det Johnny rättar, det granskaren missar o
 - Skriv aldrig en lärdom i `CLAUDE.md`, en skill, `mallar/granskning.md` eller en kontroll utan Johnnys ja.
 - Ändra aldrig det som bedömer arbetet för att arbetet ska klara det: checklistan, kontrollerna, eval-fallen eller måttet i en loop (→ `guide/3-1`, *Den som bedöms får inte ändra domaren*).
 - Mät aldrig en ändrad checklista på de exempel som formade den (→ `guide/3-2`, *En förbättrad checklista är ett förslag*).
-- Ingen loop utan tak, och ingen loop som avgör design eller text på egen hand.
 - Installera inga plugins, hooks eller tredjepartsskills som en del av lärandet. Föreslå dem med ett källkort ([bevakning.md](bevakning.md)).
 - Gör inte om en dom om smak till en regel. Den gäller sajten tills Johnny säger annat.
+- Påstå ingen kvalitetshöjning från en skill, ett verktyg eller en ändring förrän Johnny sett resultatet. Att något finns och användes är inte ett belägg för att det hjälpte ([skills.md](skills.md), *Så prövas den*).
 
 ## Kontrollista efter en sajt
 

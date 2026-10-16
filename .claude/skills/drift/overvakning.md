@@ -61,6 +61,8 @@ Det här kräver förnyelse. Det står i förvaltningsplanen med datum, och veck
 | Avvikande öppettider | Före storhelger och semestrar, på sajten och i Google-profilen samtidigt. Google: med avvikande tider *"your regular hours don't change"*. | 📄 [Google Business Profile, special hours](https://support.google.com/business/answer/6303076) |
 | Tokens med slutdatum | Före slutdatumet | 📄 Cloudflare, *Create token* |
 | `compatibility_date`, Wrangler, Node | Kvartalsvis, som normal ändring | 🔧 |
+| Speglade uppgifter: betyget och antalet omdömen på Google, priser och tider som också står i bokningssystemet | Varje månad med ögonblicksbilden, eller vid varje bygge om de hämtas automatiskt. Uppgiften står med källa och datum på sajten, som "läst 15 oktober 2026" | 📄 webb-pros `bygg-sajt`, steg 4 (*Speglade uppgifter*, egen) |
+| Innehåll med slutdatum: erbjudanden, platsannonser, säsongstider, "just nu" | Slutdatumet skrivs in när texten publiceras, och texten tas bort eller ändras före det | 📄 webb-pros `bygg-sajt`, steg 4, och `kritik/GRANSKARE.md` (*inaktuellt*, egen) |
 | Förvaltningsplanen | Årligen med kunden | → `guide/2-9-drift-och-forvaltning.md` |
 
 Certifikaten på kundens zon förnyar Cloudflare (→ `guide/2-8-teknik-och-kvalitet.md`). Vakten kontrollerar ändå att certifikatet är giltigt, eftersom en förnyelse kan misslyckas när DNS ändrats ⚠️ (härlett).

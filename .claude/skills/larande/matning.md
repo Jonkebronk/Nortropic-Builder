@@ -18,7 +18,9 @@ Granskaren är en LLM-domare. Den är värd något bara så länge den håller m
 ## Storlek och osäkerhet
 
 - Ungefär 30 exempel räcker för att hitta felmoderna. Under cirka 60 blir osäkerheten i TPR och TNR stor; cirka 100 per felmod behövs för att validera en domare. 📄 Husain.
-- Med 17 godkända är en sajt drygt 6 procentenheter. Skriv antalen bredvid procenten.
+- Med 17 godkända är en sajt drygt 6 procentenheter. Skriv antalen bredvid procenten, och ett konfidensintervall när andelen ska jämföras med en tidigare mätning (till exempel Wilsons intervall; 15 av 17 ger ungefär 66–97 %).
+- **Stabilitet.** Döm samma sajt tre gånger med samma prompt. En dom som byter håll mellan körningarna är osäker, vad den än säger, och går till Johnny. I dag mäts bara en körning per sajt. 📄 [Test plugins with evals](https://code.claude.com/docs/en/plugin-evals) (tre körningar per fall som standard); 📄 screenshot-to-code, evals (flera körningar per fall, eftersom körningarna skiljer sig; via `kunskap/kallkort/bolt-diy-och-screenshot-to-code.md`).
+- **En granskare som godkänner nästan allt** syns som låg TNR. Ett snitt där allt får godkänt är en varningssignal i sig, också före mätningen. 📄 open-design, `critique` (*Don't grade-inflate*).
 
 ## Smitta
 
@@ -48,4 +50,4 @@ En domare per kriterium, var och en med ren kontext, när en enda granskare visa
 
 ## Rapporten
 
-En fil per mätning, som `mattstock/granskare/matning-2026-10-15.md`: hur den mättes (prompt med SHA, sajter, granskare, bilder, rådata), förbehåll, resultat (TPR, TNR, säkra och osäkra), varje avvikelse med granskarens och Johnnys ord, och Claudes läsning märkt som förslag.
+En fil per mätning, som `mattstock/granskare/matning-2026-10-15.md`: hur den mättes (prompt med SHA, sajter, granskare, bilder med verktygens versioner, rådata), förbehåll, resultat (TPR, TNR, säkra och osäkra), varje avvikelse med granskarens och Johnnys ord, och Claudes läsning märkt som förslag.

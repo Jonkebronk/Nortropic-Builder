@@ -26,7 +26,8 @@ Lästa 2026-10-16 om inget annat anges. Allt är destillerat med egna ord, och i
 | anthropics/claude-code-action: README, `docs/security.md`, `docs/usage.md`, `docs/capabilities-and-limitations.md` | `andringar.md` | MIT |
 | GitHub Docs, *Triggering a workflow* | `andringar.md` | CC BY 4.0 ⚠️ (inte kontrollerat i dag) |
 | frappe/builder: README och `skills/frappe-builder/SKILL.md` | `andringar.md` | MIT |
-| 46elks, *Receive SMS*; Resend, *Receiving*; Pages CMS, *Collaborators* | `andringar.md` | Tjänsternas dokumentation; Pages CMS MIT |
+| 46elks, *Receive SMS*; Pages CMS, *Collaborators* | `andringar.md` | Tjänsternas dokumentation; Pages CMS MIT |
+| Cloudflare Email Service, *Domain configuration* (MX-konflikter) | `publicering.md`, `andringar.md` | Dokumentationen CC BY 4.0 |
 | Google Business Profile Help, *special hours* | `overvakning.md` | – |
 | Checkly, priser; UptimeFlare, README; Uptime Kuma, README och ändringslogg | `overvakning.md`, `verktyg.md` | Tjänst; Apache-2.0; MIT |
 | avansaber/seo-monster och AminForou/mcp-gsc, README | `verktyg.md`, `rapport.md` | MIT |

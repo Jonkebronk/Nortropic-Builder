@@ -44,7 +44,7 @@ Förhandsadressen får aldrig skriva i produktionens D1 (→ `guide/2-8-teknik-o
 - **Exportera den gamla zonen först.** Exporten är den första säkerhetskopian av DNS. Den kan göras som zonfil hos den gamla leverantören eller med DNSControls `get-zones` (→ `aterstallning.md`). 🔧
 - **Mejlposterna är kundens mejl.** Ett fel i MX stoppar kundens inkorg, inte bara sajten. Kontrollera efter bytet att mejl går fram åt båda hållen. 🔧
 - **En .se-domän registreras hos en svensk registrator**, och kunden äger den (→ `guide/2-8-teknik-och-kvalitet.md`). Utgångsdatumet står i förvaltningsplanen (→ `overvakning.md`).
-- **Email Routing för ärendeintag** tar över domänens MX ⚠️ (härlett; inte läst i Cloudflares dokumentation). Har kunden redan mejl på domänen används en egen underdomän eller byråns domän för intaget (→ `andringar.md`).
+- **Email Routing kräver Cloudflares MX-poster.** Befintliga MX-poster tas bort eller ändras, och Email Routing kan inte användas bredvid en extern e-postserver, som Google Workspace, Microsoft 365 eller webbhotellets mejl. Guiden för att aktivera varnar för befintliga poster, men varningen är lätt att klicka förbi ⚠️ (bara en sekundärkälla). Har kunden mejl hos någon annan rörs MX inte, och ärendeintaget använder byråns domän. Om en egen underdomän räcker för intaget står inte i dokumentationen ⚠️. 📄 [Cloudflare Email Service, *Domain configuration*](https://developers.cloudflare.com/email-service/configuration/domains/) (*MX conflicts*: "Cannot use Email Routing with external mail servers", läst 2026-10-16). → `andringar.md`.
 
 ## Efter det första dygnet ska detta vara sant
 

@@ -14,7 +14,9 @@ Som i `mattstock/granskare/uppdrag.md`: `<id>-m.jpg` (hela mobilsidan, 390 punkt
 
 | Vad | Hur | Kriterier |
 |---|---|---|
-| Varje sida i 375 och 1280 px, sektion för sektion | Helsida i dubbel upplösning, beskuren i delar om cirka 900 px höjd | PF1–PF8, PS, PG4 |
+| Varje sida i 375 och 1280 px, sektion för sektion | Helsida i dubbel upplösning, beskuren i delar om cirka 900 px höjd | PU2, PF1–PF8, PS, PG4 |
+| Den primära handlingen och varje toppuppgift i mobilen | Fönsterbild per steg i 375 × 667, länkens mål (`href`, ny flik eller inte) och fokus efter varje steg. Externa länkar följs inte | PU1 |
+| Rubrikerna | Sidans `h1` och `h2` som text, i dokumentets ordning, utan dolda element som en stängd samtyckesruta | PU3 |
 | Startsidan och en undersida i 320, 768, 1024 och 1440 px, och liggande mobil (844 × 390) | Fönsterbilder | PF5, PG5 |
 | Menyn öppen på mobilen, och fokus efter Tab, Shift+Tab och Escape | Fönsterbilder per steg, med `document.activeElement` utskrivet | PG2 |
 | Fokus genom hela sidan med knapplisten synlig | Tab tills sidfoten; för varje steg: syns det fokuserade elementet helt | PG1, PF9 |

@@ -1,10 +1,20 @@
 # Premiumkriterierna
 
-Premiumpasset letar efter det som skiljer en sajt som håller från en som är **genomarbetad**: detaljfinish, slop, rörelse och gränssnittsfel. Kriterierna ger **fynd, aldrig dom** (SKILL.md, princip 1). Regler som redan bor i guiden står här som hänvisning (→), inte omskrivna.
+Premiumpasset letar efter det som skiljer en sajt som håller från en som är **genomarbetad**: att uppgiften går att lösa, detaljfinish, slop, rörelse och gränssnittsfel. Kriterierna ger **fynd, aldrig dom** (SKILL.md, princip 1). Regler som redan bor i guiden står här som hänvisning (→), inte omskrivna.
 
 Lagerskillsen har detaljerna och värdena: ytan i [yta/detaljer.md](../yta/detaljer.md), [yta/typografi.md](../yta/typografi.md) och [yta/generiskt.md](../yta/generiskt.md), rörelsen i [rorelse/granskning.md](../rorelse/granskning.md) och [rorelse/matt.md](../rorelse/matt.md), interaktionen i [skelett/interaktion.md](../skelett/interaktion.md) och tillgängligheten i [kvalitet/tillganglighet.md](../kvalitet/tillganglighet.md). Premiumpasset är granskarens snitt genom dem: det som syns i den byggda sajten. Krockar en rad här med en lagerskill gäller lagerskillen.
 
 Varje rad: **id**, vad granskaren tittar efter, källan och **taket** för allvar. Taket följer `guide/3-2` (en källa ger högst `medel`) och vad besökaren förlorar. Belägget är alltid ett element i en skärmdump eller ett uppmätt värde.
+
+## PU – uppgiften
+
+Det besökaren kom för: kan hen göra det, steg för steg, och läser hen sidan i rätt ordning? Prövas i mobilen först, i 375 × 667 (en lägre telefon) och 375 × 812.
+
+| Id | Titta efter | Källa | Tak |
+|---|---|---|---|
+| PU1 | **Kognitiv genomgång.** Gå den primära handlingen och varje toppuppgift i briefen steg för steg som en förstagångsbesökare i mobilen, och svara vid varje steg: försöker besökaren nå rätt sak här, ser hen att handlingen finns, kopplar hen den till det hen vill, och får hen begriplig återkoppling efteråt? Varje nej är ett fynd med steget och skärmbilden. Ett steg som lämnar sajten, som en extern bokning, slutar vid länken: står det vart den leder och vad som händer där? | 📄 Wharton, Rieman, Lewis och Polson 1994, *The Cognitive Walkthrough Method: A Practitioner's Guide* (i Nielsen och Mack, *Usability Inspection Methods*); 📄 Spencer 2000, *The Streamlined Cognitive Walkthrough Method* (CHI); webb-pros `GRANSKARE.md` (egen) | hög när handlingen inte går att slutföra, annars medel |
+| PU2 | **Läsordningen.** I varje sektion är det största också det viktigaste, och den primära handlingen är det starkaste interaktiva elementet där den finns. Inget konkurrerar med den: en lika stark sekundärknapp, en accentfärgad dekor eller en navigation som drar blicken. Första skärmen prövas av blickprovet (→ `guide/2-4-skelett.md`, C34) | 📄 Anthropic, `design-critique` (*What draws the eye first?*, Apache-2.0); 📄 open-design, `critique` (*Visual hierarchy*, Apache-2.0) | medel |
+| PU3 | **Rubrikerna bär sidan.** Läst ensamma säger sidans `h1` och `h2` vad verksamheten gör, var och vad besökaren kan göra eller få veta. En rubrik som bara är en etikett, eller som säger samma sak som rubriken före, är ett fynd | webb-pros `bygg-sajt`, steg 6 (*rubriktest*, egen); 📄 NN/g, Pernice 2019, *Text Scanning Patterns: Eyetracking Evidence* – en källa till metoden | medel |
 
 ## PF – detaljfinish
 
@@ -19,7 +29,7 @@ Det som syns först i full upplösning, sektion för sektion.
 | PF5 | **Bilder.** Inget foto kapas mitt i en person eller ett föremål i **någon** bredd (375, 768, 1024, 1280, 1440), inte bara i förstavyn. Ingen bild förstoras mer än cirka 1,4 gånger. Samma roll har samma bildförhållande och behandling över sajten | → `mallar/granskning.md`, fråga 3 (kapade foton); → `guide/2-5-yta.md` (1,4 gånger, G1); 📄 NN/g, *Photos as Web Content* | medel |
 | PF6 | **Ikoner.** En familj, en eller två storlekar, samma synliga linjetjocklek bredvid samma textvikt. Ikonerna föreställer tjänsten | → `guide/2-5-yta.md` (sakliga ikoner, G2); 📄 Krehel, `better-ui/icons.md`; 📄 Hallmark, *slop-test* 30 (MIT) | medel |
 | PF7 | **Ytor.** Inre radie plus utfyllnad är lika med yttre radie där ytor ligger i varandra. Skuggor i två lager eller inga. Kantlinjer få och lika för samma sorts kort på alla sidor | 📄 Krehel, `better-ui/surfaces.md`; 📄 Vercel (*Child radius ≤ parent radius & concentric*; två skugglager) – två källor | låg |
-| PF8 | **Samma roll, samma form.** Knappar, fristående länkar, citat och kort ser likadana ut för samma roll på hela sajten. Samma detalj gjord på två sätt är ett fynd | 📄 Nielsen, heuristik 4 *Consistency and standards* (NN/g); 📄 Krehel, `better-ui` (*The same detail done two ways*) | medel |
+| PF8 | **Samma roll, samma form.** Knappar, fristående länkar, citat och kort ser likadana ut för samma roll på hela sajten. Samma detalj gjord på två sätt är ett fynd. Klart när dessa är jämförda över alla sidor: knappnivåerna (bara den primära handlingen är fylld accent), länkstilarna, tider och adresser (samma komponent, länkade överallt eller ingenstans), fotonas ram och sidornas slut | 📄 Nielsen, heuristik 4 *Consistency and standards* (NN/g); 📄 Krehel, `better-ui` (*The same detail done two ways*); 📄 Anthropic, `design-critique` (*Consistency*) | medel |
 | PF9 | **Tillstånden syns.** Hover, tryck och fokus har tydligare kontrast än viloläget. Fokusringen syns direkt, utan att tonas in | 📄 Vercel (*:hover, :active, :focus have more contrast than rest state*); 📄 Hallmark, *slop-test* 15; fokusringens 3:1 → kontroll 8b (WCAG 2.2, 1.4.11) | medel |
 
 ## PS – slop
@@ -67,6 +77,8 @@ Det som går sönder i ett tillstånd. Prövas i webbläsaren: tangentbord, tryc
 
 ## Källor och licenser
 
+- Anthropic, [knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) (`design/skills/design-critique`), Apache-2.0, commit `33eeda1` (2026-10-15).
+- Wharton m.fl. 1994 och Spencer 2000 om kognitiv genomgång; webb-pros `kritik/GRANSKARE.md` och `bygg-sajt` (egna, commit `668b03c`).
 - Jakub Krehel, [skills](https://github.com/jakubkrehel/skills) (`better-interface`, `interface-review`, `better-ui`), MIT, commit `4c66b1f` (2026-10-12).
 - Emil Kowalski, [skills](https://github.com/emilkowalski/skills) (`review-animations`), MIT, commit `2d22863` (2026-10-11).
 - [Hallmark](https://github.com/Nutlope/hallmark) (`skills/hallmark/references/slop-test.md`, `anti-patterns.md`), MIT, commit `13ac0ec` (2026-08-06).

@@ -39,9 +39,8 @@ Flödet mejl eller SMS → GitHub-ärende → `claude-code-action` → PR → f�
 
 | Väg | Det viktiga | Källa |
 |---|---|---|
-| Email Routing och Email Worker | Gratis på alla planer; `email()` i en Worker. Tar över domänens MX ⚠️, så intaget behöver en egen adress (→ `publicering.md`). | 📄 [Email Workers](https://developers.cloudflare.com/email-routing/email-workers/) via `kunskap/research/2026-10-15_kompetensluckor-anteckningar/lager-9-drift-forvaltning.md` |
+| Email Routing och Email Worker | Gratis på alla planer; `email()` i en Worker. Email Routing kräver Cloudflares egna MX-poster och kan inte användas bredvid en annan e-postleverantör på samma domän, så intaget behöver en egen adress (→ `publicering.md`). | 📄 [Email Workers](https://developers.cloudflare.com/email-routing/email-workers/); 📄 [Cloudflare Email Service, *Domain configuration*](https://developers.cloudflare.com/email-service/configuration/domains/) (*MX conflicts*, läst 2026-10-16) |
 | SMS via 46elks | `sms_url` på numret ger en `POST` med `id`, `from`, `to`, `message`, `direction` och `created`. Svaret måste vara 200–204, annars försöker 46elks igen i minst 6 timmar och minst 5 gånger. Mottagaren använder `id` så att samma SMS inte blir två ärenden. Sidan beskriver ingen signatur ⚠️. | 📄 [46elks, Receive SMS](https://46elks.com/docs/receive-sms) |
-| Resend Receiving | Tar emot mejl på en `resend.app`-adress eller en egen domän med MX. Mejlet skickas till en webhook, och bilagor hämtas via tillfälliga adresser. Pris och lagringstid står inte på sidan ⚠️. | 📄 [Resend, Receiving](https://resend.com/docs/dashboard/receiving/introduction) |
 
 Avsändaren kontrolleras mot kundens registrerade kontakter, och en okänd avsändare går till Johnny utan ärende (→ `guide/4-foretaget.md`).
 

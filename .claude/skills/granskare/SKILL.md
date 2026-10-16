@@ -1,6 +1,6 @@
 ---
 name: granskare
-description: Granskar en sajt, en riktning eller en provsida som Nortropic byggt – sätter domen med Johnnys låsta checklista och listar sedan premiumfynd om detaljfinish, slop, rörelse och gränssnittsfel; använd när något byggt ska granskas, få en dom eller premiumgranskas innan Johnny ser det.
+description: Granskar en sajt, en riktning eller en provsida som Nortropic byggt – sätter domen med Johnnys låsta checklista och listar sedan premiumfynd om uppgiften, detaljfinish, slop, rörelse och gränssnittsfel; använd när något byggt ska granskas, få en dom eller premiumgranskas innan Johnny ser det.
 ---
 
 # Granskaren
@@ -31,12 +31,13 @@ En fil, `sites/<namn>/reviews/<datum>-granskning.md`, i den här ordningen:
 1. **Domen** i checklistans form, med den maskinläsbara raden. Satt innan premiumpasset börjar.
 2. **Checklistans fynd** för egna sajter: element, förväntat, faktiskt, allvar och utfall (`fungerar`, `fungerar inte`, `för lite information`).
 3. **Premiumfynd**, en tabell: id ur [premium.md](premium.md), sida och bredd, element (selektor), faktiskt, förväntat, allvar, utfall och skärmdump. Ett grundfel per rad, med alla ställen det syns.
-4. **Täckning:** sidor, bredder, tillstånd och video som granskades, och det som fick `för lite information` med vad som saknades.
-5. **Vilket perspektiv saknas?** En rad (`guide/3-2`, N2).
+4. **Behåll:** högst fem saker som fungerar och inte får gå sönder när fynden rättas, var och en med element och sida. Varför: den som rättar ser annars bara bristerna och kan ta bort det som bar sajten. 📄 open-design, `critique` (*Keep*, Apache-2.0); 📄 Anthropic, `design-critique` (*What Works Well*, Apache-2.0).
+5. **Täckning:** sidor, bredder, tillstånd och video som granskades, och det som fick `för lite information` med vad som saknades.
+6. **Vilket perspektiv saknas?** En rad (`guide/3-2`, N2).
 
 ## Principer
 
-1. **Domen först, med checklistan ensam.** Premiumpasset körs efter domen och ändrar den inte. Varför: tröskeln är Johnnys, och i måttstocken godkände han sajter med synliga småfel – Citykiropraktikerns mobilmeny som bryts på två rader, den fasta listen som täcker heroknapparna – medan snyggt utförande ensamt inte räckte för NaturePure (`mallar/granskning.md`, *Johnnys exempel*; `mattstock/mattstock.md`). Finish är fynd, inte dom.
+1. **Domen först, med checklistan ensam och på bilderna.** Premiumpasset körs efter domen och ändrar den inte, och mätvärden, kontrollresultat och premiumunderlaget läses först när domen är skriven, så att siffrorna inte förankrar omdömet. 📄 webb-pros `GRANSKARE.md` (egen: betygen sätts innan stil- och copyrapporten öppnas); 📄 Tversky och Kahneman 1974, *Judgment under Uncertainty* (förankring). Varför: tröskeln är Johnnys, och i måttstocken godkände han sajter med synliga småfel – Citykiropraktikerns mobilmeny som bryts på två rader, den fasta listen som täcker heroknapparna – medan snyggt utförande ensamt inte räckte för NaturePure (`mallar/granskning.md`, *Johnnys exempel*; `mattstock/mattstock.md`). Finish är fynd, inte dom.
 2. **Mobilen först, sektion för sektion i full upplösning.** På en nedskalad helsidesbild syns inte detaljfelen (`guide/3-2`, fallgrop 147).
 3. **Ett fynd har ett belägg.** Ett element som går att peka ut i en skärmdump, eller ett uppmätt värde i px, tecken eller millisekunder. Går det inte att peka på är det inget fynd än. 📄 `mattstock/granskare/prompt.md` (*Kontrollera att skälet syns*); 📄 Krehel, `better-interface` (*Require evidence*, MIT); 📄 open-design, `critique` (*Always cite evidence*, Apache-2.0).
 4. **Tre utfall.** `för lite information` räknas aldrig som godkänt. Saknas ett tillstånd, en bredd eller en video skriver granskaren vad som saknas (→ `guide/3-2`).
@@ -59,6 +60,7 @@ En fil, `sites/<namn>/reviews/<datum>-granskning.md`, i den här ordningen:
 
 - En vanlig delagent och en egen delagentdefinition laddar byggsessionens `CLAUDE.md` om inget annat anges. Bara Explore och Plan startar utan. En egen definition med `omitClaudeMd: true` startar utan användarens och projektets `CLAUDE.md` (Claude Code 2.1.271 eller senare). En underkatalogs `CLAUDE.md`, som `sites/<namn>/CLAUDE.md`, laddas ändå när delagenten läser filer där. 📄 [Claude Code: Subagents](https://code.claude.com/docs/en/sub-agents), *What loads at startup* (läst 2026-10-16).
 - Därför: ge granskaren underlaget som kopior i en egen granskningskatalog där ingen `CLAUDE.md` finns i katalogkedjan, och skriv i uppdraget att den bara läser `mallar/granskning.md`, den här skillen och underlaget. Starta den som en namngiven delagent, aldrig som en fork som ärver samtalet (→ `guide/3-1`).
+- Rapportens form kan prövas av koden [N2]: en kommandohook på `SubagentStop`, eller på `PreToolUse` för `SubagentHandback`, läser rapporten och skickar tillbaka ett fynd som saknar element, förväntat, faktiskt eller kriterium (→ `guide/3-2`, *Fynden som JSON*). 📄 [Claude Code: Hooks](https://code.claude.com/docs/en/hooks) (`last_assistant_message` på `SubagentStop`).
 
 ## Kontrollista mot en sajt
 
@@ -67,8 +69,8 @@ Kör i ordning. Varje punkt slutar när utfallet är skrivet.
 1. **Underlaget är komplett** enligt [underlag.md](underlag.md), annars `för lite information` med vad som saknas.
 2. **Domen** enligt `mallar/granskning.md`, med tröskelhypotes, dom, avgörande, *För godkänt* eller det som gör den bra, *Spelar ingen roll* och JSON-raden.
 3. **Checklistans tre punkter för egna sajter:** primär handling utan lekfulla hinder, ytan följer kitet, varje faktapåstående finns i `fakta.md`.
-4. **Premiumpasset**, alla fyra grupper i [premium.md](premium.md), på varje sida i 375 och 1280 px och i tillstånden: detaljfinish (PF), slop (PS), rörelse (PR) och gränssnittsfel (PG).
-5. **Täckningen** är skriven, med varje `för lite information`.
+4. **Premiumpasset**, alla fem grupper i [premium.md](premium.md), på varje sida i 375 och 1280 px och i tillstånden: uppgiften (PU), detaljfinish (PF), slop (PS), rörelse (PR) och gränssnittsfel (PG). PU1 är klar när varje steg i den primära handlingen och varje toppuppgift i briefen har sina fyra svar.
+5. **Täckningen** och **Behåll** är skrivna, med varje `för lite information`.
 6. **Konsolidera:** ett grundfel per rad, sorterat på allvar och sedan räckvidd, högst 15 premiumfynd.
 
 Vad granskningen inte dömer: hastighet, kontrast, SEO och kod sköts av kontrollskriptet (`mallar/granskning.md`, *Det du inte dömer*; `guide/bilaga-c-kontroller.md`). Ett premiumfynd som en kontroll redan fångar skrivs inte igen.
