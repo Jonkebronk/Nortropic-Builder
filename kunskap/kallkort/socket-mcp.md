@@ -48,3 +48,4 @@ Ja. Den rör inte sajterna och läser bara npm-namn. Den fungerar lika för Astr
 - **Krävs:** ett Socket-konto på Free-planen. Johnny loggar in med OAuth via `/mcp` → *Authenticate* i byggsessionen. Ingen nyckel i chatten.
 - **I dag:** servern `socket` ligger i lokal scope för repot (`~/.claude-bygg/.claude.json`) som `http` mot `https://mcp.socket.dev/`. Verktygslåset läste verktygslistan utan inloggning (`inventering/mcp-servrar.json` saknar `inloggning`). Om `depscore` svarar utan inloggning är inte prövat ⚠️.
 - **Fungerar inte OAuth** (#185): skapa en API-token i Socket-instrumentpanelen och kör servern själv-hostad (`docs/service.md`). Johnny lägger in token i ett eget terminalfönster.
+- **Väntar** (`BESLUT.md` 2026-10-16, 20.11). Verktygslåset fick HTTP 400 på `tools/list` samma kväll; orsaken är inte utredd ⚠️.

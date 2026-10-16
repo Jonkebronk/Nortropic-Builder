@@ -1417,3 +1417,15 @@ Claude förklarade Grounding Lite ur `kunskap/kallkort/google-maps-grounding-lit
 **Innebär:**
 - Ingen nyckel och ingen fakturering för Grounding Lite nu. Servern ligger kvar i byggsessionen utan nyckel; den låses ändå, eftersom verktygslistan är öppen.
 - Kundens platslänk och place_id hämtas för hand ur Google Maps tills vidare.
+
+## 2026-10-16: Socket väntar
+
+**Status:** gäller. Ändrar *Alla MCP:er in nu …* (17.05) för Socket.
+
+Claude räknade upp läget för MCP-servrarna: Socket väntade på Johnnys inloggning och hade samma kväll svarat med HTTP 400 i verktygslåset. Johnny, kl. 20.11:
+
+> vi kan vänta med socket, vad är det egentligen?
+
+**Innebär:**
+- Ingen inloggning hos Socket nu. Servern ligger kvar i byggsessionen, och verktygslåset fortsätter att rapportera felet.
+- Nya paket prövas som förut med intagslistan (`npm view <paket> scripts` och `npm audit`) tills Socket tas in.
