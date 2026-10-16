@@ -26,3 +26,6 @@ Thumbs.db
 # Kundsajter är egna privata repon (guide/bilaga-f-projektstruktur.md)
 sites/
 
+
+# Verktygens utdata (Playwright MCP skriver snapshots och konsolloggar av sajterna här; repot är publikt)
+.playwright-mcp/
