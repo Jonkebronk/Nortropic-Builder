@@ -131,7 +131,7 @@ Johnny beslutade omkring 12.11 att kompetensen ur inventeringen ska in i alla la
   - hover bara med mus, färg vid hover och tryck och en kort tryckkvittens; menyn tar fokus och bakgrunden tonas
   - *Sök vård direkt* enligt 1177 (sex tecken, akutmottagningen och 1177), flyttad före processen och avgränsad
   - raden *I dag* visar nästa mottagning efter stängning; kartan laddas direkt på ortssidorna (LCP)
-  - faktakortet syns också i mobilen; kontaktsidan har ett kort med telefon och e-post
+  - faktakortet syns också i mobilen (ett kort på kontaktsidan prövades och ströks, eftersom det upprepade *Var och när*)
   - Om-sidan: h1 börjar med menyns namn (G4); processens rubriker berättar; aktiv form; samma ord för samma sak; länkar till mottagningarna
   - stjärnan i textfärg (G3); ny ryggradsikon, prövad blint; kvittot i samtyckesrutan säger vad man valde
   - måttlig rörelse animerar inte första skärmen (B3); mjuk rullning bara utan reducerad rörelse; knapplisten är ett landmärke
