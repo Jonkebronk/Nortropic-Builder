@@ -937,3 +937,24 @@ Svarsalternativet löd: *"Samtyckesverktyget byggs i biblioteket enligt PTS krav
 **Innebär:**
 - Biblioteket får ett samtyckesverktyg. En sajt utan statistik eller annonser har ingen banner.
 - Statistik och annonser med kakor är ett prissatt tillval (`4-foretaget.md`).
+
+## 2026-10-16: Cloudflare Pro och månadsrapportens källor
+
+**Status:** gäller.
+
+Claude förklarade att månadsrapporten inte behöver Google Analytics. Siffrorna kommer från bokningssystemet, Google-profilen, Search Console och Cloudflare. Cloudflares gratisnivå ger bara förfrågningar, unika besökare och länder. Pro ger sidvisningar, besök, sidor och hänvisande sajter ur serverloggarna, utan skript och kakor. Johnny, omkring 06:56:
+
+> vi kommer ha cloudflare pro ja, detta låter bra
+
+**Innebär:**
+- **Cloudflare Pro på varje publicerad kundsajt,** för 20 dollar i månaden vid årsbetalning eller 25 dollar vid månadsbetalning (📄 [Cloudflare, planer](https://www.cloudflare.com/plans/network-cdn/), läst 2026-10-16). Statistiken bygger på serverloggarna, *"with no need for third party scripts or trackers"*, och ger sidvisningar, besök och filter på sida, hänvisande sajt och land (📄 [Cloudflare, Zone Analytics](https://developers.cloudflare.com/analytics/account-and-zone-analytics/zone-analytics/)). Kostnaden ingår i förvaltningen.
+- **Månadsrapporten bygger på:**
+  - bokningssystemet, som mäter nordstjärnan
+  - Google-profilen: samtal, vägbeskrivningar, klick och visningar
+  - Search Console: sökord och klick
+  - Bing AI Performance och AEO-mätningen
+  - drifttidsvakten och kontrollskriptet
+  - Cloudflare Pro: besök, sidor och hänvisande sajter
+
+  Google Analytics behövs inte för rapporten.
+- **Google Analytics, Google Ads och Meta** är tillval med samtycke, för kunder som annonserar (beslutet *Kakor och samtycke vid behov*).

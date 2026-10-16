@@ -10,7 +10,7 @@ Lagret gör sajten till något som fungerar: den bygger, är snabb, tillgänglig
 
 | Sajttyp | Stack | Cloudflare-plan |
 |---|---|---|
-| **A. Informationssajt med formulär** (standard) | Astro statiskt som Worker med statiska tillgångar; Worker-route för formuläret; Turnstile; D1 i EU; mejl via Resend; edge-analys | Free (+ Resend) |
+| **A. Informationssajt med formulär** (standard) | Astro statiskt som Worker med statiska tillgångar; Worker-route för formuläret; Turnstile; D1 i EU; mejl via Resend; statistik ur serverloggarna | **Pro** på zonen för statistiken, 20 USD/mån vid årsbetalning (`BESLUT.md` 2026-10-16) (+ Resend) |
 | B. Inloggning | Som A + Supabase Auth med RLS; Astro SSR med `@astrojs/cloudflare` | Workers Paid ($5/mån) + Supabase |
 | C. Databas | Som A + D1 som huvuddatabas; Supabase bara för redigeringsvy eller relationer; R2 för bilder | Free, Paid vid tillväxt |
 | D. Bokning | Worker + D1; Durable Objects mot dubbelbokning; Cron Triggers för påminnelser | Workers Paid |
@@ -66,7 +66,8 @@ Innehåll skilt från design: texterna → `2-7-innehall.md`, komponenterna → 
   - Google-Extended, som också styr Geminis grounding
 
   Robotarna för träning (GPTBot, Applebot-Extended) är kundens val, och standard är att släppa in dem. Att stänga ute dem påverkar inte sökningen. Om sajten publiceras ska samma robotar också släppas igenom i Cloudflares AI-blockering (*Steg 5* nedan). Ingen `llms.txt`: Google säger *"You don't need to create new machine readable files, AI text files, or markup"*, och ingen leverantör har lovat att läsa filen. Kontroll 7c. 📄 Google, OpenAI, Perplexity och Apple om sina robotar, via `kunskap/research/2026-10-16_seo-aeo-geo.md` (`BESLUT.md` 2026-10-16)
-- [N2] **Analys: Cloudflares edge-analys,** som bygger på serverloggar och inte kör kod hos besökaren. **Konverteringar räknas i D1** – inskicken, utan kakor. Telefonklick syns inte utan skript i webbläsaren (🔧 härlett). 📄 dataöverföringsresearchen §4.3, §5.1; research §5
+- [N1] **Statistik: Cloudflare Pro, ur serverloggarna** (om sajten publiceras). Den ger sidvisningar, besök och filter på sida, hänvisande sajt och land, *"with no need for third party scripts or trackers"*. Därför behövs varken kakor eller samtycke ⚖️. Gratisnivån ger bara förfrågningar, unika besökare och de fem största länderna. Alla nivåer sparar minst 30 dagar, så månadens siffror hämtas till ögonblicksbilden varje månad (📄 [Cloudflare, Zone Analytics](https://developers.cloudflare.com/analytics/account-and-zone-analytics/zone-analytics/); [ändringsloggen 2026-10-02](https://developers.cloudflare.com/changelog/post/2026-10-02-30-days-analytics-on-every-plan/); `BESLUT.md` 2026-10-16). Google Analytics, Google Ads och Meta är tillval med samtycke för kunder som annonserar.
+- [N2] **Konverteringar räknas i D1** – inskicken, utan kakor. Telefonklick syns inte utan skript i webbläsaren (🔧 härlett). 📄 dataöverföringsresearchen §4.3, §5.1; research §5
 - [N1] **Integritetspolicy på alla sajter, på sidan *Integritet och kakor*** (GDPR art. 13; IMY), också utan formulär, eftersom värdens loggar innehåller IP-adresser. Innehållet följer dataöverföringsresearchen §5.2:
   - ansvarig (kunden) med kontaktuppgifter
   - ändamål och rättslig grund per behandling: besöket och värdens loggar, bokning, samtal och mejl, formuläret om det finns
