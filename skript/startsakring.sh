@@ -36,7 +36,7 @@ fi
 #    en nyare LTS-linje rapporteras och byts efter beslut.
 rubrik "Homebrew"
 if command -v brew >/dev/null 2>&1; then
-  formler="gh git poppler python@3.12 $(brew list --formula 2>/dev/null | grep -E '^node@[0-9]+$' | tr '\n' ' ')"
+  formler="gh git poppler python@3.12 uv $(brew list --formula 2>/dev/null | grep -E '^node@[0-9]+$' | tr '\n' ' ')"
   brew update >/dev/null 2>&1
   gamla="$(brew outdated --formula --quiet $formler 2>/dev/null)"
   if [[ -z "$gamla" ]]; then echo "senaste: $formler"
@@ -101,6 +101,11 @@ claude mcp list 2>&1 | sed -E 's/(Key|key|token|Token|Bearer)[^ ]*:? *[^ ]+/\1 <
 for p in $(claude mcp list 2>/dev/null | grep -oE 'npx -y [^ ]+@latest' | awk '{print $3}' | sed 's/@latest$//' | sort -u); do
   echo "$p: senaste är $(npm view "$p" version 2>/dev/null)"
 done
+# Verktygslåset: varje servers verktygslista och instruktioner jämförs med den låsta (BESLUT.md 2026-10-16, Senaste version
+# med verktygslås …). En ändring rapporteras och godtas av Johnny med: python3 -I skript/mcp-verktygslas.py --uppdatera
+while IFS= read -r rad; do
+  echo "$rad"; [[ "$rad" == ⚠️* ]] && varningar+=("MCP: ${rad#⚠️ }")
+done < <(python3 -I "$ROT/skript/mcp-verktygslas.py" 2>&1 | grep -v 'kräver inloggning')
 
 # 5. Plugins och marknadsplatser
 rubrik "Plugins"

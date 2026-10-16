@@ -24,4 +24,4 @@ Urvalskriterierna står i `guide/bilaga-a-verktyg.md`. Inget här är installera
 
 **Skript före MCP.** De schemalagda kontrollerna och rapportens hämtning är skript mot officiella API:er. En MCP används när någon undersöker (→ `guide/2-9-drift-och-forvaltning.md`).
 
-**Låsta versioner.** Varje MCP-server och varje verktyg prövas med låst version (→ `guide/2-9-drift-och-forvaltning.md`, fallgrop 98). seo-monster rättade i augusti 2026 att nya installationer gick sönder när MCP SDK 2 släpptes, alltså samma problem som mcp-gsc hade i juli.
+**Senaste version och verktygslås.** Varje MCP-server och varje verktyg följer startsäkringen till senaste version, och verktygslåset rapporterar när en servers verktyg eller instruktioner ändras (→ `guide/bilaga-a-verktyg.md`; `BESLUT.md` 2026-10-16). En version låses bara när en uppdatering har gått sönder (fallgrop 98). seo-monster rättade i augusti 2026 att nya installationer gick sönder när MCP SDK 2 släpptes, alltså samma problem som mcp-gsc hade i juli.

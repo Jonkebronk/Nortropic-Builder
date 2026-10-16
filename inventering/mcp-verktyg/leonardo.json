@@ -1,0 +1,240 @@
+{
+ "instruktioner": null,
+ "server": "leonardo",
+ "verktyg": [
+  {
+   "annoteringar": null,
+   "beskrivning": "Check contrast ratio between foreground and background. Returns ratio and WCAG 2 AA/AAA pass/fail, or APCA Lc when method is wcag3.",
+   "indata": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": false,
+    "properties": {
+     "background": {
+      "type": "string"
+     },
+     "foreground": {
+      "type": "string"
+     },
+     "method": {
+      "enum": [
+       "wcag2",
+       "wcag3"
+      ],
+      "type": "string"
+     }
+    },
+    "required": [
+     "foreground",
+     "background"
+    ],
+    "type": "object"
+   },
+   "namn": "check-contrast"
+  },
+  {
+   "annoteringar": null,
+   "beskrivning": "Convert a color value to another format (HEX, RGB, HSL, LCH, etc.).",
+   "indata": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": false,
+    "properties": {
+     "color": {
+      "type": "string"
+     },
+     "format": {
+      "enum": [
+       "HEX",
+       "RGB",
+       "HSL",
+       "HSV",
+       "HSLuv",
+       "LAB",
+       "LCH",
+       "OKLAB",
+       "OKLCH",
+       "CAM02",
+       "CAM02p"
+      ],
+      "type": "string"
+     }
+    },
+    "required": [
+     "color",
+     "format"
+    ],
+    "type": "object"
+   },
+   "namn": "convert-color"
+  },
+  {
+   "annoteringar": null,
+   "beskrivning": "Create an interpolated color scale from color keys (no contrast targeting).",
+   "indata": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": false,
+    "properties": {
+     "colorKeys": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array"
+     },
+     "colorspace": {
+      "enum": [
+       "LCH",
+       "LAB",
+       "RGB",
+       "HSL",
+       "HSV",
+       "HSLuv",
+       "CAM02",
+       "CAM02p",
+       "OKLAB",
+       "OKLCH"
+      ],
+      "type": "string"
+     },
+     "distributeLightness": {
+      "enum": [
+       "linear",
+       "polynomial"
+      ],
+      "type": "string"
+     },
+     "fullScale": {
+      "type": "boolean"
+     },
+     "shift": {
+      "type": "number"
+     },
+     "smooth": {
+      "type": "boolean"
+     },
+     "sortColor": {
+      "type": "boolean"
+     },
+     "steps": {
+      "minimum": 2,
+      "type": "integer"
+     }
+    },
+    "required": [
+     "colorKeys",
+     "steps"
+    ],
+    "type": "object"
+   },
+   "namn": "create-palette"
+  },
+  {
+   "annoteringar": null,
+   "beskrivning": "Generate a contrast-based color theme. Returns theme.contrastColors JSON ready for design tokens.",
+   "indata": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": false,
+    "properties": {
+     "backgroundColor": {
+      "$ref": "#/properties/colors/items"
+     },
+     "colors": {
+      "items": {
+       "additionalProperties": false,
+       "properties": {
+        "colorKeys": {
+         "items": {
+          "type": "string"
+         },
+         "type": "array"
+        },
+        "colorspace": {
+         "enum": [
+          "LCH",
+          "LAB",
+          "RGB",
+          "HSL",
+          "HSV",
+          "HSLuv",
+          "CAM02",
+          "CAM02p",
+          "OKLAB",
+          "OKLCH"
+         ],
+         "type": "string"
+        },
+        "name": {
+         "type": "string"
+        },
+        "ratios": {
+         "anyOf": [
+          {
+           "items": {
+            "type": "number"
+           },
+           "type": "array"
+          },
+          {
+           "additionalProperties": {
+            "type": "number"
+           },
+           "type": "object"
+          }
+         ]
+        }
+       },
+       "required": [
+        "name",
+        "colorKeys",
+        "ratios"
+       ],
+       "type": "object"
+      },
+      "type": "array"
+     },
+     "contrast": {
+      "type": "number"
+     },
+     "formula": {
+      "enum": [
+       "wcag2",
+       "wcag3"
+      ],
+      "type": "string"
+     },
+     "lightness": {
+      "maximum": 100,
+      "minimum": 0,
+      "type": "number"
+     },
+     "output": {
+      "enum": [
+       "HEX",
+       "RGB",
+       "HSL",
+       "HSV",
+       "HSLuv",
+       "LAB",
+       "LCH",
+       "OKLAB",
+       "OKLCH",
+       "CAM02",
+       "CAM02p"
+      ],
+      "type": "string"
+     },
+     "saturation": {
+      "maximum": 100,
+      "minimum": 0,
+      "type": "number"
+     }
+    },
+    "required": [
+     "colors",
+     "backgroundColor",
+     "lightness"
+    ],
+    "type": "object"
+   },
+   "namn": "generate-theme"
+  }
+ ]
+}

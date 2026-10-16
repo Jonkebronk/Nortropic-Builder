@@ -1,0 +1,25 @@
+{
+ "instruktioner": null,
+ "server": "Astro Docs server",
+ "verktyg": [
+  {
+   "annoteringar": null,
+   "beskrivning": "Search the official Astro framework docs",
+   "indata": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": false,
+    "properties": {
+     "query": {
+      "description": "Search query",
+      "type": "string"
+     }
+    },
+    "required": [
+     "query"
+    ],
+    "type": "object"
+   },
+   "namn": "search_astro_docs"
+  }
+ ]
+}

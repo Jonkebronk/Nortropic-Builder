@@ -1227,3 +1227,39 @@ Claude lade fram serien i `guide/5-byggplan.md` och frågade om ordningen och om
 > jag godtar båda.
 
 **Innebär:** serien och ordningen gäller: klinik (klar), hantverk, restaurang, butik, konsult, skönhet och tjänst eller event, med tillvalen i tabellen. En bransch där Johnny har erfarenhet eller nätverk får gå först när han nämner den; ingen är nämnd, så ordningen gäller.
+
+## 2026-10-16: Senaste version med verktygslås, Mobbin, måttlig rörelse på video och MCP på övningssajten först
+
+**Status:** gäller.
+
+Claude lade fram andra varvets förslag (`kunskap/research/2026-10-16_andra-varvet.md`). Johnny svarade omkring 17.00 på punkterna 2, 3 och 5 och frågade om MCP:
+
+> 2. Ja till förslaget
+> 3. Har fått OK av Mobbin.
+> 5. Ja
+>
+> Vi ska väl köra MCPs på denna övningsajt först innan vi går vidare till en ny?
+
+Punkt 2 var: guiden kräver låst version, beslutet säger alltid senaste; förslaget var senaste version plus ett verktygslås i startsäkringen. Punkt 3 gällde Mobbins villkor om AI och "derivative works". Punkt 5 var att döma måttlig rörelse på video igen, nu när den körs i bygget.
+
+**Innebär:**
+- **Senaste version gäller också för MCP-servrar.** Verktygslåset i startsäkringen sparar varje servers verktygslista och instruktioner och rapporterar ändringar, som Johnny ser innan servern används. En version låses bara när en uppdatering har gått sönder, med en rad här. "Låst version" stryks ur bilaga A, `guide/2-9` och `drift/verktyg.md`.
+- **Mobbin:** Johnny har fått klartecken från Mobbin. Mobbin kopplas in när han loggar in.
+- **Måttlig rörelse döms på video igen.**
+- **MCP-servrarna prövas på övningssajten innan nästa övningssajt börjar.** Servrarna utan konto läggs till nu och fungerar från nästa session; de som kräver konto loggar Johnny in i en ny session, och sedan körs varje servers prov.
+
+## 2026-10-16: Alla MCP:er in nu, och claude.ai-connectorerna släpps på
+
+**Status:** gäller. Ändrar avgränsningen i `guide/3-3-sakerhet-och-installningar.md` (byggsessionen stängde av claude.ai-connectorer med `disableClaudeAiConnectors`).
+
+Johnny försökte lägga till MCP-servrar och kunde inte. Johnny, omkring 17.05:
+
+> jag kan inte lägga till mcps då vi verkar ha begränst det här, vi ska ha in ALLA mcps nu.
+
+Spärren var `"disableClaudeAiConnectors": true` i `~/.claude-bygg/settings.json`, satt när byggsessionen avgränsades 2026-10-15. Den stänger av connectorerna från claude.ai, bland dem Mobbin, Figma och Cloudflare i Anthropics katalog.
+
+**Innebär:**
+- `disableClaudeAiConnectors` tas bort, så att claude.ai-connectorerna går att koppla in i byggsessionen.
+- Alla MCP-servrar i inventeringen läggs till i byggsessionen (lokal scope, aldrig `.mcp.json` i det publika repot). Servrar utan konto fungerar direkt; Johnny loggar in på dem med OAuth via `/mcp` och lägger själv in nycklar i ett eget terminalfönster. Nycklar klistras aldrig in i chatten.
+- Verktygslåset (`skript/mcp-verktygslas.py`) låser varje servers verktygslista när den första gången går att läsa och rapporterar ändringar vid varje startsäkring.
+- Andra varvets varningar gäller fortfarande som råd, och Johnny avgör vid inloggningen: Cloudflare med läs-token hellre än OAuth, aldrig Anthropics connector *Cloudflare Developer Platform* (den kan radera KV, R2 och D1), mcp-gsc kräver skrivomfång i Search Console, Grounding Lites villkor om lagring är en fråga till juristen, och nanobananas standardmodeller är avvecklade.

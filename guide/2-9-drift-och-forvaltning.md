@@ -93,11 +93,11 @@ Schemalagda kontroller hör till förvaltningen (N3). Den första sajten har ing
 Förvaltningen ska se om sajten hittas, inte bara om den fungerar (fallgrop 121). Utredningen: `kunskap/research/2026-10-14_kopplingar-per-kund.md`.
 
 - [N3] **Egna egendomar och egen inloggning per kund; åtkomst delas aldrig mellan kunder.** Egendomarna verifieras med DNS vid lanseringen (→ `2-8`); kundens godkännande av villkor och identitet är mänskliga steg.
-- [N3] **Search Console läses som begränsad användare** (📄 `kunskap/research/2026-10-14_stitch-och-verktyg.md`, delvis bekräftat ⚠️). Sitemap kräver full behörighet och skickas in av Johnny vid lanseringen. mcp-gsc prövas för undersökning, med låst version och utan skrivverktyg (→ `bilaga-a-verktyg.md`).
+- [N3] **Search Console läses som begränsad användare** (📄 `kunskap/research/2026-10-14_stitch-och-verktyg.md`, delvis bekräftat ⚠️). Sitemap kräver full behörighet och skickas in av Johnny vid lanseringen. mcp-gsc prövas för undersökning, utan skrivverktyg och med verktygslåset (→ `bilaga-a-verktyg.md`).
 - [N3] **Google Business Profile saknar roll med bara läsrätt** – manager är lägsta (📄 samma rapport). Läsbegränsningen ligger därför hos oss: en egen tunn klient som bara läser, och skrivande anrop blockeras (→ `3-3`). Ändringar i profilen går som förslag till Johnny, recensionssvar som utkast till ägaren. API-ansökan besvaras inom 14 dagar och kräver en profil verifierad i minst 60 dagar – ansök nu (`LAGE.md`).
 - [N3] **Analys:** förfrågningar räknas i D1, trafik enligt valet i `2-8`; GA4 bara som tillval bakom samtycke.
 - [N3] **Cloudflare, prestanda, e-post:** `cloudflare/mcp` med en läs-token för rapport och övervakning och en separat, smal token för DNS och publicering; CrUX API med API-nyckel; e-post, också rapportutskicket, via Cloudflare (`BESLUT.md` 2026-10-16). 📄 anteckningarna, fråga 1 (domarna är förslag, → `bilaga-a-verktyg.md`)
-- [N3] **Kopplingar prövas som andra verktyg, med låst version** (→ `bilaga-a-verktyg.md`): i juli 2026 kraschade alla nya installationer av mcp-gsc när ett beroende släppte en ny huvudversion (fallgrop 98; 📄 anteckningarna, fråga 1).
+- [N3] **Kopplingar prövas som andra verktyg: senaste version, verktygslåset och startsäkringens bygge efteråt** (→ `bilaga-a-verktyg.md`; `BESLUT.md` 2026-10-16). I juli 2026 kraschade alla nya installationer av mcp-gsc när ett beroende släppte en ny huvudversion (fallgrop 98; 📄 anteckningarna, fråga 1); en sådan server låses då, med en rad i `BESLUT.md`.
 
 ### Lärdomar tillbaka till bygget
 

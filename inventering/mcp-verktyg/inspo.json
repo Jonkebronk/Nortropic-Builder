@@ -1,0 +1,913 @@
+{
+ "instruktioner": "Inspo is an archive of real production websites - screenshots, palettes, fonts and page structures - for visual reference before you write UI.  CALL IT WHEN: designing a new page, screen or section; redesigning an existing one; the user asks what something should look like, or asks for references; the brief names an aesthetic direction (editorial, brutalist, dark SaaS, agency portfolio).  DO NOT CALL IT WHEN: the project already has a design system, tokens or a component library - follow those instead; the change follows a pattern already established in the codebase; the work is copy, logic, tests or infrastructure; the user has already specified the design. If the project's own conventions and Inspo disagree, the project wins.  Start with `recommend` for a brief, `search_screens` to browse; `get_filters` lists every accepted filter value. These are real shipped sites and plenty of them break rules a strict linter would flag: take their composition, not their compliance. The composition rules for whatever you build travel back with the results.  BUDGET: one `recommend`, one or two `search_screens`, then `get_screen` on the three to five references you keep is a complete study; results are re-read on every later turn, so a fourth search costs more than it finds. List rows carry the fold autopsy on the top three only; ask for detail:\"full\" only if you will read all of them. `find_reference_components` is an index; fetch one source with `get_reference_jsx`.",
+ "server": "inspo",
+ "verktyg": [
+  {
+   "annoteringar": {
+    "destructiveHint": false,
+    "idempotentHint": true,
+    "openWorldHint": false,
+    "readOnlyHint": true
+   },
+   "beskrivning": "Compare 2-4 captured sites across palette, typefaces, macrostructure, mode, style tags, type/spacing/radius scales and container width. Returns per-site breakdowns plus what they share - triangulates a house style from a few references.",
+   "indata": {
+    "properties": {
+     "slugs": {
+      "description": "2-4 screen slugs to compare, e.g. ['linear-app','stripe-com','vercel-com']. Discover slugs with search_screens / find_similar.",
+      "items": {
+       "type": "string"
+      },
+      "maxItems": 4,
+      "minItems": 2,
+      "type": "array"
+     }
+    },
+    "required": [
+     "slugs"
+    ],
+    "type": "object"
+   },
+   "namn": "compare"
+  },
+  {
+   "annoteringar": {
+    "destructiveHint": false,
+    "idempotentHint": true,
+    "openWorldHint": false,
+    "readOnlyHint": true
+   },
+   "beskrivning": "Real sites whose extracted palette sits near a hex colour (OKLAB distance, so 'close' means the same colour family, not just the same hue). Use when a brief names a brand colour.",
+   "indata": {
+    "properties": {
+     "detail": {
+      "description": "'standard' (default): northstar, palette, fonts, axes, macro and tags per row, plus the fold-by-fold autopsy on the top 3. 'full': the autopsy on every row (~300 tokens each; only if you will read them all). 'concise': northstar, palette, fonts. Text profile defaults to concise.",
+      "enum": [
+       "concise",
+       "standard",
+       "full"
+      ],
+      "type": "string"
+     },
+     "hex": {
+      "description": "Target colour as a hex string ('#c7402f', 'c7402f', '#fff'). Case-insensitive. 3- or 6-digit.",
+      "type": "string"
+     },
+     "limit": {
+      "default": 12,
+      "maximum": 40,
+      "minimum": 1,
+      "type": "integer"
+     },
+     "maxTokens": {
+      "description": "Approximate token ceiling for this response. Trims lower-ranked results and thumbnails; the top result and all URLs survive.",
+      "maximum": 200000,
+      "minimum": 300,
+      "type": "integer"
+     },
+     "tolerance": {
+      "default": 0.15,
+      "description": "Max OKLAB distance to count as a match. Defaults to 0.15 ('same family'). 0.05 ≈ 'near-identical', 0.30 ≈ 'in the same hue zip code'.",
+      "maximum": 0.5,
+      "minimum": 0.02,
+      "type": "number"
+     }
+    },
+    "required": [
+     "hex"
+    ],
+    "type": "object"
+   },
+   "namn": "find_by_color"
+  },
+  {
+   "annoteringar": {
+    "destructiveHint": false,
+    "idempotentHint": true,
+    "openWorldHint": false,
+    "readOnlyHint": true
+   },
+   "beskrivning": "Real sites featuring a specific UI component (hero, pricing, features, cta, nav, footer, testimonial, logo-cloud, faq, stat), with a per-element crop where one exists. For copy-pasteable code use get_reference_jsx.",
+   "indata": {
+    "properties": {
+     "color": {
+      "description": "Color word - 'warm', 'cool', 'monochrome', etc.",
+      "enum": [
+       "warm",
+       "cool",
+       "monochrome",
+       "neon",
+       "earthy",
+       "pastel",
+       "saturated",
+       "muted",
+       "high-contrast"
+      ],
+      "type": "string"
+     },
+     "device": {
+      "description": "'mobile' restricts to sites with a 375px capture pair and inlines the mobile thumbnail. Default: desktop.",
+      "enum": [
+       "desktop",
+       "mobile"
+      ],
+      "type": "string"
+     },
+     "industry": {
+      "enum": [
+       "agency",
+       "ai",
+       "architecture",
+       "automotive",
+       "consumer-tech",
+       "creator",
+       "crypto",
+       "culture",
+       "developer-tools",
+       "ecommerce",
+       "education",
+       "fashion",
+       "fintech",
+       "food-beverage",
+       "furniture",
+       "gaming",
+       "health",
+       "media",
+       "music",
+       "non-profit",
+       "portfolio",
+       "saas",
+       "travel",
+       "type-foundry"
+      ],
+      "type": "string"
+     },
+     "limit": {
+      "default": 12,
+      "maximum": 40,
+      "minimum": 1,
+      "type": "integer"
+     },
+     "macrostructure": {
+      "enum": [
+       "bento-grid",
+       "long-document",
+       "marquee-hero",
+       "stat-led",
+       "conversational-faq",
+       "manifesto",
+       "photographic",
+       "specimen",
+       "catalogue",
+       "letter",
+       "index-first",
+       "narrative-workflow",
+       "split-studio",
+       "feature-stack",
+       "type-specimen",
+       "portfolio-grid",
+       "map-diagram",
+       "ecosystem-index",
+       "component-playground"
+      ],
+      "type": "string"
+     },
+     "maxTokens": {
+      "description": "Approximate token ceiling for this response. Trims lower-ranked results and thumbnails; the top result and all URLs survive.",
+      "maximum": 200000,
+      "minimum": 300,
+      "type": "integer"
+     },
+     "mode": {
+      "enum": [
+       "light",
+       "dark"
+      ],
+      "type": "string"
+     },
+     "pageType": {
+      "description": "Only components from this page kind (e.g. 'pricing')",
+      "enum": [
+       "landing",
+       "pricing",
+       "features",
+       "auth",
+       "about",
+       "blog",
+       "changelog",
+       "docs",
+       "other"
+      ],
+      "type": "string"
+     },
+     "style": {
+      "description": "Filter the parent site's style",
+      "enum": [
+       "minimalism",
+       "editorial",
+       "brutalism",
+       "glassmorphism",
+       "swiss",
+       "maximalism",
+       "playful",
+       "dark-mode",
+       "monochrome",
+       "vintage",
+       "futurist"
+      ],
+      "type": "string"
+     },
+     "type": {
+      "description": "Which component type to find",
+      "enum": [
+       "hero",
+       "pricing",
+       "features",
+       "cta",
+       "nav",
+       "footer",
+       "testimonial",
+       "logo-cloud",
+       "faq",
+       "stat"
+      ],
+      "type": "string"
+     },
+     "vibe": {
+      "description": "Mood - 'calm', 'loud', 'luxe', etc.",
+      "enum": [
+       "calm",
+       "loud",
+       "playful",
+       "serious",
+       "luxe",
+       "raw",
+       "soft",
+       "technical",
+       "warm",
+       "cold"
+      ],
+      "type": "string"
+     }
+    },
+    "required": [
+     "type"
+    ],
+    "type": "object"
+   },
+   "namn": "find_components"
+  },
+  {
+   "annoteringar": {
+    "destructiveHint": false,
+    "idempotentHint": true,
+    "openWorldHint": false,
+    "readOnlyHint": true
+   },
+   "beskrivning": "Real sites exemplifying one of the 19 named macrostructures. Call it at the macrostructure-pick step. Accepts slugs ('bento-grid') or display names ('Bento Grid').",
+   "indata": {
+    "properties": {
+     "detail": {
+      "description": "'standard' (default): northstar, palette, fonts, axes, macro and tags per row, plus the fold-by-fold autopsy on the top 3. 'full': the autopsy on every row (~300 tokens each; only if you will read them all). 'concise': northstar, palette, fonts. Text profile defaults to concise.",
+      "enum": [
+       "concise",
+       "standard",
+       "full"
+      ],
+      "type": "string"
+     },
+     "device": {
+      "description": "'mobile' restricts to sites with a 375px capture pair and inlines the mobile thumbnail. Default: desktop.",
+      "enum": [
+       "desktop",
+       "mobile"
+      ],
+      "type": "string"
+     },
+     "limit": {
+      "default": 4,
+      "maximum": 20,
+      "minimum": 1,
+      "type": "integer"
+     },
+     "maxTokens": {
+      "description": "Approximate token ceiling for this response. Trims lower-ranked results and thumbnails; the top result and all URLs survive.",
+      "maximum": 200000,
+      "minimum": 300,
+      "type": "integer"
+     },
+     "name": {
+      "description": "Macrostructure name. e.g. 'bento-grid', 'Bento Grid', 'specimen', 'Marquee Hero'.",
+      "type": "string"
+     }
+    },
+    "required": [
+     "name"
+    ],
+    "type": "object"
+   },
+   "namn": "find_examples_for_macrostructure"
+  },
+  {
+   "annoteringar": {
+    "destructiveHint": false,
+    "idempotentHint": true,
+    "openWorldHint": false,
+    "readOnlyHint": true
+   },
+   "beskrivning": "The canonical reference components as an index: id, label, macrostructure and a note for each hero / pricing / cta / nav / footer archetype. Pick one, then get_reference_jsx(type, id) for its source.",
+   "indata": {
+    "properties": {
+     "macro": {
+      "description": "Substring match on the component's macro field - e.g. 'Marquee' matches 'Marquee Hero'.",
+      "type": "string"
+     },
+     "type": {
+      "description": "Component category (hero, pricing, cta, …). Omit to scan all types.",
+      "enum": [
+       "hero",
+       "pricing",
+       "features",
+       "cta",
+       "nav",
+       "footer",
+       "testimonial",
+       "logo-cloud",
+       "faq",
+       "stat"
+      ],
+      "type": "string"
+     }
+    },
+    "type": "object"
+   },
+   "namn": "find_reference_components"
+  },
+  {
+   "annoteringar": {
+    "destructiveHint": false,
+    "idempotentHint": true,
+    "openWorldHint": false,
+    "readOnlyHint": true
+   },
+   "beskrivning": "A screen's nearest design neighbours - ranked by design-similarity embeddings where available, else by macrostructure / industry / style overlap. One result per site.",
+   "indata": {
+    "properties": {
+     "detail": {
+      "description": "'standard' (default): northstar, palette, fonts, axes, macro and tags per row, plus the fold-by-fold autopsy on the top 3. 'full': the autopsy on every row (~300 tokens each; only if you will read them all). 'concise': northstar, palette, fonts. Text profile defaults to concise.",
+      "enum": [
+       "concise",
+       "standard",
+       "full"
+      ],
+      "type": "string"
+     },
+     "limit": {
+      "default": 8,
+      "maximum": 20,
+      "minimum": 1,
+      "type": "integer"
+     },
+     "maxTokens": {
+      "description": "Approximate token ceiling for this response. Trims lower-ranked results and thumbnails; the top result and all URLs survive.",
+      "maximum": 200000,
+      "minimum": 300,
+      "type": "integer"
+     },
+     "sameSite": {
+      "default": false,
+      "description": "Include other pages of the same site (default false: neighbours are other sites).",
+      "type": "boolean"
+     },
+     "slug": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "slug"
+    ],
+    "type": "object"
+   },
+   "namn": "find_similar"
+  },
+  {
+   "annoteringar": {
+    "destructiveHint": false,
+    "idempotentHint": true,
+    "openWorldHint": false,
+    "readOnlyHint": true
+   },
+   "beskrivning": "Fetch one issue by slug, including the editor's blurb and ordered screen list.",
+   "indata": {
+    "properties": {
+     "detail": {
+      "description": "'standard' (default): northstar, palette, fonts, axes, macro and tags per row, plus the fold-by-fold autopsy on the top 3. 'full': the autopsy on every row (~300 tokens each; only if you will read them all). 'concise': northstar, palette, fonts. Text profile defaults to concise.",
+      "enum": [
+       "concise",
+       "standard",
+       "full"
+      ],
+      "type": "string"
+     },
+     "maxTokens": {
+      "description": "Approximate token ceiling for this response. Trims lower-ranked results and thumbnails; the top result and all URLs survive.",
+      "maximum": 200000,
+      "minimum": 300,
+      "type": "integer"
+     },
+     "slug": {
+      "description": "Collection slug, e.g. 'editorial-layouts'",
+      "type": "string"
+     }
+    },
+    "required": [
+     "slug"
+    ],
+    "type": "object"
+   },
+   "namn": "get_collection"
+  },
+  {
+   "annoteringar": {
+    "destructiveHint": false,
+    "idempotentHint": true,
+    "openWorldHint": true,
+    "readOnlyHint": true
+   },
+   "beskrivning": "The full DESIGN.md for one screen - real fonts, frequency-ranked palette, CSS variables, detected tech, colour roles, type ramp. Thin captured tokens are supplemented by a live fetch of the source; `live=false` skips that.",
+   "indata": {
+    "properties": {
+     "live": {
+      "default": true,
+      "description": "If true (default), supplement thin captured tokens by fetching the source URL via study(). Set false to skip the network round-trip.",
+      "type": "boolean"
+     },
+     "slug": {
+      "description": "Screen slug, e.g. 'linear-app'. Use search_screens or find_similar first to discover slugs.",
+      "type": "string"
+     }
+    },
+    "required": [
+     "slug"
+    ],
+    "type": "object"
+   },
+   "namn": "get_design_system"
+  },
+  {
+   "annoteringar": {
+    "destructiveHint": false,
+    "idempotentHint": true,
+    "openWorldHint": false,
+    "readOnlyHint": true
+   },
+   "beskrivning": "Every value the filters accept: styles, industries, macrostructures, modes, vibes, colors, page types, component types. Zero input. Call it when unsure - an out-of-vocabulary value errors.",
+   "indata": {
+    "properties": {},
+    "type": "object"
+   },
+   "namn": "get_filters"
+  },
+  {
+   "annoteringar": {
+    "destructiveHint": false,
+    "idempotentHint": true,
+    "openWorldHint": false,
+    "readOnlyHint": true
+   },
+   "beskrivning": "The full canonical JSX source for one reference component, including the header stamp naming its macrostructure / theme / states. Copy-pasteable; tweak tokens to the target brand.",
+   "indata": {
+    "properties": {
+     "id": {
+      "description": "Reference id within that type (e.g. 'marquee', 'three-card').",
+      "type": "string"
+     },
+     "type": {
+      "description": "Component category",
+      "enum": [
+       "hero",
+       "pricing",
+       "features",
+       "cta",
+       "nav",
+       "footer",
+       "testimonial",
+       "logo-cloud",
+       "faq",
+       "stat"
+      ],
+      "type": "string"
+     }
+    },
+    "required": [
+     "type",
+     "id"
+    ],
+    "type": "object"
+   },
+   "namn": "get_reference_jsx"
+  },
+  {
+   "annoteringar": {
+    "destructiveHint": false,
+    "idempotentHint": true,
+    "openWorldHint": false,
+    "readOnlyHint": true
+   },
+   "beskrivning": "Fetch the full record for one screen by slug - every viewport variant, palette, fonts, tech stack, designer credit.",
+   "indata": {
+    "properties": {
+     "slug": {
+      "description": "Screen slug, e.g. 'atelier-mira'",
+      "type": "string"
+     }
+    },
+    "required": [
+     "slug"
+    ],
+    "type": "object"
+   },
+   "namn": "get_screen"
+  },
+  {
+   "annoteringar": {
+    "destructiveHint": false,
+    "idempotentHint": true,
+    "openWorldHint": false,
+    "readOnlyHint": true
+   },
+   "beskrivning": "A site's captured pages as an ordered flow (landing → pricing → features → ...) with titles, northstars and thumbnails - how a real product sequences its pages. No arguments returns the directory of flow-capable sites. Accepts a site or screen slug.",
+   "indata": {
+    "properties": {
+     "limit": {
+      "default": 25,
+      "description": "Directory mode only: max sites to list.",
+      "maximum": 50,
+      "minimum": 1,
+      "type": "integer"
+     },
+     "maxTokens": {
+      "description": "Approximate token ceiling for this response. Trims lower-ranked results and thumbnails; the top result and all URLs survive.",
+      "maximum": 200000,
+      "minimum": 300,
+      "type": "integer"
+     },
+     "siteSlug": {
+      "description": "Site slug (e.g. 'linear-app') or any screen slug from that site. Omit to list flow-capable sites instead.",
+      "type": "string"
+     }
+    },
+    "type": "object"
+   },
+   "namn": "get_site_pages"
+  },
+  {
+   "annoteringar": {
+    "destructiveHint": false,
+    "idempotentHint": true,
+    "openWorldHint": false,
+    "readOnlyHint": true
+   },
+   "beskrivning": "List every editor-curated issue. Use this for thematic browsing - e.g. all 'Editorial Layouts' or 'Dark Product Pages'.",
+   "indata": {
+    "properties": {},
+    "type": "object"
+   },
+   "namn": "list_collections"
+  },
+  {
+   "annoteringar": {
+    "destructiveHint": false,
+    "idempotentHint": true,
+    "openWorldHint": false,
+    "readOnlyHint": true
+   },
+   "beskrivning": "Orchestrator - start here for a brief. One call returns a macrostructure pick, 5 real exemplars, matching reference components (source via get_reference_jsx), a palette suggestion, and an `evidence` packet measuring the genre's paper band / display class / accent hue. Pass a macrostructure to skip the pick step. No LLM call.",
+   "indata": {
+    "properties": {
+     "brief": {
+      "description": "The user's design brief in plain English. E.g. 'calm meditation app', 'dark dev-tool that helps teams ship faster'.",
+      "minLength": 2,
+      "type": "string"
+     },
+     "color": {
+      "description": "Optional colour word.",
+      "enum": [
+       "warm",
+       "cool",
+       "monochrome",
+       "neon",
+       "earthy",
+       "pastel",
+       "saturated",
+       "muted",
+       "high-contrast"
+      ],
+      "type": "string"
+     },
+     "detail": {
+      "description": "'standard' (default): northstar, palette, fonts, axes, macro and tags per row, plus the fold-by-fold autopsy on the top 3. 'full': the autopsy on every row (~300 tokens each; only if you will read them all). 'concise': northstar, palette, fonts. Text profile defaults to concise.",
+      "enum": [
+       "concise",
+       "standard",
+       "full"
+      ],
+      "type": "string"
+     },
+     "device": {
+      "description": "'mobile' restricts to sites with a 375px capture pair and inlines the mobile thumbnail. Default: desktop.",
+      "enum": [
+       "desktop",
+       "mobile"
+      ],
+      "type": "string"
+     },
+     "macrostructure": {
+      "description": "Optional: a macrostructure already picked. Skips the pick step.",
+      "enum": [
+       "bento-grid",
+       "long-document",
+       "marquee-hero",
+       "stat-led",
+       "conversational-faq",
+       "manifesto",
+       "photographic",
+       "specimen",
+       "catalogue",
+       "letter",
+       "index-first",
+       "narrative-workflow",
+       "split-studio",
+       "feature-stack",
+       "type-specimen",
+       "portfolio-grid",
+       "map-diagram",
+       "ecosystem-index",
+       "component-playground"
+      ],
+      "type": "string"
+     },
+     "maxTokens": {
+      "description": "Approximate token ceiling for this response. Trims lower-ranked results and thumbnails; the top result and all URLs survive.",
+      "maximum": 200000,
+      "minimum": 300,
+      "type": "integer"
+     },
+     "mode": {
+      "description": "Optional: 'light' or 'dark'.",
+      "enum": [
+       "light",
+       "dark"
+      ],
+      "type": "string"
+     },
+     "pageType": {
+      "description": "Optional: 'landing', 'pricing', 'features', etc.",
+      "enum": [
+       "landing",
+       "pricing",
+       "features",
+       "auth",
+       "about",
+       "blog",
+       "changelog",
+       "docs",
+       "other"
+      ],
+      "type": "string"
+     },
+     "vibe": {
+      "description": "Optional vibe filter.",
+      "enum": [
+       "calm",
+       "loud",
+       "playful",
+       "serious",
+       "luxe",
+       "raw",
+       "soft",
+       "technical",
+       "warm",
+       "cold"
+      ],
+      "type": "string"
+     }
+    },
+    "required": [
+     "brief"
+    ],
+    "type": "object"
+   },
+   "namn": "recommend"
+  },
+  {
+   "annoteringar": {
+    "destructiveHint": false,
+    "idempotentHint": true,
+    "openWorldHint": false,
+    "readOnlyHint": true
+   },
+   "beskrivning": "Search the archive of real website screenshots. Returns screens with palette, fonts, components and image URLs.",
+   "indata": {
+    "properties": {
+     "accentHue": {
+      "description": "Accent temperature: 'warm' (10-60°), 'cool' (200-300°), 'neutral' (unsaturated), 'chromatic-other' (greens, magentas, everything else).",
+      "enum": [
+       "warm",
+       "cool",
+       "neutral",
+       "chromatic-other"
+      ],
+      "type": "string"
+     },
+     "color": {
+      "description": "Color word - 'warm', 'cool', 'monochrome', 'neon', 'earthy'",
+      "enum": [
+       "warm",
+       "cool",
+       "monochrome",
+       "neon",
+       "earthy",
+       "pastel",
+       "saturated",
+       "muted",
+       "high-contrast"
+      ],
+      "type": "string"
+     },
+     "detail": {
+      "description": "'standard' (default): northstar, palette, fonts, axes, macro and tags per row, plus the fold-by-fold autopsy on the top 3. 'full': the autopsy on every row (~300 tokens each; only if you will read them all). 'concise': northstar, palette, fonts. Text profile defaults to concise.",
+      "enum": [
+       "concise",
+       "standard",
+       "full"
+      ],
+      "type": "string"
+     },
+     "device": {
+      "description": "'mobile' restricts to sites with a 375px capture pair and inlines the mobile thumbnail. Default: desktop.",
+      "enum": [
+       "desktop",
+       "mobile"
+      ],
+      "type": "string"
+     },
+     "displayClass": {
+      "description": "Construction of the display face: 'grotesk-sans', 'geometric-sans', 'roman-serif', 'mono', 'display-condensed-bold', etc.",
+      "enum": [
+       "grotesk-sans",
+       "geometric-sans",
+       "roman-serif",
+       "italic-serif",
+       "slab-serif",
+       "mono",
+       "display-condensed-bold",
+       "display-heavy",
+       "system-native",
+       "handwritten"
+      ],
+      "type": "string"
+     },
+     "industry": {
+      "description": "Filter to one industry (e.g. 'saas', 'fintech', 'portfolio')",
+      "enum": [
+       "agency",
+       "ai",
+       "architecture",
+       "automotive",
+       "consumer-tech",
+       "creator",
+       "crypto",
+       "culture",
+       "developer-tools",
+       "ecommerce",
+       "education",
+       "fashion",
+       "fintech",
+       "food-beverage",
+       "furniture",
+       "gaming",
+       "health",
+       "media",
+       "music",
+       "non-profit",
+       "portfolio",
+       "saas",
+       "travel",
+       "type-foundry"
+      ],
+      "type": "string"
+     },
+     "limit": {
+      "default": 6,
+      "maximum": 20,
+      "minimum": 1,
+      "type": "integer"
+     },
+     "macrostructure": {
+      "description": "Filter to a macrostructure (e.g. 'bento-grid')",
+      "enum": [
+       "bento-grid",
+       "long-document",
+       "marquee-hero",
+       "stat-led",
+       "conversational-faq",
+       "manifesto",
+       "photographic",
+       "specimen",
+       "catalogue",
+       "letter",
+       "index-first",
+       "narrative-workflow",
+       "split-studio",
+       "feature-stack",
+       "type-specimen",
+       "portfolio-grid",
+       "map-diagram",
+       "ecosystem-index",
+       "component-playground"
+      ],
+      "type": "string"
+     },
+     "maxTokens": {
+      "description": "Approximate token ceiling for this response. Trims lower-ranked results and thumbnails; the top result and all URLs survive.",
+      "maximum": 200000,
+      "minimum": 300,
+      "type": "integer"
+     },
+     "mode": {
+      "description": "light or dark",
+      "enum": [
+       "light",
+       "dark"
+      ],
+      "type": "string"
+     },
+     "pageType": {
+      "description": "Filter to a page kind: 'landing' (default homepages), 'pricing', 'features', 'auth', 'about', 'blog', 'changelog', 'docs', 'other'",
+      "enum": [
+       "landing",
+       "pricing",
+       "features",
+       "auth",
+       "about",
+       "blog",
+       "changelog",
+       "docs",
+       "other"
+      ],
+      "type": "string"
+     },
+     "paperBand": {
+      "description": "Surface lightness, measured from the capture: 'dark' (<30% L), 'mid' (30-85%), 'light' (>85%). More reliable than `mode`, which is tagged and disagrees with the measurement on ~15% of rows.",
+      "enum": [
+       "dark",
+       "mid",
+       "light"
+      ],
+      "type": "string"
+     },
+     "query": {
+      "default": "",
+      "description": "Natural-language description of what you're looking for. e.g. 'minimalist editorial agency portfolio'",
+      "type": "string"
+     },
+     "style": {
+      "description": "Filter to one visual style (e.g. 'minimalism', 'editorial')",
+      "enum": [
+       "minimalism",
+       "editorial",
+       "brutalism",
+       "glassmorphism",
+       "swiss",
+       "maximalism",
+       "playful",
+       "dark-mode",
+       "monochrome",
+       "vintage",
+       "futurist"
+      ],
+      "type": "string"
+     },
+     "vibe": {
+      "description": "Mood / vibe - 'calm', 'loud', 'luxe', 'technical', 'soft', etc.",
+      "enum": [
+       "calm",
+       "loud",
+       "playful",
+       "serious",
+       "luxe",
+       "raw",
+       "soft",
+       "technical",
+       "warm",
+       "cold"
+      ],
+      "type": "string"
+     }
+    },
+    "type": "object"
+   },
+   "namn": "search_screens"
+  }
+ ]
+}
