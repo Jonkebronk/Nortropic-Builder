@@ -5,7 +5,7 @@ description: Säkrar och granskar en sajts tekniska kvalitet – tillgänglighet
 
 # Kvalitet – teknik och kvalitet (lager 8)
 
-Regelboken är `guide/2-8-teknik-och-kvalitet.md`. Där står stacken, kodstandarden, publiceringen och de tio N1-kontrollerna, som `skript/kontroll.mjs` kör (1–10c). Den här skillen är kunskapen bakom: vad som ska uppnås, vad automatiken missar, vilka kontroller som saknas och vad som är förbjudet. Detaljer, mått och tabeller står i delfilerna.
+Regelboken är `guide/2-8-teknik-och-kvalitet.md`. Där står stacken, kodstandarden, publiceringen och de tio N1-kontrollerna, som `skript/kontroll.mjs` kör (1–10c). Skriptet kör sedan 2026-10-16 också 45 N2-kontroller (2d–14; → `kontroller.md`). Den här skillen är kunskapen bakom: vad som ska uppnås, vad automatiken missar, vilka kontroller som saknas och vad som är förbjudet. Detaljer, mått och tabeller står i delfilerna.
 
 ## Syfte
 
@@ -88,7 +88,7 @@ Utlösarna rangordnas före alla andra fynd, och taket på 15 får aldrig vara s
 - Ingen `user-scalable=no` eller `maximum-scale`, eftersom de hindrar zoom (📄 WCAG 2.2, 1.4.4).
 - Ingen strukturerad data för det som inte syns på sidan, och inga egna betyg i `LocalBusiness` (📄 [Google, riktlinjer för strukturerad data](https://developers.google.com/search/docs/appearance/structured-data/sd-policies); → `guide/2-8-teknik-och-kvalitet.md`).
 - Inga hemligheter till externa skannrar: aldrig Access-token i Observatorys `--headers`, aldrig Lighthouse-rapporter till `temporary-public-storage` (→ `guide/2-8-teknik-och-kvalitet.md`, *Kompetens och källor*).
-- chrome-devtools-mcp körs bara med `--no-usage-statistics` och `--no-performance-crux`. Användningsstatistiken till Google är annars påslagen (📄 [chrome-devtools-mcp, configuration](https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/main/docs/configuration.md)).
+- chrome-devtools-mcp körs bara med `--no-usage-statistics`, `--no-performance-crux` och `--isolated`, som i `kontroller.md` och byggsessionens konfiguration. Användningsstatistiken till Google är annars påslagen, och `--isolated` ger en tillfällig profil som tas bort efteråt (📄 [chrome-devtools-mcp, configuration](https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/main/docs/configuration.md); → `guide/2-8-teknik-och-kvalitet.md`, Chrome DevTools MCP).
 - Den som orsakade en avvikelse ändrar inte baslinjen eller undantagslistan för att få kontrollen grön (→ `guide/2-8-teknik-och-kvalitet.md`, *Hur självgående*).
 - Externa skills och SEO-plugin installeras inte i kundbygget; de destilleras hit. Skript ur nedladdade repon körs aldrig (→ `guide/bilaga-a-verktyg.md`). claude-seo registrerar en hook som kör Python efter varje redigering (📄 [claude-seo](https://github.com/AgriciDaniel/claude-seo)).
 - Teckengränser för titel och metabeskrivning stoppar aldrig (→ `guide/2-8-teknik-och-kvalitet.md`, N2).
@@ -128,7 +128,7 @@ Varje punkt säger vad som ska vara sant. Hur det prövas, och med vilken källa
 
 **Modern HTML och CSS** (`modern-html-css.md`)
 
-16. Mönstren använder plattformens element (`popover`, `<details name>`, `<dialog>`, `inert`), och varje funktion som inte är *Widely available* har en reserv. Statusen är slagen i MDN och web-features, inte i en extern guide.
+16. Mönstren använder plattformens element (`popover`, `<details name>`, `<dialog>`, `inert`), och varje funktion som inte är *Widely available* har en reserv. Statusen är slagen i web-features, som är facit (`modern-html-css.md`), inte i en extern guide.
 
 **Biblioteket** (`prov.md`)
 

@@ -4,7 +4,7 @@ Primitiverna (`<details name>`, `popover`-menyn, `<dialog>`) och regeln *HTML f�
 
 ## Policy för webbläsarstöd
 
-Förslag till Johnny, ur modern-web-guidance (📄 [GoogleChrome/modern-web-guidance](https://github.com/GoogleChrome/modern-web-guidance), Apache-2.0; status ur web-features via MDN):
+Förslag till Johnny, ur modern-web-guidance (📄 [GoogleChrome/modern-web-guidance](https://github.com/GoogleChrome/modern-web-guidance), Apache-2.0; status ur web-features):
 
 - **Baseline Widely available** används fritt.
 - **Baseline Newly available** används med en reserv som håller innehållet och navigeringen användbara utan funktionen.
@@ -14,7 +14,7 @@ Förslag till Johnny, ur modern-web-guidance (📄 [GoogleChrome/modern-web-guid
 
 ## Status per funktion
 
-Status enligt MDN:s Baseline-banner, avstämd mot web-features 3.43.0 den 16 oktober 2026 (📄 [web-features](https://github.com/web-platform-dx/web-features)). Där MDN och web-features skiljer sig står ⚠️.
+Status enligt web-features, som är facit (📄 [web-features](https://github.com/web-platform-dx/web-features)). Översynen 2026-10-16 fann att alla 42 statusrader stämmer med web-features 3.43.0 (`kunskap/research/2026-10-16_verktyg-och-skills-full-potential.md`). MDN-MCP:n är släppt (`BESLUT.md` 2026-10-16, *Domarna över MCP-servrarna …*, 21.37). Där MDN visar något annat står ⚠️.
 
 | Funktion | Status | Används till | Reserv eller villkor |
 |---|---|---|---|
@@ -75,7 +75,7 @@ Med vår märkning: **[norm]** när guiden bygger på en standard, **[tumregel]*
 - **Långa svenska ord i rubriker och smala spalter får `hyphens: auto`** (sidan har `lang="sv"`), så att ett tvångsbrott får bindestreck. `overflow-wrap: anywhere` är sista utvägen och bryter utan bindestreck: på övningssajten delades ortnamnet i `h1` och företagsnamnet i sidhuvudet mitt i ordet med 24 px grundstorlek i 375 px. 📄 MDN BCD, `hyphens` (svenska); Emil `break-ui` (felsignaturen) [tumregel]
 - **Företagets namn, personnamn och gatuadresser kan få `translate="no"`,** så att webbläsarens översättning inte gör *Kungsgatan* till en engelsk gata som inte finns på kartan. Det gäller sajter där många besökare läser på ett annat språk. ⚠️ Inte prövat med Chromes översättning. 📄 Vercel, *Web Interface Guidelines*; [HTML-standarden, `translate`](https://html.spec.whatwg.org/multipage/dom.html#attr-translate) [tumregel]
 - **Skript känner av funktioner på prototypen,** till exempel `'popover' in HTMLElement.prototype` och `'closedBy' in HTMLDialogElement.prototype`. 📄 MWG [tumregel]
-- **Status slås upp på MDN och i web-features, aldrig i modern-web-guidances rader.** Raderna är genererade och har fel (anchor positioning, `transition-behavior`, `popover="hint"`). [tumregel]
+- **Status slås upp i web-features, som är facit, aldrig i modern-web-guidances rader.** Raderna är genererade och har fel (anchor positioning, `transition-behavior`, `popover="hint"`). [tumregel]
 - Rörelse på `transform` och `opacity`. En global `0.01ms` för reducerad rörelse används inte. [tumregel; → `guide/2-6-rorelse.md`]
 - Säkerhetshuvuden och hash-CSP för statisk HTML (→ `sakerhet.md`). [norm via OWASP]
 

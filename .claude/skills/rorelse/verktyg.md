@@ -63,8 +63,8 @@ Bara i tillvalet scrollytelling eller för en lång tidslinje (→ *Därför* ov
 
 - **Gratis, utan konto:** skillen med bästa praxis och sökningen i Motions dokumentation (från version 7.0.0, 2026-07-28). 📄 `motiondivision/ai-kit`, `CHANGELOG.md` och `plugins/motion/skills/motion/SKILL.md`.
 - **Kräver Motion+:** MotionScore-granskningen, källkoden till exempel och Motion UI, övergångsredigeraren och Motion+-delarna av dokumentationen. Inloggningen görs från redigeraren mot `https://mcp.motion.dev/plus`. 📄 samma filer; motion.dev/docs/ai-kit.
-- **Motstridigt:** skillen säger att genereringen av CSS-fjädrar fungerar utan konto, men motion.dev/docs/ai-kit räknar den till Motion+ ⚠️.
-- **Hos oss:** inte installerat. Dokumentationen går att läsa på motion.dev, och bästa praxis är destillerad här. MotionScore och exemplen kräver att Johnny skaffar Motion+.
+- **Fjädergeneratorn hör till Motion+.** Den öppna MCP-servern hade bara sökverktyget (`kunskap/kallkort/motion-mcp.md`, rättat 2026-10-16).
+- **Hos oss:** Motion-MCP:n är släppt (`BESLUT.md` 2026-10-16, *Motion släpps …*, 21.42). Motions dokumentation läses i [motion.dev/llms.txt](https://motion.dev/llms.txt), och bästa praxis är destillerad här. MotionScore och exemplen kräver att Johnny skaffar Motion+.
 
 ## Avstå
 

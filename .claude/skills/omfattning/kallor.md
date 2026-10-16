@@ -1,6 +1,6 @@
 # Källor för omfattning
 
-Läst 2026-10-16 och jämfört regel för regel samma dag (andra varvet). Fullständiga källkort per inventeringspost finns i premiumpassets arbetsmapp; här står det skillen bygger på.
+Läst 2026-10-16 och jämfört regel för regel samma dag (andra varvet). Fullständiga källkort per inventeringspost finns i `kunskap/kallkort/`; här står det skillen bygger på.
 
 ## Normer och leverantörernas dokumentation
 

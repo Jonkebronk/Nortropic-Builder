@@ -25,7 +25,7 @@ Delfil till `SKILL.md`. Hur ett stilkit är byggt som tokens, hur namnen fungera
 
 ## Namnen: `--k-*` och shadcn
 
-Biblioteket använder `--k-*` under `[data-kit="…"]`. React-öar, Tailwind och komponenter från shadcn/ui, 21st.dev och liknande förväntar sig shadcn-namnen. Därför har varje kit ett aliaslager, så att samma kit styr båda.
+Biblioteket använder `--k-*` under `[data-kit="…"]`. React-öar, Tailwind och komponenter från shadcn/ui, 21st.dev och liknande förväntar sig shadcn-namnen. Förslaget är därför ett aliaslager i varje kit, så att samma kit styr båda (→ `SKILL.md`, *Förslag till Johnny*); inget kit (`bibliotek/stilkit/*/kit.css`) har det i dag.
 
 | shadcn-namn | Pekar på | Anmärkning |
 |---|---|---|
@@ -79,7 +79,7 @@ Körs när kit tas fram eller kontrolleras, aldrig i kundbygget.
 | Verktyg | Används till | Licens | Nivå |
 |---|---|---|---|
 | Color.js | OKLCH, gamut och WCAG-kontrast (`contrast(a, b, "WCAG21")`) i ett kitskript som mäter alla rollpar | MIT | nu |
-| Adobe Leonardo | Accent- och neutralsteg mot målkvoter (`wcag2`); som bibliotek eller som lokal MCP-server utan konto (`@adobe/leonardo-mcp`) | Apache-2.0; beror på `apca-w3`, vars licens är restriktiv, och har sårbara beroenden (ärende #202) – körs bara lokalt | nu, när ett kit tas fram |
+| Adobe Leonardo | Accent- och neutralsteg mot målkvoter (`wcag2`) med biblioteket `@adobe/leonardo-contrast-colors` och `output: "HEX"`, konverterat med Color.js, eftersom OKLCH-utdatan i 1.1.0 är ogiltig (`kunskap/kallkort/adobe-leonardo.md`). MCP-servern `@adobe/leonardo-mcp` behålls bara för `check-contrast` och `convert-color` (`BESLUT.md` 2026-10-16, *Domarna över MCP-servrarna …*, 21.37); `generate-theme` fungerar inte i Claude Code | Apache-2.0; beror på `apca-w3`, vars licens är restriktiv, och har sårbara beroenden (ärende #202) – körs bara lokalt | nu, när ett kit tas fram |
 | Radix Colors | Rollerna per steg, inte värdena: Radix färger klarar inte WCAG 2 AA rakt av (→ `farg.md`) | MIT | nu (rollerna) |
 | Utopia | Flytande typ- och avståndsskalor (`clamp()`) | metod; `utopia-core` ISC | nu, när en skala byggs |
 | Capsize | Typsnittsmått för reservtypsnitt och trimning. Astros Fonts API använder redan `@capsizecss/unpack`, och `text-box` gör trimningen i CSS | MIT | bara för typsnitt utanför Fonts API |

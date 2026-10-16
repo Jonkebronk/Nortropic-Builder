@@ -7,16 +7,16 @@ De tio N1-kontrollerna och N2-tabellen definieras i `guide/2-8-teknik-och-kvalit
 | Nr | Prövar | Ser inte |
 |---|---|---|
 | 1, 1b | Bygget och typerna | |
-| 2, 2b, 2c | Konsolfel, bilder, nya flikar, HTML-validering. 2c kör html-validate `recommended`, som redan har `wcag/h63`, `wcag/h71`, `valid-autocomplete`, `input-missing-label`, `no-implicit-button-type` och `hidden-focusable`; de vilar på WCAG men räknas som rapport | Trasiga interna länkar och ankare |
-| 3, 3b | Omflöde i 320 px; fokus som skyms, med Tab framåt och bakåt | Textavstånd (1.4.12), zoom 200 % |
+| 2, 2b, 2c | Konsolfel, bilder, nya flikar, HTML-validering. 2c kör html-validate `recommended`, som redan har `wcag/h63`, `wcag/h71`, `valid-autocomplete`, `input-missing-label`, `no-implicit-button-type` och `hidden-focusable`; de vilar på WCAG men räknas som rapport | Trasiga interna länkar och ankare, som prövas i 11 |
+| 3, 3b | Omflöde i 320 px; fokus som skyms, med Tab framåt och bakåt | Zoom 200 %; textavstånd (1.4.12) prövas i 8g |
 | 4, 4b | Primära handlingen hela vägen; synlig i första vyn | |
 | 5, 5b | Stöd för faktaläsningen; samtycke till bilder | |
 | 6, 6b, 6c | Platshållare, sidfoten, cookies och samtyckesrutan | |
-| 7, 7b, 7c | Titel, beskrivning, sitemap, `h1`, robots.txt | Kanonisk adress, Open Graph, `lastmod`, JSON-LD |
+| 7, 7b, 7c | Titel, beskrivning, sitemap, `h1`, robots.txt | Kanonisk adress och Open Graph prövas i 12b, `lastmod` i 12d och JSON-LD i 12 och 12g |
 | 8, 8b | axe med WCAG 2.2-taggarna i Chromium; fokusringens kontrast | WebKit och menyn öppen prövas i 8c och 8d; incomplete och best-practice i 8e |
-| 9 | Lighthouse 100, median av tre | Mätvärdena bakom poängen, maskinens belastning |
-| 10, 10b, 10c | Hemligheter; 404 och huvuden mot `wrangler dev` | CSP:ns innehåll, Workerns svar |
-| N2 (2d–14) | Andra varvets förslag, byggda 2026-10-16 med felbank (`skript/felbank/`, `--felbank`) | Se `guide/bilaga-c-kontroller.md`, C58b och C196–C230 |
+| 9 | Lighthouse 100, median av tre | Mätvärdena prövas i 9b; maskinens last står som upplysning i 9 |
+| 10, 10b, 10c | Hemligheter; 404 och huvuden mot `wrangler dev` | CSP:ns innehåll prövas i 10d och Workerns svar på POST i 10f |
+| N2 (2d–14) | Andra varvets förslag, 45 kontroller, byggda 2026-10-16 med felbank (`skript/felbank/`, `--felbank`); `BARA_N1=1` hoppar över dem | Se `guide/bilaga-c-kontroller.md`, C58b och C196–C230 |
 
 ## Det skriptet inte kan
 
@@ -27,31 +27,31 @@ De tio N1-kontrollerna och N2-tabellen definieras i `guide/2-8-teknik-och-kvalit
 
 ## Förslag på nya kontroller
 
-Förslag till Johnny. Grunden avgör om kontrollen kan stoppa (`guide/README.md`, *Grind eller instruktion*). Numren är förslag.
+Förslagen ur revisionen 2026-10-16. Alla utom 9c (en upplysning i kontroll 9), 9d, 9e och 11b är byggda i `skript/kontroll.mjs` (`nyaKontroller()`), med de nummer som står här. Typen är den skriptet ger; grunden avgör om kontrollen kan stoppa (`guide/README.md`, *Grind eller instruktion*), och registret med stopp eller rapport per kontroll är `guide/bilaga-c-kontroller.md`.
 
 | Nr | Kontroll | Hur | Typ | Grund | Nivå |
 |---|---|---|---|---|---|
 | 8c | axe i WebKit | Samma taggar som 8, i 375 och 1280 px | Stopp | 📄 WCAG 2.2 | N2 (står i N2-tabellen) |
-| 8d | axe i tillstånd | Menyn öppen, samtyckesrutan öppen, formulärfel framkallade | Stopp | 📄 WCAG 2.2; N2-tabellen | N2 |
+| 8d | axe i tillstånd | Menyn öppen, samtyckesrutan öppen, formulärfel framkallade. Skriptet prövar menyn öppen i 375 px; samtyckesrutan öppen prövas redan i 8, och formulärfel saknas | Stopp | 📄 WCAG 2.2; N2-tabellen | N2 |
 | 8e | `incomplete` och `best-practice` | Listas per sida och regel som läsning | Rapport | 📄 axe-core API | N2 |
-| 8f | Tangentbord i menyer och dialoger | Escape stänger, fokus tillbaka till knappen; i WebKit med Alt+Tab | Stopp | 📄 WCAG 2.2, 2.1.1, 2.4.3; APG | N2 |
-| 8g | Textavstånd | WCAG:s värden som stilmall med `bypassCSP`; inget klipps, ingen sidledsscroll | Stopp | 📄 WCAG 2.2, 1.4.12 | N2 |
+| 8f | Tangentbord i menyer och dialoger | Escape stänger, fokus tillbaka till knappen; i WebKit med Alt+Tab. Skriptet prövar i Chromium | Rapport | 📄 WCAG 2.2, 2.1.1, 2.4.3; APG | N2 |
+| 8g | Textavstånd | WCAG:s värden som stilmall med `bypassCSP`; inget klipps, ingen sidledsscroll | Stopp (klippt text), rapport (sidledsscroll) | 📄 WCAG 2.2, 1.4.12 | N2 |
 | 8h | Forced-colors | Skärmbild med `forcedColors: 'active'`; fokusringen är en `outline` | Rapport | 📄 MDN, forced-colors | N2 |
 | 8i | Konsekvent navigering och hjälp | `ariaSnapshot()` av sidhuvud och sidfot jämförs mellan sidorna; kontaktvägen i samma DOM-ordning | Rapport | 📄 WCAG 2.2, 3.2.3 och 3.2.6 | N2 |
-| 9b | Lighthouses mätvärden | LCP ≤ 2 500 ms, CLS ≤ 0,1, TBT ≤ 200 ms ur `lhr.audits` i samma körningar som 9; granskningarna `bf-cache` och `lcp-discovery-insight` | Stopp för mätvärdena (som N2-tabellen), rapport för granskningarna | 📄 web.dev, Core Web Vitals och bfcache | N2; ersätter Lighthouse CI |
+| 9b | Lighthouses mätvärden | LCP ≤ 2 500 ms, CLS ≤ 0,1, TBT ≤ 200 ms ur `lhr.audits` i samma körningar som 9; granskningarna `bf-cache` och `lcp-discovery-insight` | Stopp för mätvärdena i mobil; rapport i dator och för granskningarna | 📄 web.dev, Core Web Vitals och bfcache | N2; ersätter Lighthouse CI |
 | 9c | Belastningen | Prestanda mäts inte, eller märks osäker, när lastmedelvärdet är högre än antalet kärnor | Rapport | 📄 Lighthouse, variability.md | N2 |
 | 9d | JavaScript per sida | Skript med gzip per sida, och vilka öar som har `client:load` eller `client:only` | Rapport | 🔧 eget startvärde (→ `prestanda.md`) | N2 |
 | 9e | INP och CLS i resorna | Menyn, frågorna, kartan, samtycket och varje ö; inmatningsfördröjning plus bearbetning per interaktion, med en tom sida som kalibrering; hela `duration` rapporteras | Rapport; 🔧 startvärde 100 ms för fördröjning plus bearbetning | 📄 web.dev, INP; web-vitals | N2 |
-| 10d | CSP-lint | csp-evaluator på den sammanslagna policyn (meta och `_headers`): 0 HIGH och 0 SYNTAX | Stopp | 📄 OWASP CSP Cheat Sheet; csp-evaluator | N2 |
-| 11 | Interna länkar | lychee `--offline --root-dir <abs dist> --include-fragments --index-files index.html`, 0 trasiga; saknas programmet blir utfallet fel, inte ok | Stopp | lychees exitkod; N2-tabellen | N2 |
+| 10d | CSP-lint | csp-evaluator på den sammanslagna policyn (meta och `_headers`): 0 HIGH och 0 SYNTAX | Rapport | 📄 OWASP CSP Cheat Sheet; csp-evaluator | N2 |
+| 11 | Interna länkar | En egen genomgång av länkar, källor och ankare i `dist`, 0 trasiga, eftersom lychee inte är installerat (förslaget var lychee `--offline --root-dir <abs dist> --include-fragments --index-files index.html`) | Rapport | lychees exitkod; N2-tabellen | N2 |
 | 11b | Externa länkar | Svarar med 2xx eller 3xx; fel som består tre körningar i rad rapporteras | Rapport | lager-8-anteckningarna §1 | N3 |
-| 12 | JSON-LD | Typer och egenskaper finns i schema.org och gäller typen; Googles krav för `LocalBusiness`; namn, adress, telefon och tider stämmer med `fakta.md` och syns i texten | Stopp | 📄 Google, Local business och riktlinjerna | N2 |
+| 12 | JSON-LD | Typer och egenskaper finns i schema.org och gäller typen; Googles krav för `LocalBusiness`; namn, adress, telefon och tider stämmer med `fakta.md` och syns i texten. Skriptet prövar namn, adress och telefon, inte vokabulären eller tiderna | Stopp (namn, adress, telefon), rapport (syns i texten) | 📄 Google, Local business och riktlinjerna | N2 |
 | 12b | SEO i DOM | Kanonisk https-adress till sig själv, lika med `og:url` och sitemapens `loc`; interna länkar till den kanoniska formen; Open Graph med bild; ingen `noindex` eller `X-Robots-Tag` på en sida i sitemapen | Stopp (kanonisk, `noindex`), annars rapport | 📄 Google Search Central, *Consolidate* och *robots meta* | N2-tabellen |
-| 12c | Sitemapen | Varje adress svarar 200 och är sin egen kanoniska; varje sida som nås från startsidan står i den; robots.txt har en `Sitemap:`-rad | Stopp | 📄 Google, *Build a sitemap* | N2 |
+| 12c | Sitemapen | Varje adress svarar 200 och är sin egen kanoniska; varje sida som nås från startsidan står i den; robots.txt har en `Sitemap:`-rad | Rapport; stopp för en föräldralös sida (C24) | 📄 Google, *Build a sitemap* | N2 |
 | 12d | `lastmod` per sida | Finns på alla adresser och är inte samma på alla när sajten har fler än tre sidor; jämförs med en hash av sidans huvudinnehåll | Rapport | 📄 Google, *Build a sitemap* | N2 |
-| 12e | Huvudet i byggd HTML | Titel, beskrivning, kanonisk adress och JSON-LD finns i `dist`; inget skript sätter `document.title`, `link[rel=canonical]` eller `meta[name=robots]` | Stopp (finns), rapport (skripten) | 📄 Google, *JavaScript SEO basics* | N2 |
+| 12e | Huvudet i byggd HTML | Titel, beskrivning, kanonisk adress och JSON-LD finns i `dist`; inget skript sätter `document.title`, `link[rel=canonical]` eller `meta[name=robots]` | Rapport | 📄 Google, *JavaScript SEO basics* | N2 |
 | 12f | Storlek och bakåtknapp | HTML per sida under 2 MB; inget `pushState` eller `replaceState` utanför en händelsehanterare | Rapport | 📄 Search Central-bloggen 2026-03-31; Google, spam policies | N2 |
-| 12g | JSON-LD i detalj | Absoluta adresser, inga platshållare, `@context` är `https://schema.org` | Stopp (platshållare), annars rapport | 📄 Google, riktlinjerna; claude-seo | N2 |
+| 12g | JSON-LD i detalj | Absoluta adresser, inga platshållare, `@context` är `https://schema.org` | Rapport | 📄 Google, riktlinjerna; claude-seo | N2 |
 
 Kontrollerna 8c–8i, 9e, 10d, 11 och 12 provkördes för hand mot övningssajten i revisionen 2026-10-16 med Playwright, axe och schema.org-vokabulären, utan nya beroenden. N1-taket är tio automatiska kontroller (`guide/README.md`, *Taket*), så de nya hör till N2.
 
@@ -62,27 +62,27 @@ Ur jämförelsen med originalen (better-accessibility, better-interface, break o
 | Nr | Kontroll | Hur | Typ | Grund | Nivå |
 |---|---|---|---|---|---|
 | 2d | Formulärfält | html-validates `input-missing-label`, `valid-autocomplete`, `wcag/h71` och `no-implicit-button-type` lyfts ur 2c till stopp; axe `label` och `autocomplete-valid` bekräftar | Stopp | 📄 WCAG 2.2, 1.3.1, 1.3.5, 4.1.2 | N2, med formulär |
-| 2e | Datatabeller | `wcag/h63` (redan i 2c); varje `table` utan `role="presentation"` har `caption` eller `aria-labelledby` | Stopp (`scope`), rapport (namn) | 📄 WCAG 2.2, 1.3.1 (H39, H63) | N2 |
+| 2e | Datatabeller | `wcag/h63` (redan i 2c); varje `table` utan `role="presentation"` har `caption` eller `aria-labelledby` | Rapport | 📄 WCAG 2.2, 1.3.1 (H39, H63) | N2 |
 | 2g | Trusted Types-prov | Bygg med `require-trusted-types-for 'script'` och kör kontroll 2 med och utan samtycke och efter hydrering: 0 fel | Rapport tills Johnny beslutat | 📄 W3C Trusted Types; MDN | N2 |
 | 3c | Ingen klippning på roten | `overflowX` på `html` och `body` är inte `hidden` eller `clip`; inget synligt element slutar till höger om fönstret | Stopp | 📄 WCAG 2.2, 1.4.10; MDN `overflow` | N2 |
 | 3d | Stor text och långa data | 375 px med 24 och 32 px grundstorlek (CDP `Page.setFontSizes`) och med värstafallsdata ur `prov.md`: ingen sidledsscroll, inget element utanför fönstret, inget ord delat utan bindestreck i rubriker, dold text syns inte | Rapport (1.4.4 kan uppfyllas med zoom) | Krehel; Emil; WCAG 2.2, 1.4.4 och 1.4.10 i andan | N2 |
 | 7d | Mikrotypografi | I byggd text: tal och enhet (*690 kr*, *50 %*), telefonnummer och datum har hårt mellanslag; inga `...` eller raka citattecken i löptext | Rapport | 📄 Språkrådet (ISOF); Vercel, *Web Interface Guidelines* | N2 |
 | 8j | Fel efter skick | Tomt skick med och utan JavaScript: fokus på felsammanfattningen, varje fel har `aria-invalid` och `aria-describedby` till synlig text, titeln börjar med "Fel:" | Stopp (text och koppling), rapport (titeln) | 📄 WCAG 2.2, 3.3.1, 3.3.3; ARIA21; GOV.UK | N2, med formulär |
 | 8k | Statusbehållaren | `[role=status]` finns i DOM före inskick; beskedet hamnar i samma nod och står kvar efter 20 s | Stopp, med formulär | 📄 WCAG 2.2, 4.1.3 (ARIA22) och 2.2.1 | N2 |
-| 8l | Dialoger har namn | Varje `dialog` och `[role=dialog]` öppnas; namnet i tillgänglighetsträdet är inte tomt | Stopp | 📄 WCAG 2.2, 4.1.2; APG Dialog | N2 |
-| 8h+ | Forced-colors utökad | Varje fokuserat element har `outline` i läget; knappar och fält har kant; skärmbild av text på foto och gradient | Stopp (fokus), rapport (kant, bild) | 📄 WCAG 2.2, 2.4.7, 1.4.11; MDN | N2 |
+| 8l | Dialoger har namn | Varje `dialog` och `[role=dialog]` öppnas; namnet i tillgänglighetsträdet är inte tomt | Rapport | 📄 WCAG 2.2, 4.1.2; APG Dialog | N2 |
+| 8h+ | Forced-colors utökad | Varje fokuserat element har `outline` i läget; knappar och fält har kant; skärmbild av text på foto och gradient | Rapport; byggd som en del av 8h, utan skärmbilden | 📄 WCAG 2.2, 2.4.7, 1.4.11; MDN | N2 |
 | 8m | Namn och landmärken | `ariaSnapshot()`: landmärkenas namn stämmer med innehållet på varje sida, inget namn innehåller rollen, länkar med samma namn går till samma mål | Rapport | 📄 WCAG 2.2, 2.4.4, 2.4.6; APG *Names and Descriptions* | N2 |
 | 8n | Ingen rubrik i `<summary>` och ingen betydelsebärande text i CSS `content` | DOM och byggd CSS | Rapport | O'Hara och MWG (två källor, ingen norm); WCAG F87 (obsolet enligt W3C, uppdaterad 12 januari 2026: *"CSS-generated content does not always constitute a failure"*, men texten går inte att markera) | N2 |
 | 8o | Hover och tryck | Beräknade stilar i vila, hover och `:active` för varje länk- och knapptyp i 1280 px; i 375 px med pekskärm står inget hover-läge kvar efter tryck | Rapport | Vercel; Krehel; NN/g (ingen norm) | N2 |
 | 9f | Prioritet och video | Högst en `fetchpriority="high"` per sida, aldrig med `loading="lazy"`; varje `<video>` har `width`, `height`, `poster` och `preload` som inte är `auto` | Rapport | 📄 web.dev Fetch Priority; MDN video | N2 |
 | 9g | Komprimering i produktion | Röktest: HTML, CSS och JS svarar med `content-encoding` | Rapport | Lighthouse `uses-text-compression` | N2 |
 | 10c+ | CORP | `Cross-Origin-Resource-Policy` på sidorna och `/_astro/*`; `cross-origin` bara för listan med publika bilder | Rapport | 📄 MDN; OWASP Secure Headers | N2 |
-| 10e | Farliga DOM-sänkor | Sökning i `bibliotek/src` och `sites/<namn>/src` efter `innerHTML`, `outerHTML`, `insertAdjacentHTML`, `document.write`, `eval(`, `new Function`, `dangerouslySetInnerHTML` och `setTimeout` med sträng: 0 träffar | Stopp | 📄 W3C Trusted Types (sänkorna); OWASP DOM XSS Prevention ⚠️ ej läst i dag | N2 |
-| 10f | Fetch Metadata och ursprung | Mot `wrangler dev`: POST med `Sec-Fetch-Site: cross-site` ger 403, fel `Origin` 403, rätt `Origin` utan `Sec-Fetch-*` släpps igenom, GET ger 405 | Stopp | 📄 OWASP CSRF Cheat Sheet; W3C Fetch Metadata | N2, med formulär |
+| 10e | Farliga DOM-sänkor | Sökning i `bibliotek/src` och `sites/<namn>/src` efter `innerHTML`, `outerHTML`, `insertAdjacentHTML`, `document.write`, `eval(`, `new Function`, `dangerouslySetInnerHTML` och `setTimeout` med sträng: 0 träffar | Rapport | 📄 W3C Trusted Types (sänkorna); OWASP DOM XSS Prevention ⚠️ ej läst i dag | N2 |
+| 10f | Fetch Metadata och ursprung | Mot `wrangler dev`: POST med `Sec-Fetch-Site: cross-site` ger 403, fel `Origin` 403, rätt `Origin` utan `Sec-Fetch-*` släpps igenom, GET ger 405 | Rapport | 📄 OWASP CSRF Cheat Sheet; W3C Fetch Metadata | N2, med formulär |
 | 10g | HTTPS i produktion | `http://<domän>/` ger 301 eller 308 till https på samma värd; HSTS `max-age` ≥ 31536000 | Stopp efter publicering | 📄 RFC 6797; hstspreload.org | N2 |
 | 13 | CSS i rätt ordning | Byggd CSS: `animation-timeline` före `animation` i samma regel, `@starting-style` före sin regel, `allow-discrete` utan reserv | Rapport | 📄 MDN | N2 |
 | 13b | Rullist och mask | `scrollbar-width: none` på en yta som scrollar, `mask-image` på element med text, `text-align: justify`, `forced-color-adjust: none` | Rapport | 📄 MDN; WCAG 1.4.3 | N2 |
-| 14 | Inga förfrågningar till andra ursprung vid laddning | Nätverksloggen vid första laddningen utan interaktion: allt går till sajtens ursprung | Stopp om Johnny godtar beslutet som grund | `guide/2-8-teknik-och-kvalitet.md` N1 (beslut); CSP:n | N2 |
+| 14 | Inga förfrågningar till andra ursprung vid laddning | Nätverksloggen vid första laddningen utan interaktion: allt går till sajtens ursprung | Rapport; stopp om Johnny godtar beslutet som grund (`kunskap/research/2026-10-16_tredje-varvet-till-johnny.md`, punkt 45) | `guide/2-8-teknik-och-kvalitet.md` N1 (beslut); CSP:n | N2 |
 | 15 | Reserven håller | Provsidan och sajten i Firefox och WebKit: innehåll, meny och kontaktvägar nås, axe 0 fel | Rapport | MDN-status; policyn i `modern-html-css.md` | N2 |
 | 16 | SEO-drift mellan byggen | Titel, kanonisk adress, robots, `h1`, JSON-LD och status jämförs med förra godkända bygget | Rapport | claude-seo `seo-drift` | N3 |
 

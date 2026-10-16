@@ -42,7 +42,7 @@ Delfil till `omfattning`, spår B. Regeln om omdirigeringskartan bor i `guide/2-
 
 **Snedstreck.** Med standardläget `auto-trailing-slash` svarar Cloudflare på `/sida` med en **307** till `/sida/` när `sida/index.html` finns. 307 är tillfällig. En gammal adress utan snedstreck som har länkar eller trafik får därför en egen `301`-regel. 📄 Cloudflare, [HTML handling](https://developers.cloudflare.com/workers/static-assets/routing/advanced/html-handling/).
 
-**Stora och små bokstäver.** ⚠️ Overifierat om `_redirects` skiljer på dem. WordPress svarar ofta på båda. Pröva i `wrangler dev` när gamla adresser har versaler.
+**Stora och små bokstäver.** Prövat i `wrangler dev` 2026-10-16: regeln i `_redirects` skiljer på stora och små bokstäver, så en gammal adress med versaler gav 404 (översynen, `kunskap/research/2026-10-16_verktyg-och-skills-full-potential.md`). ⚠️ Produktionen är inte prövad. WordPress svarar ofta på båda. Pröva i `wrangler dev` när gamla adresser har versaler.
 
 **404-sidan.** `assets.not_found_handling: "404-page"` ger den designade sidan med status 404 (→ `guide/2-8-teknik-och-kvalitet.md`).
 

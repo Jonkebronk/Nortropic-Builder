@@ -44,7 +44,7 @@ Ett kort per post, i den form Johnny bad om 2026-10-16:
 Domen är ett förslag som Johnny avgör, i inventeringens termer: `skill: <namn>` (destilleras in), `bibliotek`, `kontroll`, `MCP: ta in`, `MCP: kräver konto`, `verktyg: ta in`, `senare: N2–N4` eller `släpp`.
 
 - **Passform före popularitet.** Stjärnor mäter uppmärksamhet, inte belagd kvalitet (→ `guide/bilaga-a-verktyg.md`, urvalskriterierna).
-- **Destillera hellre än installera.** En extern skill i kundbygget krockar med våra egna; kunskapen tas in med egna ord och källa (→ `guide/bilaga-a-verktyg.md`; `guide/2-5-yta.md`, *Stilen kommer ur kitet*).
+- **Destillera hellre än installera.** En extern skill i kundbygget krockar med våra egna; kunskapen tas in med egna ord och källa (→ `guide/bilaga-a-verktyg.md`; `guide/2-5-yta.md`, *Stilen kommer ur kitet*). Ett undantag finns: Googles skill `retrieving-developer-knowledge` ligger installerad i `.claude/skills/` på Johnnys uttryckliga kommando (`BESLUT.md` 2026-10-16, 19.55), och startsäkringen installerar om den (`BESLUT.md` 2026-10-16, 19.58; `skript/startsakring.sh`, avsnitt 5b).
 - **`verktyg: ta in`** kräver en uppmätt förbättring mot baslinje; annars *pröva* (→ `guide/3-4`, *Intagsregel*). Provet är rättvist när båda armarna har samma brief, material och modell och flera körningar, och när kvalitet, fel, tid och kostnad redovisas var för sig. Fall som används i jämförelsen hålls utanför arbetet med att anpassa verktyget. 📄 webb-pros `kirurg` (*Intagskraven*, egen); → [skills.md](skills.md), *Så prövas den*.
 - **Högst ett eget förslag per intag,** när källan väcker en idé om vårt arbetssätt som ingen bett om. 📄 webb-pros `kirurg` (egen).
 - **Licensen följer med** varje del som tas: MIT och Apache-2.0 med källa; GPL, AGPL och "source-available" bara som läsning.
@@ -54,7 +54,7 @@ Domen är ett förslag som Johnny avgör, i inventeringens termer: `skill: <namn
 Startsäkringen bevakar källorna vi destillerat ur (`BESLUT.md` 2026-10-16, *Startsäkringen täcker allt*). En ändring läses i original – diffen under den sökväg vi läste, release notes eller errata – och bedöms mot det vi skrev. Den får ett av tre utfall:
 
 - **Ingen påverkan:** det vi läste är orört eller ändringen rör inget vi använder. En rad om varför, och markeringen för det lästa flyttas fram.
-- **Förslag:** målfil och exakt text, med hypotes, mått och baslinje, till förbättringsjournalen (→ `guide/3-4`, *Förbättringsjournal*). Var journalen ligger och hur många förslag Johnny får åt gången är gruppen bevaknings förslag B1–B5 och väntar på honom.
+- **Förslag:** målfil och exakt text, med hypotes, mått och baslinje, till förbättringsjournalen (→ `guide/3-4`, *Förbättringsjournal*). Var journalen ligger och hur många förslag Johnny får åt gången är gruppen bevaknings förslag B1–B8 och väntar på honom (`kunskap/research/2026-10-16_tredje-varvet-till-johnny.md`, punkt 38).
 - **Pröva:** ändringen kan påverka oss men syns först i ett prov.
 
 Ett mätinstrument som bytts, som axe-core, Lighthouse eller Playwright, betyder att baslinjen mäts om innan före och efter jämförs. 🔧 gruppen bevakning, andra varvet 2026-10-16; 📄 [GOV.UK Frontend, *Staying up to date*](https://frontend.design-system.service.gov.uk/staying-up-to-date/); 📄 [Renovate, *Changelogs*](https://docs.renovatebot.com/key-concepts/changelogs/); 📄 [Chrome, *Performance scoring*](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring) (vikterna ändras mellan versioner).

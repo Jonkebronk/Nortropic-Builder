@@ -1,6 +1,6 @@
 # Källor för strategi
 
-Läst 2026-10-16. Fullständiga källkort per inventeringspost finns i premiumpassets arbetsmapp; här står det skillen bygger på.
+Läst 2026-10-16. Fullständiga källkort per inventeringspost finns i `kunskap/kallkort/`; här står det skillen bygger på.
 
 ## Externa skills och repon
 

@@ -26,6 +26,7 @@ Kunden äger sitt Cloudflare-konto, och byrån är inbjuden medlem med 2FA (→ 
 | **DNS** | Johnny, eller DNSControl om det tas in | Zon: *Zone Read* och *DNS Edit*. DNSControl kräver också *SSL and Certificates Edit*. | En zon. |
 
 - `cloudflare/mcp` har inget eget läsläge. Det är token som begränsar vad agenten kan göra, och OAuth-vägen ger det användaren klickar i. Använd därför en token och inte OAuth för agenter. En token med IP-filter stöds inte av servern i dag. 📄 [cloudflare/mcp, README](https://github.com/cloudflare/mcp)
+- Byggsessionen kör OAuth mot byråns eget Cloudflarekonto, enligt Johnnys beslut. Regeln om en läs-token per kund gäller kundernas konton. (`BESLUT.md` 2026-10-16, *Ingen läs-token för byråns Cloudflarekonto …*, 21.49)
 - En kontoägd token behöver *Account Settings Read* (i README *Account Resources : Read*) för att servern ska hitta kontot. 📄 samma
 - Kända fel i oktober 2026: en OAuth-grant med *DNS Read* kan inte lista poster (ärende 202), och `execute` kan få tidsgräns efter 300 sekunder (ärende 290). 📄 [cloudflare/mcp, issues](https://github.com/cloudflare/mcp/issues)
 

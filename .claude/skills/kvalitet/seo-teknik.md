@@ -24,14 +24,14 @@ Allvaret följer claude-seos skala översatt till vår (📄 [claude-seo](https:
 | Kanonisk adress | Absolut https-adress i `<head>`, till sig själv, en per sida. Inte robots.txt eller `noindex` för att kanonisera. Den är en önskan, inte en order. | 📄 [Canonical](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls) |
 | Sitemap | Bara kanoniska sidor som svarar 200. `lastmod` används bara om det stämmer; `priority` och `changefreq` ignoreras. | 📄 [Sitemaps](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap) |
 | robots.txt | Styr genomsökning, inte indexering. CSS och JavaScript blockeras inte. | 📄 [robots.txt](https://developers.google.com/search/docs/crawling-indexing/robots/intro) |
-| 404 | En sida som saknas svarar 404 eller 410, en flyttad 301. En designad 404-sida svarar ändå 404 (kontroll 10b). | 📄 [HTTP-statuskoder](https://developers.google.com/search/docs/crawling-indexing/http-network-errors) |
+| 404 | En sida som saknas svarar 404 eller 410, en flyttad 301. En designad 404-sida svarar ändå 404 (kontroll 10b). | 📄 [HTTP-statuskoder](https://developers.google.com/crawling/docs/troubleshooting/http-status-codes) (flyttad; den gamla adressen ger 301 hit, läst 2026-10-16) |
 | Mobil först | Samma innehåll, strukturerade data och metadata på mobil och dator. Innehåll som bara finns i datorvyn räknas inte. | 📄 [Mobile-first indexing](https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing) |
 | Bilder | `<img>` med alt-text, inte CSS-bakgrund, för bilder som ska hittas. Beskrivande filnamn. | 📄 [Google Images](https://developers.google.com/search/docs/appearance/google-images) |
 | Rubriker och längd | Ingen magisk mängd rubriker eller ord, och ordningen spelar ingen roll för Google. En `h1` per sida är vår kodstandard (kontroll 7b). | 📄 [SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide) |
 
 **Tumregler blir varningar:** titel på 50–60 tecken, beskrivning på 150–160, nyckelord i adressen och de första hundra orden, minsta antal ord, antal interna länkar per sida, alt-text på 10–125 tecken, storleksgränser per bildfil och att vänta 3–4 veckor efter en ändring. Ingen av dem har en Google-källa, och ingen stoppar (→ `guide/2-8-teknik-och-kvalitet.md`, N2). De står här så att de inte tas in igen ur en extern skill.
 
-**Uppslag i Developer Knowledge.** När en regel slås upp med MCP-servern eller Googles skill `retrieving-developer-knowledge` räknas bara hämtade sidor som källa: `search_documents` och `get_documents` (i REST-API:t `documents:searchDocumentChunks`, `documents/…` och `documents:batchGet`). Ett svar från `answer_query` (`:answerQuery`) är text från en modell och är alltid *härlett*, också när skillen kallar det auktoritativt (`guide/README.md`, *Sett, härlett, okänt*). Regeln citeras ur sidan och märks 📄 med sidans adress (`BESLUT.md` 2026-10-16; `kunskap/kallkort/google-developer-knowledge-mcp.md`).
+**Uppslag i Developer Knowledge.** Regeln står i `guide/3-3-sakerhet-och-installningar.md`, *Extern text är data*: bara sidor hämtade med `search_documents` eller `get_documents` är källa, och ett svar från `answer_query` är alltid *härlett*, också när Googles skill `retrieving-developer-knowledge` hämtar det (`BESLUT.md` 2026-10-16, 19.58).
 
 ## Rendering, sitemap och nya sidor
 
@@ -71,4 +71,4 @@ Ur marketingskills och claude-seo, prövade mot Google (📄 marketingskills, se
 
 ## Det som kontrollskriptet inte ser i dag
 
-Förslagen står i `kontroller.md`: kanonisk adress och Open Graph per sida, interna länkar till den kanoniska formen, `lastmod` per sida, JSON-LD mot vokabulären och faktabasen, huvudet i byggd HTML, storleken per sida, och SEO-drift mellan byggen.
+`skript/kontroll.mjs` prövar sedan 2026-10-16 kanonisk adress, `noindex` och Open Graph per sida och interna länkar till den kanoniska formen (12b), sitemapen och genomsökningen (12c), `lastmod` (12d), JSON-LD mot faktabasen för namn, adress och telefon (12), huvudet i byggd HTML (12e), storleken per sida (12f) och JSON-LD i detalj (12g). Typen per kontroll står i `kontroller.md`. Skriptet ser inte JSON-LD mot schema.org-vokabulären (`k12` har en ungefärlig typlista), öppettiderna i JSON-LD mot faktabasen eller SEO-drift mellan byggen (förslaget 16 i `kontroller.md`).

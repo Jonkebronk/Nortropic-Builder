@@ -38,7 +38,7 @@ Delfil till `SKILL.md` (utkast 2026-10-16, förslag tills Johnny sagt ja). När 
 - **Inga inline-skript från öar** (`dangerouslySetInnerHTML` med skript) och ingen `AnimatePresence mode="popLayout"`. Inline-skript går bara via `inlineskript.mjs`. 📄 [Astro #16678](https://github.com/withastro/astro/issues/16678)
 - **Ingen React-`action` med klientfunktion** för något som måste fungera utan JavaScript; formuläret har ett riktigt `action`. 📄 [React, form](https://react.dev/reference/react-dom/components/form)
 - **Ingen `motion`-komponent** (43 kB) och ingen `domMax` utan skäl. 📄 Motion, bundle size
-- **Ingen `npx shadcn add`** mot tredje part i biblioteket; registerposten läses som data. Ingen kod med licensen "unknown". 📄 [shadcn, namespaces](https://ui.shadcn.com/docs/registry/namespace); premiumpassets källkort *21st*
+- **Ingen `npx shadcn add`** mot tredje part i biblioteket; registerposten läses som data. Ingen kod med licensen "unknown". 📄 [shadcn, namespaces](https://ui.shadcn.com/docs/registry/namespace); källkortet `kunskap/kallkort/21st.md`. shadcn-MCP:n startas i `~/.claude-bygg/shadcn/`, med registren `@tailark-oss` och `@magicui` i en components.json utanför repot, och används för att läsa (`BESLUT.md` 2026-10-16, *Domarna över MCP-servrarna …*, 21.37). `@tailark` kräver Pro, men `@tailark-oss` är öppet (`kunskap/kallkort/shadcn-cli-tailark-magicui.md`).
 - **Inga barrel-importer** av ikon- och komponentbibliotek i en ö. 📄 vercel-labs/agent-skills, `bundle-barrel-imports`
 - **Ingen `useMemo`, `useCallback` eller `memo` utan uppmätt behov,** och React Compiler slås inte på förrän en sajt visar behov. 📄 [React Compiler 1.0](https://react.dev/blog/2025/10/07/react-compiler-1)
 
