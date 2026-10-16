@@ -1,45 +1,38 @@
 # Läget
 
-Uppdaterad 2026-10-17 kl. 00.18 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-17 kl. 01.00 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
-## Stående uppdrag (Johnny 2026-10-16 kl. 23.45) – gäller före allt nedan
+## Stående uppdrag (Johnny 2026-10-16 kl. 23.45) – klart 2026-10-17 kl. 01.00
 
-Ordagrant i `BESLUT.md`, *Stående uppdrag fram till nästa övningssajt*. Claude gör punkterna 1–4 i ordning utan att fråga för varje steg. Avgöranden i Johnnys ställe skrivs i `BESLUT.md`, märkta *Claudes rekommendation, delegerat av Johnny 2026-10-16*. Byggrepot committas och pushas per steg efter sökning efter hemligheter; sajten committas bara lokalt. **Nästa övningssajt påbörjas inte**: Johnny gör först en egen premiumkontroll.
+Ordagrant i `BESLUT.md`, *Stående uppdrag fram till nästa övningssajt*. Punkterna 1–4 är gjorda. Varje avgörande i Johnnys ställe står i `BESLUT.md`, märkt *Claudes rekommendation, delegerat av Johnny 2026-10-16*, och väntar på hans dom i efterhand. **Nästa övningssajt påbörjas inte: Johnny gör först en egen premiumkontroll.**
 
-1. **Resten av "Fixa alla"** (Mobbin får vara):
-   - Videorna, gjort 23.42: nya videor på `sites/torsokliniken/video/index.html`, de gamla i `video/2026-10-15/`, skriptet i `video/spela-in.cjs`, sajtens `f4cb69a`.
-   - Verktygslåset läser promptar, resurser och flaggor (`b4bafd9`): alla 11 nåbara servrar är oförändrade; seo-monster har 13 promptar, och mcp-gsc och shadcn har flaggan resources.
-   - Startsäkringen bevakar guidens Google-sidor (`skript/google-sidor.py`, `b4bafd9`): 53 sidor, alla finns.
-   - Statusskriptet på web-features (`skript/baseline.mjs`, `8556f04`): 40 av 40 rader stämmer.
-   - **Punkt 1 är klar** (2026-10-16, 23.52).
-2. **Skillsen – klar 23.54** (`BESLUT.md`, *Skillsen, resten av översynen*): punkterna 12–16 var redan gjorda; hover-spärren följer biblioteket i fyra skills; lucka 8 utan tillägg; klickytor och strukturerad data oförändrade.
-3. **Övningssajten:**
-   - andra varvets sajtfynd som inte är rättade
-   - kontrollskriptets N2-fynd
-   - grupp B i `premiumpass.md`
-   - de öppna punkterna i frågelistan
-   - raden I dag
-   - texten om skatt och friskvårdsbidrag
-   - 404 och `_redirects`
-   - provsidorna för Varm och Djärv
+1. **Resten av "Fixa alla":**
+   - Videorna ligger på sajtens videosida (`sites/torsokliniken/video/index.html`).
+   - Verktygslåset läser också promptar, resurser och flaggor (`b4bafd9`).
+   - Startsäkringen bevakar de 53 citerade Google-sidorna (`skript/google-sidor.py`).
+   - Statusskriptet på web-features ger 40 av 40 (`skript/baseline.mjs`).
+   - Mobbin är kvar.
+2. **Skillsen:**
+   - Hover-spärren följer biblioteket.
+   - Lucka 8 fick inget tillägg (`BESLUT.md`, *Skillsen, resten av översynen*).
+3. **Övningssajten och frågelistan:**
+   - Avgörandena: `BESLUT.md`, *Frågelistan efter tredje varvet avgörs* och *Övningssajten – premiumpassets grupp B …*. Commits: guiden `badbc22`, `1f1871e`; skills och kit `b0e7846`, `56d8bc4`; kontrollskriptet `331b1fd`, `5dc0860`; biblioteket `a77c0e0`; sajtens `fd4b4f8`, `4ef651c`.
+   - Mikroproven: 54 behållen, 43 c och 56 strukna.
+   - `'strict-dynamic'` är provat och infördes inte.
+   - Inventeringen är artefakt version 12.
+4. **Avslut:** kontrollskriptet är kört helt 00.54.
+   - Bara 5b stoppar (samtycket till behandlingsfotot, kunden).
+   - 4b (Företagshälsa har Ring och Mejla), 6b (företagsformen) och 12d (samma `lastmod`) rapporterar.
+   - Lighthouse ger 100 på 22 mätningar.
+   - Tillägget står i sajtens `genomgang.md` (avsnitt 5, med förslagen G14–G16), och `progress.md` är uppdaterad.
 
-   Rätta i biblioteket när felet är generellt och i sajten när det är sajtens.
-
-   **Läget 00.18:**
-   - **Frågelistan är avgjord** (`BESLUT.md`, *Frågelistan efter tredje varvet avgörs*).
-     - Guidetexten är införd (`badbc22`).
-     - Mikroproven: 54 behållen, 43 c och 56 strukna (`kunskap/research/2026-10-17_mikroprov-fragelistan.md`).
-   - **Biblioteket och sajten:**
-     - Andra varvets och kontrollskriptets fynd inom beslut och grupp B är rättade (`a77c0e0`, sajtens `fd4b4f8`; `BESLUT.md`, *Övningssajten – premiumpassets grupp B …*).
-     - `'strict-dynamic'` är provat och inte infört.
-   - **Pågår, två delagenter:**
-     - **Kontrollskriptet** (frågelistan 1, 6, 7, 11, 15 b, 16, 25, 26, 30, 44, 45, 46, 49 och 57 i `skript/kontroll.mjs`, `guide/2-8`, bilaga C och `kvalitet/kontroller.md`). Ej committat. Efteråt: rätta 7e (mjukt bindestreck i `kontroll.mjs`) och skriv in CSP-provet i 2-8.
-     - **Skills, kit och inventering** (frågelistan 7, 8, 15 c, 18 a, 19, 22, 44, 51, 55 och 57 i `.claude/skills/`, `bibliotek/stilkit/` och `inventering/`). Ej committat. Efteråt:
-       - kopiera kiten till sajtens `stilkit/`
-       - bygg inventeringen
-       - publicera artefakten https://claude.ai/artifact/ASZcbmg8qc9ThMusGjRZpe
-   - **Kvar i punkt 3:** granska `/prov/varm/` och `/prov/djarv/` efter kitändringarna, kör kontrollskriptet och rätta det som återstår.
-4. **Avslut:** kontrollskriptet helt, tillägget i sajtens `genomgang.md`, `progress.md` och `LAGE.md`.
+**Väntar på Johnny:**
+- **Premiumkontrollen.** Börja med listan *Granska själv först* i sajtens `genomgang.md`, avsnitt 5.
+- **Domarna i efterhand** över de delegerade avgörandena.
+- **Varm och Djärv:** provsidorna `/prov/varm/` och `/prov/djarv/` på förhandsvisningen (`http://127.0.0.1:4322/`).
+- **VoiceOver:** manuset `sites/torsokliniken/voiceover-manus.md` på en iPhone. Sajten måste då nås från telefonen.
+- **Förslagen G14–G16.**
+- **Kunden:** samtycket till behandlingsfotot och företagsformen.
 
 ## Nästa session – börja här (skrivet 2026-10-16 kl. 19.39)
 
