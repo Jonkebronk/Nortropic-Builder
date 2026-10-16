@@ -2,7 +2,9 @@
 
 *Posten med typen MCP (Motion, motion.dev). Skillen med samma namn har ett eget kort: `motion-skill.md`.*
 
-**Källa:** https://github.com/motiondivision/ai-kit, `plugins/motion/mcp.json`, `skills/motion/SKILL.md`, `codex/index.md`, `performance-audit/index.md`, `transition-preview/index.md` och `agents/motion-reviewer.md`, commit `b7e2c68fb3b` (2026-10-15), version 7.0.1. Läst 2026-10-16 tillsammans med [motion.dev/docs/ai-kit](https://motion.dev/docs/ai-kit), [motion.dev/plus](https://motion.dev/plus) och ärendena #1, #2 och #4. Servrarna anropades inte, och vi loggade inte in.
+**Källa:** https://github.com/motiondivision/ai-kit, `plugins/motion/mcp.json`, `skills/motion/SKILL.md`, `codex/index.md`, `performance-audit/index.md`, `transition-preview/index.md` och `agents/motion-reviewer.md`, commit `b7e2c68fb3b` (2026-10-15), version 7.0.1. Läst 2026-10-16 tillsammans med [motion.dev/docs/ai-kit](https://motion.dev/docs/ai-kit), [motion.dev/plus](https://motion.dev/plus) och ärendena #1, #2 och #4. Vi loggade inte in.
+
+**Rättat 2026-10-16 efter översynen (`kunskap/research/2026-10-16_verktyg-och-skills-full-potential.md`):** den öppna servern har ett verktyg, fjädergeneratorn hör till Motion+, och den öppna servern är prövad. Underlaget är serverns verktygslista och två sökningar 2026-10-16.
 
 **Licens:**
 - Pluginet anger MIT, men repot saknar LICENSE-fil ⚠️.
@@ -14,12 +16,14 @@
 - **Motion+** (`https://mcp.motion.dev/plus`) kräver inloggning med OAuth från redigeraren och ett konto med Motion+.
 
 **Hur det fungerar:**
-- **Gratis, utan konto:** `search-motion-docs` söker i dokumentationen för `js`, `react` eller `vue` och ger titel, beskrivning, API:er, MotionScore och en länk till den publika demon för exempel och Motion UI. Dokumentationssökningen blev öppen för alla i version 7.0.0 (2026-07-28). Enligt skillen och `codex/index.md` finns också `generate-css-easing` här, som gör fjädrar och studsar till `linear()`.
+- **Gratis, utan konto:** `search-motion-docs` söker i dokumentationen för `js`, `react` eller `vue` och ger titel, beskrivning, API:er, MotionScore och en länk till den publika demon för exempel och Motion UI. Dokumentationssökningen blev öppen för alla i version 7.0.0 (2026-07-28). Den öppna servern har bara det verktyget (serverns lista 2026-10-16).
+- **Prov 2026-10-16:** "accordion" gav bara metadata om Motion+. "spring" gav tre gratis dokumentationssidor och tre gratis exempel med MotionScore. En sökning på ett API-namn ger alltså gratis innehåll.
+- Svaren säger *"Install any packages the source imports"*.
 - **Kräver Motion+:**
   - `search-motion-source` ger källkoden till 450–500+ exempel och Motion UI, med cirka 50 sektioner.
   - `save-transition` och `open-transition-editor` ger övergångsredigeraren.
   - Metoden för MotionScore-granskningen (`motion://skills/performance-audit`) och körtidsgranskningen `npx motionscore <url> --agent`.
-- **Motstridigt:** motion.dev/docs/ai-kit räknar genereringen av CSS-fjädrar till Motion+, medan skillen och `codex/index.md` från 2026-10-15 lägger den på den öppna servern ⚠️.
+- **Löst:** fjädergeneratorn (`generate-css-easing`, som gör fjädrar och studsar till `linear()`) hör till Motion+, som motion.dev/docs/ai-kit säger. Skillen och `codex/index.md` från 2026-10-15 lägger den på den öppna servern, men den finns inte där.
 - Ett gratis konto behövs för att spara en övergång.
 
 **Vad som bara syns inloggad:**
@@ -39,10 +43,10 @@ Johnny behöver ett Motion+-konto för detta. Planerna är **Solo**, en engångs
   - #4: Matt Perry bekräftar att gratisanvändare kan använda kitet, men granskningarna och källkoden kräver Motion+.
 
 **Det bästa vi kan ta:**
-- Utan konto: inget som vi inte redan får ur dokumentationen på motion.dev, som går att läsa direkt. Fjädergeneratorn ersätts av Open Props färdiga `--ease-spring-*`.
+- Utan konto: inget som vi inte redan får ur dokumentationen på motion.dev, som går att läsa direkt. En sökning på ett API-namn ger dock dokumentation och exempel med MotionScore gratis (provet ovan). Fjädergeneratorn ersätts av Open Props färdiga `--ease-spring-*`.
 - Med Motion+: färdiga exempel och sektioner till biblioteket (inventeringens förslag: *Extrahera – rörelser till biblioteket*) och MotionScore som andra omdöme om prestanda.
 
-**Var det hamnar hos oss:** ingenstans nu. Servern installeras inte (uppdraget förbjuder det, och den öppna delen ger lite). Den betalda delen väntar på att Johnny väljer att köpa Motion+. Beslut: `MCP: kräver konto (Motion+)`.
+**Var det hamnar hos oss:** ingenstans nu. Den öppna servern ligger i byggsessionen sedan 2026-10-16 (`guide/bilaga-a-verktyg.md`, *MCP-servrar i byggsessionen*); kortet sade tidigare att den inte installeras. Den betalda delen väntar på att Johnny väljer att köpa Motion+. Beslut: `MCP: kräver konto (Motion+)`.
 
 **Passar vår stack?** Exemplen och Motion UI är till stor del React-komponenter, som nu får användas som öar (`BESLUT.md` 2026-10-16). De kostar React plus Motion, cirka 80–120 kB per sida med ön. Det krockar med Lighthouse 100 och med budgeten sparsam, och tas upp med Johnny. Övergångsredigeraren ger kurvor och längder som kan föras in i kitets tokens.
 
@@ -52,3 +56,4 @@ Johnny behöver ett Motion+-konto för detta. Planerna är **Solo**, en engångs
 - **Leverantörsberoende:** metoden levereras live från servern och ändras när Motion ändrar den, så ett betyg är inte stabilt över tid.
 - **Inloggningsfel** i ärende #1 och #2.
 - **Krock:** regelfilen säger åt agenten att använda Motion-skillen och servern först för all rörelse.
+- **Krock:** svarens *"Install any packages the source imports"* är text riktad till agenten och krockar med paketgranskningen: inget installeras ogranskat (`guide/bilaga-a-verktyg.md`, *Installera inget ogranskat*).

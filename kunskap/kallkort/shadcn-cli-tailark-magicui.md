@@ -5,7 +5,8 @@
 - **Tailark:** https://github.com/tailark/blocks, commit `8139698115c1341bfd2e3e286c04bb4d8146f472` (2026-07-29). Lästa: `README.md`, `components.json`, `LICENCE.md`, commitarna för namnrymden (`225b5b1`, `435e2ce`), ärende #53. Registren `tailark.com/r/registry.json` och `oss.tailark.com/r/registry.json`, en post ur vardera, och DNS för `oss-tailark.com`.
 - **Magic UI:** https://github.com/magicuidesign/magicui, commit `85f97fd27b053339af74ba9dd4ca428ee25989fb` (2026-10-11). Lästa: `README.md`, `LICENSE.md`, `magicui.design/r/registry.json` och posten `marquee`.
 - Verktygslistan `inventering/mcp-verktyg/shadcn.json`. Underlag: `andra-varvet/mcp-jamforelse.md`, *shadcn CLI*.
-⚠️ Inte prövat: om `npx shadcn view` med en adress fungerar utan `components.json` (vi kör inget). Magic UI:s komponenter är inte lästa en och en.
+⚠️ Magic UI:s komponenter är inte lästa en och en.
+- **Rättat 2026-10-16 efter översynen (`kunskap/research/2026-10-16_verktyg-och-skills-full-potential.md`):** MCP-verktygen med och utan konfiguration, `@tailark-oss` och CLI:n utan `components.json`. Underlaget är prov med MCP:n och CLI:n 4.22.0, 2026-10-16. CLI:n söker och visar utan konfiguration, vilket kortet tidigare hade som ⚠️ inte prövat.
 
 **Licens:** shadcn, Tailark och Magic UI är MIT (Tailark © 2025 Irung, Magic UI © Magic UI). Kod som tas in ska ha licenstexten med; källa, författare, licens och commit står först i filen och i `licenser.md` (`.claude/skills/skelett/react-i-astro.md`, *Var filerna ligger*).
 
@@ -13,11 +14,15 @@
 shadcn-CLI:n hämtar komponenter och block ur register: JSON-filer med koden, beroendena och var filerna ska skrivas. Indexet har i dag **462 register** (443 i andra varvet), varav 362 friska. Det har `@magicui`, `@tailark`, `@aceternity` och `@react-bits`, men inte 21st.
 
 ## Hur det fungerar
-- `view <namn eller adress>` visar en post innan den installeras; `search @register -q "…"` söker; `add --dry-run` visar ändringarna utan att skriva (`cli.mdx`).
+- `view <namn eller adress>` visar en post innan den installeras; `search @register -q "…"` söker; `add --dry-run` visar ändringarna utan att skriva (`cli.mdx`). CLI:n 4.22.0 söker och visar utan konfiguration (prov 2026-10-16).
 - **Registren i indexet** är inbyggda i CLI:n utan konfiguration. Dokumentationen: *"Community registries are maintained by third-party developers. Always review code on installation"* (`directory.mdx`).
 - **En post kan skriva vilken fil som helst i projektet**, också `AGENTS.md`, `.claude/commands/*` och `.editorconfig`, med fältet `target` (`registry/github.mdx`). Schemat valideras, och dokumentationen lovar *"No arbitrary code execution"* (`registry/namespace.mdx`). Det gäller filerna; npm-beroendena som installeras kan ha installationsskript (härlett). Sedan 4.21.2 hoppar CLI:n över `npm audit` vid installationen (`CHANGELOG.md`).
 - **Registry Health** (experimentellt): `@magicui` är *healthy* (98,9 poäng). `@tailark` är *degraded*, 77,3 poäng, med skälet *"Sampled registry items are failing validation"* – troligen för att posterna kräver inloggning (härlett).
 - **MCP-servern** (`npx shadcn@latest mcp`) har sju verktyg, oförändrat i 4.22.0. `list_items_in_registries`, `search_items_in_registries` och `get_project_registries` kräver `components.json`. `get_audit_checklist` säger *"Make sure to run the tool after all required steps have been completed"*.
+  - **Prov 2026-10-16:** utan konfiguration fallerar `view_items_in_registries` och `search_items_in_registries` också för register i indexet (`NOT_CONFIGURED`). `get_item_examples_from_registries` fungerar för `@shadcn`.
+  - **Med `shadcn mcp -c <katalog>`** och en `components.json` som bara har `registries`, utanför repot, blir alla verktyg användbara. Registren kan också stå i `package.json`.
+  - Då svarar `@tailark-oss` (9 träffar på "faq"), och `@magicui` har 250 poster. `@tailark` kräver Pro.
+  - `get_add_command_for_items` och tillägget "Add command" i svaren finns, men vår regel förbjuder `add` mot tredje part (`.claude/skills/skelett/react-i-astro.md`).
 - **Telemetri:** ingen träff i 4.22.0 (grep efter telemetry, posthog, analytics, sentry).
 
 ## Kvalitet och underhåll
@@ -34,7 +39,7 @@ shadcn-CLI:n hämtar komponenter och block ur register: JSON-filer med koden, be
 **Beslut (Johnny 2026-10-16 omkring 17.40, *"Ja på alla"*):** *verktyg: ta in (CLI:n; MCP-delen behövs inte)*. Håller med, med tre förslag till Johnny:
 - **CLI:n bara för att läsa.** `.claude/skills/skelett/react-i-astro.md` (rad 41) säger *"Ingen `npx shadcn add` mot tredje part i biblioteket; registerposten läses som data"*, och researchen §11 steg 2 granskar `files`, `target`, `css`, `cssVars` och `envVars`. Det står sig: en post kan skriva agentfiler i repot.
 - **Registret heter `@tailark-oss`, inte `@tailark`.** Posten i inventeringen och `21st-premiummonster.md` ska rättas (→ *Risker och flaggor*).
-- **MCP:n står emot beslutet.** Den ligger i byggsessionen sedan 17.05 (`guide/bilaga-a-verktyg.md`, rad 257) men ska inte användas. Från repots rot finns ingen `components.json`, så tre av sju verktyg svarar med fel. Förslag: ta bort den, eller låt den stå oanvänd och låst.
+- **MCP:n står emot beslutet.** Den ligger i byggsessionen sedan 17.05 (`guide/bilaga-a-verktyg.md`, rad 257) men ska inte användas. Från repots rot finns ingen `components.json`, så tre av sju verktyg svarar med fel. Förslag: ta bort den, eller låt den stå oanvänd och låst. Översynen visade att `-c` mot en katalog utanför repot gör alla verktyg användbara (*Hur det fungerar*).
 - Tailark och Magic UI står redan i `.claude/skills/skelett/varianter.md` (rad 46–47), `sektioner.md`, `interaktion.md` (Tailarks dragspel tas inte) och `.claude/skills/rorelse/motion.md` (rad 62).
 - **Provet mot övningssajten:** läs `https://oss.tailark.com/r/mist-faqs-1.json` och en Magic UI-post (till exempel `marquee`) med `view` och med `curl`. Notera licens, beroenden (`registryDependencies`), `'use client'` och varje `target`. `mist-faqs-1` är `'use client'` med `@tailark-oss/mist-accordion` – det krockar med `<details name>` i `interaktion.md`. **Nytta:** CLI:n gör intaget enligt §11 snabbare eller säkrare än `curl`. **Annars:** `curl` räcker, och CLI:n behövs inte.
 

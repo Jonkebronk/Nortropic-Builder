@@ -8,6 +8,7 @@
 - [Answer query](https://developers.google.com/knowledge/answer-query) och [API-sidan](https://developers.google.com/knowledge/api), avsnittet om OAuth-omfång.
 - Det officiella MCP-registret: `com.googleapis.developerknowledge/mcp`, version 1.0.0 (sökning 2026-10-16).
 - ⚠️ Inte lästa: Googles blogginlägg [Introducing the Developer Knowledge API and MCP Server](https://developers.googleblog.com/introducing-the-developer-knowledge-api-and-mcp-server/) (februari 2026; bara en söksammanfattning), skillen `retrieving-developer-knowledge` i google/skills och villkoren som gäller API:t. Pris och loggning av frågor står inte på någon av de lästa sidorna.
+- **Rättat 2026-10-16 efter översynen (`kunskap/research/2026-10-16_verktyg-och-skills-full-potential.md`):** verktygslåset, att `kvalitet/seo-teknik.md` nämner servern, MCP-schemat mot REST-API:t och ett prov på guidens citerade Google-sidor. Underlaget är serverns verktygslista och anrop mot MCP och REST 2026-10-16.
 
 **Licens:** en tjänst, ingen kod att sprida. Dokumentationen i korpusen är CC BY 4.0 och kodexemplen Apache 2.0 (sidfoten på developers.google.com). Vi destillerar med egna ord och länkar till sidan. Vilka API-villkor som gäller för nyckeln står inte på sidorna ⚠️.
 
@@ -16,9 +17,10 @@ Googles officiella, värdade MCP-server (`https://developerknowledge.googleapis.
 
 ## Hur det fungerar
 - **Tre verktyg** (MCP-sidan):
-  - `search_documents` ger de mest relevanta textstyckena med dokumentnamn.
-  - `get_documents` hämtar hela dokument som markdown, med namnen ur sökningen. Det ersatte `get_document` och `batch_get_documents` 2026-03-08.
-  - `answer_query` *genererar* ett svar ur korpusen, med `citations` och `references` sedan 2026-06-01. Verktyget kör på gemini-3.5-flash sedan 2026-10-09. Dagen innan kapades svaren under en störning.
+  - `search_documents` ger de mest relevanta textstyckena med dokumentnamn. Via MCP blir det 5 träffar, och verktygen avvisar `filter` och `page_size`.
+  - `get_documents` hämtar hela dokument som markdown, med namnen ur sökningen. Det ersatte `get_document` och `batch_get_documents` 2026-03-08. Via MCP saknas `updateTime` och `dataSource`.
+  - `answer_query` *genererar* ett svar ur korpusen, med `citations` och `references` sedan 2026-06-01 enligt release notes. MCP-schemat visar `answerText` och `references` (⚠️ `citations` ej sett). Verktyget kör på gemini-3.5-flash sedan 2026-10-09. Dagen innan kapades svaren under en störning.
+- **REST-API:t ger mer än MCP:n:** `pageSize` upp till 100, `filter` på `data_source`, `update_time`, `uri` och `content_length_bytes`, och `batchGet` med `DOCUMENT_VIEW_BASIC`. Ett namn som saknas ger 404 för hela `batchGet`.
 - **Korpusen:** 21 domäner, bland dem `web.dev`, `developer.chrome.com` och hela `developers.google.com`. Search Central (`/search`) och Business Profile (`/my-business`) ligger under den domänen och har inget undantag. De är alltså med, men det är härlett, inte utskrivet ⚠️. Undantagna är bara referenssidor för klientbibliotek på `docs.cloud.google.com`.
 - **Färskhet:** målet är att indexera om *"within 48 hours of publication"* (korpusreferensen). Bloggen lovade 24 timmar under förhandsversionen ⚠️ (inte läst direkt).
 - **Begränsningar:** bara publik dokumentation, och *"documentation in English only"* (MCP-sidan, *Known limitations*).
@@ -34,7 +36,7 @@ Googles officiella, värdade MCP-server (`https://developerknowledge.googleapis.
 - Inga publika ärenden att läsa, eftersom det inte finns något repo.
 
 ## Det bästa vi kan ta
-1. **Sök i hela korpusen på en gång.** Guidens viktigaste primärkällor är Googles: Search Central, web.dev och Chrome. De citeras i 37 filer i `.claude/skills/` och `guide/`, flest i `kvalitet/seo-teknik.md` (19 rader) och `kvalitet/prestanda.md` (14 rader; `grep` 2026-10-16). Servern gör det möjligt att kontrollera att en citerad regel fortfarande står kvar, utan att varje sida hämtas för sig.
+1. **Sök i hela korpusen på en gång.** Guidens viktigaste primärkällor är Googles: Search Central, web.dev och Chrome. De citeras i 37 filer i `.claude/skills/` och `guide/`, flest i `kvalitet/seo-teknik.md` (19 rader) och `kvalitet/prestanda.md` (14 rader; `grep` 2026-10-16). Servern gör det möjligt att kontrollera att en citerad regel fortfarande står kvar, utan att varje sida hämtas för sig. Prov 2026-10-16: 54 av 55 citerade Google-sidor finns. `search/docs/crawling-indexing/http-network-errors` har flyttat till `developers.google.com/crawling/docs/troubleshooting/http-status-codes`; `kvalitet/seo-teknik.md` (rad 27) citerar den gamla adressen.
 2. **Bara `search_documents` och `get_documents` är källor.** `answer_query` är text från en modell och räknas som *härlett*, aldrig som *sett* (`guide/README.md`, *Sett, härlett, okänt*).
 3. Allt i korpusen är publikt. WebFetch når samma sidor utan nyckel. Servern vinner bara om sökningen och markdownen sparar steg.
 
@@ -42,7 +44,7 @@ Googles officiella, värdade MCP-server (`https://developerknowledge.googleapis.
 **Beslut** (Johnny omkring 17.40, *"Ja på alla"*): *MCP: kräver konto (Google Cloud-projekt och API-nyckel begränsad till Developer Knowledge API)*. Jag håller med, med två förslag till Johnny:
 - **Stäng av `answer_query`** med en deny-regel för `mcp__google-developer-knowledge__answer_query` i byggsessionens behörigheter. Det är Johnnys inställning (`guide/3-3`), och Claude ändrar den inte. Skäl: svaret är genererat, och kvoten är 50 per dag.
 - **En egen nyckel per Google-tjänst.** Grounding Lite och nanobanana får egna nycklar, så att en läckt nyckel bara öppnar ett API. Googles sida föreslår att samma nyckel kan användas för Gemini-anrop, och det gör vi inte.
-- Ingen av våra skills nämner servern i dag. Googles egen skill gör det (avsnittet *Googles skill* nedan). Behålls den hör den till **larande** (`bevakning.md`) och **kvalitet** (`seo-teknik.md`, `prestanda.md`), som uppslag när en Google-källa läses om.
+- `kvalitet/seo-teknik.md` nämner servern (*Uppslag i Developer Knowledge*), och Googles egen skill gör det (avsnittet *Googles skill* nedan). Kortet sade tidigare att ingen av våra skills gjorde det. Behålls den hör den också till **larande** (`bevakning.md`) och **kvalitet** (`prestanda.md`), som uppslag när en Google-källa läses om.
 - **Provet mot övningssajten:** fem frågor ur `guide/2-2` och `2-8`: flytt med nya adresser, robots.txt, `LocalBusiness`, CrUX-kravet och förutsättningarna för Business Profile. Facit är Googles sidor, hämtade med WebFetch. Frågorna ställs på engelska. **Nytta:** rätt sida och rätt regel med färre steg än WebFetch. **Annars:** ta bort servern (`andra-varvet/mcp-jamforelse.md`, *Google Developer Knowledge MCP*).
 
 ## Passar vår stack?
@@ -52,7 +54,7 @@ Ja, för kunskap. Servern rör inte sajten och kör inget på Macen. Den täcker
 - **Beslutet *Inget Cloudflare eller Google-API för övningssajterna*** (`BESLUT.md` 2026-10-15) gäller sajterna. Johnnys beslut 17.05 om att alla MCP:er ska in (*Alla MCP:er in nu …*) tar in den här servern, och projektet blir byråns, inte övningssajtens.
 - **Pris och loggning är okända** ⚠️. Om Google Cloud-projektet kräver ett betalkonto står inte heller på de lästa sidorna ⚠️. Sätt en budgetvarning i projektet om ett betalkonto krävs.
 - **Nyckeln ligger i klartext** i `~/.claude-bygg/.claude.json` (lokal scope). Den får aldrig hamna i `.mcp.json` eller i `inventering/mcp-servrar.json`, eftersom repot är publikt.
-- **Verktygslåset hoppar över servern** (`"inloggning": true` i `inventering/mcp-servrar.json`) tills skriptet kan läsa nyckeln utanför repot.
+- **Verktygslåset låser servern** med tre verktyg (`inventering/mcp-verktyg/google-developer-knowledge.json`). Skriptet läser nyckeln ur byggsessionens konfiguration och skriver aldrig ut den (`LAGE.md`). Kortet sade tidigare att låset hoppade över servern.
 - **Model Armor** loggar hela innehållet om loggning slås på (MCP-sidan). Slå inte på det.
 - Kunduppgifter står aldrig i en fråga.
 

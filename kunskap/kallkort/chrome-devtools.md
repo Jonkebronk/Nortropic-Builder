@@ -6,6 +6,7 @@
 - npm: `chrome-devtools-mcp` **1.11.0** (2026-10-15). Kräver Node `^20.19 || ^22.12 || >=23`.
 - GitHub-ärenden: sökning via API:t (öppna, sorterade på reaktioner) plus #1955, som lästes på webben.
 - **Omläst 2026-10-16 (tredje varvet)** vid main `552e1f8d2519` (2026-10-16 14:26 UTC), tio commits efter `382f441`, med GitHubs jämförelse. Av de lästa filerna ändrades bara `docs/tool-reference.md`: minnesverktygen sidindelar nu som standard (50 per sida). Det som rör oss står under *Kända problem*. Senaste utgåvan är fortfarande 1.11.0 (npm och GitHub, 2026-10-15).
+- **Rättat 2026-10-16 efter översynen (`kunskap/research/2026-10-16_verktyg-och-skills-full-potential.md`):** antalet påslagna verktyg (32, inte 46), flaggorna för resten, nyheterna i 1.11.0, filrötterna och fallgropar i `emulate` och `click`. Underlaget är paketet 1.11.0, serverns verktygslista med vår konfiguration och prov mot övningssajten 2026-10-16.
 
 **Licens:**
 - Apache-2.0. Det finns ingen NOTICE-fil.
@@ -18,13 +19,26 @@
 - Den ger spårningar med prestandainsikter, nätverk, konsol, skärmbilder, tillgänglighetsträdet och en Lighthouse-granskning utan prestandakategori.
 
 **Hur det fungerar:**
-- **Verktyg:** 59 verktyg i elva kategorier. Som standard är 46 påslagna: input, navigering, emulering, prestanda, nätverk, felsökning och minne. Tillägg, Third-party, WebMCP och PWA är avstängda (`tool-reference.md`).
+- **Verktyg:** 59 verktyg i elva kategorier (`tool-reference.md`). Med vår konfiguration är **32** påslagna, inte 46 som kortet sade. De 27 övriga kräver flaggor:
+  - `--memoryDebugging` (13)
+  - `--experimentalVision` (`click_at`)
+  - `--categoryExtensions` (5)
+  - `--categoryExperimentalThirdParty` (2)
+  - `--categoryExperimentalWebmcp` (2)
+  - `--categoryPwa` (4)
+- **Nytt i 1.11.0:**
+  - skärminspelning till mp4 utan ffmpeg (`screencast_start` och `screencast_stop`)
+  - en konfigurationsfil, `~/.config/cd4a/config.json`, som hittas och läses om automatiskt; det stängs av med `CHROME_DEVTOOLS_MCP_NO_CONFIG_DISCOVERY`
+  - `evaluate_script` med `sourcePath` och `filePath`
+  - `lighthouse_audit` med kategorin Agentic Browsing
+  - `get_css_styles`.
+- **Filrötterna** är repot och operativsystemets temp-katalog.
 - **Viktigast för oss:**
   - `lighthouse_audit` ger tillgänglighet, SEO, best practices och "agentic browsing", men **inte prestanda**.
     - Lägen: `navigation` (laddar om) eller `snapshot` (nuvarande tillstånd). Enhet: `mobile` eller `desktop`.
     - Rapporten sparas på disk. Sedan 1.11.0 kommer fallerade granskningar och noder med direkt i svaret.
   - `performance_start_trace` och `performance_stop_trace` (med `reload`, `autoStop`, `ignoreCache`, `filePath`) och `performance_analyze_insight` (t.ex. `LCPBreakdown`, `RenderBlocking`, `DocumentLatency`).
-  - `emulate`: CPU-strypning, nätprofil, viewport, färgschema, `forced-colors`, `prefers-contrast`, `prefers-reduced-motion`, geoposition och extra huvuden. **Varje anrop ersätter de tidigare inställningarna**, utom huvudena.
+  - `emulate`: CPU-strypning, nätprofil, viewport, färgschema, `forced-colors`, `prefers-contrast`, `prefers-reduced-motion`, geoposition och extra huvuden. **Varje anrop ersätter de tidigare inställningarna**, utom huvudena. Färgblindhet går inte att emulera.
   - `take_snapshot` (tillgänglighetsträdet med `uid`), `list_console_messages` (filter `types`, även de tre senaste navigeringarna), `list_network_requests` och `get_network_request` (huvuden, även `Set-Cookie`).
 - **Inbyggda skills** (`skills/`):
   - `a11y-debugging` arbetar i den här ordningen: Lighthouse, Chromes egna "issues" i konsolen (`types: ["issue"]`), tillgänglighetsträdet, etiketter, Tab-ordning, klickytor och kontrast.
@@ -71,6 +85,9 @@
 - CrUX-anrop skickar URL:er till Google; flaggan måste sättas.
 - `@latest` i startraden byter version; verktygslåset visar ändrade verktyg, men inte ändrat beteende. Läs utgåvans ändringslogg när startsäkringen visar en ny version.
 - Promptinjektion från sidinnehåll: kör bara mot våra egna sajter.
+- `click` klickar på en punkt. Det kan träffa ett annat element och ändå rapporteras som lyckat. Verktygets insikter kan också vara falska, så ett fynd kontrolleras innan det blir en kontroll.
+- Servern har inget verktyg som stänger webbläsaren.
+- Konfigurationsfilen hittas och läses om automatiskt, så inställningar kan komma från en fil utanför startraden.
 - `--autoConnect`/`--browserUrl` mot Johnnys vanliga Chrome skulle exponera inloggade sessioner. Använd `--isolated`.
 - Ingen betalvägg.
 

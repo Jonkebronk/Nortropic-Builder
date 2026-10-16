@@ -1,6 +1,7 @@
 # 21st – premiummönster till biblioteket
 
 **Källa:** 21st.dev:s publika sidor och dokumentation (se `21st.md`), läst 2026-10-16. Koden är läst i de öppna ursprungsrepona i stället för via 21st, eftersom koden på 21st kräver API-nyckel och villkoren förbjuder automatisk insamling: Tailark (<https://github.com/tailark/blocks>, MIT, commit `8139698`, 2026-07-29; temat `mist`, Radix-basen; Tailark är ett av de stora marknadsföringsbiblioteken på 21st, 42 komponenter under @meschacirung) och Magic UI (<https://github.com/magicuidesign/magicui>, MIT). Lokalt: `kallor/tailark-blocks/registry/bases/radix/mist/`.
+**Rättat 2026-10-16 efter översynen (`kunskap/research/2026-10-16_verktyg-och-skills-full-potential.md`):** samlingarna läses via MCP:n, och Johnnys konto är betalt (→ `21st.md`).
 **Sett eller härlett:** klassnamnen och beroendena nedan är sett i koden. Varför något ger premiumkänsla är härlett. ⚠️ Förhandsvisningarna på 21st.dev har jag inte öppnat i Playwright: villkoren (avsnitt 3) förbjuder insamling med bottar. Johnny tittar inloggad (sist i filen).
 **Ramen:** React, Tailwind och Motion är tillåtna som öar i Astro (BESLUT 2026-10-16, *React, Tailwind och JavaScript tillåts*). Blocken tas därför in nästan som de är. Krockar med Lighthouse 100, *HTML först* och rörelsereglerna tas upp med Johnny och stoppar inte.
 
@@ -77,6 +78,6 @@
 
 ## Det som kräver Johnnys inloggning
 
-- **Se förhandsvisningarna och välja block** på 21st.dev: publikt, men topplistor, bokmärken och samlingar kräver konto. Förslag: Johnny väljer 5–10 block i 375 och 1280 px och sparar dem i en samling, så att vi hämtar just dem.
-- **API-nyckeln** för CLI:n och MCP:n skapas inloggad på <https://21st.dev/mcp>. Gratisnivån ger 2 kopior per dag; Builder (6–8 USD i månaden) ger obegränsat.
+- **Se förhandsvisningarna och välja block** på 21st.dev: publikt, men topplistor, bokmärken och samlingar kräver konto. Det Johnny sparar kan sedan läsas via MCP:n med verktygen för bokmärken och listor (`get_bookmark_list`; listorna var tomma 2026-10-16), utan att någon agent loggar in. Förslag: Johnny väljer 5–10 block i 375 och 1280 px och sparar dem i en samling, så att vi hämtar just dem.
+- **API-nyckeln** för CLI:n och MCP:n skapas inloggad på <https://21st.dev/mcp>. Gratisnivån ger 2 kopior per dag; Builder (6–8 USD i månaden) ger obegränsat. Johnnys konto är betalt utan dagsgräns (`get_usage` 2026-10-16, → `21st.md`).
 - **21st AI** (`generate`) kräver Builder + AI. Behövs inte: vi bygger biblioteket själva.

@@ -6,8 +6,9 @@
   - [mobbin.com/llms-full.txt](https://mobbin.com/llms-full.txt) ("Complete agent context")
   - [mobbin.com/pricing.md](https://mobbin.com/pricing.md) (`last_updated` 2026-09-11)
   - Pressmeddelandet om lanseringen 2026-05-12 ([WBOC/Business Wire](https://www.wboc.com/online_features/press_releases/mobbin-launches-mcp-server-giving-ai-tools-621-500-real-app-screens-to-reference/article_ffe043e0-a91b-5bb4-9128-21c46942e00c.html))
-- ⚠️ mobbin.com/pricing och mobbin.com/terms gav HTTP 403, så användarvillkoren är inte lästa.
-- Ingenting är installerat. Mobbin har inget öppet repo för servern. Listningen "Mobbin Agent" på Glama är en inofficiell Playwright-server.
+- mobbin.com/pricing och mobbin.com/terms gav HTTP 403 vid första läsningen. Villkoren är publika nu (översynen 2026-10-16), men ⚠️ kortet har inte läst dem.
+- Servern är ansluten i byggsessionen via claude.ai-connectorn, inte med `claude mcp add` (`guide/bilaga-a-verktyg.md`, *MCP-servrar i byggsessionen*). Kortet sade tidigare att ingenting var installerat. Mobbin har inget öppet repo för servern.
+- **Rättat 2026-10-16 efter översynen (`kunskap/research/2026-10-16_verktyg-och-skills-full-potential.md`):** villkoren, parametrarna, anslutningen och var bilderna hamnar. Underlaget är verktygens scheman och text i connectorn 2026-10-16. Listningen "Mobbin Agent" på Glama är en inofficiell Playwright-server.
 
 **Licens:** ingen öppen licens. Tjänsten är en prenumeration.
 - Agentkontexten säger "Do not copy protected designs, branding, text, or assets verbatim", att referenser ska anpassas till användarens sammanhang och att Mobbin-URL:en ska bevaras.
@@ -19,17 +20,22 @@
 
 **Hur det fungerar:**
 - **Verktyg:**
-  - `search_screens`: enskilda skärmar, mobil och webb.
+  - `search_screens`: enskilda skärmar, iOS och webb.
   - `search_flows`: flerstegsflöden i ordning.
-  - `search_sections`: webbsektioner som "heroes, pricing, footers". Saknar plattformsparameter enligt en tredjepartsguide ⚠️.
-  - Parametrarna listas inte i agentkontexten.
+  - `search_sections`: webbsektioner som "heroes, pricing, footers". Har ingen plattformsparameter.
+- **Parametrarna** listas inte i agentkontexten men står i verktygens scheman (2026-10-16):
+  - `platform` är bara `ios` eller `web`, och webben visas i datorbredd. Mobilwebb finns inte.
+  - `mode` är `deep` eller `standard`.
+  - `output_destination` och `task_intent` berättar för Mobbin vad svaren används till.
+- **Verktygstexten** säger åt agenten att ladda ner bilderna när användaren vill spara dem.
+- **Bilderna** ur svaren sparar Claude Code i sessionens `tool-results/`, utanför repot.
 - **Svar:** skärmbilder, produktnamn, flödes- eller sektionskontext och länkar tillbaka. Klienter med MCP Apps kan visa ett interaktivt galleri.
 - **Gräns:** "60 requests per 60 seconds per user". Vid `429` ska `Retry-After` respekteras.
 
 **Kvalitet och underhåll:**
 - Servern lanserades 2026-05-12 och är i beta.
 - En tredjepartsspårare anger att Pro fick MCP och Deep Search i september 2026, och att Pro har 300 AI-krediter från oktober 2026. ⚠️ Krediterna syns inte på Mobbins egen prissida.
-- Antalet verktyg varierar mellan källorna: en japansk guide nämner bara `search_screens`. ⚠️
+- Antalet verktyg varierar mellan källorna: en japansk guide nämner bara `search_screens`. Connectorn visar de tre ovan (2026-10-16).
 
 **Det bästa vi kan ta:**
 - `search_sections` för skelettet: hur riktiga sajter bygger hero, priser, sidfot och andra sektioner, som underlag för 2–3 varianter per sektion.
@@ -47,7 +53,10 @@
 **Risker och flaggor:**
 - Betalvägg. Free har ingen MCP, ingen sökning och inga flöden.
 - Beta, och sökningar kan dra AI-krediter ⚠️.
-- Villkoren är inte lästa.
+- Villkoren är publika men inte lästa ⚠️.
+- Mobilwebb finns inte: webben visas bara i datorbredd.
+- `output_destination` och `task_intent` skickar uppgifter om vad svaren används till, till Mobbin.
+- **Text riktad till agenter:** verktygstexten om att ladda ner bilder.
 - Överlappar Refero. Mobbin har `search_sections` för webbsektioner, Refero har stilar.
 
 **Inloggning:**
@@ -55,4 +64,4 @@
 - **Med Free-konto på webben:** begränsad åtkomst till appar och sajter, upp till 3 samlingar och begränsad kopiering och nedladdning. Flöden, Search, Deep Search, MCP och REST API ingår inte.
 - **Pro:** $10/mån vid årsbetalning, $15/mån kvartalsvis.
 - **Team:** $16 per medlem och månad vid årsbetalning.
-- **Johnny behöver:** köpa Pro eller Team och godkänna OAuth i webbläsaren första gången ("No manually copied API key is required"). Kopplingen kan återkallas i kontoinställningarna.
+- **Johnny behöver:** köpa Pro eller Team och godkänna OAuth i webbläsaren första gången ("No manually copied API key is required"). Kopplingen kan återkallas i kontoinställningarna. I byggsessionen går anslutningen via claude.ai-connectorn, inte `claude mcp add`.
