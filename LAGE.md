@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-16 kl. 13.56 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-16 kl. 16.42 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Kort
 
@@ -136,6 +136,11 @@ Johnny beslutade omkring 12.11 att kompetensen ur inventeringen ska in i alla la
   - stjärnan i textfärg (G3); ny ryggradsikon, prövad blint; kvittot i samtyckesrutan säger vad man valde
   - måttlig rörelse animerar inte första skärmen (B3); mjuk rullning bara utan reducerad rörelse; knapplisten är ett landmärke
   - Kundens lyft: fotobeställning i Googles fem kategorier, länkbytet och katalogerna
+- **Andra varvet** (från 14.25, Johnny: alla skills genomgångna, jämförda och reflekterade; Apples HIG; byggguider; MCP; bevakning): tolv grupper läste originalen i sin helhet, jämförde dem regel för regel och körde deras granskningar mot övningssajten. Sammanställningen står i `kunskap/research/2026-10-16_andra-varvet.md`.
+  - Alla elva skills är uppdaterade, med fel rättade och det som saknades infört; Apples HIG finns i fem skills (`apple-hig.md`).
+  - Inventeringen har 201 poster: 30 nya och 27 ändrade placeringar (artefakten version 4).
+  - Rättat i biblioteket samma dag: måttlig rörelse kördes inte i bygget; vågrät scroll vid 200 % text (mätt med 150 % tidigare); en understruken lucka före pilen; Djärvs knapp i tryck; hopplänken, långa namn och e-postadresser; I dag-märket efter stängning.
+  - Första baslinjen: skillen drift gav 100 % mot 68,5 % utan.
 - **Startsäkringen kördes på riktigt** omkring 14.05: node@24 och poppler i Homebrew, lucide 1.58, wrangler 4.151.1 och Playwright 1.64.1 i måttstockens verktyg. TypeScript 7 fällde sajtens bygge (`astro check` stöder det inte), så skriptet håller nu TypeScript på 6 och skriver skälet vid varje körning. Skriptet rapporterade också Homebrew som misslyckat fast uppgraderingen gick igenom; det läser nu av resultatet efteråt.
 - **Övningsserien är beslutad** (Johnny omkring 14.42): klinik (klar), hantverk, restaurang, butik, konsult, skönhet och tjänst eller event, med tillvalen i `guide/5-byggplan.md`. Nästa övningssajt är hantverk; måttstockens enda underkända svenska hantverkare (s04, en snickare i tre orter) passar för serviceområdet och offertförfrågan. Den startas när jämförelsen av skillsen är införd.
 - **Nästa:**
@@ -157,6 +162,7 @@ Johnny beslutade omkring 12.11 att kompetensen ur inventeringen ska in i alla la
 
 ## Väntar på Johnny
 
+- **Andra varvets förslag**, nio punkter sist i `kunskap/research/2026-10-16_andra-varvet.md`: e-post via Cloudflare när kunden redan har mejl, låst version mot alltid senaste, Mobbins villkor, inloggningsordningen för MCP, bevakningsloopen B1–B8, K5 och K6 i granskarens checklista, smak i kiten, måttlig rörelse på video igen och menyn i mobilen.
 - **Premiumpasset:** döm bilderna före och efter, och grupp B i sajtens `premiumpass.md`. Där står bland annat porträttet i Om-sidans topp, menyn i mobilen, en översiktssida för Behandlingar, accentsteg, typskala och rörelsetokens per kit, JS-budgeten, CSP med React och Motion, sidbyten med `@view-transition` och en säkerhetskopia av `sites/`, eftersom sajtens repo bara finns på Macen.
 - **Inventeringens placeringar** (förslag på alla 171 poster) och MCP-servrarna som kräver konto: cloudflare/mcp, seo-monster, Gemini och nanobanana, Motion+, 21st, Mobbin, Figma, Google Business Profile API, Grounding Lite, mcp-gsc och DataForSEO. Logga in i en ny session när listan är godkänd.
 - **Luckorna** i `kunskap/research/2026-10-16_luckor-per-lager.md`: vilka som ska tas först.

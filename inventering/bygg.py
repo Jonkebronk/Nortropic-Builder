@@ -21,7 +21,7 @@ FORANKRING = DATA["forankring"]
 GRUPP = {"Destillera": "in", "Extrahera": "in", "Byggverktyg": "verktyg", "Behåll": "verktyg", "Ompröva": "verktyg",
          "Parkera": "ut", "Släpp": "ut", "Ta in": "tain", "Pröva": "prova", "Avstå": "ut"}
 ORDNING = ["Destillera", "Extrahera", "Byggverktyg", "Behåll", "Ompröva", "Parkera", "Släpp"]
-NYA_ORDNING = ["Ta in", "Pröva"]
+NYA_ORDNING = ["Ta in", "Pröva", "Avstå"]
 FORKLARING = {
     "Destillera": "befintligt: kunskapen skrivs in i en egen skill per lager",
     "Extrahera": "befintligt: materialet anpassas in i det egna biblioteket",
@@ -32,6 +32,7 @@ FORKLARING = {
     "Släpp": "befintligt: behövs inte",
     "Ta in": "ny kandidat: in i biblioteket eller driften nu",
     "Pröva": "ny kandidat: tidsbegränsat test innan beslut",
+    "Avstå": "ny kandidat: granskad och bortvald, med skälet i förslaget",
 }
 
 e = html.escape
@@ -183,7 +184,7 @@ parts.append('<main class="wrap">')
 parts.append(f'''<header>
 <h1>Kompetensinventering</h1>
 <p class="lead">{totalt_skills} skills och {totalt_ovr} MCP:er, verktyg och tjänster ur nortropic-webb-pro, och {len(nya)} nya kandidater från omvärldsbevakningen, sorterade på webbyråns nio lager och flödet. Förslagen och domarna är underlag. Besluten fattar vi lager för lager. Källorna står i rapporten Kompetensluckor och kandidater per lager.</p>
-<p class="meta-top">15 OKT 2026 · WEBB-PRO 66DB152 · STJÄRNOR OCH LICENSER KONTROLLERADE 13–15 OKT</p>
+<p class="meta-top">16 OKT 2026 · STJÄRNOR OCH LICENSER KONTROLLERADE 13–15 OKT · ORIGINALEN JÄMFÖRDA REGEL FÖR REGEL 16 OKT (WEBB-PRO 668B03C)</p>
 </header>''')
 
 steg = "".join(f'<li>{e(b["vad"])} <span>{e(b["varfor"])}</span></li>' for b in DATA["borja_nu"])
