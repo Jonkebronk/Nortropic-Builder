@@ -976,3 +976,17 @@ Claude föreslog att sidan slås på bara när en av lagarna gäller, och att in
 - Sidan *Tillgänglighet* ingår inte i standarduppsättningen. Den finns när DOS-lagen gäller (offentlig finansiering, till exempel vårdavtal med regionen) eller lag 2023:254 (e-handel eller bokning hos ett företag som inte är mikroföretag) (`guide/2-3-struktur.md`).
 - Faktainsamlingen frågar om företagsform, organisationsnummer, offentlig finansiering, antal anställda och omsättning, och samtycke för bilderna (`mallar/karnfragor.md`).
 - Sidan är borttagen från övningssajten.
+
+## 2026-10-16: Samtyckesverktyget komplett
+
+**Status:** gäller.
+
+Claude jämförde vårt samtyckesverktyg med CookieConsent v3, Silktide och de kommersiella verktygen. Tre saker saknades: Consent Mode v2, en logg över samtycken och en kaklista. Johnny, omkring 07:22:
+
+> vi behöver det som saknas, det är bättre göra för mycket och bra.
+
+**Innebär:**
+- **Consent Mode v2:** allt är nekat som förval före Googles taggar. Valet skickas med `update` på varje sida, eftersom Consent Mode inte sparar det. Taggarna laddas först efter ett ja (📄 [Google, Set up consent mode](https://developers.google.com/tag-platform/security/guides/consent)).
+- **Logg över samtycken:** en Worker-route, `/api/samtycke`, sparar ett slumpat id, versionen, valen och sidan i D1, men ingen IP-adress. Den bygger på GDPR art. 7.1 och Googles *"Keep records of consent"*. Mallen ligger i `bibliotek/worker/`. Lagringstiden, 730 dagar, är Claudes förslag ⚠️.
+- **Kaklistan** på sidan Integritet och kakor byggs ur taggarna: namn, ändamål, lagringstid och om kakan är en tredjepartskaka (PTS).
+- Kontroll 6c prövar Consent Mode, loggen och kaklistan.

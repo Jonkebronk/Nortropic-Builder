@@ -1,0 +1,46 @@
+---
+// Kaklistan på sidan Integritet och kakor: varje verktyg som kräver samtycke, med kakornas namn, ändamål, lagringstid och om de är
+// tredjepartskakor (PTS, Kakor). Uppgifterna kommer ur taggarna i innehållet, så att listan och det som laddas aldrig skiljer sig åt.
+import type { StartInnehall } from '../innehall/typ';
+interface Etiketter { kategori: Record<'statistik' | 'marknadsforing', string>; sparas: string; forstapart: string; tredjepart: string; }
+interface Props { innehall: StartInnehall; rubrik: string; ingress?: string; etiketter: Etiketter; yta?: boolean; }
+const { innehall, rubrik, ingress, etiketter, yta = false } = Astro.props;
+const verktyg = (innehall.taggar ?? []).filter((t) => t.verktyg);
+---
+{verktyg.length > 0 && (
+  <section class:list={['sektion', 'kaklista', { 'kaklista--yta': yta }]} aria-labelledby="kaklista-rubrik">
+    <div class="behallare kaklista__inre">
+      <h2 id="kaklista-rubrik">{rubrik}</h2>
+      {ingress && <p>{ingress}</p>}
+      <ul class="kaklista__verktyg">
+        {verktyg.map((t) => (
+          <li class="kort">
+            <h3>{t.verktyg!.namn} <span class="dampad kaklista__kategori">({etiketter.kategori[t.kategori]})</span></h3>
+            <p class="dampad">{t.verktyg!.leverantor}{t.verktyg!.policy && <> · <a href={t.verktyg!.policy.href}>{t.verktyg!.policy.text}</a></>}</p>
+            <dl class="kaklista__kakor">
+              {t.verktyg!.kakor.map((k) => (
+                <div>
+                  <dt><code>{k.namn}</code></dt>
+                  <dd>{k.andamal} {etiketter.sparas} {k.lagringstid}. {k.tredjepart ? etiketter.tredjepart : etiketter.forstapart}</dd>
+                </div>
+              ))}
+            </dl>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+)}
+
+<style>
+  .kaklista--yta { background: var(--k-yta); }
+  .kaklista__inre { display: grid; gap: var(--k-a4); }
+  .kaklista__inre > * { max-width: 46rem; }
+  .kaklista__verktyg { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--k-a4); }
+  .kaklista__verktyg h3 { font-size: 1.1rem; }
+  .kaklista__kategori { font-weight: 400; font-size: 0.95rem; }
+  .kaklista__kakor { margin: var(--k-a3) 0 0; display: grid; gap: var(--k-a3); }
+  .kaklista__kakor dt { font-weight: 600; }
+  .kaklista__kakor dd { margin: 0; font-size: 0.95rem; }
+  .kaklista__kakor code { font-size: 0.95em; overflow-wrap: anywhere; }
+</style>

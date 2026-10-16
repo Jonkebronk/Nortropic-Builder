@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-16 kl. 07.18 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-16 kl. 07.31 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Kort
 
@@ -86,7 +86,7 @@ Johnny tog in fem av förslagen till checklistan och lade till ett sjätte. `mal
    - Företagsuppgifter som praxis: inget om lagen för yrket, och organisationsnummer bara för bolag.
    - Tillgänglighetsredogörelse bara när lagen kräver det.
    - Cloudflare Pro på varje publicerad sajt, och månadsrapporten utan Google Analytics.
-   - Kakor och samtycke vid behov. Biblioteket har ett eget samtyckesverktyg, med kontroll 6c som stoppar, och övningssajten övar det.
+   - Kakor och samtycke vid behov. Biblioteket har ett eget samtyckesverktyg på cirka 1,7 kB, med kontroll 6c som stoppar, och övningssajten övar det. Verktyget har Consent Mode v2, en logg över samtycken (Worker och D1, mallen i `bibliotek/worker/`, prövad lokalt med `wrangler dev`) och en kaklista.
 
    Väntar på Johnny: biträdesavtal i steg 5, `security.txt` och Google-kartan. **Nästa:** genomgången efter sajten (`guide/5-byggplan.md`). Nästa mätning av granskaren görs på nya sajter och på systemets egna utkast.
 

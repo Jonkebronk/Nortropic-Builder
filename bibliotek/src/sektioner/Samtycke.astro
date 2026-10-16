@@ -10,7 +10,7 @@ interface Props { innehall: StartInnehall; }
 const s = Astro.props.innehall.samtycke;
 ---
 {s && (
-  <section class="samtycke" data-samtycke-ruta data-version={s.version} hidden aria-labelledby="samtycke-rubrik">
+  <section class="samtycke" data-samtycke-ruta data-version={s.version} data-logg={s.logg} data-google={s.googleSamtyckeslage ? 'ja' : undefined} hidden aria-labelledby="samtycke-rubrik">
     <div class="samtycke__inre">
       <h2 id="samtycke-rubrik" class="samtycke__rubrik">{s.rubrik}</h2>
       <p class="samtycke__text">{s.text}{s.lank && <> <a href={s.lank.href}>{s.lank.text}</a></>}</p>
@@ -46,14 +46,28 @@ const s = Astro.props.innehall.samtycke;
     let oppnadFran: HTMLElement | null = null;
 
     type Val = Record<string, boolean>;
-    const las = (): Val | null => {
+    type Sparat = Val & { id?: string };
+    const las = (): Sparat | null => {
       try { const v = JSON.parse(localStorage.getItem(NYCKEL) || 'null'); return v && v.version === version ? v : null; } catch { return null; }
     };
+    // Valet sparas med ett slumpat id och skickas till loggen, så att samtycket går att visa (GDPR art. 7.1; Googles policy för användarsamtycke).
+    // Loggen får id, version, valen och sidan, men ingen IP-adress.
     const spara = (val: Val) => {
-      try { localStorage.setItem(NYCKEL, JSON.stringify({ ...val, version, tid: new Date().toISOString() })); } catch { /* utan lagring frågar rutan igen nästa gång */ }
+      const id = las()?.id ?? (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2));
+      try { localStorage.setItem(NYCKEL, JSON.stringify({ ...val, id, version, tid: new Date().toISOString() })); } catch { /* utan lagring frågar rutan igen nästa gång */ }
+      if (ruta.dataset.logg) fetch(ruta.dataset.logg, { method: 'POST', headers: { 'content-type': 'application/json' }, keepalive: true,
+        body: JSON.stringify({ id, version, val, sida: location.pathname }) }).catch(() => { /* loggen får inte hindra sajten */ });
+    };
+    // Consent Mode v2: valet skickas till Googles taggar på varje sida, eftersom Consent Mode inte sparar det själv.
+    const signalera = (val: Val) => {
+      const g = (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag;
+      if (!ruta.dataset.google || !g) return;
+      const s = (b?: boolean) => (b ? 'granted' : 'denied');
+      g('consent', 'update', { analytics_storage: s(val.statistik), ad_storage: s(val.marknadsforing), ad_user_data: s(val.marknadsforing), ad_personalization: s(val.marknadsforing) });
     };
     // Skripten för en godkänd kategori byts mot riktiga skript. Det som inte är godkänt laddas aldrig.
     const aktivera = (val: Val) => {
+      signalera(val);
       for (const k of kategorier) {
         if (!val[k]) continue;
         document.documentElement.dataset[`samtycke${k[0].toUpperCase()}${k.slice(1)}`] = 'ja';

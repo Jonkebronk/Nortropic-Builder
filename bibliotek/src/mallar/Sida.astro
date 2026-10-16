@@ -35,6 +35,13 @@ const delning = Astro.site && innehall.foretag.delningsbild ? new URL(innehall.f
     {adress && <meta property="og:url" content={adress} />}
     {delning && <meta property="og:image" content={delning} />}
     {strukturerad.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
+    {innehall.samtycke?.googleSamtyckeslage && (
+      <script is:inline>
+        // Consent Mode v2: allt nekat tills besökaren svarar, före alla Googles taggar (Google, Set up consent mode). Inget sparas i webbläsaren.
+        window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); }
+        gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', wait_for_update: 500 });
+      </script>
+    )}
     <script is:inline>
       // Bara för jämförelsen av de två rörelseversionerna: ?rorelse=mattlig eller ?rorelse=sparsam.
       (function () { var r = new URLSearchParams(location.search).get('rorelse'); if (r === 'mattlig' || r === 'sparsam') document.documentElement.dataset.rorelse = r; })();

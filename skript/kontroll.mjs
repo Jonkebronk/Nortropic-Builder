@@ -159,7 +159,12 @@ let harRuta = false;
   const vilande = await p.locator('script[type="text/plain"][data-samtycke]').count();
   if (!harRuta && vilande) k6c.push('skript som kräver samtycke finns, men ingen samtyckesruta');
   if (harRuta) {
-    if (!(await p.locator('[data-samtycke-ruta]').isVisible())) k6c.push('rutan visas inte vid första besöket');
+    const ruta = p.locator('[data-samtycke-ruta]');
+    const google = (await ruta.getAttribute('data-google')) === 'ja', logg = await ruta.getAttribute('data-logg');
+    const signaler = () => p.evaluate(() => (window.dataLayer || []).filter((a) => a[0] === 'consent').map((a) => `${a[1]}:${a[2].analytics_storage}/${a[2].ad_storage}`));
+    const poster = []; p.on('request', (r) => { if (logg && new URL(r.url()).pathname === logg && r.method() === 'POST') poster.push(r.postData()); });
+    if (google && !(await signaler()).includes('default:denied/denied')) k6c.push('Consent Mode: inget förval med nekat före svaret');
+    if (!(await ruta.isVisible())) k6c.push('rutan visas inte vid första besöket');
     if ((await korda()).length) k6c.push('skript körda före svaret');
     const utseende = (v) => p.locator(`[data-samtycke-svar="${v}"]`).evaluate((e) => {
       const s = getComputedStyle(e), r = e.getBoundingClientRect();
@@ -177,12 +182,19 @@ let harRuta = false;
     else {
       await installningar.first().click();
       if (!(await p.locator('[data-samtycke-ruta]').isVisible())) k6c.push('Kakinställningar öppnar inte rutan');
-      else { await p.locator('[data-samtycke-svar="ja"]').click(); await p.waitForTimeout(300); if (!(await korda()).length) k6c.push('skripten körs inte efter ja'); }
+      else {
+        await p.locator('[data-samtycke-svar="ja"]').click(); await p.waitForTimeout(300);
+        if (!(await korda()).length) k6c.push('skripten körs inte efter ja');
+        if (google && !(await signaler()).includes('update:granted/granted')) k6c.push('Consent Mode: ingen uppdatering efter ja');
+      }
     }
+    if (logg && poster.length < 2) k6c.push(`loggen fick ${poster.length} av 2 svar (nej och ja)`);
+    await p.goto(bas + '/integritet/', { waitUntil: 'networkidle' });
+    if (vilande && !(await p.locator('.kaklista').count())) k6c.push('kaklistan saknas på Integritet och kakor');
   }
   await b6.close();
 }
-lagg('6c', 'Inga kakor utan samtycke' + (harRuta ? '; samtyckesrutan följer PTS' : ''), 'Stopp', k6c.length === 0, k6c.length ? k6c.join('; ') : harRuta ? `inga kakor på ${sidor.length} sidor; inget före svaret, lika knappar, nej håller, ja aktiverar` : `inga kakor på ${sidor.length} sidor`);
+lagg('6c', 'Inga kakor utan samtycke' + (harRuta ? '; samtyckesrutan följer PTS' : ''), 'Stopp', k6c.length === 0, k6c.length ? k6c.join('; ') : harRuta ? `inga kakor på ${sidor.length} sidor; inget före svaret, lika knappar, nej håller, ja aktiverar, Consent Mode, loggen och kaklistan` : `inga kakor på ${sidor.length} sidor`);
 
 // 7. Titel, beskrivning, sitemap och h1
 const titlar = sidor.map((s) => per[s].titel), besk = sidor.map((s) => per[s].beskrivning);

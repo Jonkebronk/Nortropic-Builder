@@ -137,7 +137,7 @@ Johnny frågade om vårt eget verktyg är bäst enligt bästa praxis: *"måste j
 - Det prövas automatiskt, och 6c fäller avsiktliga fel.
 - Efter en iteration tar rutan cirka en fjärdedel av mobilens första skärm.
 
-**Det som saknas jämfört med de mogna verktygen.** Det behövs först när den första kunden annonserar:
+**Det som saknades jämfört med de mogna verktygen.** Allt tre är infört samma dag, eftersom Johnny sa *"bättre göra för mycket och bra"* (`BESLUT.md` 2026-10-16, *Samtyckesverktyget komplett*):
 1. Consent Mode v2-signaler, alltså `gtag('consent', 'default'|'update', …)`, i taggarnas kod.
 2. En logg över samtycken på servern, en Worker med D1, eftersom Google kräver *"Keep records of consent"*.
 3. En lista över varje verktygs kakor på sidan *Integritet och kakor*, enligt PTS: namn, ändamål, tredjepart och lagringstid.
