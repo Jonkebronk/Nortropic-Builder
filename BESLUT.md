@@ -1288,3 +1288,17 @@ Claude listade det som inte var gjort efter andra varvet (`LAGE.md`, *Nästa ses
 - Varje egen skill mäts mot en baslinje utan skillen (metoden i `.claude/skills/larande/baslinje.md`).
 - De nya posterna i inventeringen får källkort, de ändrade källorna läses om, och luckornas status uppdateras.
 - Placeringarna och prov på riktiga telefoner och med skärmläsare kräver Johnnys besked.
+
+## 2026-10-16: Placeringarna i inventeringen blir beslut; riktiga prov med BrowserStack och VoiceOver
+
+**Status:** gäller.
+
+Claude frågade om de 201 placeringarna i inventeringen (artefakten version 4) ska bli beslut och hur prov på riktiga telefoner och med skärmläsare ska göras. Johnny valde omkring 17.40:
+
+> Ja på alla
+
+> BrowserStack och VoiceOver (Rekommenderas)
+
+**Innebär:**
+- Varje placering i `inventering/inventering.json` står nu som beslut i fältet `beslut`. Enskilda kan ändras senare, med en rad här.
+- Riktiga iPhone och Android prövas via BrowserStacks MCP när Johnny har lagt in nyckeln. VoiceOver på Macen prövas med Guidepup när Johnny själv har slagit på automationen i Systeminställningar; Claude ändrar inga system- eller säkerhetsinställningar.

@@ -5,7 +5,7 @@
   "kontrollerat": "Stjärnor och licenser kontrollerade 13–15 okt 2026",
   "krockkalla": "nortropic-webb-pro, kunskap/skillkrockar.md vid commit 66db152 (67 krockar)",
   "artefakt": "https://claude.ai/artifact/ASZcbmg8qc9ThMusGjRZpe",
-  "placering": "Claudes förslag 2026-10-16 ur lagerskillsens arbete (BESLUT.md, Kompetensen in i alla lager); källkort i kunskap/kallkort/. Johnny godkänner eller ändrar, och då blir placeringen beslut. Andra varvet 2026-10-16 (BESLUT.md, Alla skills gås igenom, jämförs med originalen och Apples HIG kommer in): originalen jämförda regel för regel, 27 placeringar ändrade och 30 nya poster; underlaget i kunskap/research/2026-10-16_andra-varvet.md."
+  "placering": "Claudes förslag 2026-10-16 ur lagerskillsens arbete (BESLUT.md, Kompetensen in i alla lager); källkort i kunskap/kallkort/. Johnny godkänner eller ändrar, och då blir placeringen beslut. Andra varvet 2026-10-16 (BESLUT.md, Alla skills gås igenom, jämförs med originalen och Apples HIG kommer in): originalen jämförda regel för regel, 27 placeringar ändrade och 30 nya poster; underlaget i kunskap/research/2026-10-16_andra-varvet.md. Johnny 2026-10-16 omkring 17.40: \"Ja på alla\" – placeringarna är beslut."
  },
  "lager": [
   {
@@ -156,7 +156,7 @@
    "kommentar": "Kan bli verktyget i den yttre loopen.",
    "krockar": 0,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "skill: larande (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: larande",
    "placering_motivering": "Oförändrad placering, utökad motivering: utöver klassningen av domar är nu mikroprovets tröskel (fyra av fem, blind läsning, kostnad), förbehållet att mikroprovet bara belägger den lokala rättelsen, regeln om brasklappar och statusen infört eller verifierat destillerade i larande/skills.md och genomgang.md. (andra varvet 2026-10-16, flodet)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/backlog.md"
@@ -174,7 +174,7 @@
    "kommentar": "Hör till annonstjänsten.",
    "krockar": 2,
    "hoga_krockar": 2,
-   "beslut": "ej fattat",
+   "beslut": "senare: N3 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N3",
    "placering_motivering": "Hör till annonstjänsten. Den finns inte i guide/4-foretaget.md än. Det som är beslutat är tillvalet statistik och annonser med cookies (BESLUT.md 2026-10-16, Kakor och samtycke vid behov), och det tillvalet saknas också i 4-foretaget.md (se utanfor-luckor.md, L13). Skillen är ett arbetsflöde: frågor, en banner i HTML och export till PNG. Den enda kunskapen är en tabell med plattformsmått, och den åldras. När tjänsten byggs ska måtten hämtas ur plattformarnas egen dokumentation. Exempel ur Google Ads API (ResponsiveDisplayAdInfo): liggande bild 1,91:1 minst 600×314, kvadrat minst 300×300 och logotyp 4:1 minst 512×128. Skillens regel om högst 20 % text i Metas annonser är avskaffad sedan september 2020 enligt branschpressen (Social Media Today, Jon Loomer). ⚠️ Metas egen sida är inte läst. Hero-delen ger inget till lager 5, eftersom hjälten byggs ur sektionsbiblioteket och stilkitet (→ guide/2-4-skelett.md, 2-5-yta.md). Posten har 2 krockar, båda höga. Leverantören säljer en utökad bannerskill i premiumversionen, och den öppna versionen hänvisade till skript som inte fanns fram till 2026-08-31 (ärende #472, rättat i #473). Johnny avgör först om annonstjänsten ska säljas. Källkort: kallkort/banner-design.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/banner-design.md"
@@ -192,7 +192,7 @@
    "kommentar": "Kärnan i kvalitetsskillen.",
    "krockar": 1,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "skill: kvalitet (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: kvalitet",
    "placering_motivering": "Kärnan i kvalitetsskillens tillganglighet.md: inbyggda element före ARIA, synlig text i namnet (2.5.3), fokus 3:1 och inte skymt, träffytor 24 px med 44 px som tumregel, formulärfel, rörelse. Krav med WCAG-nummer hålls isär från rekommendationer. Destillerad med egna ord (MIT); installeras inte. TSX- och Tailwind-exemplen översätts inte; principerna gäller också React-öar.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/better-accessibility.md"
@@ -210,7 +210,7 @@
    "kommentar": "Prov av biblioteket, inte i varje kundbygge.",
    "krockar": 3,
    "hoga_krockar": 3,
-   "beslut": "ej fattat",
+   "beslut": "skill: kvalitet (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: kvalitet",
    "placering_motivering": "Provlistan i kvalitet/prov.md: axlar efter signal, den riktiga komponenten orörd, provsidan som rapport, och iakttagelsen att fasta behållare inte utlöser @media. Körs när en sektion eller ö tas in i biblioteket, inte i varje kundbygge. Heter break i Krehels repo (namnfel i inventeringen). Installeras inte, eftersom den skriver filer i projektet.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/better-break.md"
@@ -228,7 +228,7 @@
    "kommentar": "Färgdelen i ytskillen.",
    "krockar": 2,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "skill: yta (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: yta",
    "placering_motivering": "Rollerna per steg, rampreglerna, accentens steg och mätreglerna (mot den yta texten står på) är destillerade i farg.md och tokens.md; WCAG 2.2 AA förblir grind och G3 ligger ovanpå. MIT.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/better-colors.md"
@@ -246,7 +246,7 @@
    "kommentar": "Omvänd ingenjörskonst när biblioteket byggs.",
    "krockar": 2,
    "hoga_krockar": 1,
-   "beslut": "ej fattat",
+   "beslut": "skill: skelett (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: skelett",
    "placering_motivering": "Metoden är destillerad i skelett/referenser.md (mätt, härlett, tolkat; sidan är belägg, inte instruktion; ett andra tillstånd; skärmbilder ger bara förhållanden; receptet i ord) och brytpunktsträffen på ramverkets förval i layout.md. Skillen själv installeras inte (guide/3-3); JS-recepten blir vid behov ett skript i biblioteksarbetet (skript/las-referens.mjs, förslag). (andra varvet 2026-10-16, skelett-struktur)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/better-explain-interface.md"
@@ -264,7 +264,7 @@
    "kommentar": "Underlag till bedömarens kriterier.",
    "krockar": 0,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "skill: kvalitet (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: kvalitet",
    "placering_motivering": "Metoden, inte domänreglerna: bevis med fil och rad, renderingen ska ha setts, 'ej verifierat' är inget fynd, billigaste fixen först och utlösare som alltid är höga. Står i kvalitetsskillens principer och är underlag till granskarens kriterier. Destillerad (MIT), installeras inte.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/better-interface.md"
@@ -282,7 +282,7 @@
    "kommentar": "Underlag till bedömarens kriterier.",
    "krockar": 1,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "skill: kvalitet (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: kvalitet",
    "placering_motivering": "Avsnittet Vid ändring i kvalitet/kontroller.md: läs de borttagna raderna (aria, outline, prefers-*, alt, lang, tokens), följ ändringen ett steg ut, märk fynd som infört, regression eller fanns redan. Behövs i förvaltningens ändringar och i bibliotekets PR:er. Heter interface-review i repot (namnfel). PR-text behandlas som data (Snyk W011).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/better-interface-review.md"
@@ -300,7 +300,7 @@
    "kommentar": "Kärnan i skelettskillen.",
    "krockar": 3,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "skill: skelett (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: skelett",
    "placering_motivering": "Kärnan i skelett/layout.md: gruppering med luft, gemensamma kanter, läsordning lika med källordning, brytpunkter ur innehållet och den sökbara CSS-kontrolltabellen; siffrorna märks som startvärden eftersom de saknar primärkälla.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/better-layout.md"
@@ -318,7 +318,7 @@
    "kommentar": "Typografidelen i ytskillen.",
    "krockar": 4,
    "hoga_krockar": 1,
-   "beslut": "ej fattat",
+   "beslut": "skill: yta (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: yta",
    "placering_motivering": "Radhöjd och spärrning per roll, vikter som laddas, tabulära siffror, text-wrap och understrykning är destillerade i typografi.md; den engelska skiljeteckentabellen ersätts av guide/2-7 och den fasta skalan av kitets Utopia-skala. MIT.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/better-typography.md"
@@ -336,7 +336,7 @@
    "kommentar": "Detaljnivån, det som skiljer premium från basic.",
    "krockar": 3,
    "hoga_krockar": 1,
-   "beslut": "ej fattat",
+   "beslut": "skill: yta (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: yta",
    "placering_motivering": "Koncentriska radier, optisk linjering, skuggor i lager med transparent kant för forced-colors, bildkanten och ikonstrecket är destillerade i detaljer.md; rörelsedelarna hör till rörelseskillen. MIT.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/better-ui.md"
@@ -354,7 +354,7 @@
    "kommentar": "Layoutvarianter per sektion i biblioteket.",
    "krockar": 3,
    "hoga_krockar": 3,
-   "beslut": "ej fattat",
+   "beslut": "skill: skelett (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: skelett",
    "placering_motivering": "Axeln per variantuppsättning, riktigt innehåll och variantgolvet är destillerade i skelett/varianter.md; väljaren med URL-parameter stannar i provsidan och följer aldrig med till en kundsajt.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/better-variant.md"
@@ -372,7 +372,7 @@
    "kommentar": "Mikrotexten i textskillen.",
    "krockar": 0,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "skill: innehall (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: innehall",
    "placering_motivering": "Destillerad i delfilen mikrotext.md: verb plus objekt på knappar, länktext som går att förstå ensam, fel som säger hur man rättar utan skuld eller skämt, kvitton som upprepar resultatet, en term per sak. Det som gäller appar (reglage, ångra-notiser, tomma listor) är utelämnat, eftersom sajterna är statiska. MIT, commit 4c66b1f. Installeras inte.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/better-writing.md"
@@ -390,7 +390,7 @@
    "kommentar": "Bara tonen och budskapen.",
    "krockar": 4,
    "hoga_krockar": 1,
-   "beslut": "ej fattat",
+   "beslut": "skill: innehall (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: innehall",
    "placering_motivering": "Bara röst och budskap, i delfilen rost.md: tabellen med förbjudna ord och skäl, budskapskedjan där varje stödbudskap kräver ett belägg och rösttestet (skulle en konkurrent kunna säga detta?). Röstdelen är tunn och saknar källor, så mallen för rost.md bygger på NN/g och brand-review. Visuell identitet hör till lager 5. MIT, commit 56ea9cf; öppen PR #522 visar att skillens tolk läser fel kolumn, så skillen installeras inte.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/brand.md"
@@ -408,7 +408,7 @@
    "kommentar": "Också när kunden har en Figmafil.",
    "krockar": 0,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "skill: skelett (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: skelett",
    "placering_motivering": "Avbildningen av varje referensvärde på kitets tokens (avrundning listas, mer än 2 px eller ett annat färgsteg blir en fråga), 'bygg bara det referensen visar' och jämförelsen element för element i samma bredd gäller redan när en sektion byggs ur en referensbild (skelett/referenser.md, Från referens till bibliotekets sektion). Figmavägen och Figma-MCP väntar till en kund med Figmafil (N2). (andra varvet 2026-10-16, skelett-struktur)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/build-design.md"
@@ -426,7 +426,7 @@
    "kommentar": "Ersätts av nya flödet, kunskapen tas tillvara.",
    "krockar": 3,
    "hoga_krockar": 3,
-   "beslut": "ej fattat",
+   "beslut": "skill: granskare (delar); övrigt släpp (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: granskare (delar); övrigt släpp",
    "placering_motivering": "Helbygget, stoppvakten och 619 rader arbetsgång släpps som förut. Tre delar tas in med egna ord: rubriktestet (granskare/premium.md, PU3), den kognitiva genomgången ur kritik/GRANSKARE.md (PU1) och regeln om speglade uppgifter och innehåll med slutdatum (drift/overvakning.md, kalendern). Rubriktestet och genomgången hittade i provet fynd som varken vår checklista eller premiumpasset fångade (andra varvet, flodet F1, F5, F16). (andra varvet 2026-10-16, flodet)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/bygg-sajt.md"
@@ -444,7 +444,7 @@
    "kommentar": "Inte webb.",
    "krockar": 0,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "släpp (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "släpp",
    "placering_motivering": "Skillen gör bildkonst som PNG och PDF ur en egen designfilosofi. Ingen tjänst i guide/4-foretaget.md behöver det. Varumärkesboken, som är tillval i N3, byggs ur stilkitets värden och kundens logotyp med brandguidelines.net som förebild (→ 4-foretaget.md, Tillval; 2-5-yta.md), inte som bildkonst. Apache-2.0, och de 81 typsnittsfilerna har OFL. Inga krockar. Källkort: kallkort/canvas-design.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/canvas-design.md"
@@ -462,7 +462,7 @@
    "kommentar": "Bara tokenarkitekturen.",
    "krockar": 7,
    "hoga_krockar": 3,
-   "beslut": "ej fattat",
+   "beslut": "skill: yta (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: yta",
    "placering_motivering": "Oförändrad placering, utökad motivering: hela skillen lästes 2026-10-16 (oförändrad uppströms 56ea9cf). Utöver token-nivåerna står nu namngrammatiken (--k-{roll}-{variant}-{tillstånd}) och lagerordningen med namn i tokens.md, och tillståndsprioriteten, den tvåfärgade fokusringen (W3C C40) och fältets tillstånd i detaljer.md. Komponenttokens per komponent, knappar på 32/40 px, presentationsdelen och Tailwind 3-integrationen tas inte. Originalets exempelvärden underkänns ofta på kontrast. MIT. (andra varvet 2026-10-16, yta-1)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/design-system.md"
@@ -480,7 +480,7 @@
    "kommentar": "Brett och krockar mycket.",
    "krockar": 8,
    "hoga_krockar": 5,
-   "beslut": "ej fattat",
+   "beslut": "släpp (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "släpp",
    "placering_motivering": "Paraplyskill för logotyper, identitetsprogram, banners, ikoner, presentationer och sociala bilder. Kärnan är AI-genererade logotyper och mockupper av identitetsprogram via Gemini, Atlas Cloud eller MuAPI. Det går emot \"Logotyper genereras inte\" (guide/2-5-yta.md, N2) och \"Inga genererade logotyper\" (4-foretaget.md, Varumärkesbok). Dessutom kräver skillen egna API-nycklar och skickar kundens material till tredje part. Skripten läser också nycklar ur ~/.claude/.env och ~/.claude/skills/.env på egen hand. Leverantören säljer de utökade varumärkesskillsen som premiumversion (README, uupm.cc). Den öppna versionen har kända fel: hårdkodade sökvägar (ärende #474) och hänvisningar till skills som inte följer med. UI-delen, med shadcn/ui och Tailwind, är tillåten sedan BESLUT.md 2026-10-16 (React, Tailwind och JavaScript tillåts), men den har egna poster: ui-styling, design-system och ui-ux-pro-max. Banners har en egen post i banner-design och presentationer i slides. Referensfilerna om identitetsprogram och färgpsykologi är korta listor utan källor. Posten har 8 krockar, varav 5 höga. Källkort: kallkort/design-next-level-builder.md. Tjänsten logotyp och identitet finns i guiden bara som varumärkesboken ur kundens befintliga logotyp. Fallet där kunden saknar logotyp är en lucka (utanfor-luckor.md, L14).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/design-next-level-builder.md"
@@ -498,7 +498,7 @@
    "kommentar": "Stationerna kan bli lager 4 till 6.",
    "krockar": 0,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "skill: larande (en regel); övrigt släpp (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: larande (en regel); övrigt släpp",
    "placering_motivering": "Drivaren, stationsbandet och den autonoma godkännaren släpps; de krockar med att Johnny dömer riktningarna (BESLUT.md 2026-10-15). Regeln att tillgång, aktivering, användning och kvalitet redovisas var för sig, och att ingen kvalitetshöjning påstås förrän ägaren sett sidan, tas in i larande/skills.md och SKILL.md. Regeln om riktningar som skiljer sig i minst två axlar är ett förslag till Johnny. (andra varvet 2026-10-16, flodet)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/designfas.md"
@@ -516,7 +516,7 @@
    "kommentar": "Inte webb.",
    "krockar": 0,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "släpp (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "släpp",
    "placering_motivering": "Animationer i React Native och Expo. Det är inte webb, och Nortropic säljer inga appar. Principerna som gäller också på webben finns i webbskillsen animate och emil-design-eng, med samma upphovsman, som bedöms i rörelselagret (→ guide/2-6-rorelse.md). Det gäller frekvensgrinden, att aldrig använda ease-in på UI, att aldrig börja från scale(0) och att reducerad rörelse betyder färre och mildare rörelser, inte inga. Källkort: kallkort/emil-animate-expo.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/emil-animate-expo.md"
@@ -534,7 +534,7 @@
    "kommentar": "Kärnan i rörelseskillen.",
    "krockar": 2,
    "hoga_krockar": 1,
-   "beslut": "ej fattat",
+   "beslut": "skill: rorelse (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: rorelse",
    "placering_motivering": "Kärnan i rörelseskillen, läst i original (MIT). Ordningen syfte, verktyg, egenskaper, kurva och längd, längdtabellen, kurvorna, recepten och listan Never Ship är destillerade med egna ord i rorelse/SKILL.md, matt.md, tillstand.md och verktyg.md. Installeras inte (inga tredjepartsskills i kundbygget). Där Emil säger 'aldrig ease-in' gäller guiden, som låter NN/g gå före.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/emil-animate.md"
@@ -552,7 +552,7 @@
    "kommentar": "Ordlistan i rörelseskillen.",
    "krockar": 0,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "skill: rorelse (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: rorelse",
    "placering_motivering": "Blir delfilen rorelse/ordlista.md med svenska ord, engelska termer inom parentes och egna förklaringar, plus en form för att beskriva en effekt i ord och parametrar, som guiden kräver för effekter från referenser.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/emil-animation-vocabulary.md"
@@ -570,7 +570,7 @@
    "kommentar": "",
    "krockar": 1,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "senare: N3 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N3",
    "placering_motivering": "Placeringen står kvar; motiveringen byts. Gest- och fjäderdelen (§1–11) behövs först när en sajt får dragbara ytor, och då med rättelserna ur uppströms ärende #32 (fjädervärdena kommer från en reimplementation, inte från Apple; Motions duration + bounce nollställer hastigheten; transform: none !important visar stängda lådor). Principerna (§16), materialet (§12) och typografin (§15) tas nu ur primärkällan Apples HIG (apple-hig.md i yta, skelett och rorelse). §15:s regel att stor text alltid får negativ spärrning motsägs av Apples egen tabell för SF Pro (positiv från 24 pt) och citeras inte som Apples. Källkort: kallkort/emil-apple-design.md. (andra varvet 2026-10-16, apple-hig)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/emil-apple-design.md"
@@ -588,7 +588,7 @@
    "kommentar": "Behövs inte på småföretagarsajter.",
    "krockar": 0,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "släpp (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "släpp",
    "placering_motivering": "Guide till Sonner, ett React-bibliotek för toastnotiser. React är tillåtet som öar i Astro sedan BESLUT.md 2026-10-16 (React, Tailwind och JavaScript tillåts), men en småföretagarsajt har inga handlingar i appen som behöver notiser. Formulärets kvitto är en tacksida, inte en toast (→ guide/2-8-teknik-och-kvalitet.md, Formulär). Skillen har dessutom tre fel mot Sonner 2.0.8, kontrollerade mot paketets typfil: toast.getActiveToasts() finns inte, standardvärdet för offset är 24px och inte 32px, och hotkey är string[] och inte string. Felen rapporterades i ärende #26, som stängdes 2026-08-14 utan att filerna rättades. Om biblioteket ändå behöver en toast avgörs valet av bibliotek i posten emil-pick-ui-library (skelettlagret). Källkort: kallkort/emil-ask-sonner.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/emil-ask-sonner.md"
@@ -606,7 +606,7 @@
    "kommentar": "Prov av biblioteket.",
    "krockar": 2,
    "hoga_krockar": 2,
-   "beslut": "ej fattat",
+   "beslut": "skill: kvalitet (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: kvalitet",
    "placering_motivering": "Värstafallskatalogen och felsignaturerna (min-width: 0, overflow-wrap: anywhere, tabular-nums, pluralregler, svensk talformatering) i kvalitet/prov.md, med svenska exempel. Revisionen visade värdet: långa ord spräckte kolumner med större text (F2). Bara en commit och ingen normreferens, så allt är tumregel. Installeras inte.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/emil-break-ui.md"
@@ -624,7 +624,7 @@
    "kommentar": "Detaljnivån.",
    "krockar": 5,
    "hoga_krockar": 2,
-   "beslut": "ej fattat",
+   "beslut": "skill: rorelse (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: rorelse",
    "placering_motivering": "Cirka 95 % av skillen är rörelse och den har inga ytvärden; tryckskalan och hover-frågan är redan täckta i ytskillens tillståndstabell, och posten bör flyttas till lager 6.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/emil-design-eng.md"
@@ -642,7 +642,7 @@
    "kommentar": "",
    "krockar": 0,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "skill: rorelse (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: rorelse",
    "placering_motivering": "Inventeringen föreslog ett byggverktyg, men grinden (frekvens, syfte, tempo och funktion, plus vår budget) och kravet på avvisade kandidater räcker som kunskap i rorelse/granskning.md och tillstand.md. Ett eget verktyg behövs inte.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/emil-find-animation-opportunities.md"
@@ -660,7 +660,7 @@
    "kommentar": "",
    "krockar": 1,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "skill: rorelse (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: rorelse",
    "placering_motivering": "De åtta granskningskategorierna och regeln om att kontrollera varje fynd i koden är destillerade i rorelse/granskning.md. Planformen och execute-läget behövs inte, eftersom åtgärderna görs i huvudsessionen medan Johnny tittar.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/emil-improve-animations.md"
@@ -678,7 +678,7 @@
    "kommentar": "Mobilen först.",
    "krockar": 3,
    "hoga_krockar": 2,
-   "beslut": "ej fattat",
+   "beslut": "skill: skelett (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: skelett",
    "placering_motivering": "Mobilbaslinjen med skäl (viewport utan zoomspärr, svh i första vyn, säkra ytor, hover bara där enheten kan hovra, synlig tryckåterkoppling, fält minst 16 px) står i skelett/mobil.md; app- och PWA-delarna och global touch-action stryks.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/emil-mobile-native.md"
@@ -696,7 +696,7 @@
    "kommentar": "",
    "krockar": 1,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "bibliotek (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "bibliotek",
    "placering_motivering": "Med React-öar tillåtna (BESLUT 2026-10-16) blir listan underlag när biblioteket väljer beroenden (Motion, base-ui, Sonner med flera), alltid efter native HTML och med kostnaden i kB per val.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/emil-pick-ui-library.md"
@@ -714,7 +714,7 @@
    "kommentar": "Varianter när biblioteket byggs.",
    "krockar": 3,
    "hoga_krockar": 3,
-   "beslut": "ej fattat",
+   "beslut": "skill: skelett (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: skelett",
    "placering_motivering": "Till största delen en dubblett av Krehels variant, men två regler är destillerade i skelett/varianter.md: bedöm varianterna i realistiskt sammanhang i full storlek, och stryk en variant som glidit ihop med en annan (två verkligt olika slår tre med utfyllnad). Väljarens glasyta och rörelsekraven tas inte. (andra varvet 2026-10-16, skelett-struktur)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/emil-prototype.md"
@@ -732,7 +732,7 @@
    "kommentar": "Underlag till bedömaren.",
    "krockar": 1,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "skill: rorelse (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: rorelse",
    "placering_motivering": "De tio standarderna, åtgärdsordningen och felsökningen i slowmotion står i rorelse/granskning.md, som granskaren pekar på. Externa granskningsskills installeras aldrig fristående (bilaga B). Fynd som bara bygger på Emil får högst allvaret medel.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/emil-review-animations.md"
@@ -750,7 +750,7 @@
    "kommentar": "Inte webb.",
    "krockar": 0,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "släpp (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "släpp",
    "placering_motivering": "Swift för Apples plattformar. Det är inte webb, och ingen tjänst i guide/4-foretaget.md behöver det. Källkort: kallkort/emil-write-swift.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/emil-write-swift.md"
@@ -768,7 +768,7 @@
    "kommentar": "Riktningsdelen.",
    "krockar": 10,
    "hoga_krockar": 2,
-   "beslut": "ej fattat",
+   "beslut": "skill: yta (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: yta",
    "placering_motivering": "Typreglerna och de fem AI-klustren är destillerade i generiskt.md som hantverkskriterier; skillen själv används bara som en perspektivagent när kit tas fram, aldrig i kundbygget (guide/2-5, N2). Apache-2.0.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/frontend-design.md"
@@ -786,7 +786,7 @@
    "kommentar": "Färdiga rörelser till biblioteket.",
    "krockar": 0,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "skill: rorelse (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: rorelse",
    "placering_motivering": "Det som behövs nu är destillerat i rorelse/verktyg.md och reducerad.md: GSAP som sista verktyget, gsap.matchMedia() för reducerad rörelse, prestandaregler, kostnaden (28 + 18 kB mätt på 3.15.0) och bibliotekets egna licens (Webflow Standard No-Charge, inte MIT). Färdiga rörelser till biblioteket väntar på tillvalet scrollytelling (N2). Skillfilerna har kända fel (#18, #20, #21), så exemplen tas inte som de är.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/gsap.md"
@@ -804,7 +804,7 @@
    "kommentar": "Extraktionen och slop-kriterierna.",
    "krockar": 0,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "skill: yta (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: yta",
    "placering_motivering": "Hela skillen lästes 2026-10-16 (SKILL.md, alla referenser, 50 komponenter, 21 makrostrukturer, 5 teman). Kriterierna, tillstånden och de mätbara grindarna står nu i ytskillen (generiskt.md, detaljer.md, typografi.md, farg.md och kontrollistan 22–29); de mätbara grindarna blir dessutom Playwright-kontroller i kvalitetsskillen. Variationsgrindarna, AI-nav/AI-sidfot och temarotationen krockar med konventionsbeslutet, och Hallmark vänder själv variationen inom en sajt med låst system (verbs/redesign.md). `overflow-x: clip` på html och body tas inte (MDN: klippt fokuserbart innehåll rullas inte fram). Förslag till skelettet: prislista och meny, tillfällig notis före h1, utfört arbete med bildtexter, klistrade spalter under sidhuvudet (hallmark-c HC1–HC3, HC8). MIT. (andra varvet 2026-10-16, yta-1)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/hallmark.md"
@@ -822,7 +822,7 @@
    "kommentar": "Kärnan i textskillen.",
    "krockar": 3,
    "hoga_krockar": 1,
-   "beslut": "ej fattat",
+   "beslut": "skill: innehall (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: innehall",
    "placering_motivering": "Mönsterkatalogen (26 mönster) är destillerad till 25 svenska mönster i ai-monster.md, med vikt (ensam eller svag) och källa per mönster. Tre regler är vända för svenska: kort tankstreck är rätt, svenska citattecken är ”…”, Title Case är fel. Exemplen är egna, eftersom minst åtta av humanizers exempel är Wikipedias CC BY-SA-text. MIT, v3.1.0.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/humanizer.md"
@@ -840,7 +840,7 @@
    "kommentar": "Bitvis, den krockar näst mest.",
    "krockar": 24,
    "hoga_krockar": 11,
-   "beslut": "ej fattat",
+   "beslut": "skill: yta (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: yta",
    "placering_motivering": "Oförändrad placering, ny motivering. Hela skillen (4.5.2) och ändringarna till 4.6.0 är lästa 2026-10-16, liksom detektorns 59 regler med trösklarna. Golvet, vägra-listan, färgstrategin, typ- och färgfrågorna och slop-reglerna står nu i yta-filerna (generiskt.md, farg.md, typografi.md, detaljer.md, tokens.md) och i kontrollistan 22–29. Metoden – två isolerade bedömningar med designomdömet före mätningen, P0–P3, personas och triageordningen – föreslås till granskarskillen. Installeras inte och detektorn körs inte (nedladdad binär, telemetri, CSP-patch i live-läget). Apache-2.0. (andra varvet 2026-10-16, yta-1)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/impeccable.md"
@@ -858,7 +858,7 @@
    "kommentar": "Kan driva själva utvinningen.",
    "krockar": 2,
    "hoga_krockar": 1,
-   "beslut": "ej fattat",
+   "beslut": "skill: larande (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: larande",
    "placering_motivering": "Oförändrad placering, utökad motivering: kortet skrivs med egna ord utan instruktioner, kommandon eller kod ur källan; visuella källor döms på det som syns; flaggorna och skillens storlek i tre delar; när något bedöms igen; rättvist prov med utelämnade fall; ett eget förslag per intag (larande/bevakning.md). (andra varvet 2026-10-16, flodet)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/kirurg.md"
@@ -876,7 +876,7 @@
    "kommentar": "Inga krockar.",
    "krockar": 0,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "skill: kvalitet (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: kvalitet",
    "placering_motivering": "Policyn för webbläsarstöd (Baseline Widely fritt, Newly med reserv, Limited som förbättring) och statustabellen i kvalitet/modern-html-css.md, plus LCP- och rörelsereglerna i prestanda.md. Körs inte som skill: den kör npx -y …@latest vid varje uppgift, har telemetri påslagen som standard och 25 guider laddar polyfills från CDN, vilket krockar med guidens regel om tredje part vid sidladdning.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/modern-web-guidance.md"
@@ -894,7 +894,7 @@
    "kommentar": "Tillsammans med Motion-MCP:n. Vanilla-API:t räcker för in-animationer.",
    "krockar": 0,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "skill: rorelse (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: rorelse",
    "placering_motivering": "Motions egen skill (ai-kit 7.0.1): tabellen CSS eller Motion, längderna, ingen överskjutning på seriösa sajter, MotionConfig reducedMotion='user' och storlekarna (inView 0,5 kB, animate mini 3,2 kB, m+LazyMotion cirka 5 kB plus 24 kB, motion 43 kB) står i rorelse/verktyg.md, reducerad.md och matt.md. Regelfilen motion.mdc, som styr all rörelse till Motion, installeras inte. Repot saknar egen licensfil; pluginet anger MIT.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/motion-mcp.md"
@@ -912,7 +912,7 @@
    "kommentar": "Metoden för referenser.",
    "krockar": 0,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "skill: skelett (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: skelett",
    "placering_motivering": "Referenslås, beslutslogg, spärren mot genomsnitt och kort-testet står i skelett/referenser.md och layout.md; skillen installeras inte eftersom den kallar sig primär och skulle konkurrera med lagerskillsen.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/refero-design.md"
@@ -930,7 +930,7 @@
    "kommentar": "Inte sajtbygge.",
    "krockar": 0,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "släpp (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "släpp",
    "placering_motivering": "HTML-presentationer med Chart.js och copywritingformler utan källor. Presentationer är ingen tjänst Nortropic säljer. Säljet bygger på sajtgranskningens rapport, byråns exempelsajter och kvitton (4-foretaget.md, Tjänstetrappan och Kundflödet). Rapportens form och säljmaterialet saknar ägare, och den luckan står i utanfor-luckor.md (L9). Skillen är också ofärdig. references/create.md är en stub som bara hänvisar tillbaka till skillen, och mallen hämtar Chart.js från ett CDN. Leverantören säljer presentationer som del av premiumversionen. Behövs ändå en presentation finns Anthropics pptx-skill i anthropics/skills. Den är källkodstillgänglig, inte öppen källkod, och styrs av Anthropics villkor. Den här skillen tillför inget utöver den. Inga krockar. Källkort: kallkort/slides.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/slides.md"
@@ -948,7 +948,7 @@
    "kommentar": "Tillstånd per komponent.",
    "krockar": 0,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "kontroll (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "kontroll",
    "placering_motivering": "Tillståndsregistret per komponent, inklusive JavaScript av, blir en kontroll på provsidan med skärmbilder i Playwright; tabellen står i skelett/interaktion.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/state-machine.md"
@@ -966,7 +966,7 @@
    "kommentar": "",
    "krockar": 3,
    "hoga_krockar": 1,
-   "beslut": "ej fattat",
+   "beslut": "släpp (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "släpp",
    "placering_motivering": "Skillen genererar varumärkesmanualer och logosystem som bilder. Det går emot \"Logotyper genereras inte\" (guide/2-5-yta.md) och \"Inga genererade logotyper\" (4-foretaget.md, Varumärkesbok). En manual som bild går inte att söka i eller rätta, och färgvärdena går inte att kopiera ur den. Varumärkesboken, tillval i N3, blir ett dokument ur stilkitets värden. Skillen kräver ett verktyg som genererar bilder, till exempel ChatGPT Images, och Claude Code har inget sådant inbyggt. Posten har 3 krockar, varav 1 hög. Källkort: kallkort/taste-brandkit.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/taste-brandkit.md"
@@ -984,7 +984,7 @@
    "kommentar": "Kan bli underlag för ett stilpaket.",
    "krockar": 2,
    "hoga_krockar": 2,
-   "beslut": "ej fattat",
+   "beslut": "släpp (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "släpp",
    "placering_motivering": "Militär- och terminalestetik med versaler och CRT-effekter passar varken målgruppen eller något av de tre kiten; tas upp igen bara om Johnny vill ha ett sådant kit.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/taste-brutalist.md"
@@ -1002,7 +1002,7 @@
    "kommentar": "Krockar mycket.",
    "krockar": 12,
    "hoga_krockar": 4,
-   "beslut": "ej fattat",
+   "beslut": "släpp (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "släpp",
    "placering_motivering": "GSAP, slumpad layout och AIDA krockar med sparsam rörelse och konventionsbeslutet; föredrar dessutom den centrerade förstavyn som de andra listorna kallar generisk.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/taste-gpt.md"
@@ -1020,7 +1020,7 @@
    "kommentar": "",
    "krockar": 5,
    "hoga_krockar": 4,
-   "beslut": "ej fattat",
+   "beslut": "släpp (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "släpp",
    "placering_motivering": "Bild först och kod efter är fri generering i kundbygget, vilket grundregeln i guide/2-5 förbjuder.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/taste-image-to-code.md"
@@ -1038,7 +1038,7 @@
    "kommentar": "Inte webb.",
    "krockar": 0,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "släpp (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "släpp",
    "placering_motivering": "Bildgenererade appskisser i telefonram. Det är inte webb, skillen skriver ingen kod, och Nortropic säljer inga appar. Webbvarianten har en egen post, taste-imagegen-frontend-web, i ytlagret. Källkort: kallkort/taste-imagegen-frontend-mobile.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/taste-imagegen-frontend-mobile.md"
@@ -1056,7 +1056,7 @@
    "kommentar": "Kan ge skisser till stilpaketen.",
    "krockar": 4,
    "hoga_krockar": 2,
-   "beslut": "ej fattat",
+   "beslut": "skill: yta (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: yta",
    "placering_motivering": "Texten är värd mer än bilderna. Brief-mappningen (ord i briefen blir val per axel), heroskalan per kit, signaturgreppet (second-read moment, §2), gradientdisciplinen (§13) och listan över vad som är låst och fritt inom en riktning (r. 438–447) är destillerade med egna ord i .claude/skills/yta/stilriktningar.md och behöver ingen bildmodell. Själva bildgenereringen förblir en N2-kandidat med eget verktygsbeslut. Då räcker en hero och en innehållssektion per kit, inte skillens 6–8 bilder med SaaS-sektioner, och bilderna går till Johnny och granskaren, aldrig till generatorn. Källkortet saknar §13 och §18 (delagentens genomläsning 2026-10-16). (andra varvet 2026-10-16, yta-2)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/taste-imagegen-frontend-web.md"
@@ -1074,7 +1074,7 @@
    "kommentar": "Underlag för ett stilpaket.",
    "krockar": 8,
    "hoga_krockar": 2,
-   "beslut": "ej fattat",
+   "beslut": "bibliotek (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "bibliotek",
    "placering_motivering": "Underlag för Lugn och luftig eller ett framtida stramt kit när kiten tas fram; värdena kan inte tas rakt av, eftersom dess dämpade grå (#787774) bara ger 4,48:1 på vitt och 4,14:1 på #F7F6F3.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/taste-minimalist.md"
@@ -1092,7 +1092,7 @@
    "kommentar": "",
    "krockar": 2,
    "hoga_krockar": 1,
-   "beslut": "ej fattat",
+   "beslut": "släpp (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "släpp",
    "placering_motivering": "Skillen tvingar fram fullständig kod utan platshållare. Utelämnad kod fångas hos oss av att bygget går igenom (kontroll 1), av kontrollskriptet och av kravet på belägg (guide 3-1); kontroll 6 fångar platshållare i innehållet. Skillen förbjuder dessutom de märkta platshållare vi kräver och bygger på att en människa skriver 'continue' (krock K46, hög). Inga tecken på avkortat arbete i den första övningssajten. Inventeringen föreslår själv Släpp.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/taste-output.md"
@@ -1110,7 +1110,7 @@
    "kommentar": "Slop-listan till bedömaren.",
    "krockar": 9,
    "hoga_krockar": 4,
-   "beslut": "ej fattat",
+   "beslut": "kontroll (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "kontroll",
    "placering_motivering": "Linjerings-, tillstånds- och \"AI glömmer\"-punkterna (aktiv sida, hopplänk, 404, döda länkar, knappar linjerade i underkant) blir granskarens kriterier och Playwright-kontroller; färg- och layoutpunkterna står som hantverksfrågor i ytskillens generiskt.md. Råden om påhittade siffror och datum, Lucide-förbudet och uppgraderingsteknikerna stryks.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/taste-redesign.md"
@@ -1128,7 +1128,7 @@
    "kommentar": "Underlag för ett premiumpaket.",
    "krockar": 8,
    "hoga_krockar": 2,
-   "beslut": "ej fattat",
+   "beslut": "bibliotek (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "bibliotek",
    "placering_motivering": "Underlag när kitet Lugn och luftig förnyas (luft, diffusa skuggor, radier), en stil per agent och aldrig i kundbygget; det som är värt att spara i ytskillen (koncentriska radier, blur bara på fasta lager) finns redan i detaljer.md, medan kort i kort, överradspiller, Lucide-förbudet och animation på allt stannar i källan.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/taste-soft.md"
@@ -1146,7 +1146,7 @@
    "kommentar": "Krockar mycket.",
    "krockar": 13,
    "hoga_krockar": 4,
-   "beslut": "ej fattat",
+   "beslut": "släpp (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "släpp",
    "placering_motivering": "Byggd för Google Stitch, som ströks 2026-10-15, och antimönstren finns i de andra källorna.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/taste-stitch.md"
@@ -1164,7 +1164,7 @@
    "kommentar": "Ersatt av taste.",
    "krockar": 9,
    "hoga_krockar": 4,
-   "beslut": "ej fattat",
+   "beslut": "släpp (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "släpp",
    "placering_motivering": "Ersatt av taste v2, låser Next, Tailwind och Phosphor och råder till påhittad data.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/taste-v1.md"
@@ -1182,7 +1182,7 @@
    "kommentar": "Bitvis, den krockar mest av alla.",
    "krockar": 37,
    "hoga_krockar": 13,
-   "beslut": "ej fattat",
+   "beslut": "skill: yta (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: yta",
    "placering_motivering": "Konkurrenttestet, få storlekar långt isär, accent på liten yta, en bildbehandling och tells-registret är destillerade i generiskt.md; husreglerna (minst åtta rörliga element, inga linjer eller skuggor) krockar med besluten och tas inte.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/taste.md"
@@ -1200,7 +1200,7 @@
    "kommentar": "Licensen behöver redas ut först.",
    "krockar": 5,
    "hoga_krockar": 2,
-   "beslut": "ej fattat",
+   "beslut": "släpp (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "släpp",
    "placering_motivering": "En tunn sammanfattning av shadcn/ui och Tailwind för React med Python-skript; licensen är utredd (MIT, Apache-2.0 för canvas-delen, OFL för typsnitten). shadcn/ui själv kan prövas som egen post om biblioteket behöver det.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/ui-styling.md"
@@ -1218,7 +1218,7 @@
    "kommentar": "Datan efter granskning, inte branschpaletterna.",
    "krockar": 17,
    "hoga_krockar": 6,
-   "beslut": "ej fattat",
+   "beslut": "kontroll (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "kontroll",
    "placering_motivering": "Bara WCAG 2.2-raderna (rätt märkta AA och AAA) blir underlag för kontroller, till exempel 2.5.8 och 2.4.11, och typsnittslicenserna (google/fonts vid låst revision) används när ett typsnitt prövas; typsnittsparen, stilarna och branschpaletterna saknar radkällor och har fel i stickproven.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/ui-ux-pro-max.md"
@@ -1236,7 +1236,7 @@
    "kommentar": "Används när de egna skillsen skrivs.",
    "krockar": 0,
    "hoga_krockar": 0,
-   "beslut": "ej fattat",
+   "beslut": "skill: larande (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: larande",
    "placering_motivering": "Skrivreglerna för text som agenter läser (beskrivningen som pekare med en utlösare per gren, informationshierarki och delfiler, klart-villkor per steg, ledord, positiv formulering, en plats per sak, stryk no-ops) är destillerade med källa i larande/skills.md och användes när granskare och larande skrevs (bilaga B: används när skills skrivs). MIT; originalet behöver inte installeras. Tillägg efter källkortet: klart-villkor som kräver något, Pococks varning att en skill ur en enda körning överanpassas, och disable-model-invocation för skills som bara Johnny startar. Pococks skill retro (MIT) gav kategorierna för miljön i genomgang.md; den saknas i inventeringen.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/writing-for-agents.md"
@@ -1252,7 +1252,7 @@
    "sort": "Material",
    "forslag": "Extrahera",
    "kommentar": "Till sektions- och komponentbiblioteket.",
-   "beslut": "ej fattat",
+   "beslut": "MCP: kräver konto (gratis Hobby-nyckel räcker för provet; Builder först när biblioteket visat behov) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "MCP: kräver konto (gratis Hobby-nyckel räcker för provet; Builder först när biblioteket visat behov)",
    "placering_motivering": "Sökningen är gratis och ger metadata; två hämtningar per dag räcker för provet med tre sektioner (P25, P26, P27). Samma block från Tailark och Magic UI går att hämta ur shadcn-registren utan 21st och utan kreditering (BESLUT 2026-10-16 kl. 13.05). npm-paketet är bara en proxy till 21st.dev, så verktygen kan ändras utan ny version, och verktygslåset behövs. Källa: 21st.dev/mcp.md och pricing.md, magic-mcp src/index.ts, läst 2026-10-16. (andra varvet 2026-10-16, mcp)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/21st.md"
@@ -1284,7 +1284,7 @@
    "sort": "Referens",
    "forslag": "Byggverktyg",
    "kommentar": "Flöden till struktur, skärmar till skelett.",
-   "beslut": "ej fattat",
+   "beslut": "MCP: kräver konto (Mobbin Pro; Johnny läser villkoren avsnitt 3 och 10.1 före köpet) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "MCP: kräver konto (Mobbin Pro; Johnny läser villkoren avsnitt 3 och 10.1 före köpet)",
    "placering_motivering": "Villkoren (gällande från 2026-05-16, nu publika) förbjuder att AI-verktyg skapar 'derivative works' av innehållet och säger att 'All derivative works produced with the use of the Services … belong to Mobbin'. MCP får användas för 'internal business use'. Tolkning, inte juridisk rådgivning: referenser blir iakttagelser i ord för Johnny och granskaren, aldrig förlaga till en sektion, och inga skärmbilder sparas i repot. Beslutet kl. 13.12 kräver redan att villkoren läses. Pro kostar minst 45 USD per kvartal. Källa: mobbin.com/terms och pricing.md, läst 2026-10-16. (andra varvet 2026-10-16, mcp)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/mobbin-mcp.md"
@@ -1300,7 +1300,7 @@
    "sort": "Referens",
    "forslag": "Byggverktyg",
    "kommentar": "",
-   "beslut": "ej fattat",
+   "beslut": "MCP: ta in (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "MCP: ta in",
    "placering_motivering": "Den hostade slutpunkten är gratis och kräver inget konto (Together-nyckeln är valfri); används bara när kit tas fram, med skärmbilderna till Johnny och granskaren, och ingen JSX går in i biblioteket utan att klädas i kitet.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/inspo.md"
@@ -1316,7 +1316,7 @@
    "sort": "Material",
    "forslag": "Extrahera",
    "kommentar": "Rörelser till biblioteket.",
-   "beslut": "ej fattat",
+   "beslut": "MCP: kräver konto (Motion+) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "MCP: kräver konto (Motion+)",
    "placering_motivering": "Den öppna servern (mcp.motion.dev) ger dokumentationssökning, som vi redan läser direkt på motion.dev. Det inventeringen ville extrahera – exempel och Motion UI till biblioteket – och MotionScore-granskningen kräver Motion+ med inloggning via OAuth: Solo som engångsavgift för en person, Team som årsavgift per plats för två eller fler. Johnny avgör. Inte installerad.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/motion-mcp.md"
@@ -1332,7 +1332,7 @@
    "sort": "Verktyg",
    "forslag": "Behåll",
    "kommentar": "Kör med --no-performance-crux, så att adresser inte skickas till Google.",
-   "beslut": "ej fattat",
+   "beslut": "MCP: ta in (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "MCP: ta in",
    "placering_motivering": "För diagnos när en kontroll fallerar, inte som grind: spårning och LCP-delar, take_snapshot, emulate (forced-colors, reducerad rörelse, strypning), konsol och nätverk; visar också vad en React-ö kostar vid hydrering. Version 1.11.0, Apache-2.0, inget konto. Alltid med --no-usage-statistics (statistiken till Google är annars på), --no-performance-crux och --isolated. Kontrollskriptet kör redan Lighthouse och axe själv.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/chrome-devtools.md"
@@ -1348,7 +1348,7 @@
    "sort": "Åtkomst",
    "forslag": "Behåll",
    "kommentar": "När kunden har Figma.",
-   "beslut": "ej fattat",
+   "beslut": "MCP: kräver konto (Figma; kundens fil, Dev- eller Full-plats för fler än 20 anrop/mån) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "MCP: kräver konto (Figma; kundens fil, Dev- eller Full-plats för fler än 20 anrop/mån)",
    "placering_motivering": "Bara när en kund har en Figmafil; används med build-design från N2.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/figma-mcp.md"
@@ -1364,7 +1364,7 @@
    "sort": "Verktyg",
    "forslag": "Behåll",
    "kommentar": "Verifieringen i varje loop.",
-   "beslut": "ej fattat",
+   "beslut": "verktyg: ta in (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "verktyg: ta in",
    "placering_motivering": "Finns redan (1.64.1 i skript/) och bär kontrollskriptet. Nytt enligt kvalitet/kontroller.md: varv i WebKit (Tab kräver Alt+Tab som i Safari), ariaSnapshot av sidhuvud och sidfot mellan sidor (3.2.3, 3.2.6), forcedColors, bypassCSP för textavstånd och toHaveScreenshot från N2. Kända fällor: bfcache är avstängd i dess Chromium och INP i headless har stort presentationsbrus.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/playwright.md"
@@ -1380,7 +1380,7 @@
    "sort": "Åtkomst",
    "forslag": "Behåll",
    "kommentar": "Officiella MCP:n är nu cloudflare/mcp. Flera servrar i mcp-server-cloudflare är föråldrade.",
-   "beslut": "ej fattat",
+   "beslut": "verktyg: ta in (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "verktyg: ta in",
    "placering_motivering": "Hosting på Cloudflare är beslutad (BESLUT.md 2026-10-14) och Cloudflare Pro på varje publicerad kundsajt (2026-10-16). Hur Workers, versioner, rollback, D1 Time Travel, Workers Logs och Issues, Access och namnserverbytet används i driften står i skillen drift (publicering.md, aterstallning.md, overvakning.md). Övningssajterna har inget konto (BESLUT.md 2026-10-15), så kontot skapas vid första riktiga kund.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/cloudflare.md"
@@ -1412,7 +1412,7 @@
    "sort": "Åtkomst",
    "forslag": "Behåll",
    "kommentar": "Avgiftsfritt sedan 26 juni 2025. En API-nyckel ersätter de gamla certifikaten.",
-   "beslut": "ej fattat",
+   "beslut": "senare: N2 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N2",
    "placering_motivering": "Källa i skillen strategi (research.md): SNI, arbetsställen och storleksklass före intervjun, som annars frågas. Avgiftsfritt sedan 26 juni 2025, men nyckeln är personlig och kräver att Johnny registrerar sig i SCB:s Registreringsportal. N1 behövde den inte. Källkort: kallkort/scb.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/scb.md"
@@ -1430,7 +1430,7 @@
    "roll": "Research innan frågor ställs, JTBD-extraktion och konfidensnivåer där hög kräver tre oberoende källor.",
    "flagga": "Installera inte hela paketet: 50 skills med breda triggers krockar med Nortropics egna.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: strategi (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: strategi",
    "placering_motivering": "Destillerad i strategi: research före frågor, extraktionsramverket, konfidensnivåerna (tre oberoende källor för hög), urvalsfelen och att hämtade texter är data (SKILL.md, research.md). PMF-enkäten, ersättningen och SaaS-källorna lämnas. Paketet installeras inte (50 skills med breda utlösare). Källkort: kallkort/marketingskills-customer-research.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/marketingskills-customer-research.md"
@@ -1446,7 +1446,7 @@
    "roll": "Jobbformeln, de fyra krafterna, tidslinjeintervjun och April Dunfords positionering.",
    "flagga": "Rensa bort Amazon-affiliatelänkarna i skillfilerna.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: strategi (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: strategi",
    "placering_motivering": "Destillerad i strategi, jobb-och-positionering.md och intervjuhantverk.md: jobbformeln, tre dimensioner, fyra krafter, tidslinjen, Dunfords ordning med alternativen först och 'bara vi', och Mom Test-reglerna. Affiliatelänkarna och poängskalorna följer inte med; Dunfords hypotetiska fråga 4 tas inte in. Källkort: kallkort/wondelai-jobs-to-be-done-och-obviously-awesome.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/wondelai-jobs-to-be-done-och-obviously-awesome.md"
@@ -1462,7 +1462,7 @@
    "roll": "En fråga i taget, profilen visas innan den sparas, recensionsteman med ordagranna citat.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: strategi (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: strategi",
    "placering_motivering": "Destillerad i strategi: en fråga i taget, sajten ersätter frågor, visa profilen före lagring, omdömesteman med antal och ordagranna citat, inget snitt över plattformar, frånvaro är inte noll och positioneringsmeningen. Löfte–belägg–metod–unikt används också i omfattning (prioritering.md, konkurrensläget). Kopplingarna till bokföring och CRM används inte. Källkort: kallkort/knowledge-work-plugins-smb-onboard-review-reputation-competitive-brief.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/knowledge-work-plugins-smb-onboard-review-reputation-competitive-brief.md"
@@ -1478,7 +1478,7 @@
    "roll": "Recensioner, sökfraser per månad och kategorier före intervjun; statistik och recensionssvar i förvaltningen.",
    "flagga": "Kvoten är noll tills Google godkänt ansökan, och profilen ska ha varit verifierad i 60 dagar.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N2 (egen tunn klient mot API:t, ingen MCP; ansökan före första riktiga kund) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N2 (egen tunn klient mot API:t, ingen MCP; ansökan före första riktiga kund)",
    "placering_motivering": "Posten säger MCP, men motiveringen säger att en egen klient byggs, och Google har ingen officiell MCP för Business Profile (sekundärkällor, ⚠️). Kraven är oförändrade: profilen ska ha varit verifierad i minst 60 dagar och ha en webbplats, och kvoten är 0 QPM tills ansökan godkänts (prereqs, uppdaterad 2026-08-28). API:t ger DailyMetric och sökfraser till lucka 1.1 och 2.1. Övningssajterna använder det inte (BESLUT 2026-10-15). (andra varvet 2026-10-16, mcp)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/google-business-profile-api.md"
@@ -1494,7 +1494,7 @@
    "roll": "Registeruppgifter via en egen tunn klient med OAuth2.",
    "flagga": "Villkoren är inte verifierade: Bolagsverkets sidor gick inte att läsa.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N2 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N2",
    "placering_motivering": "Villkor, avgift och om enskilda näringsidkare ingår är overifierade: Bolagsverkets sidor visar CAPTCHA, och uppgifterna kommer från tredjepart. Nämnd i strategi (research.md) märkt ⚠️. I N1 frågas kunden om företagsform. Tas in när Johnny läst villkoren och registrerat byrån. Källkort: kallkort/bolagsverkets-api.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/bolagsverkets-api.md"
@@ -1510,7 +1510,7 @@
    "roll": "Lokal research inför intervjun.",
    "flagga": "Googles EEA-villkor: cacha högst 30 dagar och extrahera inte. Om konkurrentanalys är tillåten kräver juridisk läsning.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N3 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N3",
    "placering_motivering": "Den användning som återstår (kundens egna place_id och kartlänkar) går att göra för hand, och konkurrentanalys med Places-data är förbjuden i EES. Dokumentationen (uppdaterad 2026-10-15) kräver dessutom att Maps-innehåll 'is not cached by, stored by, or used to improve the LLM' och att modellens villkor läses. Om Claude Codes sessionslogg räknas dit är en fråga till juristen (bilaga E §4). Tolkning, inte juridisk rådgivning. (andra varvet 2026-10-16, mcp)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/google-maps-grounding-lite.md"
@@ -1526,7 +1526,7 @@
    "roll": "Intervjuskelett och anteckningsmall.",
    "flagga": "Stryk trollstavsfrågan; den bryter mot skillens egen Mom Test-regel.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: strategi (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: strategi",
    "placering_motivering": "Strukturen, följdfrågorna och anteckningsmallen destillerade i strategi, intervjuhantverk.md. Trollstaven och tre andra hypotetiska eller ledande frågor tas inte in. Ärende #59 (overifierade citat) blev förbudet mot omskrivna citat. Källkort: kallkort/pm-skills-interview-script.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/pm-skills-interview-script.md"
@@ -1542,7 +1542,7 @@
    "roll": "Den bästa öppna AI-intervjun: en fråga i taget, icke-ledande, be om exempel.",
    "flagga": "Bara principerna, med egna ord. Koden får inte användas kommersiellt.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: strategi (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: strategi",
    "placering_motivering": "Bara principerna, med egna ord, i strategi (intervjuhantverk.md, SKILL.md punkt 4 och 11): en fråga i taget, icke-ledande, påtagliga belägg, framåtrörelse, sammanfattning med betyg 1–4. Koden och prompttexten är icke-kommersiellt licensierade och används inte. Guidens två regler som tillskrivs dem finns inte i nuvarande config.py; förslag om rättad källa. Källkort: kallkort/geiecke-och-jaravels-intervjuplattform.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/geiecke-och-jaravels-intervjuplattform.md"
@@ -1558,7 +1558,7 @@
    "roll": "Självhostad crawl för branschmallar och kunder med befintlig sajt; ingen data lämnar Nortropic.",
    "flagga": "Licensen kräver attribution vid offentlig användning.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "verktyg: ta in (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "verktyg: ta in",
    "placering_motivering": "Lokalt verktyg för spår B och branschprofilerna: DomainMapper med sitemap och Wayback hittar gamla adresser till omdirigeringskartan, och Markdown-exporten går till inventeringen (omfattning, verktyg.md och inventering.md). Villkor: låst version, check_robots_txt påslaget, ingen Docker-server och ingen molntjänst. Attributionstillägget gäller publik användning, inte intern research (tolkning). Källkort: kallkort/crawl4ai.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/crawl4ai.md"
@@ -1574,7 +1574,7 @@
    "roll": "Search Console för agenter: gamla adresser med trafik till omdirigeringskartan, sedan rapporter i förvaltningen.",
    "flagga": "Lås versionen; en SDK-uppdatering i juli 2026 fick nya installationer att krascha.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N3 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N3",
    "placering_motivering": "Minsta behörighet går inte att få: omfånget är hela 'webmasters' (gsc_server.py rad 106), och en token med bara läsrätt misslyckas och raderar tokenfilen (#56). Fel returneras som lyckade svar (#53), perioderna byter plats (#42), och två verktygsbeskrivningar säger 'ALWAYS call this first'. Vid den första flytten räcker en export ur Search Consoles gränssnitt för omdirigeringskartan. I förvaltningen prövas seo-monster med bara webmasters.readonly först. Källa: repot vid d49eea9 och ärendena, läst 2026-10-16. (andra varvet 2026-10-16, mcp)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/mcp-gsc.md"
@@ -1590,7 +1590,7 @@
    "roll": "Kartlägg, observera, bygg och jämför: flytta en sajt kunden äger, och verifiera mot förlagan i samma storlek och tillstånd.",
    "flagga": "Byggt för Next.js, så metoden flyttas till Astro. Identitet, texter och bilder kopieras aldrig.",
    "din_lank": true,
-   "beslut": "ej fattat",
+   "beslut": "skill: omfattning (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: omfattning",
    "placering_motivering": "Metoden destillerad i omfattning, inventering.md: karta gammal → ny, observera före bygget i flera bredder och tillstånd, läs faktiska värden och jämför i samma bredd och tillstånd. Mallen (Next.js) och återskapandet av designen tas inte in. Bara kundens egen sajt med uppdrag eller övningssajterna. Källkort: kallkort/ai-website-cloner-template.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/ai-website-cloner-template.md"
@@ -1606,7 +1606,7 @@
    "roll": "Inventeringsschema, 301 direkt till slutmålet i minst ett år och omdirigeringar i Cloudflares _redirects.",
    "flagga": "Astros redirects blir meta refresh utan statuskod på en statisk sajt.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: omfattning (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: omfattning",
    "placering_motivering": "NN/g:s inventeringsschema, Googles flyttregler och Cloudflares _redirects med dess fällor (302 som standard, 307 vid snedstreck, ingen domännivå) i omfattning, inventering.md och flyttregler.md, med kontrollen kontrollera_omdirigeringar.py. Två luckor i guiden: värdnamnen (www, http) och Search Console-stegen vid flytt. Källkort: kallkort/innehallsinventering-och-flyttregler.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/innehallsinventering-och-flyttregler.md"
@@ -1622,7 +1622,7 @@
    "roll": "Crawl hos samma leverantör som hostingen.",
    "flagga": "Gratisnivån ger bara tio minuter per dag.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N2 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N2",
    "placering_motivering": "Prövas i spår B vid den första riktiga kunden med en befintlig sajt: samma leverantör som hostingen, följer robots.txt, resultat i 14 dagar. Gratisnivåns 10 minuter om dagen räcker för en liten sajt men inte för branschprofilerna. Beskriven i omfattning, verktyg.md. Källkort: kallkort/cloudflare-browser-rendering-crawl.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/cloudflare-browser-rendering-crawl.md"
@@ -1638,7 +1638,7 @@
    "roll": "Inventering och SEO-rapport som tabeller.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N2 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N2",
    "placering_motivering": "Prövas i spår B mot crawl4ai på samma sajt; högst ett av verktygen tas in. SiteOnes rapport över omdirigeringar och 404 och advertools sitemap_to_df är de starkaste delarna. SiteOnes --upload används aldrig. Beskrivna i omfattning, verktyg.md. Källkort: kallkort/siteone-crawler-och-advertools.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/siteone-crawler-och-advertools.md"
@@ -1654,7 +1654,7 @@
    "roll": "Manuell kontroll av klickdjup och struktur; räcker för småsajter.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N2 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N2",
    "placering_motivering": "Listläget med Always Follow Redirects mot den publicerade sajten blir andra kontrollen av omdirigeringarna vid den första riktiga flytten; gratisversionens 500 adresser räcker. Manuellt verktyg för Johnny. Beskriven i omfattning, verktyg.md och flyttregler.md. Källkort: kallkort/screaming-frog.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/screaming-frog.md"
@@ -1670,7 +1670,7 @@
    "roll": "Föreslår vilken ny adress en gammal ska peka på; en människa eller agent granskar.",
    "flagga": "Senaste push juli 2025.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "släpp (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "släpp",
    "placering_motivering": "En småföretagssajt har oftast få gamla adresser, och en agent som läser innehållet parar ihop dem bättre än ett likhetsvärde. Inaktivt sedan juli 2025 och installationsfel med matplotlib 3.9 och Python 3.12 (#79, #72). Prövas igen om en kund har hundratals adresser. Källkort: kallkort/polyfuzz.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/polyfuzz.md"
@@ -1686,7 +1686,7 @@
    "roll": "Sökvolymer, använda relativt eftersom de är låga i små orter.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "MCP: kräver konto (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "MCP: kräver konto",
    "placering_motivering": "Kräver ett DataForSEO-konto med minst 50 dollar insättning. Ger bakåtlänkar per gammal adress till omdirigeringskartan och relativa sökvolymer till sökorden. api_request kan göra vilket betalt anrop som helst, så kontot får en låg budget; recensionsdata innehåller personuppgifter. Beskriven i omfattning, verktyg.md. Källkort: kallkort/dataforseo-mcp.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/dataforseo-mcp.md"
@@ -1702,7 +1702,7 @@
    "roll": "Sidkarta, adresstabell, navigationsspec och internlänkar, med en profil för småföretag.",
    "flagga": "Byt tre regler mot primärkällor: tre-klicksregeln, brödsmulor som speglar adressen och 4–7 menyval.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: struktur (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: struktur",
    "placering_motivering": "De fem utdataformaten (träd, Mermaid, adresstabell, navigationsspec, internlänkplan) och småföretagsprofilen står i struktur/sidkarta.md och navigation.md, med de tre rättelserna (tre-klicksregeln, brödsmulor som speglar adressen, 4–7 menyval) och fem till mot NN/g, Google och APG.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/marketingskills-site-architecture.md"
@@ -1718,7 +1718,7 @@
    "roll": "Sidkartor och kundresor som kod i briefen.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: struktur (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: struktur",
    "placering_motivering": "Mall för sidkartan som diagram i struktur/sidkarta.md, prövad med mermaid 11.4.1; GitHub ritar blocken direkt och inget följer med till kundsajten.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/mermaid.md"
@@ -1734,7 +1734,7 @@
    "roll": "Sitemap vid bygget och typad JSON-LD för LocalBusiness utan JavaScript.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "bibliotek (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "bibliotek",
    "placering_motivering": "schema-dts blir utvecklingsberoende för typkontroll av JSON-LD vid bygget (0 kB i webbläsaren); övningssajtens egen sitemap med lastmod ur git behålls framför integrationen.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/astrojs-sitemap-och-schema-dts.md"
@@ -1750,7 +1750,7 @@
    "roll": "Kopplar ihop företag, sida, tjänst och brödsmulor i en graf.",
    "flagga": "Ungt, skapat i april 2026.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N2 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N2",
    "placering_motivering": "Grafmönstret med @id är redan regel i struktur/strukturerad-data.md och övningssajten gör det för hand; paketet prövas när en sajt har Service och brödsmulor. Ungt (april 2026).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/seo-graph.md"
@@ -1766,7 +1766,7 @@
    "roll": "JSON-LD-komponent för Astro.",
    "flagga": "Kan ersättas av en egen komponent på tio rader.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "släpp (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "släpp",
    "placering_motivering": "En egen komponent på några rader gör samma sak och finns redan i Sida.astro; paketet kräver dessutom schema-dts version 1 medan senaste är 2.1.0.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/astro-seo-schema.md"
@@ -1782,7 +1782,7 @@
    "roll": "Swap-testet och varning vid många ortssidor.",
    "flagga": "USA-centrerad, och påståendena är inte verifierade.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: struktur (aven: 8) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: struktur (aven: 8)",
    "placering_motivering": "Bytestestet är ett granskningskriterium med en källa och får inte bli en låst kontroll (guide/README.md, Grind eller instruktion). Regeltexten står redan i struktur/platser.md. Jämförelsen av namn, adress och telefon är kontroll 12 i kvalitet, och andelen gemensam text på platssidorna kan rapporteras, aldrig stoppa. (andra varvet 2026-10-16, kvalitet)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/claude-seo-seo-local.md"
@@ -1798,7 +1798,7 @@
    "roll": "Ett mänskligt trädtest per branschmall, inte per kund.",
    "flagga": "En AI får bara flagga problem i strukturen, aldrig ersätta testet.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N2 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N2",
    "placering_motivering": "Ett mänskligt trädtest per branschprofil när en sidkartsmall används på flera sajter; gratisnivåerna har krympt (UXtweak 10 svar och 2 uppgifter per trädtest), så ett riktigt test kräver betald nivå.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/tradtest-uxtweak-lyssna.md"
@@ -1814,7 +1814,7 @@
    "roll": "37 typade sektioner, FAQ utan JavaScript och statisk deploy till Cloudflare Workers.",
    "flagga": "Studeras och skrivs om i egna tokens. Testa mobilmenyn och in-animationerna med JavaScript avstängt.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "bibliotek (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "bibliotek",
    "placering_motivering": "Referens när sektionsvarianterna byggs: katalogen och sidtypernas sektionsval är destillerade i skelett/sektioner.md och varianter.md; sidhuvudet tas inte eftersom mobilmenyn inte går att öppna utan JavaScript (provat 2026-10-16).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/astrowind.md"
@@ -1830,7 +1830,7 @@
    "roll": "Hoppa-till-innehåll-länk, brödsmulor, formulär och reducerad rörelse.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "bibliotek (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "bibliotek",
    "placering_motivering": "Brödsmulor, hoppa-länk och <details> med CSS-animation bakom reducerad rörelse kopieras in som enskilda komponenter; mobilmenyn kräver JavaScript och tas inte.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/accessible-astro.md"
@@ -1846,7 +1846,7 @@
    "roll": "FAQ och utfällbart innehåll utan JavaScript.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: skelett (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: skelett",
    "placering_motivering": "Primitiven för vanliga frågor och utfällbart, med kantfallen (ett name per grupp, sökbarhet, rubrik i summary) i skelett/interaktion.md; regeln finns redan i guide/2-4-skelett.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/details-med-name.md"
@@ -1862,7 +1862,7 @@
    "roll": "Tolv layoutprimitiver som anpassar sig utan brytpunkter.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: skelett (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: skelett",
    "placering_motivering": "Primitiverna och principen om brytpunkter ur innehållet står i skelett/layout.md; biblioteket får egna primitiver i src/layout/ från sajt 2. Boken (69 USD) är bara läst i de fria kapitlen.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/every-layout.md"
@@ -1878,7 +1878,7 @@
    "roll": "Formulär med felsammanfattning och HTML först.",
    "flagga": "Bara beteenden och texter, inte koden eller varumärket.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: skelett (även innehall) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: skelett (även innehall)",
    "placering_motivering": "Designsystemets mönster för kontaktsida (Contact a department), 404-sida (Page not found), telefonnummer och frågesidor gäller texten lika mycket som komponenten: svarstider och undantag från öppettider, inga ord som 'oops', varför telefonnumret behövs och inga inmatningsmasker. Fältet aven får också 7 (i dag bara 8). Källor: https://design-system.service.gov.uk/patterns/contact-a-department-or-service-team/, https://design-system.service.gov.uk/patterns/page-not-found-pages/, https://design-system.service.gov.uk/patterns/phone-numbers/. (andra varvet 2026-10-16, byggguider)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/govuk-frontend.md"
@@ -1894,7 +1894,7 @@
    "roll": "Menyer och dialoger utan skript.",
    "flagga": "Bara ovanpå en länkbaserad grund.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: skelett (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: skelett",
    "placering_motivering": "Mobilmenyn som popover och dialog med command ovanpå en vanlig länk står i skelett/interaktion.md med Baseline-datum; Invoker Commands är Baseline först sedan december 2025.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/popover-och-invoker-commands.md"
@@ -1910,7 +1910,7 @@
    "roll": "Flest sektionsvarianter för småföretag: 13 hero, 7 tjänster och 5 omdömen.",
    "flagga": "Dragspelet kräver JavaScript och byts mot details.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "bibliotek (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "bibliotek",
    "placering_motivering": "Flest sektionsvarianter (13 hero, 7 tjänster, 5 omdömen) i ren Astro, beskrivna i skelett/sektioner.md; dragspelet byts mot <details>, karusell och marquee tas inte.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/fulldev-ui.md"
@@ -1926,7 +1926,7 @@
    "roll": "Sidfötter, kontaktformulär och FAQ som varianter.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "bibliotek (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "bibliotek",
    "placering_motivering": "Sidfötter, kontaktformulär och vanliga frågor på <details> i ren HTML, 0 kB JavaScript; färgklasserna byts mot kitets tokens.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/hyperui.md"
@@ -1942,7 +1942,7 @@
    "roll": "shadcn-systemet i ren HTML för de minsta delarna.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "bibliotek (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "bibliotek",
    "placering_motivering": "Atomerna i ren HTML och uppdelningen bas-tokens, komponent och stilpaket som förebild; rullgardinen med role=menu används inte för navigation.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/basecoat.md"
@@ -1958,7 +1958,7 @@
    "roll": "Närmast målgruppen: sektioner för lokala tjänsteföretag.",
    "flagga": "Villkoren för ett internt bibliotek är inte verifierade.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N2 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N2",
    "placering_motivering": "Närmast målgruppen, men licensen är återkallelig och reglerar inte ett internt bibliotek eller tiden efter uppsägning; prövas bara om de öppna källorna inte räcker och villkoren klarats ut skriftligt.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/codestitch.md"
@@ -1974,7 +1974,7 @@
    "roll": "Bara för komplexa delar, som en bokningskalender.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N3 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N3",
    "placering_motivering": "Bara för komplexa öar som en bokningskalender (guide/2-4-skelett.md, från N3); kräver JavaScript.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/zag.md"
@@ -1990,7 +1990,7 @@
    "roll": "Källformat för stilkiten: ett system och flera kit via resolverns modifiers.",
    "flagga": "Ingen W3C-standard. Dimensioner tillåter bara px och rem.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N2 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N2",
    "placering_motivering": "Rätt källformat för ett system med flera kit, men de minimala kiten är vanlig CSS; när kiten lintas och förnyas byggs de som DTCG, nu till både CSS-variabler och Tailwind 4 @theme (tokens.md).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/dtcg-2025-10.md"
@@ -2006,7 +2006,7 @@
    "roll": "Gör tokens till Tailwind 4 och spärrar för låg kontrast.",
    "flagga": "Litet community, så versionen låses.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N2 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N2",
    "placering_motivering": "Enda verktyget med DTCG 2025.10-resolvers, CSS- och Tailwind 4-utdata och kontrastlint; tas in med låst version när DTCG gör det, efter ett prov av [data-kit]-selektorerna.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/terrazzo.md"
@@ -2022,7 +2022,7 @@
    "roll": "Färgskalor mot målkontrast, med egen MCP och agent-skill.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "MCP: ta in (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "MCP: ta in",
    "placering_motivering": "Den lokala MCP-servern (@adobe/leonardo-mcp, stdio, utan konto och nyckel) räknar accent- och neutralsteg mot målkvoter med wcag2 när ett kit tas fram eller kundens accent läggs in, vilket behövs nu för accentens steg (revisionens fynd 2); inget skeppas. Läs cli.js före installation, och notera apca-w3-licensen och sårbara beroenden (ärende #202).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/adobe-leonardo.md"
@@ -2038,7 +2038,7 @@
    "roll": "Färgkonvertering, kontrollmätning och ett kontrakt för vad varje steg används till.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "kontroll (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "kontroll",
    "placering_motivering": "Ett kitskript med Color.js mäter alla rollpar med WCAG21 och skriver värdena i kitets design.md; Radix tolv roller är kontraktet i farg.md, men Radix färgvärden används inte eftersom de inte klarar WCAG 2 AA rakt av. MIT.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/colorjs-och-radix-tolv-steg.md"
@@ -2054,7 +2054,7 @@
    "roll": "Självhostade typsnitt med svenska subsets och anpassade reservtypsnitt.",
    "flagga": "Subsetet latin-ext behövs för samiska namn.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "bibliotek (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "bibliotek",
    "placering_motivering": "Fontsource används redan; Fonts API tar över nedladdning, reservtypsnitt och förladdning av brödtextens fil när biblioteket flyttar dit.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/astro-fonts-api-och-fontsource.md"
@@ -2070,7 +2070,7 @@
    "roll": "Flytande skalor för typ och avstånd, och typsnittsmetrik.",
    "flagga": "Maxvärdet högst 2,5 gånger minvärdet, för WCAG 1.4.4.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "bibliotek (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "bibliotek",
    "placering_motivering": "Revisionen visar elva närliggande storlekar; kiten får en Utopia-skala (max högst 2,5 × min) och Capsize-mått för egna typsnitt.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/utopia-och-capsize.md"
@@ -2086,7 +2086,7 @@
    "roll": "Bland annat Inter, Source Serif, Fraunces, Familjen Grotesk och Atkinson Hyperlegible Next.",
    "flagga": "Reserverade typsnittsnamn är inte kontrollerade.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: yta (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: yta",
    "placering_motivering": "Reglerna om reserverade typsnittsnamn (IBM Plex har \"Plex\", Source Serif \"Source\"; Fontsource-filerna är delmängder och inte funktionellt likvärdiga), täckningen av svenska och nordsamiska (Atkinson Next saknar Ŋ ŋ Ŧ ŧ, Instrument Sans och Source Serif 4 saknar Ŧ ŧ) och de borttagna OpenType-funktionerna (Fraunces och Plex saknar tnum) står i typografi.md; paketen finns redan i biblioteket.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/kuraterade-ofl-typsnitt.md"
@@ -2102,7 +2102,7 @@
    "roll": "Ikoner som inline-SVG utan JavaScript.",
    "flagga": "Blockera Iconify-set med GPL- eller CC BY-licens.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "bibliotek (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "bibliotek",
    "placering_motivering": "Lucide används redan via lucide-static; astro-icon tas in först när ett kit väljer en andra familj, med en allowlist som blockerar GPL- och CC BY-set.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/lucide-och-astro-icon.md"
@@ -2118,7 +2118,7 @@
    "roll": "Publikt token-API med par som X och X-foreground, som varje kontrastpar testas mot.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "bibliotek (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "bibliotek",
    "placering_motivering": "Oförändrad placering: aliaslagret läggs i biblioteket när den första React-ön eller Tailwind-komponenten kommer in. Namnen och reglerna står nu fullständigt i yta/tokens.md (2026-10-16): --destructive med eget --destructive-foreground (vårt kontrasttest), --radius-sm/md/lg skrivna uttryckligen i @theme inline till kitets radier eftersom shadcn räknar multiplar och registrets äldre väg drar av px, chart-*/sidebar-* bara vid behov, och varningen att standardtemat underkänns på fyra kontrastpar. (andra varvet 2026-10-16, yta-1)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/shadcn-namnen-for-tokens.md"
@@ -2134,7 +2134,7 @@
    "roll": "Axlar och startvärden för 3–5 stilkit.",
    "flagga": "Ingen kod från Go får kopieras (GPL).",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: yta (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: yta",
    "placering_motivering": "Oförändrad placering, rättad motivering: först 2026-10-16 (andra varvet) står startvärdena i tokens.md, *Kitets axlar* – en tabell per personlighet (stram, minimal, standard, mjuk) med radier, skugga, skalförhållande och knapptext ur Flowbites fem teman, daisyUI och Go – och djupväxeln (daisyUI --depth) och fältstorleken som grundmått. Gos radhöjd 1,8–1,9 noteras som källkonflikt mot typografi.md. Färgerna i Go och daisyUI klarar inte AA rakt av. Go är GPL-2.0, så bara parametrar. (andra varvet 2026-10-16, yta-1)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/go-stilarna-flowbite-v4-och-daisyui.md"
@@ -2150,7 +2150,7 @@
    "roll": "Alternativa ikonfamiljer per kit och sociala logotyper.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N2 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N2",
    "placering_motivering": "Tas in när ett kit väljer en annan ikonfamilj än Lucide eller sidfoten behöver sociala logotyper; MIT och CC0, varumärkesägarnas regler gäller för logotyperna.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/tabler-phosphor-och-simple-icons.md"
@@ -2166,7 +2166,7 @@
    "roll": "Jämförelser, finjustering och språkstöd per typsnitt.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "verktyg: ta in (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "verktyg: ta in",
    "placering_motivering": "Hyperglot (0.8.1 eller senare, Apache-2.0, körs lokalt på TTF-filer) kontrollerar språkstödet när ett typsnitt tas in i ett kit; HCT-tonregeln står rättad i farg.md (Δ51 för 4,5:1 i värsta fall); Harmony (APCA-balanserad, steg 600 under 4,5:1) och tweakcn (PostHog-analys, konto, Pro-nivå) släpps.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/harmony-tweakcn-hyperglot-och-hct-regeln.md"
@@ -2182,7 +2182,7 @@
    "roll": "Övergångar mellan sidor utan JavaScript.",
    "flagga": "Firefox saknar stöd och visar vanlig navigering.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N2 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N2",
    "placering_motivering": "Kunskapen och villkoren står i rorelse/sidbyten-och-scroll.md. Provet på övningssajten fungerade i Chromium och stängdes av med reduce, men efter 70 ms syntes båda sidornas text samtidigt, vilket krockar med Johnnys princip om läsbar text. Guiden lägger sidövergångar på sajt 2 och frågan är öppen. Slås på i biblioteket först efter Johnnys dom på video. Firefox saknar stöd.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/css-view-transition.md"
@@ -2198,7 +2198,7 @@
    "roll": "Längd 100–500 ms, paus för rörelse som pågår längre än fem sekunder och reducerad rörelse.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "kontroll (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "kontroll",
    "placering_motivering": "Placeringen står; motiveringen kompletteras. Policyn står i guide/2-6-rorelse.md och i rorelse/reducerad.md, och grindarna C56 (WCAG 2.3.3 med C39) och C57 (WCAG 2.2.2) körs med kontrollskriptet från sajt 2. Andra varvet 2026-10-16 lade till WCAG 2.5.7 (AA, inget som bara går att dra) och rättade 2.3.1 till 'mer än tre gånger per sekund' efter Understanding 2.3.1. Delar av C58 kan bli låsta kontroller: transition: all och animerade layoutegenskaper har tre källor oberoende av Kowalski (web.dev, Basques och Andrew 2020; Motion; GSAP), och studs på en seriös sajt två (Motion, Kowalski). En ny kontroll C58b prövar att scroll-drivna regler finns kvar i den byggda CSS:en (MDN, animation). Förslag till Johnny. (andra varvet 2026-10-16, rorelse)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/rorelsepolicy-wcag-nng.md"
@@ -2214,7 +2214,7 @@
    "roll": "Bara som progressiv förbättring.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "bibliotek (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "bibliotek",
    "placering_motivering": "Placeringen står, men motiveringen ska rättas: reglerna i rorelse-mattlig.css körs inte i bygget. Lightning CSS 1.33 (Vites standard i Astro 7) slår ihop animation och animation-timeline: view() till förkortningen animation: … view(), som Chromium 156 avvisar (MDN, animation: 'the entire animation declaration is invalid and ignored'). Uppmätt 2026-10-16 på provsidan: animationName är none för sektionerna och sidhuvudet. Rättelsen är longhand-rader utan förkortning eller webbläsarmål i bygget, och en kontroll av den byggda CSS:en (rorelse/sidbyten-och-scroll.md, Den byggda CSS:en). Bara i måttlig och expressiv budget, inom @supports och no-preference. Blir Baseline när Firefox 159 släpps 2026-10-27 enligt MDN BCD. Skuggan i sidhuvudet bör animeras via opacitet i stället för box-shadow (R8). (andra varvet 2026-10-16, rorelse)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/css-scroll-drivna-animationer.md"
@@ -2230,7 +2230,7 @@
    "roll": "Easing-tokens och en färdig kontroll för reducerad rörelse.",
    "flagga": "Rensa bort de oändliga animationerna.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "bibliotek (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "bibliotek",
    "placering_motivering": "Värdena tas in i kitets tokens: kurvorna (--ease-quint-out är samma som Emils --ease-out) och fjäderkurvorna i linear() för måttlig budget, och mönstret för popover och ::backdrop i src/extra/transitions.css med kitets längd i stället för 1 s. Paketet installeras inte, eftersom --motionOK kräver PostCSS. De oändliga animationerna och blur-toningarna tas inte (WCAG 2.2.2 och 2.3.3). MIT.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/open-props.md"
@@ -2246,7 +2246,7 @@
    "roll": "Svensk språkgrind med LIX inbyggt.",
    "flagga": "Inga svenska regelpaket finns, så reglerna skrivs ur skrivreglerna. Testa å, ä, ö och förkortningar först.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "verktyg: ta in (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "verktyg: ta in",
    "placering_motivering": "Prövad 2026-10-16 med Vale 3.24.0: stilen Nortropic-sv med vokabulär fångade 24 av 26 kända fel med 0 falsklarm i en svensk korpus, mot 21 av 26 och 10 falsklarm med standardinställningen. Kräver custom: true för å, ä, ö, ett eget LIX-skript (Vales lix räknar i byte) och en View för src/innehall/*.ts. Körs lokalt som rapport; en regel stoppar först efter mätning (sprakgrind.md). Stilen blir bibliotek när den är mätt på en andra sajt. MIT, versionen låses.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/vale-med-stilen-nortropic-sv.md"
@@ -2262,7 +2262,7 @@
    "roll": "Stavningskontroll i bygget; distribueras inte till sajterna.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "verktyg: ta in (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "verktyg: ta in",
    "placering_motivering": "Ordlistan 2.42 ur LibreOffice fångade alla stavfel i korpusen, också i sammansättningar (kräver Vale 3.22 eller senare). 190 av 193 larm på övningssajten var namn och förkortningar, så en vokabulär per sajt byggd ur fakta.md och en ignorera-lista för förkortningar behövs. LGPL-3; används i bygget och sprids inte till sajterna, licenstexten ligger bredvid om filerna checkas in.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/hunspell-sv-se.md"
@@ -2278,7 +2278,7 @@
    "roll": "Mät träffar och falsklarm mot en svensk korpus innan en regel blir hård.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: innehall (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: innehall",
    "placering_motivering": "Metoden står i sprakgrind.md: en JSON-korpus med kända fel och rena meningar, träff när larmet överlappar felet, varje larm i en ren mening är falsklarm, och en regel skrivs bara för ett fel grinden missar. Två tillägg: en del av korpusen används inte när reglerna skrivs, och varje regel prövas mot en riktig sajt. Prövad på Vale samma dag. MIT; bara metoden tas, tjänsten skickar text till tredje part.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/llepafils-metoden.md"
@@ -2294,7 +2294,7 @@
    "roll": "Lokal transkribering av intervjun och undertexter; ljudet lämnar aldrig datorn.",
    "flagga": "47 procent lägre ordfelfrekvens än whisper-large-v3 på svenska.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "verktyg: ta in (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "verktyg: ta in",
    "placering_motivering": "Lokal svensk transkribering av intervjun (lager 1) och undertexter (lager 7); ljudet lämnar aldrig datorn. KB-Whisper large: WER 5,4 mot 7,8 för OpenAI large-v3 på FLEURS, i snitt cirka 47 procent lägre. whisper.cpp kör på M1 med Metal och skriver WebVTT med -ovtt; -l sv måste anges och --vad minskar text i tystnad. Installeras vid första inspelade intervjun. Apache-2.0 och MIT, inget konto.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/kb-whisper-och-whisper-cpp.md"
@@ -2310,7 +2310,7 @@
    "roll": "customer-research, NN/g:s fyra tondimensioner och brand-reviews format ”Vi är / Vi är inte”.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: innehall (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: innehall",
    "placering_motivering": "Mallen för sites/<namn>/rost.md står i delfilen rost.md: placering på NN/g:s fyra tondimensioner, 3–5 attribut med brand-reviews fyra fält (Vi är, Vi är inte, Låter så här, Låter inte så här), ordlista, citatbank med konfidens efter customer-research och budskap med belägg i fakta.md. NN/g:s test: vardaglig och måttligt entusiastisk ton fungerade bäst, och pålitlighet väger tyngre än vänlighet.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/rostprofilen.md"
@@ -2326,7 +2326,7 @@
    "roll": "AVIF och WebP, prioriterad hjältebild och smart beskärning vid bygget.",
    "flagga": "Välj imageService compile på Cloudflare-adaptern.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "bibliotek (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "bibliotek",
    "placering_motivering": "Redan i bruk i sajtskelettet (AVIF och WebP på övningssajten). Reglerna för format, priority och layout hör till lager 8; bildens innehåll och alt-text till skillen innehall (bilder.md). Rättelse till inventeringens flagga: en statisk sajt behöver ingen Cloudflare-adapter enligt Astros dokumentation, och adapterns compile-läge hade tysta fel under 2026. sharp tar bort all metadata i varianterna, också GPS; filer i public/ publiceras orörda.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/astro-picture-och-sharp.md"
@@ -2342,7 +2342,7 @@
    "roll": "Fotolista efter Googles kategorier, alt-text efter W3C:s beslutsträd och 1177:s regler.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: innehall (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: innehall",
    "placering_motivering": "Destillerad i bilder.md: W3C WAI:s beslutsträd (med grupper av bilder), 1177:s form (en mening, cirka 80 tecken, informationen och inte utseendet), DIGG (inget bild på, inga omdömen) och Googles råd om alt och filnamn. Fotolistan följer Googles fem kategorier med minst tre bilder var, med format, storlek mot G1 och HEIC till JPEG. Alt-texterna på övningssajten klarade beslutsträdet.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/fotoguide-och-alt-textskill.md"
@@ -2358,7 +2358,7 @@
    "roll": "Omkodning av kundens klipp, med undertexter.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "verktyg: ta in (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "verktyg: ta in",
    "placering_motivering": "Behövs först för att göra om ljudet till 16 kHz WAV åt KB-Whisper, sedan för kundens klipp: kort MP4 under 25 MiB, ljudlös loop, posterbild och undertexter som WebVTT i stället för inbränd text. Homebrews bygge är GPL-3.0+ (x264, x265); det körs lokalt och sprids aldrig, så sajterna påverkas inte (tolkning).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/ffmpeg.md"
@@ -2374,7 +2374,7 @@
    "roll": "Tydlighet före fyndighet, kundens egna ord, påståenden som kan styrkas och bytestestet.",
    "flagga": "SaaS-vinklad och engelsk; osourcad statistik stryks.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: innehall (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: innehall",
    "placering_motivering": "copywriting: styrkbara påståenden, specificitet, kundens ord, bytestestet och listan Never write these, i text.md, rost.md och ai-monster.md. brand-review: röstformatet med fyra fält i rost.md och de juridiska flaggorna (superlativ, jämförelser, reglerade branscher, omdömen) i text.md. SaaS-exempel och osourcad statistik (+81 % konvertering, källa bara författarens bok) är strukna. MIT och Apache-2.0; installeras inte.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/marketingskills-copywriting-och-brand-review.md"
@@ -2390,7 +2390,7 @@
    "roll": "Andra pass om korpusmätningen visar värde.",
    "flagga": "Den svenska regelbasen är tunn. Använd aldrig det publika API:t.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N2 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N2",
    "placering_motivering": "Den svenska regelbasen är tunn (32 XML- och 2 Java-regler), men den har särskrivningsregler, alltså det enda Vale missade i korpusen. Prövas som andra pass mot samma korpus när Vale-stilen är mätt på en andra sajt, och tas bara in om den fångar mer än den stör. Kräver Java och en lokal server. Det publika API:t används aldrig (villkoren förbjuder automatiska anrop, och texten lämnar huset). LGPL-2.1.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/languagetool-sjalvhostad.md"
@@ -2406,7 +2406,7 @@
    "roll": "Hook som lintar Claudes ändringar i samma tur.",
    "flagga": "MCP-delen kräver ett betalt Vale-konto.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N2 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N2",
    "placering_motivering": "Hooken lintar Claudes ändringar i samma tur men hoppar över .ts och .html, där våra texter ligger, och släpper bara igenom error-nivå, som stilen inte har än; vocab- och fix-skillen utgår från engelska Vale.Spelling. Förslag: en egen hook efter samma mönster när stilen är mätt. MCP-delen kräver ett betalt Vale CMS-konto och tas inte. MIT, 6 stjärnor och en bidragsgivare.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/vale-cli-agent-tools.md"
@@ -2422,7 +2422,7 @@
    "roll": "Bakgrundsborttagning lokalt.",
    "flagga": "Välj modellen uttryckligen: standardmodellen kräver kommersiellt avtal.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "verktyg: ta in (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "verktyg: ta in",
    "placering_motivering": "Prövad 2026-10-16 på kundens frilagda foto: birefnet-portrait med färgsanering (-dc) gav rena kanter mot både ljus och mörk bakgrund, där dagens vitt-till-genomskinligt-kopia har en vit kant mot mörkt. Lokalt på CPU, cirka 3–5 minuter per bild på M1 under minnestryck. Modellen väljs alltid uttryckligen: standardmodellen bria-rmbg är CC BY-NC 4.0, och birefnet-general, -lite och -massive är tränade på DIS5K med icke-kommersiella villkor, så bara birefnet-portrait används tills Johnny avgjort det. Koden MIT.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/rembg-med-birefnet.md"
@@ -2438,7 +2438,7 @@
    "roll": "Märkta illustrationer när biblioteket byggs, aldrig på kundens sajt.",
    "flagga": "Kräver betald nivå i EES, och AI-förordningens artikel 50 gäller.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N2 (eget tunt skript mot Gemini API; MCP-servern väntas in tills PR #36 är sammanslagen) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N2 (eget tunt skript mot Gemini API; MCP-servern väntas in tills PR #36 är sammanslagen)",
    "placering_motivering": "nanobanana v0.4.6 har gemini-3.1-flash-image-preview och gemini-3-pro-image-preview som standardmodeller (config/settings.py rad 150 och 167). Googles sida över utfasningar (2026-10-12) anger att båda stängdes 2026-06-25. PR #36, som byter till gemini-nano-banana-2.1, är öppen och märkt 'Do NOT merge yet'. Ett skript med google-genai och modell-id i konfigurationen är enklare. Det är inte prövat, eftersom det kräver en nyckel ⚠️. (andra varvet 2026-10-16, mcp)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/gemini-api-och-nanobanana-mcp-server.md"
@@ -2454,7 +2454,7 @@
    "roll": "Alternativ transkribering och videomallar som återanvänds.",
    "flagga": "Remotions licens ändras i version 5.0.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N4 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N4",
    "placering_motivering": "faster-whisper släpps: den saknar stöd för Apple Silicons grafikprocessor och behövs inte när whisper.cpp kör KB-Whisper med Metal. Remotion blir intressant först när en videomall ska återanvändas för många kunder (N4). Licensen är gratis för högst tre personer, men i 5.0 (PR #3750) räknas konsulter in och villkoren skärps, så den läses på nytt då. remotion-dev/skills saknar licens.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/faster-whisper-och-remotion.md"
@@ -2470,7 +2470,7 @@
    "roll": "Prestandagrind mot den byggda sajten: LCP högst 2,5 s, CLS högst 0,1 och TBT högst 200 ms.",
    "flagga": "Använder Lighthouse 12. Ladda aldrig upp till den publika lagringen.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "kontroll (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "kontroll",
    "placering_motivering": "Verktyget tas inte in: det beror fortfarande exakt på Lighthouse 12.6.1, har ingen commit sedan juni 2025 och ett obesvarat ärende om Lighthouse 13. Dess grindvärden blir kontroll 9b i kontrollskriptet, som redan kör Lighthouse 13.5.0 med median: LCP ≤ 2 500 ms, CLS ≤ 0,1, TBT ≤ 200 ms (web.dev), bf-cache och lcp-discovery-insight, plus skriptbytes per sida. Då uppstår ingen krock mellan en låst version och startsäkringen.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/lighthouse-ci.md"
@@ -2486,7 +2486,7 @@
    "roll": "Länkgrind: noll trasiga interna länkar.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "kontroll (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "kontroll",
    "placering_motivering": "Kontroll 11 (N2): lychee --offline --root-dir <abs dist> --include-fragments --index-files index.html mot dist/, 0 trasiga interna länkar och ankare ger stopp; externa länkar som rapport (11b). Version 0.24.2, Apache-2.0 eller MIT, binär via Homebrew som startsäkringen håller aktuell. Saknas binären blir utfallet fel. Revisionen gjorde samma prov i Playwright: inga trasiga länkar.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/lychee.md"
@@ -2502,7 +2502,7 @@
    "roll": "Säkerhetshuvuden utan unsafe-inline, och frame-ancestors som HTTP-huvud.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "bibliotek (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "bibliotek",
    "placering_motivering": "Finns redan i mallen och på övningssajten: hash-CSP i meta utan unsafe-inline, frame-ancestors och övriga huvuden i public/_headers, prövat av kontroll 10c. Revisionen: den sammanslagna policyn ger 0 HIGH med csp-evaluators regler. Astro hashar själv öarnas körtid och client:*-direktiv, men inte style-attribut; React style={{}} och Motions startvärden blockeras därför (förslag till Johnny). Regeltexten står i kvalitet/sakerhet.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/astro-security-csp-och-cloudflare-headers.md"
@@ -2518,7 +2518,7 @@
    "roll": "Betyg minst A mot produktion.",
    "flagga": "Skicka aldrig Access-hemligheter med --headers.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "kontroll (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "kontroll",
    "placering_motivering": "Kontroll mot produktionsdomänen efter publicering (N2): betyg minst A (90) stoppar överlämningen, under 100 ger anmärkning. Kräver publik adress och Node 24, så den körs inte på övningssajterna. Aldrig Access-hemligheter med --headers. Poängtabellen (meta-CSP räknas, frame-ancestors bara från huvudet, COOP/COEP/CORP +10) står i kvalitet/sakerhet.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/mdn-http-observatory.md"
@@ -2534,7 +2534,7 @@
    "roll": "Noll fel med WCAG 2.2-reglerna påslagna, i Chromium och WebKit, plus jämförelse av skärmbilder.",
    "flagga": "Automatiken hittar bara en del av felen, så WCAG-EM görs vid lansering och årligen.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "kontroll (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "kontroll",
    "placering_motivering": "Kontrollerna 8c (WebKit), 8d (meny öppen, samtyckesruta, formulärfel), 8e (incomplete och best-practice som läsning) och 8f (Escape och fokus tillbaka) i kvalitet/kontroller.md; WCAG 2.2-taggarna finns redan i kontroll 8. Revisionen: 0 fel i båda motorerna, men en incomplete som skriptet inte läser (K2). Skärmbildsjämförelse hör till N2/N3 enligt guiden. WCAG-EM vid lansering eftersom automatiken bara hittar en del.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/axe-och-playwright-skarpt.md"
@@ -2550,7 +2550,7 @@
    "roll": "Manuell kontroll av strukturerad data vid lansering.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "kontroll (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "kontroll",
    "placering_motivering": "Manuellt stickprov vid lansering och när schemat ändras (N2), med Schema Markup Validator bredvid; inget API, och kodläget fungerar för opublicerade sidor. LocalBusiness ger inget eget rich result, så det automatiska innehållet prövas i stället av JSON-LD-kontrollen 12 (vokabulären, Googles krav, NAP mot fakta.md och synlig text). URL-inspektionen kräver Search Console-inloggning hos kunden eller Johnny.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/rich-results-test.md"
@@ -2566,7 +2566,7 @@
    "roll": "En andra tillgänglighetsmotor i fyra veckor; behålls om den hittar fel som axe missar.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N2 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N2",
    "placering_motivering": "Prövning som andra motor i fyra veckor, i en separat körning och inte bland stoppkontrollerna; behålls bara om den hittar fel som axe missar. Villkor: IBM_TELEMETRY_DISABLED=true (telemetri är på som standard), npm install --ignore-scripts, ruleArchive låst till ett datum (motorn hämtas annars från internet vid varje körning och körs med eval), policies WCAG_2_2, failLevels violation, bypassCSP.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/ibm-equal-access.md"
@@ -2582,7 +2582,7 @@
    "roll": "Hela förhandsvisningen, CSP-lint och kontroll av JSON-LD.",
    "flagga": "Validatorn har 17 stjärnor, så versionen låses.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "kontroll (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "kontroll",
    "placering_motivering": "Delat beslut: csp-evaluator blir kontroll 10d (biblioteket 1.1.8 som beroende i skript/, 0 HIGH och 0 SYNTAX på meta och huvud tillsammans). Unlighthouse väntar till N3 som månatlig förvaltningsrapport mot kundens domän (lokala adresser körs annars utan strypning). structured-data-validator släpps: den har inga Google-regler för LocalBusiness, Service eller PostalAddress, och vår egen JSON-LD-kontroll 12 täcker behovet.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/unlighthouse-csp-evaluator-structured-data-validator.md"
@@ -2598,7 +2598,7 @@
    "roll": "Rapportformat för granskning, och INP i Playwright-resorna.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "kontroll (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "kontroll",
    "placering_motivering": "web-vitals-mätningen blir kontroll 9e utan bibliotek: PerformanceObserver för event och layout-shift i Playwright-resorna (meny, frågor, karta, samtycke, varje React-ö), där inmatningsfördröjning plus bearbetning läses och en tom sida kalibrerar bruset; behövs nu när öar hydreras. WCAG-EM 2.0 och Report Tool 4.1.0 väntar till N3: vid lansering och årligen, underlag till tillgänglighetsredogörelsen.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/wcag-em-report-tool-och-web-vitals.md"
@@ -2614,7 +2614,7 @@
    "roll": "Prioritetsordning och lokala SEO-kontroller.",
    "flagga": "Teckengränser bara som varningar; Google anger ingen längdgräns för titlar.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: kvalitet (aven: 3, 7, 9) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: kvalitet (aven: 3, 7, 9)",
    "placering_motivering": "Placeringen stämmer: kärnan står i kvalitet/seo-teknik.md (ordningen, Googles regler, rendering, sitemapens allvar, checklistan för nya sidor, drift mellan byggen, lokal felsökningsordning). Fältet aven bör bli \"3, 7, 9\": söksträngens huvudsida hör till struktur, Who/How/Why och YMYL till innehåll, sidor på plats 8–20 och katalogstädningen till drift och Kundens lyft. Versionerna är oförändrade 2026-10-16 (365b412, v2.4.2). aggregateRating tas inte in (krockar med beslutet 2026-10-15). Installeras inte: claude-seo registrerar en hook som kör Python efter varje redigering. (andra varvet 2026-10-16, kvalitet)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/marketingskills-seo-audit-och-claude-seo.md"
@@ -2630,7 +2630,7 @@
    "roll": "Hela Cloudflares API för agenter; ersätter de föråldrade domänservrarna.",
    "flagga": "En läs-token för rapport och övervakning, och en smal token för DNS och deploy.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "MCP: kräver konto (kundens Cloudflare-konto och en kontoägd läs-token per kund: Account Analytics Read, Workers Scripts Read, Workers Tail Read, Account Settings Read, zonens Analytics Read och DNS Read) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "MCP: kräver konto (kundens Cloudflare-konto och en kontoägd läs-token per kund: Account Analytics Read, Workers Scripts Read, Workers Tail Read, Account Settings Read, zonens Analytics Read och DNS Read)",
    "placering_motivering": "Officiell och aktiv (Apache-2.0, 962 ★, senaste commit 2026-10-13). Servern har inget eget läsläge, så det är token som begränsar. Därför gäller token före OAuth för agenter, och agenten får aldrig publicerings- eller DNS-token. IP-filtrerade tokens stöds inte. Kända fel: DNS Read via OAuth (ärende 202) och tidsgräns i execute (290). Används när någon undersöker; schemalagda kontroller är skript (guide 2-9). Behörighetstabellen står i drift/publicering.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/cloudflare-mcp.md"
@@ -2646,7 +2646,7 @@
    "roll": "En gemensam uppdateringspolicy för alla kundrepon.",
    "flagga": "Den hostade appen påverkas troligen inte av AGPL.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: drift (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: drift",
    "placering_motivering": "Policyn är destillerad i drift/andringar.md. config:best-practices väntar bara tre dagar för npm, så presetet sätter minimumReleaseAge till 7 days. internalChecksFilter är strict, och min-release-age=7 står i .npmrc (npm 11.10 eller senare ⚠️). Säkerhetsuppdateringar går förbi karenstiden. Ingen automatisk sammanslagning tills bilaga E 2.8 är avgjord. Mend-appen installeras av Johnny och presetet läggs i mallar/sajt vid första kundrepot [N3]. AGPL gäller koden; den hostade appen påverkas troligen inte ⚠️.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/renovate-med-sju-dagars-karenstid.md"
@@ -2662,7 +2662,7 @@
    "roll": "Kundens mejl blir ärende, PR och förhandsvisning bakom Access, och Johnny godkänner.",
    "flagga": "Botar måste stå i allowed_bots, och standardtoken triggar inte CI.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N4 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N4",
    "placering_motivering": "Det automatiska intaget är N4 i guide 2-9. Säkerhetskraven ur docs/security.md står redan i drift/andringar.md:\n- botar i allowed_bots med namn, aldrig '*'\n- inte allowed_non_write_users\n- ärendetexten är otrustad\n- aktionen kan inte godkänna eller slå ihop en PR\n- händelser från GITHUB_TOKEN startar inga flöden, så CI kräver en GitHub App-token.\nRepot har 477 öppna ärenden, mest SDK-krascher. Email Routing tar troligen över domänens MX ⚠️, så intaget behöver en egen adress.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/claude-code-action-och-email-routing.md"
@@ -2678,7 +2678,7 @@
    "roll": "Scheman stoppar ogiltigt innehåll, och återställning går till någon av de 100 senaste versionerna.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: drift (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: drift",
    "placering_motivering": "Rollback, D1 Time Travel och gränserna för återställning står i drift/aterstallning.md. Innehållsgrinden står i drift/andringar.md: ett faktum, en post, med Zod-schema och avvikande öppettider. Revisionen visar varför den behövs: övningssajten har öppettiderna för hand på 19 rader (H1). Förslag: content.config.ts och posten för mottagningar in i biblioteket. Pröva först att ett schemabrott verkligen stoppar bygget, eftersom dokumentationen inte säger det uttryckligen.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/astro-content-collections-och-wrangler-rollback.md"
@@ -2694,7 +2694,7 @@
    "roll": "Besöksstatistik utan kakor som bas i månadsrapporten.",
    "flagga": "Kan ändå kräva samtycke enligt PTS och EDPB, så det bedöms per kund. Inte juridisk rådgivning.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "släpp (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "släpp",
    "placering_motivering": "Ersatt av Zone Analytics på Cloudflare Pro, som läser serverloggarna utan skript (BESLUT.md 2026-10-16). Beaconen är JavaScript och får enligt guide 2-8 [N3] bara köras bakom samtycke (EDPB 2/2023, PTS), och för kunder med samtycke finns GA4 som tillval. Omprövas om EU:s undantag för egen publikmätning antas (rådets text 2026-10-02).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/cloudflare-web-analytics.md"
@@ -2710,7 +2710,7 @@
    "roll": "Ändringstyper, tjänstenivåer och en rapport den 4:e varje månad med kontakter från Google-profilen som huvudmått.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: drift (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: drift",
    "placering_motivering": "Detta är skillen drift (i bilaga B kallad forvaltning). Innehållet:\n- ITIL-typerna och standardkatalogen hänvisas till guide 2-9\n- SRE-signaler, larm, felbudget och skuldfri efterhandsgranskning i overvakning.md\n- DORA:s fem mått med dora.dev:s definitioner i rapport.md\n- ögonblicksbildens fält och kontrollen före utskick i rapport.md.\nHuvudmåttet är fortfarande öppet (bilaga E). ITIL och pm3 är lästa via sekundärkällor ⚠️.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/forvaltningsskill-och-manadsrapport.md"
@@ -2726,7 +2726,7 @@
    "roll": "Search Console för många sajter i en vy.",
    "flagga": "Prova en månad mot mcp-gsc och behåll en av dem.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "MCP: kräver konto (Google: OAuth-klient i ett Google Cloud-projekt och Nortropics konto som användare på varje kunds Search Console-egendom) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "MCP: kräver konto (Google: OAuth-klient i ett Google Cloud-projekt och Nortropics konto som användare på varje kunds Search Console-egendom)",
    "placering_motivering": "Ger en portföljvy över många egendomar (gsc_portfolio_summary). Men standardsamtycket begär skrivscopen webmasters och indexing, och verktygen för sitemap och indexering är på utan spärr. Bara webmasters.readonly får ges, i linje med läsrätten i guide 2-9. Projektet har tre bidragsgivare och 548 ★. Ärende 12 visar att ordräkningen bara klarar ASCII, vilket kan påverka svenska ⚠️. Prövas en månad mot mcp-gsc när första kunden har Search Console [N3]. mcp-gsc:s README kräver Full access för tjänstekontot.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/avansaber-seo-monster.md"
@@ -2742,7 +2742,7 @@
    "roll": "Övervakning på Workers plus en extern vakt som också bevakar när domänen går ut.",
    "flagga": "UptimeFlare sköts av en person, och en sårbarhet rättades i mars 2026.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N3 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N3",
    "placering_motivering": "UptimeFlare släpps som vakt. Den körs i Cloudflare Workers och slås därför ut av samma avbrott som sajterna, vilket bryter guide 2-9 (vakt hos annan leverantör). Den saknar också certifikatkontroll, sköts av en person och hade CVE-2026-29779, rättat 2026-03-04. Uptime Kuma (MIT, version 2.5.6) prövas vid N3 bara om byrån ändå har en server. Dess monitor för domänutgång kräver RDAP, och stödet för .se är inte prövat ⚠️. Domänens utgångsdatum står annars i förvaltningsplanens kalender (drift/overvakning.md).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/uptimeflare-och-uptime-kuma.md"
@@ -2758,7 +2758,7 @@
    "roll": "Dagligt test av formuläret hela vägen till inkorgen.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N3 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N3",
    "placering_motivering": "Förstahandsval som extern vakt och dagligt formulärtest när första kundsajten publiceras. Gratisnivån ger 10 monitorer var 2:a minut, 1 000 webbläsarkörningar och 10 000 API-körningar per månad med hårt tak. Den gör ett nytt försök innan den larmar. Kräver konto (Johnnys klick). Var datan lagras och om det finns biträdesavtal är inte kontrollerat ⚠️. CLI:t är Apache-2.0 och kontrollerna är vanliga Playwright-filer, så kontrollskriptets prov kan återanvändas.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/checkly-hobby.md"
@@ -2774,7 +2774,7 @@
    "roll": "Om Cloudflare Web Analytics inte räcker.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "släpp (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "släpp",
    "placering_motivering": "Statistiken kommer ur Cloudflare Pro (BESLUT.md 2026-10-16). Båda mäter med JavaScript, och enligt vår läsning (guide 2-8 [N3], EDPB 2/2023 punkt 33, PTS) kräver det samtycke trots att inga cookies sätts. Med samtycke finns redan GA4 som tillval. Plausible marknadsför 'no consent banners required', men det är leverantörens egen bedömning. Omprövas om en kund behöver händelser som tel-klick eller om EU:s undantag för egen publikmätning antas.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/plausible-eller-umami.md"
@@ -2790,7 +2790,7 @@
    "roll": "SMS-intag, mejl med bilagor, självservice för kunder, temaversioner och DNS som kod.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N4 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N4",
    "placering_motivering": "Delarna och vad de kräver:\n- 46elks och Resend Receiving hör till det automatiska intaget, som är N4. 46elks försöker igen i minst 6 timmar, så mottagaren måste ta bort dubbletter på id. Ingen webhook-signatur är beskriven ⚠️.\n- Pages CMS är självservice. Medarbetare bjuds in utan GitHub-konto, men den hostade appen har skrivrätt i repot.\n- Changesets behövs när biblioteket blir ett delat paket.\n- DNSControl kan komma tidigare (N3) om zonerna blir många. Tills dess räcker en zonexport före varje DNS-ändring (drift/aterstallning.md).\nAllt står i drift/andringar.md och verktyg.md.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/46elks-resend-receiving-pages-cms-changesets-och-dnscontrol.md"
@@ -2806,7 +2806,7 @@
    "roll": "Principer för ändringsagenten: följ sajtens designspråk, hitta inte på fakta, känsliga ändringar väntar på godkännande och allt går att ångra.",
    "flagga": "Frappe-stacken passar inte, så bara principerna tas.",
    "din_lank": true,
-   "beslut": "ej fattat",
+   "beslut": "skill: drift (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: drift",
    "placering_motivering": "Bara principerna tas in, i sju punkter i drift/andringar.md, *Ändringsagentens principer*. Källan är README:ns AI Site Builder och skills/frappe-builder/SKILL.md (MIT, lästa 2026-10-16):\n- läs det som finns först\n- återanvänd sektioner och tokens\n- placera nytt i strukturen\n- inga påhittade fakta\n- känsliga ändringar väntar\n- allt går att ångra\n- säg vad som är live och vad som är utkast\n- rapportera fel du inte orsakat.\nFrappe-stacken (Python, Vue, frappectl) passar inte.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/frappe-builder.md"
@@ -2822,7 +2822,7 @@
    "roll": "Loopens kärna: kontroller som körs, eskalering efter ett antal varv och granskning i ren kontext.",
    "flagga": "Hook-skriptet räknar varven själv.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: larande (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: larande",
    "placering_motivering": "Loopen är destillerad i larande/loopen.md: /goal med utskrivet belägg och turtak (utvärderaren läser bara transkriptet), Stop-hooken med stop_hook_active och egen varvräkning eftersom Claude Code släpper efter åtta blockeringar, och prompt- och agenthookar. Granskar-subagenten och dess isolering står i granskare/SKILL.md, med fyndet att vanliga delagenter laddar CLAUDE.md och att omitClaudeMd behövs. Hooks byggs först i N2 (guide/3-1).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/goal-stop-hook-och-granskar-subagent.md"
@@ -2838,7 +2838,7 @@
    "roll": "Funktionslista där bara passes-flaggan får ändras, progressfil och en commit per lyckat varv.",
    "flagga": "Installera inte quickstarten; den är märkt för internt bruk.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: larande (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: larande",
    "placering_motivering": "Funktionslistan där bara passes ändras, progressfilen, en funktion i taget prövad som besökare och en commit per lyckat varv står i larande/loopen.md med källa (Anthropic 2025-11-26) och motsvarar guide 3-1 (progress.md N1, checkpoints.json N2). Quickstarten installeras inte; dess README anger 'Internal Anthropic use'.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/langkorningsmonstret.md"
@@ -2854,7 +2854,7 @@
    "roll": "En domare per kriterium, parvisa jämförelser med bytt ordning, kalibrerad på 30–40 av Johnnys egna domar.",
    "flagga": "LLM-domare ligger nära slumpen när skillnaderna är subtila.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: larande (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: larande",
    "placering_motivering": "Metoden är destillerad i larande/matning.md: binära domar med kritik som facit, 10–20 % som exempel, fryst prompt, TPR och TNR var för sig, säkra mot osäkra domar, 'Unknown'-utväg, parvisa jämförelser i båda ordningarna, en domare per kriterium när granskaren delas, omkalibrering, och smitta när ett exempel mäts på sig själv. Den första mätningen och provet 2026-10-16 är underlaget.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/den-kalibrerade-bedomaren.md"
@@ -2870,7 +2870,7 @@
    "roll": "Varje ändring av en skill mäts mot en baslinje utan skillen.",
    "flagga": "Kör /skill-doctor innan nya skills läggs till.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: larande (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: larande",
    "placering_motivering": "Metoden tas in nu i larande/skills.md och matning.md: med och utan skill i samma omgång, granskning av utdata, analytikerpass mot kontroller som alltid går igenom, och beskrivningsprovet med 20 frågor, 8–10 åt vardera hållet, 60/40 och tre körningar (bekräftar siffrorna bakom ⚠️ i guide 3-4). Verktyget prövas först efter Johnnys ja: triggningsprovet ger 0 % träff när skillen redan är installerad (anthropics/skills #1419), baslinjen kan själv anropa den installerade skillen, och jämföraren kör bara en ordning medan vår regel kräver båda.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/skill-creator.md"
@@ -2886,7 +2886,7 @@
    "roll": "Optimering mot ett entydigt mått med fast budget: behåll eller kasta.",
    "flagga": "Bara där måttet är entydigt, som prestanda och axe-fel.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: larande (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: larande",
    "placering_motivering": "Mönstret – fast budget, ett mått som inte får röras, behåll eller ångra med git, logg över varje försök och 'simpler is better' – står i larande/loopen.md och SKILL.md (princip 8), bara för entydiga mått som Lighthouse och axe (guide/README princip 7, 3-2 Behåll eller ångra). 'NEVER STOP' tas inte in: varje loop har ett tak. Inget att installera.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/karpathy-autoresearch.md"
@@ -2902,7 +2902,7 @@
    "roll": "Regressionssvit när fallen har stabiliserats.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N4 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N4",
    "placering_motivering": "Regressionssvit med tre körningar per fall och Δ mot utan-arm när fallen stabiliserats; guide 3-2 har det på N4. Verktyget kräver ett plugin med plugin.json – skills i .claude/skills kan inte utvärderas som de är – och mäter skillen utan CLAUDE.md och utan våra andra skills. Öppna fel i sandlådan (#96121, #97171, #99269), och rapporten publiceras på claude.ai om inte --no-publish anges. Metoden står i larande/skills.md, Senare: regressionssvit.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/claude-plugin-eval.md"
@@ -2918,7 +2918,7 @@
    "roll": "Bara för uppgifter med ja eller nej som svar, alltid med ett tak för antal varv.",
    "flagga": "Avråder själv från designbeslut.",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: larande (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: larande",
    "placering_motivering": "Lärdomarna – alltid --max-iterations, löftet är en exakt strängjämförelse, och README:n avråder själv från designbeslut – står i larande/loopen.md. Pluginet installeras inte: /goal och en egen Stop-hook täcker samma behov, och README:ns resultatpåståenden är obelagda.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/ralph-loop.md"
@@ -2934,7 +2934,7 @@
    "roll": "Upprepade rättelser blir regler, och lärdomar blir en kort CLAUDE.md.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: larande (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: larande",
    "placering_motivering": "Mönstret tas in i larande/genomgang.md: förslag till CLAUDE.md eller en skill som diff med ett Varför, och inget utan Johnnys ja (/revise-claude-md). Pluginen installeras inte, inte heller i N2: hookifys regler gäller direkt, släpper igenom vid fel och ligger i gitignorerade filer som agenten själv kan stänga av, vilket bryter mot låsningen i guide 3-1; claude-md-improver ignorerar CLAUDE_CONFIG_DIR (#512). guide 3-4 (N2) säger redan att sådana verktyg bara får föreslå.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/hookify-och-claude-md-management.md"
@@ -2950,7 +2950,7 @@
    "roll": "writing-skills och verification-before-completion, en i taget.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: larande (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: larande",
    "placering_motivering": "writing-skills (röd först: se agenten göra fel utan skillen; beskrivningen sammanfattar inte arbetsgången) och verification-before-completion (belägg före påstående; regressionsprov som måste fallera när rättelsen tas bort) är destillerade i larande/SKILL.md, principerna 3–4, och skills.md. Pluginet installeras inte: superpowers hook styr arbetssättet och krockade på Macen (LAGE.md).",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/obra-superpowers-selektivt.md"
@@ -2966,7 +2966,7 @@
    "roll": "Bevislogg med verklig output och ett startfrö för bedömarens kriterier.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "Showboat: skill: larande; design-critique: skill: granskare (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "Showboat: skill: larande; design-critique: skill: granskare",
    "placering_motivering": "design-critique kördes mot övningssajten och hittade flest konsekvensfynd av alla metoder. Den ger källa till PU2 (läsordningen), PF8 (klart-villkoret) och Behåll i granskarens rapport. Kriterieramen tas inte in; domen bor i den låsta checklistan. Showboat stannar i larande som mönster för belägg. (andra varvet 2026-10-16, flodet)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/showboat-och-design-critique.md"
@@ -2982,7 +2982,7 @@
    "roll": "Hantverksregler i siffror och utvärdering med mänskliga betyg.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: larande (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: larande",
    "placering_motivering": "screenshot-to-codes eval-upplägg (fast uppsättning fall, flera körningar per kombination, mänskligt betyg) stöder provsajten ('Benchy') och provet med och utan i larande/skills.md – hos oss blint och som godkänd eller underkänd i stället för 1–4. bolt.diys siffror blir ingen regel (de krockar med stilkitens tokens), och simple-sal.ts används inte ens av Bolt. Läses, installeras inte.",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/bolt-diy-och-screenshot-to-code.md"
@@ -2998,7 +2998,7 @@
    "roll": "DESIGN.md som kontrakt per stilkit, och critique-mallen som underlag till bedömaren.",
    "flagga": "Avstå som plattform: stort, nytt och med telemetri som alltid är på.",
    "din_lank": true,
-   "beslut": "ej fattat",
+   "beslut": "skill: granskare; larande (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: granskare; larande",
    "placering_motivering": "critique kördes mot övningssajten (medel 6,8). Keep-listan blev Behåll i granskarens rapport, Visual hierarchy en källa till PU2, och Don't grade-inflate en varningssignal i larande/matning.md. Poängskalan tas inte in. (andra varvet 2026-10-16, flodet)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/nexu-io-open-design.md"
@@ -3014,7 +3014,7 @@
    "roll": "Plattformsägarens egna riktlinjer, lästa som JSON 2026-10-16 (54 sidor).",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: yta, skelett, rorelse, innehall, kvalitet (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: yta, skelett, rorelse, innehall, kvalitet",
    "placering_motivering": "Plattformsägarens egna riktlinjer, lästa som JSON 2026-10-16 (54 sidor). Destillerad i delfilen apple-hig.md i fem lagerskills: ytan (pt = CSS-px, kontrasttabellens fälla, accent, typografi, material, ikoner, bilder, licenser för SF Pro, SF Symbols och Apples märken), skelettet (säkra ytor på alla sidor, 44 px och avstånd, knappar, modala vyer, start utan rörelse, webbappen på hemskärmen i iOS 26), rörelsen (rörelse aldrig ensam, samma väg in och ut, inget rör sig vid laddning), innehållet (välj i stället för klicka, vi i fel, inkluderande text och bilder) och kvaliteten (iPhonens inställningar mot webben, prov i 200 % och 188 px, det som kräver riktig iPhone). Installeras inte; läses om när sidornas ändringsloggar får nya datum. Rapport: andra-varvet/apple-hig-jamforelse.md. (andra varvet 2026-10-16, apple-hig)",
    "kallkort": ""
@@ -3030,7 +3030,7 @@
    "roll": "Den mest använda checklistan för hemsidor, fritt läsbar.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: granskare (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: granskare",
    "placering_motivering": "Typ Metod, lager 4, även 3 och 7. Den mest använda checklistan för hemsidor, fritt läsbar. Ett urval på cirka 25 riktlinjer gäller en lokal tjänstesajt (blickprovet 2026-10-16, byggguider-jamforelse.md). Destilleras som en kort lista i granskarens underlag: skillnaden mot konkurrenterna i första skärmen, ingen animerad rubrik, uttalad länk till startsidan, länkar som börjar med det bärande ordet, besökta länkar. Sök, nyheter och annonser lämnas. Källor: https://www.nngroup.com/articles/homepage-design-principles/ och https://www.nngroup.com/articles/113-design-guidelines-homepage-usability/. (andra varvet 2026-10-16, byggguider)",
    "kallkort": ""
@@ -3046,7 +3046,7 @@
    "roll": "CC BY-SA 4.0, version 5 för 2025–2030.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "kontroll (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "kontroll",
    "placering_motivering": "Typ Standard, lager 8, även 7 och 9. CC BY-SA 4.0, version 5 för 2025–2030. Används som korsregister: bilaga C:s kontroller mappas mot regelnumren för att hitta blinda fläckar, till exempel utskrift (195, 196), besökta länkar (141), externa länkar (142) och publiceringsdatum (6, 231). Licensen kräver att bearbetad text delas lika, så repot hänvisar till regelnummer och skriver egna regler i stället för att kopiera texten. Regel 210 (X-XSS-Protection) följs inte, eftersom MDN avråder från huvudet. Källa: https://checklists.opquast.com/en/digital-quality/. (andra varvet 2026-10-16, byggguider)",
    "kallkort": ""
@@ -3062,7 +3062,7 @@
    "roll": "Dagens 65 riktlinjer gäller bara tillgänglighet och följer WCAG och EN 301 549; de används redan för alt-text (innehall/kallor.md).",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: kvalitet (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: kvalitet",
    "placering_motivering": "Typ Standard, lager 8, även 7. Dagens 65 riktlinjer gäller bara tillgänglighet och följer WCAG och EN 301 549; de används redan för alt-text (innehall/kallor.md). Den arkiverade listan från 2022 är den enda svenska myndighetskällan om kontakt (R4), avsändare (R22), datum (R23), adresser (R100), utskrift (R96) och telefonlänkar (R90). Den arkiverade listan är inte längre DIGG:s gällande råd ⚠️, så den används som underlag, inte som norm. Källor: https://www.digg.se/webbriktlinjer/alla-webbriktlinjer och https://web.archive.org/web/20221112081030/https://webbriktlinjer.se/riktlinjer/. (andra varvet 2026-10-16, byggguider)",
    "kallkort": ""
@@ -3078,7 +3078,7 @@
    "roll": "MIT, 386 regler med prioritet, senaste commit 2026-10-06.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: kvalitet (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: kvalitet",
    "placering_motivering": "Typ Material, lager 8. MIT, 386 regler med prioritet, senaste commit 2026-10-06. Korskontroll för kvalitet/kontroller.md: manifest, utskrift, sidvikt, formulärens inklistring. Regeln om FAQPage är föråldrad (Google slutade visa FAQ-resultat 7 maj 2026) och följs inte. Källa: https://github.com/thedaviddias/Front-End-Checklist. (andra varvet 2026-10-16, byggguider)",
    "kallkort": ""
@@ -3094,7 +3094,7 @@
    "roll": "Apache-2.0, 68 punkter på WCAG A/AA, datafilen uppdaterad 2026-02-13.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: kvalitet (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: kvalitet",
    "placering_motivering": "Typ Material, lager 8. Apache-2.0, 68 punkter på WCAG A/AA, datafilen uppdaterad 2026-02-13. Kort lista för den manuella tillgänglighetskontrollen vid lansering (kvalitet/tillganglighet.md). Den säger 'ideally avoid' nya flikar, vilket nyanserar Johnnys beslut om kontroll 2b. Källa: https://www.a11yproject.com/checklist/. (andra varvet 2026-10-16, byggguider)",
    "kallkort": ""
@@ -3110,7 +3110,7 @@
    "roll": "Gratis kurs i 17 kapitel om layout, typografi, responsiva bilder, ikoner, teman och mönster.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: skelett (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: skelett",
    "placering_motivering": "Typ Material, lager 4, även 5. Gratis kurs i 17 kapitel om layout, typografi, responsiva bilder, ikoner, teman och mönster. Den andra oberoende källan, efter NN/g, till att navigeringen inte bör döljas när den har få val ('As a last resort'). Källa: https://web.dev/learn/design/. (andra varvet 2026-10-16, byggguider)",
    "kallkort": ""
@@ -3126,7 +3126,7 @@
    "roll": "Uppdaterad 2026-10-05.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: innehall (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: innehall",
    "placering_motivering": "Typ Standard (leverantörens dokumentation), lager 7, även 3. Uppdaterad 2026-10-05. Ämnen om hälsa (YMYL) väger tyngre i E-E-A-T, och 'trust is most important'. Underlag för vem som står bakom texterna på vårdsajter och för att datum inte får ändras för att se färska ut. Källa: https://developers.google.com/search/docs/fundamentals/creating-helpful-content. (andra varvet 2026-10-16, byggguider)",
    "kallkort": ""
@@ -3142,7 +3142,7 @@
    "roll": "Citeras redan i guide/2-3-struktur.md för kontaktuppgifter, men saknar post.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: innehall (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: innehall",
    "placering_motivering": "Typ Metod, lager 7, även 3. Citeras redan i guide/2-3-struktur.md för kontaktuppgifter, men saknar post. Tio riktlinjer från 2002; nummer 8 ('Update your site's content often (at least show it's been reviewed recently)') saknar regel hos oss. Källa: https://credibility.stanford.edu/guidelines/. (andra varvet 2026-10-16, byggguider)",
    "kallkort": ""
@@ -3158,7 +3158,7 @@
    "roll": "Ingen öppen licens angiven ⚠️ och ingen utgåva efter 2021.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N2 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N2",
    "placering_motivering": "Typ Material, lager 8. Ingen öppen licens angiven ⚠️ och ingen utgåva efter 2021. Ger en budget för kritiska resurser (170 kB gzippat) som underlag när Johnny beslutar om JavaScript-budgeten (luckfilen 8.3). Läses när beslutet tas, eftersom siffrorna är från 2021. Källa: https://www.smashingmagazine.com/2021/01/front-end-performance-2021-free-pdf-checklist/. (andra varvet 2026-10-16, byggguider)",
    "kallkort": ""
@@ -3174,7 +3174,7 @@
    "roll": "Typ Standard (W3C Group Note Draft 2026-09-24, inte en rekommendation), lager 8, även 9.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N3 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N3",
    "placering_motivering": "Typ Standard (W3C Group Note Draft 2026-09-24, inte en rekommendation), lager 8, även 9. Ingenting i guiden gäller hållbarhet i dag. Våra sajter är redan lätta (12–79 kB per sida i blickprovet), och WSG 2.6 avråder från manipulativa grepp. Läses när en kund frågar om klimatpåverkan eller när förvaltningsrapporten ska visa den. Källa: https://www.w3.org/TR/web-sustainability-guidelines/. (andra varvet 2026-10-16, byggguider)",
    "kallkort": ""
@@ -3190,7 +3190,7 @@
    "roll": "99 punkter, fritt läsbar utan inloggning, inget datum.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: drift (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: drift",
    "placering_motivering": "Typ Material, lager 9, även 8. 99 punkter, fritt läsbar utan inloggning, inget datum. Korskontroll för drift/publicering.md före den första publiceringen (bland annat föredragen domän, favicon, delningsbild, vem som får publicera). Webflows tillgänglighetschecklista bygger på WCAG 2.1 och används inte som norm. Källa: https://university.webflow.com/resources/pre-launch-checklist. (andra varvet 2026-10-16, byggguider)",
    "kallkort": ""
@@ -3206,7 +3206,7 @@
    "roll": "Metod, inte verktyg: Wharton, Rieman, Lewis och Polson 1994 (i Nielsen och Mack, Usability Inspection Methods) och Spencer 2000 (CHI).",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: granskare (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: granskare",
    "placering_motivering": "Metod, inte verktyg: Wharton, Rieman, Lewis och Polson 1994 (i Nielsen och Mack, Usability Inspection Methods) och Spencer 2000 (CHI). Fyra frågor per steg i den primära handlingen och varje toppuppgift. Är nu PU1 i granskare/premium.md. Webb-pro använde den i kritik/GRANSKARE.md. (andra varvet 2026-10-16, flodet)",
    "kallkort": ""
@@ -3222,7 +3222,7 @@
    "roll": "Pococks retro (MIT, commit 49dd158) gav kategorierna för agentens miljö i larande/genomgang.md (en pekare saknas, en kontroll var inte inkopplad, ett dyrt verktygsanrop, instruktioner som inte ändrar något) men saknar kä",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: larande (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: larande",
    "placering_motivering": "Pococks retro (MIT, commit 49dd158) gav kategorierna för agentens miljö i larande/genomgang.md (en pekare saknas, en kontroll var inte inkopplad, ett dyrt verktygsanrop, instruktioner som inte ändrar något) men saknar källkort. Retro laddar alltid writing-for-agents innan den föreslår en styrfil (uppströms 8267225). (andra varvet 2026-10-16, flodet)",
    "kallkort": ""
@@ -3238,7 +3238,7 @@
    "roll": "Används redan som källa i ai-monster.md (mönster 4, 20, 25 och den svenska AI-ordlistan) och nu i rost.md, men har ingen post.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: innehall (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: innehall",
    "placering_motivering": "Används redan som källa i ai-monster.md (mönster 4, 20, 25 och den svenska AI-ordlistan) och nu i rost.md, men har ingen post. Repot (nordefors-max/claude-humanizer-svenska, commit 81a8768) saknar licens och får bara läsas: mönstren tas med egna ord, exemplen aldrig. Exemplen bryter mot skillens egna mönster (Det är inte X, det är Y), skriver 30% utan mellanslag och fyller i siffror och källor som inte finns i underlaget. Dess regel att tillföra åsikter gäller inte hos oss. Förslag: beslut 'skill' med flaggan 'bara läst, ingen licens'. (andra varvet 2026-10-16, innehall-strategi)",
    "kallkort": ""
@@ -3254,7 +3254,7 @@
    "roll": "Sju genomgångar (Seven Sweeps) med So what och Prove it, AI-tell-kontrollen och punktändringsläget.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: innehall (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: innehall",
    "placering_motivering": "Sju genomgångar (Seven Sweeps) med So what och Prove it, AI-tell-kontrollen och punktändringsläget. Destillerat i text.md (nytta i stället för effekt; för vård aldrig som hälsoeffekt, BESLUT 2026-10-15) och rost.md (ett citat som bara berömmer firman). Heightened Emotion och Expert Panel Scoring tas inte: saklig ton i vård och granskarens sak. MIT, coreyhaines31/marketingskills 365b412. Installeras inte. (andra varvet 2026-10-16, innehall-strategi)",
    "kallkort": ""
@@ -3270,7 +3270,7 @@
    "roll": "Grundkällan för humanizer och för AI-signaturerna i guide/2-7, där den står som ⚠️ inte läst.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: innehall (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: innehall",
    "placering_motivering": "Grundkällan för humanizer och för AI-signaturerna i guide/2-7, där den står som ⚠️ inte läst. Läst 2026-10-16 (rev. 1380310647). Ger mönster 16:s nya skäl (superlativ är vanligare i mänsklig text, Signs of human writing), mönster 28 (vagt samband) och att det långa tankstrecket nu är ett historiskt tecken, med en återgiven studie om att Claude använder det oftare än yrkesskribenter. CC BY-SA 4.0: bara idéer, inga exempel översätts. Förankring snarare än verktyg. (andra varvet 2026-10-16, innehall-strategi)",
    "kallkort": ""
@@ -3286,7 +3286,7 @@
    "roll": "vercel-labs/web-interface-guidelines (MIT, commit 434b7f9, 2026-10-05) och skillen web-design-guidelines i vercel-labs/agent-skills.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: kvalitet (aven: 5, 4) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: kvalitet (aven: 5, 4)",
    "placering_motivering": "vercel-labs/web-interface-guidelines (MIT, commit 434b7f9, 2026-10-05) och skillen web-design-guidelines i vercel-labs/agent-skills. Jämförd punkt för punkt mot övningssajten i andra varvet (131 punkter och 14 antimönster). Det tekniska och prövbara står i kvalitet (Mönster som alltid är fel, formular.md, Video, kontrollistan 18–20), ytdetaljerna redan i yta (detaljer.md, typografi.md, farg.md) och mobilbaslinjen i skelett/mobil.md. Installeras inte: skillen hämtar command.md från internet vid varje körning, alltså en fjärrstyrd instruktion. Vercels copywriting (Title Case, &, siffror för antal) och APCA före WCAG 2 tas inte in (svensk norm respektive WCAG 2.2 AA som golv); maximum-scale=1 och autocomplete=off på fält utan inloggning är fel i originalet. Bilaga A har web-design-guidelines som kandidat till granskaren (3-2); granskarens låsta checklista kan hänvisa hit. (andra varvet 2026-10-16, kvalitet)",
    "kallkort": ""
@@ -3302,7 +3302,7 @@
    "roll": "Mozillas experimentella server (MPL-2.0, mdn/mcp, push 2026-10-14) har tre läsande verktyg: search, get-doc och get-compat (Browser Compatibility Data).",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "MCP: ta in (efter provet; med huvudet X-Moz-1st-Party-Data-Opt-Out: 1) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "MCP: ta in (efter provet; med huvudet X-Moz-1st-Party-Data-Opt-Out: 1)",
    "placering_motivering": "Mozillas experimentella server (MPL-2.0, mdn/mcp, push 2026-10-14) har tre läsande verktyg: search, get-doc och get-compat (Browser Compatibility Data). Den täcker påståenden om webbläsarstöd i guiden: lucka 4.4 (Popover), P47 (policy för webbläsarstöd) och P57 (scroll-drivna animationer). Den kräver inget konto. Mozilla sparar sökväg, BCD-nyckel och User-Agent (Glean); huvudet stänger av det. Provet: sex frågor med och utan servern, med web-features som facit. Lager 8 (även 4 och 6). (andra varvet 2026-10-16, mcp)",
    "kallkort": ""
@@ -3318,7 +3318,7 @@
    "roll": "Officiella dokumentationsservrar utan konto: mcp.docs.astro.build (ett verktyg; frågan går via Netlify till kapa.ai; docs.astro.build saknar llms.txt) och docs.mcp.cloudflare.com (två verktyg, readOnlyHint).",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "MCP: ta in (efter provet; behåll bara den som slår WebFetch) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "MCP: ta in (efter provet; behåll bara den som slår WebFetch)",
    "placering_motivering": "Officiella dokumentationsservrar utan konto: mcp.docs.astro.build (ett verktyg; frågan går via Netlify till kapa.ai; docs.astro.build saknar llms.txt) och docs.mcp.cloudflare.com (två verktyg, readOnlyHint). De täcker stackens fakta för lager 8 och 9. Provet: fem frågor per server med facit. Kunduppgifter står aldrig i frågan. Verktygslistorna lästes 2026-10-16. (andra varvet 2026-10-16, mcp)",
    "kallkort": ""
@@ -3334,7 +3334,7 @@
    "roll": "Korpusen omfattar web.dev, developer.chrome.com och developers.google.com, alltså Search Central och Business Profile (korpusreferensen, läst 2026-10-16).",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "MCP: kräver konto (Google Cloud-projekt och API-nyckel begränsad till Developer Knowledge API) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "MCP: kräver konto (Google Cloud-projekt och API-nyckel begränsad till Developer Knowledge API)",
    "placering_motivering": "Korpusen omfattar web.dev, developer.chrome.com och developers.google.com, alltså Search Central och Business Profile (korpusreferensen, läst 2026-10-16). Det är guidens viktigaste primärkällor för kompetenssäkring. Bara get_documents används som källa, inte answer_query. Pris och loggning anges inte ⚠️. Beslutet om inget Google-API gäller övningssajterna, inte dokumentation, men Johnny avgör. (andra varvet 2026-10-16, mcp)",
    "kallkort": ""
@@ -3350,7 +3350,7 @@
    "roll": "Täcker lucka 8.4 (leveranskedjan): depscore ger poäng för leveranskedja, sårbarheter, underhåll och licens per paket före installation.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "MCP: kräver konto (Socket Free via OAuth) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "MCP: kräver konto (Socket Free via OAuth)",
    "placering_motivering": "Täcker lucka 8.4 (leveranskedjan): depscore ger poäng för leveranskedja, sårbarheter, underhåll och licens per paket före installation. Det behövs nu när React, Motion och 21st-komponenter tillåts. Bara paketnamn och versioner lämnar Macen. Free-planen har MCP (socket.dev/pricing). MIT, push 2026-10-14, och servern finns i Anthropics katalog. Provet: alla beroenden i bibliotek, skript och övningssajten plus fyra kandidater, jämfört med npm audit. (andra varvet 2026-10-16, mcp)",
    "kallkort": ""
@@ -3366,7 +3366,7 @@
    "roll": "shadcn-registrets index (443 register) har @tailark, @magicui, @aceternity och @react-bits men inte 21st.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "verktyg: ta in (CLI:n; MCP-delen behövs inte) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "verktyg: ta in (CLI:n; MCP-delen behövs inte)",
    "placering_motivering": "shadcn-registrets index (443 register) har @tailark, @magicui, @aceternity och @react-bits men inte 21st. Det är vägen till block ur ursprungsrepot som beslutet kl. 13.05 föreskriver, med tydlig licens och utan kvot eller kreditering. MCP-servern i shadcn 4.21.5 har sju verktyg, bland dem get_audit_checklist ('Make sure to run the tool after all required steps'), som kan konkurrera med kvalitetsskillen. Ingen telemetri hittades. Lager 4, biblioteksarbetet. (andra varvet 2026-10-16, mcp)",
    "kallkort": ""
@@ -3382,7 +3382,7 @@
    "roll": "Microsofts server (Apache-2.0, ingen telemetri) kör WebKit och Firefox med enhetsemulering och spelar in video med kapitel.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "MCP: ta in (efter provet; --isolated, lokala adresser) (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "MCP: ta in (efter provet; --isolated, lokala adresser)",
    "placering_motivering": "Microsofts server (Apache-2.0, ingen telemetri) kör WebKit och Firefox med enhetsemulering och spelar in video med kapitel. Den låter en agent utforska sajten i motorer som chrome-devtools inte når (lucka 8.2 delvis, 6.3). Den ersätter inte riktiga telefoner eller kontrollskriptet. Provet: uppgifterna 'boka en tid' och 'hitta adressen och parkeringen' i WebKit med iPhone-emulering; nytta är ett fynd som kontrollskriptet och granskaren missade. README: 'not a security boundary'. (andra varvet 2026-10-16, mcp)",
    "kallkort": ""
@@ -3398,7 +3398,7 @@
    "roll": "Riktiga enheter till lucka 8.2, men tjänsten är betald, servern är AGPL-3.0 och skickar telemetri till api.browserstack.com (src/lib/instrumentation.ts).",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N4 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N4",
    "placering_motivering": "Riktiga enheter till lucka 8.2, men tjänsten är betald, servern är AGPL-3.0 och skickar telemetri till api.browserstack.com (src/lib/instrumentation.ts). Sajten måste också visas för tjänsten, vilket krockar med att övningssajterna bara visas lokalt (BESLUT 2026-10-15). Luckfilen lägger molnenheter på N4. (andra varvet 2026-10-16, mcp)",
    "kallkort": ""
@@ -3414,7 +3414,7 @@
    "roll": "CVE-2026-75130 (NVD, publicerad 2026-08-18): promptinjektion via Custom AI Instructions i versioner till och med 2.1.2 (ContextCrush).",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "släpp (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "släpp",
    "placering_motivering": "CVE-2026-75130 (NVD, publicerad 2026-08-18): promptinjektion via Custom AI Instructions i versioner till och med 2.1.2 (ContextCrush). Dokumentationen skickas in av tredje part. De officiella servrarna (MDN, Astro, Cloudflare) och llms.txt (Cloudflare, shadcn, Motion, Base UI) täcker behovet. (andra varvet 2026-10-16, mcp)",
    "kallkort": ""
@@ -3430,7 +3430,7 @@
    "roll": "Ett eget skript i startsäkringen.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "kontroll (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "kontroll",
    "placering_motivering": "Ett eget skript i startsäkringen. Det läser initialize och tools/list för varje inkopplad server, sparar verktygsbeskrivningar och instruktioner och rapporterar ändringar till Johnny innan servern används. Det ersätter regeln om låst version, som krockar med 'alltid senaste' (BESLUT 2026-10-15). Källor: MCP-spec 2025-11-25 (annoteringar är opålitliga från okända servrar; list_changed) och Claude Code, MCP (verktygslistan hämtas om automatiskt). Utkastet skript-mcp/verktygslista.py är prövat på fem publika servrar. Bevakningen av registret och utgåvorna står i bevakning-forslag.md, rad 17. (andra varvet 2026-10-16, mcp)",
    "kallkort": ""
@@ -3446,7 +3446,7 @@
    "roll": "Emil Kowalskis skill för att hålla rörelse inom bildbudgeten (emilkowalski/skills, skills/animation-performance, tillagd 2026-10-11 i 6465079, MIT).",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "skill: rorelse (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "skill: rorelse",
    "placering_motivering": "Emil Kowalskis skill för att hålla rörelse inom bildbudgeten (emilkowalski/skills, skills/animation-performance, tillagd 2026-10-11 i 6465079, MIT). Den finns inte i webb-pro (e8a175d) och därför inte i inventeringen, men rörelseskillen citerar den redan. Destillerad i rorelse/SKILL.md princip 6: komposition, målning och layout som tre kostnadsnivåer, box-shadow byts mot ett tonat pseudoelement eller filter: drop-shadow(), oskärpa under 20 px, ingen förflyttning via CSS-variabel på en förälder och will-change först när ett ryck syns. Påståendet att Motions x, y och scale inte accelereras tas inte in; det är fel sedan Motion 14.2.0 (2026-10-13). Lager 6. Installeras inte (inga tredjepartsskills i kundbygget). (andra varvet 2026-10-16, rorelse)",
    "kallkort": ""
@@ -3462,7 +3462,7 @@
    "roll": "Automatiserar VoiceOver och NVDA (github.com/guidepup/guidepup, MIT) för prov av menyn, vanliga frågor och knapplisten med skärmläsare, som guide/2-4 kräver från N2 men saknar verktyg för (skelett-struktur-luckor M5 i fö",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "senare: N2 (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "senare: N2",
    "placering_motivering": "Automatiserar VoiceOver och NVDA (github.com/guidepup/guidepup, MIT) för prov av menyn, vanliga frågor och knapplisten med skärmläsare, som guide/2-4 kräver från N2 men saknar verktyg för (skelett-struktur-luckor M5 i första varvet). Prövas på provsidan när biblioteket får nästa interaktiva komponent. (andra varvet 2026-10-16, skelett-struktur)",
    "kallkort": ""
@@ -3478,7 +3478,7 @@
    "roll": "Ny skill i jakubkrehel/skills (PR #44, commit 4c66b1f, 2026-10-12), MIT.",
    "flagga": "",
    "din_lank": false,
-   "beslut": "ej fattat",
+   "beslut": "släpp (Johnny 2026-10-16 omkring 17.40: \"Ja på alla\")",
    "placering": "släpp",
    "placering_motivering": "Ny skill i jakubkrehel/skills (PR #44, commit 4c66b1f, 2026-10-12), MIT. Den saknas i inventeringen. Den gör tekniska ritningar av fysiska föremål (vyer, sprängskisser, mått) med en egen visningssida och nedladdning som SVG, PNG och PDF. Det är inte ytans behov. Egna ikoner ritas i ikonfamiljens stil (G2), och bilder av kundens arbete är foton. Möjligen intressant för en hantverkare eller produktkund i N3. ⚠️ Bara SKILL.md avsnitt 1–3 är lästa. (andra varvet 2026-10-16, yta-2)",
    "kallkort": ""
