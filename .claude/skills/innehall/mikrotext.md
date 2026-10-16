@@ -9,6 +9,8 @@ På en statisk småföretagssajt är det knapparna, länkarna, menyn, kontaktvä
 - **En term per sak i hela sajten:** sidans namn, tjänstens namn och handlingen. Heter sidan *Kontakt och priser* i menyn heter den så i sidfoten, rubriken och titeln (→ `guide/2-3-struktur.md`, *En sida har samma namn överallt*, G4). Detsamma gäller tjänster (*stötvåg* eller *stötvågsbehandling*) och ord som *omdöme* och *recension*. 📄 better-writing (Krehel, MIT), *One voice*; Yifrah s. 71–77; Redish, *Letting Go of the Words*, kap. 12 ⚠️ läst på rubriknivå
 - **Länktexten matchar målsidans rubrik,** så att besökaren känner igen att hon kom rätt. 📄 NN/g, [Better Link Labels: 4Ss](https://www.nngroup.com/articles/better-link-labels/) (*sincere*); Redish kap. 12; GOV.UK, *Add links*
 - **Standardord ändras inte:** *Meny*, *Stäng*, *Kontakt*, *Boka tid*. 📄 Yifrah s. 71; GOV.UK, *A to Z*
+- **Termlistan finns före texten.** Varje sajt har en lista över sina namn på sidor, tjänster och handlingar (i `rost.md`, *Ordlistan*), och ny text använder dem. En synonym är ett fynd bara när samma sak får två namn. 📄 better-writing, *Inventory the existing strings first*; → `guide/2-3-struktur.md`, G4
+- **Ett perspektiv per ruta:** *mina val* och *dina val* om samma sak i samma ruta är två röster. *(En källa – bänken: better-writing, Address the reader directly.)*
 
 ## Knappar och länkar
 
@@ -17,13 +19,15 @@ På en statisk småföretagssajt är det knapparna, länkarna, menyn, kontaktvä
 - **Den synliga texten finns i det tillgängliga namnet, först.** En ikonknapp med texten *Ring* kan heta *Ring 070-123 45 67* för skärmläsaren, men inte *Telefon*. 📄 Norm: WCAG 2.2, [2.5.3](https://www.w3.org/WAI/WCAG22/Understanding/label-in-name.html) (A)
 - **En länk ut talar om det:** till en annan webbplats, en karta, en pdf med format och storlek (*Prislista (pdf, 200 kB)*). Hur nya flikar används står i 2-8 (N1-kontroll 2b). 📄 GOV.UK, *Add links*
 - **En primär handling per sida, samma ord varje gång** den upprepas. 📄 marketingskills `copywriting`, *CTA*; → `guide/2-4-skelett.md`
-- **Ingen hänvisning till läge eller form** som enda ledtråd: inte *knappen nedan* eller *den gröna knappen*, utan knappens namn. 📄 Norm: WCAG 2.2, 1.3.3 (sensoriska egenskaper)
+- **Ingen hänvisning till läge eller form** som enda ledtråd: inte *knappen nedan*, *sidorna nedan* eller *den gröna knappen*, utan knappens eller listans namn. 📄 Norm: WCAG 2.2, 1.3.3 (sensoriska egenskaper)
+- **Välj eller tryck, inte klicka.** Alla besökare klickar inte; i mobilen trycker man. Skriv *när du väljer Visa kartan från Google* eller *tryck på Neka alla*. Granskningskriterium. 📄 GOV.UK, [A to Z style guide](https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/style-guides/a-to-z-style-guide/), *click* (*"not all users click. Use 'select'"*); better-writing, *Plain words* (*"Match the input device"*)
 
 ## Fel och formulär
 
 Gäller när en sajt har formulär (→ `guide/2-8-teknik-och-kvalitet.md`, *Formulär*).
 
-- **Etikett före fältet,** och en kort hjälptext när formatet spelar roll. Platshållartext ersätter aldrig etiketten. Märk valfria fält *(valfritt)*, inte obligatoriska med asterisk. 📄 Norm: WCAG 2.2, 3.3.2 (A); GOV.UK, *Question pages*; NN/g, 3 I's
+- **Etikett före fältet,** och en kort hjälptext när formatet spelar roll. Märk valfria fält *(valfritt)*, inte obligatoriska med asterisk. 📄 Norm: WCAG 2.2, 3.3.2 (A); GOV.UK, *Question pages*; NN/g, 3 I's
+- **Ingen platshållartext i fälten,** varken som etikett, hjälp eller exempel: den försvinner när besökaren skriver, alla skärmläsare läser den inte, och webbläsarens grå stil klarar ofta inte kontrastkravet. Formatexemplet står i hjälptexten. 📄 GOV.UK Design System, [Text input](https://design-system.service.gov.uk/components/text-input/); WCAG 2.2, 1.4.3. better-writing tillåter ett exempel som platshållare; GOV.UK går före, eftersom skälen går att pröva.
 - **Felet säger vad som är fel och hur det rättas, vid fältet och i text.** Tomt fält ger en uppmaning (*Skriv ditt telefonnummer*); fel innehåll ger en beskrivning (*Telefonnumret har för få siffror*). Samma ord i sammanfattningen överst. 📄 Norm: WCAG 2.2, 3.3.1 (A) och 3.3.3 (AA); GOV.UK Design System, [Error message](https://design-system.service.gov.uk/components/error-message/); NN/g, [Error-Message Guidelines](https://www.nngroup.com/articles/error-message-guidelines/) (2023)
 - **Utan skuld och utan skämt:** inte *ogiltig*, *otillåten*, *du glömde*, *Oops* eller *Hoppsan*, och inget utropstecken. Inte *Vänligen*, som gör en uppmaning till en artighet. 📄 GOV.UK, *Error message*; NN/g 2023; better-writing, *Errors*
 - **Det besökaren skrivit ligger kvar.** Formuläret töms aldrig vid fel. 📄 GOV.UK; NN/g 2023
@@ -52,7 +56,8 @@ Vad rutan ska säga juridiskt står i `guide/2-8-teknik-och-kvalitet.md`, *Samty
 
 Skrivs enligt svensk norm. 📄 Myndigheternas skrivregler, kap. 12 (Språkrådet 2014)
 
-- Klockslag med punkt: *8.00–18.00*, *kl. 18*. Intervall med kort tankstreck utan mellanslag, inte *från kl. 9–17*.
+- Klockslag med punkt: *8.00–18.00*, *kl. 18*. Normen tillåter också kolon (12.2.1), men en sajt har ett sätt. `Intl.DateTimeFormat('sv-SE')` skriver *8:00* med kolon, så tider som räknas ut i koden formateras så att de stämmer med texten. Intervall med kort tankstreck utan mellanslag, inte *från kl. 9–17*.
+- Grupper i en uppräkning skiljs med semikolon när det redan finns komma inom grupperna: *Måndag och onsdag i Lund; tisdag, torsdag och fredag i Ystad.* Annars läses orten som en dag i listan. 📄 Myndigheternas skrivregler 13.4
 - Datum i löptext: *16 oktober 2026*, inte *2026-10-16*.
 - Belopp: *690 kr*, *1 250 kr*, med fast mellanslag i tusental, och *kr* utan punkt. Inte *SEK* i löptext. (*:-* nämns inte i normen ⚠️.)
 - Telefonnummer grupperas: *070-123 45 67*, *08-713 10 00*. I `tel:`-länken står numret internationellt utan nolla (*+46701234567*); formatet i länken har ingen källa ⚠️.
@@ -62,7 +67,8 @@ Skrivs enligt svensk norm. 📄 Myndigheternas skrivregler, kap. 12 (Språkråde
 ## Förbjudet
 
 - *Klicka här*, ensamt *Läs mer*, *Skicka*, *OK* och *Kom igång* som enda text.
-- *Är du säker?*, *Oops*, *Hoppsan*, *Vänligen*, *Något gick fel* utan väg vidare.
+- *Är du säker?*, *Oops*, *Hoppsan*, *Vänligen*, *Något gick fel* utan väg vidare, och *framgångsrikt* i ett kvitto (*Dina val är sparade*, inte *Dina val har sparats framgångsrikt*). 📄 better-writing, *Before you finish*
+- *Klicka* i en instruktion (ovan).
 - Ett tillgängligt namn som byter ut den synliga texten.
 - Olika namn på samma sida eller tjänst.
 - Humor i fel, pris och hälsa. 📄 NN/g, [Impact of Tone of Voice](https://www.nngroup.com/articles/tone-voice-users/) (*humor is extremely risky*)

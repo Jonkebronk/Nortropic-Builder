@@ -26,7 +26,7 @@ Texter och bilder som är kundens egna, korta, sanna och lätta att använda. Be
 - En platshållare `[[PLATSHÅLLARE: vad som saknas]]` och en fråga till kunden för varje lucka (→ 2-7, *Platshållare*).
 - `rost.md` med röstprofil, ordlista och citatbank (mall i `rost.md`).
 - Bildbeställningen och bildposterna (mall i `bilder.md`); undertexter som WebVTT (`video.md`).
-- Vid granskning: en fyndlista med sida, element, före, efter, varför med källa, och allvar.
+- Vid granskning: en fyndlista med sida, element, före, efter, varför med källa, och allvar. Ett fynd per orsak, med alla ställen där den syns. Text som inte gick att se, som bokningssystemets sidor och bekräftelsemejl, står som *ej granskad*, aldrig som godkänd. 📄 better-writing, *Reporting*
 
 ## Principer
 
@@ -42,6 +42,8 @@ Texter och bilder som är kundens egna, korta, sanna och lätta att använda. Be
 10. **Klipp med tal får undertexter,** transkriberade lokalt. (`video.md`)
 11. **AI-mönster rättas från fakta, inte med synonymer.** (`ai-monster.md`)
 12. **Språkgrinden rapporterar.** En regel stoppar först med norm eller två källor och en mätning utan falsklarm. (`sprakgrind.md`)
+13. **Smak är inget fynd.** Varje ändring pekar på en regel. En omformulering som bara låter annorlunda tas bort, och kundens medvetna röst är ingen brist. (better-writing, inledningen; marketingskills `copywriting`, *The leave-it-alone test*)
+14. **Varje mening tillför något.** En mening som upprepar det besökaren just läst stryks. (`ai-monster.md`; Myndigheternas skrivregler 1.2.4)
 
 ## Förbjudet
 
@@ -68,9 +70,9 @@ Körs i 375 och 1280 px, mot alla sidor och mot samtyckesrutan, 404-sidan och kv
 4. **AI-mönster:** inga träffar på mönster märkta *ensam*; flera svaga i samma stycke skrivs om (`ai-monster.md`).
 5. **Klarspråk:** meningar över 20 ord, passiv som döljer vem som gör något, förkortningar i löptext och rubriker, fackord utan förklaring (`text.md`).
 6. **Rubriker:** informativa, parallella på samma nivå, första meningen fortsätter inte rubriken (`text.md`; Myndigheternas skrivregler 3.5.5).
-7. **Upprepning:** samma mening eller uppgift mer än två gånger på samma sida (`text.md`).
-8. **Samma ord för samma sak:** sidnamn, tjänstnamn, *omdöme* eller *recension*, länktext mot målsidans rubrik (`mikrotext.md`; → 2-3, G4).
-9. **Knappar och länkar:** verb och vad man får; begripliga ensamma; synlig text först i det tillgängliga namnet (`mikrotext.md`; WCAG 2.4.4, 2.5.3).
+7. **Upprepning:** samma mening eller uppgift mer än två gånger på samma sida, och en mening som bara säger om det stycket eller steget ovanför redan sa (`text.md`; `ai-monster.md`).
+8. **Samma ord för samma sak:** sidnamn, tjänstnamn, *omdöme* eller *recension*, länktext mot målsidans rubrik, och vad avsändaren kallas: ägaren, firman eller *vi* (`mikrotext.md`; `rost.md`; → 2-3, G4).
+9. **Knappar och länkar:** verb och vad man får; begripliga ensamma; synlig text först i det tillgängliga namnet; *välj* eller *tryck*, inte *klicka*; inget *nedan* som enda ledtråd (`mikrotext.md`; WCAG 2.4.4, 2.5.3, 1.3.3).
 10. **Lägen:** samtyckesrutan, kvittot, 404, kartans laddning och tider som räknas ut säger vad som gäller och vad man gör nu (`mikrotext.md`).
 11. **Siffror, datum, klockslag, belopp och telefonnummer** enligt svensk norm (`mikrotext.md`).
 12. **Alt-texter:** beslutsträdet, cirka 80 tecken, inget *bild av*, inga uppgifter om hälsa utan samtycke; dekor har `alt=""` (`bilder.md`).
@@ -85,7 +87,7 @@ Körs i 375 och 1280 px, mot alla sidor och mot samtyckesrutan, 404-sidan och kv
 | `text.md` | Klarspråk, rubriker, listor, styrkbara påståenden, skiljetecken |
 | `mikrotext.md` | Knappar, länkar, fel, kvitton, 404, samtyckesrutan, siffror och tider |
 | `rost.md` | Röst och ton, mallen för `rost.md`, rösttestet |
-| `ai-monster.md` | 25 AI-mönster i svensk text, hur de vägs och rättas, licens |
+| `ai-monster.md` | 29 AI-mönster i svensk text, hur de vägs och rättas, licens |
 | `bilder.md` | Alt-text, bildtext, fotolistan, frilägga och beskära |
 | `video.md` | Undertexter, KB-Whisper, whisper.cpp, FFmpeg |
 | `sprakgrind.md` | Vale, Hunspell sv_SE, LIX och mätningen före en hård regel |

@@ -18,6 +18,8 @@ Delfil till `strategi`. Reglerna för intervjun bor i `guide/2-1-strategi.md`, *
 | Gå framåt, ta inte upp avklarade ämnen igen | Samtalet ska inte kännas som ett förhör | 📄 Geiecke & Jaravel (princip) |
 | Frågar kunden om annat, styr vänligt tillbaka | Samtalet har ett syfte | 📄 Geiecke & Jaravel (princip) |
 | Avbryt inte och stressa inte | Det skadar förtroendet | 📄 NN/g, Rosala och Pernice 2023 |
+| Minst en fråga kan visa att briefens antagande är fel | Den som bara letar belägg för det hen tror hittar dem, och då är svaret värdelöst | 📄 marketingskills `customer-research/references/interviews-and-surveys.md`, *Prove yourself wrong, not right*; 📄 *The Mom Test* via wondelai `mom-test` (*"Ask the scary questions you've been avoiding"*) |
+| Skriv ner ord som bär känsla, ordagrant | Oro och besvär som kunden tar upp själv och med starka ord väger tyngst | 📄 marketingskills `customer-research`, *Extraction Framework* (2) |
 
 **Om "varför".** Guiden säger "Hur kommer det sig" i stället för "varför", som kan låta dömande, och anger Geiecke och Jaravel som källa (`guide/2-1-strategi.md`, *Oskrivna regler*). Deras `config.py` (commit `9429776`, 2026-02-07) har inte den regeln, och både den och NN/g (Rosala 2021) använder "Why is this important to you?" som följdfråga. Regeln behålls som en stilfråga 🔧. Källan i guiden bör rättas (förslag till Johnny).
 
@@ -52,6 +54,14 @@ Använd det kunden just sagt. De här fungerar oftast:
 Källor: 📄 NN/g, Rosala 2021, steg 6; 📄 Geiecke & Jaravel (principerna); 📄 pm-skills `interview-script`, *Probing Techniques* (utom "Why?" två–tre gånger, se ovan).
 
 Kan kunden inte svara: fråga från ett annat håll, till exempel genom att gå från en hel månad till en enda dag (📄 Geiecke & Jaravel, princip). "Vet inte" är ett giltigt svar och blir *okänt* (→ `guide/2-1-strategi.md`).
+
+## Antagandet som prövas
+
+Briefen bygger alltid på något byrån tror: att besökarna är akuta, att priset oroar, att de flesta söker i mobilen. Minst ett sådant antagande prövas med en fråga om det som hänt och som kan ge fel svar: *"När kom senast en patient som inte hade akut ont? Vad ville hen?"* Svaret skrivs in i briefen även när det motsäger antagandet. 📄 Källorna i tabellen ovan.
+
+## Ägarens egna ställningstaganden
+
+Fråga hur ägaren arbetar och hur det kom sig: *"Vad gör du på ett annat sätt än andra [yrke] du har sett? Hur kom det sig?"* Svaret är ordagranna citat till röstprofilen, märkta som åsikt och inte som fakta (→ skillen `innehall`, `rost.md`, *Citatbanken*). Det ger texterna en röst som ägaren kan stå för, i stället för en som byrån hittar på. 📄 marketingskills `copywriting/references/ai-tells.md`, *Build a writer*; frågan är formulerad om det som hänt, enligt *The Mom Test*.
 
 ## Flera berättelser, inte en
 

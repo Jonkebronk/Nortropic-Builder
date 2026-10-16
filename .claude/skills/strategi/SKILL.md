@@ -78,6 +78,8 @@ Körs mot `brief.md`, `fakta.md`, `intervju.md` och den byggda sajten. Varje pun
 10. Är frågan om utbud ställd: hinner kunden ta emot fler?
 11. Är briefen och faktabasen rättade efter varje beslut som ändrat sajten (`BESLUT.md` 2026-10-16, G7)?
 12. Har kunden, eller Johnny i kundens ställe, bekräftat sammanfattningen, och syns det i filerna?
+13. Fanns minst en fråga som kunde ha visat att ett antagande i briefen var fel, och står svaret i briefen? (→ `intervjuhantverk.md`, *Antagandet som prövas*)
+14. Har citatbanken ägarens egna ställningstaganden, ordagrant och märkta som åsikt, eller är rösten byråns gissning? (→ `intervjuhantverk.md`, *Ägarens egna ställningstaganden*)
 
 ## Delfiler
 

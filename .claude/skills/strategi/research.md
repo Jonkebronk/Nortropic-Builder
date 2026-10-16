@@ -50,6 +50,9 @@ Läs hemsidan och de sidor den länkar till om tjänster, priser, platser, konta
 - **Väg det senaste året tyngre,** och skriv när ett tema bara finns i gamla omdömen. 📄 `customer-research`, *Recency window*.
 - **Den som skriver omdömen är inte alla kunder.** De med starka åsikter är överrepresenterade. 📄 `customer-research`, *Sample bias checks*.
 - **Ett tema är säkert först i tre oberoende källor och nämnt utan att någon frågat.** Två källor eller bara efter fråga är medel, en källa är låg. 📄 `customer-research`, *Research Quality Guardrails*; → `guide/2-1-strategi.md`, *Konfidens*.
+- **Både det som skaver och det kunderna berömmer.** Besvären säger vad sajten ska bemöta; det kunderna lyfter fram utan att någon frågat, som att ägaren förklarar, säger vad de stannar för. Båda skrivs med kundernas ord. 📄 marketingskills `customer-research/references/interviews-and-surveys.md`, *Pain points vs. passion points*
+- **Skriv ut motsägelser.** När kunden säger en sak och omdömena eller bokningen visar en annan, står båda i briefen med källa, och skillnaden blir en fråga. 📄 marketingskills `customer-research`, *Synthesis Steps* (5)
+- **Få omdömen: konkurrenternas som stöd, märkta.** Har firman få eller inga omdömen kan andra firmors omdömen i samma bransch och ort visa besökarnas oro och ord. De märks *proxy* och blir aldrig fakta om kunden, och de byts ut när kundens egna omdömen finns. 📄 marketingskills `customer-research`, *Persona Generation*, *When there are no reviews yet*; → `guide/2-1-strategi.md`, *Research ger sammanhang, aldrig fakta om kunden*
 - **Kundens ord är guld för texterna.** Spara exakta formuleringar per tema och lämna dem till skillen `innehall`. 📄 `customer-research`, *Extraction Framework* (5).
 - **Visa inte omdömen på sajten utan att följa 12 c § marknadsföringslagen och Googles policy** → `guide/2-7-innehall.md` och `BESLUT.md` 2026-10-16.
 

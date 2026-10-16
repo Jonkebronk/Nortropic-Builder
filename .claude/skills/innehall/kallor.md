@@ -47,6 +47,18 @@ Delfil till `innehall`. Källorna lästes 2026-10-16. Inget har kopierats i län
 | [BiRefNet-portrait](https://huggingface.co/ZhengPeng7/BiRefNet-portrait) | release v1 | MIT | `bilder.md` |
 | [Astro bilder](https://docs.astro.build/en/guides/images/), [sharp](https://sharp.pixelplumbing.com/) | Astro 7.4, sharp 0.35.5 | MIT, Apache-2.0 | `bilder.md` (tekniken → 2-8) |
 
+## Andra varvet 2026-10-16
+
+Originalen ur webb-pro (humanizer, better-writing, brand och slides) lästes i sin helhet och jämfördes regel för regel; uppströms hade inget nytt sedan första varvet (humanizer `225a6f3`, better-writing oförändrad sedan `da5f6d5`, brand `56ea9cf`). Det som kom in, med källa vid regeln:
+
+- `ai-monster.md`: varje mening tillför något; en omskrivning tappar inget; sök igen efter de mönster som överlever; rösten kommer ur kundens ord; mönster 26–29; superlativ är inget AI-tecken; Claude och tankstrecket; varning för svenska humanizerns exempel.
+- `mikrotext.md`: termlistan, ett perspektiv per ruta, *välj* i stället för *klicka* (GOV.UK, [A to Z](https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/style-guides/a-to-z-style-guide/), läst 2026-10-16), ingen platshållartext (GOV.UK, [Text input](https://design-system.service.gov.uk/components/text-input/), läst 2026-10-16), klockslag med kolon och `Intl` (Myndigheternas skrivregler 12.2.1), semikolon mellan grupper (13.4), *framgångsrikt*.
+- `text.md`: nytta i stället för effekt; få slagkraftiga rader.
+- `rost.md`: ägarens ställningstaganden och självberöm i citatbanken; avsändarens namn i ordlistan.
+- `SKILL.md`: smak är inget fynd; varje mening tillför något; *ej granskad* för text som inte gick att se.
+
+Medvetet utelämnat: humanizers §8 (inga tankstreck alls), §10 (bindestreck i engelska ordpar), §21 (raka citattecken) och §26 (svar i en tråd, gäller ärendesvar i förvaltningen); better-writings regler om ångra, reglage, ICU-plural och översättning (statiska svenska sajter); brands visuella delar, skript och tokensynk (lager 5, och 60/30/10-regeln saknar källa ⚠️); slides i sin helhet (inventeringen: släpp).
+
 ## Kända luckor
 
 Det här täcker varken guiden eller skillen än:
@@ -69,3 +81,6 @@ Där en källa säger något annat än guiden. Förslag, inte beslut.
 5. **AI-metadata genom bildkedjan (2-7, N2) går inte med Astros standard:** sharp tar bort all metadata i varianterna. Antingen läggs AI-bilder orörda i `public/`, eller så räcker den synliga märkningen. ⚠️ Inte provat.
 6. **`imageService: 'compile'`** i inventeringen gäller bara med Cloudflare-adaptern; en statisk sajt behöver ingen adapter enligt Astros dokumentation, och adapterns läge hade tysta fel under 2026.
 7. **rembg-modellerna `birefnet-general`, `-lite` och `-massive`** är MIT-märkta men tränade på DIS5K, vars villkor bara tillåter forskning och undervisning. Tills Johnny avgjort det används bara `birefnet-portrait`.
+8. **Superlativ hör till faktakontrollen, inte till AI-signaturerna.** 2-7 räknar *superlativ utan belägg* som AI-signatur, men Wikipedia skriver att superlativ är vanligare i mänsklig text än i nya modellers. Regeln står kvar; skälet blir belägg och marknadsföringslagen.
+9. **AI-signaturerna i 2-7 hänvisar till Wikipedias guide som ⚠️ inte läst.** Den är läst nu (rev. 1380310647), och varningen kan bytas mot källan.
+10. **Klockslag: punkt och kolon är båda norm** (Myndigheternas skrivregler 12.2.1). Guiden och sajterna använder punkt; det bör stå att en sajt väljer ett sätt.

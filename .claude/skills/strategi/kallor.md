@@ -27,9 +27,19 @@ Läst 2026-10-16. Fullständiga källkort per inventeringspost finns i premiumpa
 - SCB, [Avgiftsfria uppgifter i företagsregistret](https://www.scb.se/vara-tjanster/bestall-data-och-statistik/foretagsregistret/avgiftsfria-uppgifter-i-foretagsregistret/), läst 2026-10-16.
 - Bolagsverket: ⚠️ sidorna visar en CAPTCHA och gick inte att läsa 2026-10-16.
 
+## Andra varvet 2026-10-16
+
+Originalen lästes om mot skillen. Uppströms hade inget nytt i de filer som används (pm-skills `07b34f6` lägger bara till manifest för Cursor). Det som kom in:
+
+- `intervjuhantverk.md`: en fråga som kan visa att antagandet är fel (`customer-research`, *Prove yourself wrong*; *The Mom Test* via `mom-test`, *"Ask the scary questions"*); ord som bär känsla; ägarens egna ställningstaganden (marketingskills `copywriting/references/ai-tells.md`, *Build a writer*).
+- `research.md`: det kunderna berömmer bredvid det som skaver (*pain points vs. passion points*); motsägelser skrivs ut (*Synthesis Steps*); konkurrenternas omdömen som märkt proxy när kunden har få (*Persona Generation*).
+- `jobb-och-positionering.md`: fällorna i `competitive-brief` (mot en konkurrent, för många skillnader, branschens ord, byte för ofta).
+- `SKILL.md`: kontrollpunkt 13 och 14.
+
 ## Motsägelser i källorna
 
 - pm-skills säger sig följa Mom Test men har hypotetiska frågor (trollstaven, "What would you give up").
 - Dunfords intervjuskript har en hypotetisk fråga ("If [product] disappeared tomorrow …"), och guidens kärnfråga 4 är byggd på samma sätt.
 - marketingskills föreslår fem varför i följd. Guiden säger "hur kommer det sig" i stället för varför och anger Geiecke och Jaravel, men deras nuvarande `config.py` och NN/g använder "Why is this important to you?" som följdfråga.
+- `obviously-awesome` säger två till fyra värdeteman, `competitive-brief` en till två skillnader. De gäller olika saker: värdetemana är vad besökaren får, skillnaderna det texten lyfter. Strategin tar båda.
 - `smb-onboard` tillåter en följdfråga och "do not drill further", eftersom den är en snabb introduktion. Jobbintervjun kräver fler följdfrågor. Strategin följer jobbintervjun men har `smb-onboard`s korta läge (tre ämnen) när ägaren har bråttom (→ `guide/2-1-strategi.md`).
