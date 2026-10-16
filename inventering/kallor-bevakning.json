@@ -1,0 +1,770 @@
+[
+ {
+  "namn": "21st – premiummönster till biblioteket",
+  "repo": "https://github.com/tailark/blocks",
+  "commit": "8139698",
+  "kort": "kunskap/kallkort/21st-premiummonster.md"
+ },
+ {
+  "namn": "21st",
+  "repo": "https://github.com/21st-dev/magic-mcp",
+  "commit": "6b5299e",
+  "kort": "kunskap/kallkort/21st.md"
+ },
+ {
+  "namn": "Accessible Astro",
+  "repo": "https://github.com/incluud/accessible-astro-starter",
+  "commit": "3fc28ca",
+  "kort": "kunskap/kallkort/accessible-astro.md"
+ },
+ {
+  "namn": "Accessible Astro",
+  "repo": "https://github.com/incluud/accessible-astro-components",
+  "commit": "0ed04fb",
+  "kort": "kunskap/kallkort/accessible-astro.md"
+ },
+ {
+  "namn": "Adobe Leonardo",
+  "repo": "https://github.com/adobe/leonardo",
+  "commit": "eb6481d",
+  "kort": "kunskap/kallkort/adobe-leonardo.md"
+ },
+ {
+  "namn": "JCodesMore/ai-website-cloner-template",
+  "repo": "https://github.com/JCodesMore/ai-website-cloner-template",
+  "commit": "ee3f5a2",
+  "kort": "kunskap/kallkort/ai-website-cloner-template.md"
+ },
+ {
+  "namn": "Astro Fonts API och Fontsource",
+  "repo": "https://github.com/withastro/astro",
+  "commit": "484822f",
+  "kort": "kunskap/kallkort/astro-fonts-api-och-fontsource.md"
+ },
+ {
+  "namn": "Astro Fonts API och Fontsource",
+  "repo": "https://github.com/fontsource/fontsource",
+  "commit": "f7706ec",
+  "kort": "kunskap/kallkort/astro-fonts-api-och-fontsource.md"
+ },
+ {
+  "namn": "AstroWind",
+  "repo": "https://github.com/arthelokyo/astrowind",
+  "commit": "14e1a69",
+  "kort": "kunskap/kallkort/astrowind.md"
+ },
+ {
+  "namn": "axe och Playwright, skärpt",
+  "repo": "https://github.com/dequelabs/axe-core-npm",
+  "commit": "55245d5",
+  "kort": "kunskap/kallkort/axe-och-playwright-skarpt.md"
+ },
+ {
+  "namn": "banner-design",
+  "repo": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+  "commit": "56ea9cf",
+  "kort": "kunskap/kallkort/banner-design.md"
+ },
+ {
+  "namn": "Basecoat",
+  "repo": "https://github.com/hunvreus/basecoat",
+  "commit": "6953a4a",
+  "kort": "kunskap/kallkort/basecoat.md"
+ },
+ {
+  "namn": "better-colors",
+  "repo": "https://github.com/jakubkrehel/skills",
+  "commit": "4c66b1fa86e9",
+  "kort": "kunskap/kallkort/better-colors.md"
+ },
+ {
+  "namn": "better-typography",
+  "repo": "https://github.com/jakubkrehel/skills",
+  "commit": "4c66b1fa86e9",
+  "kort": "kunskap/kallkort/better-typography.md"
+ },
+ {
+  "namn": "better-ui",
+  "repo": "https://github.com/jakubkrehel/skills",
+  "commit": "4c66b1fa86e9",
+  "kort": "kunskap/kallkort/better-ui.md"
+ },
+ {
+  "namn": "better-ui",
+  "repo": "https://github.com/jakubkrehel/make-interfaces-feel-better",
+  "commit": "35545ea1512a",
+  "kort": "kunskap/kallkort/better-ui.md"
+ },
+ {
+  "namn": "better-writing",
+  "repo": "https://github.com/jakubkrehel/skills",
+  "commit": "4c66b1fa86e9",
+  "kort": "kunskap/kallkort/better-writing.md"
+ },
+ {
+  "namn": "bolt.diy och screenshot-to-code",
+  "repo": "https://github.com/stackblitz-labs/bolt.diy",
+  "commit": "353b44c",
+  "kort": "kunskap/kallkort/bolt-diy-och-screenshot-to-code.md"
+ },
+ {
+  "namn": "bolt.diy och screenshot-to-code",
+  "repo": "https://github.com/abi/screenshot-to-code",
+  "commit": "a813977",
+  "kort": "kunskap/kallkort/bolt-diy-och-screenshot-to-code.md"
+ },
+ {
+  "namn": "brand",
+  "repo": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+  "commit": "56ea9cf174ed",
+  "kort": "kunskap/kallkort/brand.md"
+ },
+ {
+  "namn": "bygg-sajt",
+  "repo": "https://github.com/Nortropic/nortropic-webb-pro",
+  "commit": "9bb0e6f",
+  "kort": "kunskap/kallkort/bygg-sajt.md"
+ },
+ {
+  "namn": "canvas-design",
+  "repo": "https://github.com/anthropics/skills",
+  "commit": "dbd4588",
+  "kort": "kunskap/kallkort/canvas-design.md"
+ },
+ {
+  "namn": "chrome-devtools",
+  "repo": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+  "commit": "382f441",
+  "kort": "kunskap/kallkort/chrome-devtools.md"
+ },
+ {
+  "namn": "Color.js och Radix tolv steg",
+  "repo": "https://github.com/color-js/color.js",
+  "commit": "a46e7fa",
+  "kort": "kunskap/kallkort/colorjs-och-radix-tolv-steg.md"
+ },
+ {
+  "namn": "Color.js och Radix tolv steg",
+  "repo": "https://github.com/radix-ui/colors",
+  "commit": "dbdb854",
+  "kort": "kunskap/kallkort/colorjs-och-radix-tolv-steg.md"
+ },
+ {
+  "namn": "unclecode/crawl4ai",
+  "repo": "https://github.com/unclecode/crawl4ai",
+  "commit": "94b6788",
+  "kort": "kunskap/kallkort/crawl4ai.md"
+ },
+ {
+  "namn": "CSS scroll-drivna animationer",
+  "repo": "https://github.com/mdn/browser-compat-data",
+  "commit": "078588a",
+  "kort": "kunskap/kallkort/css-scroll-drivna-animationer.md"
+ },
+ {
+  "namn": "CSS @view-transition",
+  "repo": "https://github.com/mdn/browser-compat-data",
+  "commit": "078588a",
+  "kort": "kunskap/kallkort/css-view-transition.md"
+ },
+ {
+  "namn": "DataForSEO MCP",
+  "repo": "https://github.com/dataforseo/mcp-server-typescript",
+  "commit": "1fc6d19",
+  "kort": "kunskap/kallkort/dataforseo-mcp.md"
+ },
+ {
+  "namn": "design",
+  "repo": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+  "commit": "56ea9cf",
+  "kort": "kunskap/kallkort/design-next-level-builder.md"
+ },
+ {
+  "namn": "design-system",
+  "repo": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+  "commit": "56ea9cf174ed",
+  "kort": "kunskap/kallkort/design-system.md"
+ },
+ {
+  "namn": "DTCG 2025.10",
+  "repo": "https://github.com/design-tokens/community-group",
+  "commit": "882ebd6",
+  "kort": "kunskap/kallkort/dtcg-2025-10.md"
+ },
+ {
+  "namn": "emil-animate-expo",
+  "repo": "https://github.com/emilkowalski/skills",
+  "commit": "2d22863",
+  "kort": "kunskap/kallkort/emil-animate-expo.md"
+ },
+ {
+  "namn": "emil-animate",
+  "repo": "https://github.com/emilkowalski/skills",
+  "commit": "2d228630ba14",
+  "kort": "kunskap/kallkort/emil-animate.md"
+ },
+ {
+  "namn": "emil-animation-vocabulary",
+  "repo": "https://github.com/emilkowalski/skills",
+  "commit": "2d228630ba14",
+  "kort": "kunskap/kallkort/emil-animation-vocabulary.md"
+ },
+ {
+  "namn": "emil-ask-sonner",
+  "repo": "https://github.com/emilkowalski/skills",
+  "commit": "2d22863",
+  "kort": "kunskap/kallkort/emil-ask-sonner.md"
+ },
+ {
+  "namn": "emil-design-eng",
+  "repo": "https://github.com/emilkowalski/skills",
+  "commit": "2d228630ba14",
+  "kort": "kunskap/kallkort/emil-design-eng.md"
+ },
+ {
+  "namn": "emil-find-animation-opportunities",
+  "repo": "https://github.com/emilkowalski/skills",
+  "commit": "2d228630ba14",
+  "kort": "kunskap/kallkort/emil-find-animation-opportunities.md"
+ },
+ {
+  "namn": "emil-improve-animations",
+  "repo": "https://github.com/emilkowalski/skills",
+  "commit": "2d228630ba14",
+  "kort": "kunskap/kallkort/emil-improve-animations.md"
+ },
+ {
+  "namn": "emil-review-animations",
+  "repo": "https://github.com/emilkowalski/skills",
+  "commit": "2d228630ba14",
+  "kort": "kunskap/kallkort/emil-review-animations.md"
+ },
+ {
+  "namn": "emil-write-swift",
+  "repo": "https://github.com/emilkowalski/skills",
+  "commit": "2d22863",
+  "kort": "kunskap/kallkort/emil-write-swift.md"
+ },
+ {
+  "namn": "faster-whisper och Remotion",
+  "repo": "https://github.com/SYSTRAN/faster-whisper",
+  "commit": "c45e173",
+  "kort": "kunskap/kallkort/faster-whisper-och-remotion.md"
+ },
+ {
+  "namn": "faster-whisper och Remotion",
+  "repo": "https://github.com/remotion-dev/remotion",
+  "commit": "1441a11",
+  "kort": "kunskap/kallkort/faster-whisper-och-remotion.md"
+ },
+ {
+  "namn": "FFmpeg",
+  "repo": "https://github.com/FFmpeg/FFmpeg",
+  "commit": "3e6cd5e",
+  "kort": "kunskap/kallkort/ffmpeg.md"
+ },
+ {
+  "namn": "frontend-design",
+  "repo": "https://github.com/anthropics/skills",
+  "commit": "dbd4588f9e10",
+  "kort": "kunskap/kallkort/frontend-design.md"
+ },
+ {
+  "namn": "Fulldev UI",
+  "repo": "https://github.com/fulldotdev/ui",
+  "commit": "b911307",
+  "kort": "kunskap/kallkort/fulldev-ui.md"
+ },
+ {
+  "namn": "Geiecke och Jaravels intervjuplattform",
+  "repo": "https://github.com/friedrichgeiecke/interviews",
+  "commit": "9429776",
+  "kort": "kunskap/kallkort/geiecke-och-jaravels-intervjuplattform.md"
+ },
+ {
+  "namn": "Gemini API och nanobanana-mcp-server",
+  "repo": "https://github.com/zhongweili/nanobanana-mcp-server",
+  "commit": "062b9c6fc9",
+  "kort": "kunskap/kallkort/gemini-api-och-nanobanana-mcp-server.md"
+ },
+ {
+  "namn": "Go-stilarna, Flowbite v4 och daisyUI",
+  "repo": "https://github.com/godaddy-wordpress/go",
+  "commit": "2bc28a3bb3c0",
+  "kort": "kunskap/kallkort/go-stilarna-flowbite-v4-och-daisyui.md"
+ },
+ {
+  "namn": "Go-stilarna, Flowbite v4 och daisyUI",
+  "repo": "https://github.com/themesberg/flowbite",
+  "commit": "232ebdb33a9e",
+  "kort": "kunskap/kallkort/go-stilarna-flowbite-v4-och-daisyui.md"
+ },
+ {
+  "namn": "Go-stilarna, Flowbite v4 och daisyUI",
+  "repo": "https://github.com/saadeghi/daisyui",
+  "commit": "bf3bac3a397b",
+  "kort": "kunskap/kallkort/go-stilarna-flowbite-v4-och-daisyui.md"
+ },
+ {
+  "namn": "gsap",
+  "repo": "https://github.com/greensock/gsap-skills",
+  "commit": "aed9cfd3277",
+  "kort": "kunskap/kallkort/gsap.md"
+ },
+ {
+  "namn": "hallmark",
+  "repo": "https://github.com/Nutlope/hallmark",
+  "commit": "13ac0ec7e148",
+  "kort": "kunskap/kallkort/hallmark.md"
+ },
+ {
+  "namn": "Harmony, tweakcn, Hyperglot och HCT-regeln",
+  "repo": "https://github.com/evilmartians/harmony",
+  "commit": "6dae4f337b7a",
+  "kort": "kunskap/kallkort/harmony-tweakcn-hyperglot-och-hct-regeln.md"
+ },
+ {
+  "namn": "Harmony, tweakcn, Hyperglot och HCT-regeln",
+  "repo": "https://github.com/jnsahaj/tweakcn",
+  "commit": "a3b47b37cba9",
+  "kort": "kunskap/kallkort/harmony-tweakcn-hyperglot-och-hct-regeln.md"
+ },
+ {
+  "namn": "Harmony, tweakcn, Hyperglot och HCT-regeln",
+  "repo": "https://github.com/material-foundation/material-color-utilities",
+  "commit": "e42b2e4f6fba",
+  "kort": "kunskap/kallkort/harmony-tweakcn-hyperglot-och-hct-regeln.md"
+ },
+ {
+  "namn": "hookify och claude-md-management",
+  "repo": "https://github.com/anthropics/claude-plugins-official",
+  "commit": "ea10b21",
+  "kort": "kunskap/kallkort/hookify-och-claude-md-management.md"
+ },
+ {
+  "namn": "humanizer",
+  "repo": "https://github.com/blader/humanizer",
+  "commit": "225a6f39ac85",
+  "kort": "kunskap/kallkort/humanizer.md"
+ },
+ {
+  "namn": "HyperUI",
+  "repo": "https://github.com/markmead/hyperui",
+  "commit": "252efcf",
+  "kort": "kunskap/kallkort/hyperui.md"
+ },
+ {
+  "namn": "impeccable",
+  "repo": "https://github.com/pbakaus/impeccable",
+  "commit": "6af45ac9a5eb",
+  "kort": "kunskap/kallkort/impeccable.md"
+ },
+ {
+  "namn": "inspo",
+  "repo": "https://github.com/Nutlope/inspo",
+  "commit": "0e1e6363f980",
+  "kort": "kunskap/kallkort/inspo.md"
+ },
+ {
+  "namn": "karpathy/autoresearch",
+  "repo": "https://github.com/karpathy/autoresearch",
+  "commit": "228791fb499a",
+  "kort": "kunskap/kallkort/karpathy-autoresearch.md"
+ },
+ {
+  "namn": "karpathy/autoresearch",
+  "repo": "https://github.com/davebcn87/pi-autoresearch",
+  "commit": "04b8a50dac7e",
+  "kort": "kunskap/kallkort/karpathy-autoresearch.md"
+ },
+ {
+  "namn": "KB-Whisper och whisper.cpp",
+  "repo": "https://github.com/ggml-org/whisper.cpp",
+  "commit": "0c7be69",
+  "kort": "kunskap/kallkort/kb-whisper-och-whisper-cpp.md"
+ },
+ {
+  "namn": "knowledge-work-plugins: smb-onboard, review-reputation och competitive-brief",
+  "repo": "https://github.com/anthropics/knowledge-work-plugins",
+  "commit": "33eeda1",
+  "kort": "kunskap/kallkort/knowledge-work-plugins-smb-onboard-review-reputation-competitive-brief.md"
+ },
+ {
+  "namn": "Kuraterade OFL-typsnitt",
+  "repo": "https://github.com/rsms/inter",
+  "commit": "353b61b9f443",
+  "kort": "kunskap/kallkort/kuraterade-ofl-typsnitt.md"
+ },
+ {
+  "namn": "Kuraterade OFL-typsnitt",
+  "repo": "https://github.com/adobe-fonts/source-serif",
+  "commit": "80d3f8894c09",
+  "kort": "kunskap/kallkort/kuraterade-ofl-typsnitt.md"
+ },
+ {
+  "namn": "Kuraterade OFL-typsnitt",
+  "repo": "https://github.com/undercasetype/Fraunces",
+  "commit": "7ccdec31c602",
+  "kort": "kunskap/kallkort/kuraterade-ofl-typsnitt.md"
+ },
+ {
+  "namn": "Kuraterade OFL-typsnitt",
+  "repo": "https://github.com/Familjen-Sthlm/Familjen-Grotesk",
+  "commit": "de7dfe09f601",
+  "kort": "kunskap/kallkort/kuraterade-ofl-typsnitt.md"
+ },
+ {
+  "namn": "Kuraterade OFL-typsnitt",
+  "repo": "https://github.com/googlefonts/atkinson-hyperlegible-next",
+  "commit": "7925f50f649b",
+  "kort": "kunskap/kallkort/kuraterade-ofl-typsnitt.md"
+ },
+ {
+  "namn": "Kuraterade OFL-typsnitt",
+  "repo": "https://github.com/IBM/plex",
+  "commit": "39276912b05f",
+  "kort": "kunskap/kallkort/kuraterade-ofl-typsnitt.md"
+ },
+ {
+  "namn": "Kuraterade OFL-typsnitt",
+  "repo": "https://github.com/Instrument/instrument-sans",
+  "commit": "7fa22308a3d0",
+  "kort": "kunskap/kallkort/kuraterade-ofl-typsnitt.md"
+ },
+ {
+  "namn": "Kuraterade OFL-typsnitt",
+  "repo": "https://github.com/google/fonts",
+  "commit": "1d0e46c79332",
+  "kort": "kunskap/kallkort/kuraterade-ofl-typsnitt.md"
+ },
+ {
+  "namn": "Lighthouse CI 0.15.1",
+  "repo": "https://github.com/GoogleChrome/lighthouse-ci",
+  "commit": "ebee453",
+  "kort": "kunskap/kallkort/lighthouse-ci.md"
+ },
+ {
+  "namn": "llepafils-metoden",
+  "repo": "https://github.com/00spoiler00/llepafils",
+  "commit": "95d5c30713",
+  "kort": "kunskap/kallkort/llepafils-metoden.md"
+ },
+ {
+  "namn": "Lucide och astro-icon",
+  "repo": "https://github.com/lucide-icons/lucide",
+  "commit": "7b0196e249ca",
+  "kort": "kunskap/kallkort/lucide-och-astro-icon.md"
+ },
+ {
+  "namn": "Lucide och astro-icon",
+  "repo": "https://github.com/natemoo-re/astro-icon",
+  "commit": "62c55f512bd6",
+  "kort": "kunskap/kallkort/lucide-och-astro-icon.md"
+ },
+ {
+  "namn": "Lucide och astro-icon",
+  "repo": "https://github.com/iconify/icon-sets",
+  "commit": "69ca5094ddd4",
+  "kort": "kunskap/kallkort/lucide-och-astro-icon.md"
+ },
+ {
+  "namn": "lychee",
+  "repo": "https://github.com/lycheeverse/lychee",
+  "commit": "54f8bf4",
+  "kort": "kunskap/kallkort/lychee.md"
+ },
+ {
+  "namn": "marketingskills: copywriting och brand-review",
+  "repo": "https://github.com/coreyhaines31/marketingskills",
+  "commit": "365b412152b9",
+  "kort": "kunskap/kallkort/marketingskills-copywriting-och-brand-review.md"
+ },
+ {
+  "namn": "marketingskills: copywriting och brand-review",
+  "repo": "https://github.com/anthropics/knowledge-work-plugins",
+  "commit": "33eeda1e8fd8",
+  "kort": "kunskap/kallkort/marketingskills-copywriting-och-brand-review.md"
+ },
+ {
+  "namn": "marketingskills: customer-research",
+  "repo": "https://github.com/coreyhaines31/marketingskills",
+  "commit": "365b412",
+  "kort": "kunskap/kallkort/marketingskills-customer-research.md"
+ },
+ {
+  "namn": "marketingskills: seo-audit, och claude-seo",
+  "repo": "https://github.com/coreyhaines31/marketingskills",
+  "commit": "365b412",
+  "kort": "kunskap/kallkort/marketingskills-seo-audit-och-claude-seo.md"
+ },
+ {
+  "namn": "AminForou/mcp-gsc",
+  "repo": "https://github.com/AminForou/mcp-gsc",
+  "commit": "d49eea9",
+  "kort": "kunskap/kallkort/mcp-gsc.md"
+ },
+ {
+  "namn": "MDN HTTP Observatory",
+  "repo": "https://github.com/mdn/mdn-http-observatory",
+  "commit": "e486eba",
+  "kort": "kunskap/kallkort/mdn-http-observatory.md"
+ },
+ {
+  "namn": "motion",
+  "repo": "https://github.com/motiondivision/ai-kit",
+  "commit": "b7e2c68fb3b",
+  "kort": "kunskap/kallkort/motion-skill.md"
+ },
+ {
+  "namn": "nexu-io/open-design",
+  "repo": "https://github.com/nexu-io/open-design",
+  "commit": "78d5637",
+  "kort": "kunskap/kallkort/nexu-io-open-design.md"
+ },
+ {
+  "namn": "nexu-io/open-design",
+  "repo": "https://github.com/alchaincyf/huashu-design",
+  "commit": "3bd465d",
+  "kort": "kunskap/kallkort/nexu-io-open-design.md"
+ },
+ {
+  "namn": "obra/superpowers, selektivt",
+  "repo": "https://github.com/obra/superpowers",
+  "commit": "bb92a77",
+  "kort": "kunskap/kallkort/obra-superpowers-selektivt.md"
+ },
+ {
+  "namn": "phuryn/pm-skills: interview-script",
+  "repo": "https://github.com/phuryn/pm-skills",
+  "commit": "c68487d",
+  "kort": "kunskap/kallkort/pm-skills-interview-script.md"
+ },
+ {
+  "namn": "PolyFuzz",
+  "repo": "https://github.com/MaartenGr/PolyFuzz",
+  "commit": "9d4814b",
+  "kort": "kunskap/kallkort/polyfuzz.md"
+ },
+ {
+  "namn": "ralph-loop",
+  "repo": "https://github.com/anthropics/claude-plugins-official",
+  "commit": "ea10b21",
+  "kort": "kunskap/kallkort/ralph-loop.md"
+ },
+ {
+  "namn": "refero",
+  "repo": "https://github.com/referodesign/refero_skill",
+  "commit": "2382e51",
+  "kort": "kunskap/kallkort/refero-mcp.md"
+ },
+ {
+  "namn": "rembg med BiRefNet",
+  "repo": "https://github.com/danielgatis/rembg",
+  "commit": "cd8f3665dd",
+  "kort": "kunskap/kallkort/rembg-med-birefnet.md"
+ },
+ {
+  "namn": "rembg med BiRefNet",
+  "repo": "https://github.com/ZhengPeng7/BiRefNet",
+  "commit": "c4d649666c",
+  "kort": "kunskap/kallkort/rembg-med-birefnet.md"
+ },
+ {
+  "namn": "resend",
+  "repo": "https://github.com/resend/resend-mcp",
+  "commit": "9bfb699",
+  "kort": "kunskap/kallkort/resend.md"
+ },
+ {
+  "namn": "resend",
+  "repo": "https://github.com/resend/resend-skills",
+  "commit": "fd14937",
+  "kort": "kunskap/kallkort/resend.md"
+ },
+ {
+  "namn": "seo-graph",
+  "repo": "https://github.com/jdevalk/seo-graph",
+  "commit": "c33eb1e",
+  "kort": "kunskap/kallkort/seo-graph.md"
+ },
+ {
+  "namn": "shadcn-namnen för tokens",
+  "repo": "https://github.com/shadcn-ui/ui",
+  "commit": "c6bcc126efb9",
+  "kort": "kunskap/kallkort/shadcn-namnen-for-tokens.md"
+ },
+ {
+  "namn": "Showboat och design-critique",
+  "repo": "https://github.com/simonw/showboat",
+  "commit": "d531261",
+  "kort": "kunskap/kallkort/showboat-och-design-critique.md"
+ },
+ {
+  "namn": "Showboat och design-critique",
+  "repo": "https://github.com/anthropics/knowledge-work-plugins",
+  "commit": "2d6f7e2",
+  "kort": "kunskap/kallkort/showboat-och-design-critique.md"
+ },
+ {
+  "namn": "SiteOne Crawler och advertools",
+  "repo": "https://github.com/janreges/siteone-crawler",
+  "commit": "f3d967b",
+  "kort": "kunskap/kallkort/siteone-crawler-och-advertools.md"
+ },
+ {
+  "namn": "SiteOne Crawler och advertools",
+  "repo": "https://github.com/eliasdabbas/advertools",
+  "commit": "59dc2be",
+  "kort": "kunskap/kallkort/siteone-crawler-och-advertools.md"
+ },
+ {
+  "namn": "skill-creator",
+  "repo": "https://github.com/anthropics/skills",
+  "commit": "dbd4588",
+  "kort": "kunskap/kallkort/skill-creator.md"
+ },
+ {
+  "namn": "slides",
+  "repo": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+  "commit": "56ea9cf",
+  "kort": "kunskap/kallkort/slides.md"
+ },
+ {
+  "namn": "Tabler, Phosphor och Simple Icons",
+  "repo": "https://github.com/tabler/tabler-icons",
+  "commit": "a4ce1404bc6d",
+  "kort": "kunskap/kallkort/tabler-phosphor-och-simple-icons.md"
+ },
+ {
+  "namn": "Tabler, Phosphor och Simple Icons",
+  "repo": "https://github.com/phosphor-icons/core",
+  "commit": "2b75f3ad12b4",
+  "kort": "kunskap/kallkort/tabler-phosphor-och-simple-icons.md"
+ },
+ {
+  "namn": "Tabler, Phosphor och Simple Icons",
+  "repo": "https://github.com/phosphor-icons/homepage",
+  "commit": "7a57592e564f",
+  "kort": "kunskap/kallkort/tabler-phosphor-och-simple-icons.md"
+ },
+ {
+  "namn": "Tabler, Phosphor och Simple Icons",
+  "repo": "https://github.com/simple-icons/simple-icons",
+  "commit": "4d29a35c9546",
+  "kort": "kunskap/kallkort/tabler-phosphor-och-simple-icons.md"
+ },
+ {
+  "namn": "taste-brandkit",
+  "repo": "https://github.com/Leonxlnx/taste-skill",
+  "commit": "f624f37",
+  "kort": "kunskap/kallkort/taste-brandkit.md"
+ },
+ {
+  "namn": "taste-brutalist",
+  "repo": "https://github.com/Leonxlnx/taste-skill",
+  "commit": "f624f37a8c65",
+  "kort": "kunskap/kallkort/taste-brutalist.md"
+ },
+ {
+  "namn": "taste-gpt",
+  "repo": "https://github.com/Leonxlnx/taste-skill",
+  "commit": "f624f37a8c65",
+  "kort": "kunskap/kallkort/taste-gpt.md"
+ },
+ {
+  "namn": "taste-image-to-code",
+  "repo": "https://github.com/Leonxlnx/taste-skill",
+  "commit": "f624f37a8c65",
+  "kort": "kunskap/kallkort/taste-image-to-code.md"
+ },
+ {
+  "namn": "taste-imagegen-frontend-mobile",
+  "repo": "https://github.com/Leonxlnx/taste-skill",
+  "commit": "f624f37",
+  "kort": "kunskap/kallkort/taste-imagegen-frontend-mobile.md"
+ },
+ {
+  "namn": "taste-imagegen-frontend-web",
+  "repo": "https://github.com/Leonxlnx/taste-skill",
+  "commit": "f624f37a8c65",
+  "kort": "kunskap/kallkort/taste-imagegen-frontend-web.md"
+ },
+ {
+  "namn": "taste-minimalist",
+  "repo": "https://github.com/Leonxlnx/taste-skill",
+  "commit": "f624f37a8c65",
+  "kort": "kunskap/kallkort/taste-minimalist.md"
+ },
+ {
+  "namn": "taste-redesign",
+  "repo": "https://github.com/Leonxlnx/taste-skill",
+  "commit": "f624f37a8c65",
+  "kort": "kunskap/kallkort/taste-redesign.md"
+ },
+ {
+  "namn": "taste-soft",
+  "repo": "https://github.com/Leonxlnx/taste-skill",
+  "commit": "f624f37a8c65",
+  "kort": "kunskap/kallkort/taste-soft.md"
+ },
+ {
+  "namn": "taste-stitch",
+  "repo": "https://github.com/Leonxlnx/taste-skill",
+  "commit": "f624f37a8c65",
+  "kort": "kunskap/kallkort/taste-stitch.md"
+ },
+ {
+  "namn": "taste-v1",
+  "repo": "https://github.com/Leonxlnx/taste-skill",
+  "commit": "f624f37a8c65",
+  "kort": "kunskap/kallkort/taste-v1.md"
+ },
+ {
+  "namn": "taste",
+  "repo": "https://github.com/Leonxlnx/taste-skill",
+  "commit": "f624f37a8c65",
+  "kort": "kunskap/kallkort/taste.md"
+ },
+ {
+  "namn": "Terrazzo",
+  "repo": "https://github.com/terrazzoapp/terrazzo",
+  "commit": "ea15d7e",
+  "kort": "kunskap/kallkort/terrazzo.md"
+ },
+ {
+  "namn": "ui-ux-pro-max",
+  "repo": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+  "commit": "56ea9cf174ed",
+  "kort": "kunskap/kallkort/ui-ux-pro-max.md"
+ },
+ {
+  "namn": "Unlighthouse, csp-evaluator och structured-data-validator",
+  "repo": "https://github.com/harlan-zw/unlighthouse",
+  "commit": "c3d5c5f",
+  "kort": "kunskap/kallkort/unlighthouse-csp-evaluator-structured-data-validator.md"
+ },
+ {
+  "namn": "Utopia och Capsize",
+  "repo": "https://github.com/trys/utopia-core",
+  "commit": "135c051",
+  "kort": "kunskap/kallkort/utopia-och-capsize.md"
+ },
+ {
+  "namn": "Utopia och Capsize",
+  "repo": "https://github.com/seek-oss/capsize",
+  "commit": "1fcf40a",
+  "kort": "kunskap/kallkort/utopia-och-capsize.md"
+ },
+ {
+  "namn": "vale-cli/agent-tools",
+  "repo": "https://github.com/vale-cli/agent-tools",
+  "commit": "5e8704f5c0",
+  "kort": "kunskap/kallkort/vale-cli-agent-tools.md"
+ },
+ {
+  "namn": "wondelai/skills: jobs-to-be-done och obviously-awesome",
+  "repo": "https://github.com/wondelai/skills",
+  "commit": "c172996",
+  "kort": "kunskap/kallkort/wondelai-jobs-to-be-done-och-obviously-awesome.md"
+ }
+]

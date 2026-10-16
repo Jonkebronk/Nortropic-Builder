@@ -1,0 +1,12 @@
+# JCodesMore/ai-website-cloner-template
+
+- **Källa:** [JCodesMore/ai-website-cloner-template](https://github.com/JCodesMore/ai-website-cloner-template), commit `ee3f5a2`, 2026-10-05. Lästa 2026-10-16 ur en klon: README och `.agents/skills/clone-website/SKILL.md` i sin helhet; `references/inspection-guide.md` och `references/framer-and-motion.md` och kommandot `.claude/commands/clone-website.md` på rubriker.
+- **Licens:** MIT.
+- **Vad det är:** en mall i Next.js med en skill som låter en agent bygga om befintliga webbsidor som redigerbar kod, med samma innehåll, layout och interaktioner. README nämner flytt av en sajt man äger, förlorad källkod och lärande som användningsfall.
+- **Hur det fungerar:** fyra steg. Kartlägg: läs projektet, öppna källsidorna och skriv en karta från källans adresser till de lokala, med en ägare per sida. Observera före bygget: hela sidan i dator- och mobilbredd, scrolla så att allt laddas, pröva menyer, flikar och länkar, skilj på vad som drivs av scroll, klick, hover och tid, läs faktiska värden (beräknade stilar, filerna sidan laddar) och spara skärmdumpar märkta med bredd och tillstånd. Bygg ett första helt varv. Jämför och laga: samma bredd, scroll och tillstånd, största skillnaderna först, och kalla aldrig något pixelperfekt som inte prövats.
+- **Kvalitet och underhåll:** 36 857 ★, 13 bidragsgivare, senaste push 2026-10-05, två öppna ärenden och PR.
+- **Det bästa vi kan ta:** kartan från gammal adress till ny (blir omdirigeringskartan), observationen före bygget i flera bredder och tillstånd (inventeringen och integrationerna), att läsa faktiska värden i stället för att gissa (kundens färger och typsnitt, `guide/2-5-yta.md`), och jämförelsen i samma bredd och tillstånd efter bygget (inget som skulle behållas saknas).
+- **Var det hamnar hos oss:** skillen `omfattning`, `inventering.md` (*Kartlägg och observera*). Mallen och koden tas inte in.
+- **Passar vår stack?** Metoden ja; koden nej. Mallen är Next.js och shadcn, vi bygger statiskt i Astro med egna CSS-tokens. Vi flyttar innehåll och adresser, inte designen.
+- **Risker och flaggor:** README säger själv att logotyper, varumärken och originaltexter tillhör sina ägare och att vissa sajter förbjuder kopiering. Vi använder metoden bara på kundens egen sajt med uppdrag, eller i övningssajterna (→ `guide/2-2-omfattning.md`, *Fånga bara kundens egen sajt*), och kopierar inte andras texter, bilder eller kännetecken (upphovsrättslagen 1 §, marknadsföringslagen 14 §; `BESLUT.md` 2026-10-16, Claudes anmärkning; ⚖️ tolkning).
+- **Inloggning:** nej.
