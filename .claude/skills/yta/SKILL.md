@@ -56,7 +56,7 @@ En sajt ska klara måttstockens fråga 3, *håller utförandet* (`mattstock/matt
 
 ## Förbud
 
-- Inga färger, typsnitt, storlekar, radier, skuggor eller avstånd som literaler i en sektion eller komponent; bara kitets roller. Undantag: `transparent`, `currentColor` och färger i bilder och SVG. → C48 (N2).
+- Inga färger, typsnitt, storlekar, radier, skuggor eller avstånd som literaler i en sektion eller komponent; bara kitets roller. Undantag: `transparent`, `currentColor` och färger i bilder och SVG. → C48 (N2). Saknar kitet en roll används närmaste befintliga roll, och förslaget om en ny roll skrivs i texten till Johnny, aldrig som ett nytt värde i CSS:en eller i kitet.
 - Ingen accent på dekor, som stegsiffror, listmarkörer, ikoner i cirklar, överrader och citatlinjer. → G3.
 - Ingen `font-weight` som kitet inte laddar en fil för, och inga typsnitt från tredje part vid sidladdning. → `typografi.md`.
 - Ingen text i bild (WCAG 1.4.5), ingen bild förstorad mer än cirka 1,4 gånger (G1), inget foto som kapas mitt i personen eller föremålet (G6).

@@ -23,6 +23,11 @@ from urllib.parse import urlparse
 HOPPA = ('/wp-content/', '/wp-includes/', '/wp-json', '/xmlrpc.php', '/feed', '/comments/feed')
 
 
+def adress(u):
+    # Frågesträngen följer med: _redirects matchar den inte, så den måste synas i utfallet (flyttregler.md).
+    return (u.path or '/') + (f'?{u.query}' if u.query else '')
+
+
 def las_gamla(kallor):
     adresser, varder = set(), set()
     filer = []
@@ -37,14 +42,14 @@ def las_gamla(kallor):
                 u = urlparse(loc)
                 varder.add(u.netloc)
                 if not u.path.endswith('.xml'):
-                    adresser.add(u.path or '/')
+                    adresser.add(adress(u))
                 else:
                     adresser.add(u.path)
         elif f.endswith('.txt'):
             for rad in open(f, encoding='utf-8', errors='replace'):
                 rad = rad.strip()
                 if rad and not rad.startswith('#'):
-                    adresser.add(urlparse(rad).path if '://' in rad else rad)
+                    adresser.add(adress(urlparse(rad)) if '://' in rad else rad)
     for f in filer:
         if f.endswith('.html') and varder:
             text = open(f, encoding='utf-8', errors='replace').read()
@@ -122,6 +127,15 @@ def main():
     gamla = las_gamla(a.gamla)
     print(f'\nGamla adresser: {len(gamla)}')
     for p in sorted(gamla):
+        if '?' in p:
+            vag = p.split('?')[0] or '/'
+            if re.search(r'[\s(]' + re.escape(p) + r'[\s),]', kommentarer):
+                utfall = f'medvetet: frågesträngen matchas inte, landar på {vag} (kommentar i _redirects)'
+            else:
+                utfall = f'frågesträng: _redirects matchar den inte, landar på {vag}'
+                varningar.append(f'{p}: frågesträngen matchas inte av _redirects och landar på {vag}; skriv utfallet som ett medvetet beslut (flyttregler.md)')
+            print(f'  {p:40} {utfall}')
+            continue
         if p in regler:
             utfall = f'{regler[p][1] or "302?"} → {regler[p][0]}'
         elif finns(dist, p):

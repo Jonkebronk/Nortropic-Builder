@@ -19,7 +19,7 @@ Delfil till `omfattning`, spår B. Regeln om omdirigeringskartan bor i `guide/2-
 | Interna länkar till nya adresser | sajten ska inte lita på sina egna omdirigeringar |
 | Båda sitemaps skickas in | den gamla med de gamla adresserna och den nya; varningar om omdirigeringar i den gamla är väntade |
 | Verifiera alla varianter | gamla och nya, med och utan `www`, `http` och `https` |
-| Adressbyte i Search Console | bara vid byte av domän eller underdomän, inte vid `http` → `https` eller nya sökvägar på samma domän |
+| Adressbyte i Search Console | bara vid byte av domän eller underdomän; inte vid `http` → `https`, inte vid www → utan www på samma domän (*"use canonical tagging and/or redirects without using the change of address tool"*, 📄 [Search Console-hjälpen](https://support.google.com/webmasters/answer/9370220), läst 2026-10-16) och inte vid nya sökvägar på samma domän |
 | Räkna med svängningar | "Expect temporary fluctuation"; en medelstor sajt tar några veckor eller mer |
 | Flytta när trafiken är låg | "Time your move to coincide with lower traffic, if possible" |
 
@@ -34,7 +34,7 @@ Delfil till `omfattning`, spår B. Regeln om omdirigeringskartan bor i `guide/2-
 | Högst 2 000 statiska och 100 dynamiska regler, 1 000 tecken per rad | Räcker för en småföretagssajt; statiska regler före dynamiska |
 | Den översta regeln för samma källa gäller | Dubbletter är fel |
 | En `*` per regel, `:splat` i målet; platshållare `:namn` | Bara när ett helt gammalt avsnitt flyttar |
-| Källan kan inte matcha frågesträngar | `/?p=12` landar på `/`; skriv det som ett medvetet utfall |
+| Källan kan inte matcha frågesträngar | `/?p=12` landar på `/`; skriv det som ett medvetet utfall. `kontrollera_omdirigeringar.py` varnar för en gammal adress med frågesträng som saknar en kommentar i `_redirects` |
 | Omdirigeringar körs före filerna och före `_headers` | En regel slår en fil med samma adress |
 | Gäller inte svar som Workerns kod skapar | Adresser under en Worker-väg (`/api/*`) omdirigeras i koden |
 | Omdirigering på domännivå stöds inte | `www` och `http` görs i zonen (nedan) |

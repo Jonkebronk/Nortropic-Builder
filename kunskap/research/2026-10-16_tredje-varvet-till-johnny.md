@@ -62,6 +62,10 @@ Här står de förslagen ur tredje varvets fem grupper: guiden 2-1–2-3, guiden
 | 50 | Kvalitetsskillens tak på 15 fynd | **Avgjort 19.09: ja** (`BESLUT.md`) | – |
 | 51 | En andra uppgift innan någon skill kortas | Ja | – |
 | 52 | Patientomdömen och tystnadsplikten till juristen | Ja | – |
+| 53 | Mobilmenyn: 2-3 säger synliga länkar vid fyra, beslutet säger "Meny" | 2-3 säger "på datorn" | ja (menyn i mobilen) |
+| 54 | Ska en skill bära de mallar den kräver (briefens sex rubriker i `strategi`)? | Ja, rubrikerna, inte mallen | – |
+| 55 | Gamla adresser med frågesträng och trafik: regel i zonen | Ja | – |
+| 56 | Platssidans rubrik: kategori och ort i stället för tjänst och ort | Ja | – |
 
 ---
 
@@ -554,4 +558,33 @@ Grupperna `kontroller` och `baslinje-2` blev klara efter att listan skrevs. Dera
 
 - **Frågan:** Två körningar utan skillen tog inte med patientens omdöme, med tystnadsplikten som skäl. Ska frågan om att visa patientomdömen på en vårdsajt läggas till juristen i bilaga E?
 - **Rekommendation:** ja, som fråga i bilaga E avsnitt 4. ⚖️ Tolkning, inte juridisk rådgivning. Beslutet 2026-10-15 (*Omdömen*) står tills vidare.
+
+## Tillägg: baslinje-1
+
+Gruppen `baslinje-1` mätte `strategi`, `omfattning`, `struktur`, `skelett` och `yta` (`kunskap/research/2026-10-16_baslinjer-1.md`). Metoden, faktarättelsen om adressbytet vid www (Search Console-hjälpen) och förtydligandena i `yta` och `skelett` är införda. Med `baslinje-2` har nu alla elva skills en baslinje; punkt 51 (en andra uppgift innan något kortas) gäller också `omfattning`, som gav 97,6 % i båda armarna.
+
+### 53. Mobilmenyn: guiden säger emot sig själv
+
+- **Frågan:** `guide/2-3-struktur.md` (N2) säger *"Med fyra eller färre toppnivålänkar visas de synligt även i mobil"* (📄 NN/g, *Hamburger Menus*). `guide/2-4-skelett.md` (N1) och `BESLUT.md` 2026-10-15 säger en knapp med ordet "Meny" på mobilen. Två körningar med skillen flaggade motsägelsen.
+- **Rekommendation:** 2-3 säger "på datorn", så att beslutet 2026-10-15 gäller mobilen. Hör ihop med punkt 2 (menyn i mobilen).
+- **Vid ja:** `guide/2-3-struktur.md`, `.claude/skills/struktur/`.
+
+### 54. Ska en skill bära de mallar den kräver?
+
+- **Frågan:** `strategi` hänvisar till briefmallen i guiden men har den inte, och utan guiden fick ingen körning rätt rubriker eller rörelsebudget. Principen *Vad, men inte hur* (`guide/bilaga-b-skills.md`) gör det till Johnnys sak om skillsen får upprepa guidens mallar.
+- **Förslag:** `.claude/skills/strategi/SKILL.md`, *Ut*, första punkten, får tillägget *"Rubrikerna är sex: sammanfattning, nordstjärna, besökare, primär handling, ton och intryck (med rörelsebudget: sparsam, måttlig eller expressiv) och får inte påstås."*
+- **Rekommendation:** ja, rubrikerna men inte hela mallen. Skillsen körs i kundbygget där guiden inte alltid läses.
+
+### 55. Gamla adresser med frågesträng och trafik
+
+- **Frågan:** `_redirects` matchar inte frågesträngar, så `/?p=12` landar på `/` med 200. Regeln i dag: skriv det som ett medvetet utfall. Förslaget: en adress med frågesträng och trafik eller länkar får en omdirigeringsregel i zonen som matchar frågesträngen (`http.request.uri.args`, 📄 Cloudflare Docs, *Redirects*); utan trafik skrivs utfallet som ett beslut.
+- **Rekommendation:** ja. Skriptet varnar redan för en adress med frågesträng utan beslut (rättat i kväll).
+- **Vid ja:** `.claude/skills/omfattning/flyttregler.md`, tabellen `_redirects`.
+
+### 56. Platssidans rubrik
+
+- **Frågan:** `struktur/platser.md` säger rubrik med tjänst och ort. I provet gav det kontorssidor som hette efter en av tjänsterna och konkurrerade med tjänstesidan om samma sökning.
+- **Förslag:** *"Rubrik med verksamhetens kategori och ort (till exempel Trädvård i Luleå), och den primära handlingen för just den platsen. Har firman flera tjänster heter platssidan inte efter en av dem."*
+- **Rekommendation:** ja. Förstavyns N1-regel (tjänst och ort) gäller startsidan och tjänstesidorna oförändrad.
+- **Vid ja:** `.claude/skills/struktur/platser.md`.
 
