@@ -3482,6 +3482,22 @@
    "placering": "släpp",
    "placering_motivering": "Ny skill i jakubkrehel/skills (PR #44, commit 4c66b1f, 2026-10-12), MIT. Den saknas i inventeringen. Den gör tekniska ritningar av fysiska föremål (vyer, sprängskisser, mått) med en egen visningssida och nedladdning som SVG, PNG och PDF. Det är inte ytans behov. Egna ikoner ritas i ikonfamiljens stil (G2), och bilder av kundens arbete är foton. Möjligen intressant för en hantverkare eller produktkund i N3. ⚠️ Bara SKILL.md avsnitt 1–3 är lästa. (andra varvet 2026-10-16, yta-2)",
    "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/technical-drawing.md"
+  },
+  {
+   "namn": "ruflo (ruvnet, tidigare claude-flow)",
+   "typ": "Verktyg",
+   "dom": "Avstå",
+   "lage": "",
+   "lager": "F",
+   "aven": "",
+   "fakta": "75 574 ★ · MIT · v3.56.10 (2026-10-14)",
+   "roll": "Ett lager över Claude Code för agentorkestrering: svärmar, vektorminne, hooks, en MCP-server med över 300 verktyg och kopierade skills. Själva agenterna är Claude Codes egna delagenter.",
+   "flagga": "init lägger in elva sorters hooks, slår på agent teams, skriver ruflo@latest i .mcp.json, ett block i ~/.claude/CLAUDE.md (via HOME, förbi CLAUDE_CONFIG_DIR) och läser andra projekts MEMORY.md; reklam för sponsrad kapacitet i prompten; dolt preinstall-skript fram till 3.5.x.",
+   "din_lank": true,
+   "beslut": "väntar på Johnny",
+   "placering": "släpp; berör tidigast N4. Idén om en levande överblick till 3-5 (N2)",
+   "placering_motivering": "Ruflo är claude-flow under nytt namn. Det det utför gör Claude Codes delagenter, agent teams och arbetsflöden redan, och standardinstallationen bryter N1 (hooks, agent teams), avgränsningen med ~/.claude-bygg och regeln om MCP i lokal scope. Ingen sajt har behövt det. Utvärdering: kunskap/research/2026-10-16_ruflo.md.",
+   "kallkort": "https://github.com/Nortropic/Nortropic-Builder/blob/main/kunskap/kallkort/ruflo.md"
   }
  ]
 }
