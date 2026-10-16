@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-17 kl. 00.25 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-17 kl. 00.18 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Stående uppdrag (Johnny 2026-10-16 kl. 23.45) – gäller före allt nedan
 
@@ -25,7 +25,7 @@ Ordagrant i `BESLUT.md`, *Stående uppdrag fram till nästa övningssajt*. Claud
 
    Rätta i biblioteket när felet är generellt och i sajten när det är sajtens.
 
-   **Läget 00.25:**
+   **Läget 00.18:**
    - **Frågelistan är avgjord** (`BESLUT.md`, *Frågelistan efter tredje varvet avgörs*).
      - Guidetexten är införd (`badbc22`).
      - Mikroproven: 54 behållen, 43 c och 56 strukna (`kunskap/research/2026-10-17_mikroprov-fragelistan.md`).
