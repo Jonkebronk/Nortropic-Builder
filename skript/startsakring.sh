@@ -103,9 +103,10 @@ for p in $(claude mcp list 2>/dev/null | grep -oE 'npx -y [^ ]+@latest' | awk '{
 done
 # Verktygslåset: varje servers verktygslista och instruktioner jämförs med den låsta (BESLUT.md 2026-10-16, Senaste version
 # med verktygslås …). En ändring rapporteras och godtas av Johnny med: python3 -I skript/mcp-verktygslas.py --uppdatera
+# Servrar som låset inte når (OAuth, claude.ai-connector, inte tillagd) står på en rad som olåsta.
 while IFS= read -r rad; do
   echo "$rad"; [[ "$rad" == ⚠️* ]] && varningar+=("MCP: ${rad#⚠️ }")
-done < <(python3 -I "$ROT/skript/mcp-verktygslas.py" 2>&1 | grep -v 'kräver inloggning')
+done < <(python3 -I "$ROT/skript/mcp-verktygslas.py" 2>&1)
 
 # 5. Plugins och marknadsplatser
 rubrik "Plugins"

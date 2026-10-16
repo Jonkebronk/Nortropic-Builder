@@ -20,7 +20,7 @@ Uppdaterad 2026-10-16 kl. 17.23 på Johnnys Mac, i den första byggsessionen (`c
   CLAUDE_CONFIG_DIR=$HOME/.claude-bygg claude mcp add browserstack -e BROWSERSTACK_USERNAME=DITT_NAMN -e BROWSERSTACK_ACCESS_KEY=DIN_NYCKEL -- npx -y @browserstack/mcp-server@latest
   ```
   Nycklarna skaffas i Google Cloud (Maps Grounding Lite och Developer Knowledge API, var sin begränsad nyckel; Grounding Lite kräver fakturering), Google AI Studio (Gemini, betald nivå i EES) och BrowserStacks *Account Settings* (betald plan).
-- Kör verktygslåset efter inloggningarna: `python3 -I skript/mcp-verktygslas.py` (låser de nya; rapporterar ändringar).
+- Kör verktygslåset efter inloggningarna: `python3 -I skript/mcp-verktygslas.py` (låser servrar med nyckel, rapporterar ändringar; servrar med OAuth och Mobbin står som olåsta, eftersom skriptet inte når deras token).
 - Kör varje servers prov mot övningssajten enligt MCP-gruppens rapport, sparad lokalt i sajtens `andra-varvet/mcp-jamforelse.md` (*Per MCP*, *Nya kandidater*). Skriv resultatet per server i sajtens `mcp-prov.md`: vad som gjordes, vad det gav, och om servern behålls. Lägg fram det för Johnny.
 
 **2. Gör klart övningssajten.** Den är klar när allt nedan är gjort:

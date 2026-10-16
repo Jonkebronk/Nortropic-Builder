@@ -15,7 +15,7 @@ En kontroll i startsäkringen (beslut "kontroll", Johnny 17.40). Den läser varj
 - Skriptet skickar `initialize` (protokoll 2025-06-18), `notifications/initialized` och `tools/list` till varje post i `mcp-servrar.json`, över HTTP (30 sekunders gräns) eller stdio.
 - Per verktyg sparas namn, beskrivning, indataschema och annoteringar. Serverns instruktioner sparas också, i `inventering/mcp-verktyg/<namn>.json`.
 - Nästa körning jämför med låsningen: nytt eller borttaget verktyg, ny beskrivning, nya parametrar, nya annoteringar och nya instruktioner. En ändring skrivs med ⚠️, och startsäkringen samlar varningarna. `--uppdatera` godtar alla nya listor på en gång.
-- Poster med `"inloggning": true` hoppas över.
+- Adress, huvuden och miljövariabler läses också ur `~/.claude-bygg/.claude.json` (lokal scope för repot), så att en server med nyckel kan låsas. Nycklarna skrivs aldrig ut och sparas aldrig. HTTP 401 eller 403, en claude.ai-connector (`"connector": true`) och en server som inte är tillagd ger en rad *Olåsta* i stället för en tyst överhoppning (rättat 2026-10-16, se nedan).
 
 ## Varför – källorna
 - **En server kan byta verktyg utan ny version.** Specifikationen har `notifications/tools/list_changed` (2025-11-25, `server/tools.mdx`, *List Changed Notification*). Claude Code hämtar då den nya listan, *"so you don't need to reconnect it"*, och det gäller också prompter och resurser (Claude Code, MCP).
@@ -25,7 +25,7 @@ En kontroll i startsäkringen (beslut "kontroll", Johnny 17.40). Den läser varj
 - I praktiken skrev BrowserStacks server om 17 beskrivningar och lade till fem verktyg mellan 1.4.1 och 2.2.1, utan att utgåvan sa det, enligt en extern granskare ([#476](https://github.com/browserstack/mcp-server/issues/476)).
 
 ## Kvalitet och underhåll
-Nytt i dag: 12 servrar är låsta, och inga ändringar är rapporterade än. Fynd vid läsningen, inga rättade:
+Nytt i dag: 14 servrar är låsta, och inga ändringar är rapporterade än. Fynd vid läsningen; 1, 2 och 6 är rättade samma kväll (se *Rättat*):
 1. **Servrar med inloggning låses aldrig.** `las()` hoppar över alla poster med `inloggning`, och skriptet har inget läge för token eller nyckel. Ändå skriver det *"låses vid första körningen med token"*, och `LAGE.md` (steg 1) säger *"Kör verktygslåset efter inloggningarna … (låser de nya; rapporterar ändringar)"*. Nio servrar blir olåsta: Figma, Cloudflare, Mobbin, 21st, DataForSEO, Grounding Lite, Google Developer Knowledge, nanobanana och BrowserStack. Startsäkringen filtrerar dessutom bort de raderna (`grep -v 'kräver inloggning'`), så Johnny ser inte att de saknas. Socket låstes utan inloggning; om listan blir en annan efter OAuth ser låset det inte ⚠️.
 2. **stdio har ingen tidsgräns.** `vanta()` läser rad för rad utan timeout. En server som aldrig svarar stoppar startsäkringen.
 3. **Bara verktyg och instruktioner.** Prompter och resurser låses inte, fast Claude Code hämtar om dem också. `outputSchema`, `title` och `_meta` jämförs inte.
@@ -33,6 +33,13 @@ Nytt i dag: 12 servrar är låsta, och inga ändringar är rapporterade än. Fyn
 5. **Specifikationen har gått vidare.** Version 2026-07-28 (utgiven 2026-07-28) tar bort `initialize` och `Mcp-Session-Id` och inför `server/discover`. En server som bara talar den nya versionen avvisar skriptets handskakning (`versioning.mdx`: äldre klient mot ny server *"Fails"*). Skriptet skriver då *"gick inte att läsa"*, så felet syns. Men skriptet behöver `server/discover` när den första servern byter.
 6. **Listan finns på två ställen,** `mcp-servrar.json` och `~/.claude-bygg/.claude.json`, och de skiljer sig redan: BrowserStack står i listan men är inte tillagd.
 7. **Ny kod körs före granskningen.** Stdio-servrarna startas med `@latest`, så den nya versionen körs innan Johnny har sett ändringen. Låset jämför men skannar inget, medan bilaga A säger *"En uppdatering skannas som en ny installation"*.
+
+**Rättat 2026-10-16 kl. 18.17** (huvudsessionen):
+- **1:** varje server prövas. Grounding Lite och Google Developer Knowledge låstes utan nyckel, eftersom deras `tools/list` är öppen (5 och 3 verktyg). Figma, Cloudflare, 21st och DataForSEO svarar HTTP 401 och står som olåsta, liksom Mobbin (connector) och nanobanana och BrowserStack (inte tillagda). Filtret i startsäkringen är borttaget. OAuth-token ligger i macOS nyckelring, och den läser skriptet inte ⚠️: de fyra servrarna förblir olåsta tills det finns ett sätt som inte rör nyckelringen.
+- **2:** stdio har en tidsgräns på 120 sekunder (npx och uvx kan behöva hämta paketet först). Prövat med en process som aldrig svarar och gränsen satt till 3 s: *"inget svar inom 3 s"*.
+- **6:** en server som finns i byggsessionen men inte i `mcp-servrar.json` ger en ⚠️-rad. Prövat med en påhittad server.
+- **Felprovet:** en ändrad beskrivning och nya instruktioner i en kopia av Motions låsning gav *"ÄNDRAD sedan låsningen – ny beskrivning: search-motion-docs; nya instruktioner till modellen"*. Låsningen i repot var orörd.
+- **Källan i bilaga A** (*Risker och flaggor* nedan) är bytt till `server/tools.mdx`, Claude Code, MCP och Invariant Labs, och skriptets huvud likaså.
 
 ## Det bästa vi kan ta
 - rugsnare graderar fynden: BREAKING (parametrar), COSMETIC (beskrivningar) och NEW (verktyg). Samma tredelning i rapporten gör Johnnys granskning snabbare.
@@ -51,4 +58,4 @@ Ja. Python med bara standardbiblioteket, kört med `-I` från repots rot.
 - `--uppdatera` godtar ändringarna för alla servrar på en gång.
 
 ## Inloggning
-Inget för skriptet. Servrar med OAuth eller nyckel kräver ett läge som läser token eller nyckel utanför repot, till exempel ur `~/.claude-bygg/.claude.json`, utan att skriva ut den. Mobbin är en claude.ai-connector och kan inte nås av skriptet alls ⚠️.
+Nycklar i huvuden eller miljövariabler läses ur `~/.claude-bygg/.claude.json` utan att skrivas ut (rättat 2026-10-16). OAuth-token ligger i nyckelringen och nås inte. Mobbin är en claude.ai-connector och kan inte nås av skriptet alls ⚠️.
