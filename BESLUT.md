@@ -1187,3 +1187,18 @@ Claude jämförde Mobbin, Refero och Inspo. Förslaget var Inspo (gratis, redan 
 > 1117 grejen är overkill, den behövs inte, det är ju trots allt ett företag som säljer sina tjänster, inte ett sjukhus
 
 **Innebär:** sektionen tas bort från övningssajten, och biblioteket behåller inte varningsrutan och styckena efter punkterna som byggdes för den. Guiden och skillsen kräver ingen sådan information, och 1177 används fortfarande som källa för alt-texter. Beslutet gäller övningssajten; om det ska bli en regel för alla vårdnära kunder säger Johnny till.
+
+## 2026-10-16: Alla skills gås igenom, jämförs med originalen och Apples HIG kommer in
+
+**Status:** gäller.
+
+Johnny frågade om tabellen över skillsen verkligen var alla, och Claude berättade att originalen aldrig hade körts mot sajten, bara destillerats. Claude föreslog ett andra varv där originalen körs som jämförelse i scratch, eftersom det går emot avgränsningen i `guide/3-3`. Johnny, omkring 14.25:
+
+> Jag vill att vi går igenom alla skills och destillerar/jämför även reflekterar ifall det är nåt vi kan kompetenshöja eller kompetenssäkra utifrån best pratices för vad vi försöker upp nå här. Jag saknar apple hicc (?) guidelines. om vi behöver mer information så websearchar duk kollar github, open source, dokumentation och artiklar om hur man bygger hemsida vad man ska tänka på, lovable har massa artiklar, dribbble har med flera andra källor. Think hard, iterate.
+
+**Innebär:**
+- Alla 61 skills från webb-pro och skillsen bland de nya kandidaterna läses i sin helhet och jämförs regel för regel med våra egna skills och guiden. Det som saknas och höjer kvaliteten destilleras in med källa.
+- Originalens egna granskningar prövas mot övningssajten som jämförelse. Originalen läses som data i scratch och installeras inte; avgränsningen i `guide/3-3` gäller fortsatt för byggsessionens konfiguration.
+- Apples Human Interface Guidelines (Johnny skrev "apple hicc") läses och destilleras för webben.
+- Byggguider och artiklar om hur man bygger en sajt läses, bland annat Lovables och Dribbbles, som underlag för luckor.
+- Varje del avslutas med en reflektion: vad vi kan kompetenshöja och vad som behöver kompetenssäkras.
