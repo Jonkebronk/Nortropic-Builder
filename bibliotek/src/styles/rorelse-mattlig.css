@@ -5,18 +5,24 @@
 @media (prefers-reduced-motion: no-preference) {
 
   @supports (animation-timeline: view()) {
+    /* Egenskaperna skrivs var för sig: med förkortningen animation slår minifieraren (Lightning CSS) in view() i den,
+       där animation-timeline inte får stå, och Chromium avvisar då hela regeln (andra varvet 2026-10-16, rörelse). */
     [data-rorelse="mattlig"] main > section:not(.forstavy, .sidtopp) .behallare > * {
-      animation: rorelse-upp linear both;
+      animation-name: rorelse-upp;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
       animation-timeline: view();
       animation-range: entry 0% entry 70%;
     }
   }
 
   [data-rorelse="mattlig"] .kort { transition: transform var(--k-tid) var(--k-kurva), box-shadow var(--k-tid) var(--k-kurva); }
-  [data-rorelse="mattlig"] .tjanster .kort:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgb(0 0 0 / 0.08); }
+  @media (hover: hover) and (pointer: fine) {
+    [data-rorelse="mattlig"] .tjanster .kort:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgb(0 0 0 / 0.08); }
+  }
 
   @supports (animation-timeline: scroll()) {
-    [data-rorelse="mattlig"] .sidhuvud { animation: sidhuvud-skugga linear both; animation-timeline: scroll(); animation-range: 0 120px; }
+    [data-rorelse="mattlig"] .sidhuvud { animation-name: sidhuvud-skugga; animation-timing-function: linear; animation-fill-mode: both; animation-timeline: scroll(); animation-range: 0 120px; }
   }
 }
 
