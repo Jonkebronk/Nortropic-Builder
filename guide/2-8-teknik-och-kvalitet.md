@@ -21,7 +21,7 @@ Lagret gör sajten till något som fungerar: den bygger, är snabb, tillgänglig
 - [N2] **Få beroenden och låst låsfil.** Varje bibliotek är vikt, underhåll och en väg för fel. 🔧 Inget UI-komponentbibliotek som styr utseendet → `2-4-skelett.md` (fallgrop 96).
 - [N2] **Gratisplanen räcker för typ A:** 100 000 Worker-anrop per dag (statiska filer räknas inte), 10 ms CPU per anrop, en regel för rate limiting, tre dagars loggar. Spamvågor mot formuläret äter anrop; "gratis att börja" kan bli dyrt att driva (fallgrop 66). 📄 research §8
 
-Innehåll skilt från design: texterna → `2-7-innehall.md`, komponenterna → `2-4-skelett.md`. HTML först, utan JavaScript: regeln → `2-4-skelett.md`; kontrollen står i N2-tabellen under *Kontroll*.
+**Stacken (Johnny 2026-10-16):** Astro med React-öar. React, Tailwind, Motion och annat JavaScript är tillåtna. React renderas till HTML vid bygget där det går och laddas i webbläsaren (`client:visible` och liknande) bara där interaktionen kräver det. Krockar med Lighthouse 100, *HTML först* eller rörelsereglerna tas upp med Johnny när de uppstår (`BESLUT.md` 2026-10-16, *React, Tailwind och JavaScript tillåts*). Innehåll skilt från design: texterna → `2-7-innehall.md`, komponenterna → `2-4-skelett.md`. HTML först, utan JavaScript: regeln → `2-4-skelett.md`; kontrollen står i N2-tabellen under *Kontroll*.
 
 ### Kodstandard
 

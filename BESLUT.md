@@ -1105,3 +1105,16 @@ Johnny frågade omkring 12:07 var kompetensinventeringen, verktygen, skillsen oc
 - MCP-servrar tas in där de ger något. De som kräver konto eller nyckel väntar på Johnny.
 - Premiumpasset körs på övningssajten med skillsen: rena foton, detaljfinish, skalor, rörelse, text, rikare sektioner, fler kontroller och en skarpare granskare. Johnny dömer resultatet.
 - Varje post i inventeringen får ett beslut i fältet `beslut`: skill, bibliotek, kontroll, MCP, senare nivå eller släpp.
+
+## 2026-10-16: React, Tailwind och JavaScript tillåts
+
+**Status:** gäller.
+
+Johnny frågade omkring 12:25: *"varför kan vi inte ha java och react?"* Claude svarade att inget i guiden förbjuder React, att JavaScript redan används i små skript och att React i Astro kan renderas till HTML vid bygget. Valet i N1 handlade om prestanda (Lighthouse 100) och enkelhet. Claude föreslog en pilot med mätning. Johnny svarade omkring 12:28:
+
+> Vi ska tillåta allt, möter vi på problem så får vi tänka tillsammans bara.
+
+**Innebär:**
+- React, Tailwind, Framer Motion (Motion) och annat JavaScript är tillåtna i biblioteket och på sajterna. Det gäller också komponenter från 21st.dev, Aceternity, React Bits och liknande, med licens per komponent.
+- Astro står kvar som ramverk. React används som öar i Astro: renderad till HTML vid bygget där det går, och laddad i webbläsaren (`client:visible` och liknande) där interaktionen kräver det.
+- Krockar med tidigare mål och beslut tas upp med Johnny när de uppstår, i stället för att stoppa på förhand. Det gäller Lighthouse 100, *HTML först*, ingen text som börjar osynlig och sparsam rörelse.
