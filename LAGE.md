@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-16 kl. 01.08 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-16 kl. 06.07 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Kort
 
@@ -76,7 +76,7 @@ Johnny tog in fem av förslagen till checklistan och lade till ett sjätte. `mal
    - `llms.txt` struken
 
    Kontrollregistret har fått Lighthouse 100, 2b och 7c. Guiden har 85 N1-punkter.
-4. **Nästa:** steg 6 (förvaltningsrapportens form) och genomgången efter sajten (`guide/5-byggplan.md`). Nästa mätning av granskaren görs på nya sajter och på systemets egna utkast.
+4. **Steg 6:** rapporten är skriven och väntar på Johnnys dom (sajtens `rapporter/2026-10.md`, med ögonblicksbilden `2026-10.json`). Därefter kommer genomgången efter sajten (`guide/5-byggplan.md`). Nästa mätning av granskaren görs på nya sajter och på systemets egna utkast.
 
 ## Väntar på Johnny
 
