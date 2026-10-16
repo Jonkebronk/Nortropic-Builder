@@ -1557,3 +1557,17 @@ Rörelseskillen hade mätt att frågan besökaren trycker på hoppar 74–103 px
 > ja
 
 **Innebär:** `guide/2-4` (två rader), bibliotekets `Fragor.astro`, övningssajtens kopia och skillsen `skelett`, `kvalitet` och `rorelse` säger `<details>` utan `name` för vanliga frågor. `details name` står kvar i statustabellen i `kvalitet/modern-html-css.md` som funktion, men används inte för vanliga frågor.
+
+## 2026-10-16: Skillsen steg 3, lucka 1 – Chrome DevTools
+
+**Status:** gäller.
+
+Claude lade fram mikroprovet av lucka 1 (`kunskap/research/2026-10-16_mikroprov-lucka1.md`). Bara rörelsens nya princip rättade ett fel som kontrollen visade (3 av 5 mot 0 av 5). I granskare, skelett, yta och innehåll visade kontrollen inte felet, och raderna ströks; i granskaren gjorde raden det sämre. Claude frågade om lucka 1 skulle committas som den stod och om arbetet skulle gå vidare till lucka 2. Johnny, kl. 22.40:
+
+> ja
+
+**Innebär:**
+- `rorelse/SKILL.md`, princip 13 (*Seg mäts innan något ändras*), och `rorelse/granskning.md`, *Mätning*.
+- `kvalitet/webblasarverktyg.md` är en ny faktafil om Chrome DevTools MCP, med pekare från `kvalitet/SKILL.md` och `kvalitet/kontroller.md`.
+- `guide/2-8` och bilaga A beskriver Chrome DevTools roll enligt domen 21.37.
+- Från lucka 2 körs kontrollen först; visar den inte felet stryks tillägget utan att den nya armen körs (`larande/skills.md`, *Gör kontrollen utan vägledning inte felet finns inget att rätta*).

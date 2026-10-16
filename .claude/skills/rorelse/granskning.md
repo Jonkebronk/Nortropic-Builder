@@ -64,8 +64,9 @@ Högst fem till sju förslag för en hel sajt, ordnade efter vad de ger besökar
 - Det som inte syns på bilder eller video märks *för lite information* (→ C61).
 - **Vad som gör rörelsen underkänd.** Kowalski blockerar för förflyttning på något som används mycket eller startas med kortkommando, entré från `scale(0)`, ease-in på en entré och layoutegenskaper som har en enkel lösning i transform. Hos oss får de högst allvaret `medel` om de bara har Kowalski som källa. Taket gäller inte när WCAG eller två oberoende källor säger samma sak, som förflyttning med `reduce` (WCAG 2.3.3) och layoutegenskaper (web.dev, Motion och GSAP). 📄 Kowalski, `review-animations` (*Block*); → `guide/bilaga-b-skills.md`, *granska*.
 
-## Mätning med Playwright
+## Mätning
 
+- **Seg:** INP och dess delar mäts enligt `../kvalitet/prestanda.md`. Chrome DevTools ger mobil med tryck och CPU-strypning i samma `emulate`-anrop, och `performance_start_trace` visar vilket skript som tar tiden (→ `../kvalitet/webblasarverktyg.md`). Längden läses ur `getAnimations()` på elementet medan det rör sig.
 - Följ en övergång bildruta för bildruta med `requestAnimationFrame` i sidan och läs `getBoundingClientRect()` och `getComputedStyle()`. Samplingar från testskriptet med `setTimeout` missar korta övergångar.
 - Prova hover och tryck med musen (`hover()`, `mouse.down()`) på datorn och `tap()` med `hasTouch` på mobilen. Stoppa navigeringen med en klicklyssnare som anropar `preventDefault()`, annars lämnar knappen Boka sidan.
 - Sajtens innehållspolicy (CSP) stoppar `addStyleTag`. Ett förslag provas därför i en egen testkontext med `bypassCSP: true`, genom att HTML-svaret ändras med `route`, eller med `document.styleSheets[0].insertRule(...)`, som CSP inte stoppar. Sajten ändras aldrig för ett prov.

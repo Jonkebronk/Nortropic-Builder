@@ -95,7 +95,7 @@ Utvidgning av C56 (rörelse, ägs av `guide/2-6-rorelse.md`): med `reducedMotion
 | Playwright | 1.64.1 i `skript/` | Chromium och WebKit, `ariaSnapshot()`, `forcedColors`, `reducedMotion`, `bypassCSP` för textavstånd; CDP bara i Chromium | bfcache är avstängd i dess Chromium; Tab i WebKit når bara fält |
 | @axe-core/playwright | 4.14.0 | Kontroll 8 och 8c–8e | MPL-2.0; WebKit testas inte uppströms ⚠️ |
 | Lighthouse | 13.5.0 i `skript/` | Kontroll 9 och 9b | Lighthouse CI 0.15.1 ligger kvar på Lighthouse 12.6.1, utan commit sedan juni 2025; mätvärdena läses därför direkt ur Lighthouse 13 |
-| chrome-devtools-mcp | 1.11.0 | Diagnos när en kontroll fallerat: spårning, insikter, emulering, `take_snapshot` | Alltid `--no-usage-statistics --no-performance-crux --isolated`; inte en grind |
+| chrome-devtools-mcp | 1.11.0 | Diagnos när en kontroll fallerat, prov av lägen, mobil med tryck, video, samtycke i isolerad kontext och INP ([webblasarverktyg.md](webblasarverktyg.md)) | Alltid `--no-usage-statistics --no-performance-crux --isolated`; inte en grind |
 | lychee | 0.24.2 | Kontroll 11 | Apache-2.0 eller MIT; ett binärprogram via Homebrew, som startsäkringen sedan håller aktuellt. Inte installerat 2026-10-16; kontrollskriptet går igenom länkarna själv (11). |
 | csp-evaluator | 1.1.8 | Kontroll 10d | Apache-2.0; finns redan i `skript/node_modules` via Lighthouse och deklareras som eget beroende; körs med båda policyerna samtidigt (`evaluateForFailure([meta, huvud])`), annars ger meta-taggen ensam ett falskt HIGH |
 | MDN HTTP Observatory | 1.7.1 | Mot produktion vid publicering, betyg minst A | Kräver publik adress och Node 24; avslutar med kod 0 också vid dåligt betyg, så `scan.score` läses; aldrig `--headers` med hemligheter |
