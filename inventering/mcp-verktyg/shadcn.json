@@ -1,6 +1,21 @@
 {
+ "flaggor": {
+  "logging": {},
+  "resources": {},
+  "tools": {}
+ },
+ "format": 2,
  "instruktioner": null,
+ "promptar": null,
+ "resurser": {
+  "fel": "resources/list gav fel -32601"
+ },
+ "resursmallar": {
+  "fel": "resources/templates/list gav fel -32601"
+ },
  "server": "shadcn",
+ "serverbeskrivning": null,
+ "servertitel": null,
  "verktyg": [
   {
    "annoteringar": null,
@@ -22,7 +37,11 @@
     ],
     "type": "object"
    },
-   "namn": "get_add_command_for_items"
+   "meta": null,
+   "namn": "get_add_command_for_items",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": null,
@@ -33,7 +52,11 @@
     "properties": {},
     "type": "object"
    },
-   "namn": "get_audit_checklist"
+   "meta": null,
+   "namn": "get_audit_checklist",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": null,
@@ -59,7 +82,11 @@
     ],
     "type": "object"
    },
-   "namn": "get_item_examples_from_registries"
+   "meta": null,
+   "namn": "get_item_examples_from_registries",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": null,
@@ -70,7 +97,11 @@
     "properties": {},
     "type": "object"
    },
-   "namn": "get_project_registries"
+   "meta": null,
+   "namn": "get_project_registries",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": null,
@@ -104,7 +135,11 @@
     },
     "type": "object"
    },
-   "namn": "list_items_in_registries"
+   "meta": null,
+   "namn": "list_items_in_registries",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": null,
@@ -145,7 +180,11 @@
     ],
     "type": "object"
    },
-   "namn": "search_items_in_registries"
+   "meta": null,
+   "namn": "search_items_in_registries",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": null,
@@ -167,7 +206,11 @@
     ],
     "type": "object"
    },
-   "namn": "view_items_in_registries"
+   "meta": null,
+   "namn": "view_items_in_registries",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   }
  ]
 }

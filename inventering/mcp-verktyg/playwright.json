@@ -1,6 +1,17 @@
 {
+ "flaggor": {
+  "tools": {
+   "listChanged": true
+  }
+ },
+ "format": 2,
  "instruktioner": null,
+ "promptar": null,
+ "resurser": null,
+ "resursmallar": null,
  "server": "Playwright",
+ "serverbeskrivning": null,
+ "servertitel": null,
  "verktyg": [
   {
    "annoteringar": {
@@ -16,7 +27,11 @@
     "properties": {},
     "type": "object"
    },
-   "namn": "browser_annotate"
+   "meta": null,
+   "namn": "browser_annotate",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -71,7 +86,11 @@
     ],
     "type": "object"
    },
-   "namn": "browser_click"
+   "meta": null,
+   "namn": "browser_click",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -87,7 +106,11 @@
     "properties": {},
     "type": "object"
    },
-   "namn": "browser_close"
+   "meta": null,
+   "namn": "browser_close",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -126,7 +149,11 @@
     ],
     "type": "object"
    },
-   "namn": "browser_console_messages"
+   "meta": null,
+   "namn": "browser_console_messages",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -163,7 +190,11 @@
     ],
     "type": "object"
    },
-   "namn": "browser_drag"
+   "meta": null,
+   "namn": "browser_drag",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -208,7 +239,11 @@
     ],
     "type": "object"
    },
-   "namn": "browser_drop"
+   "meta": null,
+   "namn": "browser_drop",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -300,7 +335,11 @@
     },
     "type": "object"
    },
-   "namn": "browser_emulate_media"
+   "meta": null,
+   "namn": "browser_emulate_media",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -336,7 +375,11 @@
     ],
     "type": "object"
    },
-   "namn": "browser_evaluate"
+   "meta": null,
+   "namn": "browser_evaluate",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -360,7 +403,11 @@
     },
     "type": "object"
    },
-   "namn": "browser_file_upload"
+   "meta": null,
+   "namn": "browser_file_upload",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -423,7 +470,11 @@
     ],
     "type": "object"
    },
-   "namn": "browser_fill_form"
+   "meta": null,
+   "namn": "browser_fill_form",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -452,7 +503,11 @@
     },
     "type": "object"
    },
-   "namn": "browser_find"
+   "meta": null,
+   "namn": "browser_find",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -480,7 +535,11 @@
     ],
     "type": "object"
    },
-   "namn": "browser_generate_locator"
+   "meta": null,
+   "namn": "browser_generate_locator",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -496,7 +555,11 @@
     "properties": {},
     "type": "object"
    },
-   "namn": "browser_get_config"
+   "meta": null,
+   "namn": "browser_get_config",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -524,7 +587,11 @@
     ],
     "type": "object"
    },
-   "namn": "browser_handle_dialog"
+   "meta": null,
+   "namn": "browser_handle_dialog",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -549,7 +616,11 @@
     },
     "type": "object"
    },
-   "namn": "browser_hide_highlight"
+   "meta": null,
+   "namn": "browser_hide_highlight",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -581,7 +652,11 @@
     ],
     "type": "object"
    },
-   "namn": "browser_highlight"
+   "meta": null,
+   "namn": "browser_highlight",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -609,7 +684,11 @@
     ],
     "type": "object"
    },
-   "namn": "browser_hover"
+   "meta": null,
+   "namn": "browser_hover",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -633,7 +712,11 @@
     ],
     "type": "object"
    },
-   "namn": "browser_navigate"
+   "meta": null,
+   "namn": "browser_navigate",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -649,7 +732,11 @@
     "properties": {},
     "type": "object"
    },
-   "namn": "browser_navigate_back"
+   "meta": null,
+   "namn": "browser_navigate_back",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -689,7 +776,11 @@
     ],
     "type": "object"
    },
-   "namn": "browser_network_request"
+   "meta": null,
+   "namn": "browser_network_request",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -722,7 +813,11 @@
     ],
     "type": "object"
    },
-   "namn": "browser_network_requests"
+   "meta": null,
+   "namn": "browser_network_requests",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -746,7 +841,11 @@
     ],
     "type": "object"
    },
-   "namn": "browser_press_key"
+   "meta": null,
+   "namn": "browser_press_key",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -775,7 +874,11 @@
     ],
     "type": "object"
    },
-   "namn": "browser_resize"
+   "meta": null,
+   "namn": "browser_resize",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -800,7 +903,11 @@
     },
     "type": "object"
    },
-   "namn": "browser_resume"
+   "meta": null,
+   "namn": "browser_resume",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -825,7 +932,11 @@
     },
     "type": "object"
    },
-   "namn": "browser_run_code_unsafe"
+   "meta": null,
+   "namn": "browser_run_code_unsafe",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -861,7 +972,11 @@
     ],
     "type": "object"
    },
-   "namn": "browser_select_option"
+   "meta": null,
+   "namn": "browser_select_option",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -894,7 +1009,11 @@
     },
     "type": "object"
    },
-   "namn": "browser_snapshot"
+   "meta": null,
+   "namn": "browser_snapshot",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -910,7 +1029,11 @@
     "properties": {},
     "type": "object"
    },
-   "namn": "browser_start_recording"
+   "meta": null,
+   "namn": "browser_start_recording",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -926,7 +1049,11 @@
     "properties": {},
     "type": "object"
    },
-   "namn": "browser_start_tracing"
+   "meta": null,
+   "namn": "browser_start_tracing",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -974,7 +1101,11 @@
     },
     "type": "object"
    },
-   "namn": "browser_start_video"
+   "meta": null,
+   "namn": "browser_start_video",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -990,7 +1121,11 @@
     "properties": {},
     "type": "object"
    },
-   "namn": "browser_stop_recording"
+   "meta": null,
+   "namn": "browser_stop_recording",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1006,7 +1141,11 @@
     "properties": {},
     "type": "object"
    },
-   "namn": "browser_stop_tracing"
+   "meta": null,
+   "namn": "browser_stop_tracing",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1022,7 +1161,11 @@
     "properties": {},
     "type": "object"
    },
-   "namn": "browser_stop_video"
+   "meta": null,
+   "namn": "browser_stop_video",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1060,7 +1203,11 @@
     ],
     "type": "object"
    },
-   "namn": "browser_tabs"
+   "meta": null,
+   "namn": "browser_tabs",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1114,7 +1261,11 @@
     ],
     "type": "object"
    },
-   "namn": "browser_take_screenshot"
+   "meta": null,
+   "namn": "browser_take_screenshot",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1155,7 +1306,11 @@
     ],
     "type": "object"
    },
-   "namn": "browser_type"
+   "meta": null,
+   "namn": "browser_type",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1184,7 +1339,11 @@
     ],
     "type": "object"
    },
-   "namn": "browser_verify_element_visible"
+   "meta": null,
+   "namn": "browser_verify_element_visible",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1221,7 +1380,11 @@
     ],
     "type": "object"
    },
-   "namn": "browser_verify_list_visible"
+   "meta": null,
+   "namn": "browser_verify_list_visible",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1245,7 +1408,11 @@
     ],
     "type": "object"
    },
-   "namn": "browser_verify_text_visible"
+   "meta": null,
+   "namn": "browser_verify_text_visible",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1291,7 +1458,11 @@
     ],
     "type": "object"
    },
-   "namn": "browser_verify_value"
+   "meta": null,
+   "namn": "browser_verify_value",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1323,7 +1494,11 @@
     ],
     "type": "object"
    },
-   "namn": "browser_video_chapter"
+   "meta": null,
+   "namn": "browser_video_chapter",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1339,7 +1514,11 @@
     "properties": {},
     "type": "object"
    },
-   "namn": "browser_video_hide_actions"
+   "meta": null,
+   "namn": "browser_video_hide_actions",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1399,7 +1578,11 @@
     },
     "type": "object"
    },
-   "namn": "browser_video_show_actions"
+   "meta": null,
+   "namn": "browser_video_show_actions",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1428,7 +1611,11 @@
     },
     "type": "object"
    },
-   "namn": "browser_wait_for"
+   "meta": null,
+   "namn": "browser_wait_for",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   }
  ]
 }

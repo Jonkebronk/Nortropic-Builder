@@ -1,6 +1,15 @@
 {
+ "flaggor": {
+  "tools": {}
+ },
+ "format": 2,
  "instruktioner": null,
+ "promptar": null,
+ "resurser": null,
+ "resursmallar": null,
  "server": "socket",
+ "serverbeskrivning": null,
+ "servertitel": null,
  "verktyg": [
   {
    "annoteringar": {
@@ -66,7 +75,11 @@
     ],
     "type": "object"
    },
-   "namn": "alerts"
+   "meta": null,
+   "namn": "alerts",
+   "titel": "List Alerts Tool",
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -113,7 +126,11 @@
     ],
     "type": "object"
    },
-   "namn": "depscore"
+   "meta": null,
+   "namn": "depscore",
+   "titel": "Dependency Score Tool",
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -124,7 +141,11 @@
     "properties": {},
     "type": "object"
    },
-   "namn": "organizations"
+   "meta": null,
+   "namn": "organizations",
+   "titel": "List Organizations Tool",
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -147,7 +168,11 @@
     ],
     "type": "object"
    },
-   "namn": "package_file_contents"
+   "meta": null,
+   "namn": "package_file_contents",
+   "titel": "Package File Contents Tool",
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -191,7 +216,11 @@
     ],
     "type": "object"
    },
-   "namn": "package_file_grep"
+   "meta": null,
+   "namn": "package_file_grep",
+   "titel": "Package File Grep Tool",
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -229,7 +258,11 @@
     ],
     "type": "object"
    },
-   "namn": "package_files"
+   "meta": null,
+   "namn": "package_files",
+   "titel": "Package File List Tool",
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -316,7 +349,11 @@
     ],
     "type": "object"
    },
-   "namn": "threat_feed"
+   "meta": null,
+   "namn": "threat_feed",
+   "titel": "Threat Feed Tool",
+   "utdata": null,
+   "utforande": null
   }
  ]
 }

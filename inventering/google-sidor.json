@@ -1,0 +1,214 @@
+{
+ "https://developer.chrome.com/docs/lighthouse/performance/performance-scoring": {
+  "titel": "Lighthouse performance scoring",
+  "uppdaterad": "2026-09-30T16:35:57Z"
+ },
+ "https://developer.chrome.com/docs/web-platform/view-transitions/cross-document": {
+  "titel": "Cross-document view transitions for multi-page applications",
+  "uppdaterad": "2026-09-30T16:36:00Z"
+ },
+ "https://developers.google.com/crawling/docs/troubleshooting/http-status-codes": {
+  "titel": "How HTTP Status Codes Affect Google's Crawlers | Google Crawling Infrastructure",
+  "uppdaterad": "2026-02-04T15:56:54Z"
+ },
+ "https://developers.google.com/maps/ai/grounding-lite": {
+  "titel": "Maps Grounding Lite",
+  "uppdaterad": "2026-10-13T23:02:08Z"
+ },
+ "https://developers.google.com/my-business/content/policies": {
+  "titel": "Business Profile APIs policies",
+  "uppdaterad": "2026-08-28T08:10:46Z"
+ },
+ "https://developers.google.com/my-business/content/prereqs": {
+  "titel": "Prerequisites",
+  "uppdaterad": "2026-08-28T08:10:46Z"
+ },
+ "https://developers.google.com/search/blog/2015/03/an-update-on-doorway-pages": {
+  "titel": "An update on doorway pages",
+  "uppdaterad": "2025-12-10T18:39:56Z"
+ },
+ "https://developers.google.com/search/blog/2026/03/crawler-blog-post": {
+  "titel": "Inside Googlebot: demystifying crawling, fetching, and the bytes we process",
+  "uppdaterad": "2026-07-16T11:42:44Z"
+ },
+ "https://developers.google.com/search/docs": {
+  "titel": "Documentation to Improve SEO | Google Search Central",
+  "uppdaterad": "2025-02-04T12:34:25Z"
+ },
+ "https://developers.google.com/search/docs/appearance/ai-features": {
+  "titel": "AI Features and Your Website | Google Search Central",
+  "uppdaterad": "2025-12-10T18:39:25Z"
+ },
+ "https://developers.google.com/search/docs/appearance/google-images": {
+  "titel": "Image SEO Best Practices | Google Search Central",
+  "uppdaterad": "2026-03-02T14:05:48Z"
+ },
+ "https://developers.google.com/search/docs/appearance/page-experience": {
+  "titel": "Understanding Google Page Experience | Google Search Central",
+  "uppdaterad": "2026-09-22T11:12:27Z"
+ },
+ "https://developers.google.com/search/docs/appearance/site-names": {
+  "titel": "Site Names in Google Search | Google Search Central",
+  "uppdaterad": "2026-02-18T03:08:24Z"
+ },
+ "https://developers.google.com/search/docs/appearance/snippet": {
+  "titel": "How to Write Meta Descriptions | Google Search Central",
+  "uppdaterad": "2026-04-20T10:27:16Z"
+ },
+ "https://developers.google.com/search/docs/appearance/structured-data/breadcrumb": {
+  "titel": "How To Add Breadcrumb (BreadcrumbList) Markup | Google Search Central",
+  "uppdaterad": "2026-02-18T03:08:24Z"
+ },
+ "https://developers.google.com/search/docs/appearance/structured-data/local-business": {
+  "titel": "Local Business (LocalBusiness) Structured Data | Google Search Central",
+  "uppdaterad": "2026-02-18T03:08:24Z"
+ },
+ "https://developers.google.com/search/docs/appearance/structured-data/sd-policies": {
+  "titel": "General Structured Data Guidelines | Google Search Central",
+  "uppdaterad": "2026-07-10T11:55:46Z"
+ },
+ "https://developers.google.com/search/docs/appearance/title-link": {
+  "titel": "Influencing Title Links in Google Search | Google Search Central",
+  "uppdaterad": "2025-12-10T18:39:25Z"
+ },
+ "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls": {
+  "titel": "How to Specify a Canonical with rel=\"canonical\" and Other Methods | Google Search Central",
+  "uppdaterad": "2026-07-10T10:12:30Z"
+ },
+ "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics": {
+  "titel": "Understand JavaScript SEO Basics | Google Search Central",
+  "uppdaterad": "2026-03-04T13:45:06Z"
+ },
+ "https://developers.google.com/search/docs/crawling-indexing/links-crawlable": {
+  "titel": "SEO Link Best Practices for Google | Google Search Central",
+  "uppdaterad": "2025-12-10T18:39:56Z"
+ },
+ "https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing": {
+  "titel": "Mobile-first Indexing Best Practices | Google Search Central",
+  "uppdaterad": "2026-02-18T03:08:30Z"
+ },
+ "https://developers.google.com/search/docs/crawling-indexing/robots/intro": {
+  "titel": "Robots.txt Introduction and Guide | Google Search Central",
+  "uppdaterad": "2025-12-10T18:39:40Z"
+ },
+ "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes": {
+  "titel": "Site Moves and Migrations | Google Search Central",
+  "uppdaterad": "2026-08-20T12:32:47Z"
+ },
+ "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap": {
+  "titel": "Build and Submit a Sitemap | Google Search Central",
+  "uppdaterad": "2026-07-08T15:48:35Z"
+ },
+ "https://developers.google.com/search/docs/crawling-indexing/url-structure": {
+  "titel": "URL Structure Best Practices for Google Search | Google Search Central",
+  "uppdaterad": "2025-12-10T18:39:48Z"
+ },
+ "https://developers.google.com/search/docs/essentials/spam-policies": {
+  "titel": "Spam Policies for Google Web Search | Google Search Central",
+  "uppdaterad": "2026-08-28T05:00:23Z"
+ },
+ "https://developers.google.com/search/docs/essentials/technical": {
+  "titel": "Google Search Technical Requirements | Google Search Central",
+  "uppdaterad": "2025-12-18T08:35:16Z"
+ },
+ "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide": {
+  "titel": "Google's Guide to Optimizing for Generative AI Features on Google Search | Google Search Central",
+  "uppdaterad": "2026-07-10T09:17:27Z"
+ },
+ "https://developers.google.com/search/docs/fundamentals/creating-helpful-content": {
+  "titel": "Creating Helpful, Reliable, People-First Content | Google Search Central",
+  "uppdaterad": "2026-10-05T19:26:20Z"
+ },
+ "https://developers.google.com/search/docs/fundamentals/seo-starter-guide": {
+  "titel": "SEO Starter Guide: The Basics | Google Search Central",
+  "uppdaterad": "2025-12-10T18:39:33Z"
+ },
+ "https://developers.google.com/search/docs/fundamentals/using-gen-ai-content": {
+  "titel": "Google Search's Guidance on Generative AI Content on Your Website | Google Search Central",
+  "uppdaterad": "2026-10-01T21:23:15Z"
+ },
+ "https://developers.google.com/search/updates": {
+  "titel": "Latest Google Search Documentation Updates | Google Search Central",
+  "uppdaterad": "2026-10-16T08:07:23Z"
+ },
+ "https://developers.google.com/tag-platform/security/guides/consent": {
+  "titel": "Set up consent mode on websites",
+  "uppdaterad": "2026-10-13T14:08:48Z"
+ },
+ "https://web.dev/articles/animations-guide": {
+  "titel": "How to create high-performance CSS animations",
+  "uppdaterad": "2026-09-30T16:36:07Z"
+ },
+ "https://web.dev/articles/avoid-large-complex-layouts-and-layout-thrashing": {
+  "titel": "Avoid large, complex layouts and layout thrashing",
+  "uppdaterad": "2026-09-30T16:35:57Z"
+ },
+ "https://web.dev/articles/bfcache": {
+  "titel": "Back/forward cache",
+  "uppdaterad": "2026-10-16T07:55:39Z"
+ },
+ "https://web.dev/articles/browser-level-image-lazy-loading": {
+  "titel": "Browser-level image lazy loading for the web",
+  "uppdaterad": "2026-09-30T16:36:14Z"
+ },
+ "https://web.dev/articles/cls": {
+  "titel": "Cumulative Layout Shift (CLS)",
+  "uppdaterad": "2026-09-30T16:36:37Z"
+ },
+ "https://web.dev/articles/css-size-adjust": {
+  "titel": "CSS size-adjust for @font-face",
+  "uppdaterad": "2026-09-30T16:36:14Z"
+ },
+ "https://web.dev/articles/fetch-metadata": {
+  "titel": "Protect your resources from web attacks with Fetch Metadata",
+  "uppdaterad": "2026-09-30T16:36:34Z"
+ },
+ "https://web.dev/articles/fetch-priority": {
+  "titel": "Optimize resource loading with the Fetch Priority API",
+  "uppdaterad": "2026-09-30T16:36:51Z"
+ },
+ "https://web.dev/articles/font-best-practices": {
+  "titel": "Best practices for fonts",
+  "uppdaterad": "2026-09-30T16:36:28Z"
+ },
+ "https://web.dev/articles/inp": {
+  "titel": "Interaction to Next Paint (INP)",
+  "uppdaterad": "2026-09-30T16:36:28Z"
+ },
+ "https://web.dev/articles/optimize-cls": {
+  "titel": "Optimize Cumulative Layout Shift",
+  "uppdaterad": "2026-09-30T16:36:10Z"
+ },
+ "https://web.dev/articles/optimize-inp": {
+  "titel": "Optimize Interaction to Next Paint",
+  "uppdaterad": "2026-09-30T16:36:34Z"
+ },
+ "https://web.dev/articles/optimize-lcp": {
+  "titel": "Optimize Largest Contentful Paint",
+  "uppdaterad": "2026-09-30T16:36:10Z"
+ },
+ "https://web.dev/articles/optimize-long-tasks": {
+  "titel": "Optimize long tasks",
+  "uppdaterad": "2026-09-30T16:36:00Z"
+ },
+ "https://web.dev/articles/replace-gifs-with-videos": {
+  "titel": "Replace animated GIFs with video for faster page loads",
+  "uppdaterad": "2026-09-30T16:36:07Z"
+ },
+ "https://web.dev/articles/responsive-web-design-basics": {
+  "titel": "Responsive web design basics",
+  "uppdaterad": "2026-09-30T16:36:44Z"
+ },
+ "https://web.dev/articles/strict-csp": {
+  "titel": "Mitigate cross-site scripting (XSS) with a strict Content Security Policy (CSP)",
+  "uppdaterad": "2026-09-30T16:36:17Z"
+ },
+ "https://web.dev/articles/tbt": {
+  "titel": "Total Blocking Time (TBT)",
+  "uppdaterad": "2026-09-30T16:36:17Z"
+ },
+ "https://web.dev/articles/vitals": {
+  "titel": "Web Vitals",
+  "uppdaterad": "2026-09-30T16:36:44Z"
+ }
+}

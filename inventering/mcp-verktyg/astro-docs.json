@@ -1,6 +1,18 @@
 {
+ "flaggor": {
+  "logging": {},
+  "tools": {
+   "listChanged": true
+  }
+ },
+ "format": 2,
  "instruktioner": null,
+ "promptar": null,
+ "resurser": null,
+ "resursmallar": null,
  "server": "Astro Docs server",
+ "serverbeskrivning": null,
+ "servertitel": null,
  "verktyg": [
   {
    "annoteringar": null,
@@ -19,7 +31,11 @@
     ],
     "type": "object"
    },
-   "namn": "search_astro_docs"
+   "meta": null,
+   "namn": "search_astro_docs",
+   "titel": "Search Astro Docs",
+   "utdata": null,
+   "utforande": null
   }
  ]
 }

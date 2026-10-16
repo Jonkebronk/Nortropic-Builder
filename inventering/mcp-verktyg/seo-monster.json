@@ -1,6 +1,256 @@
 {
+ "flaggor": {
+  "experimental": {},
+  "prompts": {
+   "listChanged": false
+  },
+  "tools": {
+   "listChanged": false
+  }
+ },
+ "format": 2,
  "instruktioner": null,
+ "promptar": [
+  {
+   "argument": [
+    {
+     "description": "The H2/H3 outline (from content_outline). Required.",
+     "name": "outline",
+     "required": true
+    },
+    {
+     "description": "The content brief (from content_brief) with the targets to validate against. Required.",
+     "name": "brief",
+     "required": true
+    }
+   ],
+   "beskrivning": "Draft the full article from an outline + brief, then self-validate against the brief's rules: word count within +/-15% of target, per-section minimum length, sensible keyword density, internal-link suggestions, an inline JSON-LD schema hint, no em-dashes, no filler. The LLM writes the prose; SEOMonster supplies the validation checklist.",
+   "meta": null,
+   "namn": "content_article",
+   "titel": null
+  },
+  {
+   "argument": [
+    {
+     "description": "GSC property override. Defaults to the configured SEO_MCP_GSC_DEFAULT_SITE.",
+     "name": "site_url",
+     "required": false
+    },
+    {
+     "description": "Window length. Defaults to 28.",
+     "name": "days",
+     "required": false
+    },
+    {
+     "description": "Inspect the top N queries for competing pages. Defaults to 10.",
+     "name": "top_n_queries",
+     "required": false
+    }
+   ],
+   "beskrivning": "Cannibalization audit for the configured GSC property. Finds queries where multiple pages compete, surfaces the competing pages, and recommends consolidate / differentiate / accept.",
+   "meta": null,
+   "namn": "content_audit",
+   "titel": null
+  },
+  {
+   "argument": [
+    {
+     "description": "The topic / working title to brief. Required.",
+     "name": "topic",
+     "required": true
+    },
+    {
+     "description": "The primary search query the content should win. Required.",
+     "name": "target_query",
+     "required": true
+    },
+    {
+     "description": "GSC property override. Defaults to the configured SEO_MCP_GSC_DEFAULT_SITE.",
+     "name": "site_url",
+     "required": false
+    }
+   ],
+   "beskrivning": "Build an evidence-based content brief for a topic. Pulls the current top rankers from GSC, inspects their meta + schema (and your existing page if any), then synthesizes a brief with a calibrated word-count target, heading structure, schema type, internal-link targets, competitor gaps, and target queries. SEOMonster brings the rules and the competitor evidence; the LLM brings the writing. No ranking guarantee: this structures the work.",
+   "meta": null,
+   "namn": "content_brief",
+   "titel": null
+  },
+  {
+   "argument": [
+    {
+     "description": "The content brief (from content_brief, or pasted) to outline. Required.",
+     "name": "brief",
+     "required": true
+    }
+   ],
+   "beskrivning": "Turn a content brief into a validated H2/H3 outline. States the structural rules the outline must pass (>= 5 H2 sections, >= 70% of the brief's target queries referenced, H1 carries the primary keyword, intro -> body -> conclusion flow, HowTo schema requires structured steps). SEOMonster supplies the structure rules; the LLM writes the outline.",
+   "meta": null,
+   "namn": "content_outline",
+   "titel": null
+  },
+  {
+   "argument": [
+    {
+     "description": "Absolute URL of the published page to measure. Required.",
+     "name": "url",
+     "required": true
+    },
+    {
+     "description": "JSON array of the queries the page targeted, to filter the analytics. Optional.",
+     "name": "target_queries",
+     "required": false
+    },
+    {
+     "description": "GSC property override. Defaults to the configured SEO_MCP_GSC_DEFAULT_SITE.",
+     "name": "site_url",
+     "required": false
+    }
+   ],
+   "beskrivning": "Layer-5 measurement of published content. Compares the URL's ranking + clicks before and after publish (gsc_compare_periods + gsc_search_analytics filtered to the URL/queries) ~4 to 8 weeks post-publish and outputs a before/after table. Honest framing: it measures the outcome, it does not guarantee it.",
+   "meta": null,
+   "namn": "content_performance",
+   "titel": null
+  },
+  {
+   "argument": [
+    {
+     "description": "GSC property override. Defaults to the configured SEO_MCP_GSC_DEFAULT_SITE.",
+     "name": "site_url",
+     "required": false
+    },
+    {
+     "description": "Lookback window for the opportunity scan. Defaults to 28.",
+     "name": "days",
+     "required": false
+    }
+   ],
+   "beskrivning": "End-to-end content pipeline orchestration: surface an opportunity with content_opportunities, then chain content_brief -> content_outline -> content_article, gate the draft URL with pre_deploy_check, notify search engines via gsc_request_indexing + indexnow_submit, and schedule a content_performance check. SEOMonster sequences the chain; the LLM does the writing at each step.",
+   "meta": null,
+   "namn": "content_workflow",
+   "titel": null
+  },
+  {
+   "argument": [
+    {
+     "description": "JSON array of URLs to validate. Required.",
+     "name": "urls",
+     "required": true
+    },
+    {
+     "description": "GSC property override.",
+     "name": "site_url",
+     "required": false
+    }
+   ],
+   "beskrivning": "Pre/post migration validation. For each URL, check Google's current indexed status, canonical agreement, and last crawl. Flag URLs needing remediation.",
+   "meta": null,
+   "namn": "migration_check",
+   "titel": null
+  },
+  {
+   "argument": [
+    {
+     "description": "JSON array of absolute URLs that were deployed or updated. Required.",
+     "name": "urls",
+     "required": true
+    },
+    {
+     "description": "Cloudflare zone hostname (if different from the configured CF_ZONE).",
+     "name": "zone",
+     "required": false
+    },
+    {
+     "description": "If 'true', skip the PSI baseline step (e.g. on a follow-up redeploy).",
+     "name": "skip_psi",
+     "required": false
+    }
+   ],
+   "beskrivning": "After deploying or publishing content, fan out the verification across CF cache purge, GSC indexing request, IndexNow notification, and a PSI baseline. Replaces a tail of manual tool calls.",
+   "meta": null,
+   "namn": "post_deploy_verify",
+   "titel": null
+  },
+  {
+   "argument": [
+    {
+     "description": "JSON array of absolute URLs to gate before deploy. Required (at least 1).",
+     "name": "urls",
+     "required": true
+    }
+   ],
+   "beskrivning": "Deploy-gate workflow. For each URL: inspect_meta, check_canonical, validate_schema, redirect_chain_audit, mixed_content_check. Plus robots_txt_validate for the site. The recognizable label SEO teams reach for before pushing a production deploy. Complements technical_seo_audit (which audits one URL deeply) and structured_data_audit (which focuses on Rich Results). Use this for the broad batch check.",
+   "meta": null,
+   "namn": "pre_deploy_check",
+   "titel": null
+  },
+  {
+   "argument": [
+    {
+     "description": "GSC property / site override. Defaults to the configured SEO_MCP_GSC_DEFAULT_SITE.",
+     "name": "site_url",
+     "required": false
+    },
+    {
+     "description": "GA4 property id override. Defaults to the configured GA4 property.",
+     "name": "property_id",
+     "required": false
+    }
+   ],
+   "beskrivning": "Whole-stack configuration audit: is your stack set up so SEO can even work? Chains ga4_setup_audit (measurement), cf_settings_audit (CDN/TLS), psi_opportunities (Lighthouse SEO basics on a representative URL), and robots_txt_validate (crawl access), then produces one severity-ranked report. Audits configuration hygiene and removes known blockers; it does not predict ranking.",
+   "meta": null,
+   "namn": "seo_setup_audit",
+   "titel": null
+  },
+  {
+   "argument": [
+    {
+     "description": "JSON array of absolute URLs to audit. Required (at least 1).",
+     "name": "urls",
+     "required": true
+    }
+   ],
+   "beskrivning": "Structured-data + cross-site sweep (the Rich Results lane). For each URL: inspect_schema to see what JSON-LD is present, then validate_schema to verdict the Rich Results required fields. If 2+ URLs are passed, also run hreflang_consistency_check across the set. Produces a per-URL findings list plus a global reciprocity-and-target report. For a full single-page technical sweep use technical_seo_audit; for a deploy gate use pre_deploy_check.",
+   "meta": null,
+   "namn": "structured_data_audit",
+   "titel": null
+  },
+  {
+   "argument": [
+    {
+     "description": "Absolute URL to audit. Required.",
+     "name": "url",
+     "required": true
+    }
+   ],
+   "beskrivning": "Single-URL technical-SEO sweep (one page, deep). Chains inspect_meta, check_canonical, redirect_chain_audit, mixed_content_check, and robots_txt_validate for the URL, then sitemap_health for its host root. Produces a triage list ranked by severity. For a batch deploy gate use pre_deploy_check; for Rich Results use structured_data_audit; for account/infra configuration use seo_setup_audit.",
+   "meta": null,
+   "namn": "technical_seo_audit",
+   "titel": null
+  },
+  {
+   "argument": [
+    {
+     "description": "Window length in days. Defaults to 7.",
+     "name": "days",
+     "required": false
+    },
+    {
+     "description": "GSC property override. Defaults to the configured SEO_MCP_GSC_DEFAULT_SITE.",
+     "name": "site_url",
+     "required": false
+    }
+   ],
+   "beskrivning": "Weekly SEO summary across the configured GSC property: biggest gainers, biggest losers, CTR opportunities, content gaps, and the GA4 organic engagement context.",
+   "meta": null,
+   "namn": "weekly_review",
+   "titel": null
+  }
+ ],
+ "resurser": null,
+ "resursmallar": null,
  "server": "seo-mcp",
+ "serverbeskrivning": null,
+ "servertitel": null,
  "verktyg": [
   {
    "annoteringar": {
@@ -23,7 +273,11 @@
     ],
     "type": "object"
    },
-   "namn": "ai_citation_readiness"
+   "meta": null,
+   "namn": "ai_citation_readiness",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -81,7 +335,11 @@
     ],
     "type": "object"
    },
-   "namn": "ai_citation_track"
+   "meta": null,
+   "namn": "ai_citation_track",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -111,7 +369,11 @@
     },
     "type": "object"
    },
-   "namn": "ai_referral_overview"
+   "meta": null,
+   "namn": "ai_referral_overview",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -183,7 +445,11 @@
     ],
     "type": "object"
    },
-   "namn": "cf_bulk_redirect_upsert"
+   "meta": null,
+   "namn": "cf_bulk_redirect_upsert",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -237,7 +503,11 @@
     ],
     "type": "object"
    },
-   "namn": "cf_create_redirect"
+   "meta": null,
+   "namn": "cf_create_redirect",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -264,7 +534,11 @@
     ],
     "type": "object"
    },
-   "namn": "cf_delete_redirect"
+   "meta": null,
+   "namn": "cf_delete_redirect",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -288,7 +562,11 @@
     },
     "type": "object"
    },
-   "namn": "cf_list_dns"
+   "meta": null,
+   "namn": "cf_list_dns",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -308,7 +586,11 @@
     },
     "type": "object"
    },
-   "namn": "cf_list_redirects"
+   "meta": null,
+   "namn": "cf_list_redirects",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -323,7 +605,11 @@
     "properties": {},
     "type": "object"
    },
-   "namn": "cf_list_zones"
+   "meta": null,
+   "namn": "cf_list_zones",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -400,7 +686,11 @@
     ],
     "type": "object"
    },
-   "namn": "cf_managed_robots"
+   "meta": null,
+   "namn": "cf_managed_robots",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -431,7 +721,11 @@
     ],
     "type": "object"
    },
-   "namn": "cf_purge_cache"
+   "meta": null,
+   "namn": "cf_purge_cache",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -458,7 +752,11 @@
     ],
     "type": "object"
    },
-   "namn": "cf_purge_cache_all"
+   "meta": null,
+   "namn": "cf_purge_cache_all",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -478,7 +776,11 @@
     },
     "type": "object"
    },
-   "namn": "cf_settings_audit"
+   "meta": null,
+   "namn": "cf_settings_audit",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -575,7 +877,11 @@
     ],
     "type": "object"
    },
-   "namn": "cf_settings_update"
+   "meta": null,
+   "namn": "cf_settings_update",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -595,7 +901,11 @@
     },
     "type": "object"
    },
-   "namn": "cf_web_analytics"
+   "meta": null,
+   "namn": "cf_web_analytics",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -615,7 +925,11 @@
     },
     "type": "object"
    },
-   "namn": "cf_zone_info"
+   "meta": null,
+   "namn": "cf_zone_info",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -638,7 +952,11 @@
     ],
     "type": "object"
    },
-   "namn": "check_canonical"
+   "meta": null,
+   "namn": "check_canonical",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -682,7 +1000,11 @@
     ],
     "type": "object"
    },
-   "namn": "content_brief_data"
+   "meta": null,
+   "namn": "content_brief_data",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -720,7 +1042,11 @@
     },
     "type": "object"
    },
-   "namn": "content_opportunities"
+   "meta": null,
+   "namn": "content_opportunities",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -761,7 +1087,11 @@
     },
     "type": "object"
    },
-   "namn": "crux_history"
+   "meta": null,
+   "namn": "crux_history",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -795,7 +1125,11 @@
     },
     "type": "object"
    },
-   "namn": "crux_snapshot"
+   "meta": null,
+   "namn": "crux_snapshot",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -831,7 +1165,11 @@
     },
     "type": "object"
    },
-   "namn": "ga4_landing_page_conversions"
+   "meta": null,
+   "namn": "ga4_landing_page_conversions",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -857,7 +1195,11 @@
     },
     "type": "object"
    },
-   "namn": "ga4_organic_search_overview"
+   "meta": null,
+   "namn": "ga4_organic_search_overview",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -925,7 +1267,11 @@
     },
     "type": "object"
    },
-   "namn": "ga4_run_report"
+   "meta": null,
+   "namn": "ga4_run_report",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -945,7 +1291,11 @@
     },
     "type": "object"
    },
-   "namn": "ga4_setup_audit"
+   "meta": null,
+   "namn": "ga4_setup_audit",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -977,7 +1327,11 @@
     },
     "type": "object"
    },
-   "namn": "ga4_site_search"
+   "meta": null,
+   "namn": "ga4_site_search",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1013,7 +1367,11 @@
     },
     "type": "object"
    },
-   "namn": "ga4_top_landing_pages"
+   "meta": null,
+   "namn": "ga4_top_landing_pages",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1045,7 +1403,11 @@
     },
     "type": "object"
    },
-   "namn": "ga4_traffic_by_channel"
+   "meta": null,
+   "namn": "ga4_traffic_by_channel",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1077,7 +1439,11 @@
     ],
     "type": "object"
    },
-   "namn": "gsc_batch_inspect_urls"
+   "meta": null,
+   "namn": "gsc_batch_inspect_urls",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1190,7 +1556,11 @@
     },
     "type": "object"
    },
-   "namn": "gsc_compare_periods"
+   "meta": null,
+   "namn": "gsc_compare_periods",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1222,7 +1592,11 @@
     ],
     "type": "object"
    },
-   "namn": "gsc_coverage_audit"
+   "meta": null,
+   "namn": "gsc_coverage_audit",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1254,7 +1628,11 @@
     },
     "type": "object"
    },
-   "namn": "gsc_decaying_pages"
+   "meta": null,
+   "namn": "gsc_decaying_pages",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1281,7 +1659,11 @@
     ],
     "type": "object"
    },
-   "namn": "gsc_inspect_url"
+   "meta": null,
+   "namn": "gsc_inspect_url",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1322,7 +1704,11 @@
     ],
     "type": "object"
    },
-   "namn": "gsc_keyword_expand"
+   "meta": null,
+   "namn": "gsc_keyword_expand",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1337,7 +1723,11 @@
     "properties": {},
     "type": "object"
    },
-   "namn": "gsc_list_properties"
+   "meta": null,
+   "namn": "gsc_list_properties",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1357,7 +1747,11 @@
     },
     "type": "object"
    },
-   "namn": "gsc_list_sitemaps"
+   "meta": null,
+   "namn": "gsc_list_sitemaps",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1399,7 +1793,11 @@
     },
     "type": "object"
    },
-   "namn": "gsc_new_queries"
+   "meta": null,
+   "namn": "gsc_new_queries",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1435,7 +1833,11 @@
     },
     "type": "object"
    },
-   "namn": "gsc_portfolio_summary"
+   "meta": null,
+   "namn": "gsc_portfolio_summary",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1478,7 +1880,11 @@
     },
     "type": "object"
    },
-   "namn": "gsc_query_gaps"
+   "meta": null,
+   "namn": "gsc_query_gaps",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1528,7 +1934,11 @@
     },
     "type": "object"
    },
-   "namn": "gsc_query_opportunities"
+   "meta": null,
+   "namn": "gsc_query_opportunities",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1561,7 +1971,11 @@
     },
     "type": "object"
    },
-   "namn": "gsc_request_indexing"
+   "meta": null,
+   "namn": "gsc_request_indexing",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1679,7 +2093,11 @@
     },
     "type": "object"
    },
-   "namn": "gsc_search_analytics"
+   "meta": null,
+   "namn": "gsc_search_analytics",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1711,7 +2129,11 @@
     },
     "type": "object"
    },
-   "namn": "gsc_submit_sitemap"
+   "meta": null,
+   "namn": "gsc_submit_sitemap",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1743,7 +2165,11 @@
     },
     "type": "object"
    },
-   "namn": "gsc_top_pages"
+   "meta": null,
+   "namn": "gsc_top_pages",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1782,7 +2208,11 @@
     ],
     "type": "object"
    },
-   "namn": "gsc_top_pages_by_query"
+   "meta": null,
+   "namn": "gsc_top_pages_by_query",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1814,7 +2244,11 @@
     },
     "type": "object"
    },
-   "namn": "gsc_top_queries"
+   "meta": null,
+   "namn": "gsc_top_queries",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1846,7 +2280,11 @@
     },
     "type": "object"
    },
-   "namn": "gsc_trending_pages"
+   "meta": null,
+   "namn": "gsc_trending_pages",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1874,7 +2312,11 @@
     ],
     "type": "object"
    },
-   "namn": "hreflang_consistency_check"
+   "meta": null,
+   "namn": "hreflang_consistency_check",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1906,7 +2348,11 @@
     ],
     "type": "object"
    },
-   "namn": "indexnow_bulk_submit"
+   "meta": null,
+   "namn": "indexnow_bulk_submit",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1933,7 +2379,11 @@
     ],
     "type": "object"
    },
-   "namn": "indexnow_submit"
+   "meta": null,
+   "namn": "indexnow_submit",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1956,7 +2406,11 @@
     ],
     "type": "object"
    },
-   "namn": "inspect_meta"
+   "meta": null,
+   "namn": "inspect_meta",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -1979,7 +2433,11 @@
     ],
     "type": "object"
    },
-   "namn": "inspect_schema"
+   "meta": null,
+   "namn": "inspect_schema",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -2016,7 +2474,11 @@
     ],
     "type": "object"
    },
-   "namn": "internal_link_graph"
+   "meta": null,
+   "namn": "internal_link_graph",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -2078,7 +2540,11 @@
     ],
     "type": "object"
    },
-   "namn": "internal_link_recommend"
+   "meta": null,
+   "namn": "internal_link_recommend",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -2118,7 +2584,11 @@
     },
     "type": "object"
    },
-   "namn": "keyword_universe"
+   "meta": null,
+   "namn": "keyword_universe",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -2157,7 +2627,11 @@
     ],
     "type": "object"
    },
-   "namn": "lighthouse_budget"
+   "meta": null,
+   "namn": "lighthouse_budget",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -2180,7 +2654,11 @@
     ],
     "type": "object"
    },
-   "namn": "mixed_content_check"
+   "meta": null,
+   "namn": "mixed_content_check",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -2220,7 +2698,11 @@
     ],
     "type": "object"
    },
-   "namn": "onpage_serp_gap"
+   "meta": null,
+   "namn": "onpage_serp_gap",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -2264,7 +2746,11 @@
     ],
     "type": "object"
    },
-   "namn": "psi_analyze"
+   "meta": null,
+   "namn": "psi_analyze",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -2295,7 +2781,11 @@
     ],
     "type": "object"
    },
-   "namn": "psi_opportunities"
+   "meta": null,
+   "namn": "psi_opportunities",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -2363,7 +2853,11 @@
     ],
     "type": "object"
    },
-   "namn": "rank_change_attribution"
+   "meta": null,
+   "namn": "rank_change_attribution",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -2393,7 +2887,11 @@
     ],
     "type": "object"
    },
-   "namn": "redirect_chain_audit"
+   "meta": null,
+   "namn": "redirect_chain_audit",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -2423,7 +2921,11 @@
     "required": [],
     "type": "object"
    },
-   "namn": "robots_ai_posture"
+   "meta": null,
+   "namn": "robots_ai_posture",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -2466,7 +2968,11 @@
     ],
     "type": "object"
    },
-   "namn": "robots_txt_validate"
+   "meta": null,
+   "namn": "robots_txt_validate",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -2496,7 +3002,11 @@
     ],
     "type": "object"
    },
-   "namn": "serp_adjacency_expand"
+   "meta": null,
+   "namn": "serp_adjacency_expand",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -2526,7 +3036,11 @@
     ],
     "type": "object"
    },
-   "namn": "sitemap_health"
+   "meta": null,
+   "namn": "sitemap_health",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -2549,7 +3063,11 @@
     ],
     "type": "object"
    },
-   "namn": "sitemap_validate"
+   "meta": null,
+   "namn": "sitemap_validate",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -2569,7 +3087,11 @@
     },
     "type": "object"
    },
-   "namn": "system_status"
+   "meta": null,
+   "namn": "system_status",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -2614,7 +3136,11 @@
     },
     "type": "object"
    },
-   "namn": "topic_cluster_map"
+   "meta": null,
+   "namn": "topic_cluster_map",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -2644,7 +3170,11 @@
     ],
     "type": "object"
    },
-   "namn": "validate_schema"
+   "meta": null,
+   "namn": "validate_schema",
+   "titel": null,
+   "utdata": null,
+   "utforande": null
   }
  ]
 }

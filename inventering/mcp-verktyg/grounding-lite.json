@@ -1,6 +1,17 @@
 {
+ "flaggor": {
+  "tools": {
+   "listChanged": false
+  }
+ },
+ "format": 2,
  "instruktioner": null,
+ "promptar": null,
+ "resurser": null,
+ "resursmallar": null,
  "server": "StatelessServer",
+ "serverbeskrivning": null,
+ "servertitel": null,
  "verktyg": [
   {
    "annoteringar": {
@@ -78,7 +89,59 @@
     ],
     "type": "object"
    },
-   "namn": "compute_routes"
+   "meta": null,
+   "namn": "compute_routes",
+   "titel": null,
+   "utdata": {
+    "$defs": {
+     "Attribution": {
+      "description": "Required attribution to show with maps content.",
+      "properties": {
+       "title": {
+        "description": "The title to display for the attribution.",
+        "type": "string"
+       },
+       "url": {
+        "description": "The URL to link to for the attribution.",
+        "type": "string"
+       }
+      },
+      "type": "object"
+     },
+     "Route": {
+      "description": "Details about a route between locations.",
+      "properties": {
+       "attribution": {
+        "$ref": "#/$defs/Attribution",
+        "description": "Required attribution to show with the route."
+       },
+       "distanceMeters": {
+        "description": "The travel distance of the route, in meters.",
+        "format": "int32",
+        "type": "integer"
+       },
+       "duration": {
+        "description": "The length of time needed to navigate the route.",
+        "format": "google-duration",
+        "type": "string"
+       }
+      },
+      "type": "object"
+     }
+    },
+    "description": "ComputeRoutesResponse.",
+    "properties": {
+     "routes": {
+      "description": "Contains routes between the requested origin and destination, ordered from most recommended to least recommended. Only one route is returned unless `ComputeRoutesRequest.compute_alternative_routes` is set to true.",
+      "items": {
+       "$ref": "#/$defs/Route"
+      },
+      "type": "array"
+     }
+    },
+    "type": "object"
+   },
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -181,7 +244,546 @@
     ],
     "type": "object"
    },
-   "namn": "lookup_weather"
+   "meta": null,
+   "namn": "lookup_weather",
+   "titel": null,
+   "utdata": {
+    "$defs": {
+     "AirPressure": {
+      "description": "Represents the atmospheric air pressure conditions.",
+      "properties": {
+       "meanSeaLevelMillibars": {
+        "description": "The mean sea level air pressure in millibars.",
+        "format": "float",
+        "type": "number"
+       }
+      },
+      "type": "object"
+     },
+     "Attribution": {
+      "description": "Required attribution to show with maps content.",
+      "properties": {
+       "title": {
+        "description": "The title to display for the attribution.",
+        "type": "string"
+       },
+       "url": {
+        "description": "The URL to link to for the attribution.",
+        "type": "string"
+       }
+      },
+      "type": "object"
+     },
+     "LatLng": {
+      "description": "An object that represents a latitude/longitude pair. This is expressed as a pair of doubles to represent degrees latitude and degrees longitude. Unless specified otherwise, this object must conform to the WGS84 standard <https://en.wikipedia.org/wiki/World_Geodetic_System#1984_version>. Values must be within normalized ranges.",
+      "properties": {
+       "latitude": {
+        "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
+        "format": "double",
+        "type": "number"
+       },
+       "longitude": {
+        "description": "The longitude in degrees. It must be in the range [-180.0, +180.0].",
+        "format": "double",
+        "type": "number"
+       }
+      },
+      "type": "object"
+     },
+     "LocalizedText": {
+      "description": "Localized variant of a text in a particular language.",
+      "properties": {
+       "languageCode": {
+        "description": "The text's BCP-47 language code, such as \"en-US\" or \"sr-Latn\". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.",
+        "type": "string"
+       },
+       "text": {
+        "description": "Localized string in the language corresponding to language_code below.",
+        "type": "string"
+       }
+      },
+      "type": "object"
+     },
+     "Location": {
+      "description": "Represents a location for the weather request.",
+      "properties": {
+       "address": {
+        "description": "Human readable address or a plus code. See https://plus.codes for details.",
+        "type": "string"
+       },
+       "latLng": {
+        "$ref": "#/$defs/LatLng",
+        "description": "A point specified using geographic coordinates."
+       },
+       "placeId": {
+        "description": "The Place ID associated with the location .",
+        "type": "string"
+       }
+      },
+      "type": "object"
+     },
+     "MoonEvents": {
+      "description": "Represents the events related to the moon (e.g. moonrise, moonset).",
+      "properties": {
+       "moonPhase": {
+        "description": "Optional. The moon phase (a.k.a. lunar phase).",
+        "enum": [
+         "PHASE_UNSPECIFIED",
+         "NEW_MOON",
+         "WAXING_CRESCENT",
+         "FIRST_QUARTER",
+         "WAXING_GIBBOUS",
+         "FULL_MOON",
+         "WANING_GIBBOUS",
+         "LAST_QUARTER",
+         "WANING_CRESCENT"
+        ],
+        "type": "string",
+        "x-google-enum-descriptions": [
+         "Unspecified moon phase.",
+         "The moon is not illuminated by the sun.",
+         "The moon is lit by 0%-50% on its right side in the northern hemisphere 🌒 and on its left side in the southern hemisphere 🌘.",
+         "The moon is lit by 50.1% on its right side in the northern hemisphere 🌓 and on its left side in the southern hemisphere 🌗.",
+         "The moon is lit by 50%-100% on its right side in the northern hemisphere 🌔 and on its left side in the southern hemisphere 🌖.",
+         "The moon is fully illuminated.",
+         "The moon is lit by 50%-100% on its left side in the northern hemisphere 🌖 and on its right side in the southern hemisphere 🌔.",
+         "The moon is lit by 50.1% on its left side in the northern hemisphere 🌗 and on its right side in the southern hemisphere 🌓.",
+         "The moon is lit by 0%-50% on its left side in the northern hemisphere 🌘 and on its right side in the southern hemisphere 🌒."
+        ]
+       },
+       "moonriseTimes": {
+        "description": "The time when the upper limb of the moon appears above the horizon (see https://en.wikipedia.org/wiki/Moonrise_and_moonset). NOTE: For most cases, there'll be a single moon rise time per day. In other cases, the list might be empty (e.g. when the moon rises after next day midnight). However, in unique cases (e.g. in polar regions), the list may contain more than one value. In these cases, the values are sorted in ascending order.",
+        "items": {
+         "format": "date-time",
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "moonsetTimes": {
+        "description": "The time when the upper limb of the moon disappears below the horizon (see https://en.wikipedia.org/wiki/Moonrise_and_moonset). NOTE: For most cases, there'll be a single moon set time per day. In other cases, the list might be empty (e.g. when the moon sets after next day midnight). However, in unique cases (e.g. in polar regions), the list may contain more than one value. In these cases, the values are sorted in ascending order.",
+        "items": {
+         "format": "date-time",
+         "type": "string"
+        },
+        "type": "array"
+       }
+      },
+      "type": "object"
+     },
+     "Precipitation": {
+      "description": "Represents a set of precipitation values at a given location.",
+      "properties": {
+       "probability": {
+        "$ref": "#/$defs/PrecipitationProbability",
+        "description": "The probability of precipitation (values from 0 to 100)."
+       },
+       "qpf": {
+        "$ref": "#/$defs/QuantitativePrecipitationForecast",
+        "description": "The amount of precipitation rain, measured as liquid water equivalent, that has accumulated over a period of time. Note: QPF is an abbreviation for Quantitative Precipitation Forecast (please see the QuantitativePrecipitationForecast definition for more details)."
+       },
+       "snowQpf": {
+        "$ref": "#/$defs/QuantitativePrecipitationForecast",
+        "description": "The amount of snow, measured as liquid water equivalent, that has accumulated over a period of time. Note: QPF is an abbreviation for Quantitative Precipitation Forecast (please see the QuantitativePrecipitationForecast definition for more details)."
+       }
+      },
+      "type": "object"
+     },
+     "PrecipitationProbability": {
+      "description": "Represents the probability of precipitation at a given location.",
+      "properties": {
+       "percent": {
+        "description": "A percentage from 0 to 100 that indicates the chances of precipitation.",
+        "format": "int32",
+        "type": "integer"
+       },
+       "type": {
+        "description": "Optional. A code that indicates the type of precipitation.",
+        "enum": [
+         "TYPE_UNSPECIFIED",
+         "NONE",
+         "SNOW",
+         "RAIN",
+         "LIGHT_RAIN",
+         "HEAVY_RAIN",
+         "RAIN_AND_SNOW",
+         "SLEET",
+         "FREEZING_RAIN",
+         "PRECIPITATION_TYPE_HAIL"
+        ],
+        "type": "string",
+        "x-google-enum-descriptions": [
+         "Unspecified precipitation type.",
+         "No precipitation.",
+         "Snow precipitation.",
+         "Rain precipitation.",
+         "Light rain precipitation.",
+         "Heavy rain precipitation.",
+         "Both rain and snow precipitations.",
+         "Sleet precipitation.",
+         "Freezing rain precipitation.",
+         "Hail precipitation."
+        ]
+       }
+      },
+      "type": "object"
+     },
+     "QuantitativePrecipitationForecast": {
+      "description": "Represents the expected amount of melted precipitation accumulated over a specified time period over a specified area (reference: https://en.wikipedia.org/wiki/Quantitative_precipitation_forecast) - usually abbreviated QPF for short.",
+      "properties": {
+       "quantity": {
+        "description": "The amount of precipitation, measured as liquid water equivalent, that has accumulated over a period of time.",
+        "format": "float",
+        "type": "number"
+       },
+       "unit": {
+        "description": "The code of the unit used to measure the amount of accumulated precipitation.",
+        "enum": [
+         "UNIT_UNSPECIFIED",
+         "MILLIMETERS",
+         "INCHES"
+        ],
+        "type": "string",
+        "x-google-enum-descriptions": [
+         "Unspecified precipitation unit.",
+         "The amount of precipitation is measured in millimeters.",
+         "The amount of precipitation is measured in inches."
+        ]
+       }
+      },
+      "type": "object"
+     },
+     "SunEvents": {
+      "description": "Represents the events related to the sun (e.g. sunrise, sunset).",
+      "properties": {
+       "sunriseTime": {
+        "description": "The time when the sun rises. NOTE: In some unique cases (e.g. north of the artic circle) there may be no sunrise time for a day. In these cases, this field will be unset.",
+        "format": "date-time",
+        "type": "string"
+       },
+       "sunsetTime": {
+        "description": "The time when the sun sets. NOTE: In some unique cases (e.g. north of the artic circle) there may be no sunset time for a day. In these cases, this field will be unset.",
+        "format": "date-time",
+        "type": "string"
+       }
+      },
+      "type": "object"
+     },
+     "Temperature": {
+      "description": "Represents a temperature value.",
+      "properties": {
+       "degrees": {
+        "description": "The temperature value (in degrees) in the specified unit.",
+        "format": "float",
+        "type": "number"
+       },
+       "unit": {
+        "description": "Optional. The code for the unit used to measure the temperature value.",
+        "enum": [
+         "UNIT_UNSPECIFIED",
+         "CELSIUS",
+         "FAHRENHEIT"
+        ],
+        "type": "string",
+        "x-google-enum-descriptions": [
+         "The temperature unit is unspecified.",
+         "The temperature is measured in Celsius.",
+         "The temperature is measured in Fahrenheit."
+        ]
+       }
+      },
+      "type": "object"
+     },
+     "WeatherCondition": {
+      "description": "Represents a weather condition for a given location at a given period of time. Disclaimer: Weather icons and condition codes are subject to change. Google may introduce new codes and icons or update existing ones as needed. We encourage you to refer to this documentation regularly for the most up-to-date information.",
+      "properties": {
+       "description": {
+        "$ref": "#/$defs/LocalizedText",
+        "description": "The textual description for this weather condition (localized)."
+       },
+       "iconBaseUri": {
+        "description": "The base URI for the icon not including the file type extension. To display the icon, append a theme if desired and the file type extension (`.png` or `.svg`) to this URI. By default, the icon is light themed, but `_dark` can be appended for dark mode. For example: \"https://maps.gstatic.com/weather/v1/dust.svg\" or \"https://maps.gstatic.com/weather/v1/dust_dark.svg\", where `icon_base_uri` is \"https://maps.gstatic.com/weather/v1/dust\".",
+        "type": "string"
+       },
+       "type": {
+        "description": "The type of weather condition.",
+        "enum": [
+         "TYPE_UNSPECIFIED",
+         "CLEAR",
+         "MOSTLY_CLEAR",
+         "PARTLY_CLOUDY",
+         "MOSTLY_CLOUDY",
+         "CLOUDY",
+         "WINDY",
+         "WIND_AND_RAIN",
+         "LIGHT_RAIN_SHOWERS",
+         "CHANCE_OF_SHOWERS",
+         "SCATTERED_SHOWERS",
+         "RAIN_SHOWERS",
+         "HEAVY_RAIN_SHOWERS",
+         "LIGHT_TO_MODERATE_RAIN",
+         "MODERATE_TO_HEAVY_RAIN",
+         "RAIN",
+         "LIGHT_RAIN",
+         "HEAVY_RAIN",
+         "RAIN_PERIODICALLY_HEAVY",
+         "LIGHT_SNOW_SHOWERS",
+         "CHANCE_OF_SNOW_SHOWERS",
+         "SCATTERED_SNOW_SHOWERS",
+         "SNOW_SHOWERS",
+         "HEAVY_SNOW_SHOWERS",
+         "LIGHT_TO_MODERATE_SNOW",
+         "MODERATE_TO_HEAVY_SNOW",
+         "SNOW",
+         "LIGHT_SNOW",
+         "HEAVY_SNOW",
+         "SNOWSTORM",
+         "SNOW_PERIODICALLY_HEAVY",
+         "HEAVY_SNOW_STORM",
+         "BLOWING_SNOW",
+         "RAIN_AND_SNOW",
+         "HAIL",
+         "HAIL_SHOWERS",
+         "THUNDERSTORM",
+         "THUNDERSHOWER",
+         "LIGHT_THUNDERSTORM_RAIN",
+         "SCATTERED_THUNDERSTORMS",
+         "HEAVY_THUNDERSTORM"
+        ],
+        "type": "string",
+        "x-google-enum-descriptions": [
+         "The weather condition is unspecified.",
+         "No clouds.",
+         "Periodic clouds.",
+         "Party cloudy (some clouds).",
+         "Mostly cloudy (more clouds than sun).",
+         "Cloudy (all clouds, no sun).",
+         "High wind.",
+         "High wind with precipitation.",
+         "Light intermittent rain.",
+         "Chance of intermittent rain.",
+         "Intermittent rain.",
+         "Showers are considered to be rainfall that has a shorter duration than rain, and is characterized by suddenness in terms of start and stop times, and rapid changes in intensity.",
+         "Intense showers.",
+         "Rain (light to moderate in quantity).",
+         "Rain (moderate to heavy in quantity).",
+         "Moderate rain.",
+         "Light rain.",
+         "Heavy rain.",
+         "Rain periodically heavy.",
+         "Light snow that is falling at varying intensities for brief periods of time.",
+         "Chance of snow showers.",
+         "Snow that is falling at varying intensities for brief periods of time.",
+         "Snow showers.",
+         "Heavy snow showers.",
+         "Light to moderate snow.",
+         "Moderate to heavy snow.",
+         "Moderate snow.",
+         "Light snow.",
+         "Heavy snow.",
+         "Snow with possible thunder and lightning.",
+         "Snow, at times heavy.",
+         "Heavy snow with possible thunder and lightning.",
+         "Snow with intense wind.",
+         "Rain and snow mix.",
+         "Hail.",
+         "Hail that is falling at varying intensities for brief periods of time.",
+         "Thunderstorm.",
+         "A shower of rain accompanied by thunder and lightning.",
+         "Light thunderstorm rain.",
+         "Thunderstorms that has rain in various intensities for brief periods of time.",
+         "Heavy thunderstorm."
+        ]
+       }
+      },
+      "type": "object"
+     },
+     "Wind": {
+      "description": "Represents a set of wind properties.",
+      "properties": {
+       "direction": {
+        "$ref": "#/$defs/WindDirection",
+        "description": "The direction of the wind, the angle it is coming from."
+       },
+       "gust": {
+        "$ref": "#/$defs/WindSpeed",
+        "description": "The wind gust (sudden increase in the wind speed)."
+       },
+       "speed": {
+        "$ref": "#/$defs/WindSpeed",
+        "description": "The speed of the wind."
+       }
+      },
+      "type": "object"
+     },
+     "WindDirection": {
+      "description": "Represents the direction from which the wind originates.",
+      "properties": {
+       "cardinal": {
+        "description": "Optional. The code that represents the cardinal direction from which the wind is blowing.",
+        "enum": [
+         "CARDINAL_UNSPECIFIED",
+         "NORTH",
+         "NORTH_NORTHEAST",
+         "NORTHEAST",
+         "EAST_NORTHEAST",
+         "EAST",
+         "EAST_SOUTHEAST",
+         "SOUTHEAST",
+         "SOUTH_SOUTHEAST",
+         "SOUTH",
+         "SOUTH_SOUTHWEST",
+         "SOUTHWEST",
+         "WEST_SOUTHWEST",
+         "WEST",
+         "WEST_NORTHWEST",
+         "NORTHWEST",
+         "NORTH_NORTHWEST"
+        ],
+        "type": "string",
+        "x-google-enum-descriptions": [
+         "The cardinal direction is unspecified.",
+         "The north cardinal direction.",
+         "The north-northeast secondary intercardinal direction.",
+         "The northeast intercardinal direction.",
+         "The east-northeast secondary intercardinal direction.",
+         "The east cardinal direction.",
+         "The east-southeast secondary intercardinal direction.",
+         "The southeast intercardinal direction.",
+         "The south-southeast secondary intercardinal direction.",
+         "The south cardinal direction.",
+         "The south-southwest secondary intercardinal direction.",
+         "The southwest intercardinal direction.",
+         "The west-southwest secondary intercardinal direction.",
+         "The west cardinal direction.",
+         "The west-northwest secondary intercardinal direction.",
+         "The northwest intercardinal direction.",
+         "The north-northwest secondary intercardinal direction."
+        ]
+       },
+       "degrees": {
+        "description": "The direction of the wind in degrees (values from 0 to 360).",
+        "format": "int32",
+        "type": "integer"
+       }
+      },
+      "type": "object"
+     },
+     "WindSpeed": {
+      "description": "Represents the speed of the wind.",
+      "properties": {
+       "unit": {
+        "description": "Optional. The code that represents the unit used to measure the wind speed.",
+        "enum": [
+         "UNIT_UNSPECIFIED",
+         "KILOMETERS_PER_HOUR",
+         "MILES_PER_HOUR"
+        ],
+        "type": "string",
+        "x-google-enum-descriptions": [
+         "The speed unit is unspecified.",
+         "The speed is measured in kilometers per hour.",
+         "The speed is measured in miles per hour."
+        ]
+       },
+       "value": {
+        "description": "The value of the wind speed.",
+        "format": "float",
+        "type": "number"
+       }
+      },
+      "type": "object"
+     }
+    },
+    "description": "Response for the LookupWeather RPC - represents the weather conditions at the requested location. This response represent both Hourly and Daily information, therefore the response is split in three sections Hourly, Daily and Shared. Only-Hourly, Only-Daily fields are marked as optional. For fields that are shared between Hourly and Daily information, some are always present so they are not marked as optional while the rest are marked as optional because they are not always available. ",
+    "properties": {
+     "airPressure": {
+      "$ref": "#/$defs/AirPressure",
+      "description": "The hourly air pressure conditions."
+     },
+     "attribution": {
+      "$ref": "#/$defs/Attribution",
+      "description": "Required attribution to show with the weather."
+     },
+     "cloudCover": {
+      "description": "The percentage of the sky covered by clouds (values from 0 to 100). define optional because it is not always available",
+      "format": "int32",
+      "type": "integer"
+     },
+     "feelsLikeMaxTemperature": {
+      "$ref": "#/$defs/Temperature",
+      "description": "The maximum (high) feels-like temperature throughout the day."
+     },
+     "feelsLikeMinTemperature": {
+      "$ref": "#/$defs/Temperature",
+      "description": "The minimum (low) feels-like temperature throughout the day."
+     },
+     "feelsLikeTemperature": {
+      "$ref": "#/$defs/Temperature",
+      "description": "The hourly measure of how the temperature feels like."
+     },
+     "heatIndex": {
+      "$ref": "#/$defs/Temperature",
+      "description": "The hourly heat index temperature."
+     },
+     "maxHeatIndex": {
+      "$ref": "#/$defs/Temperature",
+      "description": "The maximum heat index temperature throughout the day."
+     },
+     "maxTemperature": {
+      "$ref": "#/$defs/Temperature",
+      "description": "The maximum (high) temperature throughout the day."
+     },
+     "minTemperature": {
+      "$ref": "#/$defs/Temperature",
+      "description": "The minimum (low) temperature throughout the day."
+     },
+     "moonEvents": {
+      "$ref": "#/$defs/MoonEvents",
+      "description": "The events related to the moon (e.g. moonrise, moonset)."
+     },
+     "precipitation": {
+      "$ref": "#/$defs/Precipitation",
+      "description": "The precipitation probability and amount of precipitation accumulated"
+     },
+     "relativeHumidity": {
+      "description": "The percent of relative humidity (values from 0 to 100). define optional because it is not always available",
+      "format": "int32",
+      "type": "integer"
+     },
+     "returnedLocation": {
+      "$ref": "#/$defs/Location",
+      "description": "Required. The location where the weather information is returned. This location is identical to the location in the request, but can be different from it if the requested location is a free text address that looks up to a coarse location (e.g. \"Mountain View, CA\")."
+     },
+     "sunEvents": {
+      "$ref": "#/$defs/SunEvents",
+      "description": "The events related to the sun (e.g. sunrise, sunset)."
+     },
+     "temperature": {
+      "$ref": "#/$defs/Temperature",
+      "description": "The hourly temperature"
+     },
+     "thunderstormProbability": {
+      "description": "The thunderstorm probability (values from 0 to 100). define optional because it is not always available",
+      "format": "int32",
+      "type": "integer"
+     },
+     "uvIndex": {
+      "description": "The maximum ultraviolet (UV) index. define optional because it is not always available",
+      "format": "int32",
+      "type": "integer"
+     },
+     "weatherCondition": {
+      "$ref": "#/$defs/WeatherCondition",
+      "description": "The weather condition"
+     },
+     "wind": {
+      "$ref": "#/$defs/Wind",
+      "description": "The wind conditions"
+     }
+    },
+    "type": "object"
+   },
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -207,7 +809,74 @@
     ],
     "type": "object"
    },
-   "namn": "resolve_maps_urls"
+   "meta": null,
+   "namn": "resolve_maps_urls",
+   "titel": null,
+   "utdata": {
+    "$defs": {
+     "Entity": {
+      "description": "A single resolved entity from a given query.",
+      "properties": {
+       "place": {
+        "description": "The resource name of the resolved place.",
+        "type": "string"
+       }
+      },
+      "type": "object"
+     },
+     "Status": {
+      "description": "The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors).",
+      "properties": {
+       "code": {
+        "description": "The status code, which should be an enum value of google.rpc.Code.",
+        "format": "int32",
+        "type": "integer"
+       },
+       "details": {
+        "description": "A list of messages that carry the error details. There is a common set of message types for APIs to use.",
+        "items": {
+         "additionalProperties": {
+          "description": "Properties of the object. Contains field @type with type URL."
+         },
+         "type": "object"
+        },
+        "type": "array"
+       },
+       "message": {
+        "description": "A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client.",
+        "type": "string"
+       }
+      },
+      "type": "object"
+     }
+    },
+    "description": "Response message for ResolveMapsUrls.",
+    "properties": {
+     "entities": {
+      "description": "Output only. The list of resolved entities from the Google Maps URLs. Guaranteed to map 1:1 with the request `urls` indices. An empty message at index `i` (where no `entity` is set) indicates the resolution failed for that URL. If the resolution failed, please check the `failed_requests` field for the error status.",
+      "items": {
+       "$ref": "#/$defs/Entity"
+      },
+      "readOnly": true,
+      "type": "array"
+     },
+     "failedRequests": {
+      "additionalProperties": {
+       "$ref": "#/$defs/Status"
+      },
+      "description": "Output only. A map communicating partial failures for the Google Maps URLs. The key is the index of the failed request in the `urls` field. The value is the error status detailing why the resolution failed.",
+      "readOnly": true,
+      "type": "object"
+     },
+     "saveToMapsUrl": {
+      "description": "Output only. A link to save all successfully resolved entities in Google Maps.",
+      "readOnly": true,
+      "type": "string"
+     }
+    },
+    "type": "object"
+   },
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -300,7 +969,100 @@
     ],
     "type": "object"
    },
-   "namn": "resolve_names"
+   "meta": null,
+   "namn": "resolve_names",
+   "titel": null,
+   "utdata": {
+    "$defs": {
+     "Entity": {
+      "description": "A single resolved entity from a given query.",
+      "properties": {
+       "place": {
+        "description": "The resource name of the resolved place.",
+        "type": "string"
+       }
+      },
+      "type": "object"
+     },
+     "Result": {
+      "description": "A single resolved entity from a given location query, along with the confidence level of the resolution.",
+      "properties": {
+       "confidence": {
+        "description": "Output only. The level of confidence for the resolution.",
+        "enum": [
+         "CONFIDENCE_UNSPECIFIED",
+         "MEDIUM",
+         "HIGH"
+        ],
+        "readOnly": true,
+        "type": "string",
+        "x-google-enum-descriptions": [
+         "Default value. This value is unused.",
+         "Medium confidence indicates that the resolution is likely correct but there may be other candidates.",
+         "High confidence indicates that the resolution is correct and represents a specific geospatial entity (e.g., a specific place)."
+        ]
+       },
+       "entity": {
+        "$ref": "#/$defs/Entity",
+        "description": "Output only. The resolved entity from the location query.",
+        "readOnly": true
+       }
+      },
+      "type": "object"
+     },
+     "Status": {
+      "description": "The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors).",
+      "properties": {
+       "code": {
+        "description": "The status code, which should be an enum value of google.rpc.Code.",
+        "format": "int32",
+        "type": "integer"
+       },
+       "details": {
+        "description": "A list of messages that carry the error details. There is a common set of message types for APIs to use.",
+        "items": {
+         "additionalProperties": {
+          "description": "Properties of the object. Contains field @type with type URL."
+         },
+         "type": "object"
+        },
+        "type": "array"
+       },
+       "message": {
+        "description": "A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client.",
+        "type": "string"
+       }
+      },
+      "type": "object"
+     }
+    },
+    "description": "Response message for ResolveNames.",
+    "properties": {
+     "failedRequests": {
+      "additionalProperties": {
+       "$ref": "#/$defs/Status"
+      },
+      "description": "Output only. A map communicating partial failures. The key is the index of the failed request in the `queries` field. The value is the error status detailing why the resolution failed.",
+      "readOnly": true,
+      "type": "object"
+     },
+     "results": {
+      "description": "Output only. The list of resolved entities from the location queries. Guaranteed to map 1:1 with the request `queries` indices. An empty string at index `i` indicates the resolution failed for that query. If the resolution failed, please check the `failed_requests` field for the error status.",
+      "items": {
+       "$ref": "#/$defs/Result"
+      },
+      "readOnly": true,
+      "type": "array"
+     },
+     "saveToMapsUrl": {
+      "description": "Output only. A link to save all successfully resolved entities in Google Maps.",
+      "readOnly": true,
+      "type": "string"
+     }
+    },
+    "type": "object"
+   },
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -390,7 +1152,113 @@
     ],
     "type": "object"
    },
-   "namn": "search_places"
+   "meta": null,
+   "namn": "search_places",
+   "titel": null,
+   "utdata": {
+    "$defs": {
+     "Attribution": {
+      "description": "Required attribution to show with maps content.",
+      "properties": {
+       "title": {
+        "description": "The title to display for the attribution.",
+        "type": "string"
+       },
+       "url": {
+        "description": "The URL to link to for the attribution.",
+        "type": "string"
+       }
+      },
+      "type": "object"
+     },
+     "GoogleMapsLinks": {
+      "description": "Links to trigger different Google Maps actions.",
+      "properties": {
+       "directionsUrl": {
+        "description": "A link to show the directions to the place. The link only populates the destination location and uses the default travel mode `DRIVE`.",
+        "type": "string"
+       },
+       "photosUrl": {
+        "description": "A link to show photos of this place on Google Maps.",
+        "type": "string"
+       },
+       "placeUrl": {
+        "description": "A link to show this place.",
+        "type": "string"
+       },
+       "reviewsUrl": {
+        "description": "A link to show reviews of this place on Google Maps.",
+        "type": "string"
+       },
+       "writeAReviewUrl": {
+        "description": "A link to write a review for this place on Google Maps.",
+        "type": "string"
+       }
+      },
+      "type": "object"
+     },
+     "LatLng": {
+      "description": "An object that represents a latitude/longitude pair. This is expressed as a pair of doubles to represent degrees latitude and degrees longitude. Unless specified otherwise, this object must conform to the WGS84 standard <https://en.wikipedia.org/wiki/World_Geodetic_System#1984_version>. Values must be within normalized ranges.",
+      "properties": {
+       "latitude": {
+        "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
+        "format": "double",
+        "type": "number"
+       },
+       "longitude": {
+        "description": "The longitude in degrees. It must be in the range [-180.0, +180.0].",
+        "format": "double",
+        "type": "number"
+       }
+      },
+      "type": "object"
+     },
+     "PlaceView": {
+      "description": "A view of a place.",
+      "properties": {
+       "attribution": {
+        "$ref": "#/$defs/Attribution",
+        "description": "Required attribution to show with the place."
+       },
+       "googleMapsLinks": {
+        "$ref": "#/$defs/GoogleMapsLinks",
+        "description": "Links to trigger different Google Maps actions."
+       },
+       "id": {
+        "description": "The place ID of the underlying place.",
+        "type": "string"
+       },
+       "location": {
+        "$ref": "#/$defs/LatLng",
+        "description": "The position of this place."
+       },
+       "place": {
+        "description": "The resource name of the underlying place, in the format of \"places/{id}\".",
+        "type": "string"
+       }
+      },
+      "type": "object"
+     }
+    },
+    "description": "Response message for SearchText.",
+    "properties": {
+     "places": {
+      "description": "Output only. The list of places that are mentioned in the summary.",
+      "items": {
+       "$ref": "#/$defs/PlaceView"
+      },
+      "readOnly": true,
+      "type": "array"
+     },
+     "summary": {
+      "description": "Output only. A natural language summary of the search results. The summary may contain zero-based citations like \"[0]\", \"[1]\", \"[2]\" etc. These citations map to the corresponding places in the `places` field.",
+      "readOnly": true,
+      "type": "string"
+     }
+    },
+    "type": "object"
+   },
+   "utforande": null
   }
  ]
 }

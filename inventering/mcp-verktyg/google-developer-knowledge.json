@@ -1,6 +1,17 @@
 {
+ "flaggor": {
+  "tools": {
+   "listChanged": false
+  }
+ },
+ "format": 2,
  "instruktioner": null,
+ "promptar": null,
+ "resurser": null,
+ "resursmallar": null,
  "server": "StatelessServer",
+ "serverbeskrivning": null,
+ "servertitel": null,
  "verktyg": [
   {
    "annoteringar": {
@@ -23,7 +34,28 @@
     ],
     "type": "object"
    },
-   "namn": "answer_query"
+   "meta": null,
+   "namn": "answer_query",
+   "titel": null,
+   "utdata": {
+    "description": "Response message for AnswerQuery.",
+    "properties": {
+     "answerText": {
+      "description": "The answer to the query.",
+      "type": "string"
+     },
+     "references": {
+      "description": "Output only. The resource names of the documents used to generate the answer (e.g., `documents/docs.cloud.google.com/storage/docs/creating-buckets`). Cite these resource names in the final response and pass them to `get_documents` if full document content is needed.",
+      "items": {
+       "type": "string"
+      },
+      "readOnly": true,
+      "type": "array"
+     }
+    },
+    "type": "object"
+   },
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -49,7 +81,56 @@
     ],
     "type": "object"
    },
-   "namn": "get_documents"
+   "meta": null,
+   "namn": "get_documents",
+   "titel": null,
+   "utdata": {
+    "$defs": {
+     "Document": {
+      "description": "A Document represents a piece of content from the Developer Knowledge corpus.",
+      "properties": {
+       "content": {
+        "description": "Output only. The content of the document in Markdown format.",
+        "readOnly": true,
+        "type": "string"
+       },
+       "description": {
+        "description": "Output only. A description of the document.",
+        "readOnly": true,
+        "type": "string"
+       },
+       "name": {
+        "description": "Identifier. The resource name of the document. Format: `documents/{uri_without_scheme}` Example: `documents/docs.cloud.google.com/storage/docs/creating-buckets`",
+        "type": "string",
+        "x-google-identifier": true
+       },
+       "title": {
+        "description": "Output only. The title of the document.",
+        "readOnly": true,
+        "type": "string"
+       },
+       "uri": {
+        "description": "Output only. The URI of the content, such as `https://cloud.google.com/storage/docs/creating-buckets`.",
+        "readOnly": true,
+        "type": "string"
+       }
+      },
+      "type": "object"
+     }
+    },
+    "description": "Response schema for `get_documents`.",
+    "properties": {
+     "documents": {
+      "description": "Documents requested.",
+      "items": {
+       "$ref": "#/$defs/Document"
+      },
+      "type": "array"
+     }
+    },
+    "type": "object"
+   },
+   "utforande": null
   },
   {
    "annoteringar": {
@@ -72,7 +153,46 @@
     ],
     "type": "object"
    },
-   "namn": "search_documents"
+   "meta": null,
+   "namn": "search_documents",
+   "titel": null,
+   "utdata": {
+    "$defs": {
+     "DocumentChunk": {
+      "description": "A DocumentChunk represents a piece of content from a Document in the DeveloperKnowledge corpus. To fetch the entire document content, pass the `parent` to `get_documents`.",
+      "properties": {
+       "content": {
+        "description": "Output only. The content of the document chunk.",
+        "readOnly": true,
+        "type": "string"
+       },
+       "id": {
+        "description": "Output only. The ID of this chunk within the document. The chunk ID is unique within a document, but not globally unique across documents. The chunk ID is not stable and may change over time.",
+        "readOnly": true,
+        "type": "string"
+       },
+       "parent": {
+        "description": "Output only. The resource name of the document this chunk is from. Format: `documents/{uri_without_scheme}` Example: `documents/docs.cloud.google.com/storage/docs/creating-buckets`",
+        "readOnly": true,
+        "type": "string"
+       }
+      },
+      "type": "object"
+     }
+    },
+    "description": "Response schema for `search_documents`.",
+    "properties": {
+     "results": {
+      "description": "The search results for the given query. Each DocumentChunk in this list contains a snippet of content relevant to the search query. Use the `DocumentChunk.parent` field of each result with `get_documents` to retrieve the full document content.",
+      "items": {
+       "$ref": "#/$defs/DocumentChunk"
+      },
+      "type": "array"
+     }
+    },
+    "type": "object"
+   },
+   "utforande": null
   }
  ]
 }

@@ -1,6 +1,17 @@
 {
+ "flaggor": {
+  "tools": {
+   "listChanged": true
+  }
+ },
+ "format": 2,
  "instruktioner": "Inspo is an archive of real production websites - screenshots, palettes, fonts and page structures - for visual reference before you write UI.  CALL IT WHEN: designing a new page, screen or section; redesigning an existing one; the user asks what something should look like, or asks for references; the brief names an aesthetic direction (editorial, brutalist, dark SaaS, agency portfolio).  DO NOT CALL IT WHEN: the project already has a design system, tokens or a component library - follow those instead; the change follows a pattern already established in the codebase; the work is copy, logic, tests or infrastructure; the user has already specified the design. If the project's own conventions and Inspo disagree, the project wins.  Start with `recommend` for a brief, `search_screens` to browse; `get_filters` lists every accepted filter value. These are real shipped sites and plenty of them break rules a strict linter would flag: take their composition, not their compliance. The composition rules for whatever you build travel back with the results.  BUDGET: one `recommend`, one or two `search_screens`, then `get_screen` on the three to five references you keep is a complete study; results are re-read on every later turn, so a fourth search costs more than it finds. List rows carry the fold autopsy on the top three only; ask for detail:\"full\" only if you will read all of them. `find_reference_components` is an index; fetch one source with `get_reference_jsx`.",
+ "promptar": null,
+ "resurser": null,
+ "resursmallar": null,
  "server": "inspo",
+ "serverbeskrivning": null,
+ "servertitel": null,
  "verktyg": [
   {
    "annoteringar": {
@@ -27,7 +38,13 @@
     ],
     "type": "object"
    },
-   "namn": "compare"
+   "meta": null,
+   "namn": "compare",
+   "titel": null,
+   "utdata": null,
+   "utforande": {
+    "taskSupport": "forbidden"
+   }
   },
   {
    "annoteringar": {
@@ -77,7 +94,13 @@
     ],
     "type": "object"
    },
-   "namn": "find_by_color"
+   "meta": null,
+   "namn": "find_by_color",
+   "titel": null,
+   "utdata": null,
+   "utforande": {
+    "taskSupport": "forbidden"
+   }
   },
   {
    "annoteringar": {
@@ -254,7 +277,13 @@
     ],
     "type": "object"
    },
-   "namn": "find_components"
+   "meta": null,
+   "namn": "find_components",
+   "titel": null,
+   "utdata": null,
+   "utforande": {
+    "taskSupport": "forbidden"
+   }
   },
   {
    "annoteringar": {
@@ -305,7 +334,13 @@
     ],
     "type": "object"
    },
-   "namn": "find_examples_for_macrostructure"
+   "meta": null,
+   "namn": "find_examples_for_macrostructure",
+   "titel": null,
+   "utdata": null,
+   "utforande": {
+    "taskSupport": "forbidden"
+   }
   },
   {
    "annoteringar": {
@@ -340,7 +375,13 @@
     },
     "type": "object"
    },
-   "namn": "find_reference_components"
+   "meta": null,
+   "namn": "find_reference_components",
+   "titel": null,
+   "utdata": null,
+   "utforande": {
+    "taskSupport": "forbidden"
+   }
   },
   {
    "annoteringar": {
@@ -387,7 +428,13 @@
     ],
     "type": "object"
    },
-   "namn": "find_similar"
+   "meta": null,
+   "namn": "find_similar",
+   "titel": null,
+   "utdata": null,
+   "utforande": {
+    "taskSupport": "forbidden"
+   }
   },
   {
    "annoteringar": {
@@ -424,7 +471,13 @@
     ],
     "type": "object"
    },
-   "namn": "get_collection"
+   "meta": null,
+   "namn": "get_collection",
+   "titel": null,
+   "utdata": null,
+   "utforande": {
+    "taskSupport": "forbidden"
+   }
   },
   {
    "annoteringar": {
@@ -451,7 +504,13 @@
     ],
     "type": "object"
    },
-   "namn": "get_design_system"
+   "meta": null,
+   "namn": "get_design_system",
+   "titel": null,
+   "utdata": null,
+   "utforande": {
+    "taskSupport": "forbidden"
+   }
   },
   {
    "annoteringar": {
@@ -465,7 +524,13 @@
     "properties": {},
     "type": "object"
    },
-   "namn": "get_filters"
+   "meta": null,
+   "namn": "get_filters",
+   "titel": null,
+   "utdata": null,
+   "utforande": {
+    "taskSupport": "forbidden"
+   }
   },
   {
    "annoteringar": {
@@ -504,7 +569,13 @@
     ],
     "type": "object"
    },
-   "namn": "get_reference_jsx"
+   "meta": null,
+   "namn": "get_reference_jsx",
+   "titel": null,
+   "utdata": null,
+   "utforande": {
+    "taskSupport": "forbidden"
+   }
   },
   {
    "annoteringar": {
@@ -526,7 +597,13 @@
     ],
     "type": "object"
    },
-   "namn": "get_screen"
+   "meta": null,
+   "namn": "get_screen",
+   "titel": null,
+   "utdata": null,
+   "utforande": {
+    "taskSupport": "forbidden"
+   }
   },
   {
    "annoteringar": {
@@ -558,7 +635,13 @@
     },
     "type": "object"
    },
-   "namn": "get_site_pages"
+   "meta": null,
+   "namn": "get_site_pages",
+   "titel": null,
+   "utdata": null,
+   "utforande": {
+    "taskSupport": "forbidden"
+   }
   },
   {
    "annoteringar": {
@@ -572,7 +655,13 @@
     "properties": {},
     "type": "object"
    },
-   "namn": "list_collections"
+   "meta": null,
+   "namn": "list_collections",
+   "titel": null,
+   "utdata": null,
+   "utforande": {
+    "taskSupport": "forbidden"
+   }
   },
   {
    "annoteringar": {
@@ -697,7 +786,13 @@
     ],
     "type": "object"
    },
-   "namn": "recommend"
+   "meta": null,
+   "namn": "recommend",
+   "titel": null,
+   "utdata": null,
+   "utforande": {
+    "taskSupport": "forbidden"
+   }
   },
   {
    "annoteringar": {
@@ -907,7 +1002,13 @@
     },
     "type": "object"
    },
-   "namn": "search_screens"
+   "meta": null,
+   "namn": "search_screens",
+   "titel": null,
+   "utdata": null,
+   "utforande": {
+    "taskSupport": "forbidden"
+   }
   }
  ]
 }

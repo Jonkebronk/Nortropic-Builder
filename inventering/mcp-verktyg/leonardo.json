@@ -1,6 +1,17 @@
 {
+ "flaggor": {
+  "tools": {
+   "listChanged": true
+  }
+ },
+ "format": 2,
  "instruktioner": null,
+ "promptar": null,
+ "resurser": null,
+ "resursmallar": null,
  "server": "leonardo",
+ "serverbeskrivning": null,
+ "servertitel": null,
  "verktyg": [
   {
    "annoteringar": null,
@@ -29,7 +40,13 @@
     ],
     "type": "object"
    },
-   "namn": "check-contrast"
+   "meta": null,
+   "namn": "check-contrast",
+   "titel": "Check contrast",
+   "utdata": null,
+   "utforande": {
+    "taskSupport": "forbidden"
+   }
   },
   {
    "annoteringar": null,
@@ -64,7 +81,13 @@
     ],
     "type": "object"
    },
-   "namn": "convert-color"
+   "meta": null,
+   "namn": "convert-color",
+   "titel": "Convert color",
+   "utdata": null,
+   "utforande": {
+    "taskSupport": "forbidden"
+   }
   },
   {
    "annoteringar": null,
@@ -124,7 +147,13 @@
     ],
     "type": "object"
    },
-   "namn": "create-palette"
+   "meta": null,
+   "namn": "create-palette",
+   "titel": "Create palette",
+   "utdata": null,
+   "utforande": {
+    "taskSupport": "forbidden"
+   }
   },
   {
    "annoteringar": null,
@@ -234,7 +263,13 @@
     ],
     "type": "object"
    },
-   "namn": "generate-theme"
+   "meta": null,
+   "namn": "generate-theme",
+   "titel": "Generate theme",
+   "utdata": null,
+   "utforande": {
+    "taskSupport": "forbidden"
+   }
   }
  ]
 }

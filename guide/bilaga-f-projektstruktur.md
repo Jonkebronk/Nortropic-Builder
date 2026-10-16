@@ -26,7 +26,8 @@ Nortropic-Builder/
 │   └── sajt/                 [N1] kopieras till varje sajt: CLAUDE.md och .gitignore (3-4)
 ├── skript/                   [N1] kontrollskriptet (Playwright) med N1-kontrollerna, byggs i steg 3
 │                             (2-8-teknik-och-kvalitet.md, bilaga-c-kontroller.md); startsäkringen
-│                             startsakring.sh (CLAUDE.md) och verktygslåset mcp-verktygslas.py (bilaga A)
+│                             startsakring.sh (CLAUDE.md), verktygslåset mcp-verktygslas.py (bilaga A) och
+│                             google-sidor.py, som bevakar citerade Google-sidor (3-4)
 ├── foretag/                  [N2] erbjudande.md, profil, kvitton.md, vanliga frågor (4-foretaget.md)
 ├── kunskap/
 │   ├── kallor.md             källistan
@@ -35,7 +36,7 @@ Nortropic-Builder/
 │   ├── kallkort/             källkorten för posterna i inventeringen
 │   └── wiki/                 [N2] kunskapsbasen, en fil per begrepp (3-4-larande-och-underhall.md)
 ├── inventering/              kompetensinventeringen; mcp-servrar.json och mcp-verktyg/ för verktygslåset
-│                             och kallor-bevakning.json för startsäkringen (bilaga A, 3-4)
+│                             och kallor-bevakning.json och google-sidor.json för startsäkringen (bilaga A, 3-4)
 ├── historik/                 v0.74, ändringsloggen, kartan och principerna före v1.0, webb-pro
 ├── konsolidering/            skrivregler och spårbarhet för v1.0
 ├── mattstock/                Johnnys måttstock: metod, urval, domar och måttstocken (3-2)

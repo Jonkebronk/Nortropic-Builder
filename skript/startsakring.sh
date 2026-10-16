@@ -108,7 +108,7 @@ if [[ -z "$TORRT" ]]; then
 else
   echo "skulle installera Playwright MCP:s WebKit"
 fi
-# Verktygslåset: varje servers verktygslista och instruktioner jämförs med den låsta (BESLUT.md 2026-10-16, Senaste version
+# Verktygslåset: varje servers verktyg, promptar, resurser, flaggor och instruktioner jämförs med de låsta (BESLUT.md 2026-10-16, Senaste version
 # med verktygslås …). En ändring rapporteras och godtas av Johnny med: python3 -I skript/mcp-verktygslas.py --uppdatera
 # Servrar som låset inte når (OAuth, claude.ai-connector, inte tillagd) står på en rad som olåsta.
 while IFS= read -r rad; do
@@ -168,6 +168,11 @@ if [[ -f "$bev" ]]; then
 else
   echo "inga källor bevakas än (inventering/kallor-bevakning.json saknas)"
 fi
+# Googles sidor som guiden och skillsen citerar, via Developer Knowledge: en sida som saknas har flyttat, och en ny
+# updateTime betyder att regeln ska läsas om (skript/google-sidor.py; godtas med --godta efter omläsningen).
+while IFS= read -r rad; do
+  echo "$rad"; [[ "$rad" == ⚠️* ]] && varningar+=("${rad#⚠️ }")
+done < <(python3 -I "$ROT/skript/google-sidor.py" 2>&1)
 
 # 7. Node
 rubrik "Node"

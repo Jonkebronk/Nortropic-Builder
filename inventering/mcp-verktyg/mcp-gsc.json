@@ -1,6 +1,25 @@
 {
+ "flaggor": {
+  "experimental": {},
+  "prompts": {
+   "listChanged": false
+  },
+  "resources": {
+   "listChanged": false,
+   "subscribe": false
+  },
+  "tools": {
+   "listChanged": false
+  }
+ },
+ "format": 2,
  "instruktioner": null,
+ "promptar": [],
+ "resurser": [],
+ "resursmallar": [],
  "server": "gsc-server",
+ "serverbeskrivning": null,
+ "servertitel": null,
  "verktyg": [
   {
    "annoteringar": null,
@@ -18,7 +37,23 @@
     "title": "add_siteArguments",
     "type": "object"
    },
-   "namn": "add_site"
+   "meta": null,
+   "namn": "add_site",
+   "titel": null,
+   "utdata": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "add_siteOutput",
+    "type": "object"
+   },
+   "utforande": null
   },
   {
    "annoteringar": null,
@@ -41,7 +76,23 @@
     "title": "batch_url_inspectionArguments",
     "type": "object"
    },
-   "namn": "batch_url_inspection"
+   "meta": null,
+   "namn": "batch_url_inspection",
+   "titel": null,
+   "utdata": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "batch_url_inspectionOutput",
+    "type": "object"
+   },
+   "utforande": null
   },
   {
    "annoteringar": null,
@@ -64,7 +115,23 @@
     "title": "check_indexing_issuesArguments",
     "type": "object"
    },
-   "namn": "check_indexing_issues"
+   "meta": null,
+   "namn": "check_indexing_issues",
+   "titel": null,
+   "utdata": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "check_indexing_issuesOutput",
+    "type": "object"
+   },
+   "utforande": null
   },
   {
    "annoteringar": null,
@@ -112,7 +179,23 @@
     "title": "compare_search_periodsArguments",
     "type": "object"
    },
-   "namn": "compare_search_periods"
+   "meta": null,
+   "namn": "compare_search_periods",
+   "titel": null,
+   "utdata": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "compare_search_periodsOutput",
+    "type": "object"
+   },
+   "utforande": null
   },
   {
    "annoteringar": null,
@@ -130,7 +213,23 @@
     "title": "delete_siteArguments",
     "type": "object"
    },
-   "namn": "delete_site"
+   "meta": null,
+   "namn": "delete_site",
+   "titel": null,
+   "utdata": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "delete_siteOutput",
+    "type": "object"
+   },
+   "utforande": null
   },
   {
    "annoteringar": null,
@@ -153,7 +252,23 @@
     "title": "delete_sitemapArguments",
     "type": "object"
    },
-   "namn": "delete_sitemap"
+   "meta": null,
+   "namn": "delete_sitemap",
+   "titel": null,
+   "utdata": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "delete_sitemapOutput",
+    "type": "object"
+   },
+   "utforande": null
   },
   {
    "annoteringar": null,
@@ -236,7 +351,23 @@
     "title": "get_advanced_search_analyticsArguments",
     "type": "object"
    },
-   "namn": "get_advanced_search_analytics"
+   "meta": null,
+   "namn": "get_advanced_search_analytics",
+   "titel": null,
+   "utdata": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "get_advanced_search_analyticsOutput",
+    "type": "object"
+   },
+   "utforande": null
   },
   {
    "annoteringar": null,
@@ -246,7 +377,23 @@
     "title": "get_capabilitiesArguments",
     "type": "object"
    },
-   "namn": "get_capabilities"
+   "meta": null,
+   "namn": "get_capabilities",
+   "titel": null,
+   "utdata": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "get_capabilitiesOutput",
+    "type": "object"
+   },
+   "utforande": null
   },
   {
    "annoteringar": null,
@@ -256,7 +403,23 @@
     "title": "get_creator_infoArguments",
     "type": "object"
    },
-   "namn": "get_creator_info"
+   "meta": null,
+   "namn": "get_creator_info",
+   "titel": null,
+   "utdata": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "get_creator_infoOutput",
+    "type": "object"
+   },
+   "utforande": null
   },
   {
    "annoteringar": null,
@@ -279,7 +442,23 @@
     "title": "get_performance_overviewArguments",
     "type": "object"
    },
-   "namn": "get_performance_overview"
+   "meta": null,
+   "namn": "get_performance_overview",
+   "titel": null,
+   "utdata": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "get_performance_overviewOutput",
+    "type": "object"
+   },
+   "utforande": null
   },
   {
    "annoteringar": null,
@@ -312,7 +491,23 @@
     "title": "get_search_analyticsArguments",
     "type": "object"
    },
-   "namn": "get_search_analytics"
+   "meta": null,
+   "namn": "get_search_analytics",
+   "titel": null,
+   "utdata": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "get_search_analyticsOutput",
+    "type": "object"
+   },
+   "utforande": null
   },
   {
    "annoteringar": null,
@@ -345,7 +540,23 @@
     "title": "get_search_by_page_queryArguments",
     "type": "object"
    },
-   "namn": "get_search_by_page_query"
+   "meta": null,
+   "namn": "get_search_by_page_query",
+   "titel": null,
+   "utdata": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "get_search_by_page_queryOutput",
+    "type": "object"
+   },
+   "utforande": null
   },
   {
    "annoteringar": null,
@@ -363,7 +574,23 @@
     "title": "get_site_detailsArguments",
     "type": "object"
    },
-   "namn": "get_site_details"
+   "meta": null,
+   "namn": "get_site_details",
+   "titel": null,
+   "utdata": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "get_site_detailsOutput",
+    "type": "object"
+   },
+   "utforande": null
   },
   {
    "annoteringar": null,
@@ -386,7 +613,23 @@
     "title": "get_sitemap_detailsArguments",
     "type": "object"
    },
-   "namn": "get_sitemap_details"
+   "meta": null,
+   "namn": "get_sitemap_details",
+   "titel": null,
+   "utdata": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "get_sitemap_detailsOutput",
+    "type": "object"
+   },
+   "utforande": null
   },
   {
    "annoteringar": null,
@@ -404,7 +647,23 @@
     "title": "get_sitemapsArguments",
     "type": "object"
    },
-   "namn": "get_sitemaps"
+   "meta": null,
+   "namn": "get_sitemaps",
+   "titel": null,
+   "utdata": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "get_sitemapsOutput",
+    "type": "object"
+   },
+   "utforande": null
   },
   {
    "annoteringar": null,
@@ -427,7 +686,23 @@
     "title": "inspect_url_enhancedArguments",
     "type": "object"
    },
-   "namn": "inspect_url_enhanced"
+   "meta": null,
+   "namn": "inspect_url_enhanced",
+   "titel": null,
+   "utdata": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "inspect_url_enhancedOutput",
+    "type": "object"
+   },
+   "utforande": null
   },
   {
    "annoteringar": null,
@@ -437,7 +712,23 @@
     "title": "list_propertiesArguments",
     "type": "object"
    },
-   "namn": "list_properties"
+   "meta": null,
+   "namn": "list_properties",
+   "titel": null,
+   "utdata": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "list_propertiesOutput",
+    "type": "object"
+   },
+   "utforande": null
   },
   {
    "annoteringar": null,
@@ -460,7 +751,23 @@
     "title": "list_sitemaps_enhancedArguments",
     "type": "object"
    },
-   "namn": "list_sitemaps_enhanced"
+   "meta": null,
+   "namn": "list_sitemaps_enhanced",
+   "titel": null,
+   "utdata": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "list_sitemaps_enhancedOutput",
+    "type": "object"
+   },
+   "utforande": null
   },
   {
    "annoteringar": null,
@@ -493,7 +800,23 @@
     "title": "manage_sitemapsArguments",
     "type": "object"
    },
-   "namn": "manage_sitemaps"
+   "meta": null,
+   "namn": "manage_sitemaps",
+   "titel": null,
+   "utdata": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "manage_sitemapsOutput",
+    "type": "object"
+   },
+   "utforande": null
   },
   {
    "annoteringar": null,
@@ -503,7 +826,23 @@
     "title": "reauthenticateArguments",
     "type": "object"
    },
-   "namn": "reauthenticate"
+   "meta": null,
+   "namn": "reauthenticate",
+   "titel": null,
+   "utdata": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "reauthenticateOutput",
+    "type": "object"
+   },
+   "utforande": null
   },
   {
    "annoteringar": null,
@@ -526,7 +865,23 @@
     "title": "submit_sitemapArguments",
     "type": "object"
    },
-   "namn": "submit_sitemap"
+   "meta": null,
+   "namn": "submit_sitemap",
+   "titel": null,
+   "utdata": {
+    "properties": {
+     "result": {
+      "title": "Result",
+      "type": "string"
+     }
+    },
+    "required": [
+     "result"
+    ],
+    "title": "submit_sitemapOutput",
+    "type": "object"
+   },
+   "utforande": null
   }
  ]
 }
