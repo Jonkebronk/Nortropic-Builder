@@ -7,7 +7,8 @@ Delfil till `SKILL.md`. Regeln att `prefers-reduced-motion` respekteras står i 
 | Kriterium | Nivå | Kärnan | Källa |
 |---|---|---|---|
 | 2.2.2 Pausa, stoppa, dölja | A | Det som rör sig, blinkar eller rullar, startar automatiskt, varar mer än fem sekunder och visas bredvid annat innehåll ska gå att pausa, stoppa eller dölja. Det som startar när något scrollas in räknas som automatiskt. En laddningsanimation som inte visas bredvid annat innehåll kan vara nödvändig | 📄 [Understanding 2.2.2](https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html); misslyckanden F16, F112, F50 och F7 |
-| 2.3.1 Tre blinkningar | A | Inget blinkar mer än tre gånger per sekund | 📄 WCAG 2.2 (→ `guide/2-6-rorelse.md`) |
+| 2.3.1 Tre blinkningar | A | Inget blinkar mer än tre gånger per sekund; exakt tre godkänns | 📄 [Understanding 2.3.1](https://www.w3.org/WAI/WCAG22/Understanding/three-flashes-or-below-threshold.html), läst 2026-10-16 |
+| 2.5.7 Dragrörelser | AA | Allt som styrs genom att dra går också att göra med ett enda tryck, utom när dragningen är nödvändig. Gäller reglage, karuseller och jämförelser före och efter | 📄 [Understanding 2.5.7](https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html), läst 2026-10-16 |
 | 2.3.3 Animation från interaktion | AAA | *"Motion animation triggered by interaction can be disabled, unless the animation is essential"* | 📄 [Understanding 2.3.3](https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html); teknikerna C39 (CSS) och SCR40 (JavaScript) |
 
 2.3.3 ligger över vårt golv, WCAG 2.2 AA, men C39 gör det nästan gratis, och guiden kräver det från N1.

@@ -36,16 +36,23 @@ Delfil till `SKILL.md`. Reglerna står i guiden (→ `guide/2-6-rorelse.md`, *Si
 - Animationen kan gå utanför huvudtråden och klarar sig då när sidan är upptagen. 📄 Chrome for Developers, *Scroll-driven animations*. Det gäller transform och opacitet. En skugga (`box-shadow`) som ändras med scrollen målas om i varje bildruta; lägg skuggan på ett pseudoelement och ändra dess opacitet i stället. 📄 Kowalski, `animation-performance`, *What You Animate* (MIT).
 - En scroll-driven animation pågår så länge besökaren scrollar och slutar när scrollen slutar. Den följer besökarens rörelse och är ingen scroll-kapning, så länge scrollens fart och riktning inte ändras. 📄 NN/g, *Scrolljacking 101* (2023).
 
+### Den byggda CSS:en
+
+- **Krav:** `animation-timeline` står som en egen deklaration i den CSS som når besökaren. Enligt specen ingår den i förkortningen `animation`, men *"if an `<animation-timeline>` value is included, but the user-agent doesn't support `<animation-timeline>` values within the shorthand, the entire `animation` declaration is invalid and ignored"*. 📄 MDN, *animation*.
+- **Varför det behöver kontrolleras:** Lightning CSS 1.33, som Vite 8 och därmed Astro 7 minifierar CSS med, slår utan angivna webbläsarmål ihop raderna till `animation: linear both namn view()`. Chromium 156 avvisar den (`CSS.supports('animation', 'linear both namn view()')` ger `false`), och animationen körs aldrig. Med webbläsarmål behåller Lightning CSS raderna. Uppmätt 2026-10-16 på bibliotekets provsida med måttlig rörelse: sektionernas in-animation och sidhuvudets skugga körs inte i bygget men fungerar när samma regel läggs in som den står i källan. 🔧 egna prov.
+- **Kontrollen:** sök i den byggda HTML:en efter `view()` eller `scroll()` inne i en `animation:`-deklaration, och läs `getComputedStyle(element).animationName` i sidan. I utvecklingsservern minifieras inget, så felet syns bara i bygget.
+
 ## In-animationer i måttlig budget
 
 Bara när briefen anger måttlig. Villkoren står i guiden (→ `guide/2-6-rorelse.md`, *Måttlig*):
 - **Aldrig på första skärmen**, varken text eller bild. Förstavyns bild är ofta sidans LCP-element.
 - **Från minst 70 % opacitet** och en kort förskjutning, cirka 8–24 px, på 300–450 ms med entrékurvan. Johnnys dom (`BESLUT.md` 2026-10-15).
-- **En gång.** En sektion som animeras varje gång den passerar motarbetar läsaren. 📄 Kowalski, *RECIPES.md* (*Scroll reveal*).
+- **En gång.** En sektion som animeras varje gång den passerar motarbetar läsaren. 📄 Kowalski, *RECIPES.md* (*Scroll reveal*). Det gäller in-animationer som startar på tid. En scroll-driven animation med `view()` följer scrollen åt båda hållen: när besökaren scrollar tillbaka uppåt tonas sektionerna under skärmen ner till 0,7 igen, och de animeras på nytt nedåt. Om det stör den som läser om avgörs på video (C61). 🔧
+- **Hover-lyft i måttlig** ligger inom `@media (hover: hover) and (pointer: fine)` som all annan hover. Uppmätt på provsidan 2026-10-16: ett kort som trycks på i mobilen står kvar lyft med skugga tills besökaren trycker någon annanstans. 📄 Kowalski, `mobile-native` §1.
 - **Grupper förskjuts 30–80 ms** per element och blockerar aldrig ett klick under tiden. 📄 Kowalski, *Stagger*.
 - **Text som visas och försvinner under scrollen** tvingar besökaren att minnas den, och avslöjanden kan få sidan att se slut ut för tidigt. 📄 NN/g, *Scrolljacking 101*.
 
 **Teknik, billigast först** (→ [verktyg.md](verktyg.md)):
-1. CSS med `animation-timeline: view()` – ingen JavaScript.
+1. CSS med `animation-timeline: view()` – ingen JavaScript, men följer scrollen åt båda hållen och måste kontrolleras i bygget (*Den byggda CSS:en* ovan).
 2. `IntersectionObserver`, som sätter ett attribut, och en CSS-övergång – några rader JavaScript.
 3. Motions `inView` (0,5 kB) och `animate` i mini-bygget (3,2 kB enligt motion.dev 2026-10-16; guiden anger 2,3 kB från 2026-10-13) – när en sekvens eller en fjäder behövs.

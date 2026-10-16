@@ -28,6 +28,18 @@ Delfil till `SKILL.md`. React, Tailwind, Motion och GSAP är tillåtna, och Astr
 - Motion är bättre än CSS när rörelsen kan avbrytas av gester, när ett element ska animeras ut innan det tas bort och när en layout ändras. 📄 Motion, `css-or-motion.md`.
 - GSAP väljs för tillvalet scrollytelling (→ `guide/2-6-rorelse.md`, *Tillval*) och för långa tidslinjer. GSAP:s egna skills rekommenderar GSAP som standard när inget bibliotek är valt; det gäller inte hos oss.
 
+## Om GSAP används
+
+Bara i tillvalet scrollytelling eller för en lång tidslinje (→ *Därför* ovan). Det här ska vara sant, ur GreenSocks egna skills (📄 `greensock/gsap-skills`, MIT, `aed9cfd`):
+- **Allt ligger i `gsap.matchMedia()`** med villkoret `(prefers-reduced-motion: no-preference)`, så att rörelsen återställs när villkoret slutar gälla (→ [reducerad.md](reducerad.md)). 📄 `gsap-core`.
+- **`gsap.from()` sätter startläget direkt** när skriptet körs (`immediateRender`). På text betyder det att texten blir genomskinlig tills animationen kört: aldrig på första skärmen, och startvärdet minst 0,7 (→ `guide/2-6-rorelse.md`). `autoAlpha: 0` gömmer dessutom elementet med `visibility: hidden`. 📄 `gsap-core`.
+- **ScrollTrigger sitter på tidslinjen eller en tween högst upp,** aldrig på en tween inuti en tidslinje. `scrub` och `toggleActions` används inte på samma utlösare. 📄 `gsap-scrolltrigger`, `gsap-timeline`.
+- **`ScrollTrigger.refresh()` efter att typsnitt och bilder laddats,** och utlösarna skapas uppifrån och ned. Annars hamnar start och slut fel. 📄 `gsap-scrolltrigger`.
+- **Inga `markers` och ingen GSDevTools** i det som publiceras. 📄 `gsap-scrolltrigger`, `gsap-plugins`.
+- **Fästa sektioner (`pin`) bara i scrollytelling,** och falsk vågrät scroll med `ease: "none"`. ScrollSmoother används inte (→ *Avstå*). 📄 `gsap-scrolltrigger`; 📄 NN/g, *Scrolljacking 101*.
+- **Draggable får ett tryckalternativ.** 📄 WCAG 2.5.7 (AA).
+- **Exemplen tas inte som de är.** Rättelserna i PR #8, #10 och #19 var fortfarande inte sammanslagna 2026-10-16, och exemplet för vågrät scroll i `gsap-scrolltrigger` ger ett fel. 📄 github.com/greensock/gsap-skills/pulls.
+
 ## Licenser och villkor
 
 | Verktyg | Licens | Vad den kräver |

@@ -39,11 +39,11 @@ Vad nivåerna tillåter står i guiden och är delvis öppet (→ `guide/2-6-ror
 ## Principer
 
 1. **Varje rörelse har ett syfte som går att namnge:** återkoppling, tillståndsbyte, rumslig koppling eller att mildra ett ryck. Den som inte kan namnge syftet bygger inte rörelsen. 📄 NN/g, Laubheimer 2020, *The Role of Animation and Motion in UX*; 📄 Apple HIG, *Motion* (*"Don't add motion for the sake of adding motion"*); 📄 Kowalski, `animate` steg 2 (MIT).
-2. **Frekvensen styr.** Det som används ofta får kortare och svagare rörelse eller ingen alls. Det som startas från tangentbordet animeras inte. 📄 NN/g, Laubheimer 2020, *Duration* (*"the more frequent the animation, the more subtle and shorter"*); 📄 Apple HIG (*"avoid adding motion to UI interactions that occur frequently"*); 📄 Kowalski, `animate` steg 1.
+2. **Frekvensen styr.** Det som används ofta får kortare och svagare rörelse eller ingen alls. Kortkommandon och fokushopp animeras aldrig. En meny som öppnas med Enter är ett vanligt knapptryck och följer menyns regler. 📄 NN/g, Laubheimer 2020, *Duration* (*"the more frequent the animation, the more subtle and shorter"*); 📄 Apple HIG (*"avoid adding motion to UI interactions that occur frequently"*); 📄 Kowalski, `animate` steg 1 och `find-animation-opportunities` (*Frequency*: kortkommandon, kommandopalett och fokushopp).
 3. **Texten är läsbar i samma ögonblick den syns.** Ingen text börjar på `opacity: 0` (→ `guide/2-6-rorelse.md`, N1). Första skärmens text animeras aldrig in (→ samma fil, villkoren för måttlig). En korstoning mellan sidor, där två sidors text syns samtidigt, prövas på video innan den används ([sidbyten-och-scroll.md](sidbyten-och-scroll.md)). 📄 `BESLUT.md` 2026-10-15.
 4. **Längder efter elementets storlek och syfte:** cirka 100–160 ms för återkoppling, 150–250 ms för små delar som vänds eller fälls ut och 200–300 ms för paneler. Inget i gränssnittet över 500 ms. Utgången är kortare än entrén. Tabellen står i [matt.md](matt.md). 📄 NN/g, Laubheimer 2020; 📄 Kowalski, `animate` steg 5; 📄 Material 3, `md.sys.motion`-tokens.
 5. **Kurvor:** ease-out vid entré. Vid utgång en kortare längd med ease-in eller samma ease-out; guiden låter NN/g gå före Emil (→ `guide/2-6-rorelse.md`, *Små interaktioner*). Inga studsar i sparsam. Värdena står i [matt.md](matt.md). 📄 NN/g, Laubheimer 2020; 📄 Material 3, tokenparen *decelerate* och *accelerate*; 📄 Motion, `best-practices/index.md` (*"If a serious website … don't use overshoot"*, MIT).
-6. **Bara billiga egenskaper:** transform, opacitet och färg, plus `clip-path` vid behov. Aldrig `transition: all` och aldrig layoutegenskaper (→ `guide/2-6-rorelse.md`, N2). `box-shadow` och `filter` målas om i varje bildruta och används sparsamt. 📄 Kowalski, `animation-performance` (MIT); 📄 GSAP, `gsap-performance` (MIT); 📄 Motion, `best-practices/index.md`.
+6. **Bara billiga egenskaper:** transform, opacitet och färg, plus `clip-path` vid behov. Aldrig `transition: all` och aldrig layoutegenskaper (→ `guide/2-6-rorelse.md`, N2). `box-shadow` målas om i varje bildruta: en skugga som ska ändras ligger på ett pseudoelement som tonas, eller blir `filter: drop-shadow()`. Oskärpa över 20 px är dyr och räknas dessutom som rörelse. Ingen förflyttning drivs av en CSS-variabel på en förälder, eftersom alla barn då räknas om i varje bildruta. `will-change` bara när ett ryck eller tappade bildrutor syns. 📄 web.dev, Basques och Andrew, *How to create high-performance CSS animations* (2020); 📄 Kowalski, `animation-performance` (MIT); 📄 GSAP, `gsap-performance` (MIT); 📄 Motion, `best-practices/index.md`.
 7. **Tokens, inga lösa värden.** Längder och kurvor kommer ur kitet. En komponent som skriver egna millisekunder eller egna `cubic-bezier` är ett fynd. Rörelsen hör till kitet (`BESLUT.md` 2026-10-15). 📄 Val Head, *Including Animation In Your Design System*, Smashing 2019; 📄 Kowalski, `animate` (*Hard Rules* 2–3).
 8. **Reducerad rörelse och hover-spärr levereras med rörelsen,** inte senare. Med `reduce` förflyttas, skalas, roteras och suddas ingenting; färg och opacitet får stå kvar (→ `guide/2-6-rorelse.md`, N1). Mönstren står i [reducerad.md](reducerad.md). 📄 WCAG 2.3.3 med C39 och SCR40.
 9. **Avbrytbart:** det som kan utlösas igen innan det är klart, som meny, knapplist och FAQ, byggs med `transition`, inte `@keyframes`. Besökaren behöver aldrig vänta på en animation. 📄 Kowalski, `review-animations` standard 6; 📄 Apple HIG (*"Let people cancel motion"*).
@@ -54,7 +54,9 @@ Vad nivåerna tillåter står i guiden och är delvis öppet (→ `guide/2-6-ror
 ## Förbud
 
 - Ingen text som börjar osynlig i CSS och ingen in-animation av första skärmen (→ `guide/2-6-rorelse.md`).
-- Inget som rör sig av sig självt i mer än fem sekunder utan paus, och inget som blinkar tre gånger per sekund eller oftare. 📄 WCAG 2.2.2 och 2.3.1 (→ `guide/2-6-rorelse.md`).
+- Inget som rör sig av sig självt i mer än fem sekunder utan paus, och inget som blinkar mer än tre gånger per sekund. 📄 WCAG 2.2.2 och 2.3.1 (→ `guide/2-6-rorelse.md`).
+- Inget som bara går att dra. En jämförelse före och efter, ett reglage eller en karusell går också att styra med ett tryck eller en knapp. 📄 WCAG 2.5.7 (AA).
+- Ingen text delas i tecken eller ord för att animeras in (SplitText, Motions `splitText`), utom i expressiv budget med Johnnys ja. Texten ska vara läsbar direkt, och uppdelad text kräver egen hantering för skärmläsare. 📄 `BESLUT.md` 2026-10-15; 📄 GSAP, `gsap-plugins` (*SplitText*, `aria`).
 - Ingen scroll-kapning och inga bibliotek för mjuk scroll, som Lenis och GSAP ScrollSmoother. Inga automatiska karuseller (→ `guide/2-6-rorelse.md`). 📄 NN/g, *Scrolljacking 101* (2023).
 - Ingen `transition: all`, inga animerade layoutegenskaper och ingen entré från `scale(0)`. 📄 Kowalski, `animate` (*Never Ship*).
 - Inga studsande eller elastiska kurvor i sparsam, alltså inget `cubic-bezier` med y över 1 eller under 0 och inga `bounce` eller `elastic`. 📄 Motion, `best-practices/index.md`; 📄 Kowalski, `animate` steg 5.
@@ -72,14 +74,15 @@ Kör i 375 och 1280 px på startsidan, en tjänstesida och kontaktsidan. Skriv v
 2. **Statisk sökning:** inga träffar på `transition: all`, layoutegenskaper i `transition` eller `@keyframes`, kurvor med y över 1, `infinite` eller längder över 300 ms på gränssnittsdelar. Bara rapport (→ `guide/bilaga-c-kontroller.md`, C58).
 3. **Tokens:** inga millisekunder eller kurvor skrivna direkt i komponenterna.
 4. **Hover:** varje klickbar sak ändrar sig synligt vid hover inom `(hover: hover)`. Färgstegen kommer ur `yta` (→ `.claude/skills/yta/detaljer.md`).
-5. **Tryck:** knapparna ger kvittens inom cirka 100 ms vid tryck (`:active`), på mobil och dator.
+5. **Tryck:** allt som går att trycka på ger kvittens inom cirka 100 ms (`:active`), på mobil och dator, också menylänkar och fristående länkar. Släppet går lika fort tillbaka, och inget hover-läge står kvar efter ett tryck på pekskärm.
 6. **Fokus:** fokusringen syns direkt, utan fördröjning, och döljs inte av sidhuvud, knapplist eller samtyckesruta.
-7. **Paneler:** menyn kommer från sin knapp eller kant med ease-out på 200–300 ms, går ut snabbare, och bakgrunden tonas med panelen. Den går att stänga mitt i rörelsen.
+7. **Paneler:** menyn kommer från sin knapp eller kant med ease-out på 200–300 ms, går ut snabbare och samma väg, och bakgrunden tonas med panelen. Den går att stänga mitt i rörelsen.
 8. **Reducerad rörelse:** med `reduce` förflyttas, skalas och roteras ingenting. Panelen syns direkt eller tonas in, och knapplisten tonas (→ C56).
 9. **Fem sekunder:** skärmbilder av fönstret efter 6 och 7 sekunder utan interaktion är lika (→ C57). Ta bilder av fönstret, inte helsidesbilder; helsidesbilder ändrar fönstret och kan ge falskt utslag.
 10. **Synligt utan rörelse:** en helsidesbild med `reduce` och en utan JavaScript visar allt innehåll.
 11. **Sidbyten:** inga utan Johnnys val. Om de finns: inom `no-preference`, med stilla sidhuvud, högst 200 ms och prövade på video ([sidbyten-och-scroll.md](sidbyten-och-scroll.md)).
 12. **Prestanda:** LCP och CLS är inte sämre än utan rörelsen (→ `guide/2-8-teknik-och-kvalitet.md`, N1-kontroll 9). JavaScript för rörelse är redovisat per sida.
+13. **Byggd CSS:** varje scroll-driven regel finns kvar efter minifieringen, med `animation-timeline` som egen deklaration, och animationen har ett namn i den byggda sidan (→ [sidbyten-och-scroll.md](sidbyten-och-scroll.md), *Den byggda CSS:en*). Gäller måttlig och expressiv.
 
 ## Delfiler
 
@@ -96,8 +99,9 @@ Kör i 375 och 1280 px på startsidan, en tjänstesida och kontaktsidan. Skriv v
 
 ## Källor
 
-- Emil Kowalski, [emilkowalski/skills](https://github.com/emilkowalski/skills) (MIT, commit `2d22863`, läst 2026-10-16): `animate`, `animation-vocabulary`, `find-animation-opportunities`, `improve-animations`, `review-animations`, `animation-performance` och `mobile-native`. Destillerat med egna ord.
-- Motion, [motiondivision/ai-kit](https://github.com/motiondivision/ai-kit), skillen `motion` (paketet MIT, commit `b7e2c68`) och [motion.dev/docs](https://motion.dev/docs).
+- Emil Kowalski, [emilkowalski/skills](https://github.com/emilkowalski/skills) (MIT, commit `2d22863`, läst 2026-10-16): `animate`, `animation-vocabulary`, `emil-design-eng`, `find-animation-opportunities`, `improve-animations`, `review-animations`, `animation-performance` och `mobile-native`. Destillerat med egna ord. Jämfört regel för regel med webb-pros kopior 2026-10-16 (commit `e8a175d`, samma text som `2d22863`).
+- Motion, [motiondivision/ai-kit](https://github.com/motiondivision/ai-kit), skillen `motion` (paketet MIT, commit `b7e2c68`), [motion.dev/docs](https://motion.dev/docs), `CHANGELOG.md` och källan i [motiondivision/motion](https://github.com/motiondivision/motion) (commit `2d27b04`, 2026-10-16).
+- web.dev: Basques och Andrew, [How to create high-performance CSS animations](https://web.dev/articles/animations-guide) (2020). MDN: [animation](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/animation). W3C: [Understanding 2.3.1](https://www.w3.org/WAI/WCAG22/Understanding/three-flashes-or-below-threshold.html) och [Understanding 2.5.7](https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html).
 - GreenSock, [greensock/gsap-skills](https://github.com/greensock/gsap-skills) (MIT, commit `aed9cfd`). GSAP-biblioteket har en egen licens ([verktyg.md](verktyg.md)).
 - [Open Props](https://github.com/argyleink/open-props) (MIT), `props.easing.js` och `props.media.js`.
 - W3C: [Understanding 2.2.2](https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html), [Understanding 2.3.3](https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html), [CSS View Transitions 1](https://www.w3.org/TR/css-view-transitions-1/).

@@ -8,7 +8,7 @@ Delfil till `SKILL.md`. Måtten här är utgångsvärden. Det slutliga värdet s
 |---|---|---|
 | Färgbyte vid hover | 100–150 ms | 📄 NN/g, Laubheimer 2020: cirka 100 ms för enkel återkoppling; 📄 Material 3, `duration-short2`–`short3` (100–150 ms) |
 | Fokusring | Direkt, 0 ms | 🔧 Fokus visar var besökaren är; en fördröjd ring döljer läget (→ `guide/2-8-teknik-och-kvalitet.md`, WCAG 2.4.7) |
-| Tryck med skala 0,97 | 100–160 ms | 📄 Kowalski, `animate`, *Duration*, och `mobile-native` §5 (MIT) |
+| Tryck med skala 0,97, och släppet tillbaka | 100–160 ms åt båda hållen | 📄 Kowalski, `animate`, *Duration* och *RECIPES.md* (*Button press*: samma övergång in och ut), och `mobile-native` §5 (MIT). Systemets svar ska vara snabbt (📄 Kowalski, `review-animations` standard 9) |
 | Ikon som vänds, till exempel FAQ-chevronen, och små popupfönster | 150–200 ms | 📄 Kowalski: små popupfönster 125–200 ms |
 | Rullgardinsmeny | 150–250 ms | 📄 Kowalski |
 | Panel eller meny från kanten, dialog | In 200–300 ms, ut cirka 70 % av det | 📄 NN/g: 200–300 ms för en modal, och *"a popup window may take 300ms to appear, but only 200 or 250ms to disappear"*; 📄 Material 3, `duration-medium1`–`medium2` (250–300 ms); 📄 Kowalski: modaler och lådor 200–500 ms |
@@ -27,7 +27,8 @@ Delfil till `SKILL.md`. Måtten här är utgångsvärden. Det slutliga värdet s
 
 | Roll | Värde | Källor |
 |---|---|---|
-| Entré och färg | Stark ease-out: `cubic-bezier(0.23, 1, 0.32, 1)` eller kitets egen ease-out | 📄 Kowalski, `--ease-out`; samma kurva heter `--ease-quint-out` i Open Props (`props.easing.js`, MIT); 📄 NN/g: ease-out för det som kommer in; 📄 Material 3, *emphasized decelerate* `cubic-bezier(0.05, 0.7, 0.1, 1)` |
+| Entré | Stark ease-out: `cubic-bezier(0.23, 1, 0.32, 1)` eller kitets egen ease-out | 📄 Kowalski, `--ease-out`; samma kurva heter `--ease-quint-out` i Open Props (`props.easing.js`, MIT); 📄 NN/g: ease-out för det som kommer in; 📄 Material 3, *emphasized decelerate* `cubic-bezier(0.05, 0.7, 0.1, 1)` |
+| Färg vid hover och tryck | `ease` eller kitets entrékurva | 📄 Kowalski, `animate` steg 5 (*Hover / color change → ease*). Vid 100–150 ms märks skillnaden knappt; en stark ease-out gör färgbytet nästan omedelbart |
 | Utgång | Accelererande och kort: `cubic-bezier(0.3, 0, 0.8, 0.15)` | 📄 Material 3, *emphasized accelerate*; 📄 NN/g: ease-in används ibland för det som lämnar skärmen |
 | Förflyttning på skärmen | `cubic-bezier(0.77, 0, 0.175, 1)` | 📄 Kowalski, `--ease-in-out`; Open Props `--ease-quart-in-out`. Sällan aktuell i sparsam |
 | Lådor och paneler, iOS-likt | `cubic-bezier(0.32, 0.72, 0, 1)` | 📄 Kowalski, `--ease-drawer` (efter Ionic) |
@@ -41,17 +42,18 @@ Delfil till `SKILL.md`. Måtten här är utgångsvärden. Det slutliga värdet s
 ## Asymmetri
 
 - Utgången är kortare än entrén. 📄 NN/g, Laubheimer 2020; 📄 Material 3.
-- Det besökaren gör med avsikt, som att hålla inne en knapp, får vara långsamt. Systemets svar ska vara snabbt. 📄 Kowalski, `review-animations` standard 9. Sällan aktuellt på en företagssajt.
+- Utgången går samma väg som entrén: en panel som glider in från höger går ut åt höger, och en knapplist som kommer nerifrån går ut nedåt. 📄 Kowalski, `animate` steg 6 (*Exit the way it entered*).
+- Det besökaren gör med avsikt, som att hålla inne en knapp, får vara långsamt. Systemets svar ska vara snabbt, också när en knapp släpps. 📄 Kowalski, `review-animations` standard 9.
 
 ## Förslag: rörelsetokens per kit
 
 🔧 **Förslag till Johnny, inte beslutat.** Kiten är godkända av Johnny, så ändringen går genom honom.
 
-I dag har varje kit en längd och en kurva: Lugn 400 ms, Varm 350 ms och Djärv 220 ms med studs (`bibliotek/stilkit/*/kit.css`, avsnittet *Rörelse*). En enda längd kan inte passa både ett färgbyte (100–150 ms) och en panel (200–300 ms). Följden syns på övningssajten: knapparnas färg har 400 ms, och menyn, sidhuvudet och knapplisten har egna längder skrivna direkt i komponenterna (260, 300 och 320 ms). Val Head rekommenderar duration-tokens och tre egna kurvor – ease-out, ease-in och ease-in-out – som start (📄 Smashing 2019). Material 3 delar längderna i korta, medellånga och långa.
+I dag har varje kit en längd och en kurva: Lugn 400 ms, Varm 350 ms och Djärv 220 ms med studs (`bibliotek/stilkit/*/kit.css`, avsnittet *Rörelse*). En enda längd kan inte passa både ett färgbyte (100–150 ms) och en panel (200–300 ms). Följden syns på övningssajten: knapparnas färg och släppet efter ett tryck tar 400 ms, och menyn, sidhuvudet och knapplisten har egna längder skrivna direkt i komponenterna (300 och 210 ms, 320 ms och 260 ms; uppmätt 2026-10-16). Val Head rekommenderar duration-tokens och tre egna kurvor – ease-out, ease-in och ease-in-out – som start (📄 Smashing 2019). Material 3 delar längderna i korta, medellånga och långa.
 
 | Token | Lugn | Varm | Djärv | Används till |
 |---|---|---|---|---|
-| `--k-tid-snabb` | 150 ms | 140 ms | 110 ms | Färg vid hover, tryck |
+| `--k-tid-snabb` | 150 ms | 140 ms | 110 ms | Färg vid hover, tryck och släpp |
 | `--k-tid` | 240 ms | 220 ms | 180 ms | Ikon som vänds, knapplist, sidhuvud |
 | `--k-tid-panel` | 300 ms | 280 ms | 240 ms | Meny och dialog. Utgången får cirka 0,7 gånger längden |
 | `--k-tid-in` | 450 ms | 400 ms | 320 ms | Bara måttlig: in-animationer |

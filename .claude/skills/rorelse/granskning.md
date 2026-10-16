@@ -31,6 +31,16 @@ Efter Kowalskis tio standarder (📄 `review-animations`), anpassade:
 
 Till det kommer guidens kriterier: passar rörelsen målgruppen och budgeten (C60), tjänar den innehållet (C62), och den granskas på video (C61) (→ `guide/bilaga-c-kontroller.md`).
 
+## Var saknad rörelse finns
+
+Leta i de här skarvarna, i den ordningen, och pröva varje kandidat mot grinden. 📄 Kowalski, `find-animation-opportunities`, *Where to Hunt*.
+- **Återkoppling som saknas:** allt som går att trycka på utan `:active`, också länkar i menyn och fristående uppmaningar.
+- **Tillstånd som hoppar:** innehåll som byts, visas eller försvinner utan övergång. Ofta är lösningen struktur och inte rörelse (→ [tillstand.md](tillstand.md), *Frågor och svar*).
+- **Rumslig koppling som saknas:** paneler som inte kommer från sin knapp eller kant, eller som går ut en annan väg än de kom.
+- **Grupper och gester:** bara i måttlig respektive expressiv budget.
+
+Högst fem till sju förslag för en hel sajt, ordnade efter vad de ger besökaren. *Inget behövs* är ett bra resultat.
+
 ## Åtgärden – billigast först
 
 📄 Kowalski, `review-animations`, *Remedial Preference Hierarchy*. Samma ordning står i granskarskillen.
@@ -52,9 +62,11 @@ Till det kommer guidens kriterier: passar rörelsen målgruppen och budgeten (C6
 - **Avvisade kandidater:** två till fem rörelser som prövades och valdes bort, med frågan i grinden som stoppade dem. Den listan visar att granskningen inte är en önskelista. 📄 Kowalski, `find-animation-opportunities`, *Part 2*.
 - **Det som beror på känsla** – en korstoning, en fjäders studs eller hur tät en grupp är – avgörs inte ur koden. Skriv hur det ska provas: spela upp i 2–5 gångers långsammare takt i webbläsarens animationsverktyg, stega bildruta för bildruta, prova gester på en riktig telefon och titta igen nästa dag. 📄 Kowalski, `review-animations/STANDARDS.md`, *Debugging*.
 - Det som inte syns på bilder eller video märks *för lite information* (→ C61).
+- **Vad som gör rörelsen underkänd.** Kowalski blockerar för förflyttning på något som används mycket eller startas med kortkommando, entré från `scale(0)`, ease-in på en entré och layoutegenskaper som har en enkel lösning i transform. Hos oss får de högst allvaret `medel` om de bara har Kowalski som källa. Taket gäller inte när WCAG eller två oberoende källor säger samma sak, som förflyttning med `reduce` (WCAG 2.3.3) och layoutegenskaper (web.dev, Motion och GSAP). 📄 Kowalski, `review-animations` (*Block*); → `guide/bilaga-b-skills.md`, *granska*.
 
 ## Mätning med Playwright
 
 - Följ en övergång bildruta för bildruta med `requestAnimationFrame` i sidan och läs `getBoundingClientRect()` och `getComputedStyle()`. Samplingar från testskriptet med `setTimeout` missar korta övergångar.
 - Prova hover och tryck med musen (`hover()`, `mouse.down()`) på datorn och `tap()` med `hasTouch` på mobilen. Stoppa navigeringen med en klicklyssnare som anropar `preventDefault()`, annars lämnar knappen Boka sidan.
-- Sajtens innehållspolicy (CSP) stoppar `addStyleTag`. Ett förslag provas därför i en egen testkontext med `bypassCSP: true`, eller genom att HTML-svaret ändras med `route`. Sajten ändras aldrig för ett prov.
+- Sajtens innehållspolicy (CSP) stoppar `addStyleTag`. Ett förslag provas därför i en egen testkontext med `bypassCSP: true`, genom att HTML-svaret ändras med `route`, eller med `document.styleSheets[0].insertRule(...)`, som CSP inte stoppar. Sajten ändras aldrig för ett prov.
+- Mät i det byggda resultatet, inte bara i utvecklingsservern. Minifieringen kan ändra eller ta bort regler (→ [sidbyten-och-scroll.md](sidbyten-och-scroll.md), *Den byggda CSS:en*).

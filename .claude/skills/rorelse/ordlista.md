@@ -20,6 +20,8 @@ Skriv en effekt så här: **vad** som rör sig, **utlösare**, **egenskaper**, *
 - **Samordning** (*orchestration*) – flera rörelser tajmas så att de upplevs som en.
 - **Nyckelbilder** (*keyframes*) – fasta punkter som webbläsaren fyller i mellan.
 - **Fyllnadsläge** (*fill mode*) – om elementet behåller första eller sista bildens stil före och efter animationen.
+- **Mellanbilder** (*interpolation, tween*) – värdena mellan start och slut som gör rörelsen sammanhängande.
+- **Stegvis animation** (*stepped animation*) – rörelse i hela steg i stället för glidande, som en nedräkning.
 
 ## Förflyttning
 
@@ -36,6 +38,7 @@ Skriv en effekt så här: **vad** som rör sig, **utlösare**, **egenskaper**, *
 - **Dragspel** (*accordion, collapse*) – en sektion fälls ut och ihop.
 - **Riktningsberoende övergång** (*direction-aware transition*) – innehållet glider åt ett håll framåt och åt andra hållet bakåt.
 - **Morf** (*morph*) – en form övergår mjukt i en annan.
+- **Kontinuitetsövergång** (*continuity transition*) – samma yta växer eller krymper mellan två lägen, så att besökaren ser att det är samma sak.
 
 ## Scroll och sidor
 
@@ -50,7 +53,9 @@ Skriv en effekt så här: **vad** som rör sig, **utlösare**, **egenskaper**, *
 - **Hover-effekt** – synlig ändring när pekaren är över något.
 - **Tryckkvittens** (*press/tap feedback*) – en liten nedskalning när något trycks, så att det känns fysiskt.
 - **Håll för att bekräfta** (*hold to confirm*) – en fyllning som växer medan knappen hålls inne.
-- **Dra, dra för att stänga, gummiband** (*drag, swipe to dismiss, rubber-banding*) – gester med fart och motstånd vid kanten.
+- **Dra, dra för att stänga, gummiband** (*drag, swipe to dismiss, rubber-banding*) – gester med fart och motstånd vid kanten. Det som bara går att dra behöver ett tryckalternativ (WCAG 2.5.7).
+- **Dra för att sortera** (*drag to reorder*) – en lista som ordnas om medan de andra raderna flyttar sig och ger plats.
+- **Före och efter-reglage** (*before/after slider*) – en avdelare som dras över två bilder. Hos oss bara med ett tryckalternativ.
 - **Skakning** (*shake*) – snabb skakning som signalerar fel. Inte hos oss; felet sägs i text.
 - **Krusning** (*ripple*) – en cirkel som växer från trycket.
 
@@ -65,10 +70,14 @@ Skriv en effekt så här: **vad** som rör sig, **utlösare**, **egenskaper**, *
 - **Fjäder** (*spring*) – rörelse som styrs av fysik: styvhet, dämpning och massa i stället för en fast längd. Behåller farten om den avbryts.
 - **Överskjutning, studs** (*overshoot, bounce*) – går förbi målet och fjädrar tillbaka.
 - **Upplevd längd** (*perceptual duration*) – hur lång en fjäder känns, fast den fortsätter att sätta sig.
+- **Styvhet, dämpning och massa** (*stiffness, damping, mass*) – fjäderns fysik: styvare går fortare, mindre dämpning studsar mer och mer massa känns tyngre.
+- **Fart och rörelsemängd** (*velocity, momentum*) – farten ett element har när det släpps eller avbryts. En fysikstyrd fjäder tar med den; en fjäder med fast längd börjar om från noll (→ [motion.md](motion.md)).
+- **Avbrytbar** (*interruptible*) – rörelsen kan vända mitt i, från där den är.
+- **Asymmetrisk kurva** (*asymmetric easing*) – accelererar och bromsar olika fort.
 
 ## Rörelse som går av sig själv
 
-- **Loop**, **pendling** (*alternate, yoyo*), **puls** (*pulse*), **sväva** (*float*), **viloanimation** (*idle animation*), **rullande band** (*marquee*). Alla är förbjudna i sparsam, och över fem sekunder kräver de paus (WCAG 2.2.2).
+- **Loop**, **pendling** (*alternate, yoyo*), **bana** (*orbit*), **puls** (*pulse*), **sväva** (*float*), **viloanimation** (*idle animation*), **rullande band** (*marquee*). Alla är förbjudna i sparsam, och över fem sekunder kräver de paus (WCAG 2.2.2).
 
 ## Detaljer
 
@@ -76,6 +85,7 @@ Skriv en effekt så här: **vad** som rör sig, **utlösare**, **egenskaper**, *
 - **Klippning och mask** (*clip-path, mask*) – döljer eller avslöjar delar av ett element.
 - **Linjeteckning** (*line drawing*) – en SVG-linje som ritar sig själv.
 - **Räknare** (*number ticker*) – siffror som räknas upp. Inte i sparsam.
+- **Textmorf** och **skrivmaskin** (*text morph, typewriter*) – text som byts tecken för tecken eller skrivs fram. Inte hos oss utanför expressiv: texten ska vara läsbar direkt.
 - **Tabellsiffror** (*tabular numbers*) – siffror med samma bredd, så att de inte hoppar.
 - **Skelett och skimmer** (*skeleton, shimmer*) – platshållare med ett glänsande svep medan något laddas.
 
@@ -89,4 +99,5 @@ Skriv en effekt så här: **vad** som rör sig, **utlösare**, **egenskaper**, *
 
 ## Principer
 
-- **Syftesstyrd rörelse** (*purposeful animation*), **användningsfrekvens** (*frequency of use*), **rumslig konsekvens** (*spatial consistency*), **upplevd prestanda** (*perceived performance*) och **reducerad rörelse** (*reduced motion*).
+- **Syftesstyrd rörelse** (*purposeful animation*), **användningsfrekvens** (*frequency of use*), **rumslig konsekvens** (*spatial consistency*), **upplevd prestanda** (*perceived performance*), **hårdvaruacceleration** (*hardware acceleration*) och **reducerad rörelse** (*reduced motion*).
+- Animatörens grundbegrepp: **förväntan** (*anticipation*, ett litet tag åt andra hållet före rörelsen), **efterföljd** (*follow-through*, delar som fortsätter en aning och sätter sig) och **tryck och töjning** (*squash and stretch*). De hör till illustration och blickfång, inte till gränssnittet.
