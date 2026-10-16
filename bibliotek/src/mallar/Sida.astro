@@ -13,7 +13,7 @@ import type { StartInnehall } from '../innehall/typ';
 // strukturerad: JSON-LD för sökmotorer, t.ex. en klinik per mottagning (Google Search Central, LocalBusiness).
 // lista: knapplistens och sidhuvudets knappar när sidans primära handling inte är Boka, t.ex. Ring och Mejla på en företagssida.
 // rorelseJamforelse: bara på provsidor som jämför de två rörelseversionerna med ?rorelse=; en vanlig sajt bär inte skriptet.
-interface Props { kit: 'lugn' | 'varm' | 'djarv'; innehall: StartInnehall; titel: string; beskrivning: string; noindex?: boolean; rorelse?: 'sparsam' | 'mattlig'; rorelseJamforelse?: boolean; strukturerad?: object[]; lista?: { primar: Knappval; sekundar: Knappval }; }
+interface Props { kit: 'lugn' | 'varm' | 'djarv'; innehall: StartInnehall; titel: string; beskrivning: string; noindex?: boolean; rorelse?: 'sparsam' | 'mattlig'; rorelseJamforelse?: boolean; strukturerad?: object[]; lista?: { primar: Knappval; sekundar: Knappval; etikett?: string }; }
 const { kit, innehall, titel, beskrivning, noindex = false, rorelse = 'sparsam', rorelseJamforelse = false, strukturerad = [], lista } = Astro.props;
 const adress = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
 const delning = Astro.site && innehall.foretag.delningsbild ? new URL(innehall.foretag.delningsbild, Astro.site).href : undefined;

@@ -20,6 +20,8 @@ picture { display: contents; }
 }
 /* Långa sammansatta ord som Stötvågsbehandling bryts i stället för att spilla över (WCAG-teknik C33). */
 h1, h2, h3, p, li, dt, dd, a, blockquote, summary, label, figcaption { overflow-wrap: break-word; }
+/* En e-postadress har inga mellanslag och får brytas var som helst, så att en lång adress aldrig ger vågrät scroll. */
+a[href^="mailto:"] { overflow-wrap: anywhere; }
 /* Ett barn i ett rutnät eller en flexrad får krympa under sitt längsta ord. Annars trycker ett långt ord eller en knapp ut hela
    spalten förbi skärmen vid 200 % textstorlek, och sidan får vågrät scroll (WCAG 2.2, 1.4.4 och 1.4.10; premiumpasset 2026-10-16).
    Ikoner och bilder som inte får krympa har flex: none. */
@@ -83,13 +85,15 @@ svg[aria-hidden="true"] { stroke-width: 1.75px; }
 /* Personens egna ord: en linje i textfärgen utan citattecken. Omdömen från andra står med citattecken i kort (Fortroende). */
 .citat { margin: 0; padding-left: var(--k-a4); border-left: 3px solid var(--k-text); font-family: var(--k-font-rubrik); font-size: var(--k-citat); line-height: 1.35; max-width: var(--k-matt); }
 
+/* Hopplänken flyttas upp med sin egen höjd och inte med fasta 100 px, så att den inte sticker fram vid stor text
+   (andra varvet 2026-10-16, kvalitet). */
 .hoppa {
-  position: absolute; left: var(--k-a4); top: -100px; z-index: 100;
+  position: absolute; left: var(--k-a4); top: 0; z-index: 100; transform: translateY(-120%);
   background: var(--k-mork); color: var(--k-pa-mork); padding: var(--k-a2) var(--k-a4); border-radius: var(--k-radie-knapp);
 }
-.hoppa:focus { top: var(--k-a2); }
+.hoppa:focus { transform: translateY(var(--k-a2)); }
 /* Förankrad i övre vänstra hörnet: annars ligger rutan kvar där texten slutar och kan bredda sidan vid 200 % text. */
-.sr-only { position: absolute; top: 0; left: 0; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.sr-only { position: absolute; top: 0; left: 0; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
 
 /* Knappar */
 .knapp {

@@ -43,9 +43,14 @@ const { praktiskt, ring } = Astro.props.innehall;
   // Veckodagen räknas i mottagningens tidszon och inte i besökarens (kvalitetsgranskningen 2026-10-16, K22).
   const s = document.querySelector<HTMLElement>('.praktiskt[data-idag-text]');
   if (s) {
-    const dag = new Intl.DateTimeFormat('en-US', { weekday: 'short', timeZone: 'Europe/Stockholm' }).format(new Date());
-    const idag = String(['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(dag));
+    // Efter dagens sluttid markeras raden inte, så att den inte säger emot förstavyns "Stängt för i dag" (andra varvet, flödet F3).
+    const delar = new Intl.DateTimeFormat('en-US', { weekday: 'short', hour: 'numeric', minute: 'numeric', hourCycle: 'h23', timeZone: 'Europe/Stockholm' }).formatToParts(new Date());
+    const del = (t: string) => delar.find((x) => x.type === t)?.value ?? '';
+    const idag = String(['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(del('weekday')));
+    const nu = Number(del('hour')) * 60 + Number(del('minute'));
+    const slut = (rad: HTMLElement) => { const m = /(\d{1,2})[.:](\d{2})\D*$/.exec(rad.querySelector('dd')?.textContent ?? ''); return m ? Number(m[1]) * 60 + Number(m[2]) : 1440; };
     s.querySelectorAll<HTMLElement>(`[data-veckodag="${idag}"]`).forEach((rad) => {
+      if (slut(rad) <= nu) return;
       rad.classList.add('praktiskt__idag');
       const m = document.createElement('span'); m.className = 'praktiskt__idagmarkering'; m.textContent = s.dataset.idagText ?? '';
       rad.querySelector('dt')?.append(' ', m);

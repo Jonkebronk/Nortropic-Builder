@@ -187,7 +187,9 @@ const aktuell = (l: Lank) => (l.href === sida ? 'page' : l.delar?.includes(sida)
     .sidhuvud__nav { display: block; }
     .sidhuvud__menyknapp { display: none; }
     .sidhuvud__ringtext { display: inline; }
-    .sidhuvud__namn { margin-right: 0; white-space: nowrap; overflow-wrap: normal; }
+    /* Namnet krymper aldrig, så att ett långt namn inte skrivs över menyn; menyvalen bryts i stället till fler rader. */
+    .sidhuvud__namn { margin-right: 0; white-space: nowrap; overflow-wrap: normal; flex: none; }
+    .sidhuvud__nav ul { flex-wrap: wrap; row-gap: var(--k-a1); }
     .sidhuvud__nav { margin-right: auto; }
     .sidhuvud__nav a { white-space: nowrap; }
     .sidhuvud__kontakt { gap: var(--k-a5); }
