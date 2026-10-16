@@ -1070,3 +1070,24 @@ Johnny, omkring 11:45: *"Jag vill ta bort regeln om att våran sida får inte ko
 **Innebär:** regeln är struken ur `CLAUDE.md`, `mallar/sajt/CLAUDE.md` och övningssajtens `CLAUDE.md`. Den är också struken ur `guide/2-2`, `2-5`, `2-6`, `3-2` och `4-foretaget.md` och ur bilaga A, B, C (C54) och E (2.1 och 2.6). En referens namnges fortfarande i kitets `design.md`.
 
 **Claudes anmärkning, inte en regel:** lagen gäller oavsett husregler, så Claude kopierar inte andra företags texter, bilder, logotyper eller kännetecken, och inte heller kod utan licens. Grunden är 1 § upphovsrättslagen (texter, bilder och datorprogram) och 14 § marknadsföringslagen (vilseledande efterbildning). Design, layout, struktur, palett, typsnitt och idéer får tas fritt, och kod med öppen licens får användas enligt licensen. ⚖️ Tolkning, inte juridisk rådgivning.
+
+## 2026-10-16: Genomgången efter övningssajten – förslagen G1–G13
+
+**Status:** gäller.
+
+Claude lade fram genomgången efter den första övningssajten, med 13 förslag på var Johnnys rättelser ska föras in (sajtens `genomgang.md`; `guide/5-byggplan.md`, *Efter varje sajt*). Johnny, omkring 12:07:
+
+> Jag tycker alla förslag är bra.
+
+**Innebär:**
+- **G1:** en bild förstoras högst cirka 1,4 gånger på en skärm med dubbel upplösning (`guide/2-5`).
+- **G2:** ikoner är sakliga och föreställer tjänsten (`guide/2-5`).
+- **G3:** accenten används bara till handlingar i alla kit (`guide/2-5`).
+- **G4:** en sida har samma namn överallt (`guide/2-3`).
+- **G5:** en sida vars primära handling inte är bokning har samma knappar överallt (`guide/2-3`).
+- **G6 och G13:** granskarens checklista får två fällande tecken: ett foto som kapas, och en stil som läses som en annan bransch. När granskaren själv pekar ut den mest osäkra sajten blir domen osäker. Checklistan låses på nytt (`mallar/granskning.md`).
+- **G7:** sidkartan och briefen rättas i samma varv som beslutet som ändrar sajten (`guide/3-1`).
+- **G8 och G9:** stilkit Varm och Djärv rättas efter Johnnys domar, och Johnny dömer provsidorna.
+- **G10:** kvalitetsgranskningen i sex perspektiv blir ett steg i byggplanen före Johnnys slutgranskning (`guide/5-byggplan.md`, `3-2`).
+- **G11:** Johnnys domar över egna utkast räknas med när granskaren mäts. De läses lokalt ur `sites/` (`mattstock/verktyg/matning.py`).
+- **G12:** svar som Claude ger i kundens ställe visas som en lista vid genomgången (`guide/2-7`).
