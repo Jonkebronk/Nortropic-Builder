@@ -29,7 +29,7 @@ Uppdaterad 2026-10-16 kl. 22.16 på Johnnys Mac, i den första byggsessionen (`c
   - `inventering/mcp-servrar.json` följer konfigurationen.
   
   **Väntar på Johnny:**
-  - Starta om `claude-bygg`, så att ändringarna gäller.
+  - (Gjort: `claude-bygg` är omstartad 2026-10-16 kväll. Playwright-MCP:n kör WebKit med iPhone 15, bekräftat med `browser_get_config`; MDN och Cloudflare Docs är borta.)
   - Koppla bort Mobbin-connectorn i claude.ai.
   - (Avgjort 21.42: låset godtaget för Playwright, Motion släppt, Mobbins bilder raderade.)
   - (Avgjort 21.43: reglerna för MCP-servrar och verktyg står i `guide/3-3` med hänvisning i `CLAUDE.md`; skrivverktyg kräver Johnnys ja per gång, utan `permissions.deny`.)
@@ -250,7 +250,7 @@ Johnny beslutade omkring 12.11 att kompetensen ur inventeringen ska in i alla la
 - **Push från Macen:** git har `osxkeychain` som inloggning och kan hänga på en behörighetsruta i nyckelringen. `gh` är inloggat som Jonkebronk och fungerar. Pusha med `git -c credential.helper= -c 'credential.helper=!gh auth git-credential' push origin main`, eller låt Johnny köra `gh auth setup-git` en gång, vilket ändrar hans globala git-konfiguration.
 - `mattstock/verktyg/matning.py` mäter granskaren mot Johnnys domar (TPR och TNR, också för de säkra domarna) och visar Claudes förväntan som jämförelse. Bildnamnen från `fanga.js`: `-m.jpg` är hela mobilsidan, `-d.jpg` datorns första skärm och `-hel.jpg` hela datorsidan. Chromium klipper skärmbilder över 16 384 px, så fånga höga mobilsidor i dubbel upplösning.
 - **Prov och ändringar av byggsessionens egen konfiguration:** i auto mode stoppade klassaren proven som *Auto-Mode Bypass*, läsningen av `.claude.json` som *Credential Exploration* och en ändring av `~/.claude-bygg/settings.json` som *Self-Modification*. Ändringen gick igenom när Johnny hade sagt till uttryckligen. Prov kan köras från en session i den vanliga konfigurationen.
-- **Chrome-verktygen styr webbläsaren på Johnnys Windows-dator, inte på Macen.** Lokala sidor visas på Macen med `open http://127.0.0.1:<port>/`.
+- **`claude-in-chrome` styr webbläsaren på Johnnys Windows-dator, inte på Macen.** Lokala sidor visas på Macen med `open http://127.0.0.1:<port>/`. Chrome DevTools MCP och Playwright MCP kör däremot headless på Macen och når förhandsvisningen (`.claude/skills/kvalitet/webblasarverktyg.md`).
 - **Astro 7 kör `astro dev` och `astro preview` som bakgrundsprocesser.** Stoppa dem med `npx astro dev stop` eller `npx astro preview stop` i projektets katalog.
 - **Startsäkringen** `skript/startsakring.sh` körs först i varje session (`CLAUDE.md`). Den uppdaterar allt till senaste version och skriver vad som ändrades.
 - `konsolidering/bygg_n1.py` genererar N1-sammanfattningen. Skriptet kräver Python 3.10 eller senare. På Macen är `python3` version 3.9, så kör det med `/opt/homebrew/bin/python3.12`.

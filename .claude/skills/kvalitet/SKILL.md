@@ -157,6 +157,6 @@ Varje punkt säger vad som ska vara sant. Hur det prövas, och med vilken källa
 | `apple-hig.md` | Apples HIG och WebKit för Safari på iPhone: vilka inställningar som når en webbsida, vad som prövas i Playwrights WebKit och vad som kräver en riktig iPhone |
 | `formular.md` | Fälten, skicka, fel och integritet i formulär, och hur de prövas |
 | `prov.md` | Provlistan för sektioner och komponenter, ur break och break-ui, med svenska värstafall och felsignaturer |
-| `webblasarverktyg.md` | Chrome DevTools MCP: vilket anrop till vad (mobil med tryck, lägen, kaskaden, tillgängliga namn, samtycke, INP, video) och fällorna |
+| `webblasarverktyg.md` | Chrome DevTools MCP och Playwright (biblioteket och MCP:n): vilket anrop till vad (mobil med tryck, lägen, kaskaden, tillgängliga namn, samtycke, INP, video) och fällorna |
 | `kontroller.md` | Vad kontrollskriptet täcker och inte, förslagen på nya kontroller, verktygen och hur de körs, granskning vid ändring |
 | `kallor.md` | Källor, versioner och licenser |
