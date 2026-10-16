@@ -132,6 +132,16 @@ Johnny beslutade omkring 12.11 att kompetensen ur inventeringen ska in i alla la
   3. Kör premiumpasset på sajten efter revisionerna, så att Johnny kan döma före och efter.
   4. Lägg fram luckorna för kompetensutveckling.
 
+## Spår för senare
+
+- **Alltid uppdaterad och optimerad sajt** (Johnny 2026-10-16 omkring 13.00): *"hur säkerställ vi en alltid uppdaterad, optimerad hemsida? har vi veckovisa, månadsvisa kontroller så saker inte går sönder eller behov av uppdateringar, optimering"*.
+  - Schemat finns i `guide/2-9-drift-och-forvaltning.md`, *Schemalagda kontroller*: dagligen, veckovis, månadsvis, kvartalsvis och årligen. Uppdateringarna sköts av Renovate med sju dagars karenstid. Detaljerna står i skillen `drift`. Allt är N3 och körs inte än.
+  - Luckor att ta när spåret blir aktuellt:
+    1. **Optimering:** "månadens förbättring" ur siffrorna i månadsrapporten.
+    2. **Karenstid mot "alltid senaste":** sju dagar för kundsajter och direkt för byråns verktyg. Johnny avgör.
+    3. **Övning före första kunden:** publicering och drift på byråns egen sajt eller provsajten.
+- **Företagssakerna** (Johnny 2026-10-16: *"det är bra företagssakerna sist"*): bokföring och moms, kundavtal och offert, biträdesavtal, incidentrutin och försäkring. Luckorna står i arbetarnas underlag och sammanställs med inventeringen.
+
 ## Väntar på Johnny
 
 - **Genomgången efter övningssajten** (`guide/5-byggplan.md`) är skriven i sajtens `genomgang.md`. Förslagen G1–G13 ska godkännas eller strykas. Granskaren mättes om på de fyra egna utkasten, blint, och fick 3 av 4 rätt. Den missade Djärv: den såg att tonen var fel för en klinik men vägde det bara som svagt (förslag G13 till checklistan).
