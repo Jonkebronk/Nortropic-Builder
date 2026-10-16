@@ -1351,3 +1351,17 @@ Johnny frågade vad DataForSEO är. Claude förklarade att det är ett betalt AP
 **Innebär:**
 - Ingen inloggning eller insättning hos DataForSEO nu. Servern ligger kvar i byggsessionen och står som olåst i verktygslåset.
 - Frågan tas upp igen när en sajt behöver bakåtlänkar eller sökvolymer.
+
+## 2026-10-16: Googles skill retrieving-developer-knowledge installeras i projektet
+
+**Status:** gäller.
+
+Claude hade förklarat att Google Developer Knowledge och Grounding Lite inte går att logga in på via `/mcp`, eftersom Google inte stöder DCR, och att de behöver en API-nyckel. Johnny gav strax före 19.55 kommandot:
+
+> `npx skills add google/skills --skill retrieving-developer-knowledge \`
+> `  --agent=claude-code`
+
+**Innebär:**
+- Skillen ligger i `.claude/skills/retrieving-developer-knowledge/` (google/skills, commit `730939d`, version 1.0.1, Apache-2.0). Claude lade till `--copy`, så att inga symlänkar eller `.agents/` hamnar i repot, och `-y`, eftersom kommandot inte kan svara på frågor i sessionen. `skills-lock.json` i roten håller källan och hashen. Filerna är granskade och identiska med källan: bara text, inga skript eller hooks.
+- Skillen ändras inte här, så att `npx skills update` kan ersätta den. Det som krockar med guiden står i `kunskap/kallkort/google-developer-knowledge-mcp.md`.
+- Den fungerar först när Johnny har lagt in nyckeln.

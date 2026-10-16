@@ -42,7 +42,7 @@ Googles officiella, värdade MCP-server (`https://developerknowledge.googleapis.
 **Beslut** (Johnny omkring 17.40, *"Ja på alla"*): *MCP: kräver konto (Google Cloud-projekt och API-nyckel begränsad till Developer Knowledge API)*. Jag håller med, med två förslag till Johnny:
 - **Stäng av `answer_query`** med en deny-regel för `mcp__google-developer-knowledge__answer_query` i byggsessionens behörigheter. Det är Johnnys inställning (`guide/3-3`), och Claude ändrar den inte. Skäl: svaret är genererat, och kvoten är 50 per dag.
 - **En egen nyckel per Google-tjänst.** Grounding Lite och nanobanana får egna nycklar, så att en läckt nyckel bara öppnar ett API. Googles sida föreslår att samma nyckel kan användas för Gemini-anrop, och det gör vi inte.
-- Ingen skill nämner servern i dag. Behålls den hör den till **larande** (`bevakning.md`) och **kvalitet** (`seo-teknik.md`, `prestanda.md`), som uppslag när en Google-källa läses om.
+- Ingen av våra skills nämner servern i dag. Googles egen skill gör det (avsnittet *Googles skill* nedan). Behålls den hör den till **larande** (`bevakning.md`) och **kvalitet** (`seo-teknik.md`, `prestanda.md`), som uppslag när en Google-källa läses om.
 - **Provet mot övningssajten:** fem frågor ur `guide/2-2` och `2-8`: flytt med nya adresser, robots.txt, `LocalBusiness`, CrUX-kravet och förutsättningarna för Business Profile. Facit är Googles sidor, hämtade med WebFetch. Frågorna ställs på engelska. **Nytta:** rätt sida och rätt regel med färre steg än WebFetch. **Annars:** ta bort servern (`andra-varvet/mcp-jamforelse.md`, *Google Developer Knowledge MCP*).
 
 ## Passar vår stack?
@@ -58,3 +58,12 @@ Ja, för kunskap. Servern rör inte sajten och kör inget på Macen. Den täcker
 
 ## Inloggning
 Kräver ett Google Cloud-projekt med Developer Knowledge API påslaget (`gcloud services enable developerknowledge.googleapis.com`; sedan 2026-03-17 slås MCP-servern på samtidigt) och en API-nyckel som under *API restrictions* bara får Developer Knowledge API. Johnny skapar nyckeln och lägger in den själv i ett eget terminalfönster från repots rot, aldrig i chatten: `claude mcp add google-developer-knowledge --transport http https://developerknowledge.googleapis.com/mcp --header "X-Goog-Api-Key: <nyckeln>"` (lokal scope). I dag är servern inlagd i byggsessionen som `http` med den adressen men utan nyckel, så den svarar inte än. OAuth via `/mcp` fungerar inte, eftersom Google inte stöder DCR.
+
+## Googles skill `retrieving-developer-knowledge`
+- **Källa:** [google/skills](https://github.com/google/skills), `skills/developers/retrieving-developer-knowledge/`, version 1.0.1, commit `730939d` (2026-10-15). Läst 2026-10-16 i sin helhet: `SKILL.md` och de tre referenserna. Licens Apache-2.0.
+- **Vad den gör:** säger åt Claude att slå upp i korpusen i stället för att svara ur minnet. Den använder MCP-servern när verktygen finns, annars REST-API:t med curl och en gcloud-token eller `DEVELOPERKNOWLEDGE_API_KEY`. Ett uppslag som misslyckas ska sägas rakt ut och inte se ut som ett svar. Bara text, inga skript eller hooks.
+- **Hos oss:** installerad i projektet 2026-10-16 med `npx skills@1.7.2 add … --copy -y` (`BESLUT.md`). Filerna ligger i `.claude/skills/retrieving-developer-knowledge/`, och `skills-lock.json` håller källan och hashen. Vi ändrar inte filerna, så att `npx skills update` kan ersätta dem. Skillen fungerar först när det finns en nyckel: gcloud saknas på Macen, och MCP-servern saknar huvudet.
+- **Krockar med guiden:**
+  - Skillen föredrar `answer_query` för begreppsfrågor och kallar hämtad dokumentation *"100% authoritative"*. Hos oss är `answer_query` härlett (punkt 2 under *Det bästa vi kan ta*), och bara `search_documents` och `get_documents` räknas som källor.
+  - Exemplen i `SKILL.md` lägger nyckeln i adressen (`?key=`). Huvudet `X-Goog-Api-Key`, som referensen också tillåter, håller den utanför adresser som loggas.
+  - Beskrivningen är bred (gcloud, IAM, *"official documentation"*), så skillen kan laddas också när frågan gäller Cloud-delar vi inte använder.
