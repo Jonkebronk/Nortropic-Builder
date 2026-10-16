@@ -169,8 +169,12 @@ const aktuell = (l: Lank) => (l.href === sida ? 'page' : l.delar?.includes(sida)
     .sidhuvud { transition: none; }
     .meny, .meny:popover-open { transform: none; }
     .meny { opacity: 0; transition: opacity 150ms linear, display 150ms allow-discrete, overlay 150ms allow-discrete; }
-    .meny:popover-open { opacity: 1; }
+    .meny:popover-open { opacity: 1; transition-duration: 150ms; }
     @starting-style { .meny:popover-open { opacity: 0; } }
+  }
+  /* Den som har valt minskad genomskinlighet får ett täckande sidhuvud utan oskärpa (Media Queries 5; andra varvet). */
+  @media (prefers-reduced-transparency: reduce) {
+    .sidhuvud { background: var(--k-bg); backdrop-filter: none; }
   }
   /* Vid mycket låg höjd (400 % zoom, liggande mobil) är sidhuvudet statiskt (WCAG 2.2, Understanding 1.4.10; Johnny 2026-10-16). */
   @media (max-height: 30rem) {

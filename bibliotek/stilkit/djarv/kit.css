@@ -13,6 +13,8 @@
   --k-linje: #112229;
   --k-accent: #ff6b35;
   --k-pa-accent: #112229;
+  /* Texten på accenten är mörk, så hover och tryck blandas mot vitt för att kontrasten ska öka (bas.css, .knapp--primar). */
+  --k-accent-mot: #ffffff;
   --k-accent-text: #c2380c;
   --k-mork: #112229;
   --k-pa-mork: #f8f8f2;
@@ -30,7 +32,7 @@
   --k-rubrik-vikt: 800;
   --k-rubrik-versaler: uppercase;
   --k-rubrik-spatiering: -0.005em;
-  --k-rubrik-radhojd: 0.95;
+  --k-rubrik-radhojd: 1; /* versaler under 1,0 kolliderar mellan raderna (C53; andra varvet, yta 1) */
   --k-h1: clamp(2.5rem, 1.3rem + 4.6vw, 5rem); /* Lägre tak, så att rubriken inte lämnar ett ensamt "I" på datorn (Johnnys dom 2026-10-16 väntar). */
   --k-h2: clamp(1.9rem, 1.4rem + 2.4vw, 3.4rem);
   --k-h3: 1.25rem;

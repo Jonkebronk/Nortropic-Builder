@@ -103,24 +103,26 @@ svg[aria-hidden="true"] { stroke-width: 1.75px; }
   border: var(--k-kantlinje) solid transparent;
   font: inherit; font-weight: var(--k-knapp-vikt); text-transform: var(--k-knapp-versaler);
   letter-spacing: 0.01em; text-decoration: none; line-height: 1.2;
-  transition: background-color var(--k-tid) var(--k-kurva), color var(--k-tid) var(--k-kurva), transform var(--k-tid) var(--k-kurva);
+  /* Formen går tillbaka lika snabbt som trycket (Kowalski, animate); färgen följer kitets tid. */
+  transition: background-color var(--k-tid) var(--k-kurva), color var(--k-tid) var(--k-kurva), transform 150ms var(--k-kurva);
 }
 .knapp svg { width: 1.15em; height: 1.15em; flex: none; }
 .knapp--primar { background: var(--k-accent); color: var(--k-pa-accent); border-color: var(--k-accent); }
 .knapp--sekundar { background: transparent; color: var(--k-text); border-color: currentColor; }
 .knapp--pa-mork { background: var(--k-pa-mork); color: var(--k-mork); border-color: var(--k-pa-mork); }
 /* Hover och tryck ändrar färgen i båda rörelseversionerna: sparsam rörelse är just färg vid hover och fokus (guide/2-6-rorelse.md).
-   Den primära knappen blandas mot textfärgen, så att den blir mörkare i ljusa kit och kontrasten mot texten ökar; den sekundära
+   Den primära knappen blandas bort från texten på den (--k-accent-mot, standard textfärgen), så att kontrasten ökar i varje kit;
+   i Djärv är texten på accenten mörk och steget går mot vitt (andra varvet 2026-10-16, yta 1). Den sekundära
    får en svag ton av sin egen färg. Trycket är ett steg till (Emil Kowalski, emil-design-eng: en knapp ska svara när den trycks). */
 @media (hover: hover) and (pointer: fine) {
-  .knapp--primar:hover { background: color-mix(in oklab, var(--k-accent) 86%, var(--k-text)); border-color: color-mix(in oklab, var(--k-accent) 86%, var(--k-text)); }
+  .knapp--primar:hover { background: color-mix(in oklab, var(--k-accent) 86%, var(--k-accent-mot, var(--k-text))); border-color: color-mix(in oklab, var(--k-accent) 86%, var(--k-accent-mot, var(--k-text))); }
   .knapp--sekundar:hover { background: color-mix(in srgb, currentColor 8%, transparent); }
   .knapp--pa-mork:hover { background: color-mix(in oklab, var(--k-pa-mork) 88%, var(--k-mork)); }
   .knapp:hover { transform: translateY(-1px); }
 }
 /* Trycket ger också en kvittens i formen, kort och utan fördröjning (Kowalski, animate: scale 0.97 på 100–160 ms). */
 .knapp:active { transform: scale(0.97); transition-duration: 120ms; }
-.knapp--primar:active { background: color-mix(in oklab, var(--k-accent) 74%, var(--k-text)); border-color: color-mix(in oklab, var(--k-accent) 74%, var(--k-text)); }
+.knapp--primar:active { background: color-mix(in oklab, var(--k-accent) 74%, var(--k-accent-mot, var(--k-text))); border-color: color-mix(in oklab, var(--k-accent) 74%, var(--k-accent-mot, var(--k-text))); }
 .knapp--sekundar:active { background: color-mix(in srgb, currentColor 14%, transparent); }
 .knapp--pa-mork:active { background: color-mix(in oklab, var(--k-pa-mork) 78%, var(--k-mork)); }
 /* Knappar som inte är .knapp, som menyknappen, Stäng och Välj själv, får samma svaga ton som sekundärknappen. */
