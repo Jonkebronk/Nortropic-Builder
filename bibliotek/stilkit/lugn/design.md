@@ -13,7 +13,7 @@
 | Rörelse | 400 ms, mjuk inbromsning |
 | Ikoner | Lucide, ISC |
 
-**Referenser i Johnnys måttstock** (`mattstock/mattstock.md`; referensregeln i `guide/2-5-yta.md`):
+**Referenser i Johnnys måttstock** (`mattstock/mattstock.md`; referenserna i `guide/2-5-yta.md`):
 - **Stångå Tandklinik:** "Lugn färgskala, bra luft." Paletten med mörkgrönt och terrakotta och Instrument Sans kommer härifrån.
 - **Fungera:** "Lugn, luftig typografi." Det stora luftiga rubrikmåttet och de ljusa ytorna kommer härifrån.
 - **Looking Good:** "Lugn, dyr känsla som passar kundgruppen." Återhållsamheten, med en accent och mycket vitt, kommer härifrån.

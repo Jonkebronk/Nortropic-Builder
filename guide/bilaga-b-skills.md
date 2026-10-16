@@ -34,7 +34,7 @@ Steg 5 (publicering) och steg 6 (den första rapporten) görs för hand (*Inte s
 - **Syfte:** tre riktningar – startsidan i tre minimala stilkit – som Johnny ser först och kan stryka innan kunden väljer. (`BESLUT.md` 2026-10-15)
 - **In:** briefen, särskilt ton och intryck, och faktabasen.
 - **Ut:** de tre minimala stilkiten ur måttstocken – Lugn och luftig, Varm och välkomnande, Djärv och egen (`2-5-yta.md`) – vart och ett med färg, typsnitt (med licens), avstånd, radie och rörelse samt en kort `design.md` med personlighet, typsnitt och referenser. De sektioner startsidan behöver, en variant var. Startsidan i de tre kiten som förhandsvisning och skärmdumpar i mobil- och datorbredd, mobilen först, med en mening per riktning om varför den passar briefen. Blickprovet körs på varje riktnings första vy innan Johnny ser dem (`2-4-skelett.md`).
-- **Begränsningar:** Bara de sektioner startsidan behöver. Riktningarna ska skilja sig på riktigt. Referensregeln och licens per tillgång → `2-5-yta.md`.
+- **Begränsningar:** Bara de sektioner startsidan behöver. Riktningarna ska skilja sig på riktigt. Licens per tillgång → `2-5-yta.md`.
 - **Destilleras ur:** webb-pros `designfas` (B20). Regler för stilkit och referenser → `2-5-yta.md`; sektionerna → `2-4-skelett.md`. Verktygen (Inspo, Playwright) → `bilaga-a-verktyg.md`.
 - [N2] **Från sajt 2 väljer utkastet bland befintliga stilkit och sektioner** och uppfinner inga färger, typsnitt eller sektioner. Att byta stilkit blir ett skript; utkastet väljer och motiverar. Nya kit tas fram i biblioteksarbetet, inte här.
 - Ersätter v0.74:s riktningar ur Inspo i fas 1b. Går upp i `yta` [N2].

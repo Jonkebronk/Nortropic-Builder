@@ -15,7 +15,6 @@ Sajten byggs enligt byggrepots guide. Byggrepot ligger två nivåer upp (`../../
 
 - Firman finns på riktigt men har inte beställt sajten. Den kontaktas inte, och allt om den stannar i den här katalogen.
 - Uppgifter ur firmans sajt och Google-profil är *sett*, med källa och datum. Det Johnny svarar i kundens ställe märks `johnny-som-kund`, och påhittade svar som Claude ger när Johnny överlåter intervjun märks `claude-som-kund`. Inget presenteras som bekräftat av firman.
-- Från referenser får layout, palett och typsnitt lånas. Identitet, texter och bilder från andra företag kopieras inte, och ingen kod kopieras från andras sajter.
 
 ## Intervjun (steg 1, `mallar/karnfragor.md`)
 

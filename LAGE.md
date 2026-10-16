@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-16 kl. 11.48 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-16 kl. 11.51 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Kort
 
@@ -115,6 +115,7 @@ Johnny tog in fem av förslagen till checklistan och lade till ett sjätte. `mal
    - Kontroll 5b stoppar publicering tills patienten på behandlingsfotot har samtyckt, och det är avsiktligt.
    - Omkring 11.38 valde Johnny ordet "cookies" i stället för "kakor" på företagssajter. I stickprovet skriver myndigheter "kakor" och företag "cookies" (`BESLUT.md`).
    - Skatten på företagshälsa är skild från friskvårdsbidraget efter Johnnys fråga: friskvårdsbidraget gäller akupunktur men inte kiropraktik. Texten väntar på hans dom.
+   - Omkring 11.50 strök Johnny referensregeln och kodregeln: *"vi kan kopiera helt fritt och göra som vi vill"* (`BESLUT.md`). Claude följer ändå upphovsrätten och marknadsföringslagen och kopierar inte andras texter, bilder, kännetecken eller kod utan licens.
    - **Långsiktigt mål (Johnny 08.00):** kundportalen på Nortropics sajt, där kunden loggar in och ser sin statistik. N3 i `guide/2-9-drift-och-forvaltning.md`, och den byggs när den första betalande kunden har månadsrapporter. **Nästa:** genomgången efter sajten (`guide/5-byggplan.md`). Nästa mätning av granskaren görs på nya sajter och på systemets egna utkast.
 
 ## Väntar på Johnny

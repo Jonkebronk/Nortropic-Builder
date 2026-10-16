@@ -51,7 +51,7 @@ I den första sajten tas de minimala kiten fram enligt *Grundregeln* och *Tre ri
 - [N2] **7. Johnnys dom:** godkänt eller underkänt med kort kritik; bara Johnny godkänner ett kit (`historik/karta/5-yta.md`). Domen blir kalibreringsdata (→ `3-2-granskning-och-kalibrering.md`).
 - [N2] **8. Kiten måste skilja sig.** Varianter ur samma kontext är samma idé, och då är kundens val en illusion (fallgrop 77) 🎥 *ADHD-videon*. Nya kit föreslås med spridd idégenerering, och kritikern prövar dem mot de befintliga.
 
-**De tre första kiten** tas fram ur Johnnys godkända sajter i måttstocken (`BESLUT.md` 2026-10-15). Referenserna får enligt referensregeln bära layout, palett och typsnitt, men inte identitet, texter eller bilder. Varje kit är godkänt först när Johnny sett dess provsida.
+**De tre första kiten** tas fram ur Johnnys godkända sajter i måttstocken (`BESLUT.md` 2026-10-15). Referenserna får användas fritt (`BESLUT.md` 2026-10-16). Varje kit är godkänt först när Johnny sett dess provsida.
 
 | Kit | Referenser i måttstocken | Johnnys ord |
 |---|---|---|
@@ -85,7 +85,7 @@ Används när kit föreslås, för layoutvarianter (→ `2-4-skelett.md`) och f�
 
 ### Referenser, originalitet och licens
 
-- [N1] **Referensregeln.** En referens får bära layout, palett och typsnitt. Identitet, texter och bilder från andra företag kopieras inte. Referensen namnges i kitets `design.md`. Regeln gäller tills Johnny säger annat (`BESLUT.md` 2026-10-15; bilaga E 2.1). 📄 `BESLUT.md` (Licenserna); webb-pros `BESLUT.md` 2026-10-03.
+- [N1] **Referenser får användas fritt.** Johnny 2026-10-16: *"vi kan kopiera helt fritt och göra som vi vill"* (`BESLUT.md`; bilaga E 2.1 och 2.6). Referensen namnges i kitets `design.md`, så att det syns var ett kit kommer ifrån.
 - [N2] **Originalitetskontroll mot regeln.** Granskaren letar efter referensernas identitet (namn, logotyp, varumärkesgrafik, slogan), texter och bilder i resultatet; en träff är ett allvarligt fynd. Likhet i layout, palett och typsnitt är inget fynd. Riktiga referenser ger risk för kopiering, också när en annans sajt används som stilguide vid redesign (fallgrop 30, 119) 🎥 *Inspo-videon*, *Stitch-skills-videon*.
 - [N2] **Beskrivning och värden till generatorn, inte referensbilden.** En bild ger nästan en kopia, med identitet och text; en beskrivning låter modellen hitta egen väg (fallgrop 75) (en källa – bänken; 🎥 *Boris Cherny-videon*). Bilderna går till Johnny och granskaren.
 - [N1] **Licens per tillgång.** Varje tillgång har en känd rätt att användas och en rad i sajtens licenslista (källa, licens, villkor) innan den används. I den första sajten är det i praktiken typsnitt, ikoner och bilder; tabellen visar kraven per slag. Varför: fallgrop 95, 166, 177 🎥 *designskills-videon 2*, *Astra-videon*, *Jack Roberts-videon 2*.

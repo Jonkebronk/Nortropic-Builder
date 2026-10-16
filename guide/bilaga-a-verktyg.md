@@ -35,7 +35,7 @@ Gäller allt tredjepartsmaterial som tas in utöver N1-verktygen ovan. Kriterier
 
 ## 1. Design och referenser
 
-Används främst när stilkit och sektionsbibliotek tas fram (→ 2-4, 2-5). I N1 bara Inspo och Lucide. Referensregeln och licens per tillgång → 2-5.
+Används främst när stilkit och sektionsbibliotek tas fram (→ 2-4, 2-5). I N1 bara Inspo och Lucide. Licens per tillgång → 2-5.
 
 | Verktyg | Vad | Var | Status | Nivå | Källäge och förbehåll | Inv |
 |---|---|---|---|---|---|---|

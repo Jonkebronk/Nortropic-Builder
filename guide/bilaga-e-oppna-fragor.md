@@ -22,10 +22,10 @@
 
 | # | Fråga | Läget |
 |---|---|---|
-| 2.1 | ~~Licensbeslutet 2026-10-13 18:50 – betalda verktyg eller andra företags sajter?~~ **Avgjort tills vidare 2026-10-15:** referensregeln gäller tills Johnny säger annat – en referens får bära layout, palett och typsnitt; identitet, texter och bilder kopieras inte (`2-5-yta.md`, `BESLUT.md`). Frågan tas upp igen om ett kit behöver mer | – |
+| 2.1 | ~~Licensbeslutet 2026-10-13 18:50 – betalda verktyg eller andra företags sajter?~~ **Avgjort 2026-10-16:** Johnny: *"vi kan kopiera helt fritt och göra som vi vill"*. Referensregeln är struken (`2-5-yta.md`, `BESLUT.md`) | – |
 | 2.2 | ~~Beslutsregistret~~ **Avgjort 2026-10-15:** `BESLUT.md` är det enda registret; den här bilagan har bara öppna frågor (`BESLUT.md`) | – |
 | 2.3 | ~~`CLAUDE.md`~~ **Avgjort 2026-10-15:** Claudes ändringar i `CLAUDE.md` är förslag som Johnny godkänner (princip 9); flödets regler för en sajt i `sites/<namn>/CLAUDE.md` ur en gemensam mall i byggrepot (`BESLUT.md`) | – |
-| 2.6 | ~~Kod från andras sajter~~ **Avgjort tills vidare 2026-10-15:** ingen kod kopieras; teknik får studeras (REA, `2-2-omfattning.md`) – tills Johnny säger annat (`BESLUT.md`) | – |
+| 2.6 | ~~Kod från andras sajter~~ **Avgjort 2026-10-16:** regeln att ingen kod kopieras är struken, med samma besked som 2.1 (`BESLUT.md`) | – |
 | 2.7 | **Priser på sajten: rutinändring eller hög risk?** | Webb-pro och researchen: rutin; v0.74 §15.2: hög risk. `2-9` och `4-foretaget.md` följer den strängare regeln tills vidare. |
 | 2.8 | **Automatisk sammanslagning i CI** av förvaltningsändringar, eller Johnnys godkännande vid varje publicering? (`2-9-drift-och-forvaltning.md`) | Tills vidare: Johnnys godkännande. |
 | 2.9 | ~~Variate, Inspo och liknande verktyg i kundbygget?~~ **Avgjort 2026-10-15:** bara när biblioteket och kiten tas fram (designsättet med stilkit; `BESLUT.md`, ändrat av *Stitch stryks*) | – |

@@ -65,7 +65,7 @@ Källa för avsnittet: 📄 `lager-6-7-rorelse-innehall.md` §7.
 
 ### Effekter från referenser
 
-- [N2] **En effekt på en referenssajt beskrivs i ord och parametrar**, t.ex. "sektionen låses i cirka tre skärmhöjder, rubrikerna startar förskjutet, mjuk inbromsning". En skärmdump visar inte mekaniken, och en video bara att något rör sig. Härledda parametrar prövas i bygget innan de låses. 🔧 (efter arbetsgången i *REA-videon* 🎥). Steget Observe i ai-website-cloner-template (MIT) kan plocka isär hur en referens löser rörelse 📄 `2026-10-15_kompetensluckor-och-kandidater-per-lager.md`, lager 6. Referensregeln gäller (→ `2-5-yta.md`). Om kod från andras sajter får kopieras är *öppet – se `bilaga-e-oppna-fragor.md`*.
+- [N2] **En effekt på en referenssajt beskrivs i ord och parametrar**, t.ex. "sektionen låses i cirka tre skärmhöjder, rubrikerna startar förskjutet, mjuk inbromsning". En skärmdump visar inte mekaniken, och en video bara att något rör sig. Härledda parametrar prövas i bygget innan de låses. 🔧 (efter arbetsgången i *REA-videon* 🎥). Steget Observe i ai-website-cloner-template (MIT) kan plocka isär hur en referens löser rörelse 📄 `2026-10-15_kompetensluckor-och-kandidater-per-lager.md`, lager 6. Kod från andras sajter får användas (`BESLUT.md` 2026-10-16).
 - [N4] REA för detta prövas i sandlåda → `3-3-sakerhet-och-installningar.md`.
 
 ### Tillval

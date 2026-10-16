@@ -1058,3 +1058,15 @@ Johnny valde, omkring 11:38:
 > Cookies (Rekommenderas)
 
 **Innebär:** företagssajter skriver "cookies" i samtyckesrutan, sidfoten ("Integritet och cookies", "Cookieinställningar") och policyn. Regeln står i `guide/2-8-teknik-och-kvalitet.md`, *Samtycke och analys*.
+
+## 2026-10-16: Referensregeln och kodregeln strukna
+
+**Status:** gäller. Ersätter referensregeln (webb-pro 2026-10-03, `BESLUT.md` 2026-10-15) och regeln att ingen kod kopieras (bilaga E 2.1 och 2.6).
+
+Johnny, omkring 11:45: *"Jag vill ta bort regeln om att våran sida får inte kopiera andra sidor."* På Claudes fråga om hur långt det skulle gå svarade han omkring 11:50:
+
+> vi kan kopiera helt fritt och göra som vi vill
+
+**Innebär:** regeln är struken ur `CLAUDE.md`, `mallar/sajt/CLAUDE.md` och övningssajtens `CLAUDE.md`. Den är också struken ur `guide/2-2`, `2-5`, `2-6`, `3-2` och `4-foretaget.md` och ur bilaga A, B, C (C54) och E (2.1 och 2.6). En referens namnges fortfarande i kitets `design.md`.
+
+**Claudes anmärkning, inte en regel:** lagen gäller oavsett husregler, så Claude kopierar inte andra företags texter, bilder, logotyper eller kännetecken, och inte heller kod utan licens. Grunden är 1 § upphovsrättslagen (texter, bilder och datorprogram) och 14 § marknadsföringslagen (vilseledande efterbildning). Design, layout, struktur, palett, typsnitt och idéer får tas fritt, och kod med öppen licens får användas enligt licensen. ⚖️ Tolkning, inte juridisk rådgivning.

@@ -29,7 +29,6 @@ Efter en ändring i `inventering/inventering.json`: kör `python3 inventering/by
 
 - Hemligheter och kunduppgifter ligger utanför repot.
 - Råmaterialet i `kunskap/raw/` används bara internt som underlag och publiceras inte vidare (README).
-- Från referenser får layout, palett och typsnitt lånas. Identitet, texter och bilder från andra företag kopieras inte (Johnnys regel från nortropic-webb-pro, 2026-10-03, som gäller tills han säger annat; `BESLUT.md` 2026-10-15). Ingen kod kopieras från andras sajter.
 - Ingen publicering, deploy eller push av kundsajter eller övningssajter utan Johnnys godkännande. Övningssajterna och allt om firmorna ligger i `sites/`, som git inte tar med.
 - **Byggrepot:** Johnny har gett stående tillåtelse att committa och pusha varje ändring direkt till `main`. Sök efter nycklar och hemligheter i ändringen före varje commit. Ingen force-push, ingen ändring av repots synlighet och ingen radering utan att fråga.
 - **Byggsessionen** använder inga av användarnivåns gamla Nortropic- eller webb-pro-skills och -agenter (t.ex. `stack-builder`, som föreskriver Next.js). Avgränsningen står i `guide/3-3-sakerhet-och-installningar.md`.

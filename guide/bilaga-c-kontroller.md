@@ -18,15 +18,15 @@ Regeln för vad som får vara en grind står i `README.md`: en **låst kontroll*
 
 ## Sammanställning
 
-193 kontroller, grindar och kriterier.
+192 kontroller, grindar och kriterier (C54 struken 2026-10-16).
 
 | Nivå | låst kontroll | grind | kontroll | granskningskriterium | instruktion | Summa |
 |---|---|---|---|---|---|---|
 | N1 | 9 | 16 | 3 | 4 | 3 | 35 |
-| N2 | 23 | 22 | 34 | 27 | 11 | 117 |
+| N2 | 23 | 22 | 34 | 26 | 11 | 116 |
 | N3 | 7 | 9 | 11 | 1 | 2 | 30 |
 | N4 | 2 | 2 | 3 | 0 | 4 | 11 |
-| **Summa** | **41** | **49** | **51** | **32** | **20** | **193** |
+| **Summa** | **41** | **49** | **51** | **31** | **20** | **192** |
 
 På N1 finns 11 kontroller, och de är de tio i `2-8` plus avgränsningen av byggsessionen (C167). Deny-reglerna (C166) är strukna (`BESLUT.md` 2026-10-15, *Inga spärrar*). De 16 grindarna på N1 är Johnnys och kundens godkännanden (stopp 1–6, omdirigeringskartan, nya sektioner, nya regler), kontrasten i kiten, formulärmönstret och flödets regler om belägg, färsk kontext, tid, tre utfall och kontroller före bygget. v0.74 hade ungefär 60 låsta kontroller och grindvillkor (analysen §7.1).
 
@@ -138,7 +138,7 @@ Sju stoppar helt (1, 3, 4, 5, 6, 8, 10), två rapporterar (2, 9), och nr 7 stopp
 | C51 | Checklistan premium mot basic, 26 punkter: en del spärras i token-bygget, en del kontrolleras efter bygget, en del kräver omdöme | 2-5 Kontroll | N2 | kontroll (blandad; trösklar utan norm är instruktioner) | 📄 källa per rad (`lager-5-yta.md` §6) | Token-bygget, skript, granskaren |
 | C52 | Avstånd och linjering på pixelnivå | 2-5 Kontroll | N2 | granskningskriterium | En källa: 🎥 designskills-videon (Krehels *better layout*) | Granskaren |
 | C53 | Versaler bara där kitet anger det, då med 5–12 % spärrning; annars inga versaler i rubriker och knappar | 2-5 Kontroll; 2-7 AI-signaturer | N2 | granskningskriterium (2-7: granskningsförslag) | Spärrningen 📄 Butterick; förbudet en källa – bänken (🎥 Coding Sloth-videon; låst kontroll i v0.74) | Granskaren |
-| C54 | Originalitetskontroll: referensernas identitet, texter och bilder i resultatet är ett allvarligt fynd; likhet i layout, palett och typsnitt är inget fynd | 2-5 Referenser | N2 | granskningskriterium | Referensregeln (`BESLUT.md`, licenserna; webb-pro 2026-10-03), *öppet*; varför: 🎥 Inspo-videon, Stitch-skills-videon | Granskaren |
+| C54 | ~~Originalitetskontroll: referensernas identitet, texter och bilder i resultatet är ett allvarligt fynd~~ **Struken 2026-10-16** (Johnny: *"vi kan kopiera helt fritt och göra som vi vill"*, `BESLUT.md`) | – | – | – | – | – |
 | C55 | Kiten skiljer sig på riktigt; kritikern prövar nya kit mot de befintliga (nyhet, genomförbarhet, passform) | 2-5 Så tas ett kit fram, steg 8; Spridd idégenerering | N2 | granskningskriterium | En källa: 🎥 ADHD-videon | Kritiker (agent) |
 
 ### Lager 2.6 Rörelse
