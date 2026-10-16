@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-16 kl. 22.16 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-16 kl. 23.35 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Nästa session – börja här (skrivet 2026-10-16 kl. 19.39)
 
@@ -39,16 +39,13 @@ Uppdaterad 2026-10-16 kl. 22.16 på Johnnys Mac, i den första byggsessionen (`c
     - **Skillsen steg 2:** motsägelserna A–H (`BESLUT.md`, *Motsägelserna i skillsen* och *Vanliga frågor utan name*). Mikroprovet för A gav 5 av 5 fel före och 0 av 5 efter; B och C syntes inte i kontrollen (`kunskap/research/2026-10-16_mikroprov-motsagelser.md`).
     - **INP** är ommätt. Fyndet om 259 ms vid första frågan håller inte, men första menyöppningen med samtyckesrutan öppen är ett nytt fynd (övningssajtens `mcp-prov.md`).
     - **Cloudflare:** OAuth står kvar för byråns konto (21.49).
-  - **Nästa: skillsen steg 3, efter en omstart av `claude-bygg`.** Verktygen läggs in i skillsen, och proven med och utan kräver att Playwright med WebKit, shadcn och Developer Knowledge är laddade. Arbetet följer luckorna 1–7 i översynen, i den här ordningen:
-    1. Chrome DevTools i granskare, innehåll, rörelse, skelett och yta.
-    2. Playwright-MCP:n med förbehåll.
-    3. seo-monster i omfattning, struktur, kvalitet och innehåll, med förbudet mot ordverktygen.
-    4. Developer Knowledge.
-    5. Astro Docs.
-    6. Video för rörelse.
-    7. Pekare till `kontroll.mjs`.
-
-    Varje ändring som ändrar beteendet får ett mikroprov enligt `larande/skills.md`.
+  - **Skillsen steg 3 är klart** (2026-10-16, 22.40–23.31; `BESLUT.md`, *Skillsen steg 3, lucka 1*, *luckorna 3–7* och *ruflo avvisas, och intagsmallen*). Metoden: mikroprov med kontrollen först; visar kontrollen inte felet stryks tillägget. Rapporter: `kunskap/research/2026-10-16_mikroprov-lucka1.md`, `-lucka2.md`, `-lucka3-7.md` och `-intag.md`.
+    - **Behållet:** rörelsens princip 13 (*Seg mäts innan något ändras*); faktafilen `kvalitet/webblasarverktyg.md` (Chrome DevTools och Playwright, med fällorna: `emulate` ersätter allt, `click` är ett musklick i båda MCP:erna, Playwright-MCP:n är en iPhone också i 1280 px och skriver relativa filnamn i repots rot); skelett och struktur pekar på kontrollskriptet före kontrollistan; `larande/bevakning.md` kräver att en MCP-server läses hel innan provet; `kvalitet/sakerhet.md` har fältet `kind` från Astro 7.1; guiden 2-8 och bilaga A beskriver Chrome DevTools roll enligt domen 21.37.
+    - **Struket** (kontrollen hade inte felet): pekare i granskare, innehåll och yta (lucka 1), Playwright-pekare (lucka 2), seo-monster, Developer Knowledge, Astro Docs och video (luckorna 3–6) och rörelsens rad om kontrollskriptet.
+    - **Sidofynd rättade i biblioteket och övningssajten** (`ba6f1bd`, sajtens `15390f3`): fokusringen följer elementets radie; tryckkvittens på menyknappen, Stäng, menylänkarna och ring-ikonen; *välj* i stället för *klicka* och inget *nedan* som enda ledtråd. Kontrollskriptet (`SNABB=1`) efteråt: bara 5b stoppar, 8b ok.
+    - **ruflo** är utvärderat och avvisat (Johnny 23.31; `kunskap/research/2026-10-16_ruflo.md`; inventeringen, artefakten version 11).
+  - **Kvar ur översynen, väntar på Johnny:** punkt 11 (verktygslåset läser också promptar, resurser och flaggor; i dag bara `initialize` och `tools/list`), 17 (bevaka guidens citerade Google-sidor via Developer Knowledge i startsäkringen) och 18 (statusskript på web-features). Och: Workflow-verktyget står på N2 i `guide/3-1` men på N4 i bilaga A §10 (ruflo-researchen); Ring-länkens namn i sidhuvudet börjar inte med den synliga texten, men en omkastning gör namnet till bara "Ring" i mobilen; menyns millisekunder i `Sidhuvud.astro` blir tokens först när kitets rörelsetokens är beslutade (P33).
+  - **Viktigt inför videodomen:** förhandsvisningen är byggd med sparsam rörelse, `?rorelse=` gör inget, och menyn rör sig likadant i sparsam och måttlig. En video av måttlig kräver ett eget bygge eller bibliotekets provsida (fem agenter i V1-provet såg samma sak).
 - **Översynen av verktyg och skills mot sin fulla potential är gjord** (2026-10-16 kväll, Johnny: *"det här behöver du se över på samtliga skills att de används mot sin fulla potential"*, omfattning *båda*). Den står i `kunskap/research/2026-10-16_verktyg-och-skills-full-potential.md` och ändrar flera av MCP-provets domar och två av Claudes påståenden. **Väntar på Johnny:** 21 punkter i avsnittet *Väntar på Johnny*, och rättelserna i källkorten, som är fakta och inte regler. Källkorten och guidens tre rader om seo-monsters omfång är rättade (Johnny: *"rätta"*). Skills, konfiguration och inventering är inte ändrade. Seo-monster-raden i `drift/verktyg.md` och i `inventering.json` rättas tillsammans med skillsen. `.playwright-mcp/` står i `.gitignore`.
 - **MCP-proven är körda** (2026-10-16 kväll, Johnny: *"Prova varje mot övningsajten"*). Resultatet per server och domarna, som är förslag, står i sajtens `mcp-prov.md`. Kort: behåll Chrome DevTools, Playwright (med WebKit, iPhone och utdata utanför repot), Astro Docs, Developer Knowledge, seo-monster (N3), Cloudflare (med läs-token) och Figma. Begränsa Inspo och 21st. Släpp MDN, Cloudflare Docs, Mobbin, Leonardo-MCP:n, shadcn-MCP:n och Motion. **Väntar på Johnny:** domarna och åtta punkter i slutet av `mcp-prov.md`, bland dem bilderna från Mobbin i sessionens `tool-results/`. Inställningarna på nortropic.se är parkerade: domänen byggs senare (`BESLUT.md` 2026-10-16, 21.01).
 
