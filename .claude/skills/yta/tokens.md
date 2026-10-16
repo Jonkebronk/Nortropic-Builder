@@ -1,0 +1,75 @@
+# Tokens
+
+Delfil till `SKILL.md`. Hur ett stilkit är byggt som tokens, hur namnen fungerar både i vanlig CSS och i Tailwind och React, och vilka verktyg som används när kiten tas fram.
+
+## Redan beslutat (→ guiden)
+
+- Ett stilkit är ett tokenset över bibliotekets sektioner plus en `design.md`; komponenter, sektioner och layoutlogik är gemensamma (→ `guide/2-5-yta.md`, *Vad ett stilkit är*).
+- Minimala kit i N1, kitets elva axlar från N2, tokens i två nivåer med shadcn-namn och formatet DTCG 2025.10 med Terrazzo i N2 (→ `guide/2-5-yta.md`).
+- React, Tailwind och Motion är tillåtna i biblioteket och på sajterna; Astro står kvar och React används som öar (`BESLUT.md` 2026-10-16, *React, Tailwind och JavaScript tillåts*).
+
+## Nivåerna
+
+| Nivå | Vad | Exempel | Vem läser den |
+|---|---|---|---|
+| Grundvärden | Råa värden utan betydelse, delade av alla kit | `oklch(0.52 0.15 40)`, `1rem`, `14px` | bara nivån under |
+| Roller | Vad värdet används till, per kit | `--k-accent`, `--k-yta`, `--k-radie-kort` | sektioner och komponenter |
+| Komponent | Bara som dokumenterat undantag | `--knapp-hojd` | en komponent |
+
+- **Sektioner läser bara roller.** Byts kitet ändras ingen sektion. Varför: annars är ett kit bara en ny hårdkodad design. 📄 Brad Frost, [The many faces of themeable design systems](https://bradfrost.com/blog/post/the-many-faces-of-themeable-design-systems/); Krehel, `better-colors/token-naming.md` (MIT).
+- **De minimala kiten i N1 har bara roller.** Grundvärdena bryts ut när ett andra kit behöver samma värde (N2). 📄 `guide/README.md`, princip 8.
+- **En ny token börjar med rollen, sedan värdet.** Finns rollen redan, används den. 📄 Krehel, `token-naming.md`.
+
+## Namnen: `--k-*` och shadcn
+
+Biblioteket använder `--k-*` under `[data-kit="…"]`. React-öar, Tailwind och komponenter från shadcn/ui, 21st.dev och liknande förväntar sig shadcn-namnen. Därför har varje kit ett aliaslager, så att samma kit styr båda.
+
+| shadcn-namn | Pekar på | Anmärkning |
+|---|---|---|
+| `--background` / `--foreground` | `--k-bg` / `--k-text` | |
+| `--card` / `--card-foreground` | `--k-yta` / `--k-text` | |
+| `--popover` / `--popover-foreground` | `--k-yta` / `--k-text` | menyer, dialoger |
+| `--primary` / `--primary-foreground` | `--k-accent` / `--k-pa-accent` | bara handlingar (G3) |
+| `--secondary` / `--secondary-foreground` | `--k-dekor` / `--k-text` | |
+| `--muted` / `--muted-foreground` | `--k-dekor` / `--k-dampad` | |
+| `--accent` / `--accent-foreground` | subtil accentbakgrund / `--k-text` | shadcn:s `accent` är hover-ytan i menyer, inte varumärket |
+| `--destructive` | felfärg (saknas i kiten) | minst 15° från accenten (`farg.md`) |
+| `--border`, `--input`, `--ring` | `--k-linje`, fältets kant, `--k-fokus` | `--input` 3:1 mot ytan |
+| `--radius` | `--k-radie-kort` | shadcn räknar de andra radierna som multiplar av den (till exempel `sm` = 0,6 ×) |
+
+📄 shadcn/ui, [Theming](https://ui.shadcn.com/docs/theming) (MIT). Varje par `X` / `X-foreground` är ett kontrasttest (→ `farg.md`). Ta namnen, inte shadcn:s standardvärden: fältkanten ger 1,26:1 och fokusringen 2,59:1, under golvet i WCAG 1.4.11.
+
+- **Tailwind 4 läser rollerna med `@theme inline`**, till exempel `--color-primary: var(--primary)`, så att `bg-primary` följer kitet också när `[data-kit]` byts på sidan. Med vanlig `@theme` bakas värdet in och kitbytet slutar fungera. 📄 Tailwind CSS, [Theme variables](https://tailwindcss.com/docs/theme) (MIT).
+- **En komponent från 21st.dev, Aceternity, React Bits eller shadcn går in i biblioteket först**, med licens per komponent, och kläs om till kitets roller innan den används: hårdkodade palettklasser (`bg-zinc-900`, `text-white`), egna skuggor, radier och typsnitt byts mot tokens. 📄 → `guide/2-5-yta.md`, licenstabellen; → C48 i `guide/bilaga-c-kontroller.md` (N2).
+- **JavaScript kostar.** En React-ö som bara visar något renderas till HTML vid bygget; `client:*` bara där interaktionen kräver det. Kostnaden per sida och krockar med Lighthouse 100 tas upp med Johnny (`BESLUT.md` 2026-10-16). Hör till kvalitetsskillen.
+
+## Kitets axlar
+
+Axlarna står i `guide/2-5-yta.md` (*Kitets elva axlar*). Varje axel är en eller flera roller: typsnitt och vikter · typskala och radhöjd · avståndsskala · radie per elementklass och kantbredd · skuggor i minst två lager · färgroller, neutralton och accent med steg · versaler och spärrning · navigationsstil · ikonfamilj och streck · bildbehandling · rörelsebudget. Startvärden och parametrar kan lånas ur Flowbite v4 och daisyUI 5 (MIT); GoDaddy Go är GPL-2.0, så därifrån tas bara parametrarna. 📄 `kunskap/research/2026-10-15_kompetensluckor-anteckningar/lager-5-yta.md` §5.
+
+## Formatet (N2)
+
+- **DTCG 2025.10** som källformat: en fil med grundvärden, en per kit och en resolver med modifiern `kit` – ett system, flera kit. Det är en stabil Community Group-rapport, ingen W3C-standard. Dimensioner får bara vara `px` eller `rem`, så flytande `clamp()`-skalor lagras som min och max och byggs med en egen transform. 📄 [Design Tokens 2025.10](https://www.designtokens.org/tr/2025.10/).
+- **Terrazzo** bygger både vanliga CSS-variabler och Tailwind 4 `@theme` ur samma källa och spärrar låg kontrast med `a11y/min-contrast`. Versionen låses (2.9.0 den 14 oktober 2026). Enligt dokumentationen mappar `plugin-css` varje resolver-kontext till valfri selektor (`permutations` med `prepare`), så `[data-kit="lugn"]` går att få, och `variableName` kan ge `--k-*`-namn; inte provkört ⚠️. `plugin-tailwind` skriver värden och inte `var()` (ärende #692), så bryggan med `@theme inline` skrivs för hand. 📄 [Terrazzo, CSS](https://terrazzo.app/docs/integrations/css/) (MIT).
+- **Bara CSS skeppas.** Inga färgmotorer, typsnittsverktyg eller tokenbibliotek följer med till sajten.
+
+## Verktyg
+
+Körs när kit tas fram eller kontrolleras, aldrig i kundbygget.
+
+| Verktyg | Används till | Licens | Nivå |
+|---|---|---|---|
+| Color.js | OKLCH, gamut och WCAG-kontrast (`contrast(a, b, "WCAG21")`) i ett kitskript som mäter alla rollpar | MIT | nu |
+| Adobe Leonardo | Accent- och neutralsteg mot målkvoter (`wcag2`); som bibliotek eller som lokal MCP-server utan konto (`@adobe/leonardo-mcp`) | Apache-2.0; beror på `apca-w3`, vars licens är restriktiv, och har sårbara beroenden (ärende #202) – körs bara lokalt | nu, när ett kit tas fram |
+| Radix Colors | Rollerna per steg, inte värdena: Radix färger klarar inte WCAG 2 AA rakt av (→ `farg.md`) | MIT | nu (rollerna) |
+| Utopia | Flytande typ- och avståndsskalor (`clamp()`) | metod; `utopia-core` ISC | nu, när en skala byggs |
+| Capsize | Typsnittsmått för reservtypsnitt och trimning. Astros Fonts API använder redan `@capsizecss/unpack`, och `text-box` gör trimningen i CSS | MIT | bara för typsnitt utanför Fonts API |
+| Fontsource och Astros Fonts API | Självhostade typsnitt, reservtypsnitt, förladdning. Fonts API är stabilt sedan Astro 6; `fontProviders.npm({ remote: false })` läser de Fontsource-paket som redan finns | MIT; Astro | Fontsource nu, Fonts API när biblioteket flyttar dit |
+| Lucide (`lucide-static`, `@lucide/astro`) | Ikoner som inline-SVG. Egna SVG kan importeras som komponent i Astro, så astro-icon behövs först för en andra familj ur Iconify | ISC, plus MIT för ikoner ur Feather | nu |
+| Tabler, Phosphor | Andra ikonfamiljer per kit | MIT | när ett kit väljer dem |
+| Simple Icons | Sociala logotyper | CC0; varumärkesägarens regler gäller | när sidfoten behöver logotyper |
+| Hyperglot | Språkstöd per typsnitt (svenska, nordsamiska); version 0.8.1 eller senare, körs på TTF eller OTF, inte WOFF2 | Apache-2.0 från 0.8.0, äldre GPLv3 | när ett typsnitt tas in |
+| DTCG 2025.10 och Terrazzo | Källformat, bygge och kontrastlint | – / MIT | N2 |
+| tweakcn | Finjustering av shadcn-teman i webbläsaren | Apache-2.0; webbtjänsten har analys (PostHog), konto och en betald nivå | används inte |
+
+Källor och kvalitet per verktyg: källkorten i premiumpassets underlag och 📄 `kunskap/research/2026-10-15_kompetensluckor-anteckningar/lager-5-yta.md` §1–4.

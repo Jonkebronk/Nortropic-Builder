@@ -1,10 +1,30 @@
 # Bilaga B – Egna skills
 
-**Status:** konsoliderad v1.0, 2026-10-15; nivåerna ommärkta samma dag. Ingen egen skill finns än (`LAGE.md`). Ersätter v0.74 §12:s del om egna skills. Skeletten `stitch-review` och `story-review` i v0.74 var äldre än reglerna (konsolideringsanalysen M11) och är strukna; den enda granskaren i N1 ersätter dem.
+**Status:** konsoliderad v1.0, 2026-10-15; nivåerna ommärkta samma dag. **Sedan 2026-10-16 finns elva egna skills i `.claude/skills/`** (se *Skillsen 2026-10-16* nedan). Ersätter v0.74 §12:s del om egna skills. Skeletten `stitch-review` och `story-review` i v0.74 var äldre än reglerna (konsolideringsanalysen M11) och är strukna; den enda granskaren i N1 ersätter dem.
 
 Kompetensen delas i tre: **egen skill** (kunskapen), **eget bibliotek** (sektioner, stilkit, rörelser, mallar) och **åtkomst vid kundbygget** (API:er och MCP:er) (`historik/karta/README.md`). Den här bilagan säger vilka egna skills som behövs och när. Vad varje skill kan står i lagerfilerna; biblioteket i `2-4-skelett.md` och `2-5-yta.md`; tredjepartsverktygen i `bilaga-a-verktyg.md`; tak, test och underhåll av skills i `3-4-larande-och-underhall.md`. Grunden är Johnnys beslut att bygga egna skills och ett eget bibliotek ur inventeringen (`BESLUT.md` 2026-10-13 18:47, 18:52).
 
 Korta hänvisningar avser filer i `guide/`: `3-2` = `3-2-granskning-och-kalibrering.md` och så vidare. **B** och **K** med nummer är poster i `inventering/inventering.json` (`befintligt` respektive `nya`), som i `bilaga-a-verktyg.md`.
+
+## Skillsen 2026-10-16
+
+Johnny beslutade att kompetensen ur inventeringen ska in i alla lager nu, i stället för efter tre sajter (`BESLUT.md` 2026-10-16, *Kompetensen in i alla lager*). Skillsen är destillerade ur guidens lagerfiler, inventeringens poster med ett källkort var och litteraturen. De är utkast och har inte prövats med och utan (→ *Så skapas en skill*; luckan står i `larande`).
+
+| Skill | Lager | Ersätter eller fullföljer |
+|---|---|---|
+| `strategi` | 1 | Utkastet `intervju` |
+| `omfattning` | 2 | Ny |
+| `struktur` | 3 | Ny |
+| `skelett` | 4 | En del av `riktningar` och `bygg`; React-öar i `react-i-astro.md` |
+| `yta` | 5 | En del av `riktningar`; Tailwind i `tailwind.md` |
+| `rorelse` | 6 | Ny; Motion i `motion.md` |
+| `innehall` | 7 | Ny |
+| `kvalitet` | 8 | En del av `bygg` |
+| `drift` | 9 | Den planerade `forvaltning` |
+| `granskare` | Flödet | Utkastet `granska`; domen sätts med den låsta `mallar/granskning.md` |
+| `larande` | Flödet | Den planerade `lardomar` |
+
+Det är elva skills mot målbilden på högst tolv. Kunskapsbasen är den tolfte och finns inte än. Utkasten nedan står kvar som historik.
 
 ## Första varvet: fyra utkast
 
