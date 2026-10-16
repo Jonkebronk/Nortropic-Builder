@@ -1445,3 +1445,13 @@ Under MCP-proven läste Claude zonen nortropic.se på Johnnys Cloudflarekonto (H
   > nej det är okej att prova, jag frågade bara då det var random
 
   Proven gör bara läsningar. Ingenting ändras på domänen förrän sajten byggs.
+
+## 2026-10-16: Leonardos fel rapporteras inte till Adobe
+
+**Status:** gäller.
+
+Översynen fann två fel i Adobes Leonardo: MCP-servern lägger en lista i `structuredContent` (`generate-theme` fungerar därför inte i Claude Code), och biblioteket 1.1.0 ger ogiltig OKLCH. Claude frågade om felen skulle rapporteras upstream. Johnny, kl. 21.30:
+
+> nej, inge adobe
+
+**Innebär:** inga ärenden hos Adobe. Felen står i `kunskap/kallkort/adobe-leonardo.md`, och kitskriptet använder HEX och Color.js.

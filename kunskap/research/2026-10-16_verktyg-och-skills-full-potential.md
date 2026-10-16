@@ -208,7 +208,7 @@ Kvällens första prov står i övningssajtens `mcp-prov.md` (lokalt).
 **Övrigt**
 
 19. **Bilderna från Inspo och Mobbin** i sessionens `tool-results/`: radera dem.
-20. **Leonardo:** två fel att rapportera upstream: `structuredContent` och OKLCH.
+20. ~~Leonardo upstream~~ Avgjort: rapporteras inte (Johnny kl. 21.30, `BESLUT.md`).
 21. **INP på övningssajten:** mät om enligt `kvalitet/prestanda.md` innan något rättas.
 
 ## Källkort som behöver rättas (fakta, inga regler)
