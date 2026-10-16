@@ -1091,3 +1091,17 @@ Claude lade fram genomgången efter den första övningssajten, med 13 förslag 
 - **G10:** kvalitetsgranskningen i sex perspektiv blir ett steg i byggplanen före Johnnys slutgranskning (`guide/5-byggplan.md`, `3-2`).
 - **G11:** Johnnys domar över egna utkast räknas med när granskaren mäts. De läses lokalt ur `sites/` (`mattstock/verktyg/matning.py`).
 - **G12:** svar som Claude ger i kundens ställe visas som en lista vid genomgången (`guide/2-7`).
+
+## 2026-10-16: Kompetensen in i alla lager – lagerskills, MCP och premiumpass
+
+**Status:** gäller.
+
+Johnny frågade omkring 12:07 var kompetensinventeringen, verktygen, skillsen och MCP-servrarna tagit vägen. Claude svarade att alla 171 poster i `inventering/` fortfarande har `beslut: "ej fattat"`, att byggsessionen avsiktligt saknar de gamla skillsen (2026-10-15) och att N1 bara använde det guiden valde direkt. Johnny valde att gå igenom inventeringen nu och skrev omkring 12:09: *"Ja, det blir intressant hur vi kan höja kvalitén på nuvarande sida med detta."* Claude föreslog ett premiumpass i åtta delar. Johnny svarade omkring 12:11:
+
+> alla, jag vill ju ha in kompetensen, skills, mcp på alla delar av hur man enligt litteraturen designar en hemsida och med allt som hör till webbutvecklande, ux, ja hela helheten utifrån best pratices, dokumentation etc.
+
+**Innebär:**
+- Målbilden i `guide/bilaga-b-skills.md` byggs nu i stället för efter tre sajter: en egen skill per lager plus granskaren, i `.claude/skills/`. Varje skill destilleras ur guidens lagerfil, inventeringens poster och källorna. Johnnys beslut går före Skillify-regeln (tre sajter för hand).
+- MCP-servrar tas in där de ger något. De som kräver konto eller nyckel väntar på Johnny.
+- Premiumpasset körs på övningssajten med skillsen: rena foton, detaljfinish, skalor, rörelse, text, rikare sektioner, fler kontroller och en skarpare granskare. Johnny dömer resultatet.
+- Varje post i inventeringen får ett beslut i fältet `beslut`: skill, bibliotek, kontroll, MCP, senare nivå eller släpp.
