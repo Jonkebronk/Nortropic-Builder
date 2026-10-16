@@ -10,8 +10,8 @@ Uppdaterad 2026-10-16 kl. 19.39 på Johnnys Mac, i den första byggsessionen (`c
 
 **1. Få alla MCP:er att fungera** (`BESLUT.md` 2026-10-16, *Alla MCP:er in nu …* och *Senaste version med verktygslås …*).
 - Kontrollera med `/mcp` och `claude mcp list` att servrarna syns. Alla ligger i lokal scope för repot i `~/.claude-bygg`; avgränsningen står kvar (Johnny 17.18).
-- Johnny loggar in via `/mcp` på 21st, DataForSEO, Figma, Cloudflare (helst med en läs-token) och Socket. Socket svarar på verktygslistan utan konto men kräver OAuth för anrop, och ärendet om `401 invalid_token` i Claude Code är öppet (SocketDev/socket-mcp #185).
-- Grounding Lite, Google Developer Knowledge, nanobanana och BrowserStack lägger Johnny in med nyckel i ett eget terminalfönster; nycklar klistras aldrig in i chatten. Kommandona, körda från repots rot med nyckeln i stället för platshållaren:
+- Johnny har loggat in via `/mcp` på 21st, Figma och Cloudflare (2026-10-16 kväll). DataForSEO väntar tills en sajt behöver datan (`BESLUT.md` 2026-10-16, 19.50). Kvar: Socket, som svarar på verktygslistan utan konto men kräver OAuth för anrop, och ärendet om `401 invalid_token` i Claude Code är öppet (SocketDev/socket-mcp #185).
+- Grounding Lite, Google Developer Knowledge, nanobanana och BrowserStack lägger Johnny in med nyckel i ett eget terminalfönster; nycklar klistras aldrig in i chatten. Inloggning via `/mcp` fungerar inte för de två Google-servrarna (Johnny prövade 2026-10-16 kväll): Google stöder inte DCR, och servrarna ligger inne utan huvudet `X-Goog-Api-Key` (`kunskap/kallkort/google-developer-knowledge-mcp.md`). Kommandona, körda från repots rot med nyckeln i stället för platshållaren:
   ```
   CLAUDE_CONFIG_DIR=$HOME/.claude-bygg claude mcp remove grounding-lite
   CLAUDE_CONFIG_DIR=$HOME/.claude-bygg claude mcp add --transport http grounding-lite https://mapstools.googleapis.com/mcp --header "X-Goog-Api-Key: DIN_NYCKEL"
@@ -178,7 +178,7 @@ Johnny beslutade omkring 12.11 att kompetensen ur inventeringen ska in i alla la
   - Kundens lyft: fotobeställning i Googles fem kategorier, länkbytet och katalogerna
 - **MCP på övningssajten först** (Johnny omkring 17.00 och 17.05: *"vi ska ha in ALLA mcps nu"*, `BESLUT.md`). Spärren mot claude.ai-connectorer är borttagen, och alla servrar i inventeringen är tillagda i byggsessionen (lokal scope för repot). De syns i `/mcp` först efter omstart av `claude-bygg` från repots rot.
   - **Anslutna:** Inspo, Chrome DevTools, Playwright, MDN, Astro Docs, Cloudflare Docs, Leonardo, Motion, shadcn, seo-monster, mcp-gsc och Mobbin (claude.ai-connector).
-  - **Johnny loggar in via `/mcp`:** 21st, DataForSEO, Figma, Cloudflare (helst med en läs-token) och Socket.
+  - **Inloggade via `/mcp`:** 21st, Figma och Cloudflare. Kvar: Socket. DataForSEO väntar tills en sajt behöver datan (19.50).
   - **Johnny lägger in nyckeln själv i ett eget terminalfönster från repots rot** (aldrig i chatten): Grounding Lite och Google Developer Knowledge (huvudet `X-Goog-Api-Key`; de godtar inte Claude Codes OAuth), nanobanana (`GEMINI_API_KEY`) och BrowserStack.
   - **Nästa session:** kör verktygslåset (`python3 -I skript/mcp-verktygslas.py`) efter inloggningarna, och sedan varje servers prov mot övningssajten enligt MCP-gruppens rapport (sparad lokalt i sajtens `andra-varvet/mcp-jamforelse.md`, avsnitten *Per MCP* och *Nya kandidater*). Resultatet läggs fram för Johnny före nästa övningssajt.
   - **Avgränsningen med `~/.claude-bygg` står kvar** (Johnny omkring 17.18). Det som ska in läggs till där; något ur den vanliga `~/.claude` flyttas hit på begäran.

@@ -6,7 +6,7 @@
 - **Hur det fungerar:** stdio som standard, eller HTTP lokalt eller som deras hostade server med OAuth. Fyra verktyg: tre för att söka i dokumentationen och `api_request`, som gör vilket autentiserat API-anrop som helst. Inloggning och lösenord som miljövariabler (HTTP Basic). En konfigurationsfil kan begränsa vilka fält som returneras.
 - **Kvalitet och underhåll:** 254 ★, 15 bidragsgivare, senaste push 2026-10-02, fyra öppna ärenden och PR, bland dem #27 om att svaren överskrider modellens kontextfönster.
 - **Det bästa vi kan ta:** bakåtlänkar till den gamla sajten per adress, så att omdirigeringskartan prioriterar adresser med länkar; sökvolymer som relativa jämförelser mellan sökfraser (→ `guide/2-3-struktur.md`, sökord).
-- **Var det hamnar hos oss:** MCP som kräver konto, beskriven i skillen `omfattning`, `verktyg.md` och `inventering.md`. Inte installerad.
+- **Var det hamnar hos oss:** MCP som kräver konto, beskriven i skillen `omfattning`, `verktyg.md` och `inventering.md`. Inlagd i byggsessionen men inte inloggad; väntar tills en sajt behöver datan (`BESLUT.md` 2026-10-16).
 - **Passar vår stack?** Ja som lokalt verktyg. Sökvolymerna i små orter är låga och används bara relativt.
 - **Risker och flaggor:** `api_request` kan göra vilket betalt anrop som helst; sätt en låg budget på kontot. Recensions- och företagsdata innehåller recensenternas namn (personuppgifter), och tjänstens rättsliga grund för Google-data är ⚠️ inte kontrollerad. Stora svar fyller kontexten (#27); begränsa fälten. Inloggningen är ett lösenord som miljövariabel och ligger utanför repot.
 - **Inloggning:** kräver ett DataForSEO-konto med insättning. Johnny skapar kontot; dokumentationen och README är publika.

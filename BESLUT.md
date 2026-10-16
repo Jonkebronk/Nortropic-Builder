@@ -1339,3 +1339,15 @@ Provet kördes på Johnnys Mac efter två omvägar runt Guidepup 0.36.3 på macO
 - Inget automatiskt skärmläsarprov med Guidepup på Macen. Guidepup placeras som *släpp* i inventeringen, och C41 i bilaga C står kvar som prov för hand.
 - Skriptet ligger bara i sessionens scratchpad och följer inte med repot. Erfarenheterna står i källkortet `kunskap/kallkort/guidepup.md`.
 - Hur skärmläsare prövas i stället (VoiceOver på iPhone för hand, TalkBack via BrowserStack) är inte avgjort; frågan står i `kunskap/research/2026-10-16_tredje-varvet-till-johnny.md`.
+
+## 2026-10-16: DataForSEO väntar tills en sajt behöver datan
+
+**Status:** gäller. Ändrar *Alla MCP:er in nu, och claude.ai-connectorerna släpps på* (17.05) i den del som säger att Johnny loggar in på DataForSEO via `/mcp`.
+
+Johnny frågade vad DataForSEO är. Claude förklarade att det är ett betalt API för sökvolymer, sökresultat, bakåtlänkar och företagsdata, att det står som *Pröva* på N2 (`guide/2-2-omfattning.md`, `guide/2-3-struktur.md`), och att kontot kräver en insättning på minst 50 dollar (📄 [DataForSEO, priser](https://dataforseo.com/pricing) via `kunskap/kallkort/dataforseo-mcp.md`). Claude föreslog att vänta med inloggningen tills en sajt behöver datan, till exempel den första kunden med en gammal sajt som ska flyttas. Johnny, kl. 19.50:
+
+> vi väntar med denna.
+
+**Innebär:**
+- Ingen inloggning eller insättning hos DataForSEO nu. Servern ligger kvar i byggsessionen och står som olåst i verktygslåset.
+- Frågan tas upp igen när en sajt behöver bakåtlänkar eller sökvolymer.
