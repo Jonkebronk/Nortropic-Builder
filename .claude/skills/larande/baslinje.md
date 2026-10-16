@@ -70,7 +70,7 @@ Lagerskillsen byggdes 2026-10-16 innan någon av dem prövats med och utan (`gui
 | `rorelse` | Tillstånd och meny, sparsam | 100 % | 100 % | inget |
 | `rorelse` | In-animationer, måttlig | 100 % | 88,9 % | startopacitet minst 70 % (`BESLUT.md` 2026-10-15) |
 | `innehall` | Om oss med luckor och ett omdöme | 100 % | 75,9 % | platshållaren i byråns form; omdömet ordagrant med plattform, datum och kontrollrad |
-| `kvalitet` | 22 inplanterade fel före publicering | 87,9 % | 90,9 % | inget; taket på 15 fynd sköt ut ett N1-fynd i två körningar (taket ändrat 19.09, omprov i rapporten) |
+| `kvalitet` | 22 inplanterade fel före publicering | 87,9 % | 90,9 % | inget; taket på 15 fynd sköt ut ett N1-fynd i två körningar. Omprov efter beslutet 19.09 (taket, cookies och spamskydd i kontrollistan): 100 % med skillen, ett falsklarm med allvaret låg; tilläggen skrevs efter uppgiften, så en andra uppgift behövs |
 | `granskare` | s30 och s01 ur måttstocken | 94,4 % | 66,7 % | rätt dom på s01; *För godkänt*, allvar och tre utfall |
 | `larande` | Genomgång med fem rättelser | 83,3 % | 83,3 % | inget |
 

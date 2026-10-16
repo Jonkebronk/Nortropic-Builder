@@ -143,7 +143,7 @@ Varje punkt säger vad som ska vara sant. Hur det prövas, och med vilken källa
 
 **Formulär** (`formular.md`), när sajten har ett
 
-21. Etiketter, tokens för autofyll, skicka-knappen aktiv, fel efter skick med sammanfattning och koppling, och statusbeskedet i en behållare som fanns före. Spamskydd i lager: Turnstile som valideras på servern, en dold fälla och en tidsfälla (→ `guide/2-8-teknik-och-kvalitet.md`, *Formulär*, N2).
+21. Etiketter, tokens för autofyll, skicka-knappen aktiv, fel efter skick med sammanfattning och koppling, och statusbeskedet i en behållare som fanns före. Ett formulär utan spamskydd publiceras inte (→ `guide/2-8-teknik-och-kvalitet.md`, *Formulär*, N1). Spamskyddet byggs i lager: Turnstile som valideras på servern, en dold fälla och en tidsfälla (samma avsnitt, N2).
 
 ## Delfiler
 
