@@ -243,7 +243,8 @@ Inget att installera; nivån anger när funktionen tas i bruk. Verifierat i 📄
 | Ultra review | Djup granskning i molnet som Johnny startar | 3-2 | N3 | Debiteras | – |
 | Monitor | Bevakar dev-serverns utdata och andra processer under bygget | 3-3 | N2 | Kräver Git Bash på Windows | – |
 | Advisor | En svagare modell rådfrågar en starkare | 3-1 | N4 | Experimentell; kräver Anthropic API | – |
-| `/batch` och dynamiska arbetsflöden | Parallella delar med en worktree per agent | 3-1 | N4 | `/batch` kräver git; arbetsflöden i `.claude/workflows/`, högst 16 agenter samtidigt som standard | – |
+| Dynamiska arbetsflöden (Workflow-verktyget) | Breda uppgifter som korsverifieras, som granskning i flera perspektiv | 3-1 | N2 | Skript i `.claude/workflows/`, högst 16 agenter samtidigt som standard; Claude Code startar dem bara när Johnny ber om det (`BESLUT.md` 2026-10-16, 23.34) | – |
+| `/batch` | Parallella byggsteg med en worktree per agent | 3-1 | N4 | Kräver git | – |
 | Agent teams | Sessioner som pratar med varandra | 3-2 | N4 | 🎥 funktionsvideon ⚠️; experimentellt | – |
 | `claude agents` och `--bg` | Översikt över sessioner i bakgrunden | 3-5 | N4 | Research preview | – |
 | Plugin och egen marknadsplats | Byggsystemet som versionerat plugin | 3-4 | N4 | Hooks i pluginets agentdefinitioner ignoreras (fallgrop 189) | – (jfr K93 `claude plugin eval`) |

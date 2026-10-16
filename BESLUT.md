@@ -1597,3 +1597,16 @@ Claude lade fram två saker. Utvärderingen av ruflo (`kunskap/research/2026-10-
 - ruflo installeras inte, varken nu eller på N4. Posten i `inventering/inventering.json` får beslutet *släpp*.
 - Den levande överblicken är redan planerad i `guide/3-5-live-visning.md` (*Planvyn*, *Utan mods*, N2); ruflos konsol (Overview, Cost, Events, Missions) är en referens när den byggs.
 - `larande/bevakning.md`, *Före domen*: en MCP-server läses hel (verktyg, promptar, resurser, instruktioner och flaggor) innan provet läggs upp, och fallen väljs ur listan.
+
+## 2026-10-16: Det som återstod rättas; Workflow på N2 och /batch på N4
+
+**Status:** gäller.
+
+Claude listade det som återstod: verktygslåset ska läsa också promptar och resurser, startsäkringen ska bevaka guidens citerade Google-sidor via Developer Knowledge, ett statusskript på web-features ska ersätta MDN, Workflow-verktyget stod på N2 i `guide/3-1` men på N4 i bilaga A, Ring-länkens namn i sidhuvudet börjar inte med den synliga texten, förhandsvisningen kan bara visa sparsam rörelse, och Mobbin-connectorn är fortfarande inkopplad. Johnny, kl. 23.34:
+
+> Fixa alla, mobbin låter vi bara vara. angående 2 det du rekommenderar.
+
+**Innebär:**
+- Mobbin-connectorn får vara kvar; punkten stryks ur *Väntar på Johnny*.
+- Claudes rekommendation för punkt 2: raden i bilaga A delas. Dynamiska arbetsflöden (Workflow-verktyget) för breda uppgifter som korsverifieras ligger på N2, som i `guide/3-1`, *Bred eller djup*; `/batch` med en worktree per agent för parallella byggsteg ligger kvar på N4 (`3-1`, *Parallella steg*).
+- De andra punkterna rättas och prövas en i taget.
