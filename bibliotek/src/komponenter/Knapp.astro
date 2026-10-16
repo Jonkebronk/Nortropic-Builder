@@ -10,6 +10,10 @@ interface Props {
   etikett?: string;
 }
 const { href, text, variant = 'primar', ikon, extern = false, etikett } = Astro.props;
+// I en telefonknapp hålls bara numret ihop, så att "Ring" kan stå på en egen rad vid stor textstorlek (bas.css, .telefon).
+const nr = href.startsWith('tel:') ? text.match(/\+?\d[\d\s-]{4,}\d/) : null;
+const fore = nr ? text.slice(0, nr.index) : text;
+const efter = nr ? text.slice((nr.index ?? 0) + nr[0].length) : '';
 ---
 <a
   class={`knapp knapp--${variant}${href.startsWith('tel:') ? ' telefon' : ''}`}
@@ -18,5 +22,5 @@ const { href, text, variant = 'primar', ikon, extern = false, etikett } = Astro.
   {...(extern ? { rel: 'noopener', target: '_blank' } : {})}
 >
   {ikon && <Ikon namn={ikon} />}
-  <span>{text}</span>
+  {nr ? <span>{fore}<span class="telefon__nr">{nr[0]}</span>{efter}</span> : <span>{text}</span>}
 </a>

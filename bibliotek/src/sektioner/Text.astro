@@ -2,8 +2,9 @@
 // En textsektion: rubrik, några korta stycken, ett citat, en punktlista, länkar och en not. Varje del är valfri utom rubriken.
 // yta: vit bakgrund i stället för sidans. Sektionen är ingen landmärkesregion; den hittas genom sin rubrik (Johnny 2026-10-16, C9).
 import type { Lank } from '../innehall/typ';
-interface Props { id?: string; rubrik: string; stycken?: string[]; citat?: string; punkter?: string[]; lankar?: Lank[]; not?: string; yta?: boolean; }
-const { id, rubrik, stycken = [], citat, punkter = [], lankar = [], not, yta = false } = Astro.props;
+// efter: stycken efter punkterna, t.ex. vart man vänder sig när listan inte räcker.
+interface Props { id?: string; rubrik: string; stycken?: string[]; citat?: string; punkter?: string[]; efter?: string[]; lankar?: Lank[]; not?: string; yta?: boolean; }
+const { id, rubrik, stycken = [], citat, punkter = [], efter = [], lankar = [], not, yta = false } = Astro.props;
 ---
 <section class:list={['sektion', 'text', { 'text--yta': yta }]} id={id} data-yta={yta ? 'yta' : 'bg'}>
   <div class="behallare text__inre">
@@ -11,6 +12,7 @@ const { id, rubrik, stycken = [], citat, punkter = [], lankar = [], not, yta = f
     {stycken.map((s) => <p>{s}</p>)}
     {citat && <blockquote class="citat"><p>{citat}</p></blockquote>}
     {punkter.length > 0 && <ul class="text__punkter">{punkter.map((p) => <li>{p}</li>)}</ul>}
+    {efter.map((s) => <p>{s}</p>)}
     {lankar.length > 0 && <ul class="text__lankar">{lankar.map((l) => <li><a href={l.href}>{l.text}</a></li>)}</ul>}
     {not && <p class="dampad text__not">{not}</p>}
   </div>
@@ -26,5 +28,6 @@ const { id, rubrik, stycken = [], citat, punkter = [], lankar = [], not, yta = f
   .text__punkter { margin: 0; padding-left: 1.25rem; display: grid; gap: var(--k-a2); }
   .text__not { font-size: var(--k-mindre); }
   .text__lankar { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--k-a2); }
-  .text__lankar a { display: inline-flex; min-height: 24px; align-items: center; }
+  /* inline-block och inte inline-flex: ett långt ord som Integritetsskyddsmyndigheten ska kunna brytas vid 200 % textstorlek. */
+  .text__lankar a { display: inline-block; max-width: 100%; min-height: 24px; padding-block: 1px; }
 </style>

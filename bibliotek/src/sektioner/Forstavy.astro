@@ -18,7 +18,7 @@ const schema = forstavy.idag && JSON.stringify(praktiskt.platser.flatMap((p) => 
       <p class="forstavy__ingress">{forstavy.ingress}</p>
       {forstavy.idag && (
         <>
-          <p class="forstavy__idag" data-forstavy-idag data-schema={schema} data-text={forstavy.idag.text} data-stangt={forstavy.idag.stangt} hidden></p>
+          <p class="forstavy__idag" data-forstavy-idag data-schema={schema} data-text={forstavy.idag.text} data-stangt={forstavy.idag.stangt} data-stangt-nu={forstavy.idag.stangtNu} hidden></p>
           <script is:inline set:html={idag} />
         </>
       )}

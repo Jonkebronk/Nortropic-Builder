@@ -2,7 +2,8 @@
 // Knapplisten i tumzonen på mobilen, läge 'nere' (Sidhuvud.astro). Som standard är Boka bred och primär och Ring sekundär.
 // En sida med en annan primär handling skickar egna knappar, som Ring och Mejla på en företagssida (Johnny 2026-10-16).
 // Den visas först när förstavyns eller sidtoppens egna knappar har scrollats ur bild, så att den aldrig dubblerar
-// eller täcker dem (Johnnys dom över Citykiropraktikern i mattstock/domar.jsonl). Fast höjd, hänsyn till iPhones
+// eller täcker dem (Johnnys dom över Citykiropraktikern i mattstock/domar.jsonl). Av samma skäl göms den igen när sista bandets
+// knappar (NastaSteg) syns, så att samma två knappar aldrig står två gånger på skärmen (premiumpasset 2026-10-16). Fast höjd, hänsyn till iPhones
 // nederkant och scroll-padding i bas, så att den aldrig skymmer innehåll eller fokus (WCAG 2.2, 2.4.11).
 // Utan JavaScript ligger listen alltid synlig.
 // Vid låg höjd (liggande telefon, 400 % zoom) ligger listen sist i flödet i stället för fast, så att texten får plats
@@ -25,7 +26,7 @@ const sekundar = Astro.props.sekundar ?? { href: ring.href, text: ring.kort ?? r
 
 <script>
   const list = document.querySelector<HTMLElement>('[data-kontaktlist]');
-  const egna = document.querySelectorAll('.forstavy__knappar, .sidtopp__knappar');
+  const egna = document.querySelectorAll('.forstavy__knappar, .sidtopp__knappar, .nasta__knappar');
   const meny = document.getElementById('meny');
   if (list) {
     const ruta = document.querySelector<HTMLElement>('[data-samtycke-ruta]');
@@ -49,10 +50,11 @@ const sekundar = Astro.props.sekundar ?? { href: ring.href, text: ring.kort ?? r
     };
     if (egna.length && 'IntersectionObserver' in window) {
       const synliga = new Set<Element>();
-      new IntersectionObserver((poster) => {
+      const iakttagare = new IntersectionObserver((poster) => {
         for (const p of poster) p.isIntersecting ? synliga.add(p.target) : synliga.delete(p.target);
         egnaSyns = synliga.size > 0; uppdatera();
-      }).observe(egna[0]);
+      });
+      egna.forEach((e) => iakttagare.observe(e));
     }
     lag.addEventListener('change', uppdatera); smal.addEventListener('change', uppdatera);
     window.addEventListener('scroll', () => { if (samtyckeOppen) uppdatera(); }, { passive: true });

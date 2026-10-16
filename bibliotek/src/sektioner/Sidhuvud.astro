@@ -168,13 +168,22 @@ const aktuell = (l: Lank) => (l.href === sida ? 'page' : l.delar?.includes(sida)
   @supports not selector(:popover-open) {
     .sidhuvud__menyknapp, .meny { display: none; }
   }
+  /* På datorn bryts varken namnet eller menyvalen: ett namn delat mitt i ordet och menyval på två rader såg trasigt ut
+     vid 1024–1079 px (premiumpasset 2026-10-16). */
   @media (min-width: 64rem) {
     .sidhuvud__rad { min-height: 5rem; gap: var(--k-a6); }
     .sidhuvud__nav { display: block; }
     .sidhuvud__menyknapp { display: none; }
     .sidhuvud__ringtext { display: inline; }
-    .sidhuvud__namn { margin-right: 0; }
+    .sidhuvud__namn { margin-right: 0; white-space: nowrap; overflow-wrap: normal; }
     .sidhuvud__nav { margin-right: auto; }
+    .sidhuvud__nav a { white-space: nowrap; }
     .sidhuvud__kontakt { gap: var(--k-a5); }
+  }
+  /* Mellan 1024 och 1200 px är avstånden tätare, så att namn, fyra länkar, telefon och Boka får plats på en rad. */
+  @media (min-width: 64rem) and (max-width: 74.99rem) {
+    .sidhuvud__rad { gap: var(--k-a4); }
+    .sidhuvud__nav ul { gap: var(--k-a4); }
+    .sidhuvud__kontakt { gap: var(--k-a3); }
   }
 </style>

@@ -9,18 +9,20 @@ import { hartPostnummer } from '../komponenter/text';
 import type { Bild, Lank, KartLank } from '../innehall/typ';
 // tips: korta rader om hur man tar sig dit, t.ex. buss, parkering och hiss.
 interface Plats { namn: string; adress: string; extra?: string; tips?: string[]; karta: Bild; vagbeskrivning: KartLank; appar?: Lank[]; googleKarta: { text: string; href: string; embed: string } }
-interface Props { id?: string; rubrik: string; platser: Plats[]; kakText: string; kakLank?: Lank; kalla: Lank; apparEtikett?: string; }
-const { id = 'hitta-hit', rubrik, platser, kakText, kakLank, kalla, apparEtikett } = Astro.props;
+// tidig: sektionen ligger direkt under sidtoppen, som på en ortssida. Kartbilden kan då vara sidans största element i första vyn
+// (LCP) och laddas direkt, den första med hög prioritet (web.dev, Optimize LCP: "Never lazy-load your LCP image"; premiumpasset 2026-10-16).
+interface Props { id?: string; rubrik: string; platser: Plats[]; kakText: string; kakLank?: Lank; kalla: Lank; apparEtikett?: string; tidig?: boolean; }
+const { id = 'hitta-hit', rubrik, platser, kakText, kakLank, kalla, apparEtikett, tidig = false } = Astro.props;
 ---
 <section class="sektion hittahit" id={id} aria-labelledby={`${id}-rubrik`} data-yta="bg">
   <div class="behallare">
     <div class="sektion__huvud"><h2 id={`${id}-rubrik`}>{rubrik}</h2></div>
     <div class="hittahit__rutnat">
-      {platser.map((p) => (
+      {platser.map((p, i) => (
         <article class="kort hittahit__plats">
           <div class="hittahit__karta" data-karta>
             {/* Kartbilden är 1440 px bred och visas högst 720 px bred, så den är skarp också på skärmar med dubbel upplösning (D8, K13). */}
-            <Bildruta bild={p.karta} bredd={720} storlek="(min-width: 56rem) min(calc(50vw - 5rem), 33rem), calc(100vw - 6rem)" klass="hittahit__bild" />
+            <Bildruta bild={p.karta} bredd={720} storlek="(min-width: 56rem) min(calc(50vw - 5rem), 33rem), calc(100vw - 6rem)" klass="hittahit__bild" laddning={tidig ? 'eager' : 'lazy'} prioritet={tidig && i === 0} />
           </div>
           <h3>{p.namn}</h3>
           <p class="hittahit__adress"><Ikon namn="plats" /><span>{hartPostnummer(p.adress)}{p.extra && <><br /><span class="dampad">{p.extra}</span></>}</span></p>

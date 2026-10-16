@@ -41,7 +41,8 @@ export interface StartInnehall {
     visaBetyg?: boolean; // en rad med betyget ur fortroende, under knapparna
     // idag: en rad under ingressen med dagens mottagning ur praktiskt.platser, t.ex. "I dag, tisdag: Lund 8.00–17.00".
     // stangt inleder raden en dag utan mottagning, följt av nästa dag med mottagning.
-    idag?: { text: string; stangt: string };
+    // stangtNu: texten före nästa mottagning när dagens mottagning har stängt, t.ex. "Stängt för i dag. Nästa mottagning:".
+    idag?: { text: string; stangt: string; stangtNu?: string };
     bild?: Bild;
   };
   praktiskt: {

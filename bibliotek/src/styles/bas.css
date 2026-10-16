@@ -19,7 +19,11 @@ picture { display: contents; }
   html[data-lista="nere"] body { padding-bottom: calc(4.5rem + env(safe-area-inset-bottom)); }
 }
 /* Långa sammansatta ord som Stötvågsbehandling bryts i stället för att spilla över (WCAG-teknik C33). */
-h1, h2, h3, p, li, dt, dd, a, blockquote { overflow-wrap: break-word; }
+h1, h2, h3, p, li, dt, dd, a, blockquote, summary, label, figcaption { overflow-wrap: break-word; }
+/* Ett barn i ett rutnät eller en flexrad får krympa under sitt längsta ord. Annars trycker ett långt ord eller en knapp ut hela
+   spalten förbi skärmen vid 200 % textstorlek, och sidan får vågrät scroll (WCAG 2.2, 1.4.4 och 1.4.10; premiumpasset 2026-10-16).
+   Ikoner och bilder som inte får krympa har flex: none. */
+:where(main, footer, header) :where(div, section, article, header, footer, nav, ul, ol, li, dl, dt, dd, details, summary, p, h1, h2, h3, a, span, figure, blockquote, form, label) { min-width: 0; }
 /* Bara mjuka bindestreck (&shy;) delar ord, så att ortnamn och andra namn aldrig delas av webbläsaren. */
 h1, h2, h3 {
   hyphens: manual;
@@ -64,8 +68,10 @@ svg[aria-hidden="true"] :is(path, circle, rect, line, polyline, polygon) { vecto
 svg[aria-hidden="true"] { stroke-width: 1.75px; }
 .dampad { color: var(--k-dampad); }
 /* Ett telefonnummer bryts aldrig mellan två rader (html-validate, tel-non-breaking). Typsnitten saknar det hårda bindestrecket
-   U+2011, så numret hålls ihop med CSS i stället för med specialtecken. */
-.telefon { white-space: nowrap; }
+   U+2011, så numret hålls ihop med CSS i stället för med specialtecken. I en knapp hålls bara numret ihop (Knapp.astro),
+   så att "Ring" kan stå på en egen rad vid stor textstorlek. */
+.telefon, .knapp .telefon__nr { white-space: nowrap; }
+.knapp.telefon { white-space: normal; }
 /* Fristående länkar som uppmaning, fet och med pil (Uppmaning.astro). */
 .uppmaning { display: inline-flex; align-items: center; gap: var(--k-a2); min-height: 44px; font-weight: 600; }
 .uppmaning svg { width: var(--k-ikon-text); height: var(--k-ikon-text); flex: none; }
@@ -93,6 +99,15 @@ svg[aria-hidden="true"] { stroke-width: 1.75px; }
 .knapp--primar { background: var(--k-accent); color: var(--k-pa-accent); border-color: var(--k-accent); }
 .knapp--sekundar { background: transparent; color: var(--k-text); border-color: currentColor; }
 .knapp--pa-mork { background: var(--k-pa-mork); color: var(--k-mork); border-color: var(--k-pa-mork); }
+/* Hover och tryck ändrar färgen i båda rörelseversionerna: sparsam rörelse är just färg vid hover och fokus (guide/2-6-rorelse.md).
+   Den primära knappen blandas mot textfärgen, så att den blir mörkare i ljusa kit och kontrasten mot texten ökar; den sekundära
+   får en svag ton av sin egen färg. Trycket är ett steg till (Emil Kowalski, emil-design-eng: en knapp ska svara när den trycks). */
+.knapp--primar:hover { background: color-mix(in oklab, var(--k-accent) 86%, var(--k-text)); border-color: color-mix(in oklab, var(--k-accent) 86%, var(--k-text)); }
+.knapp--primar:active { background: color-mix(in oklab, var(--k-accent) 74%, var(--k-text)); border-color: color-mix(in oklab, var(--k-accent) 74%, var(--k-text)); }
+.knapp--sekundar:hover { background: color-mix(in srgb, currentColor 8%, transparent); }
+.knapp--sekundar:active { background: color-mix(in srgb, currentColor 14%, transparent); }
+.knapp--pa-mork:hover { background: color-mix(in oklab, var(--k-pa-mork) 88%, var(--k-mork)); }
+.knapp--pa-mork:active { background: color-mix(in oklab, var(--k-pa-mork) 78%, var(--k-mork)); }
 .knapp:hover { transform: translateY(-1px); }
 
 /* Kort: en kolumn, så att en länk eller källrad sist kan läggas längst ner med margin-top: auto (Gestalt, gemensam linje). */
