@@ -1428,4 +1428,4 @@ Claude räknade upp läget för MCP-servrarna: Socket väntade på Johnnys inlog
 
 **Innebär:**
 - Ingen inloggning hos Socket nu. Servern ligger kvar i byggsessionen, och verktygslåset fortsätter att rapportera felet.
-- Nya paket prövas som förut med intagslistan (`npm view <paket> scripts` och `npm audit`) tills Socket tas in.
+- Nya paket prövas som förut med intagslistan tills Socket tas in: licens, version och installationsskript (`npm view <paket> scripts`; `kunskap/research/2026-10-16_react-och-javascript-i-astro.md` §11, steg 3).
