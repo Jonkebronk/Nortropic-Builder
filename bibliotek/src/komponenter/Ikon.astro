@@ -23,6 +23,8 @@ const ikoner = { telefon, kalender, plats, klocka, stjarna, pil, meny, ryggrad, 
 export type IkonNamn = keyof typeof ikoner;
 interface Props { namn: IkonNamn; }
 const { namn } = Astro.props;
-const svg = ikoner[namn].replace('<svg', '<svg aria-hidden="true" focusable="false"');
+// Licenskommentaren står kvar (ISC), men utan radbrytningen efter den: den blev ett mellanslag före ikonen, som syntes som en
+// understruken lucka före pilen i en länk (andra varvet 2026-10-16, flödet F2).
+const svg = ikoner[namn].replace(/-->\s+<svg/, '--><svg').trim().replace('<svg', '<svg aria-hidden="true" focusable="false"');
 ---
 <Fragment set:html={svg} />
