@@ -1405,3 +1405,15 @@ Claude räknade upp vad som var kvar att lägga in med nyckel: Grounding Lite, n
 **Innebär:**
 - Ingen nyckel till nanobanana (Gemini) eller BrowserStack nu. nanobanana och BrowserStack läggs inte till i byggsessionen.
 - Provet på riktiga iPhone och Android via BrowserStack väntar också. Hur skärmläsare prövas i stället (VoiceOver på iPhone för hand, TalkBack via BrowserStack) är fortfarande öppet i `kunskap/research/2026-10-16_tredje-varvet-till-johnny.md`.
+
+## 2026-10-16: Grounding Lite väntar
+
+**Status:** gäller. Ändrar *Alla MCP:er in nu …* (17.05) för Grounding Lite.
+
+Claude förklarade Grounding Lite ur `kunskap/kallkort/google-maps-grounding-lite.md`: platsdata ur Google Maps, fakturering i Google Cloud för mer än test, EES-villkor som inte tillåter Places-data för konkurrentanalys och en öppen fråga till juristen om villkoren gäller Grounding Lite (`guide/bilaga-e-oppna-fragor.md`, avsnitt 4). Claude föreslog att vänta tills juristfrågan är besvarad och en kund behöver den. Johnny, kl. 20.09:
+
+> vi väntar med den
+
+**Innebär:**
+- Ingen nyckel och ingen fakturering för Grounding Lite nu. Servern ligger kvar i byggsessionen utan nyckel; den låses ändå, eftersom verktygslistan är öppen.
+- Kundens platslänk och place_id hämtas för hand ur Google Maps tills vidare.

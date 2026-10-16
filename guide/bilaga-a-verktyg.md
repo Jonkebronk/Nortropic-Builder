@@ -256,7 +256,7 @@ Johnny beslutade 2026-10-16 att alla MCP-servrar i inventeringen läggs till nu 
 
 - **Anslutna utan konto eller med claude.ai-connector:** Inspo, Chrome DevTools, Playwright MCP, MDN, Astro Docs, Cloudflare Docs, Leonardo, Motion, shadcn, seo-monster, mcp-gsc och Mobbin.
 - **Inloggade via `/mcp`:** 21st, Figma och Cloudflare (2026-10-16). **Väntar på Johnnys inloggning:** Socket. DataForSEO väntar tills en sajt behöver datan (`BESLUT.md` 2026-10-16). Socket svarar på `tools/list` utan konto, men den värdade servern kräver OAuth på varje anrop, och ärendet om `401 invalid_token` i Claude Code är öppet (📄 SocketDev/socket-mcp, `docs/service.md`; [#185](https://github.com/SocketDev/socket-mcp/issues/185); `kunskap/kallkort/socket-mcp.md`).
-- **Väntar på en nyckel som Johnny lägger in i ett eget terminalfönster:** Grounding Lite. Google Developer Knowledge har sin nyckel (2026-10-16). nanobanana och BrowserStack väntar (`BESLUT.md` 2026-10-16).
+- **Nyckel:** Google Developer Knowledge har sin nyckel (2026-10-16). Grounding Lite, nanobanana och BrowserStack väntar (`BESLUT.md` 2026-10-16).
 - **Råden från andra varvet gäller vid inloggningen** (samma beslut): Cloudflare med läs-token, mcp-gsc kräver skrivomfång i Search Console (avsnitt 7), Grounding Lites villkor om lagring är en fråga till juristen (`bilaga-e-oppna-fragor.md`, avsnitt 4), och nanobananas standardmodeller är avvecklade.
 
 ## Nämnda bara i förbigående
