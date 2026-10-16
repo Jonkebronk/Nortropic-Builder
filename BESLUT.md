@@ -1268,7 +1268,7 @@ Spärren var `"disableClaudeAiConnectors": true` i `~/.claude-bygg/settings.json
 
 **Status:** gäller. Bekräftar `BESLUT.md` 2026-10-15 (byggsessionen avgränsas med en egen konfigurationskatalog) efter att claude.ai-connectorerna släppts på.
 
-Johnny såg inte MCP-servrarna han installerat i sin vanliga terminal och frågade: *"varför är vi avgränsade? jag trodde vi tog bort det? varför är det kvar"*. Claude förklarade att "Inga spärrar" (2026-10-15) tog bort förbudsreglerna och att spärren mot claude.ai-connectorer togs bort i dag, men att den egna katalogen `~/.claude-bygg` finns kvar så att webb-pros minne, gamla skills, superpowers-hooken och hemkatalogens `CLAUDE.md` inte laddas. Johnny valde omkring 17.20 alternativet:
+Johnny såg inte MCP-servrarna han installerat i sin vanliga terminal och frågade: *"varför är vi avgränsade? jag trodde vi tog bort det? varför är det kvar"*. Claude förklarade att "Inga spärrar" (2026-10-15) tog bort förbudsreglerna och att spärren mot claude.ai-connectorer togs bort i dag, men att den egna katalogen `~/.claude-bygg` finns kvar så att webb-pros minne, gamla skills, superpowers-hooken och hemkatalogens `CLAUDE.md` inte laddas. Johnny valde omkring 17.18 alternativet:
 
 > Behåll den (Rekommenderas)
 

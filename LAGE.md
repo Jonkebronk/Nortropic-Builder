@@ -141,7 +141,7 @@ Johnny beslutade omkring 12.11 att kompetensen ur inventeringen ska in i alla la
   - **Johnny loggar in via `/mcp`:** 21st, DataForSEO, Figma och Cloudflare (Cloudflare helst med en läs-token).
   - **Johnny lägger in nyckeln själv i ett eget terminalfönster från repots rot** (aldrig i chatten): Grounding Lite och Google Developer Knowledge (huvudet `X-Goog-Api-Key`; de godtar inte Claude Codes OAuth), nanobanana (`GEMINI_API_KEY`) och BrowserStack.
   - **Nästa session:** kör verktygslåset (`python3 -I skript/mcp-verktygslas.py`) efter inloggningarna, och sedan varje servers prov mot övningssajten enligt MCP-gruppens rapport (sparad lokalt i sajtens `andra-varvet/mcp-jamforelse.md`, avsnitten *Per MCP* och *Nya kandidater*). Resultatet läggs fram för Johnny före nästa övningssajt.
-  - **Avgränsningen med `~/.claude-bygg` står kvar** (Johnny omkring 17.20). Det som ska in läggs till där; något ur den vanliga `~/.claude` flyttas hit på begäran.
+  - **Avgränsningen med `~/.claude-bygg` står kvar** (Johnny omkring 17.18). Det som ska in läggs till där; något ur den vanliga `~/.claude` flyttas hit på begäran.
 - **Andra varvet** (från 14.25, Johnny: alla skills genomgångna, jämförda och reflekterade; Apples HIG; byggguider; MCP; bevakning): tolv grupper läste originalen i sin helhet, jämförde dem regel för regel och körde deras granskningar mot övningssajten. Sammanställningen står i `kunskap/research/2026-10-16_andra-varvet.md`.
   - Alla elva skills är uppdaterade, med fel rättade och det som saknades infört; Apples HIG finns i fem skills (`apple-hig.md`).
   - Inventeringen har 201 poster: 30 nya och 27 ändrade placeringar (artefakten version 4).
