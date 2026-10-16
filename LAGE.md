@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-16 kl. 19.39 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-16 kl. 22.16 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Nästa session – börja här (skrivet 2026-10-16 kl. 19.39)
 
@@ -33,7 +33,22 @@ Uppdaterad 2026-10-16 kl. 19.39 på Johnnys Mac, i den första byggsessionen (`c
   - Koppla bort Mobbin-connectorn i claude.ai.
   - (Avgjort 21.42: låset godtaget för Playwright, Motion släppt, Mobbins bilder raderade.)
   - (Avgjort 21.43: reglerna för MCP-servrar och verktyg står i `guide/3-3` med hänvisning i `CLAUDE.md`; skrivverktyg kräver Johnnys ja per gång, utan `permissions.deny`.)
-  - **Kvar:** skillsen och inventeringen (domarna i fältet `beslut`, seo-monsters omfång, `bygg.py` och artefakten), där varje skilländring prövas med och utan; Cloudflare läs-token när byråns sajt byggs; INP på övningssajten mäts om enligt `kvalitet/prestanda.md`.
+  - **Gjort 22.16:**
+    - **Inventeringen:** domarna och seo-monsters omfång är införda, och artefakten är version 9.
+    - **Skillsen steg 1:** faktarättelser i 20 filer.
+    - **Skillsen steg 2:** motsägelserna A–H (`BESLUT.md`, *Motsägelserna i skillsen* och *Vanliga frågor utan name*). Mikroprovet för A gav 5 av 5 fel före och 0 av 5 efter; B och C syntes inte i kontrollen (`kunskap/research/2026-10-16_mikroprov-motsagelser.md`).
+    - **INP** är ommätt. Fyndet om 259 ms vid första frågan håller inte, men första menyöppningen med samtyckesrutan öppen är ett nytt fynd (övningssajtens `mcp-prov.md`).
+    - **Cloudflare:** OAuth står kvar för byråns konto (21.49).
+  - **Nästa: skillsen steg 3, efter en omstart av `claude-bygg`.** Verktygen läggs in i skillsen, och proven med och utan kräver att Playwright med WebKit, shadcn och Developer Knowledge är laddade. Arbetet följer luckorna 1–7 i översynen, i den här ordningen:
+    1. Chrome DevTools i granskare, innehåll, rörelse, skelett och yta.
+    2. Playwright-MCP:n med förbehåll.
+    3. seo-monster i omfattning, struktur, kvalitet och innehåll, med förbudet mot ordverktygen.
+    4. Developer Knowledge.
+    5. Astro Docs.
+    6. Video för rörelse.
+    7. Pekare till `kontroll.mjs`.
+
+    Varje ändring som ändrar beteendet får ett mikroprov enligt `larande/skills.md`.
 - **Översynen av verktyg och skills mot sin fulla potential är gjord** (2026-10-16 kväll, Johnny: *"det här behöver du se över på samtliga skills att de används mot sin fulla potential"*, omfattning *båda*). Den står i `kunskap/research/2026-10-16_verktyg-och-skills-full-potential.md` och ändrar flera av MCP-provets domar och två av Claudes påståenden. **Väntar på Johnny:** 21 punkter i avsnittet *Väntar på Johnny*, och rättelserna i källkorten, som är fakta och inte regler. Källkorten och guidens tre rader om seo-monsters omfång är rättade (Johnny: *"rätta"*). Skills, konfiguration och inventering är inte ändrade. Seo-monster-raden i `drift/verktyg.md` och i `inventering.json` rättas tillsammans med skillsen. `.playwright-mcp/` står i `.gitignore`.
 - **MCP-proven är körda** (2026-10-16 kväll, Johnny: *"Prova varje mot övningsajten"*). Resultatet per server och domarna, som är förslag, står i sajtens `mcp-prov.md`. Kort: behåll Chrome DevTools, Playwright (med WebKit, iPhone och utdata utanför repot), Astro Docs, Developer Knowledge, seo-monster (N3), Cloudflare (med läs-token) och Figma. Begränsa Inspo och 21st. Släpp MDN, Cloudflare Docs, Mobbin, Leonardo-MCP:n, shadcn-MCP:n och Motion. **Väntar på Johnny:** domarna och åtta punkter i slutet av `mcp-prov.md`, bland dem bilderna från Mobbin i sessionens `tool-results/`. Inställningarna på nortropic.se är parkerade: domänen byggs senare (`BESLUT.md` 2026-10-16, 21.01).
 
