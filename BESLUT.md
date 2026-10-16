@@ -1167,3 +1167,13 @@ Claude berättade att 21st.dev:s villkor (avsnitt 3, *"Last updated: July 20, 20
 - Finns blocket i ett öppet ursprungsrepo, till exempel Tailark eller Magic UI med MIT, hämtas det därifrån. Då gäller bara licensen, och ingen länk syns på sajten. Licenstexten följer med i koden.
 - Kommer en komponent bara från 21st.dev får sajten en minimal kreditering: en diskret rad eller sida, länkad från sidfoten, med länk till komponentens sida på 21st.dev. ⚖️ Om det räcker som *"clear and visible"* är en tolkning, inte juridisk rådgivning.
 - Komponenter med licensen "unknown" används som mönster, inte som kod.
+
+## 2026-10-16: Refero väljs bort – Inspo och Mobbin för referenser
+
+**Status:** gäller.
+
+Claude jämförde Mobbin, Refero och Inspo. Förslaget var Inspo (gratis, redan inkopplad) och Mobbin, vars sökning på webbsektioner ligger närmast marknadsföringssajter. Referos stilsökning överlappar med Inspo. Johnny, omkring 13:12:
+
+> då skippar vi refero om du anser det.
+
+**Innebär:** Referos MCP-server tas inte in, och posten `refero` får beslutet "släpp". Skillen `refero-design` är en metod för referenser, med referenslås och beslutslogg, och destilleras som förut. Mobbin kopplas in med Johnnys konto, efter att villkoren för kommersiell användning har lästs inloggad.
