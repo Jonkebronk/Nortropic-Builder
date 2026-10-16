@@ -1,0 +1,13 @@
+<!doctype html>
+<!-- Felbanken, kontroll 13f: rubriken tonas in från osynlig, och en fast list glider upp under första sekunden. -->
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Felsida 13f</title>
+<style>.in { animation: in 1.5s both; } @keyframes in { from { opacity: 0; } } .list { position: fixed; bottom: 0; left: 0; right: 0; padding: 1rem; background: #eee; animation: upp 1.5s both; } @keyframes upp { from { transform: translateY(100%); } }</style>
+</head>
+<body>
+<main><h1 class="in">Välkommen</h1><p>Rubriken tonas in och listen glider upp när sidan laddas.</p></main><div class="list">Boka tid</div>
+</body>
+</html>

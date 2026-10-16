@@ -1,0 +1,13 @@
+<!doctype html>
+<!-- Felbanken, kontroll 8f: en egen meny som öppnas med Enter men inte stängs med Escape. -->
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Felsida 8f</title>
+</head>
+<body>
+<header><button id="knapp" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="meny">Meny</button><ul id="meny" role="menu" hidden><li role="none"><a role="menuitem" href="/ren.html">Start</a></li></ul></header><main><h1>Meny</h1></main>
+<script>const k = document.getElementById("knapp"), m = document.getElementById("meny"); k.addEventListener("click", () => { const o = k.getAttribute("aria-expanded") === "true"; k.setAttribute("aria-expanded", String(!o)); m.hidden = o; });</script>
+</body>
+</html>

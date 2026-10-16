@@ -13,9 +13,10 @@ De tio N1-kontrollerna och N2-tabellen definieras i `guide/2-8-teknik-och-kvalit
 | 5, 5b | Stöd för faktaläsningen; samtycke till bilder | |
 | 6, 6b, 6c | Platshållare, sidfoten, kakor och samtyckesrutan | |
 | 7, 7b, 7c | Titel, beskrivning, sitemap, `h1`, robots.txt | Kanonisk adress, Open Graph, `lastmod`, JSON-LD |
-| 8, 8b | axe med WCAG 2.2-taggarna i Chromium; fokusringens kontrast | WebKit, menyn öppen, `incomplete`, `best-practice` |
+| 8, 8b | axe med WCAG 2.2-taggarna i Chromium; fokusringens kontrast | WebKit och menyn öppen prövas i 8c och 8d; incomplete och best-practice i 8e |
 | 9 | Lighthouse 100, median av tre | Mätvärdena bakom poängen, maskinens belastning |
 | 10, 10b, 10c | Hemligheter; 404 och huvuden mot `wrangler dev` | CSP:ns innehåll, Workerns svar |
+| N2 (2d–14) | Andra varvets förslag, byggda 2026-10-16 med felbank (`skript/felbank/`, `--felbank`) | Se `guide/bilaga-c-kontroller.md`, C58b och C196–C230 |
 
 ## Det skriptet inte kan
 
@@ -56,7 +57,7 @@ Kontrollerna 8c–8i, 9e, 10d, 11 och 12 provkördes för hand mot övningssajte
 
 ### Förslag ur andra varvet (2026-10-16)
 
-Ur jämförelsen med originalen (better-accessibility, better-interface, break och break-ui, modern-web-guidance, Vercels Web Interface Guidelines, seo-audit och claude-seo). Typen följer grunden; allt är förslag till Johnny.
+Ur jämförelsen med originalen (better-accessibility, better-interface, break och break-ui, modern-web-guidance, Vercels Web Interface Guidelines, seo-audit och claude-seo). Typen följer grunden. **Byggda 2026-10-16** (`BESLUT.md`, *Kompetensinventeringen görs klar*): alla utom 8j, 8k, 9c (en upplysning i 9), 9d, 9e, 9g, 10g, 11b, 15 och 16; skälen står i tredje varvets leverans från gruppen kontroller (sammanfattad i `kunskap/research/2026-10-16_tredje-varvet-till-johnny.md`). Stopp eller rapport per kontroll: `guide/bilaga-c-kontroller.md`.
 
 | Nr | Kontroll | Hur | Typ | Grund | Nivå |
 |---|---|---|---|---|---|
@@ -71,7 +72,7 @@ Ur jämförelsen med originalen (better-accessibility, better-interface, break o
 | 8l | Dialoger har namn | Varje `dialog` och `[role=dialog]` öppnas; namnet i tillgänglighetsträdet är inte tomt | Stopp | 📄 WCAG 2.2, 4.1.2; APG Dialog | N2 |
 | 8h+ | Forced-colors utökad | Varje fokuserat element har `outline` i läget; knappar och fält har kant; skärmbild av text på foto och gradient | Stopp (fokus), rapport (kant, bild) | 📄 WCAG 2.2, 2.4.7, 1.4.11; MDN | N2 |
 | 8m | Namn och landmärken | `ariaSnapshot()`: landmärkenas namn stämmer med innehållet på varje sida, inget namn innehåller rollen, länkar med samma namn går till samma mål | Rapport | 📄 WCAG 2.2, 2.4.4, 2.4.6; APG *Names and Descriptions* | N2 |
-| 8n | Ingen rubrik i `<summary>` och ingen betydelsebärande text i CSS `content` | DOM och byggd CSS | Rapport | O'Hara och MWG (två källor, ingen norm); WCAG F87 | N2 |
+| 8n | Ingen rubrik i `<summary>` och ingen betydelsebärande text i CSS `content` | DOM och byggd CSS | Rapport | O'Hara och MWG (två källor, ingen norm); WCAG F87 (obsolet enligt W3C, uppdaterad 12 januari 2026: *"CSS-generated content does not always constitute a failure"*, men texten går inte att markera) | N2 |
 | 8o | Hover och tryck | Beräknade stilar i vila, hover och `:active` för varje länk- och knapptyp i 1280 px; i 375 px med pekskärm står inget hover-läge kvar efter tryck | Rapport | Vercel; Krehel; NN/g (ingen norm) | N2 |
 | 9f | Prioritet och video | Högst en `fetchpriority="high"` per sida, aldrig med `loading="lazy"`; varje `<video>` har `width`, `height`, `poster` och `preload` som inte är `auto` | Rapport | 📄 web.dev Fetch Priority; MDN video | N2 |
 | 9g | Komprimering i produktion | Röktest: HTML, CSS och JS svarar med `content-encoding` | Rapport | Lighthouse `uses-text-compression` | N2 |
@@ -95,7 +96,7 @@ Utvidgning av C56 (rörelse, ägs av `guide/2-6-rorelse.md`): med `reducedMotion
 | @axe-core/playwright | 4.14.0 | Kontroll 8 och 8c–8e | MPL-2.0; WebKit testas inte uppströms ⚠️ |
 | Lighthouse | 13.5.0 i `skript/` | Kontroll 9 och 9b | Lighthouse CI 0.15.1 ligger kvar på Lighthouse 12.6.1, utan commit sedan juni 2025; mätvärdena läses därför direkt ur Lighthouse 13 |
 | chrome-devtools-mcp | 1.11.0 | Diagnos när en kontroll fallerat: spårning, insikter, emulering, `take_snapshot` | Alltid `--no-usage-statistics --no-performance-crux --isolated`; inte en grind |
-| lychee | 0.24.2 | Kontroll 11 | Apache-2.0 eller MIT; ett binärprogram via Homebrew, som startsäkringen sedan håller aktuellt |
+| lychee | 0.24.2 | Kontroll 11 | Apache-2.0 eller MIT; ett binärprogram via Homebrew, som startsäkringen sedan håller aktuellt. Inte installerat 2026-10-16; kontrollskriptet går igenom länkarna själv (11). |
 | csp-evaluator | 1.1.8 | Kontroll 10d | Apache-2.0; finns redan i `skript/node_modules` via Lighthouse och deklareras som eget beroende; körs med båda policyerna samtidigt (`evaluateForFailure([meta, huvud])`), annars ger meta-taggen ensam ett falskt HIGH |
 | MDN HTTP Observatory | 1.7.1 | Mot produktion vid publicering, betyg minst A | Kräver publik adress och Node 24; avslutar med kod 0 också vid dåligt betyg, så `scan.score` läses; aldrig `--headers` med hemligheter |
 | IBM Equal Access | 4.0.34 | Prövning som andra motor | Hämtar motorn från internet vid varje körning och kör den med `eval`; telemetri på som standard (`IBM_TELEMETRY_DISABLED=true`) |

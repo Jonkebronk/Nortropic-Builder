@@ -1,0 +1,29 @@
+/* Felbankens rena sidor: en liten sajt som ska gå igenom alla N2-kontroller (skript/kontroll.mjs --felbank). */
+:root { --k-accent: #b4471c; color-scheme: light; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; line-height: 1.5; color: #1a1a1a; background: #fff; }
+.hoppa { position: absolute; left: 1rem; top: 0; padding: 0.5rem; background: #fff; transform: translateY(-120%); }
+.hoppa:focus { transform: none; }
+.sidhuvud { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.5rem; padding: 1rem; border-bottom: 1px solid #ccc; }
+.sidhuvud ul, .sidfot ul { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0; padding: 0; list-style: none; }
+.namn { font-weight: 700; color: #1a1a1a; text-decoration: none; }
+a { color: #1a4fa0; }
+.knapp { display: inline-block; padding: 0.5rem 1rem; border: 2px solid var(--k-accent); background: var(--k-accent); color: #fff; text-decoration: none; transition: background-color 0.15s; }
+.menyknapp { padding: 0.5rem; border: 0; background: none; font: inherit; color: inherit; }
+#meny { padding: 1rem; border: 1px solid #ccc; opacity: 1; transition: opacity 0.2s; transition: opacity 0.2s, display 0.2s allow-discrete, overlay 0.2s allow-discrete; }
+@starting-style { #meny:popover-open { opacity: 0; } }
+main { padding: 1rem; max-width: 40rem; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.25rem; }
+img { max-width: 100%; height: auto; }
+.telefon { white-space: nowrap; }
+.uppmaning svg { width: 1em; height: 1em; vertical-align: -0.15em; margin-left: 0.3em; }
+table { border-collapse: collapse; }
+th, td { padding: 0.25rem 0.5rem; border: 1px solid #ccc; text-align: left; }
+.sidfot { padding: 1rem; border-top: 1px solid #ccc; }
+@media (hover: hover) and (pointer: fine) {
+  a:hover { text-decoration-thickness: 3px; color: #0d2f66; }
+  .namn:hover { text-decoration: underline; }
+  .knapp:hover { background: #8f3a16; border-color: #8f3a16; color: #fff; }
+  button:hover, summary:hover { background: #eee; }
+}

@@ -1,0 +1,3 @@
+# Felbanken, kontroll 12c: robots.txt utan Sitemap-rad.
+User-agent: *
+Allow: /

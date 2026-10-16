@@ -110,6 +110,7 @@ Hur granskningen går till står i `3-2-granskning-och-kalibrering.md`. Här st�
 - [N2] Bygget går igenom utan konsolfel också med reducerad rörelse (konsolfelen i övrigt → `2-8-teknik-och-kvalitet.md`).
 - [N2] **Statisk sökning som underlag:** durationer, studsande eller elastiska kurvor, `transition: all` och animerade egenskaper utöver transform, opacitet och färg. Träffarna bedöms men stoppar inte (Emils regler – bänken).
 - [N2] Bildfrekvens vid scroll och layoutskiften mäts (→ `2-8-teknik-och-kvalitet.md`).
+- [N2] **Kontrollskriptet prövar rörelsen:** den byggda CSS:en (13: tidslinje i förkortningen, ordning och reserv; 13c: C58), reducerad rörelse (13d: C56), fem sekunder (13e: C57), första skärmen (13f) och text som börjar osynlig (13g). Registret: `bilaga-c-kontroller.md`.
 
 Att allt innehåll syns utan JavaScript är regel i `2-4-skelett.md` och kontroll i `2-8-teknik-och-kvalitet.md`.
 

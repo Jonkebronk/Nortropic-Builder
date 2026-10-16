@@ -210,7 +210,7 @@ Registret över alla kontroller: `bilaga-c-kontroller.md`. **De tio N1-kontrolle
 
 ### N1 – kontrollerna för första sajten
 
-Tio kontroller, och bara sådana som mäter något kunden märker (konsolideringsanalysen §7.4). Kontrollskriptet byggs i `5-byggplan.md`, steg 3, med Playwright och @axe-core/playwright med WCAG 2.2-taggarna påslagna (de är avstängda som standard). Nr 9 körs med Lighthouse och siktar på 100 (`BESLUT.md` 2026-10-16), och nr 5 är en läsning av texterna mot `fakta.md`, inget skript. Skriptet körs mot det lokala bygget före Johnnys dom och, om sajten publiceras, igen mot den publicerade adressen som röktest (förhandsadressen bakom Access nås med en service token, 📄 Cloudflare via lager-8-anteckningarna §1e). Kontrollerna avgör inte om ett steg är klart; det gör Johnnys dom (`guide/README.md`, princip 1).
+Tio kontroller, och bara sådana som mäter något kunden märker (konsolideringsanalysen §7.4). Kontrollskriptet byggs i `5-byggplan.md`, steg 3, med Playwright och @axe-core/playwright med WCAG 2.2-taggarna påslagna (de är avstängda som standard): `wcag2a`, `wcag2aa`, `wcag21a`, `wcag21aa` och `wcag22aa` (axe-core har ingen regel med `wcag22a`; 📄 axe-core, doc/API.md, *Axe-core Tags*). Nr 9 körs med Lighthouse och siktar på 100 (`BESLUT.md` 2026-10-16), och nr 5 är en läsning av texterna mot `fakta.md`, inget skript. Skriptet körs mot det lokala bygget före Johnnys dom och, om sajten publiceras, igen mot den publicerade adressen som röktest (förhandsadressen bakom Access nås med en service token, 📄 Cloudflare via lager-8-anteckningarna §1e). Kontrollerna avgör inte om ett steg är klart; det gör Johnnys dom (`guide/README.md`, princip 1).
 
 *Stopp* betyder att Johnny inte godkänner publiceringen förrän kontrollen går igenom, och kräver en norm eller två oberoende primärkällor (`guide/README.md`, *Grind eller instruktion*). *Rapport* betyder att resultatet visas för Johnny och rättas eller motiveras.
 
@@ -237,17 +237,18 @@ Därtill Johnnys slutgranskning med en kort motivering per avvisning (`3-2`).
 
 | Kontroll | Hur | Stopp | Grund |
 |---|---|---|---|
-| Prestanda i labb | Lighthouse CI mot `dist/`, mobil, 3–5 körningar, median | LCP ≤ 2 500 ms, CLS ≤ 0,1, TBT ≤ 200 ms (labbens ersättare för INP) | 📄 web.dev, Core Web Vitals |
-| Interna länkar | lychee `--offline --include-fragments` | 0 trasiga | v0.74 fas 6c; lychees exitkod |
+| Prestanda i labb | Lighthouse 13 i kontrollskriptet (9b), i samma körningar som nr 9: mobil, tre körningar, median; TBT räknas bara när en tom sida ger under 50 ms | LCP ≤ 2 500 ms, CLS ≤ 0,1, TBT ≤ 200 ms (labbens ersättare för INP) | 📄 web.dev, Core Web Vitals |
+| Interna länkar | Kontrollskriptet (11): länkar, källor och ankare i `dist`; lychee när det är installerat | 0 trasiga | v0.74 fas 6c; lychees exitkod |
 | Utan JavaScript | Playwright med JavaScript avstängt | Rapport, stoppar inte: sidornas innehåll och navigering syns och fungerar | 📄 GOV.UK, progressive enhancement *(en källa – bänken)*; regeln → `2-4-skelett.md` |
 | SEO utöver N1 | Egna DOM-kontroller | `lang="sv"`; kanonisk https-adress till sig själv; Open Graph och delningsbild; `robots.txt` som inte blockerar CSS eller JS; sitemap med bara publika sidor; ingen `noindex` i produktion | 📄 Google Search Central; $10K Website Kit, Websites for Normal People |
 | Strukturerad data | schema-dts i bygget, validatorn på byggd HTML | 0 fel; `name` och `address` finns; namn, adress, telefon och öppettider stämmer med faktabasen och syns i texten | 📄 Google: LocalBusiness och riktlinjerna för strukturerad data |
 | Huvuden | Playwright mot förhandsadressen med Access service token; MDN Observatory mot produktion | Huvudena i *Publicering* finns, också CSP och Worker-svarens; betyg minst A (90) | 📄 Cloudflare, MDN |
-| Tillgänglighet | axe i Chromium **och** WebKit, också med menyn öppen och formulärfelen framkallade | 0 fel | 📄 WCAG 2.2 |
+| Tillgänglighet | axe i Chromium **och** WebKit, också med menyn öppen och formulärfelen framkallade (kontrollskriptet 8c och 8d) | 0 fel | 📄 WCAG 2.2 |
 | Integritet | Playwright vid första laddningen | Inga kakor, ingen lagring och inga anrop utanför tillåtelselistan före samtycke; en banner har neka och godkänn i samma lager och stil, och efter neka händer inget; länk till integritetspolicyn i sidfoten och vid varje formulär | 📄 LEK 9 kap. 28 §, PTS |
 | Formulär | Märkt testinskick mot staging | Sparat, mejlet accepterat, bekräftelsemejlet framme | 🔧 |
 | Manuell tillgänglighet vid lansering | Tangentbord, fokus, formulärfel, zoom | Inga hinder | 📄 GDS: axe hittade 29 % och bästa verktyg 40 % av avsiktliga barriärer |
 
+- [N2] **Kontrollskriptets N2-kontroller** (andra varvets förslag, byggda 2026-10-16): 2d, 2e, 2g, 3c–3f, 4c, 4d, 7d–7f, 8c–8i, 8l–8o, 9b, 9f, 10c+, 10d–10f, 11, 12–12g, 13–13g och 14, som rapport om inte en norm bär regeln. Registret och grunden per kontroll: `bilaga-c-kontroller.md`, C58b och C196–C230. Varje kontroll har ett inplanterat fel i `skript/felbank/` och prövas med `node skript/kontroll.mjs --felbank`; en kontroll som inte fångar sitt fel är inte klar (`BESLUT.md` 2026-10-16). `BARA_N1=1` hoppar över dem.
 - [N2] Teckengränser för titel och beskrivning är bara varningar; Google anger ingen gräns. 📄 Google: Influencing title links
 - [N2] Rich Results Test görs för hand vid lansering och när schemat ändras. 📄 Google
 

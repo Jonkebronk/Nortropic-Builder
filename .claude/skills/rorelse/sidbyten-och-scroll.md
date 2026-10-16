@@ -41,6 +41,7 @@ Delfil till `SKILL.md`. Reglerna står i guiden (→ `guide/2-6-rorelse.md`, *Si
 - **Krav:** `animation-timeline` står som en egen deklaration i den CSS som når besökaren. Enligt specen ingår den i förkortningen `animation`, men *"if an `<animation-timeline>` value is included, but the user-agent doesn't support `<animation-timeline>` values within the shorthand, the entire `animation` declaration is invalid and ignored"*. 📄 MDN, *animation*.
 - **Varför det behöver kontrolleras:** Lightning CSS 1.33, som Vite 8 och därmed Astro 7 minifierar CSS med, slår utan angivna webbläsarmål ihop raderna till `animation: linear both namn view()`. Chromium 156 avvisar den (`CSS.supports('animation', 'linear both namn view()')` ger `false`), och animationen körs aldrig. Med webbläsarmål behåller Lightning CSS raderna. Uppmätt 2026-10-16 på bibliotekets provsida med måttlig rörelse: sektionernas in-animation och sidhuvudets skugga körs inte i bygget men fungerar när samma regel läggs in som den står i källan. 🔧 egna prov.
 - **Kontrollen:** sök i den byggda HTML:en efter `view()` eller `scroll()` inne i en `animation:`-deklaration, och läs `getComputedStyle(element).animationName` i sidan. I utvecklingsservern minifieras inget, så felet syns bara i bygget.
+- Kontrollskriptet prövar det (13 och 13c).
 
 ## In-animationer i måttlig budget
 

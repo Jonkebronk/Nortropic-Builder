@@ -1,0 +1,13 @@
+<!doctype html>
+<!-- Felbanken, kontroll 13c: transition: all, en animerad bredd, en studsande kurva och scroll-behavior: smooth utan no-preference. -->
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Felsida 13c</title>
+<style>html { scroll-behavior: smooth; } .a { transition: all .3s; } .b { transition: transform .3s cubic-bezier(.3, .9, .3, 1.4); animation: bredd 1s; } @keyframes bredd { from { width: 0; } to { width: 100px; } }</style>
+</head>
+<body>
+<main><h1>Rörelse</h1><p class="a">A</p><p class="b">B</p></main>
+</body>
+</html>

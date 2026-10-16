@@ -1,0 +1,13 @@
+<!doctype html>
+<!-- Felbanken, kontroll 13: tidslinjen i animation-förkortningen, animation-timeline före animation, @starting-style före sin regel och allow-discrete utan reserv. -->
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Felsida 13</title>
+<style>@keyframes upp { from { opacity: .7 } } .a { animation: linear both upp view(); } .b { animation-timeline: view(); animation: upp 1s; } @starting-style { .c { opacity: 0; } } .c { opacity: 1; transition: opacity .2s; } .d { transition: opacity .2s allow-discrete; }</style>
+</head>
+<body>
+<main><h1>Byggd CSS</h1><p class="a">A</p><p class="b">B</p><p class="c">C</p><p class="d">D</p></main>
+</body>
+</html>

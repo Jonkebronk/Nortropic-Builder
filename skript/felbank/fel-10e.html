@@ -1,0 +1,13 @@
+<!doctype html>
+<!-- Felbanken, kontroll 10e: ett skript som skriver HTML ur adressen med insertAdjacentHTML. -->
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Felsida 10e</title>
+</head>
+<body>
+<main><h1>Sänka</h1></main>
+<script>document.body.insertAdjacentHTML("beforeend", decodeURIComponent(location.hash.slice(1)));</script>
+</body>
+</html>
