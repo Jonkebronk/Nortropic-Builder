@@ -15,6 +15,7 @@
   - Ärendena #46, #215 och #218.
   - **Egen körning:** Hyperglot 0.7.3 från PyPI. Macs system-Python 3.9 kan inte installera 0.8, som kräver Python > 3.10. Körningen gjordes mot sju typsnitt från google/fonts, och datafilerna `swe.yaml`, `sme.yaml`, `smj.yaml` och `sma.yaml` lästes.
 - **HCT-regeln:** [material-foundation/material-color-utilities](https://github.com/material-foundation/material-color-utilities) `concepts/contrast_for_accessibility.md`, senast ändrad i commit `e42b2e4f6fba` (2024-09-04). Repots senaste commit är `dd62982dfdef` (2026-10-15). Regeln kontrollerades med en egen beräkning.
+  - **Omläst 2026-10-16 (tredje varvet):** repot står kvar på `dd62982dfdef`, och `concepts/contrast_for_accessibility.md` är oförändrad sedan `e42b2e4f6fba` (GitHubs historik för filen). Bevakningslistan hade filens commit i stället för repots, så den larmade fast inget ändrats efter läsningen. De 66 commits däremellan (2024-09 till 2026-10-15) gäller färgspecifikationerna 2025 och 2026 för dynamiska scheman (bland annat klockor, *CMF Scheme*, *energy color* och högkontrast i telefonen). Ingen av dem rör tonregeln, som är ren L\*-matematik, så regeln i kortet står kvar.
 
 **Licens:**
 - **Harmony: MIT.** Generatorn Harmonizer har ingen licens i GitHubs metadata ⚠️. Utan licens får koden inte återanvändas.

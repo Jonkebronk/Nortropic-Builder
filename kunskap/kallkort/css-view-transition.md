@@ -3,6 +3,7 @@
 **Källa:** lästa 2026-10-16:
 - [MDN: @view-transition](https://developer.mozilla.org/en-US/docs/Web/CSS/@view-transition), de första 100 000 tecknen. Resten är exempel och kompatibilitet ⚠️, men kompatibiliteten lästes direkt i BCD.
 - MDN [browser-compat-data](https://github.com/mdn/browser-compat-data), commit `078588a` (2026-10-16): `css/at-rules/view-transition.json` och `browsers/firefox.json`.
+- **Omläst 2026-10-16 (tredje varvet)** vid commit `0416078da7a1` (2026-10-16 11:04 UTC): fyra commits efter `078588a`, som bara ändrade `api/GPUDevice.json` och beroenden (GitHubs jämförelse). Inget i kortet påverkas. Firefox står fortfarande som `version_added: false` ([bugg 1860854](https://bugzil.la/1860854)).
 - Chrome for Developers: [Cross-document view transitions](https://developer.chrome.com/docs/web-platform/view-transitions/cross-document) och [Same-document view transitions](https://developer.chrome.com/docs/web-platform/view-transitions/same-document).
 - W3C: [CSS View Transitions Module Level 1](https://www.w3.org/TR/css-view-transitions-1/), de första 100 000 tecknen inklusive UA-stilen. Nivå 2, som definierar `@view-transition`, lästes inte separat ⚠️.
 - Underlaget i `kunskap/research/2026-10-15_kompetensluckor-anteckningar/lager-6-7-rorelse-innehall.md` §7.

@@ -5,6 +5,7 @@
   - Lästa filer: `README.md`, `docs/tool-reference.md`, `docs/configuration.md`, `docs/design-principles.md`, `docs/client-configurations.md` (Claude Code), `docs/troubleshooting.md` (rubriker), `SECURITY.md`, `CHANGELOG.md` (1.11.0), `skills/a11y-debugging/SKILL.md`, `skills/debug-optimize-lcp/SKILL.md` (början) och `package.json`.
 - npm: `chrome-devtools-mcp` **1.11.0** (2026-10-15). Kräver Node `^20.19 || ^22.12 || >=23`.
 - GitHub-ärenden: sökning via API:t (öppna, sorterade på reaktioner) plus #1955, som lästes på webben.
+- **Omläst 2026-10-16 (tredje varvet)** vid main `552e1f8d2519` (2026-10-16 14:26 UTC), tio commits efter `382f441`, med GitHubs jämförelse. Av de lästa filerna ändrades bara `docs/tool-reference.md`: minnesverktygen sidindelar nu som standard (50 per sida). Det som rör oss står under *Kända problem*. Senaste utgåvan är fortfarande 1.11.0 (npm och GitHub, 2026-10-15).
 
 **Licens:**
 - Apache-2.0. Det finns ingen NOTICE-fil.
@@ -42,15 +43,16 @@
 - 124 öppna ärenden. De mest reagerade gäller hängningar med många flikar (#1921) och önskemål om funktioner.
 - **Kända problem som rör oss:**
   - [#1955](https://github.com/ChromeDevTools/chrome-devtools-mcp/issues/1955) (stängd 2026-05-22): CPU-strypning från `emulate` tillämpades inte under spårning, så LCP blev 3–6 gånger för snabb. Rättad i PR #2092 och #2096, som ingår i **1.1.0 (2026-05-26)** enligt `CHANGELOG.md`. Version 1.11.0 har alltså rättelsen.
-  - Öppna sedan 2026-10-06: [#2967](https://github.com/ChromeDevTools/chrome-devtools-mcp/issues/2967) (granskning av en sida som inte laddar ger ett normalt svar utan `runtimeError`), [#2968](https://github.com/ChromeDevTools/chrome-devtools-mcp/issues/2968) (navigeringsläget tappar emulerad skalfaktor och skärmstorlek) och [#2966](https://github.com/ChromeDevTools/chrome-devtools-mcp/issues/2966) (en ogiltig viewport ligger kvar och felrapporteras).
-  - **Följd:** läs inte ett MCP-mätvärde som grind. Kontrollera alltid att emuleringen faktiskt gäller.
+  - Öppnade 2026-10-06 och **stängda 2026-10-16** i main: [#2967](https://github.com/ChromeDevTools/chrome-devtools-mcp/issues/2967) (granskning av en sida som inte laddar gav ett normalt svar utan `runtimeError`; nu fallerar `lighthouse_audit`, PR #3188), [#2968](https://github.com/ChromeDevTools/chrome-devtools-mcp/issues/2968) (navigeringsläget tappade emulerad skalfaktor och skärmstorlek; nu återställs de, PR #3189) och [#2966](https://github.com/ChromeDevTools/chrome-devtools-mcp/issues/2966) (en ogiltig viewport låg kvar och felrapporterades; PR #3150). Rättelserna finns inte i 1.11.0 utan kommer med nästa utgåva.
+  - Samma dag i main: `evaluate_script` stoppas medan en dialogruta är öppen i stället för att vänta tills protokollet ger upp (#3196), och WebSocket-huvuden tas bort ur anslutningsloggen (#2901).
+  - **Följd:** läs inte ett MCP-mätvärde som grind. Kontrollera att emuleringen faktiskt gäller tills utgåvan med rättelserna är installerad.
 - `SECURITY.md`: verktyget litar på arbetskatalogen och miljön. Sidinnehåll returneras som det är, och projektet räknar inte promptinjektion via sidinnehåll som sårbarhet ("prefer using this server with trusted web content").
 
 **Det bästa vi kan ta:**
 - Arbetsordningen i `skills/a11y-debugging/SKILL.md`. Särskilt Chromes egna problemrapporter via `list_console_messages` med `types: ["issue"]` och `includePreservedMessages: true`. De fångar saknade etiketter och ogiltig ARIA utan egen kod, och passar som diagnossteg när axe fallerat.
 - LCP-uppdelningen i `skills/debug-optimize-lcp/SKILL.md`, steg 1–3 (spårning med `reload` och `autoStop`, sedan `LCPBreakdown`, `RenderBlocking` och `LCPDiscovery`).
-- Startraden till `.mcp.json` eller användarnivån: `npx -y chrome-devtools-mcp@1.11.0 --isolated --no-usage-statistics --no-performance-crux --headless`.
-  - Låst version i stället för `@latest`, så att startsäkringen ser bytet.
+- Startraden i byggsessionens lokala scope (aldrig `.mcp.json` i det publika repot): `npx -y chrome-devtools-mcp@latest --isolated --no-usage-statistics --no-performance-crux --headless`.
+  - Senaste version gäller också för MCP-servrar. Verktygslåset i startsäkringen sparar verktygslistan och rapporterar ändringar innan servern används (`BESLUT.md` 2026-10-16, *Senaste version med verktygslås*; `skript/mcp-verktygslas.py`). Kortet sade tidigare låst version, vilket beslutet ersatt.
   - **Pröva `--redact-network-headers`** när Access-huvuden förekommer.
 
 **Var det hamnar hos oss:**
@@ -67,7 +69,7 @@
 **Risker och flaggor:**
 - Telemetri är på som standard; flaggan måste sättas.
 - CrUX-anrop skickar URL:er till Google; flaggan måste sättas.
-- `@latest` i startraden byter version utan att vi märker det.
+- `@latest` i startraden byter version; verktygslåset visar ändrade verktyg, men inte ändrat beteende. Läs utgåvans ändringslogg när startsäkringen visar en ny version.
 - Promptinjektion från sidinnehåll: kör bara mot våra egna sajter.
 - `--autoConnect`/`--browserUrl` mot Johnnys vanliga Chrome skulle exponera inloggade sessioner. Använd `--isolated`.
 - Ingen betalvägg.

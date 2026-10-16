@@ -2,6 +2,7 @@
 
 **Källa:** https://github.com/Leonxlnx/taste-skill, sökvägen `skills/imagegen-frontend-web/SKILL.md` (installationsnamn `imagegen-frontend-web`). Läst 2026-10-16 vid commit `f624f37a8c65` (2026-10-14). Lästa filer: `SKILL.md` (36,9 KB – skillens enda fil): utdataregeln, herobiasen, §1 med brief-mappningen, §4 heroregler och §8 slop-reglerna; övriga avsnitt som rubriker. Repots `README.md`.
 ⚠️ §2 (variationsmotorn i detalj), §5–§7 lästes bara som rubriker och stickprov.
+**Kompletterat 2026-10-16 (tredje varvet):** §13 och §18 saknades i kortet (fyndet från yta 2 i andra varvet, `andra-varvet/yta-2-jamforelse.md`, S6) och är nu lästa i webb-pros kopia, som är identisk med uppströms vid `f624f37`.
 
 **Licens:** MIT, © 2026 Leonxlnx. Kräver att licenstexten följer med vid kopiering. Bilderna följer bildmodellens villkor.
 
@@ -13,15 +14,19 @@
 - **Åtta reglage:** variation 8, täthet 4, riktning 8, byggbarhet 9, bildprioritet 9, luft 8, layoutvariation 8, konverteringsdisciplin 8 – med en tabell som översätter ord i briefen ("minimalist", "editorial", "premium SaaS") till val.
 - **Variationsmotor:** tema, bakgrundskaraktär, typkaraktär, herotyp, sektionssystem, signaturkomponenter, kompositionsankare och bakgrundsläge per sektion, CTA-variation, heroskala, en berättelseryggrad och ett "andra läsningens ögonblick".
 - **Heroregler:** kort rubrik (5–10 ord), luft och kontrast, inga piller, falska siffror, märken eller små logotyper i första vyn; elegant medelvikt och tät spärrning hellre än fett skrik; ingen gradienttext.
+- **Färg och material (§13):** en styrd palett över hela sajten (en primär, en sekundär, en sparsam accent och en neutral skala); stämningen får skifta mellan sektioner men paletten är densamma. Toningar är tillåtna när de är lågmättade och följer paletten; regnbåge, lila–blå, rosa–orange, neonkanter och gradienttext är förbjudna. *Background Confidence Rule*: välj inte vit yta av vana, utan helbild, duoton, tonad toning, material eller ett säkert färgfält, valt med avsikt.
+- **Extra (§18):** växla förgrundens och bakgrundens intensitet minst två gånger längs sidan; en otvetydig primär handling per vy och sekundära som ser sekundära ut; minst två olika bildbeskärningar; diagram bara när sajttypen kräver det; palett och typografiskt temperament efter bransch och region (*Cultural / tonal alignment*); tryckvänliga storlekar även i datorskisser; varje sektion har ett jobb; ingen kompositionsankare tre sektioner i rad.
 - **Slop (§8):** centrerade sektioner i oändlighet, upprepade kortrader, klonade text/bild-block, lila–blå glöd, svävande klot, glas utan skäl, "lyx som bara är beige serif", för många typstämningar, klichéord.
 
 **Kvalitet och underhåll:**
 - Repot: 97 719 stjärnor, 20 bidragsgivare, push 2026-10-14. Ingen version eller test.
 - Inga ärenden om just denna skill hittades.
 - Egen iakttagelse: "Stacked center (etikett / rubrik / underrubrik / knapp centrerat)" står som ett *föredraget* alternativ, medan hallmark (grind 6) underkänner exakt den formen – källorna drar åt olika håll.
+- Skillen säger emot sig själv: variationsmotorn föreslår *Infinite Brand Marquee Strip* (rad 224), medan slop-listan förbjuder *"infinity logo strips repeating the same 6 blobs"* (rad 575). Den staplade centrerade heron med överrad förbjuds också av taste v2.0.0 i samma repo.
 
 **Det bästa vi kan ta:**
-- Brief-mappningen (§1) som idé när en kitbrief ska översättas till konkreta val.
+- Brief-mappningen (§1) som idé när en kitbrief ska översättas till konkreta val. Den, heroskalan per kit, signaturgreppet, gradientdisciplinen (§13) och listan över låst och fritt står nu i `.claude/skills/yta/stilriktningar.md` (andra varvet).
+- §18:s branschanpassning av palett och typografi stöder G13 (stilen ska läsas som rätt bransch).
 - Heroreglerna (§4) som granskningsfrågor för första skärmen: kort rubrik, inga falska siffror eller märken.
 - Snabba bildskisser av ett *föreslaget* kit innan provsidan byggs – om Johnny vill döma en riktning tidigare.
 

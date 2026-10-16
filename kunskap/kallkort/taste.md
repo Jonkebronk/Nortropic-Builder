@@ -1,6 +1,7 @@
 # taste
 
 **Källa:** https://github.com/Leonxlnx/taste-skill, sökvägen `skills/taste-skill/` (installationsnamn `design-taste-frontend`, "v2"). Läst 2026-10-16 vid commit `f624f37a8c65` (2026-10-14); release v2.0.0 (2026-10-13). Lästa filer: `README.md`, `CHANGELOG.md` (2.0.0), `skills/llms.txt`, `skills/taste-skill/SKILL.md` (hela), `references/tells.md`, `type.md`, `colour.md` (hela), `layout.md` (navigering, slut), `imagery.md` (behandling), `motion.md` (budget, frågor, tokens), `copy.md` (§5 bevis), `critique.md` (poäng och tak), `research.md` (metod och poäng), `scripts/lib/rules.mjs` (regel-id:n och färgfamiljerna). Issues via GitHubs API.
+**Rättat 2026-10-16 (tredje varvet): webb-pros `taste` är inte v2.0.0.** Webb-pros `.claude/skills/taste/SKILL.md` är byte för byte samma fil som uppströms `skills/taste-skill/SKILL.md` i commit `ce26fc25c0e5` (2026-09-26), som README då kallade *"v2 (experimental) … Actively iterating toward v2.0.0 stable"* (jämfört med `diff` mot GitHub). Kortet nedan beskriver v2.0.0 (`f624f37`), som är en annan skill: den äldre förbjuder tankstreck och Fraunces och har en premiumpalett med exakta hexvärden; v2.0.0 förbjuder i stället överrader, hårlinjer och skuggor i vila och kräver åtta rörliga element. Det som byggs på taste ska säga vilken version det gäller. Fyndet kom från yta 2 i andra varvet (`andra-varvet/yta-2-jamforelse.md`, S6). Repots HEAD är fortfarande `f624f37a8c65` (`git ls-remote`, 2026-10-16).
 ⚠️ Inte lästa: resten av `layout.md`, `imagery.md`, `research.md`, `copy.md`; `library/*.json` (cirka 1,4 MB data: riktningar, hjältar, sektioner, typsystem, paletter, foton, sajter); skripten `draw.mjs`, `assets.mjs`, `inspect.mjs`, `lint.mjs`, `lib/probe.mjs`, `lib/cdp.mjs` (bara listade, inte körda); webbplatserna tasteskill.dev och tastecode.dev.
 
 **Licens:** MIT, © 2026 Leonxlnx (ur `LICENSE`). Kräver att licenstexten följer med vid kopiering. Bilder som skillen hämtar har egna licenser (public domain, CC0, CC BY, CC BY-SA) och kräver kreditering på sidan.
@@ -16,6 +17,7 @@
 - **Komponenter:** knappar platta, antingen raka eller helt runda (9–16px "mjuk" radie är svaga sajters standard); navigering = ordmärke, 3–5 länkar, en handling; sidfoten är ett designat slut, inte en webbkarta.
 - **Rörelse:** krävs – inspektören underkänner under åtta rörliga element. En signatur, entréer per sektion (60–90ms förskjutning, 16–32px), feedback under handen, en rörlig bild. Tokens: `--ease-out: cubic-bezier(0.22,1,0.36,1)`, press 140ms, hover 180ms, UI 240ms, entré 800ms.
 - **Studien bakom** (`research.md`): 248 sajter från One Page Love och Awwwards fångade 2026-10-05, poängsatta av **21 modellgranskare**, inte människor. Författaren säger själv att urvalet är "mode lika mycket som kvalitet", att användbarheten inte stiger med poängen, och att flera förbud är ägarens smak *mot* datan (monospace-etiketter, indexnummer och hårlinjer är vanligare på toppsajterna).
+- **Skillens eget blindprov** (`research.md` §11, läst 2026-10-16): sex briefer byggdes utan skill, med en annan skill och med taste, och bedömdes blint av en modell med Awwwards-vikter. **Baslinjen utan skill fick högre medelbetyg i fyra av fem omgångar** (7,7 mot 6,6; 8,0 mot 7,1; 7,9 mot 6,9; 7,8 mot 7,7) och lika i den femte (7,5). Med skillen hade sidorna 0 underkända mätpunkter i skillens egen inspektör mot 8–13 utan. Förbehållen står i källan: en domare per brief och omgång, cirka en halv poängs brus, och domarna är modeller.
 
 **Kvalitet och underhåll:**
 - 97 719 stjärnor, 6 625 forkar, 20 bidragsgivare, 1 öppet ärende; skapat 2026-02-19, push 2026-10-14. Mycket aktivt; v2 är tre dagar gammal och oprövad i bredd.
@@ -30,6 +32,7 @@
 - Taken i `critique.md` §3 som idé: vissa fel sätter ett tak för helhetsbetyget.
 
 **Var det hamnar hos oss:**
+- `.claude/skills/yta/stilriktningar.md` (andra varvet): briefen läses först, reglagen, riktningen och proportionerna, det som fyller platsen och frågorna till en provsida. Måttet är måttstocken, inte särprägeln, eftersom tastes eget blindprov inte visar att skillen ger bättre sidor.
 - `.claude/skills/yta/generiskt.md`: inventering och konkurrenttest som granskningsfrågor (passar måttstockens fråga 1–2).
 - `typografi.md`: storleksgapet, spärrning och radavstånd per steg, de typografiska detaljerna.
 - `farg.md`: proportionerna, accenten på handlingen (stämmer med G3), tonsteg mellan ytor.

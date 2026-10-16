@@ -34,4 +34,7 @@ Lästa filer: `SKILL.md` (1 465 rader). Jag läste frontmatter och direktiv, reg
 - Kräver ett bildverktyg med konto, till exempel ChatGPT Images eller Codex.
 - Ingen telemetri i skillen. `npx skills add` har telemetri.
 - Ingen betalvägg för att läsa.
-- Krockar: inga enligt inventeringen.
+- **Krockar med Nortropic** (rättat 2026-10-16; kortet sade "inga", fyndet kom från yta 2 i andra varvet):
+  - **Ikoner** (§20): skillen avråder från *"bland Lucide-like icon vibes"* och *"open-source-default"*-ikoner. Hos oss väljs Lucide per kit och är varken standard eller förbjudet (`BESLUT.md` 2026-10-15, *Astro statiskt; Inter och Lucide väljs per kit*).
+  - **Telefonramen** (§9–§10): ramen ska vara med som standard (*"Do not omit the device frame by default"*). Ritade mobilramar är ett fynd hos oss när de visas som kundens egna eller döljer att material saknas (`.claude/skills/yta/generiskt.md`).
+  - **Rörelseantydningar** (§22, *Motion-Implied Language*, "välj exakt två"): fjädrande kort, staplade listor som tonas in, parallax. Skillen kallar dem bildanvisningar, inte kod, men förs de vidare till ett bygge krockar de med sparsam rörelse som standard (`BESLUT.md` 2026-10-15, *Rörelse – sparsam som standard*).

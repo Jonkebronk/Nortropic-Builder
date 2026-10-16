@@ -2,6 +2,7 @@
 
 **Källa:** lästa 2026-10-16:
 - MDN [browser-compat-data](https://github.com/mdn/browser-compat-data), commit `078588a` (2026-10-16): `css/properties/animation-timeline.json` och `browsers/firefox.json`.
+- **Omläst 2026-10-16 (tredje varvet)** vid commit `0416078da7a1` (2026-10-16 11:04 UTC): fyra commits efter `078588a`, som bara ändrade `api/GPUDevice.json` och beroenden (GitHubs jämförelse). Inget i kortet påverkas. Firefox 159 står med `version_added: "159"` utan flagga, alltså påslaget som standard i den versionen.
 - [MDN: animation-timeline](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline) via underlaget.
 - Chrome for Developers, [Scroll-driven animations](https://developer.chrome.com/docs/css-ui/scroll-driven-animations), via underlaget i `kunskap/research/2026-10-15_kompetensluckor-anteckningar/lager-6-7-rorelse-innehall.md` §7. Sidan lästes inte om i dag ⚠️.
 - [web.dev: Interop 2026](https://web.dev/blog/interop-2026), via underlaget.

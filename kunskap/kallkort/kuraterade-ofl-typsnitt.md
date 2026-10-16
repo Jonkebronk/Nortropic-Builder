@@ -10,6 +10,7 @@
   - IBM Plex: [IBM/plex](https://github.com/IBM/plex) `LICENSE.txt`, commit `39276912b05f` (2026-10-13).
   - Instrument Sans: [Instrument/instrument-sans](https://github.com/Instrument/instrument-sans) `OFL.txt`, commit `7fa22308a3d0` (2023-06-14).
 - Google Fonts kopior: [google/fonts](https://github.com/google/fonts) `ofl/<namn>/OFL.txt` och `METADATA.pb`, commit `1d0e46c79332` (2026-10-15). Här ligger också de fullständiga variabla TTF-filerna som jag läste.
+- **Omläst 2026-10-16 (tredje varvet), med GitHubs jämförelse:** IBM/plex har en commit efter `39276912b05f` (`71f558992315`, beroenden till testmiljön Cypress) och google/fonts fem efter `1d0e46c79332` (`47d54ca1ebb1`: Noto Sans Mongolian, en arbetsflödesagent för sortering och licensadresser i Mongolian-mappens `OFL.txt`). Inget rör de typsnitt kortet gäller.
 - Fontsource: API:t `api.fontsource.org/v1/fonts/<id>` och `/v1/variable/<id>`, sidan [Variable fonts](https://fontsource.org/docs/getting-started/variable), och npm-paketen `@fontsource-variable/*` 5.3.0 (Source Serif 4: 5.3.1), `@fontsource/instrument-sans` 5.3.0 och `@fontsource/ibm-plex-serif` 5.3.0. Paketen laddades ned. Namntabell, teckenkarta och OpenType-funktioner lästes med fontTools 4.60.2.
 - [OFL-FAQ](https://openfontlicense.org/ofl-faq/) version 1.1-update7 (november 2023, sidan uppdaterad 12 januari 2026), avsnitt 2.1–2.12 och 5.1–5.10.
 - Hyperglot 0.7.3, körd lokalt mot de fullständiga Google Fonts-filerna.

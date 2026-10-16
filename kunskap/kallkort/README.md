@@ -14,3 +14,7 @@ Varje kort har en fast mall:
 Det som inte gick att läsa är märkt ⚠️.
 
 `inventering/kallor-bevakning.json` listar repon och den commit som lästes. Startsäkringen (`skript/startsakring.sh`) säger till när ett repo har ändrats, och då läses kortet och skillen om.
+
+**Bevakningsfilen** har en rad per repo: `namn`, `repo`, `commit` och `kort`, en lista med de kort som bygger på repot. `commit` är repots HEAD när kortet lästes, med full SHA, inte den commit där en enskild fil senast ändrades. Annars larmar startsäkringen vid varje start fast inget ändrats (rättat 2026-10-16 i tredje varvet för webb-pro, design-critique och material-color-utilities).
+
+**När ett repo har ändrats** läses ändringen i original, med GitHubs jämförelse mellan den lästa commiten och den nya. Kortet får en rad *Omläst <datum>* under *Källa*: vad som ändrats, om det rör det vi läste, och vad som ändrades i kortet. Sedan flyttas `commit` fram i bevakningsfilen (`.claude/skills/larande/bevakning.md`, *När en källa har ändrats*).

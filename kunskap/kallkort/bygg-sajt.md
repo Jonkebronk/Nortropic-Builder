@@ -1,6 +1,7 @@
 # bygg-sajt
 
 **Källa:** Nortropics egen skill i webb-pro (github.com/Nortropic/nortropic-webb-pro, publikt), läst lokalt 2026-10-16 vid HEAD `668b03c`. `.claude/skills/bygg-sajt/SKILL.md`, 619 rader, läst i sin helhet. Första commit `9bb0e6f` (2026-10-01), **96 commits** på filen, den senaste `d7c36ce` (2026-10-13 08:34). Jämförd med `guide/5-byggplan.md`, `3-1`, `3-2`, `2-4`, `2-7`, `bilaga-b-skills.md` och de nya skillsen i `.claude/skills/` (sökning på begrepp, 2026-10-16). Inventeringen: B16, **3 krockar, alla höga** – K41, K60 och K61 (webb-pro `kunskap/skillkrockar.md:93`, `:118–119`, `:255`; radnumren där gäller skillen 2026-10-05 och har flyttat sig).
+**Omläst 2026-10-16 (tredje varvet):** webb-pro står kvar på `668b03c`, så inget har ändrats efter läsningen. Bevakningslistan hade filens första commit `9bb0e6f` i stället för repots `668b03c`, så den larmade vid varje start (bevakningsgruppens fynd, `andra-varvet/bevakning-forslag.md`).
 **Licens:** egen text, ingen licensfil i repot. Inga villkor.
 
 ## Vad det är

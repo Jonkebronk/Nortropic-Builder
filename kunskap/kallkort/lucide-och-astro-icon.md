@@ -2,6 +2,7 @@
 
 **Källa:** Läst 2026-10-16.
 - **Lucide:** [lucide-icons/lucide](https://github.com/lucide-icons/lucide), commit `7b0196e249ca` (2026-10-15), release 1.58.0 (2026-10-16). Lästa filer:
+  - **Omläst 2026-10-16 (tredje varvet):** två commits efter `7b0196e249ca` till `1ef60af944de`: en sökruta i dokumentationen och en ändrad ikon, `chess-queen`, som biblioteket inte använder (GitHubs jämförelse; sökning i `bibliotek/`).
   - `LICENSE`
   - `docs/contribute/icons/design-principles.md` och `docs/contribute/icons/specification.md`, publicerade på [lucide.dev/contribute/icons/design-principles](https://lucide.dev/contribute/icons/design-principles) och [/specification](https://lucide.dev/contribute/icons/specification). Den gamla adressen lucide.dev/guide/design/icon-design-guide ger 404.
   - `docs/guide/astro/getting-started.md` och `docs/guide/astro/advanced/accessibility.md`

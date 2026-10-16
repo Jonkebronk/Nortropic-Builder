@@ -3,6 +3,9 @@
 **Källa:**
 - faster-whisper: [github.com/SYSTRAN/faster-whisper](https://github.com/SYSTRAN/faster-whisper), README, senaste commit c45e173 (2026-10-15), release v1.2.1 (2025-10-31). Läst 2026-10-16.
 - Remotion: [github.com/remotion-dev/remotion](https://github.com/remotion-dev/remotion), `LICENSE.md` och PR [#3750](https://github.com/remotion-dev/remotion/pull/3750) (*Prepare Remotion 5.0*, öppen), release v4.0.536 (2026-10-16). [remotion-dev/skills](https://github.com/remotion-dev/skills), README (senaste commit 1441a11, 2026-10-16). Läst 2026-10-16. ⚠️ remotion.dev/docs/license och remotion.pro/terms lästes inte; licenstexten i repot räckte för slutsatsen.
+- **Omläst 2026-10-16 (tredje varvet), med GitHubs jämförelse:**
+  - faster-whisper: tre commits efter `c45e173` till `9e472ae9de8b` (2026-10-16), alla felkontroller i `transcribe.py`, `tokenizer.py` och `vad.py` (#1673, #1654, #1564). Ingen ny utgåva efter v1.2.1. Inget i kortet påverkas.
+  - Remotion: `LICENSE.md` är inte ändrad sedan 2026-01-01, PR #3750 är fortfarande öppen och v4.0.536 är fortfarande senaste utgåvan. remotion-dev/skills står kvar på `1441a11e95db` och saknar fortfarande licens. Bevakningslistan hade `1441a11` under remotion-dev/remotion, så den larmade vid varje start; raden gäller nu remotion-dev/skills. Huvudrepot får commits varje dag och följs bättre som utgåvor (bevakningsgruppens förslag B1, väntar på Johnny).
 
 **Licens:**
 - faster-whisper: MIT.

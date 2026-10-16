@@ -2,6 +2,7 @@
 
 **Källa:** Läst 2026-10-16.
 - [ui.shadcn.com/docs/theming](https://ui.shadcn.com/docs/theming), läst som källfil `apps/v4/content/docs/(root)/theming.mdx` i [shadcn-ui/ui](https://github.com/shadcn-ui/ui), commit `c6bcc126efb9` (2026-10-16). Senaste release är `shadcn@4.21.5` (2026-10-14).
+- **Omläst 2026-10-16 (tredje varvet):** tre commits efter `c6bcc126efb9` till `af983e842ab3`: nya gemenskapsregister i `apps/v4/registry/directory.json` och utgåvan `shadcn@4.22.0` (2026-10-16 13:24 UTC). `theming.mdx` är orörd (GitHubs jämförelse).
 - Samma repo: `apps/v4/content/docs/(root)/tailwind-v4.mdx` (uppgradering och ändringslogg) och `packages/shadcn/src/tailwind.css` (637 rader), som standardtemat importerar.
 - Tailwind CSS, [Theme variables](https://tailwindcss.com/docs/theme), avsnitten om `@theme inline` och `@theme static`.
 - Ärenden i shadcn-ui/ui, sökta via GitHub-API.
@@ -112,4 +113,4 @@
   - Inget av dem får laddas tillsammans med aliaslagret (se kortet *Go-stilarna, Flowbite v4 och daisyUI*).
 - **Kontrast:** standardvärdena underkänns på fyra punkter enligt tabellen. Kopiera aldrig `:root`-blocket som ett kit.
 - **Rörlig dokumentation:** `destructive-foreground` finns i äldre teman och i tweakcn men inte i dagens standardtema. Komponenter från olika tidpunkter kan förvänta sig olika namn.
-- **Ingen licensrisk, ingen telemetri, ingen inloggning och ingen betalvägg** i namnen. shadcn:s CLI används inte.
+- **Ingen licensrisk, ingen telemetri, ingen inloggning och ingen betalvägg** i namnen. För namnen behövs inte shadcn:s CLI. CLI:n är sedan 2026-10-16 ett verktyg för att läsa block ur ursprungets register (beslutet *verktyg: ta in (CLI:n; MCP-delen behövs inte)*, Johnny omkring 17.40; → `shadcn-cli-tailark-magicui.md`).

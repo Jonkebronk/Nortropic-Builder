@@ -2,6 +2,8 @@
 
 **Källa:** [ffmpeg.org/legal.html](https://ffmpeg.org/legal.html), [github.com/FFmpeg/FFmpeg](https://github.com/FFmpeg/FFmpeg) (senaste commit 3e6cd5e, 2026-10-16), Homebrews formel [`Formula/f/ffmpeg.rb`](https://github.com/Homebrew/homebrew-core/blob/master/Formula/f/ffmpeg.rb) (FFmpeg 9.0.2). Läst 2026-10-16. ⚠️ Själva kommandoreferensen (ffmpeg.org/ffmpeg.html) har jag inte läst i sin helhet; kommandona nedan bygger på whisper.cpp:s README och vedertagna flaggor och prövas innan de skrivs in i ett skript.
 
+**Omläst 2026-10-16 (tredje varvet):** åtta commits efter `3e6cd5e` till `447b72d90f2c` (GitHubs jämförelse). De ändrar CUDA-filtret `scale_cuda` och MXF-skrivaren, alltså inget vi använder. Homebrews stabila version är fortfarande 9.0.2, och ffmpeg är fortfarande inte installerad på Macen (`brew info ffmpeg`, 2026-10-16; jämför luckan 6.3). Repot får commits varje dag, så det följs bättre som utgåvor (bevakningsgruppens förslag B1, väntar på Johnny).
+
 **Licens:**
 - FFmpeg är LGPL 2.1 eller senare som standard. Valfria delar är GPL, och används de gäller GPL för hela FFmpeg (legal.html).
 - Homebrews ffmpeg byggs med `--enable-gpl`, `--enable-version3`, libx264 och libx265 och är därför **GPL-3.0-or-later**.

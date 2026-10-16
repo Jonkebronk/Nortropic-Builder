@@ -1,6 +1,7 @@
 # phuryn/pm-skills: interview-script
 
 - **Källa:** [phuryn/pm-skills](https://github.com/phuryn/pm-skills), `pm-product-discovery/skills/interview-script/SKILL.md` och `summarize-interview/SKILL.md`, commit `c68487d`, 2026-10-10. Lästa 2026-10-16 ur en klon. Skillen har inga delfiler.
+- **Omläst 2026-10-16 (tredje varvet):** två commits efter `c68487d` till `07b34f64ee82`, som lägger till manifest för Cursor och en rad i `CHANGELOG.md`. `interview-script` och `summarize-interview` är orörda (GitHubs jämförelse).
 - **Licens:** MIT. Upphovsrättsnotis och licenstext följer med vid kopiering. Vi destillerar.
 - **Vad det är:** en skill som skriver ett manus för kundintervjuer i produktutveckling, med jobb, fördjupningsfrågor och en anteckningsmall. Den säger sig följa *The Mom Test*.
 - **Hur det fungerar:** klargör vilka beslut intervjun ska ge underlag till, och skriv sedan manuset: inledning (2–3 min), uppvärmning (5 min), kärnan om jobbet (15–20 min) med senaste gången, smärtor och önskade utfall, betalningsvilja, fördjupning ("Tell me more", "Can you give me a specific example?", "What happened next?", "Why?" två–tre gånger), Mom Test-reglerna och en avslutning med "Who else should I talk to?". Anteckningsmallen har deltagare, jobb, nuvarande lösning, största smärtan, önskat utfall, betalningsvilja och överraskning. `summarize-interview` gör om ett transkript till en sammanfattning.
