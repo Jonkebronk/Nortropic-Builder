@@ -31,10 +31,6 @@
   ]
  },
  {
-  "namn": "motion",
-  "url": "https://mcp.motion.dev"
- },
- {
   "namn": "socket",
   "url": "https://mcp.socket.dev/"
  },

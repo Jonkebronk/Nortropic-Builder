@@ -1487,3 +1487,17 @@ Claude lade fram domarna efter MCP-proven och översynen (`kunskap/research/2026
 - Mobbin är en claude.ai-connector, som Johnny själv kopplar bort.
 - Motion (16) var oavgjord i listan och är inte avgjord av svaret; servern står kvar tills Johnny säger annat.
 - Domarna förs in i `inventering/inventering.json` (fältet `beslut`) tillsammans med skillsen (Johnny tidigare samma kväll, *"ta den ihop med"*).
+
+## 2026-10-16: Motion släpps, låset godtas för Playwright och Mobbins bilder raderas
+
+**Status:** gäller. Avgör punkt 16 i *Domarna över MCP-servrarna efter översynen* (21.37).
+
+Claude bad Johnny godta verktygslåsets ändring för Playwright (19 nya verktyg från `--caps`) och avgöra Motion, som var oavgjord mot `llms.txt`. Claude hade också föreslagit att bara Mobbins bilder i sessionens `tool-results/` raderas, med hänsyn till Mobbins villkor om lagring. Johnny, kl. 21.42:
+
+> jag godtar allt, vi kan släppa motion om de är lika bra
+
+**Innebär:**
+- Verktygslåset har godtagit Playwrights nya lista (`--uppdatera`).
+- Motion-MCP:n är borttagen ur byggsessionen och ur `inventering/mcp-servrar.json`. Motions dokumentation läses i `motion.dev/llms.txt`.
+- De 62 bilderna från Mobbin i sessionens `tool-results/` är raderade. Inspos 53 ligger kvar.
+- Claude läser "allt" som de punkter som stod för Johnny att godta. De fyra allmänna reglerna, behörigheterna och skillsen läggs fram med exakt text innan de införs.
