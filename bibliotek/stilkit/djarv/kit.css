@@ -31,9 +31,14 @@
   --k-font-markering: var(--k-font-rubrik);
   --k-rubrik-vikt: 800;
   --k-rubrik-versaler: uppercase;
-  --k-rubrik-spatiering: -0.005em;
-  --k-rubrik-radhojd: 1; /* versaler under 1,0 kolliderar mellan raderna (C53; andra varvet, yta 1) */
-  --k-h1: clamp(2.5rem, 1.3rem + 4.6vw, 5rem); /* Lägre tak, så att rubriken inte lämnar ett ensamt "I" på datorn (Johnnys dom 2026-10-16 väntar). */
+  /* Versalrubriker: spärrning 5–12 % (C53; Butterick) och radhöjd 1,02–1,08, eftersom versaler under 1,0 kolliderar mellan raderna
+     (yta, typografi.md). Ändrat 2026-10-17 (BESLUT.md 2026-10-16, frågelistan efter tredje varvet, punkt 18 a); Johnny dömer det på provsidan (G9). */
+  --k-rubrik-spatiering: 0.05em;
+  --k-rubrik-radhojd: 1.05;
+  /* Lägre tak, så att rubriken inte lämnar ett ensamt "I" på datorn (Johnnys dom 2026-10-16 väntar). Sänkt igen 2026-10-17 från
+     clamp(2.5rem, 1.3rem + 4.6vw, 5rem): med 0,05 em spärrning bröts "i Exempelstad" (hårt mellanslag) mitt i ordet i 360–375 och
+     900–1920 px; med det här värdet bryts inget ord i 353–1920 px i Chromium och WebKit (Playwright mot provsidan). Döms på G9. */
+  --k-h1: clamp(2.25rem, 1rem + 4vw, 4.5rem);
   --k-h2: clamp(1.9rem, 1.4rem + 2.4vw, 3.4rem);
   --k-h3: 1.25rem;
   --k-brod: 1.0625rem;
@@ -74,6 +79,15 @@
   /* Rörelse */
   --k-tid: 220ms;
   --k-kurva: cubic-bezier(0.3, 0.9, 0.3, 1.2);
+}
+
+/* Ökad kontrast (iOS: Öka kontrast; prefers-contrast i Media Queries 5): dämpad text får textfärgen. Kanterna är redan bläck
+   (--k-linje, 15:1 mot bakgrunden) och 2 px, så de ändras inte. Apple HIG, Accessibility;
+   BESLUT.md 2026-10-16, frågelistan efter tredje varvet, punkt 22. */
+@media (prefers-contrast: more) {
+  [data-kit="djarv"] {
+    --k-dampad: var(--k-text);
+  }
 }
 
 /* Kitets egna drag: förstavyn i den mörka marinen, porträttet på en benvit yta med kontur och en rund märkning som en etikett.

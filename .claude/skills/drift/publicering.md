@@ -47,6 +47,19 @@ Förhandsadressen får aldrig skriva i produktionens D1 (→ `guide/2-8-teknik-o
 - **En .se-domän registreras hos en svensk registrator**, och kunden äger den (→ `guide/2-8-teknik-och-kvalitet.md`). Utgångsdatumet står i förvaltningsplanen (→ `overvakning.md`).
 - **Email Routing kräver Cloudflares MX-poster.** Befintliga MX-poster tas bort eller ändras, och Email Routing kan inte användas bredvid en extern e-postserver, som Google Workspace, Microsoft 365 eller webbhotellets mejl. Guiden för att aktivera varnar för befintliga poster, men varningen är lätt att klicka förbi ⚠️ (bara en sekundärkälla). Har kunden mejl hos någon annan rörs MX inte, och ärendeintaget använder byråns domän. Om en egen underdomän räcker för intaget står inte i dokumentationen ⚠️. 📄 [Cloudflare Email Service, *Domain configuration*](https://developers.cloudflare.com/email-service/configuration/domains/) (*MX conflicts*: "Cannot use Email Routing with external mail servers", läst 2026-10-16). → `andringar.md`.
 
+## Före den första publiceringen
+
+En samlad lista som bara pekar på regler som redan finns; den ger inga nya regler. Listans form kommer bland annat ur Webflows checklista före publicering (📄 Webflow University, [Pre-launch checklist](https://university.webflow.com/resources/checklists/pre-launch-checklist), läst 2026-10-16; märkt *Research preview*, utan datum; källkortet `webflow-pre-launch.md`). (`BESLUT.md` 2026-10-16, *Frågelistan efter tredje varvet avgörs*, punkt 44)
+
+- Johnny har godkänt publiceringen (→ `guide/2-8-teknik-och-kvalitet.md`, *Publicering*, N1; `guide/5-byggplan.md`, steg 5).
+- Kontrollskriptet har gått igenom mot förhandsadressen bakom Access, utan platshållare och fyllnadstext (kontroll 6, → `guide/2-8-teknik-och-kvalitet.md`, kontrolltabellen).
+- Produktionen har `workers_dev: false`, `preview_urls: false` och `assets.not_found_handling: "404-page"`, och den designade 404-sidan visas för en adress som inte finns (→ `guide/2-8-teknik-och-kvalitet.md`, *Publicering*; *Driftposterna* och *Staging* ovan).
+- Ändrade adresser har 301 i `_redirects`, och `www` går till huvuddomänen i zonen (→ `../omfattning/flyttregler.md`).
+- Formuläret är prövat enligt `../kvalitet/formular.md`.
+- Zonen är granskad och exporterad före namnserverbytet (*Namnserverbyte och domän* ovan).
+- Google-profilens namn, adress, telefon och länk stämmer med sajten (→ `../struktur/platser.md`). Webflow har samma punkt för företag med en fysisk plats.
+- Favicon, `apple-touch-icon` och `site.webmanifest` finns (rapport, frågelistan efter tredje varvet, punkt 25).
+
 ## Efter det första dygnet ska detta vara sant
 
 - Röktestet med kontrollerna har gått igenom mot produktionsadressen (→ `guide/2-8-teknik-och-kvalitet.md`).

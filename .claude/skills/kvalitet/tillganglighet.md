@@ -132,6 +132,22 @@ Söks i källkoden (`bibliotek/src`, `sites/<namn>/src`) och i den byggda HTML:e
 
 Vid lansering och årligen, inte i varje bygge (→ `guide/2-8-teknik-och-kvalitet.md`, N3): VoiceOver på iOS med Safari, TalkBack med Chrome och NVDA med Chrome eller Firefox är GOV.UK:s minsta uppsättning tillsammans med JAWS, förstoring och Dragon (📄 [GOV.UK, Testing with assistive technologies](https://www.gov.uk/service-manual/technology/testing-with-assistive-technologies) ⚠️ underlaget är från 2016). Rubriker inuti `<summary>` annonserades inte av alla skärmläsare i äldre prov (→ `guide/2-4-skelett.md`).
 
+### Skärmläsarprovet på övningssajterna
+
+Två delar (`BESLUT.md` 2026-10-16, *Frågelistan efter tredje varvet avgörs*, punkt 57; Claudes rekommendation, delegerat av Johnny). Tillsammans motsvarar de GOV.UK:s minsta nivå för mobil, VoiceOver på iOS och TalkBack (samma GOV.UK-sida). VoiceOver på Macen med Guidepup används inte (`BESLUT.md` 2026-10-16, *VoiceOver på Macen med Guidepup används inte som testmetod*).
+
+- **(a) VoiceOver på iPhone för hand, en gång per övningssajt**, med manuset nedan, i Safari; det tar cirka tio minuter. ⚠️ Förhandsvisningen lyssnar bara på `127.0.0.1` (sajtens `CLAUDE.md`), så hur iPhonen når sajten avgör Johnny innan provet.
+- **(b) TalkBack och VoiceOver på riktiga telefoner via BrowserStack**, med samma manus, när nyckeln finns (inventeringen: *MCP: kräver konto*; bara den lokala servern med BrowserStack Local når `localhost`). ⚠️ BrowserStacks sida om Screen Reader launcher (läst 2026-10-17) nämner för webbsidor VoiceOver på Mac, NVDA på Windows och TalkBack på Android, inte VoiceOver på iPhone, och inget om svensk röst. Det prövas när kontot finns. 📄 [BrowserStack, What is Screen Reader launcher?](https://www.browserstack.com/docs/accessibility/screen-reader-launcher/overview)
+
+**Manuset** (gesterna 📄 Apple, [Use VoiceOver gestures on iPhone](https://support.apple.com/guide/iphone/learn-voiceover-gestures-iph3e2e2281/ios) och [Use the VoiceOver rotor](https://support.apple.com/guide/iphone/use-the-voiceover-rotor-iph3e2e3a6d/ios), lästa 2026-10-17). Varje steg skrivs ner med vad som lästes upp, vad som var väntat och fyndet.
+
+1. **Start (1 min).** VoiceOver på (Inställningar > Hjälpmedel > VoiceOver), svensk röst, startsidan öppen i Safari. Ett tryck med fyra fingrar nära skärmens överkant väljer första elementet.
+2. **Första skärmen (3 min).** Svep höger, ett element i taget, genom första skärmen. Klart när varje element är hört: hopplänken kommer först, ordningen följer det som syns, varje länk och knapp har ett namn och en roll, telefonnumret läses som ett nummer och ingen dekor (ikon, foto utan innehåll) läses upp.
+3. **Rotorns rubriker (2 min).** Vrid två fingrar som en ratt till *Rubriker* och svep nedåt genom alla rubriker. Klart när rubrikerna ensamma säger vad sidan handlar om, nivåerna inte hoppar och ingen rubrik saknas.
+4. **Ring (1 min).** Hitta Ring och dubbeltryck. Samtalsrutan visar rätt nummer; avbryt.
+5. **Boka (2 min).** Hitta Boka. Länken säger vart den leder; dubbeltryck och kontrollera att det som sades också händer, och gå tillbaka.
+6. **Menyn (1 min).** Öppna menyn, svep igenom den och stäng den. Fokus hamnar på menyknappen igen.
+
 ## React-komponenter och öar
 
 React är tillåtet som öar (`BESLUT.md` 2026-10-16). För tillgängligheten gäller:

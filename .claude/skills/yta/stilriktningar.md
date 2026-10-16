@@ -24,7 +24,7 @@ Underlaget är taste-skillen v2.0.0 med referenser och riktningsbibliotek, den �
 
 En riktning är ett val på varje axel som hänger ihop, inte bara en palett. Taste beskriver var och en av sina 20 riktningar med samma fält, och fyra av dem saknas i våra `design.md`.
 
-- **Förslag till Johnny: kitets `design.md` får fyra fält till** (→ `guide/2-5-yta.md`, *Full design.md per kit*):
+- **Kitets `design.md` har fyra fält till** (avgjort: `BESLUT.md` 2026-10-16, *Frågelistan efter tredje varvet avgörs*, punkt 19; ifyllda i de tre kiten 2026-10-17; → `guide/2-5-yta.md`, *Full design.md per kit*):
   - *Bärande drag:* en mening om det som gör kitet igenkännbart, till exempel luften och det stora lugna rubrikmåttet, den handskrivna detaljen eller de svarta konturerna och versalerna.
   - *Det som fyller platsen:* vad kitet sätter där en dekor annars hade stått, nämligen skala, en riktig bild, en färgyta eller fullt innehåll.
   - *Kräver:* vilket material kitet behöver av kunden (ett stort porträtt, foton av lokalen, minst sex produkter) och hur det ser ut utan materialet.

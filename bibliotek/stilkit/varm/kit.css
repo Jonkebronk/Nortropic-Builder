@@ -78,6 +78,16 @@
   --k-kurva: cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+/* Ökad kontrast (iOS: Öka kontrast; prefers-contrast i Media Queries 5): dämpad text får textfärgen, och kanterna når minst 3:1
+   mot bakgrund, yta och dekor (WCAG 2.2, 1.4.11; 4,3:1 mot bakgrunden, uträknat 2026-10-17). Apple HIG, Accessibility;
+   BESLUT.md 2026-10-16, frågelistan efter tredje varvet, punkt 22. */
+@media (prefers-contrast: more) {
+  [data-kit="varm"] {
+    --k-dampad: var(--k-text);
+    --k-linje: color-mix(in oklab, var(--k-text) 60%, var(--k-bg));
+  }
+}
+
 /* Kitets egna drag: porträttet i en rund, sandfärgad yta, och en handskriven etikett i terrakotta utanför förstavyn.
    Förstavyn har högst två typsnitt, Fraunces och Figtree; handstilen Caveat finns bara på överraderna längre ner på sidan
    (Johnnys dom 2026-10-15: "tre typsnitt på första skärmen är ett mer än nödvändigt"; BESLUT.md 2026-10-16, G8). */

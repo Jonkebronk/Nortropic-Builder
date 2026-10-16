@@ -63,7 +63,7 @@ Axlarna står i `guide/2-5-yta.md` (*Kitets elva axlar*). Varje axel är en elle
 - **Djupet kan vara en växel per kit:** 0 ger platta ytor och knappar, 1 ger kitets skuggor och en svag inre kant. Samma komponent ser då platt eller upphöjd ut utan att ändras. 📄 daisyUI 5, `--depth` (MIT).
 - **Fältets storlek är ett grundmått:** knapp- och fälthöjd räknas ur en token (daisyUI: `--size-field` × 10), så att fält och knappar alltid är lika höga. Hos oss har `.knapp` 48 px, och ett fält bredvid en knapp får samma höjd. 📄 daisyUI 5; Hallmark, `interaction-and-states.md` (fält = knapp, golv 44 px).
 - **Färgstrategin är en egen axel** (→ `farg.md`, *Färgstrategi*).
-- **Go sätter brödtextens radhöjd till 1,8–1,9**, högre än vår regel 1,45–1,6 (→ `typografi.md`). Go är ett tema, inte en primärkälla; vår regel står kvar, och ett luftigt kit får luften ur avstånden. 📄 källkortet *Go-stilarna, Flowbite v4 och daisyUI*.
+- **Go sätter brödtextens radhöjd till 1,8–1,9**, högre än vår regel 1,45–1,7 (→ `typografi.md`). Go är ett tema, inte en primärkälla; vår regel står kvar, och ett luftigt kit får luften ur avstånden. 📄 källkortet *Go-stilarna, Flowbite v4 och daisyUI*.
 - **Varningen:** färgerna i Go och daisyUI klarar inte WCAG 2 AA rakt av (Go *Apricot* 3,84:1 mot vitt, daisyUI *corporate* vit på primär 4,14:1). Inga färgvärden tas utan att mätas. 📄 samma källkort, egen beräkning.
 
 ## Formatet (N2)

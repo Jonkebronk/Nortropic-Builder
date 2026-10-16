@@ -24,8 +24,8 @@ Källa: 📄 Apple, [Human Interface Guidelines](https://developer.apple.com/des
 - **Tunna vikter undviks i liten text.** Regular, Medium, Semibold eller Bold; aldrig Ultralight, Thin eller Light i brödtext. Ett tunt typsnitt behöver större storlek än rekommendationen. 📄 HIG *Typography* (→ `typografi.md`, *Under 18 px vikt minst 400*).
 - **Få typsnitt, och hierarkin byggs med vikt, storlek och färg tillsammans.** Hierarkin ska bestå när texten förstoras. 📄 HIG *Typography* (*Minimize the number of typefaces*); → `typografi.md`, högst två familjer.
 - **Spärrningen kommer från typsnittets egen tabell, inte från en allmän regel.** Apples tabell för SF Pro har *negativ* spärrning kring brödtextstorlek (−0,026 em vid 17 pt) och *positiv* från 24 pt (+0,012 em vid 34 pt), eftersom typsnittet byter optisk storlek vid 20 pt. Regeln *stor text får negativ spärrning* gäller många typsnitt utan optiska storlekar men inte alla. Följ typsnittets egna mått eller pröva i 200 % mot provsidan. 📄 HIG *Typography*, *Tracking values*; jfr `typografi.md`, *Spärrning*, där regeln har Krehel och Emil Kowalski som källa.
-- **Radavståndet följer textens uppgift.** HIG ger tät radhöjd i korta listrader och *loose leading* i långa stycken, och aldrig tät radhöjd i tre rader eller fler. Apples egen brödtext (17/22 pt, cirka 1,3) är satt för korta rader i appar; en webbsida med stycken behåller 1,45–1,6. 📄 HIG *Typography* (*Modify the built-in text styles*); → `typografi.md`, *Radhöjd*.
-- **Ett eget typsnitt kan bära rubrikerna medan systemtypsnittet bär brödtexten.** HIG föreslår det för varumärken, eftersom systemtypsnitten är byggda för läsbarhet i liten storlek. På webben ger det också en typsnittsfil mindre. Kitet väljer (`BESLUT.md` 2026-10-15). 📄 HIG *Branding* (*"use a custom font for headlines and subheadings while using system fonts for body copy"*). → förslag i *Förbud och förslag* nedan.
+- **Radavståndet följer textens uppgift.** HIG ger tät radhöjd i korta listrader och *loose leading* i långa stycken, och aldrig tät radhöjd i tre rader eller fler. Apples egen brödtext (17/22 pt, cirka 1,3) är satt för korta rader i appar; en webbsida med stycken behåller 1,45–1,7. 📄 HIG *Typography* (*Modify the built-in text styles*); → `typografi.md`, *Radhöjd*.
+- **Ett eget typsnitt kan bära rubrikerna medan systemtypsnittet bär brödtexten.** HIG föreslår det för varumärken, eftersom systemtypsnitten är byggda för läsbarhet i liten storlek. På webben ger det också en typsnittsfil mindre. Kitet väljer (`BESLUT.md` 2026-10-15). 📄 HIG *Branding* (*"use a custom font for headlines and subheadings while using system fonts for body copy"*). Det prövas när ett nytt kit tas fram, och dagens kit ändras inte (`BESLUT.md` 2026-10-16, *Frågelistan efter tredje varvet avgörs*, punkt 22).
 
 ## Material och genomskinlighet
 
@@ -50,7 +50,7 @@ Källa: 📄 Apple, [Human Interface Guidelines](https://developer.apple.com/des
 
 ## Mörkt läge (när ett kit får det)
 
-Inget kit har mörkt läge (→ `farg.md`). Om ett kit får det gäller:
+Inget kit har mörkt läge, och inget får det nu (`BESLUT.md` 2026-10-16, *Frågelistan efter tredje varvet avgörs*, punkt 22; → `farg.md`). Om ett kit får det senare gäller:
 
 - **Sajten följer systemets inställning med `prefers-color-scheme` och `color-scheme`,** och har ingen egen växel för ljust och mörkt. 📄 HIG *Dark Mode* (*"Avoid offering an app-specific appearance setting"*); [WebKit, Dark Mode Support in WebKit](https://webkit.org/blog/8840/dark-mode-support-in-webkit/) (2019).
 - **Mörka färger är egna värden, inte inverteringar.** Upphöjda ytor (meny, dialog) är ljusare än bakgrunden. 📄 HIG *Dark Mode* (*base* och *elevated*).
@@ -87,6 +87,7 @@ Inget kit har mörkt läge (→ `farg.md`). Om ett kit får det gäller:
 - Apples systemfärger som värden i ett kit utan kontrastmätning.
 - Glaseffekt i innehållslagret.
 
-**Förslag till Johnny (inte regler):**
-- **Systemtypsnittet som brödtext i ett kit,** med kitets eget typsnitt för rubrikerna. Det sparar en typsnittsfil och ger Apples läsbarhet i liten text på iPhone, men samma sajt ser olika ut på iPhone, Android och Windows.
-- **`prefers-contrast: more` i alla kit,** med dämpad text som blir textfärg och kanter som blir tydligare. HIG ber appar som inte klarar kontrasten som standard att åtminstone ge ett läge med högre kontrast, och Safari stöder frågan.
+**Beslutat** (`BESLUT.md` 2026-10-16, *Frågelistan efter tredje varvet avgörs*, punkt 22; Claudes rekommendation, delegerat av Johnny):
+- **`prefers-contrast: more` i alla kit.** Dämpad text får textfärgen och kanterna blir tydligare, med kitets egna tokens (`--k-dampad` blir `--k-text`; i Lugn och Varm blir `--k-linje` 60 % textfärg, minst 3:1 mot bakgrund, yta och dekor enligt WCAG 2.2, 1.4.11). Blocket står sist i varje `kit.css` och nämns i kitets `design.md`. HIG ber appar som inte klarar kontrasten som standard att åtminstone ge ett läge med högre kontrast (📄 HIG *Accessibility*). Safari stöder frågan från 14.1 och iOS 14.5 (📄 MDN browser-compat-data 8.1.6, via `../kvalitet/apple-hig.md`), och Playwright prövar den med `contrast: 'more'`.
+- **Mörkt läge:** inte nu.
+- **Systemtypsnittet som brödtext,** med kitets eget typsnitt för rubrikerna, prövas när ett nytt kit tas fram; dagens kit ändras inte. Det sparar en typsnittsfil och ger Apples läsbarhet i liten text på iPhone, men samma sajt ser olika ut på iPhone, Android och Windows.

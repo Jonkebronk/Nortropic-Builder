@@ -81,7 +81,8 @@ Källor: Radix, [Understanding the scale](https://www.radix-ui.com/colors/docs/p
 - **En mörk sektion i ett ljust kit** (som Nästa steg) har egna roller: text, fokusring och knapp på mörk yta. Accenten mäts om mot den mörka ytan och används inte där den inte klarar 3:1 som knapp eller 4,5:1 som text. 📄 WCAG 1.4.3, 1.4.11.
 - **En regel som sätter en mörk bakgrund sätter textfärgen i samma regel**, i stället för att lita på arvet. Det vanligaste felet i genererad kod är mörk text på en mörk yta som någon vänt. Sökbart. 📄 Hallmark, `interaction-and-states.md`, *When the surface flips* (en källa – bänken).
 - **Statusfärgerna är roller i kitet** när sajten har formulär: fel (krävs), och klar, varning och information när de behövs, var och en med sin textfärg. 📄 impeccable, `colorize.md`; shadcn/ui, `--destructive` (→ `tokens.md`).
-- **Mörkt läge för en hel sajt finns inte i något kit.** Kommer det: rollerna pekas om först, accenten blir 1–2 steg mindre mättad, och varje par mäts i båda lägena. `prefers-contrast: more` får ett eget block. 📄 Krehel, `palette-generation.md`, `color-usage.md` (senare nivå).
+- **Mörkt läge för en hel sajt finns inte i något kit, och inte nu** (`BESLUT.md` 2026-10-16, *Frågelistan efter tredje varvet avgörs*, punkt 22). Kommer det: rollerna pekas om först, accenten blir 1–2 steg mindre mättad, och varje par mäts i båda lägena. 📄 Krehel, `palette-generation.md`, `color-usage.md` (senare nivå).
+- **`prefers-contrast: more` har ett eget block i varje kit:** dämpad text får textfärgen och kanterna når minst 3:1 (punkt 22; → `apple-hig.md`, *Förbud och förslag*). Ljushetsavståndet till bakgrunden växer med minst 0,15 i OKLCH L för både dämpad text och kanter (uträknat 2026-10-17), och kommer mörkt läge får det ett eget kontrastblock. 📄 Krehel, `better-colors` (källkortet; en källa – bänken).
 
 ## Format och verktyg
 

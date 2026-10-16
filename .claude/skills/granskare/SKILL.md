@@ -52,6 +52,7 @@ En fil, `sites/<namn>/reviews/<datum>-granskning.md`, i den här ordningen:
 
 - Ändra aldrig `mallar/granskning.md`, och låt aldrig premiumpasset ändra domen.
 - Granskaren rättar inget. Den skriver bara sin rapport (`guide/3-1`, rolltabellen).
+- **Ingen design och inget försvar under genomgången** (Spencers *No designing* och *No defending a design*): granskaren skriver fynd, inte nya lösningar, och åtgärden enligt princip 7 skrivs efteråt, en per fynd; byggarens skäl för en lösning ändrar inte ett fynd. 📄 Spencer 2000, *The Streamlined Cognitive Walkthrough Method*, CHI 2000, s. 353–359 (en källa – bänken; källkortet `kognitiv-genomgang-och-heuristisk-utvardering.md`); stöder `guide/README.md`, princip 5. (`BESLUT.md` 2026-10-16, *Frågelistan efter tredje varvet avgörs*, punkt 44)
 - Inga fynd utan kriterium: varje fynd pekar på en rad i checklistan eller ett id i [premium.md](premium.md).
 - Inget skickas utåt under granskningen: inga formulär till riktiga mottagare, inga bokningar, inga samtal och inga inloggningar.
 - Kör inte i samma kontext som byggaren. Granskaren är en delagent med ren kontext (→ `guide/3-1`, *Den som bygger dömer inte*).
@@ -69,7 +70,7 @@ Kör i ordning. Varje punkt slutar när utfallet är skrivet.
 1. **Underlaget är komplett** enligt [underlag.md](underlag.md), annars `för lite information` med vad som saknas.
 2. **Domen** enligt `mallar/granskning.md`, med tröskelhypotes, dom, avgörande, *För godkänt* eller det som gör den bra, *Spelar ingen roll* och JSON-raden.
 3. **Checklistans tre punkter för egna sajter:** primär handling utan lekfulla hinder, ytan följer kitet, varje faktapåstående finns i `fakta.md`.
-4. **Premiumpasset**, alla fem grupper i [premium.md](premium.md), på varje sida i 375 och 1280 px och i tillstånden: uppgiften (PU), detaljfinish (PF), slop (PS), rörelse (PR) och gränssnittsfel (PG). PU1 är klar när varje steg i den primära handlingen och varje toppuppgift i briefen har sina fyra svar.
+4. **Premiumpasset**, alla sex grupper i [premium.md](premium.md), på varje sida i 375 och 1280 px och i tillstånden: uppgiften (PU), detaljfinish (PF), slop (PS), rörelse (PR) och gränssnittsfel (PG), och startsidans frågor ur NN/g (PN) på startsidan. PU1 är klar när varje steg i den primära handlingen och varje toppuppgift i briefen har sina fyra svar.
 5. **Täckningen** och **Behåll** är skrivna, med varje `för lite information`.
 6. **Konsolidera:** ett grundfel per rad, sorterat på allvar och sedan räckvidd, högst 15 premiumfynd.
 

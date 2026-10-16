@@ -59,12 +59,16 @@ Ur JCodesMore/ai-website-cloner-template, metoden flyttad från Next.js till inv
 
 Det som inte tas in: att återskapa den gamla designen och att bygga i Next.js. Mallens README säger själv att logotyper, varumärken och originaltexter tillhör sina ägare.
 
+## Heuristisk utvärdering av den befintliga sajten
+
+[N2] **Diagnosen av kundens befintliga sajt är en kort heuristisk utvärdering**, gjord under observationen ovan och innan omfattningen bestäms. Gå igenom de sidor som bär briefens toppuppgifter, i mobil och dator, mot Nielsens tio heuristiker, och skriv varje problem med sida, element, heuristik och skärmdump. Ta bara med det som hindrar besökarens toppuppgifter; heuristikerna är skrivna för program och är tumregler, inte riktlinjer. Diagnosen ger underlag till vad den nya sajten ska lösa och till samtalet med kunden, men den ändrar inte beslutet per sida i kartan. Fynden är härledda, inte sedda, och väger lättare än före-måttets besöksdata (→ `guide/3-4-larande-och-underhall.md`, *Heuristik är inte användartest*). NN/g vill ha tre till fem oberoende granskare; hos oss räcker en agent och Johnnys blick vid N2 (🔧). 📄 Nielsen, [10 Usability Heuristics for User Interface Design](https://www.nngroup.com/articles/ten-usability-heuristics/) (1994, granskad 2024); Moran och Gordon, [How to Conduct a Heuristic Evaluation](https://www.nngroup.com/articles/how-to-conduct-a-heuristic-evaluation/) (NN/g 2023) – samma utgivare, alltså en källa – bänken; källkortet `kognitiv-genomgang-och-heuristisk-utvardering.md`. (`BESLUT.md` 2026-10-16, *Frågelistan efter tredje varvet avgörs*, punkt 44)
+
 ## Integrationer
 
 → `guide/2-2-omfattning.md`, *Integrationer, spårare och formulärmottagare* (N2). Kontrollera skript och nätverksanrop med Playwright. Resultatet förs in i `befintlig/integrationer.md`, och spårarna blir underlag till samtycket och integritetspolicyn.
 
 - **De utgående målen följer med:** bokningssystemets adress (också med förvald mottagning eller tjänst), betallänkar, kartlänkar, profiler i sociala medier och dokument som laddas ned. Varje mål prövas efter bygget, och en knapp som lovar något gör det. *(ai-website-cloner-template, `SKILL.md`: "Preserve real outbound destinations"; "Visible controls must perform the behavior they promise")*
-- **Frågesträngar och fragment** i gamla adresser är oftast tillstånd på samma sida, inte egna sidor; de får ett medvetet utfall i kartan (→ [flyttregler.md](flyttregler.md), `_redirects` matchar inte frågesträngar).
+- **Frågesträngar och fragment** i gamla adresser är oftast tillstånd på samma sida, inte egna sidor. Har en sådan adress trafik eller länkar får den en omdirigeringsregel i zonen, annars skrivs utfallet som ett beslut i kartan (→ [flyttregler.md](flyttregler.md), `_redirects` matchar inte frågesträngar).
 
 ## Före-mått
 

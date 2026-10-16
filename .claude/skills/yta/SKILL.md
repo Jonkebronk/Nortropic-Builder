@@ -82,7 +82,7 @@ Kör i 375 och 1280 px med Playwright, med beräknade stilar och utsnitt i 200 %
 | 4 | Accenten finns bara på handlingar och tillstånd | M: lista element med accentfärg | G3 |
 | 5 | Accenten har steg för hover och tryck i kitet, inga uträknade färger i komponenter | M: sök i kit och sektioner | `farg.md` |
 | 6 | Alla storlekar kommer ur kitets skala, och grannsteg skiljer minst cirka 10 % | M: räkna unika `font-size` | `typografi.md` |
-| 7 | Rubrikernas radhöjd 1,05–1,3, brödtextens 1,45–1,6; spärrning efter storlek | M | `typografi.md` |
+| 7 | Rubrikernas radhöjd 1,05–1,3, brödtextens 1,45–1,7; spärrning efter storlek | M | `typografi.md` |
 | 8 | Brödtext 45–75 tecken per rad | M: `max-width` i tecken | Bringhurst, Butterick |
 | 9 | Varje vikt som används finns som fil; ingen syntetisk fetstil | M: jämför `font-weight` med laddade typsnitt | Krehel; CSS Fonts 4 |
 | 10 | Tabulära siffror i tider, priser och tabeller | M | Vercel, Krehel |
@@ -129,7 +129,6 @@ Förslag, inte regler, tills Johnny sagt ja:
 - **Typskalan per kit som en Utopia-skala** med färre steg, i stället för dagens närliggande storlekar.
 - **Typsnitt med reserverat namn** (IBM Plex, Source Serif) tas från upphovsägarens egna filer i stället för Fontsources delmängder, tills Johnny avgjort frågan (⚖️ tolkning av OFL-FAQ 2.6–2.8, inte juridisk rådgivning; `typografi.md`).
 - **Källorna mot besluten:** frontend-design, impeccable och taste kallar gräddvit med terrakotta (Lugn, Varm) och överrader för AI-typiska, och flera förbjuder Inter och Lucide. Besluten 2026-10-15 går före; listorna används bara som hantverkskriterier (`generiskt.md`).
-- **Färgstrategin som kitaxel** (återhållsam, engagerad, full palett, genomfärgad) i varje kits `design.md`, med G3 som gräns (`farg.md`).
-- **Djärvs rubriker:** versaler med radhöjd 0,95 bryter regeln om minst 1,0, och spärrningen −0,005 em bryter C53 (versaler 5–12 %). Ändra kitet eller ge versalrubriker ett undantag.
-- **Kitens `design.md` får fler fält:** vad kitet *inte* passar för, kännetecknen som skiljer det från de andra kiten (bakgrundens ljushet, rubrikstil, accentnyans), färgstrategin, knapprösten (primär och sekundär), sektionsövergången (luft, hårlinje eller färgskifte) och vad rörelsen gör med `reduce`. Lugn och Djärv ligger i dag på nästan samma accentnyans (44° och 39° i OKLCH). 📄 Hallmark, temafilerna, `design-md.md` och `structure.md` (en källa – bänken).
 - **Struktur per kit:** kiten skiljer sig bara i ytan, och alla tre har samma förstavy och samma kortnät. Ska ett kit också få en egen förstavariant ur biblioteket (→ skelettskillen), eller står konventionsbeslutet som det är?
+
+**Avgjort** (`BESLUT.md` 2026-10-16, *Frågelistan efter tredje varvet avgörs*; Claudes rekommendation, delegerat av Johnny): kitens `design.md` har de nya fälten, med färgstrategin, *Passar inte*, bärande drag och skillnaden mot de andra kiten på tre axlar (punkt 19); Djärvs versalrubriker har radhöjd 1,05 och spärrning 0,05 em och döms på provsidan G9 (punkt 18 a); `prefers-contrast: more` finns i alla kit, mörkt läge inte nu, och systemtypsnittet som brödtext prövas vid nästa kit (punkt 22; → `apple-hig.md`).

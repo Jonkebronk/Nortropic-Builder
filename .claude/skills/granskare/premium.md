@@ -1,6 +1,6 @@
 # Premiumkriterierna
 
-Premiumpasset letar efter det som skiljer en sajt som håller från en som är **genomarbetad**: att uppgiften går att lösa, detaljfinish, slop, rörelse och gränssnittsfel. Kriterierna ger **fynd, aldrig dom** (SKILL.md, princip 1). Regler som redan bor i guiden står här som hänvisning (→), inte omskrivna.
+Premiumpasset letar efter det som skiljer en sajt som håller från en som är **genomarbetad**: att uppgiften går att lösa, detaljfinish, slop, rörelse, gränssnittsfel och startsidans grunder. Kriterierna ger **fynd, aldrig dom** (SKILL.md, princip 1). Regler som redan bor i guiden står här som hänvisning (→), inte omskrivna.
 
 Lagerskillsen har detaljerna och värdena: ytan i [yta/detaljer.md](../yta/detaljer.md), [yta/typografi.md](../yta/typografi.md) och [yta/generiskt.md](../yta/generiskt.md), rörelsen i [rorelse/granskning.md](../rorelse/granskning.md) och [rorelse/matt.md](../rorelse/matt.md), interaktionen i [skelett/interaktion.md](../skelett/interaktion.md) och tillgängligheten i [kvalitet/tillganglighet.md](../kvalitet/tillganglighet.md). Premiumpasset är granskarens snitt genom dem: det som syns i den byggda sajten. Krockar en rad här med en lagerskill gäller lagerskillen.
 
@@ -75,6 +75,23 @@ Det som går sönder i ett tillstånd. Prövas i webbläsaren: tangentbord, tryc
 | PG6 | **Tillstånden besökaren möter är genomarbetade:** samtyckesrutan öppen och stängd, kartan före klick, 404, en tom eller misslyckad laddning. De ska se byggda ut, inte som rester | 📄 Krehel, `interface-review` (*the incomplete change*: tomt, laddar, fel) – en källa | medel |
 | PG7 | **Samma handling heter och ser likadan ut överallt:** samma sida har samma namn i menyn, sidfoten, rubriken och titeln, och knapparna följer sidans primära handling | 📄 WCAG 2.2, 3.2.4 *Consistent Identification*; → `guide/2-3-struktur.md` (G4, G5) | hög vid brott mot G4/G5, annars medel |
 
+## PN – startsidan (NN/g)
+
+Tio frågor ur NN/g:s två checklistor för startsidor, med egna ord: Wang 2024 (*Homepage Design: 5 Fundamental Principles*, numren 1.1–5.4) och Nielsen 2001 (*113 Design Guidelines for Homepage Usability*, riktlinjens nummer; numren och avsnitten kontrollerade mot sidan 2026-10-17). Det som redan är regel i `skelett/`, `innehall/mikrotext.md` och `guide/2-3` står inte här en gång till. NN/g skriver att branscher kräver egna studier, så att listan gäller en klinik eller en hantverkare är vår överföring (🔧). Varje rad har en källa och taket är därför medel (`guide/3-2`). Två punkter prövas av en maskin och inte här: att `h1` och ingressen inte animeras in, och att stilmallen har en regel för `:visited` (→ `kvalitet/kontroller.md`). (`BESLUT.md` 2026-10-16, *Frågelistan efter tredje varvet avgörs*, punkt 44; källkortet `nng-homepage-design.md`)
+
+| Id | Titta efter | Källa | Tak |
+|---|---|---|---|
+| PN1 | **Vägen hem står i ord.** Utöver logotypen finns en länk med ordet för startsidan i menyn eller sidfoten, också på datorn | 📄 NN/g, Wang 2024, 1.1 | låg |
+| PN2 | **Startsidan länkar inte till sig själv** som en vanlig aktiv länk; logotypen på startsidan har `aria-current="page"` eller leder ingenstans | 📄 NN/g, Nielsen 2001, 43 (*Navigation*) | låg |
+| PN3 | **Startsidan ser ut som en startsida.** Den skiljer sig synligt från undersidorna, så att besökaren vet var hen landat | 📄 NN/g, Wang 2024, 1.3 | låg |
+| PN4 | **Varför just den här firman** syns på första skärmen, inte bara vad och var (→ `guide/2-4-skelett.md`, *Första vyn säger också varför just det här företaget*) | 📄 NN/g, Wang 2024, 2.3 | medel |
+| PN5 | **Exempel i stället för kategorier.** Startsidan visar konkreta delar av utbudet, med en mening och gärna ett pris, inte bara rubriker som *Behandlingar* eller *Tjänster* | 📄 NN/g, Wang 2024, 3.2 | medel |
+| PN6 | **Om, Kontakt och integritetspolicyn nås från startsidan** med ett klick | 📄 NN/g, Nielsen 2001, 9, 12 och 15 (*Communicating Information About Your Company*) | medel |
+| PN7 | **Inget block står ordagrant på två sidor.** Samma stycke på startsidan och en tjänstesida är ett fynd; korta upprepningar av tider och pris är det inte | 📄 NN/g, Nielsen 2001, 18 (*Content*: *"Avoid redundant content"*) | låg |
+| PN8 | **En länk som gör något annat än att öppna en sida säger det:** ringer, öppnar mejl, laddar ner en fil eller startar ett annat program | 📄 NN/g, Nielsen 2001, 39 (*Links*) | medel |
+| PN9 | **Startsidans titel börjar med företagsnamnet.** Undersidorna har ämnet först (→ `kvalitet/tillganglighet.md`, 2.4.2) | 📄 NN/g, Nielsen 2001, 72 (*Window Titles*) | låg |
+| PN10 | **Det finns en färdig plats för ett tillfälligt besked** på startsidan, som *stängt i dag*, så att det inte byggs i hast när det behövs | 📄 NN/g, Nielsen 2001, 94 (*Communicating Technical Problems and Handling Emergencies*, tolkad för en liten firma 🔧) | låg |
+
 ## Källor och licenser
 
 - Anthropic, [knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) (`design/skills/design-critique`), Apache-2.0, commit `33eeda1` (2026-10-15).
@@ -84,4 +101,5 @@ Det som går sönder i ett tillstånd. Prövas i webbläsaren: tangentbord, tryc
 - [Hallmark](https://github.com/Nutlope/hallmark) (`skills/hallmark/references/slop-test.md`, `anti-patterns.md`), MIT, commit `13ac0ec` (2026-08-06).
 - [nexu-io/open-design](https://github.com/nexu-io/open-design) (`craft/anti-ai-slop.md`, `design-templates/critique/SKILL.md`), Apache-2.0, commit `78d5637` (2026-10-16).
 - Vercel, [Web Interface Guidelines](https://vercel.com/design/guidelines) (MIT), via `kunskap/research/2026-10-15_kompetensluckor-anteckningar/lager-5-yta.md` §6.
+- NN/g: Huei-Hsin Wang, [Homepage Design: 5 Fundamental Principles](https://www.nngroup.com/articles/homepage-design-principles/), 2024, och Jakob Nielsen, [113 Design Guidelines for Homepage Usability](https://www.nngroup.com/articles/113-design-guidelines-homepage-usability/), 2001. © NN/g; korta citat och egna ord, ingen översättning av listorna (källkortet `nng-homepage-design.md`, ⚖️ tolkning, inte juridisk rådgivning).
 - W3C, [WCAG 2.2](https://www.w3.org/TR/WCAG22/) och [WAI-ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/); MDN; web.dev; NN/g; Språkrådet; Bringhurst; Butterick; Refactoring UI. Böckerna och Refactoring UI destilleras med egna ord.
