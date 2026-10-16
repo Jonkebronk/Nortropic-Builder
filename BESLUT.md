@@ -1314,3 +1314,15 @@ Baslinjeprovet på skillen `kvalitet` (`kunskap/research/2026-10-16_baslinjer-2.
 **Innebär:**
 - `.claude/skills/kvalitet/SKILL.md`, princip 10: högst 15 fynd i en granskning av design eller av en ändring i biblioteket. Före publicering redovisas varje fynd mot en norm eller en N1-kontroll, också över 15, i samma form som de andra.
 - Provet med och utan skillen körs igen på samma uppgift, och utfallet står i rapporten.
+
+## 2026-10-16: VoiceOver-provet med fullständig skivåtkomst för Terminal en stund
+
+**Status:** gäller för provet.
+
+Guidepup 0.36.3 skapar vid varje start länkar i `~/Library/Group Containers/group.com.apple.VoiceOver/Library/Preferences/`, och macOS nekade med `EPERM`, också i Johnnys eget terminalfönster. Appgruppers behållare skyddas av SIP sedan Sequoia (Apple Developer Forums, tråd 756701, som återger Apples versionsnoteringar); Guidepup har inget sätt att hoppa över steget (`lib/macOS/VoiceOver/preferences/mountGuidepupPreferences.js`). Claude gav tre vägar: fullständig skivåtkomst för appen Terminal en stund, egen AppleScript-styrning utan Guidepup, eller vänta. Johnny valde kl. 19.16:
+
+> Fullständig åtkomst en stund (Rekommenderas)
+
+**Innebär:**
+- Johnny slår själv på *Fullständig skivåtkomst* för appen Terminal, inte för VS Code där byggsessionen körs, kör provet och slår av det direkt efteråt. Claude ändrar inga system- eller säkerhetsinställningar.
+- Att behörigheten räcker är inte verifierat förrän provet har gått ⚠️.
