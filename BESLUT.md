@@ -1188,6 +1188,12 @@ Claude jämförde Mobbin, Refero och Inspo. Förslaget var Inspo (gratis, redan 
 
 **Innebär:** sektionen tas bort från övningssajten, och biblioteket behåller inte varningsrutan och styckena efter punkterna som byggdes för den. Guiden och skillsen kräver ingen sådan information, och 1177 används fortfarande som källa för alt-texter. Beslutet gäller övningssajten; om det ska bli en regel för alla vårdnära kunder säger Johnny till.
 
+Johnny förtydligade omkring 14.39, när Claude hade använt orden som skäl att inte bygga journalsystem:
+
+> inte ett sjukhus var bara kopplat mot 1177.
+
+Orden gäller alltså bara rutan om när man ska söka vård.
+
 ## 2026-10-16: Alla skills gås igenom, jämförs med originalen och Apples HIG kommer in
 
 **Status:** gäller.
@@ -1202,3 +1208,16 @@ Johnny frågade om tabellen över skillsen verkligen var alla, och Claude berät
 - Apples Human Interface Guidelines (Johnny skrev "apple hicc") läses och destilleras för webben.
 - Byggguider och artiklar om hur man bygger en sajt läses, bland annat Lovables och Dribbbles, som underlag för luckor.
 - Varje del avslutas med en reflektion: vad vi kan kompetenshöja och vad som behöver kompetenssäkras.
+
+## 2026-10-16: Övningssajter för varje bransch och varje tillval före den första kunden
+
+**Status:** gäller.
+
+Johnny frågade om byrån kan hjälpa en kund som vill ha något annat än standardprodukten, till exempel en webbshop, inloggning eller en app. Claude svarade att nästan allt går, i nivåer: standard, tillval i samma teknik, integration med en etablerad tjänst, partner och nej. Johnny, omkring 14.39:
+
+> Jag tänkre att vi gör övningsajter för varje bransch och tillval så vi har en fundamental grund innan riktiga kunder ens är ett faktum så vi har proof of concept
+
+**Innebär:**
+- Varje branschgrupp och varje tillval övas på en övningssajt innan den första riktiga kunden. Övningsläget gäller som förut: verkliga lokala firmor som inte kontaktas, inget publiceras och allt om firman ligger i `sites/` (`guide/5-byggplan.md`, *Övningssajterna*).
+- Varje övningssajt lämnar en grund efter sig: branschprofilen i `bibliotek/branscher/` (`guide/2-2-omfattning.md`) och, för ett tillval, det som behövs för att bygga och förvalta det igen.
+- Ordningen och vilka tillval som övas föreslår Claude i `guide/5-byggplan.md`, och Johnny beslutar.

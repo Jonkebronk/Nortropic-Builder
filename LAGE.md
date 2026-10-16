@@ -156,6 +156,7 @@ Johnny beslutade omkring 12.11 att kompetensen ur inventeringen ska in i alla la
 
 ## Väntar på Johnny
 
+- **Övningsserien:** varje bransch och varje tillval övas före den första kunden (Johnny omkring 14.39, `BESLUT.md`). Förslaget till ordning står i `guide/5-byggplan.md`, *Övningssajterna*: hantverk, restaurang, butik med webbshop, konsult med kundportal, skönhet och tjänst eller event. Johnny väljer ordningen och säger om han har erfarenhet eller nätverk i någon bransch, som då kan gå först (`guide/4-foretaget.md`).
 - **Premiumpasset:** döm bilderna före och efter, och grupp B i sajtens `premiumpass.md`. Där står bland annat porträttet i Om-sidans topp, menyn i mobilen, en översiktssida för Behandlingar, accentsteg, typskala och rörelsetokens per kit, JS-budgeten, CSP med React och Motion, sidbyten med `@view-transition` och en säkerhetskopia av `sites/`, eftersom sajtens repo bara finns på Macen.
 - **Inventeringens placeringar** (förslag på alla 171 poster) och MCP-servrarna som kräver konto: cloudflare/mcp, seo-monster, Gemini och nanobanana, Motion+, 21st, Mobbin, Figma, Google Business Profile API, Grounding Lite, mcp-gsc och DataForSEO. Logga in i en ny session när listan är godkänd.
 - **Luckorna** i `kunskap/research/2026-10-16_luckor-per-lager.md`: vilka som ska tas först.

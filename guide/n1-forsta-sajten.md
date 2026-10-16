@@ -2,7 +2,7 @@
 
 **Genererad** av `konsolidering/bygg_n1.py` ur `[N1]`-märkningen i guidens filer. Ändra i källfilerna, inte här. Varje punkt står i sin helhet, med källor, i filen under rubriken. Taket är cirka 60 regler och tio automatiska kontroller (`README.md`, *Nivåer*).
 
-100 regler och tabellrader, plus de tio kontrollerna och verktygen nedan.
+101 regler och tabellrader, plus de tio kontrollerna och verktygen nedan.
 
 ## 1. Kundens väg (`1-kundens-vag.md`)
 
@@ -228,6 +228,7 @@
 
 - **Så görs en övningssajt.** **Underlaget** hämtas ur firmans egen sajt och Google-profil, med källa per uppgift i `fakta.md`. Det som saknas svarar Johnny på i intervjun i rollen som kund; de svaren får `kalla: johnny-som-kund` och förväxlas aldrig med det firman själv har bekräftat (`2-7-innehall.md`, *Faktabasen*). **Ingenting syns utåt:** sajten publiceras inte och visas bara lokalt (`BESLUT.md` 2026-10-15, *Inget Cloudflare eller Google-API för övningssajterna*); firmans bilder och texter är firmans och används bara i övningen; firman kontaktas inte och får inte se sajten om inte Johnny beslutar det. **Allt om firman ligger privat** – sajten, faktabasen, bilderna och domarna – i `sites/<namn>/`, som byggrepots `.gitignore` utesluter; inget hamnar i det publika repot. **Ny bransch för varje firma,** genom måttstockens sex branscher och med och utan befintlig sajt, så att serien inte lär sig en enda kund. Måttstockens underkända svenska firmor är givna kandidater, eftersom Johnnys *För godkänt:* redan säger vad sajten måste klara (`mattstock/domar.jsonl`). 🔧 (`BESLUT.md` 2026-10-15)
 - **Efter varje sajt: genomgång och underlag.** Claude lägger fram vad Johnny rättade och vad granskaren missade, med förslag på var varje rättelse ska föras in – regel, skill, bibliotek eller stilkit (`3-4-larande-och-underhall.md`). Johnny godkänner eller stryker (princip 9). Johnnys domar över sajten läggs till kalibreringen, och granskaren mäts om, nu också på de egna utkasten (`3-2-granskning-och-kalibrering.md`). Underlaget för när Johnny är nöjd visas: andelen domar som blev godkända utan rättelse, granskarens träffsäkerhet och tiden per steg (`progress.md`). Johnny avgör när serien är klar; ett steg som klarat några sajter i rad utan rättelse kan bli självgående (princip 7). Bara det som skrivs ner lär systemet något – modellen minns inget mellan sessioner. 🔧 (`BESLUT.md` 2026-10-15)
+- **Varje bransch och varje tillval övas innan den första kunden,** så att byrån har en grund och ett proof of concept (`BESLUT.md` 2026-10-16, *Övningssajter för varje bransch och varje tillval före den första kunden*). Varje övningssajt lämnar branschprofilen i `bibliotek/branscher/` (`2-2-omfattning.md`) och, för ett tillval, det som behövs för att bygga och förvalta det igen: delarna i biblioteket, kontrollen, lagkraven och vad förvaltningen omfattar. Före ett tillval läses dess lagkrav och leverantörens villkor.
 
 ## Bilaga B – Egna skills (`bilaga-b-skills.md`)
 
