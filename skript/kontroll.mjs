@@ -129,16 +129,16 @@ for (const f of allaFiler(dist).filter((f) => f.endsWith('.html'))) {
   for (const m of t.matchAll(/\[\[PLATSHÅLLARE[^\]]*\]\]|lorem ipsum|placeholder|platshållare|\bexempel\w*/gi)) platshallare.push(`${relative(dist, f)}: ${m[0]}`);
 }
 lagg(6, 'Inga platshållare i bygget', 'Stopp', platshallare.length === 0, platshallare.length ? platshallare.slice(0, 6).join(' | ') : 'noll träffar');
-// 6b. Sidfoten (BESLUT.md 2026-10-16): länk till Integritet och kakor och till Tillgänglighet, och organisationsnumret när företaget är ett bolag.
+// 6b. Sidfoten (BESLUT.md 2026-10-16): länk till Integritet och kakor, och organisationsnumret när företaget är ett bolag.
 // En enskild firmas organisationsnummer är ägarens personnummer och visas inte.
 const k6b = [];
-for (const [falt, namn] of [['integritet', 'länk till Integritet och kakor'], ['tillganglighet', 'länk till Tillgänglighet']]) {
+for (const [falt, namn] of [['integritet', 'länk till Integritet och kakor']]) {
   const utan = sidor.filter((s) => !per[s][falt]); if (utan.length) k6b.push(`${namn} saknas på ${utan.length === sidor.length ? 'alla sidor' : utan.join(', ')}`);
 }
 const form = per[sidor[0]]?.form;
 if (form === 'okand') k6b.push('företagsformen är okänd, så det går inte att avgöra om organisationsnumret ska visas');
 else if (form === 'bolag' && sidor.some((s) => !per[s].orgnr)) k6b.push('organisationsnumret saknas, och företaget är ett bolag');
-lagg('6b', 'Integritetspolicy, tillgänglighetsredogörelse och organisationsnummer i sidfoten', 'Rapport', k6b.length === 0, k6b.length ? k6b.join('; ') : `${sidor.length} sidor`);
+lagg('6b', 'Integritetspolicy och organisationsnummer i sidfoten', 'Rapport', k6b.length === 0, k6b.length ? k6b.join('; ') : `${sidor.length} sidor`);
 
 // 7. Titel, beskrivning, sitemap och h1
 const titlar = sidor.map((s) => per[s].titel), besk = sidor.map((s) => per[s].beskrivning);

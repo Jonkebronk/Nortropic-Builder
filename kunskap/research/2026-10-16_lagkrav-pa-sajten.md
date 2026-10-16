@@ -46,8 +46,8 @@ Research 2026-10-16 på Johnnys uppdrag: *"fixar med cookies/samtycke, policys o
 ## Det övningssajten nu har
 
 - Sidan *Integritet och kakor* (`/integritet/`): ansvarig, besöket och värden, bokning och kontakt, kakor, Google-kartan, rättigheterna och IMY.
-- Sidan *Tillgänglighet* (`/tillganglighet/`): åtagandet, WCAG 2.2 AA, hur sajten är prövad, det sajten inte styr över och en kontaktväg.
-- Sidfoten har firman, yrkestiteln med legitimation från Socialstyrelsen och länkar till policysidorna och patientsäkerhetslagen. Organisationsnumret saknas, eftersom det inte gick att hitta, och kontroll 6b rapporterar det.
+- ~~Sidan *Tillgänglighet*~~ togs bort samma dag. Redogörelsen behövs bara när DOS-lagen eller lag 2023:254 gäller (`BESLUT.md` 2026-10-16, *Tillgänglighetsredogörelse bara när lagen kräver det*).
+- Sidfoten har länken till Integritet och kakor. Lagen för yrket och registret nämns inte, enligt praxis. Organisationsnumret visas bara för bolag (`BESLUT.md` 2026-10-16, *Företagsuppgifter som praxis, inte mer*).
 - Texten vid Google-kartan säger att Google får IP-adressen och sätter kakor, och länkar till sidan om kakor.
 - I `fakta.md` står samtycket för patienten på behandlingsfotot som *okänt*. Fotot används inte vid en publicering förrän samtycket är bekräftat.
 

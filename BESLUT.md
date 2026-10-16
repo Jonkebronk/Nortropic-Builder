@@ -958,3 +958,21 @@ Claude förklarade att månadsrapporten inte behöver Google Analytics. Siffrorn
 
   Google Analytics behövs inte för rapporten.
 - **Google Analytics, Google Ads och Meta** är tillval med samtycke, för kunder som annonserar (beslutet *Kakor och samtycke vid behov*).
+
+## 2026-10-16: Tillgänglighetsredogörelse bara när lagen kräver det
+
+**Status:** gäller. Ersätter punkten om tillgänglighetsredogörelse i *Kakor, samtycke, policyer och lagkrav på riktiga byggen*.
+
+Johnny frågade omkring 06:58: *"Är det verkligen krav att skriva ut om tillgänglighetslagen på hemsidan?"* Claude svarade att det för de flesta inte är ett krav:
+- Lag 2023:254 undantar mikroföretag och gäller bara e-handel och bokning.
+- DOS-lagen gäller offentlig sektor och vårdgivare med offentlig finansiering.
+- Ingen av de granskade sajterna har en redogörelse.
+
+Claude föreslog att sidan slås på bara när en av lagarna gäller, och att intervjun avgör det. Johnny, omkring 07:00:
+
+> ja, det behöver inte finnas på hemsidan en redogörelse så ta bort det
+
+**Innebär:**
+- Sidan *Tillgänglighet* ingår inte i standarduppsättningen. Den finns när DOS-lagen gäller (offentlig finansiering, till exempel vårdavtal med regionen) eller lag 2023:254 (e-handel eller bokning hos ett företag som inte är mikroföretag) (`guide/2-3-struktur.md`).
+- Faktainsamlingen frågar om företagsform, organisationsnummer, offentlig finansiering, antal anställda och omsättning, och samtycke för bilderna (`mallar/karnfragor.md`).
+- Sidan är borttagen från övningssajten.

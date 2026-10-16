@@ -15,6 +15,13 @@ AI:n anpassar ordalydelsen. Bokstaven anger ämnet i intervjuguiden och därmed 
 7. Vilken sajt fungerar bra, tycker du, och vad gör den bra? Vilken fungerar dåligt? (D)
 8. Vilka bilder har ni av personal, lokal och utförda jobb? (E)
 
+**Uppgifter som slås upp eller frågas efter kärnfrågorna** (lagkraven, `BESLUT.md` 2026-10-16):
+- företagsform och organisationsnummer: ett bolag visar sitt i sidfoten, men en enskild firma gör det inte
+- offentlig finansiering, till exempel vårdavtal med regionen: då gäller DOS-lagen och sajten behöver en tillgänglighetsredogörelse
+- antal anställda och omsättning, när sajten har bokning eller e-handel: ett företag som inte är mikroföretag omfattas av lag 2023:254
+- samtycke från personerna på bilderna
+- om kunden annonserar eller vill göra det: då blir statistik och annonsmätning med samtycke ett tillval
+
 **Så frågas det.** En fråga i taget. Frågorna är öppna och icke-ledande och gäller verkliga, nyliga händelser, aldrig hypotetiska. Be om exempel. Föreslå aldrig svar, inte ens ett tema. Inget smicker. Kan kunden inte svara, fråga från ett annat håll. "Vet inte" och "längre fram" är giltiga svar och blir *okänt*, aldrig en gissning.
 
 **Avslutningen.** Intervjun avslutas med en sammanfattning per avsnitt som kunden kan ändra. Överhoppade svar står som *Inte angivet*. Kunden bekräftar sammanfattningen, och Johnny godkänner briefen och faktabasen innan steg 2 börjar.
