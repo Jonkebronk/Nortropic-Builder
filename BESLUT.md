@@ -1515,3 +1515,16 @@ Claude lade fram fyra allmänna regler ur översynen med exakt text och förslag
 - `guide/3-3`, *Första sajten*: skrivverktygen i 21st, Figma, Cloudflare, seo-monster och mcp-gsc kräver Johnnys ja per gång.
 - `CLAUDE.md`, *Skyddsräcken*: en rad som pekar på reglerna.
 - Ingen `permissions.deny` läggs till.
+
+## 2026-10-16: Ingen läs-token för byråns Cloudflarekonto; INP mäts om; skillsen och inventeringen görs
+
+**Status:** gäller.
+
+Claude listade det som återstod av översynen: (1) skillsen och inventeringen, med prov med och utan för varje skilländring; (2) att mäta om INP på övningssajten enligt `kvalitet/prestanda.md`; (3) Cloudflare med läs-token när byråns sajt byggs. Johnny, kl. 21.49:
+
+> 3:an ska vi ite göra. 2 låte bra och 1 ja gör detta,
+
+**Innebär:**
+- Byggsessionen behåller OAuth mot byråns Cloudflarekonto. Andra varvets råd om läs-token hellre än OAuth (`BESLUT.md` 2026-10-16, *Alla MCP:er in nu …*) gäller inte byråns konto. Regeln om en läs-token per kund i `drift` står kvar för kundernas konton.
+- INP på övningssajten mäts om enligt `kvalitet/prestanda.md` (Playwright, Event Timing, en tom sida som kalibrering, bedömning på fördröjning plus bearbetning).
+- Skillsen och inventeringen ändras enligt översynen (`kunskap/research/2026-10-16_verktyg-och-skills-full-potential.md`). Faktarättelser prövas med formprovet; ändringar som ska ändra beteendet prövas med och utan enligt `larande/skills.md` innan de behålls.
