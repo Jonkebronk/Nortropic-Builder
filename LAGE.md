@@ -1,12 +1,44 @@
 # Läget
 
-Uppdaterad 2026-10-16 kl. 17.17 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-16 kl. 17.23 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+
+## Nästa session – börja här (skrivet 2026-10-16 kl. 17.23)
+
+**Målet, i Johnnys ord omkring 17.20:** *"nu ska vi få alla mcps att fungera … Så ska vi göra klart den [övningssajten] innan vi startar nästa."* Gör stegen i ordning. Ett steg är klart först när resultatet är prövat och Johnny har sett det.
+
+**0. Starta och kontrollera.** Kör startsäkringen (`CLAUDE.md`, steg 0) och kontrollera att övningssajten bygger och visas: `npm run build` i `sites/<sajt>/` och förhandsvisningen på `http://127.0.0.1:4322/` (`npx astro preview --port 4322 --host 127.0.0.1` i sajtens katalog om den inte körs). Läs `git log --oneline -40`, så att du ser vad som gjordes 2026-10-16.
+
+**1. Få alla MCP:er att fungera** (`BESLUT.md` 2026-10-16, *Alla MCP:er in nu …* och *Senaste version med verktygslås …*).
+- Kontrollera med `/mcp` och `claude mcp list` att servrarna syns. Alla ligger i lokal scope för repot i `~/.claude-bygg`; avgränsningen står kvar (Johnny 17.18).
+- Johnny loggar in via `/mcp` på 21st, DataForSEO, Figma och Cloudflare (Cloudflare helst med en läs-token). Grounding Lite, Google Developer Knowledge, nanobanana och BrowserStack lägger han in med nyckel i ett eget terminalfönster; Nycklar klistras aldrig in i chatten. Kommandona, körda från repots rot med nyckeln i stället för platshållaren:
+  ```
+  CLAUDE_CONFIG_DIR=$HOME/.claude-bygg claude mcp remove grounding-lite
+  CLAUDE_CONFIG_DIR=$HOME/.claude-bygg claude mcp add --transport http grounding-lite https://mapstools.googleapis.com/mcp --header "X-Goog-Api-Key: DIN_NYCKEL"
+  CLAUDE_CONFIG_DIR=$HOME/.claude-bygg claude mcp remove google-developer-knowledge
+  CLAUDE_CONFIG_DIR=$HOME/.claude-bygg claude mcp add --transport http google-developer-knowledge https://developerknowledge.googleapis.com/mcp --header "X-Goog-Api-Key: DIN_NYCKEL"
+  CLAUDE_CONFIG_DIR=$HOME/.claude-bygg claude mcp add nanobanana -e GEMINI_API_KEY=DIN_NYCKEL -- /opt/homebrew/bin/uvx nanobanana-mcp-server@latest
+  CLAUDE_CONFIG_DIR=$HOME/.claude-bygg claude mcp add browserstack -e BROWSERSTACK_USERNAME=DITT_NAMN -e BROWSERSTACK_ACCESS_KEY=DIN_NYCKEL -- npx -y @browserstack/mcp-server@latest
+  ```
+  Nycklarna skaffas i Google Cloud (Maps Grounding Lite och Developer Knowledge API, var sin begränsad nyckel; Grounding Lite kräver fakturering), Google AI Studio (Gemini, betald nivå i EES) och BrowserStacks *Account Settings* (betald plan).
+- Kör verktygslåset efter inloggningarna: `python3 -I skript/mcp-verktygslas.py` (låser de nya; rapporterar ändringar).
+- Kör varje servers prov mot övningssajten enligt MCP-gruppens rapport, sparad lokalt i sajtens `andra-varvet/mcp-jamforelse.md` (*Per MCP*, *Nya kandidater*). Skriv resultatet per server i sajtens `mcp-prov.md`: vad som gjordes, vad det gav, och om servern behålls. Lägg fram det för Johnny.
+
+**2. Gör klart övningssajten.** Den är klar när allt nedan är gjort:
+- **Johnnys domar** som väntar: bilderna före och efter och videorna av sparsam och måttlig rörelse (skickade 2026-10-16); grupp B i sajtens `premiumpass.md` (28 fynd); raden *I dag* (C4); texten om skatt och friskvårdsbidrag; 404 för gamla adresser (`public/_redirects`); provsidorna för Varm och Djärv (G8, G9); andra varvets kvarvarande förslag (bevakningsloopen B1–B8, K5 och K6 i granskarens checklista, smak i kiten, menyn i mobilen; `kunskap/research/2026-10-16_andra-varvet.md`); placeringarna i inventeringen ("ja på alla placeringar" gör dem till beslut).
+- **Andra varvets sajtfynd som inte är rättade:** samla dem ur avsnitten om nya fynd i sajtens `andra-varvet/*-jamforelse.md` (bland annat namn och rubriker som skiljer sig mellan sidor, tre länkstilar, fyra kortnät i rad på startsidan, sidfotens rubriker mindre än brödtexten, Kontakt utan bokningsbandet). Det som ligger inom beslut rättas i biblioteket och kopieras till sajten; smak och struktur går till Johnny.
+- **Gruppernas textförslag till guiden och bilagorna** (cirka 80, i rapporterna under *Förslag till filer jag inte äger*): faktarättelser med primärkälla förs in; det som ändrar en regel blir förslag till Johnny.
+- **Föreslagna kontroller:** textstorlek 32 px, den byggda CSS:en, söksträngen på sin sida, bara bokningen fylld accent, inga understrukna mellanrum och en felbank. Johnny väljer vilka som byggs.
+- **Slutet:** kontrollskriptet utan `SNABB` (Lighthouse 100; 5b stoppar avsiktligt tills samtycket till behandlingsfotot finns), Johnnys slutdom, ett tillägg i sajtens `genomgang.md` om andra varvet och `LAGE.md`.
+
+**3. Därefter nästa övningssajt:** hantverk (`guide/5-byggplan.md`, *Serien*), med måttstockens underkända snickare i tre orter (s04) som kandidat.
+
+**Det som inte är gjort, så att ingen tror det:** kompetensen ur inventeringen är destillerad in i de elva skillsen, men gruppernas förslag till guiden är inte införda, de föreslagna kontrollerna är inte byggda, placeringarna är förslag tills Johnny sagt ja, bara skillen `drift` har en baslinje, och inget är prövat på riktig iPhone, Android eller med skärmläsare.
 
 ## Kort
 
 - **Guiden v1.0 är genomläst med Johnny** 2026-10-15 i sin helhet: README, kundens väg, byggplanen, alla nio lagren, flödet 3.1–3.5, företaget och bilagorna. Varje rättelse står ordagrant i `BESLUT.md` med datumet 2026-10-15.
 - **Måttstocken är godkänd:** `mattstock/mattstock.md`. Den har tre frågor, mobilen först: förstår och når kunden företaget på mobilens första skärm, är det äkta, håller utförandet. Den bygger på Johnnys domar över 39 sajter (`mattstock/domar.jsonl`).
-- **N1 har 91 regler och tio automatiska kontroller.** Johnny godtog att taket på cirka 60 överskreds. Sammanfattningen genereras till `guide/n1-forsta-sajten.md` med `python konsolidering/bygg_n1.py`.
+- **N1 har 101 regler och tio automatiska kontroller med underkontroller.** Johnny godtog att taket på cirka 60 överskreds. Sammanfattningen genereras till `guide/n1-forsta-sajten.md` med `python konsolidering/bygg_n1.py`.
 
 ## Det viktigaste som beslutades 2026-10-15
 
@@ -149,12 +181,7 @@ Johnny beslutade omkring 12.11 att kompetensen ur inventeringen ska in i alla la
   - Första baslinjen: skillen drift gav 100 % mot 68,5 % utan.
 - **Startsäkringen kördes på riktigt** omkring 14.05: node@24 och poppler i Homebrew, lucide 1.58, wrangler 4.151.1 och Playwright 1.64.1 i måttstockens verktyg. TypeScript 7 fällde sajtens bygge (`astro check` stöder det inte), så skriptet håller nu TypeScript på 6 och skriver skälet vid varje körning. Skriptet rapporterade också Homebrew som misslyckat fast uppgraderingen gick igenom; det läser nu av resultatet efteråt.
 - **Övningsserien är beslutad** (Johnny omkring 14.42): klinik (klar), hantverk, restaurang, butik, konsult, skönhet och tjänst eller event, med tillvalen i `guide/5-byggplan.md`. Nästa övningssajt är hantverk; måttstockens enda underkända svenska hantverkare (s04, en snickare i tre orter) passar för serviceområdet och offertförfrågan. Den startas när jämförelsen av skillsen är införd.
-- **Nästa:**
-  1. Johnny dömer premiumpasset på bilderna före och efter.
-  2. Johnny tar ställning till grupp B i `premiumpass.md` och till placeringarna i inventeringen ("ja på alla placeringar" gör dem till beslut).
-  3. Luckorna med vikt hög blir förslag till kompetensutveckling, sorterade efter vad nästa sajt behöver.
-  4. Läs om källkorten för de 9 av 128 bevakade repon som har ändrats sedan de lästes: bygg-sajt, chrome-devtools, CSS scroll-drivna animationer, CSS @view-transition, faster-whisper och Remotion (två repon), FFmpeg, Harmony med flera, och Showboat och design-critique.
-  5. Kontrollskriptet: taggen `wcag22a` i kontroll 8 matchar ingen axe-regel, och nya kontroller är föreslagna (premiumpasset P44).
+- **Nästa:** se *Nästa session – börja här* överst.
 
 ## Spår för senare
 
@@ -168,11 +195,11 @@ Johnny beslutade omkring 12.11 att kompetensen ur inventeringen ska in i alla la
 
 ## Väntar på Johnny
 
-- **Andra varvets förslag**, nio punkter sist i `kunskap/research/2026-10-16_andra-varvet.md`: e-post via Cloudflare när kunden redan har mejl, låst version mot alltid senaste, Mobbins villkor, inloggningsordningen för MCP, bevakningsloopen B1–B8, K5 och K6 i granskarens checklista, smak i kiten, måttlig rörelse på video igen och menyn i mobilen.
+- **Andra varvets förslag** (`kunskap/research/2026-10-16_andra-varvet.md`): avgjorda 17.00 är e-posten (förklarad, guiden rättad), senaste version med verktygslås, Mobbin och videon. Kvar: bevakningsloopen B1–B8, K5 och K6 i granskarens checklista, smak i kiten och menyn i mobilen. Videorna av sparsam och måttlig rörelse väntar på Johnnys dom.
 - **Premiumpasset:** döm bilderna före och efter, och grupp B i sajtens `premiumpass.md`. Där står bland annat porträttet i Om-sidans topp, menyn i mobilen, en översiktssida för Behandlingar, accentsteg, typskala och rörelsetokens per kit, JS-budgeten, CSP med React och Motion, sidbyten med `@view-transition` och en säkerhetskopia av `sites/`, eftersom sajtens repo bara finns på Macen.
-- **Inventeringens placeringar** (förslag på alla 171 poster) och MCP-servrarna som kräver konto: cloudflare/mcp, seo-monster, Gemini och nanobanana, Motion+, 21st, Mobbin, Figma, Google Business Profile API, Grounding Lite, mcp-gsc och DataForSEO. Logga in i en ny session när listan är godkänd.
+- **Inventeringens placeringar** (förslag på alla 201 poster, artefakten version 4). MCP-servrarna är tillagda; inloggningarna står i *Nästa session – börja här*.
 - **Luckorna** i `kunskap/research/2026-10-16_luckor-per-lager.md`: vilka som ska tas först.
-- **Genomgången efter övningssajten** (`guide/5-byggplan.md`) är skriven i sajtens `genomgang.md`. Förslagen G1–G13 ska godkännas eller strykas. Granskaren mättes om på de fyra egna utkasten, blint, och fick 3 av 4 rätt. Den missade Djärv: den såg att tonen var fel för en klinik men vägde det bara som svagt (förslag G13 till checklistan).
+- **Genomgången efter övningssajten** (sajtens `genomgang.md`): G1–G13 är godkända och införda (Johnny 12.07). Provsidorna för Varm och Djärv (G8, G9) väntar på Johnnys dom.
 - **Raden "I dag" i förstavyn** (C4) ska dömas: om första skärmen blir för trång.
 - **Texten om skatt och friskvårdsbidrag** på övningssajtens företagssida ska dömas.
 - **Omdirigeringarna:** 11 gamla adresser utan motsvarighet och WordPress-adresser får 404 i stället för att skickas till startsidan (sajtens `public/_redirects`, märkt förslag).
