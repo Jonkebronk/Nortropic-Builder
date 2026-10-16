@@ -14,7 +14,7 @@ Förslag till Johnny, ur modern-web-guidance (📄 [GoogleChrome/modern-web-guid
 
 ## Status per funktion
 
-Status enligt web-features, som är facit (📄 [web-features](https://github.com/web-platform-dx/web-features)). Översynen 2026-10-16 fann att alla 42 statusrader stämmer med web-features 3.43.0 (`kunskap/research/2026-10-16_verktyg-och-skills-full-potential.md`). MDN-MCP:n är släppt (`BESLUT.md` 2026-10-16, *Domarna över MCP-servrarna …*, 21.37). Där MDN visar något annat står ⚠️.
+Status enligt web-features, som är facit (📄 [web-features](https://github.com/web-platform-dx/web-features)). Översynen 2026-10-16 fann att alla statusrader stämmer med web-features 3.43.0 (`kunskap/research/2026-10-16_verktyg-och-skills-full-potential.md`). Startsäkringen jämför raderna med senaste web-features (`skript/baseline.mjs`); en ny rad får sitt id i skriptet. MDN-MCP:n är släppt (`BESLUT.md` 2026-10-16, *Domarna över MCP-servrarna …*, 21.37). Där MDN visar något annat står ⚠️.
 
 | Funktion | Status | Används till | Reserv eller villkor |
 |---|---|---|---|

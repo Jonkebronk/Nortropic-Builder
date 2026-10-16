@@ -173,6 +173,11 @@ fi
 while IFS= read -r rad; do
   echo "$rad"; [[ "$rad" == ⚠️* ]] && varningar+=("${rad#⚠️ }")
 done < <(python3 -I "$ROT/skript/google-sidor.py" 2>&1)
+# Statusen per funktion i kvalitet/modern-html-css.md mot web-features, som npm-steget har tagit till senaste version
+# (skript/baseline.mjs). En rad som inte stämmer, eller ett id som har försvunnit, blir en varning.
+while IFS= read -r rad; do
+  echo "$rad"; [[ "$rad" == ⚠️* ]] && varningar+=("${rad#⚠️ }")
+done < <(node "$ROT/skript/baseline.mjs" 2>&1)
 
 # 7. Node
 rubrik "Node"
