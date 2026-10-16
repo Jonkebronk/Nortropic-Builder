@@ -1,6 +1,6 @@
 # 2.8 Teknik och kvalitet
 
-**Status:** konsoliderad v1.0, 2026-10-15; ommärkt efter granskningen samma dag (`konsolidering/granskning-v1.0.md`). **Genomläst med Johnny 2026-10-15**; rättelserna står i `BESLUT.md`.
+**Status:** konsoliderad v1.0, 2026-10-15; ommärkt efter granskningen samma dag (`konsolidering/granskning-v1.0.md`). **Genomläst med Johnny 2026-10-15**; rättelserna står i `BESLUT.md`. Faktarättelser och förtydliganden ur andra varvets jämförelser införda 2026-10-16 (`kunskap/research/2026-10-16_andra-varvet.md`); förslag som ändrar en regel ligger hos Johnny.
 
 Lagret gör sajten till något som fungerar: den bygger, är snabb, tillgänglig och säker, går att hitta, tar emot förfrågningar och följer lagen. Garretts fem plan slutar vid ytan; det här är det en webbyrå också levererar. Lagret är hemvist för **de tio N1-kontrollerna**, **formulär** (D3), **samtycke och analys** (D4), **säkerhetsgranskning** (D19) och **platshållarkontrollen vid publicering** (D14). Byggets orkestrering (checkpoints, överlämning, status) står i `3-1-orkestrering-och-roller.md`, granskningen i `3-2-granskning-och-kalibrering.md`.
 
@@ -10,7 +10,7 @@ Lagret gör sajten till något som fungerar: den bygger, är snabb, tillgänglig
 
 | Sajttyp | Stack | Cloudflare-plan |
 |---|---|---|
-| **A. Informationssajt med formulär** (standard) | Astro statiskt som Worker med statiska tillgångar; Worker-route för formuläret; Turnstile; D1 i EU; mejl via Cloudflare (`send_email` till kundens verifierade adress); statistik ur serverloggarna | **Pro** på zonen för statistiken, 20 USD/mån vid årsbetalning (`BESLUT.md` 2026-10-16); Workers Paid bara om besökaren ska få en bekräftelse |
+| **A. Informationssajt med formulär** (standard) | Astro statiskt som Worker med statiska tillgångar; Worker-route för formuläret; Turnstile; D1 i EU; mejl via Cloudflare (`send_email` till kundens verifierade adress); statistik ur serverloggarna | **Pro** på zonen för statistiken, 20 USD/mån vid årsbetalning (`BESLUT.md` 2026-10-16); Workers Paid om besökaren ska få en bekräftelse, och troligen också när kundens mejl ligger hos någon annan (→ *Formulär*, e-posten) |
 | B. Inloggning | Som A + Supabase Auth med RLS; Astro SSR med `@astrojs/cloudflare` | Workers Paid ($5/mån) + Supabase |
 | C. Databas | Som A + D1 som huvuddatabas; Supabase bara för redigeringsvy eller relationer; R2 för bilder | Free, Paid vid tillväxt |
 | D. Bokning | Worker + D1; Durable Objects mot dubbelbokning; Cron Triggers för påminnelser | Workers Paid |
@@ -46,11 +46,16 @@ Lagret gör sajten till något som fungerar: den bygger, är snabb, tillgänglig
 - [N2] **Byggdetaljer:** mottagaradressen kommer ur miljön, aldrig ur formulärets data (annars ett öppet spamrelä); felbesked utan diagnostik; vanlig POST som fungerar utan JavaScript; tacksidan har `noindex` (texten → `2-7`). 🔧 webb-pros `formularsakerhet.md` och byggstandard 6.3
 - [N2] **Bara de uppgifter som behövs,** information och länk till integritetspolicyn vid formuläret, bestämd lagringstid och gallring efter den. 📄 `kunskap/research/2026-10-14_dataoverforing-och-analys.md` (nedan *dataöverföringsresearchen*) §3.3, §5.1
 - [N2] **All e-post går via Cloudflare** (`BESLUT.md` 2026-10-16, *Resend stryks*):
-  - Formulärets meddelande till kunden skickas med Workerns `send_email`. Avsändardomänen verifieras i Cloudflare Email Service, som lägger sina poster på underdomänen `cf-bounce` och SPF och DKIM på domänen; kundens MX-poster rörs inte, så kundens befintliga mejl fungerar som förut (📄 [Cloudflare, Send emails from Workers](https://developers.cloudflare.com/email-routing/email-workers/send-email-workers/); [Email Service, Domain configuration](https://developers.cloudflare.com/email-service/configuration/domains/), läst 2026-10-16; ⚠️ otestat i Nortropic-Builder).
-  - Kundens egna adresser på domänen, som info@, skickas vidare med Email Routing bara när kunden inte redan tar emot mejl hos någon annan. Email Routing kräver Cloudflares MX-poster och kan inte användas bredvid Google Workspace, Microsoft 365 eller webbhotellets mejl (📄 samma sida, *MX conflicts*). Har kunden redan mejl ligger det kvar där. Det är gratis.
-  - En bekräftelse till besökaren kräver Cloudflare Email Service med Workers Paid, där 3 000 mejl per månad ingår. Tjänsten var i beta 2026-10-16, och utan Paid skickas ingen bekräftelse.
+  - Formulärets meddelande till kunden skickas med Workerns `send_email` till en adress hos kunden som är verifierad i kontot. Det är gratis på alla planer och räknas inte mot någon kvot. Avsändaren måste vara en domän som är kopplad till Cloudflare Email Service, och domänen måste använda Cloudflares DNS:
+    - **Utan Workers Paid** finns inte Email Sending, och då går det bara att skicka från en domän med Email Routing (*"You can only send from your routing domains"*), alltså med Cloudflares MX-poster (nästa punkt).
+    - **Med Workers Paid** kopplas domänen till Email Sending. Den lägger MX, SPF och DKIM på underdomänen `cf-bounce` och en DMARC-post på `_dmarc` för domänen, och kundens egna MX-poster rörs inte. En domän får bara ha en DMARC-post; finns två tillämpas ingen (📄 RFC 7489, 6.6.3). Har kunden redan en stäms den av före kopplingen, eftersom dokumentationen inte säger hur Cloudflare gör med den ⚠️.
+    - Har kunden mejl hos någon annan och ingen Workers Paid kan formuläret alltså inte avisera från kundens domän. Det är härlett ur dokumentationen och prövas vid den första kunden ⚠️.
+
+    (📄 Cloudflare: [Workers API](https://developers.cloudflare.com/email-service/api/send-emails/workers-api/), [Send bindings](https://developers.cloudflare.com/email-service/configuration/send-bindings/) (*"The sender address must belong to an onboarded Email Service domain"*), [Send emails](https://developers.cloudflare.com/email-service/get-started/send-emails/) (*"You must be using Cloudflare DNS"*), [Limits](https://developers.cloudflare.com/email-service/platform/limits/), [Domain configuration](https://developers.cloudflare.com/email-service/configuration/domains/), läst 2026-10-16; ⚠️ otestat i Nortropic-Builder)
+  - Kundens egna adresser på domänen, som info@, skickas vidare med Email Routing bara när kunden inte redan tar emot mejl hos någon annan. Email Routing kräver Cloudflares MX-poster och kan inte användas bredvid Google Workspace, Microsoft 365 eller webbhotellets mejl (📄 Domain configuration, *MX conflicts*: *"Cannot use Email Routing with external mail servers"*). Har kunden redan mejl ligger det kvar där. Det är gratis.
+  - En bekräftelse till besökaren kräver Email Sending i Cloudflare Email Service, alltså Workers Paid. 3 000 mejl per konto och månad ingår, sedan kostar det 0,35 USD per 1 000. Email Sending var i beta 2026-10-16, och utan Paid skickas ingen bekräftelse.
   - SPF, DKIM och DMARC för domänen som skickar.
-  - 📄 [Cloudflare Email Service, priser](https://developers.cloudflare.com/email-service/platform/pricing/). 📄 research §3; Websites for Normal People
+  - 📄 [Cloudflare Email Service, priser](https://developers.cloudflare.com/email-service/platform/pricing/) och [översikt](https://developers.cloudflare.com/email-service/), läst 2026-10-16. 📄 research §3; Websites for Normal People
 - [N2] **Bekräftelsemejlet är mejlsäker HTML:** tabellayout, inbäddad CSS och en ren textversion, testat i Outlook, Gmail och Apple Mail före publicering. Mejlklienter stöder bara en del av CSS (fallgrop 193), och formulärtjänstens standardtext duger inte (fallgrop 183). Innehållet → `2-7`; testverktyget väljs senare ⚠️. 🎥 Jack Roberts designgeni-videon, Jack Roberts-videon 4 *(en källa – bänken)*
 - [N2] **Formulärtest som inte stör kunden:** testinskick märks (dolt fält eller testadress) och filtreras bort innan de når kunden (fallgrop 42). Testet följer inskicket hela vägen: sparat, mejlet accepterat, bekräftelsemejlet framme och det designade. Schemat → `2-9-drift-och-forvaltning.md`. 🔧
 - [N2] **Ingen automatisk omsändning när utfallet är okänt** – ett mejl som kanske gick fram blir då två. Varje inskick har status (*väntar, skickar, accepterad, fel*); en Cron Trigger (fem per konto på Free) får skicka om när felet är slutligt. 🔧 webb-pros leveransmall; research §3
@@ -70,10 +75,10 @@ Lagret gör sajten till något som fungerar: den bygger, är snabb, tillgänglig
   - Applebot (Siri och Spotlight)
   - Google-Extended, som också styr Geminis grounding
 
-  Robotarna för träning (GPTBot, Applebot-Extended) är kundens val, och standard är att släppa in dem. Att stänga ute dem påverkar inte sökningen. Om sajten publiceras ska samma robotar också släppas igenom i Cloudflares AI-blockering (*Steg 5* nedan). Ingen `llms.txt`: Google säger *"You don't need to create new machine readable files, AI text files, or markup"*, och ingen leverantör har lovat att läsa filen. Kontroll 7c. 📄 Google, OpenAI, Perplexity och Apple om sina robotar, via `kunskap/research/2026-10-16_seo-aeo-geo.md` (`BESLUT.md` 2026-10-16)
+  Robotarna för träning (GPTBot, Applebot-Extended) är kundens val, och standard är att släppa in dem. Att stänga ute dem påverkar inte sökningen. Om sajten publiceras ska samma robotar också släppas igenom i Cloudflares AI-blockering (*Steg 5* nedan). Ingen `llms.txt`: Google säger *"You don't need to create new machine readable files, AI text files, or markup"*, och ingen leverantör har lovat att läsa filen. Lighthouse 13.5 har en femte kategori, *Agentic Browsing*, med provet `llms-txt`; kontroll 9 mäter bara de fyra kategorierna, så beslutet påverkar inte målet 100 (📄 Lighthouse 13.5.0, `core/config/default-config.js`; `skript/kontroll.mjs`). Kontroll 7c. 📄 Google, OpenAI, Perplexity och Apple om sina robotar, via `kunskap/research/2026-10-16_seo-aeo-geo.md` (`BESLUT.md` 2026-10-16)
 - [N1] **Statistik: Cloudflare Pro, ur serverloggarna** (om sajten publiceras). Den ger sidvisningar, besök och filter på sida, hänvisande sajt och land, *"with no need for third party scripts or trackers"*. Därför behövs varken kakor eller samtycke ⚖️. Gratisnivån ger bara förfrågningar, unika besökare och de fem största länderna. Alla nivåer sparar minst 30 dagar, så månadens siffror hämtas till ögonblicksbilden varje månad (📄 [Cloudflare, Zone Analytics](https://developers.cloudflare.com/analytics/account-and-zone-analytics/zone-analytics/); [ändringsloggen 2026-10-02](https://developers.cloudflare.com/changelog/post/2026-10-02-30-days-analytics-on-every-plan/); `BESLUT.md` 2026-10-16). Google Analytics, Google Ads och Meta är tillval med samtycke för kunder som annonserar.
 - [N2] **Konverteringar räknas i D1** – inskicken, utan kakor. Telefonklick syns inte utan skript i webbläsaren (🔧 härlett). 📄 dataöverföringsresearchen §4.3, §5.1; research §5
-- [N1] **Integritetspolicy på alla sajter, på sidan *Integritet och kakor*** (GDPR art. 13; IMY), också utan formulär, eftersom värdens loggar innehåller IP-adresser. Innehållet följer dataöverföringsresearchen §5.2:
+- [N1] **Integritetspolicy på alla sajter, på sidan *Integritet och cookies*** (GDPR art. 13; IMY), också utan formulär, eftersom värdens loggar innehåller IP-adresser. Innehållet följer dataöverföringsresearchen §5.2:
   - ansvarig (kunden) med kontaktuppgifter
   - ändamål och rättslig grund per behandling: besöket och värdens loggar, bokning, samtal och mejl, formuläret om det finns
   - mottagare (Cloudflare, bokningssystemet, byrån som biträde)
@@ -83,7 +88,7 @@ Lagret gör sajten till något som fungerar: den bygger, är snabb, tillgänglig
   - kakorna
 
   Om Turnstile sätter kakor är ⚠️ inte bekräftat. Policyn skrivs på klarspråk ur `fakta.md` (`BESLUT.md` 2026-10-16).
-- [N1] **Kakor: ingen kakbanner när sajten inte sätter kakor som kräver samtycke.** Sidan *Integritet och kakor* säger det och listar de kakor som finns. Innehåll från tredje part, som en karta eller en video, laddas först när besökaren klickar, och texten intill säger vem som får uppgifterna och sätter kakor. Behöver en kund något som sätter kakor utan att vara nödvändigt, till exempel statistik, gäller PTS:
+- [N1] **Kakor: ingen kakbanner när sajten inte sätter kakor som kräver samtycke.** Sidan *Integritet och cookies* säger det och listar de kakor som finns (ordet på sajten: *Ordet är "cookies" på företagssajter* nedan). Innehåll från tredje part, som en karta eller en video, laddas först när besökaren klickar, och texten intill säger vem som får uppgifterna och sätter kakor. Behöver en kund något som sätter kakor utan att vara nödvändigt, till exempel statistik, gäller PTS:
   - samtycket är frivilligt, specifikt per ändamål, informerat och aktivt
   - det är lika lätt att säga nej som ja, och lika lätt att återkalla
   - inga förifyllda rutor, ingen cookievägg och ingen knapp som "Jag förstår"
@@ -94,7 +99,7 @@ Lagret gör sajten till något som fungerar: den bygger, är snabb, tillgänglig
   - en kompakt ruta nere, som inte är modal
   - Godkänn alla och Neka alla med samma utseende
   - Välj själv, med tomma rutor per ändamål
-  - Kakinställningar i sidfoten
+  - *Cookieinställningar* i sidfoten
   - vid återkallelse rensas kakorna och sidan laddas om
 
   Taggarna ligger i innehållet (`taggar`) och laddas först efter ett ja. Dessutom (`BESLUT.md` 2026-10-16, *Samtyckesverktyget komplett*):
@@ -110,7 +115,7 @@ Lagret gör sajten till något som fungerar: den bygger, är snabb, tillgänglig
     - På låga skärmar är rutan kompakt. Täcker den förstavyns knappar på mobilen ligger knapplisten under den, så att Boka och Ring alltid går att nå (kvalitetsgranskningen 2026-10-16, U1; 📄 NN/g, *Cookie Permissions 101*, riktlinje 6).
     - Taggarna ligger som filer (`src`), inte som inline-kod, så att CSP:n släpper igenom dem utan `'unsafe-inline'`.
     - Workern prövar metod, ursprung (som sträng), content-type, storlek (som ström), hastighet (Rate Limiting-bindningen, 10 anrop per 60 s) och varje fält, och svarar 4xx eller 503, aldrig 500. 📄 OWASP ASVS 4.0.3 V13.2.5; OWASP API Security Top 10 2023, API4.
-  - **Kaklistan** (`sektioner/Kaklista.astro`) på sidan *Integritet och kakor* byggs ur taggarnas `verktyg`: namn, leverantör, vem som får uppgifterna (`mottagare`), ändamål, lagringstid och om kakan är en tredjepartskaka och på vilken domän, så som PTS kräver. Jämförelsen med CookieConsent v3, Silktide och de kommersiella verktygen står i `kunskap/research/2026-10-16_lagkrav-pa-sajten.md`. Kontroll 6c. Texten → `2-7`; biträdesavtalet → `2-2`. 📄 dataöverföringsresearchen §5.2; research §5, §9
+  - **Kaklistan** (`sektioner/Kaklista.astro`) på sidan *Integritet och cookies* byggs ur taggarnas `verktyg`: namn, leverantör, vem som får uppgifterna (`mottagare`), ändamål, lagringstid och om kakan är en tredjepartskaka och på vilken domän, så som PTS kräver. Jämförelsen med CookieConsent v3, Silktide och de kommersiella verktygen står i `kunskap/research/2026-10-16_lagkrav-pa-sajten.md`. Kontroll 6c. Texten → `2-7`; biträdesavtalet → `2-2`. 📄 dataöverföringsresearchen §5.2; research §5, §9
 - [N3] **Cloudflare Web Analytics bara bakom samtycke.** Den sätter inga kakor, men EDPB 2/2023 räknar JavaScript som får webbläsaren att skicka data som åtkomst, och PTS räknar statistik som icke nödvändigt. Datan går inte att begränsa till EU. 📄 dataöverföringsresearchen §3.1, §4.3
 - [N3] **GA4 bara som tillval bakom samtycke** (LEK 9 kap. 28 §; Googles samtyckespolicy): Consent Mode v2, Googles biträdesvillkor accepterade, Google-signaler avstängda, samtycket sparat. Kunden får veta att GA4 beror mest på DPF. Statistik före samtycke strider mot reglerna om kakor (fallgrop 123). 📄 dataöverföringsresearchen §2.3, §5.1
 - [N3] **Banner när något kräver samtycke:** orestbida/cookieconsent v3 (MIT) med `mode: 'opt-in'`, `equalWeightButtons: true`, "Neka" i första lagret, `revision` vid ändrad policy och skript blockerade med `data-category`. Det motsvarar PTS krav: lika lätt att neka som att godkänna, i samma vy, lika lätt att återkalla. 📄 lager-8-anteckningarna §4
@@ -175,7 +180,7 @@ Kandidater, jämförs i eval när det finns sajter att mäta på (`bilaga-a-verk
 
 ## Vad som kommer ut
 
-- [N1] **Astro-sajten med standardsidorna** (→ `2-3-struktur.md`; 404-sidans utformning → `2-3`, `2-4-skelett.md` – en standard-404 från ramverket är fallgrop 178), `sitemap.xml` och `robots.txt`; **kontrollskriptet** med de tio N1-kontrollerna och resultatet som belägg (`3-1`); om sajten publiceras repot med `wrangler.jsonc` och `public/_headers` och förhandsadressen bakom Access. *Integritet och kakor* på alla sajter, *Tillgänglighet* när lagen kräver det och tacksida bara med formulär.
+- [N1] **Astro-sajten med standardsidorna** (→ `2-3-struktur.md`; 404-sidans utformning → `2-3`, `2-4-skelett.md` – en standard-404 från ramverket är fallgrop 178), `sitemap.xml` och `robots.txt`; **kontrollskriptet** med de tio N1-kontrollerna och resultatet som belägg (`3-1`); om sajten publiceras repot med `wrangler.jsonc` och `public/_headers` och förhandsadressen bakom Access. *Integritet och cookies* på alla sajter, *Tillgänglighet* när lagen kräver det och tacksida bara med formulär.
 - [N2] Formulär-Workern och D1-migreringarna; integritetspolicyn och tacksidan när sajten har formulär; rapporten från säkerhetsgranskningen; den publicerade sajten på kundens domän.
 
 ## Kompetens och källor
@@ -186,8 +191,8 @@ Kandidater, jämförs i eval när det finns sajter att mäta på (`bilaga-a-verk
 
 **Verktyg.** N1-verktygen (Playwright, @axe-core/playwright, Lighthouse) står vid kontrolltabellen nedan.
 
-- [N2] **Lighthouse CI 0.15.1 pinnad** mot `dist/` med resultat lokalt (`upload.target: filesystem`, aldrig den publika `temporary-public-storage`).
-- [N2] **Chrome DevTools MCP** med `--no-performance-crux` för diagnos.
+- [N2] **Lighthouse CI** mot `dist/` med resultat lokalt (`upload.target: filesystem`, aldrig den publika `temporary-public-storage`). Den följer senaste version som allt annat i startsäkringen (`BESLUT.md` 2026-10-15, *Startsäkringen – alltid senaste version*); 0.15.1 var senaste 2026-10-16. Lighthouse-poäng jämförs bara mellan körningar med samma version, eftersom vikterna har ändrats mellan versioner (📄 [Chrome, Performance scoring](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring)).
+- [N2] **Chrome DevTools MCP** för diagnos, alltid med `--isolated` (en tillfällig profil som tas bort när webbläsaren stängs), `--no-usage-statistics` (Googles insamling av användningsstatistik är påslagen som standard) och `--no-performance-crux` (annars skickas spårade adresser till CrUX API). 📄 chrome-devtools-mcp 1.11.0, `README.md` och `docs/configuration.md`; byggsessionens konfiguration har flaggorna sedan andra varvet (→ `.claude/skills/kvalitet/kontroller.md`).
 - [N2] lychee, schema-dts och adobe/structured-data-validator, MDN HTTP Observatory (skicka aldrig Access-hemligheter med `--headers`).
 - [N3] orestbida/cookieconsent v3.
 
