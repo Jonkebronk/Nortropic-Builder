@@ -49,7 +49,7 @@ Förvaltningens rapporter: `2-9-drift-och-forvaltning.md`.
 
 I N1 kör huvudsessionen kontrollskriptet och Johnny tittar (*Belägg och status*). Det här tas in när steg körs utan honom.
 
-- [N2] **Stop-hooken `.claude/hooks/grind-stopp.mjs`** kör kontrollerna när Claude försöker avsluta. Den tillåter avslut om ingen sajt är aktiv (`.claude/aktiv-sajt`), om `blocked` är satt, om rundtaket är nått, om flödet är klart, eller om samma grind blockerats 3 gånger i rad med `stop_hook_active: true` (då skrivs `blocked` med orsak). Annars kör den stegets kontroller själv, utan att lita på statusen: allt grönt → avslut och belägg sparas; annars kod 2 och det som saknas på stderr, som Claude får som skäl att fortsätta. Hooken räknar varven själv, eftersom Claude Codes egen spärr släpper först efter åtta blockeringar i rad och inte eskalerar till Johnny. Registreras under `hooks.Stop` i projektets `.claude/settings.json`. Kontrollerna: `bilaga-c-kontroller.md`. 📄 research 2026-10-14; [Hooks](https://code.claude.com/docs/en/hooks-guide).
+- [N2] **Stop-hooken `.claude/hooks/grind-stopp.mjs`** kör kontrollerna när Claude försöker avsluta. Den tillåter avslut om ingen sajt är aktiv (`.claude/aktiv-sajt`), om `blocked` är satt, om rundtaket är nått, om flödet är klart, eller om samma grind blockerats 3 gånger i rad med `stop_hook_active: true` (då skrivs `blocked` med orsak). Annars kör den stegets kontroller själv, utan att lita på statusen: allt grönt → avslut och belägg sparas; annars blockerar den med JSON på stdout, `{"decision": "block", "reason": …}`, med det som saknas som skäl att fortsätta. Kod 2 med skälet på stderr blockerar också, men blir ett icke-blockerande fel när stdout är tom och stderr säger att en fil saknas, till exempel `No such file or directory` (claude-code #99171, öppet 2026-10-16). Hooken läser Claudes sista svar ur `last_assistant_message`, eftersom transkriptet skrivs asynkront och kan sakna det senaste. Hooken räknar varven själv, eftersom Claude Codes egen spärr släpper först efter åtta fortsättningar i rad, nollställs vid varje verktygsanrop och inte eskalerar till Johnny. Registreras under `hooks.Stop` i projektets `.claude/settings.json`. Kontrollerna: `bilaga-c-kontroller.md`. 📄 research 2026-10-14; [Hooks](https://code.claude.com/docs/en/hooks-guide); [Hooks reference](https://code.claude.com/docs/en/hooks), *Stop decision control*, *Exit code output* och *Common input fields*, läst 2026-10-16.
 - [N2] **Grindar per steg** (kriterierna bor i lagren):
 
 | Steg | Grinden kräver |
@@ -82,7 +82,7 @@ I N1 frågar huvudsessionen Johnny direkt när något saknas eller samma fel kom
 ## Den som bygger dömer inte
 
 - [N1] **Granskaren är en separat delagent med färsk kontext,** från `5-byggplan.md`, steg 4. Den får referensen, checklistan med måttstockens tre frågor, Johnnys exempel och skärmdumparna, bland dem helsidesbilder i mobil och dator (`3-2`) – inte huvudsessionens logg och resonemang och, från N2, inte byggarens överlämning. Använd en vanlig delagent, inte en som ärver chatten (som `subtask`). Varför: en granskare som delar kontext med byggaren godkänner det som byggts. 🎥 Shopify-videon; 📄 *Prompting Claude Fable 5* ("separata verifierande delagenter med färsk kontext presterar ofta bättre än självkritik"); 📄 [Best practices](https://code.claude.com/docs/en/best-practices). Lyft – får vara grind.
-- [N2] **Granskaren bedömer resultatet, inte om byggaren följde instruktionerna:** uppdraget innehåller inte `CLAUDE.md`, arbetsregler eller loggen. 🎥 Shopify-videon (en källa – bänken; lyfts när Shopify-artikeln läses i original). ⚠️ Om delagenter laddar projektets `CLAUDE.md` är inte kontrollerat; lägg därför inga bedömningskriterier där.
+- [N2] **Granskaren bedömer resultatet, inte om byggaren följde instruktionerna:** uppdraget innehåller inte `CLAUDE.md`, arbetsregler eller loggen. 🎥 Shopify-videon (en källa – bänken; lyfts när Shopify-artikeln läses i original). En vanlig delagent laddar projektets `CLAUDE.md`. Det gör inte Explore, Plan eller en egen agentdefinition med `omitClaudeMd: true` (Claude Code 2.1.271+), men också de laddar en underkatalogs `CLAUDE.md` när de arbetar med filer där (📄 [Subagents](https://code.claude.com/docs/en/sub-agents), *What loads at startup*, läst 2026-10-16). Lägg därför inga bedömningskriterier i `CLAUDE.md`, och ge granskaren underlaget som kopior i en katalog utan `CLAUDE.md` i katalogkedjan (→ `.claude/skills/granskare/SKILL.md`, *Isoleringen i praktiken*).
 - [N2] **Verktyg som lägger in kontext i varje prompt** (t.ex. Graft) är aldrig aktiva för granskare. 🔧
 
 Varvnummer och tidigare resultat: `3-2`.
@@ -95,7 +95,7 @@ I N1 finns inga spärrar (→ `3-3-sakerhet-och-installningar.md`). Det här tas
 - [N2] **Så sätts behörigheten** i Claude Code 2.1.281 (📄 `kunskap/research/2026-10-14_claude-code-verifiering.md`):
   1. `tools` och `disallowedTools` i agentens frontmatter slår bara av hela verktyg; `Bash(git push *)` där tar bort hela Bash.
   2. Sökvägsregler ligger i `permissions.deny` i projektets `.claude/settings.json` och gäller alla agenter, också huvudsessionen. Läsrätt per sökväg och agent finns inte.
-  3. Agentens egna hooks ignoreras för agenter i plugins (fallgrop 189), så isoleringshooks ligger i projektets settings (`3-3`). ⚠️ Att en hook ser vilken agent som anropar är inte verifierat.
+  3. Agentens egna hooks ignoreras för agenter i plugins (fallgrop 189), så isoleringshooks ligger i projektets settings (`3-3`). En hook ser vilken agent som anropar: när den körs i en delagent får den `agent_id` och `agent_type` i sin indata (📄 [Hooks reference](https://code.claude.com/docs/en/hooks), *Common input fields*, läst 2026-10-16).
   4. Läsförbud är ingen säkerhetsgräns: `Read`-deny täcker inte `grep -r` eller ett skript, och Bash-regler matchar inte `sh -c`. Det en agent inte får se ligger utanför dess arbetskatalog eller i en sandlåda (`3-3`).
 
 Rolltabellen är facit för agentdefinitionerna. I N1 finns bara huvudsessionen och granskaren; övriga rader gäller från N2. Varför tabellen: behörighetsregler utspridda över guiden är lätta att missa, och agenter med generiska prompter väntar på varandra (fallgrop 72, 107). 🎥 Goal Buddy-videon.
@@ -135,7 +135,7 @@ Modell, effort och advisor: `3-3`. Kodgranskning: `3-2`. Säkerhetsgranskning: `
 | Låses efter Johnnys godkännande | Var | Nivå |
 |---|---|---|
 | Körbara kontroller | `sites/<namn>/kontroller/` | N2 |
-| Granskarens checklista | `.claude/skills/granskare/` 🔧 | N2 |
+| Granskarens checklista | `mallar/granskning.md`; redan fryst med SHA-256 sedan 2026-10-15, summan i `mattstock/granskare/matning-2026-10-15.md` (`BESLUT.md` 2026-10-16) | N2 |
 | Brief och faktabas | `sites/<namn>/brief.md`, faktabasen (`2-7-innehall.md`) | N2 |
 | Stilkitet och sajtens `design.md`; nya värden blir förslag | `2-5-yta.md` | N2 |
 | Hooks och inställningar | `.claude/hooks/`, `.claude/settings.json` | N2 |

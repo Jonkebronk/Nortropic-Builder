@@ -65,14 +65,14 @@
 | Kräver Cloudflare Web Analytics samtyckesbanner? | Val av analys – lös med analys på serversidan | `2026-10-14_dataoverforing-och-analys.md` |
 | Thermonuclear code quality review: namn och repo | Kandidat för kodgranskning | `bilaga-a-verktyg.md` |
 | ~~Hur byggsessionen avgränsas från användarnivån~~ **Avgjort 2026-10-15:** med en egen konfigurationskatalog (`BESLUT.md`). Verifierad 2026-10-15 i den inloggade byggsessionen. | Risk att gamla regler laddas i första bygget | `3-3-sakerhet-och-installningar.md` |
-| Omfattas Google Grounding Lite av villkoren för Places-data? | Research med platsdata (`2-1-strategi.md`) | – |
+| Omfattas Google Grounding Lite av villkoren för Places-data? Villkoren kräver också att Maps-innehåll inte sparas av modellen eller används för att förbättra den, och att villkoren för modellen läses före användning. Räknas Claude Codes sessionslogg på Macen som lagring? En fråga till juristen (avsnitt 5) | Research med platsdata (`2-1-strategi.md`); servern väntar på nyckel (`bilaga-a-verktyg.md`, *MCP-servrar i byggsessionen*) | 📄 [Google, Maps Grounding Lite](https://developers.google.com/maps/ai/grounding-lite): *"you are responsible for ensuring that Google Maps Content is not cached by, stored by, or used to improve the LLM that you choose to use"* (läst 2026-10-16) ⚖️ |
 | Terrazzo och `[data-kit]` för att växla stilkit | Tokenpipelinen (`2-5-yta.md`) | – |
 | Fontshares villkor och reserverade typsnittsnamn | Typsnitt i kiten (`2-5`) | – |
-| Räcker en begränsad användare (Restricted) i Search Console för API:et? | Schemalagda kontroller (`2-9`) | `kunskap/research/2026-10-14_kopplingar-per-kund.md` |
+| Räcker en begränsad användare (Restricted) i Search Console för API:et? | Schemalagda kontroller (`2-9`) | `kunskap/research/2026-10-14_kopplingar-per-kund.md`. Verktygens omfång: mcp-gsc begär hela `webmasters` och fungerar inte med en läs-token (ärende #56); seo-monster fungerar med `webmasters.readonly` (`bilaga-a-verktyg.md`, avsnitt 7) |
 
 ## 5. Juridik – med jurist före betalande kund [N3]
 
-Tolkningarna i `2-2-omfattning.md` (lagkrav per kund) och researchen 2026-10-14 är inte juridisk rådgivning. Före första betalande kund: kundavtal och biträdesavtal, tillgänglighetslagen och DOS-lagen per kund, dataöverföring och integritetspolicy, AI-förordningen artikel 50, kalla utskick (marknadsföringslagen, GDPR artikel 14), upphovsrätt till genererat material.
+Tolkningarna i `2-2-omfattning.md` (lagkrav per kund) och researchen 2026-10-14 är inte juridisk rådgivning. Före första betalande kund: kundavtal och biträdesavtal, tillgänglighetslagen och DOS-lagen per kund, dataöverföring och integritetspolicy, AI-förordningen artikel 50, kalla utskick (marknadsföringslagen, GDPR artikel 14), upphovsrätt till genererat material, och villkoren för Grounding Lite (avsnitt 4).
 
 ## Avgjorda sedan v0.74 (för spårbarhet)
 

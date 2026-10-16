@@ -8,7 +8,7 @@ Korta hänvisningar avser filer i `guide/`: `3-2` = `3-2-granskning-och-kalibrer
 
 ## Skillsen 2026-10-16
 
-Johnny beslutade att kompetensen ur inventeringen ska in i alla lager nu, i stället för efter tre sajter (`BESLUT.md` 2026-10-16, *Kompetensen in i alla lager*). Skillsen är destillerade ur guidens lagerfiler, inventeringens poster med ett källkort var och litteraturen. De är utkast och har inte prövats med och utan (→ *Så skapas en skill*; luckan står i `larande`).
+Johnny beslutade att kompetensen ur inventeringen ska in i alla lager nu, i stället för efter tre sajter (`BESLUT.md` 2026-10-16, *Kompetensen in i alla lager*). Skillsen är destillerade ur guidens lagerfiler, inventeringens poster med ett källkort var och litteraturen. De är utkast. Bara `drift` har prövats med och utan: med skillen klarade svaren 18 av 18 påståenden i alla tre körningarna, utan skillen 12, 12 och 13 av 18 (68,5 %). Påståendena kom ur skillen själv, så provet visar att kunskapen når fram, inte att den är rätt. Metoden för de andra tio står i `.claude/skills/larande/baslinje.md` (2026-10-16; → *Så skapas en skill*).
 
 | Skill | Lager | Ersätter eller fullföljer |
 |---|---|---|
@@ -123,6 +123,8 @@ Steg 5 (publicering) och steg 6 (den första rapporten) görs för hand (*Inte s
 | `forvaltning` | N3 | 9 | Ändringstyper, standardkatalog, schemalagda kontroller, månadsrapport, klassning av ärenden (→ 2-9) | v0.74 fas 8 och §15.2; kartan lager 9 | K81; inventeringen: månadsrapporten byggs själva. 2-9 skiljer på förvaltning och rapport; de räknas här som en lagerskill med delfiler |
 | `lardomar` | N4 | Flödet | Föreslår ändringar i arbetssättet ur resultatloggar från flera sajter (→ 3-4) | v0.74 `auto-loop` (§10.5) | B1, K92 |
 | `kunskap` | N4 | Flödet | Lägger till en källa i `kunskap/` och uppdaterar berörda sidor (`/ingest`) (→ 3-4) | v0.74 §11.6 | Karpathys LLM Wiki-gist (`bilaga-a-verktyg.md`); görs för hand i N2 |
+
+Tabellen är planen från konsolideringen. Sedan 2026-10-16 heter skillsen som i *Skillsen 2026-10-16* ovan: utkasten `granska`, `lardomar` och `forvaltning` heter `granskare`, `larande` och `drift`, och `text` heter `innehall`.
 
 ## Vart v0.74:s planerade skills tog vägen
 

@@ -26,3 +26,5 @@ Uppmätt med Playwright 2026-10-15. Ingen identitet, text eller bild är lånad.
 - Förstavyn har högst två typsnitt, Fraunces och Figtree. Handstilen Caveat finns bara på överraderna längre ner, som "Om oss", där den fungerar som en personlig signatur.
 - Prisetiketten är satt i Figtree.
 - Porträttet ligger på ljus sand i stället för salvia, så att den gröna knappen bredvid sticker ut.
+
+Provsidan väntar på Johnnys dom över ändringarna (`BESLUT.md` 2026-10-16, G8 och G9).

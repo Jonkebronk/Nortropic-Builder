@@ -21,5 +21,14 @@ Det här skulle lyfta er sajt mest, och det är saker som bara ni kan göra. Pun
        Kontrollera att tjänsterna finns i Sverige.
      - Lägre prioritet: samma namn, adress och telefon i Hitta.se och Eniro, och branschregister som kunden är med i. -->
 
+## Kataloger och profiler
+
+<!-- Fylls i när en punkt ovan gäller kataloger. En rad per katalog eller profil där uppgifterna inte stämmer med fakta.md.
+     Profilernas adresser förs in i fakta.md, så att den strukturerade datans sameAs kan peka dit (guide/2-8-teknik-och-kvalitet.md). -->
+
+| Katalog | Adress | Uppgifter vi såg | Rätt uppgift (ur `fakta.md`) | Åtgärd | Datum |
+|---|---|---|---|---|---|
+| | | | | | |
+
 ---
 *Skriven <datum> efter bygget och Johnnys granskning. Status följs upp i månadsrapporten.*

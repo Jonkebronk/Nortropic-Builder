@@ -21,23 +21,27 @@ Nortropic-Builder/
 │   ├── branscher/            [N2] branschprofiler: sidor, sektioner, kontaktväg, förebilder (2-2-omfattning.md)
 │   └── stilkit/              [N1] stilkiten med tokens, design.md och wireframe-kitet (2-5-yta.md)
 ├── mallar/                   [N1] brief.md och karnfragor.md (2-1-strategi.md), fakta.md
-│   │                         (2-7-innehall.md), granskningsmall från steg 4 (3-2)
+│   │                         (2-7-innehall.md), granskning.md – låst checklista för granskaren (3-2),
+│   │                         kundens-lyft.md (1-kundens-vag.md)
 │   └── sajt/                 [N1] kopieras till varje sajt: CLAUDE.md och .gitignore (3-4)
 ├── skript/                   [N1] kontrollskriptet (Playwright) med N1-kontrollerna, byggs i steg 3
-│                             (2-8-teknik-och-kvalitet.md, bilaga-c-kontroller.md)
+│                             (2-8-teknik-och-kvalitet.md, bilaga-c-kontroller.md); startsäkringen
+│                             startsakring.sh (CLAUDE.md) och verktygslåset mcp-verktygslas.py (bilaga A)
 ├── foretag/                  [N2] erbjudande.md, profil, kvitton.md, vanliga frågor (4-foretaget.md)
 ├── kunskap/
 │   ├── kallor.md             källistan
 │   ├── raw/                  videotranskript och dokumentsammanfattningar (bara internt)
 │   ├── research/             researchrapporter
+│   ├── kallkort/             källkorten för posterna i inventeringen
 │   └── wiki/                 [N2] kunskapsbasen, en fil per begrepp (3-4-larande-och-underhall.md)
-├── inventering/              kompetensinventeringen
+├── inventering/              kompetensinventeringen; mcp-servrar.json och mcp-verktyg/ för verktygslåset
+│                             och kallor-bevakning.json för startsäkringen (bilaga A, 3-4)
 ├── historik/                 v0.74, ändringsloggen, kartan och principerna före v1.0, webb-pro
 ├── konsolidering/            skrivregler och spårbarhet för v1.0
 ├── mattstock/                Johnnys måttstock: metod, urval, domar och måttstocken (3-2)
 ├── .claude/
-│   ├── skills/               [N1] egna skills (bilaga B); skills som hamnar i
-│   │                         .agents/skills kopieras hit (3-4)
+│   ├── skills/               [N1] de elva egna skillsen sedan 2026-10-16 (bilaga B); skills som
+│   │                         hamnar i .agents/skills kopieras hit (3-4)
 │   ├── hooks/                [N2] grind-stopp.mjs m.fl. (3-1)
 │   └── workflows/            [N4] arbetsflöden (3-1)
 └── .gitignore                bl.a. sites/, .env, nycklar

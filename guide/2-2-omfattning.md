@@ -1,6 +1,6 @@
 # 2.2 Omfattning
 
-**Status:** konsoliderad v1.0, 2026-10-15, ommärkt efter granskningen samma dag. Genomgånget med Johnny 2026-10-13 (`historik/karta/2-omfattning.md`). **Genomläst med Johnny 2026-10-15**; rättelserna står i `BESLUT.md`.
+**Status:** konsoliderad v1.0, 2026-10-15, ommärkt efter granskningen samma dag. Genomgånget med Johnny 2026-10-13 (`historik/karta/2-omfattning.md`). **Genomläst med Johnny 2026-10-15**; rättelserna står i `BESLUT.md`. Faktarättelser och förtydliganden ur andra varvets jämförelser införda 2026-10-16 (`kunskap/research/2026-10-16_andra-varvet.md`); förslag som ändrar en regel ligger hos Johnny.
 
 Omfattningen är Garretts andra plan: vilka sidor, funktioner och vilket innehåll sajten ska ha, och vad den inte ska ha. Lagret har två spår, eftersom inte alla verksamheter har en sajt (`BESLUT.md` 2026-10-13, 18:43). Här bor också det som gör omfattningen leveransbar per kund: onboarding, lagkrav och avtal.
 
@@ -132,10 +132,11 @@ I N1 kommer toppuppgifterna (i briefen), *inte nu*-listan (i sidkartan) och, om 
 
 ## Kompetens och källor
 
-- [N2] **Egen skill: omfattningsskillen.** Top Tasks med triangulering, MoSCoW enligt DSDM, NN/g:s innehållsinventering, Googles flyttregler och, för spår B, stegen Map och Observe ur ai-website-cloner-template.
+- [N2] **Omfattningsskillen finns sedan 2026-10-16** (`.claude/skills/omfattning/`; `BESLUT.md` 2026-10-16, *Kompetensen in i alla lager*; `bilaga-b-skills.md`). Den bygger på Top Tasks med triangulering, MoSCoW enligt DSDM, NN/g:s innehållsinventering, Googles flyttregler, Cloudflares regler för `_redirects` och, för spår B, stegen Map och Observe ur ai-website-cloner-template, och jämfördes med originalen regel för regel samma dag.
 - [N2] **Eget bibliotek:** branschprofilerna och mallfunktionerna.
-- [N2] **Åtkomst vid kundbygget:** crawl4ai, självhostad (Apache-2.0 med attributionskrav vid publik användning, som intern användning troligen inte omfattas av); mcp-gsc för Search Console (gamla adresser med trafik); sökfraser ur Google-profilens API (→ `guide/2-1-strategi.md`).
-- [N2] **Pröva:** Cloudflares `/crawl` (öppen beta sedan mars 2026; gratisplanen ger 10 webbläsarminuter per dag), SiteOne Crawler och advertools, Screaming Frog (gratis upp till 500 adresser), PolyFuzz (förslag på gammal → ny adress som granskas), DataForSEO (sökvolymer, i små orter troligen låga och därför bara relativa). SingleFile för enskilda sidor (⚠️ kommandona overifierade).
+- [N2] **Åtkomst vid kundbygget:** crawl4ai, självhostad (Apache-2.0 med attributionskrav vid publik användning, som intern användning troligen inte omfattas av); Search Console för gamla adresser med trafik; sökfraser ur Google-profilens API (→ `guide/2-1-strategi.md`).
+  - **Search Console och minsta behörighet.** mcp-gsc kräver hela omfånget `webmasters` med skrivrätt, eftersom en token med bara läsrätt alltid misslyckas och då raderas tokenfilen (📄 [AminForou/mcp-gsc](https://github.com/AminForou/mcp-gsc), `gsc_server.py` och ärende #56; `kunskap/kallkort/mcp-gsc.md`). Vägar med bara läsrätt: en export ur Search Consoles gränssnitt vid flytten (⚠️ exportens radgräns är inte kontrollerad), och seo-monster med bara `webmasters.readonly` i förvaltningen (`kunskap/kallkort/avansaber-seo-monster.md`). Vilken server som används avgör Johnny vid inloggningen (`BESLUT.md` 2026-10-16, *Alla MCP:er in nu*).
+- [N2] **Pröva:** Cloudflares `/crawl` (öppen beta sedan mars 2026; gratisplanen ger 10 webbläsarminuter per dag), SiteOne Crawler och advertools, Screaming Frog (gratis upp till 500 adresser), PolyFuzz (förslag på gammal → ny adress som granskas), DataForSEO (sökvolymer, i små orter troligen låga och därför bara relativa; minsta insättning 50 USD och inga abonnemang, 📄 [DataForSEO, priser](https://dataforseo.com/pricing) via `kunskap/kallkort/dataforseo-mcp.md`). SingleFile för enskilda sidor (⚠️ kommandona overifierade).
 - **Avstå:** Astros `redirects` som huvudmekanism, migTool och gbp-industry-categories (ingen licens). **Bevaka:** Firecrawl (kärnan är AGPL-3.0; inget biträdesavtal på gratis- och hobbyplanerna).
 - **Förankring:** McGovern (Top Tasks), NN/g med Halvorson & Rach som kanon (innehållsinventering; boken inte granskad i sak), DSDM (MoSCoW), Google Search Central (flytt med URL-ändringar).
 
@@ -157,4 +158,4 @@ I N1 har lagret ingen automatisk kontroll. Johnny ser toppuppgifterna och *inte 
 - Inventering och omdirigeringskarta går självgående. Att ta bort en sida med trafik är ett beslut som loggas i beslutskartan.
 - Lagkraven: AI:n sorterar kunden efter svaren, men bedömningen är kundens – PTS ger inga förhandsbesked. Avtalstexterna kräver jurist före den första betalande kunden.
 - De mänskliga klicken i onboardingen går inte att automatisera.
-- Öppet – se `guide/bilaga-e-oppna-fragor.md`: licensbeslutets räckvidd. Vilka branscher som får profil först avgör övningssajterna.
+- Licensbeslutets räckvidd är avgjord: referensregeln och kodregeln är strukna (`BESLUT.md` 2026-10-16, *Referensregeln och kodregeln strukna*; `guide/bilaga-e-oppna-fragor.md`, 2.1). Vilka branscher som får profil först avgör övningssajterna.
