@@ -41,6 +41,14 @@ def slug(s):
     return re.sub(r"[^a-z0-9]+", "-", s.lower().replace("å", "a").replace("ä", "a").replace("ö", "o")).strip("-")
 
 
+def plac(x):
+    """Claudes förslag till placering och länken till källkortet (2026-10-16)."""
+    if not x.get("placering"):
+        return ""
+    kort = f' · <a href="{e(x["kallkort"])}" target="_blank" rel="noopener">källkort</a>' if x.get("kallkort") else ""
+    return f'<span class="beslut forslag">Förslag: {e(x["placering"])}{kort}</span>'
+
+
 def chip(f):
     return f'<span class="chip chip-{GRUPP[f]}">{e(f)}</span>'
 
@@ -131,7 +139,8 @@ section.lager{display:flex;flex-direction:column;gap:0}
 .fakta span{white-space:nowrap}
 .fakta .krock{color:var(--ink)}
 .kom{margin:0;font-size:13px;color:var(--muted)}
-.beslut{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.beslut{font-family:var(--f-mono);font-size:12px;color:var(--muted);display:block}
+.beslut.forslag a{color:inherit}
 @media (max-width:520px){
   h1{font-size:25px}
   .bars{grid-template-columns:minmax(0,8.5em) minmax(0,1fr) 2em}
@@ -252,7 +261,7 @@ for kod, namn in LAGER:
 <div class="rad-top"><span class="namn">{e(it["namn"])}</span><span class="typ">{e(it["typ"])}</span>{chip(it["forslag"])}</div>
 <p class="vad">{e(it["vad"])}</p>
 <p class="fakta">{"".join(fakta)}</p>
-{kom}<span class="beslut">Beslut: {e(it["beslut"])}</span>
+{kom}<span class="beslut">Beslut: {e(it["beslut"])}</span>{plac(it)}
 </article>''')
     if nyrader:
         parts.append('<div class="ny">')
@@ -272,7 +281,7 @@ for kod, namn in LAGER:
 <div class="rad-top"><span class="namn">{e(n["namn"])}</span><span class="typ">{e(n["typ"])}</span>{lank}{chip(n["dom"])}</div>
 <p class="vad">{e(n["roll"])}</p>
 <p class="fakta">{"".join(fakta)}</p>
-{flagga}<span class="beslut">Beslut: {e(n["beslut"])}</span>
+{flagga}<span class="beslut">Beslut: {e(n["beslut"])}</span>{plac(n)}
 </article>''')
         parts.append('</div>')
     parts.append('</section>')
