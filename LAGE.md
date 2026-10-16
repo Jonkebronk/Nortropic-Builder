@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-16 kl. 23.50 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-16 kl. 23.52 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Stående uppdrag (Johnny 2026-10-16 kl. 23.45) – gäller före allt nedan
 
@@ -8,9 +8,10 @@ Ordagrant i `BESLUT.md`, *Stående uppdrag fram till nästa övningssajt*. Claud
 
 1. **Resten av "Fixa alla"** (Mobbin får vara):
    - Videorna, gjort 23.42: nya videor på `sites/torsokliniken/video/index.html`, de gamla i `video/2026-10-15/`, skriptet i `video/spela-in.cjs`, sajtens `f4cb69a`.
-   - Verktygslåset läser promptar, resurser och flaggor: pågår, skriptet är skrivet men inte kört.
-   - Startsäkringen bevakar guidens Google-sidor via Developer Knowledge: ej påbörjat.
-   - Statusskriptet på web-features: ej påbörjat.
+   - Verktygslåset läser promptar, resurser och flaggor (`b4bafd9`): alla 11 nåbara servrar är oförändrade; seo-monster har 13 promptar, och mcp-gsc och shadcn har flaggan resources.
+   - Startsäkringen bevakar guidens Google-sidor (`skript/google-sidor.py`, `b4bafd9`): 53 sidor, alla finns.
+   - Statusskriptet på web-features (`skript/baseline.mjs`, `8556f04`): 40 av 40 rader stämmer.
+   - **Punkt 1 är klar** (2026-10-16, 23.52).
 2. **Skillsen:** resten av luckorna och översynens punkter. Mikroprov bara där kontrollen troligen gör fel; rena fakta förs in direkt med en notering om varför provet hoppades över.
 3. **Övningssajten:**
    - andra varvets sajtfynd som inte är rättade
@@ -53,7 +54,7 @@ Ordagrant i `BESLUT.md`, *Stående uppdrag fram till nästa övningssajt*. Claud
   
   **Väntar på Johnny:**
   - (Gjort: `claude-bygg` är omstartad 2026-10-16 kväll. Playwright-MCP:n kör WebKit med iPhone 15, bekräftat med `browser_get_config`; MDN och Cloudflare Docs är borta.)
-  - Koppla bort Mobbin-connectorn i claude.ai.
+  - (Avgjort 23.34: Mobbin-connectorn får vara kvar.)
   - (Avgjort 21.42: låset godtaget för Playwright, Motion släppt, Mobbins bilder raderade.)
   - (Avgjort 21.43: reglerna för MCP-servrar och verktyg står i `guide/3-3` med hänvisning i `CLAUDE.md`; skrivverktyg kräver Johnnys ja per gång, utan `permissions.deny`.)
   - **Gjort 22.16:**
@@ -67,8 +68,8 @@ Ordagrant i `BESLUT.md`, *Stående uppdrag fram till nästa övningssajt*. Claud
     - **Struket** (kontrollen hade inte felet): pekare i granskare, innehåll och yta (lucka 1), Playwright-pekare (lucka 2), seo-monster, Developer Knowledge, Astro Docs och video (luckorna 3–6) och rörelsens rad om kontrollskriptet.
     - **Sidofynd rättade i biblioteket och övningssajten** (`ba6f1bd`, sajtens `15390f3`): fokusringen följer elementets radie; tryckkvittens på menyknappen, Stäng, menylänkarna och ring-ikonen; *välj* i stället för *klicka* och inget *nedan* som enda ledtråd. Kontrollskriptet (`SNABB=1`) efteråt: bara 5b stoppar, 8b ok.
     - **ruflo** är utvärderat och avvisat (Johnny 23.31; `kunskap/research/2026-10-16_ruflo.md`; inventeringen, artefakten version 11).
-  - **Kvar ur översynen, väntar på Johnny:** punkt 11 (verktygslåset läser också promptar, resurser och flaggor; i dag bara `initialize` och `tools/list`), 17 (bevaka guidens citerade Google-sidor via Developer Knowledge i startsäkringen) och 18 (statusskript på web-features). Och: Workflow-verktyget står på N2 i `guide/3-1` men på N4 i bilaga A §10 (ruflo-researchen); Ring-länkens namn i sidhuvudet börjar inte med den synliga texten, men en omkastning gör namnet till bara "Ring" i mobilen; menyns millisekunder i `Sidhuvud.astro` blir tokens först när kitets rörelsetokens är beslutade (P33).
-  - **Viktigt inför videodomen:** förhandsvisningen är byggd med sparsam rörelse, `?rorelse=` gör inget, och menyn rör sig likadant i sparsam och måttlig. En video av måttlig kräver ett eget bygge eller bibliotekets provsida (fem agenter i V1-provet såg samma sak).
+  - **Gjort 23.34–23.52 (`BESLUT.md`, *Det som återstod rättas* och *Stående uppdrag*):** översynens punkter 11, 17 och 18 (se *Stående uppdrag*, punkt 1); Workflow-verktyget på N2 och `/batch` på N4 i bilaga A; Ring-länken heter "076-216 46 27 – ring" på datorn och "Ring" när bara ikonen syns, och kartknappen "Visa kartan från Google – Malmö". Kvar: menyns millisekunder i `Sidhuvud.astro` blir tokens först när kitets rörelsetokens är beslutade (P33).
+  - **Videorna:** inspelade på nytt 23.40, med måttlig som eget bygge, eftersom förhandsvisningen bara visar sparsam (`sites/torsokliniken/video/spela-in.cjs`).
 - **Översynen av verktyg och skills mot sin fulla potential är gjord** (2026-10-16 kväll, Johnny: *"det här behöver du se över på samtliga skills att de används mot sin fulla potential"*, omfattning *båda*). Den står i `kunskap/research/2026-10-16_verktyg-och-skills-full-potential.md` och ändrar flera av MCP-provets domar och två av Claudes påståenden. **Väntar på Johnny:** 21 punkter i avsnittet *Väntar på Johnny*, och rättelserna i källkorten, som är fakta och inte regler. Källkorten och guidens tre rader om seo-monsters omfång är rättade (Johnny: *"rätta"*). Skills, konfiguration och inventering är inte ändrade. Seo-monster-raden i `drift/verktyg.md` och i `inventering.json` rättas tillsammans med skillsen. `.playwright-mcp/` står i `.gitignore`.
 - **MCP-proven är körda** (2026-10-16 kväll, Johnny: *"Prova varje mot övningsajten"*). Resultatet per server och domarna, som är förslag, står i sajtens `mcp-prov.md`. Kort: behåll Chrome DevTools, Playwright (med WebKit, iPhone och utdata utanför repot), Astro Docs, Developer Knowledge, seo-monster (N3), Cloudflare (med läs-token) och Figma. Begränsa Inspo och 21st. Släpp MDN, Cloudflare Docs, Mobbin, Leonardo-MCP:n, shadcn-MCP:n och Motion. **Väntar på Johnny:** domarna och åtta punkter i slutet av `mcp-prov.md`, bland dem bilderna från Mobbin i sessionens `tool-results/`. Inställningarna på nortropic.se är parkerade: domänen byggs senare (`BESLUT.md` 2026-10-16, 21.01).
 
