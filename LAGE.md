@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-16 kl. 16.42 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-16 kl. 16.38 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
 
 ## Kort
 
