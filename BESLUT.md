@@ -1319,7 +1319,7 @@ Baslinjeprovet på skillen `kvalitet` (`kunskap/research/2026-10-16_baslinjer-2.
 
 **Status:** gäller för provet.
 
-Guidepup 0.36.3 skapar vid varje start länkar i `~/Library/Group Containers/group.com.apple.VoiceOver/Library/Preferences/`, och macOS nekade med `EPERM`, också i Johnnys eget terminalfönster. Appgruppers behållare skyddas av SIP sedan Sequoia (Apple Developer Forums, tråd 756701, som återger Apples versionsnoteringar); Guidepup har inget sätt att hoppa över steget (`lib/macOS/VoiceOver/preferences/mountGuidepupPreferences.js`). Claude gav tre vägar: fullständig skivåtkomst för appen Terminal en stund, egen AppleScript-styrning utan Guidepup, eller vänta. Johnny valde kl. 19.16:
+Guidepup 0.36.3 skapar vid varje start länkar i `~/Library/Group Containers/group.com.apple.VoiceOver/Library/Preferences/`, och macOS nekade med `EPERM`, också i Johnnys eget terminalfönster. Appgruppers behållare skyddas av SIP sedan Sequoia (Apple Developer Forums, tråd 756701, som återger Apples versionsnoteringar); Guidepup har inget sätt att hoppa över steget (`lib/macOS/VoiceOver/preferences/mountGuidepupPreferences.js`). Claude gav tre vägar: fullständig skivåtkomst för appen Terminal en stund, egen AppleScript-styrning utan Guidepup, eller vänta. Johnny valde kl. 19.12:
 
 > Fullständig åtkomst en stund (Rekommenderas)
 
