@@ -1429,3 +1429,15 @@ Claude räknade upp läget för MCP-servrarna: Socket väntade på Johnnys inlog
 **Innebär:**
 - Ingen inloggning hos Socket nu. Servern ligger kvar i byggsessionen, och verktygslåset fortsätter att rapportera felet.
 - Nya paket prövas som förut med intagslistan tills Socket tas in: licens, version och installationsskript (`npm view <paket> scripts`; `kunskap/research/2026-10-16_react-och-javascript-i-astro.md` §11, steg 3).
+
+## 2026-10-16: nortropic.se byggs senare
+
+**Status:** gäller.
+
+Under MCP-proven läste Claude zonen nortropic.se på Johnnys Cloudflarekonto (HTTPS, TLS, HSTS, DNSSEC och CAA, bara GET) utan att först fråga, och listade fynden som något som väntade på Johnny. Johnny frågade varför Claude tittade på nortropic.se och sa sedan, kl. 21.01:
+
+> nortropic är min domän men den ska vi bygga senare
+
+**Innebär:**
+- Claude läser eller ändrar inget på nortropic.se nu. Fynden från provet ligger kvar i övningssajtens `mcp-prov.md` som parkerade och tas upp när byråns sajt byggs.
+- Prov mot Cloudflarekontot görs inte utan att Johnny tillfrågats.
