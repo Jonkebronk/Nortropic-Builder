@@ -39,16 +39,36 @@ h1, h2, h3 {
 }
 h1 { font-size: var(--k-h1); }
 h2 { font-size: var(--k-h2); }
+/* Vid stor text (24 och 32 px grundstorlek) växer rubriken inte förbi skärmen: den stannar vid en andel av bredden, så att ord som
+   Trelleborg och Akupunktur inte delas mitt i ordet, men den är alltid större än brödtexten (WCAG 2.2, 1.4.4 och 1.4.10;
+   frågelistan 48 b, Claudes rekommendation, delegerat av Johnny 2026-10-16; kontroll 3d). Med vanlig textstorlek gäller kitets värde. */
+h1 { font-size: max(1.3em, min(var(--k-h1), 12vw)); }
+h2 { font-size: max(1.15em, min(var(--k-h2), 9.5vw)); }
+/* Räcker det inte avstavas rubrikerna med bindestreck, men bara när besökaren har valt stor text i en smal vy: 22em i en
+   mediefråga följer webbläsarens textstorlek, så regeln gäller vid 24 och 32 px i 375 px men aldrig vid vanlig storlek, där
+   rubrikerna bara delas vid mjuka bindestreck (BESLUT.md 2026-10-16, Motsägelserna B; frågelistan 48 b; MDN BCD, hyphens: svenska). */
+@media (max-width: 22em) { h1, h2, h3 { hyphens: auto; } }
 h3 { font-size: var(--k-h3); line-height: 1.25; }
 p { margin: 0; text-wrap: pretty; }
+/* Kitens typsnitt har 400 och 600; fet text ritas med 600 i stället för en vikt som inte finns (andra varvet, yta 1, punkt 13). */
+strong, b { font-weight: 600; }
 a { color: var(--k-accent-text); text-underline-offset: 0.18em; }
+/* Markerad text i kitets accent, ljust blandad, så att texten behåller sin kontrast (premiumpasset P29). */
+::selection { background: color-mix(in oklab, var(--k-accent) 28%, var(--k-bg)); color: var(--k-text); }
 /* Hover bara med mus eller styrplatta: på en pekskärm står hover-läget annars kvar efter trycket (Kowalski, mobile-native). */
 @media (hover: hover) and (pointer: fine) { a:hover { text-decoration-thickness: 2px; } }
 /* Fokusringen följer elementets egen radie; regeln sätter ingen egen (yta, detaljer.md). */
 :focus-visible { outline: 3px solid var(--k-fokus); outline-offset: 3px; }
 [data-yta="mork"] :focus-visible { outline-color: var(--k-fokus-pa-mork); }
+/* main får fokus av skript (efter samtyckesrutan och hopplänken) men är ingen kontroll, så den ritar ingen ring. */
+main[tabindex="-1"]:focus { outline: none; }
 
 .behallare { width: min(100% - 2 * var(--k-a5), var(--k-max)); margin-inline: auto; }
+/* Säkra ytor i liggande läge: marginalen blir aldrig mindre än kitets, och texten hamnar aldrig under sensorhuset
+   (skelett/mobil.md; WebKit, Designing Websites for iPhone X). */
+@supports (padding: max(0px)) {
+  .behallare { width: min(100% - max(var(--k-a5), env(safe-area-inset-left)) - max(var(--k-a5), env(safe-area-inset-right)), var(--k-max)); }
+}
 .sektion { padding-block: var(--k-sektion); }
 /* Två sektioner med samma yta i följd delar ett avstånd, också när ett skript ligger mellan dem
    (Every Layout, The Stack: avståndet läggs en gång per gräns). Förstavyn och sidtoppen har egna avstånd och räknas inte. */
@@ -94,7 +114,16 @@ svg[aria-hidden="true"] { stroke-width: 1.75px; }
 }
 .hoppa:focus { transform: translateY(var(--k-a2)); }
 /* Förankrad i övre vänstra hörnet: annars ligger rutan kvar där texten slutar och kan bredda sidan vid 200 % text. */
-.sr-only { position: absolute; top: 0; left: 0; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+.sr-only { position: absolute; top: 0; left: 0; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* Tryck på pekskärm: ingen grå standardruta, eftersom knappar, länkar och frågor har ett eget :active; ingen tryckfördröjning
+   när sidan är inzoomad; och ett långt tryck markerar inte knappens etikett, men text och telefonnummer går att kopiera
+   (skelett/mobil.md; WebKit, More Responsive Tapping on iOS). */
+a, button, summary { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+button, .knapp { user-select: none; -webkit-user-select: none; }
+button, .knapp:not([href^="tel:"]) { -webkit-touch-callout: none; }
+/* Tryckkvittens för fristående länkar och frågor, samma ton som sekundärknappen (rorelse/tillstand.md, Tryck). */
+.uppmaning:active, summary:active { background: color-mix(in srgb, currentColor 10%, transparent); border-radius: var(--k-radie-knapp); }
 
 /* Knappar */
 .knapp {
@@ -122,14 +151,14 @@ svg[aria-hidden="true"] { stroke-width: 1.75px; }
   .knapp:hover { transform: translateY(-1px); }
 }
 /* Trycket ger också en kvittens i formen, kort och utan fördröjning (Kowalski, animate: scale 0.97 på 100–160 ms). */
-.knapp:active { transform: scale(0.97); transition-duration: 120ms; }
-.knapp--primar:active { background: color-mix(in oklab, var(--k-accent) 74%, var(--k-accent-mot, var(--k-text))); border-color: color-mix(in oklab, var(--k-accent) 74%, var(--k-accent-mot, var(--k-text))); }
-.knapp--sekundar:active { background: color-mix(in srgb, currentColor 14%, transparent); }
-.knapp--pa-mork:active { background: color-mix(in oklab, var(--k-pa-mork) 78%, var(--k-mork)); }
+.knapp:active:not(:disabled) { transform: scale(0.97); transition-duration: 120ms; }
+.knapp--primar:active:not(:disabled) { background: color-mix(in oklab, var(--k-accent) 74%, var(--k-accent-mot, var(--k-text))); border-color: color-mix(in oklab, var(--k-accent) 74%, var(--k-accent-mot, var(--k-text))); }
+.knapp--sekundar:active:not(:disabled) { background: color-mix(in srgb, currentColor 14%, transparent); }
+.knapp--pa-mork:active:not(:disabled) { background: color-mix(in oklab, var(--k-pa-mork) 78%, var(--k-mork)); }
 /* Knappar som inte är .knapp, som menyknappen, Stäng och Välj själv, får samma svaga ton som sekundärknappen. */
 /* button. i väljaren, så att tonen slår komponentens egen background: transparent. */
 @media (hover: hover) and (pointer: fine) { button.knapp-ton:hover { background: color-mix(in srgb, currentColor 8%, transparent); } }
-button.knapp-ton:active { background: color-mix(in srgb, currentColor 14%, transparent); }
+button.knapp-ton:active:not(:disabled) { background: color-mix(in srgb, currentColor 14%, transparent); }
 
 /* Kort: en kolumn, så att en länk eller källrad sist kan läggas längst ner med margin-top: auto (Gestalt, gemensam linje). */
 .kort {

@@ -31,6 +31,8 @@ const delning = Astro.site && innehall.foretag.delningsbild ? new URL(innehall.f
     {innehall.foretag.favikon && <link rel="icon" href={innehall.foretag.favikon} type="image/png" sizes="48x48" />}
     {innehall.foretag.favikonStor && <link rel="icon" href={innehall.foretag.favikonStor} type="image/png" sizes="96x96" />}
     {innehall.foretag.hemskarmsikon && <link rel="apple-touch-icon" href={innehall.foretag.hemskarmsikon} />}
+    {innehall.foretag.manifest && <link rel="manifest" href={innehall.foretag.manifest} />}
+    {innehall.foretag.hemskarmsnamn && <meta name="apple-mobile-web-app-title" content={innehall.foretag.hemskarmsnamn} />}
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="sv_SE" />
     <meta property="og:site_name" content={innehall.foretag.namn} />

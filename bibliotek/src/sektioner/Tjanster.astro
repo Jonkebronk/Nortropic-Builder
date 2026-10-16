@@ -34,6 +34,14 @@ const { tjanster } = Astro.props.innehall;
   .tjanster__ikon { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 50%; background: var(--k-dekor); color: var(--k-text); }
   .tjanster__ikon :global(svg) { width: var(--k-ikon); height: var(--k-ikon); }
   .tjanster__lank { margin-top: auto; }
+  /* Hela kortet går att trycka på, eftersom det ser tryckbart ut; länken är fortfarande den enda tabbstoppet och det enda namnet
+     (Heydon Pickering, Inclusive Components, Cards: pseudoelementet; andra varvet, skelett). */
+  .tjanster__lista .kort { position: relative; }
+  .tjanster__lank :global(a)::after { content: ''; position: absolute; inset: 0; border-radius: var(--k-radie-kort); }
+  .tjanster__lista .kort:has(:global(a:focus-visible)) { outline: 3px solid var(--k-fokus); outline-offset: 3px; }
+  .tjanster__lank :global(a:focus-visible) { outline: none; }
   @media (min-width: 40rem) { .tjanster__lista { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 72rem) { .tjanster__lista { grid-template-columns: repeat(4, 1fr); } }
+  /* Fyra i rad på datorn; färre kort fyller raden i stället för att lämna tomma spalter (andra varvet, kvalitet N9). */
+  @media (min-width: 72rem) { .tjanster__lista { grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); } }
+  .tjanster__lista > :only-child { max-width: 44rem; }
 </style>

@@ -87,6 +87,15 @@ const s = Astro.props.innehall.samtycke;
       const s = (b?: boolean) => (b ? 'granted' : 'denied');
       g('consent', 'update', { analytics_storage: s(val.statistik), ad_storage: s(val.marknadsforing), ad_user_data: s(val.marknadsforing), ad_personalization: s(val.marknadsforing) });
     };
+    // Trusted Types: skriptens adresser och text går genom en egen policy, så att sidan fungerar också med
+    // require-trusted-types-for 'script' i CSP:n (W3C Trusted Types; kontroll 2g). Bara sajtens egna adresser och https släpps igenom;
+    // adresserna står i sidans egna data-src.
+    type Policy = { createScriptURL: (u: string) => unknown; createScript: (s: string) => unknown };
+    const tt = (window as unknown as { trustedTypes?: { createPolicy: (n: string, r: object) => Policy } }).trustedTypes;
+    const policy = tt?.createPolicy('samtycke', {
+      createScriptURL: (u: string) => { const a = new URL(u, location.href); if (a.origin === location.origin || a.protocol === 'https:') return a.href; throw new TypeError(`Skriptet ${u} är inte tillåtet`); },
+      createScript: (t: string) => t,
+    });
     // Skripten för en godkänd kategori byts mot riktiga skript. Det som inte är godkänt laddas aldrig.
     const aktivera = (val: Val) => {
       signalera(val);
@@ -95,8 +104,8 @@ const s = Astro.props.innehall.samtycke;
         document.documentElement.dataset[`samtycke${k[0].toUpperCase()}${k.slice(1)}`] = 'ja';
         document.querySelectorAll<HTMLScriptElement>(`script[type="text/plain"][data-samtycke="${k}"]`).forEach((vilande) => {
           const skript = document.createElement('script');
-          if (vilande.dataset.src) { skript.src = vilande.dataset.src; skript.async = true; }
-          else skript.text = vilande.text;
+          if (vilande.dataset.src) { skript.src = (policy ? policy.createScriptURL(vilande.dataset.src) : vilande.dataset.src) as string; skript.async = true; }
+          else skript.text = (policy ? policy.createScript(vilande.text) : vilande.text) as string;
           vilande.replaceWith(skript);
         });
       }
@@ -130,7 +139,9 @@ const s = Astro.props.innehall.samtycke;
     // scrollIntoView följer scroll-padding och lägger elementet ovanför rutan, direkt och utan mjuk rullning, så att fokus syns genast.
     document.addEventListener('focusin', (e) => {
       const el = e.target as HTMLElement;
-      if (ruta.hidden || ruta.contains(el) || !el.getBoundingClientRect) return;
+      // Inte i menyn eller andra paneler i top layer: de ligger ovanför rutan, och mätningen gjorde menyns första öppning seg
+      // (INP upp till 176 ms med rutan öppen; mcp-prov).
+      if (ruta.hidden || ruta.contains(el) || !el.getBoundingClientRect || el.closest('[popover]')) return;
       if (el.getBoundingClientRect().bottom > ruta.getBoundingClientRect().top) el.scrollIntoView({ block: 'nearest', behavior: 'instant' });
     });
     const visa = (oppen: boolean) => {
@@ -142,7 +153,10 @@ const s = Astro.props.innehall.samtycke;
     const stang = () => {
       visa(false);
       fraga.hidden = false; kvitto.hidden = true;
-      oppnadFran?.focus(); oppnadFran = null;
+      // Öppnades rutan av sidan själv, vid första besöket, hamnar fokus i början av innehållet och inte på body (Playwright-besökaren, fynd 5).
+      if (oppnadFran) oppnadFran.focus();
+      else { const m = document.querySelector<HTMLElement>('main'); if (m) { m.tabIndex = -1; m.focus({ preventScroll: true }); } }
+      oppnadFran = null;
     };
 
     const tidigare = las();

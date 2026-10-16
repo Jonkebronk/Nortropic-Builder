@@ -3,6 +3,8 @@
 // Kartbilden ligger på den egna servern, så inget laddas från tredje part när sidan öppnas (guide/2-8-teknik-och-kvalitet.md).
 // Google-kartan laddas först när besökaren klickar, och beskedet om att Google då sätter kakor står före knappen.
 // Utan JavaScript är det en länk till Google Maps; med JavaScript blir den en knapp, eftersom den då ändrar sidan (WAI-ARIA APG, Button).
+// Vägbeskrivningen är en sekundär knapp: bara bokningen har fylld accent i samma vy (G3, G5; kontroll 4c; premiumpasset P26).
+// Kartapparnas länkar får platsens namn, så att två länkar med samma text och olika mål skiljs åt (WCAG 2.4.4; kontroll 8m).
 import Bildruta from '../komponenter/Bildruta.astro';
 import Ikon from '../komponenter/Ikon.astro';
 import { hartPostnummer } from '../komponenter/text';
@@ -28,9 +30,9 @@ const { id = 'hitta-hit', rubrik, platser, kakText, kakLank, kalla, apparEtikett
           <p class="hittahit__adress"><Ikon namn="plats" /><span>{hartPostnummer(p.adress)}{p.extra && <><br /><span class="dampad">{p.extra}</span></>}</span></p>
           {p.tips && <ul class="hittahit__tips">{p.tips.map((x) => <li>{x}</li>)}</ul>}
           <div class="hittahit__knappar">
-            <a class="knapp knapp--primar" href={p.vagbeskrivning.href} data-apple={p.vagbeskrivning.apple} data-ny-flik rel="noopener"><Ikon namn="plats" /><span>{p.vagbeskrivning.text}<span class="sr-only"> till {p.namn}</span></span></a>
+            <a class="knapp knapp--sekundar" href={p.vagbeskrivning.href} data-apple={p.vagbeskrivning.apple} data-ny-flik rel="noopener"><Ikon namn="plats" /><span>{p.vagbeskrivning.text}<span class="sr-only"> till {p.namn}</span></span></a>
           </div>
-          {p.appar && <p class="hittahit__appar">{apparEtikett} {p.appar.map((a, i) => <>{i > 0 && ' · '}<a href={a.href} data-ny-flik rel="noopener">{a.text}</a></>)}</p>}
+          {p.appar && <p class="hittahit__appar">{apparEtikett} {p.appar.map((a, i) => <>{i > 0 && ' · '}<a href={a.href} data-ny-flik rel="noopener">{a.text}<span class="sr-only"> – {p.namn}</span></a></>)}</p>}
           <p class="dampad hittahit__kakor">{kakText}{kakLank && <> <a href={kakLank.href}>{kakLank.text}</a></>}</p>
           <div>
             <a class="knapp knapp--sekundar hittahit__google" href={p.googleKarta.href} data-embed={p.googleKarta.embed} data-titel={`Google-karta: ${p.adress}`}>{p.googleKarta.text}<span class="sr-only"> – {p.namn}</span></a>

@@ -14,4 +14,9 @@ export const idag = "(function(){var p=document.currentScript.previousElementSib
 // Bara för jämförelsen av de två rörelseversionerna på bibliotekets provsidor: ?rorelse=mattlig eller ?rorelse=sparsam.
 export const rorelseJamforelse = "(function(){var r=new URLSearchParams(location.search).get('rorelse');if(r==='mattlig'||r==='sparsam')document.documentElement.dataset.rorelse=r;})();";
 
-export const alla = [samtyckeStandard, idag, rorelseJamforelse];
+// Knapplistens startläge (Kontaktlist.astro). Skriptet står direkt efter listen och körs medan sidan läses in: syns förstavyns
+// eller sidtoppens egna knappar ligger listen gömd från första målningen, i stället för att glida bort när modulen körs
+// (kontroll 13f; andra varvet, Apple HIG H1). Utan JavaScript syns listen alltid.
+export const kontaktlistStart = "(function(){var l=document.currentScript.previousElementSibling;if(matchMedia('(max-height: 30rem)').matches)return;var e=document.querySelector('.forstavy__knappar, .sidtopp__knappar');if(!e)return;var r=e.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight){l.dataset.dold='true';l.inert=true;}})();";
+
+export const alla = [samtyckeStandard, idag, rorelseJamforelse, kontaktlistStart];

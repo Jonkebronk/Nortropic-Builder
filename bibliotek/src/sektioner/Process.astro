@@ -27,5 +27,19 @@ const { process } = Astro.props.innehall;
     font-family: var(--k-font-rubrik); font-weight: var(--k-rubrik-vikt); font-size: 2rem; line-height: 1; color: var(--k-text);
   }
   .process__not { margin-top: var(--k-a5); max-width: var(--k-matt); }
+  /* I mobilen en tunn tidslinje i stället för tre kort under varandra: siffran i en ring, en linje till nästa steg och ingen kortyta.
+     Sektionen tar då ungefär hälften så mycket höjd och skiljer sig från kortnäten runt den (premiumpasset P27; frågelistan 9;
+     Claudes rekommendation, delegerat av Johnny 2026-10-16). */
+  @media (max-width: 47.99rem) {
+    .process__steg { gap: 0; }
+    .process__steg li.kort { position: relative; display: grid; gap: var(--k-a1); background: none; border-radius: 0; padding: 0 0 var(--k-a5) 3rem; }
+    .process__steg li::before {
+      position: absolute; left: 0; top: 0; width: 2rem; height: 2rem; display: grid; place-items: center;
+      font-size: 1rem; border: 1.5px solid var(--k-text); border-radius: 50%; background: var(--k-yta);
+    }
+    .process__steg li:not(:last-child)::after { content: ''; position: absolute; left: calc(1rem - 0.75px); top: 2.25rem; bottom: 0.25rem; width: 1.5px; background: var(--k-linje); }
+    .process__steg li:last-child { padding-bottom: 0; }
+    .process__steg h3 { padding-top: 0.2rem; }
+  }
   @media (min-width: 48rem) { .process__steg { grid-template-columns: repeat(3, 1fr); } }
 </style>

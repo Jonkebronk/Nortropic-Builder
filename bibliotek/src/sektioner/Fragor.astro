@@ -32,5 +32,8 @@ const { rubrik, fragor, id = 'fragor' } = Astro.props;
   .fragor__post summary::-webkit-details-marker { display: none; }
   .fragor__post summary :global(svg) { width: var(--k-ikon-text); height: var(--k-ikon-text); flex: none; transition: transform var(--k-tid) var(--k-kurva); }
   .fragor__post[open] summary :global(svg) { transform: rotate(180deg); }
+  /* Frågan visar att den går att öppna: understrykning vid hover med mus, och tryckkvittens i kortets form (kontroll 8o; bas.css). */
+  @media (hover: hover) and (pointer: fine) { .fragor__post summary:hover span { text-decoration: underline; text-underline-offset: 0.18em; } }
+  .fragor__post summary:active { border-radius: var(--k-radie-kort); }
   .fragor__post p { padding: 0 var(--k-a5) var(--k-a4); max-width: calc(var(--k-matt) + 2 * var(--k-a5)); }
 </style>

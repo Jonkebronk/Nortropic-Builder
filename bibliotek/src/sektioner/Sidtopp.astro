@@ -6,17 +6,20 @@
 // något viktigare, som ett porträtt. En rad med href blir en länk, t.ex. telefon eller e-post.
 import Knapp from '../komponenter/Knapp.astro';
 import Uppmaning from '../komponenter/Uppmaning.astro';
+import Bildruta from '../komponenter/Bildruta.astro';
 import type { IkonNamn } from '../komponenter/Ikon.astro';
-import type { Lank } from '../innehall/typ';
+import type { Lank, Bild } from '../innehall/typ';
 export interface Faktakort { rubrik: string; rader: { etikett: string; text: string; href?: string }[]; lank?: Lank; }
 // boka är den primära knappen och ring den sekundära; ikonerna kan bytas, t.ex. ring och mejla på en företagssida.
 // not: en kort rad under knapparna, t.ex. vad man väljer i bokningen.
-interface Props { overrad?: string; rubrik: string; ingress: string; boka?: Lank; ring?: Lank; not?: string; lank?: Lank; primarIkon?: IkonNamn; sekundarIkon?: IkonNamn; faktakort?: Faktakort; faktakortMobil?: boolean; }
-const { overrad, rubrik, ingress, boka, ring, not, lank, primarIkon = 'kalender', sekundarIkon = 'telefon', faktakort, faktakortMobil = true } = Astro.props;
+// portratt: ett runt porträtt överst, så att en sida om en person visar personen i första vyn (premiumpasset P24).
+interface Props { portratt?: Bild; overrad?: string; rubrik: string; ingress: string; boka?: Lank; ring?: Lank; not?: string; lank?: Lank; primarIkon?: IkonNamn; sekundarIkon?: IkonNamn; faktakort?: Faktakort; faktakortMobil?: boolean; }
+const { portratt, overrad, rubrik, ingress, boka, ring, not, lank, primarIkon = 'kalender', sekundarIkon = 'telefon', faktakort, faktakortMobil = true } = Astro.props;
 ---
 <section class="sidtopp">
   <div class="behallare sidtopp__rutnat">
     <div class="sidtopp__text">
+      {portratt && <div class="sidtopp__portratt"><Bildruta bild={portratt} bredd={112} laddning="eager" prioritet /></div>}
       {overrad && <p class="overrad">{overrad}</p>}
       <h1>{rubrik}</h1>
       <p class="sidtopp__ingress">{ingress}</p>
@@ -43,8 +46,12 @@ const { overrad, rubrik, ingress, boka, ring, not, lank, primarIkon = 'kalender'
   .sidtopp { padding-block: var(--k-a6) var(--k-a6); }
   .sidtopp__rutnat { display: grid; gap: var(--k-a6); align-items: start; }
   .sidtopp__text { display: grid; gap: var(--k-a4); }
-  .sidtopp h1 { font-size: clamp(2rem, 1.5rem + 2.4vw, 3.25rem); max-width: 22ch; }
+  /* Samma tak vid stor text som i bas.css: rubriken stannar vid en andel av bredden men är alltid större än brödtexten. */
+  .sidtopp h1 { font-size: max(1.3em, min(clamp(2rem, 1.5rem + 2.4vw, 3.25rem), 12vw)); max-width: 22ch; }
   .sidtopp__ingress { font-size: 1.125rem; max-width: var(--k-matt-ingress); }
+  .sidtopp__portratt { width: 4.5rem; aspect-ratio: 1; border-radius: 50%; overflow: hidden; background: var(--k-dekor); }
+  .sidtopp__portratt :global(img) { width: 100%; height: 100%; object-fit: cover; object-position: 50% 12%; }
+  @media (min-width: 56rem) { .sidtopp__portratt { width: 7rem; } }
   .sidtopp__knappar { display: flex; flex-wrap: wrap; gap: var(--k-a3); margin-top: var(--k-a2); }
   .sidtopp__not { font-size: var(--k-mindre); }
   .sidtopp__fakta--bara-dator { display: none; }

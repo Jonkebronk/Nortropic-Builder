@@ -11,6 +11,7 @@
 // Medan samtyckesrutan är öppen göms listen, utom när rutan täcker förstavyns knappar på en liten skärm. Då ligger listen
 // under rutan, så att Boka och Ring alltid går att nå (kvalitetsgranskningen 2026-10-16, U1).
 import Knapp from '../komponenter/Knapp.astro';
+import { kontaktlistStart } from '../komponenter/inlineskript.mjs';
 import type { IkonNamn } from '../komponenter/Ikon.astro';
 import type { StartInnehall } from '../innehall/typ';
 export interface Knappval { href: string; text: string; ikon?: IkonNamn; etikett?: string; }
@@ -24,6 +25,7 @@ const sekundar = Astro.props.sekundar ?? { href: ring.href, text: ring.kort ?? r
   <Knapp href={primar.href} text={primar.text} ikon={primar.ikon} etikett={primar.etikett} />
   <Knapp href={sekundar.href} text={sekundar.text} variant="sekundar" ikon={sekundar.ikon} etikett={sekundar.etikett} />
 </nav>
+<script is:inline set:html={kontaktlistStart} />
 
 <script>
   const list = document.querySelector<HTMLElement>('[data-kontaktlist]');
@@ -31,7 +33,9 @@ const sekundar = Astro.props.sekundar ?? { href: ring.href, text: ring.kort ?? r
   const meny = document.getElementById('meny');
   if (list) {
     const ruta = document.querySelector<HTMLElement>('[data-samtycke-ruta]');
-    let egnaSyns = false, menyOppen = false, samtyckeOppen = !!ruta && !ruta.hidden;
+    // Startläget räknas direkt, som i det inbäddade skriptet, så att listen inte visas och göms igen innan observatören svarat.
+    const iBild = (e: Element) => { const r = e.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; };
+    let egnaSyns = [...egna].some(iBild), menyOppen = false, samtyckeOppen = !!ruta && !ruta.hidden;
     const lag = matchMedia('(max-height: 30rem)'), smal = matchMedia('(max-width: 63.99rem)');
     // Syns förstavyns eller sidtoppens knappar helt ovanför samtyckesrutan?
     const egnaOvanRutan = () => {
@@ -70,7 +74,7 @@ const sekundar = Astro.props.sekundar ?? { href: ring.href, text: ring.kort ?? r
   .kontaktlist {
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 45;
     display: grid; grid-template-columns: 1.6fr 1fr; gap: var(--k-a2);
-    padding: var(--k-a2) var(--k-a4) calc(var(--k-a2) + env(safe-area-inset-bottom));
+    padding: var(--k-a2) max(var(--k-a4), env(safe-area-inset-right)) calc(var(--k-a2) + env(safe-area-inset-bottom)) max(var(--k-a4), env(safe-area-inset-left));
     background: var(--k-yta); border-top: 1px solid var(--k-linje); box-shadow: 0 -4px 16px rgb(0 0 0 / 0.06);
     transition: transform 260ms var(--k-kurva), opacity 260ms var(--k-kurva);
   }

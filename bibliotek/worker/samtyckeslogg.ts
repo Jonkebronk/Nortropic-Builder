@@ -40,6 +40,9 @@ async function lasKropp(req: Request): Promise<string | null> {
 }
 
 async function samtycke(req: Request, env: Env, url: URL): Promise<Response> {
+  // Fetch Metadata först: ett anrop som webbläsaren märker som från en annan sajt avvisas innan något annat prövas
+  // (W3C Fetch Metadata Request Headers; OWASP CSRF Prevention Cheat Sheet; guide/2-8, Formulär, mönster 0; kontroll 10f).
+  if (req.headers.get('sec-fetch-site') === 'cross-site') return svar(403, 'Från en annan sajt');
   if (req.method !== 'POST') return svar(405, 'Metoden stöds inte', { allow: 'POST' });
   // Webbläsare skickar Origin vid POST (MDN Origin). Strängen jämförs direkt: 'null' och ogiltiga värden blir 403, inte ett fel.
   if (req.headers.get('origin') !== url.origin) return svar(403, 'Fel ursprung');

@@ -33,7 +33,7 @@ Den första sajten byggs interaktivt i huvudsessionen medan Johnny tittar, i sex
 - [N1] **`intervju`** kör `5-byggplan.md`, steg 1: de åtta kärnfrågorna med verksamheten, briefen med sex rubriker och `fakta.md`.
 - [N1] **`riktningar`** kör steg 2: tre minimala stilkit och startsidan i vart och ett. Johnny stryker, kunden väljer.
 - [N1] **`bygg`** kör steg 3: hela sajten i det valda kitet. Johnny dömer direkt, utan granskare.
-- [N1] **`granska`** kör steg 4: en delagent med ren kontext och en checklista. Johnny jämför fynden med sin egen dom.
+- [N1] **`granskare`** (utkastet hette `granska`) kör steg 4: agentdefinitionen `.claude/agents/granskare.md` med ren kontext och en checklista (frågelistan 39). Johnny jämför fynden med sin egen dom.
 
 Steg 5 (publicering) och steg 6 (den första rapporten) görs för hand (*Inte skills i första varvet* nedan). Utkasten blir fullständiga skills enligt Skillify (*Så skapas en skill*).
 

@@ -28,7 +28,8 @@ export interface StartInnehall {
   // form och orgnr: organisationsnumret visas i sidfoten för bolag men inte för en enskild firma, där det är ägarens personnummer (BESLUT.md 2026-10-16).
   // favikon 48 px och favikonStor 96 px (Google Search Central, Favicon in Search: en multipel av 48 px); delningsbildText är bildens alt-text vid delning.
   // temafarg: webbläsarlistens färg på mobilen, samma som kitets --k-bg (HTML, meta name="theme-color"; premiumpasset P15).
-  foretag: { namn: string; form?: 'bolag' | 'enskild'; orgnr?: string; logotyp?: Bild; favikon?: string; favikonStor?: string; hemskarmsikon?: string; delningsbild?: string; delningsbildText?: string; temafarg?: string };
+  // manifest: webbmanifestet med namn och ikoner för hemskärmen (W3C Web App Manifest; frågelistan 25); hemskarmsnamn: kort namn under ikonen.
+  foretag: { namn: string; form?: 'bolag' | 'enskild'; orgnr?: string; logotyp?: Bild; favikon?: string; favikonStor?: string; hemskarmsikon?: string; delningsbild?: string; delningsbildText?: string; temafarg?: string; manifest?: string; hemskarmsnamn?: string };
   boka: Lank & { kort?: string }; // kort: texten i sidhuvudet
   ring: Lank & { nummer: string; kort?: string }; // kort: texten i knapplisten
   // Mobilen: 'uppe' = kontaktvägen fast i sidhuvudet; 'nere' = smalt sidhuvud och knapplist i tumzonen.

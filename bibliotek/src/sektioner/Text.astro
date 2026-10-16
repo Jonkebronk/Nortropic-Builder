@@ -1,6 +1,7 @@
 ---
 // En textsektion: rubrik, några korta stycken, ett citat, en punktlista, länkar och en not. Varje del är valfri utom rubriken.
 // yta: vit bakgrund i stället för sidans. Sektionen är ingen landmärkesregion; den hittas genom sin rubrik (Johnny 2026-10-16, C9).
+import Uppmaning from '../komponenter/Uppmaning.astro';
 import type { Lank } from '../innehall/typ';
 interface Props { id?: string; rubrik: string; stycken?: string[]; citat?: string; punkter?: string[]; lankar?: Lank[]; not?: string; yta?: boolean; }
 const { id, rubrik, stycken = [], citat, punkter = [], lankar = [], not, yta = false } = Astro.props;
@@ -11,7 +12,7 @@ const { id, rubrik, stycken = [], citat, punkter = [], lankar = [], not, yta = f
     {stycken.map((s) => <p>{s}</p>)}
     {citat && <blockquote class="citat"><p>{citat}</p></blockquote>}
     {punkter.length > 0 && <ul class="text__punkter">{punkter.map((p) => <li>{p}</li>)}</ul>}
-    {lankar.length > 0 && <ul class="text__lankar">{lankar.map((l) => <li><a href={l.href}>{l.text}</a></li>)}</ul>}
+    {lankar.length > 0 && <ul class="text__lankar">{lankar.map((l) => <li><Uppmaning href={l.href} text={l.text} /></li>)}</ul>}
     {not && <p class="dampad text__not">{not}</p>}
   </div>
 </section>
@@ -25,7 +26,7 @@ const { id, rubrik, stycken = [], citat, punkter = [], lankar = [], not, yta = f
   .text__inre > h2 { max-width: 46rem; }
   .text__punkter { margin: 0; padding-left: 1.25rem; display: grid; gap: var(--k-a2); }
   .text__not { font-size: var(--k-mindre); }
-  .text__lankar { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--k-a2); }
-  /* inline-block och inte inline-flex: ett långt ord som Integritetsskyddsmyndigheten ska kunna brytas vid 200 % textstorlek. */
-  .text__lankar a { display: inline-block; max-width: 100%; min-height: 24px; padding-block: 1px; }
+  /* Länklistan är fristående länkar och har samma utförande som andra uppmaningar, fet och med pil (Uppmaning.astro;
+     andra varvet, flödet F7: tre länkstilar). Uppmaningen är inline-block, så ett långt ord kan brytas vid 200 % text. */
+  .text__lankar { margin: 0; padding: 0; list-style: none; display: grid; gap: 0; }
 </style>

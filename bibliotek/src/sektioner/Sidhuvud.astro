@@ -22,7 +22,7 @@ const aktuell = (l: Lank) => (l.href === sida ? 'page' : l.delar?.includes(sida)
 ---
 <header class="sidhuvud" data-sidhuvud data-lista={mobilLista}>
   <div class="behallare sidhuvud__rad">
-    <a class="sidhuvud__namn" href="/">
+    <a class="sidhuvud__namn" href="/" aria-current={sida === '/' ? 'page' : undefined}>
       {foretag.logotyp && <span class="sidhuvud__logo"><Bildruta bild={foretag.logotyp} bredd={40} laddning="eager" /></span>}
       <span>{foretag.namn}</span>
     </a>
@@ -103,14 +103,17 @@ const aktuell = (l: Lank) => (l.href === sida ? 'page' : l.delar?.includes(sida)
     font-size: clamp(0.95rem, 0.8rem + 0.8vw, 1.2rem); color: var(--k-text); text-decoration: none; margin-right: auto;
     overflow-wrap: anywhere; line-height: 1.2;
   }
-  .sidhuvud__logo { flex: none; display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 8px; background: var(--k-mork); padding: 5px; }
+  /* Logorutan behåller sina färger i forced colors; annars blir märket vitt på vitt (mcp-prov, Chrome DevTools forcedColors). */
+  .sidhuvud__logo { forced-color-adjust: none; flex: none; display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 8px; background: var(--k-mork); padding: 5px; }
   .sidhuvud__logo :global(img) { width: 100%; height: auto; }
+  /* Vid stor text i en smal vy avstavas namnet med bindestreck i stället för att delas var som helst (bas.css, rubrikerna). */
+  @media (max-width: 22em) { .sidhuvud__namn { hyphens: auto; overflow-wrap: break-word; } }
   .sidhuvud__nav { display: none; }
   .sidhuvud__nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: var(--k-a5); }
   .sidhuvud__nav a { color: var(--k-text); text-decoration: none; font-weight: 400; }
   .sidhuvud__nav a[aria-current] { text-decoration: underline; text-underline-offset: 0.3em; }
   @media (hover: hover) and (pointer: fine) {
-    .sidhuvud__nav a:hover, .sidhuvud__ring:hover .sidhuvud__ringtext { text-decoration: underline; text-underline-offset: 0.3em; }
+    .sidhuvud__nav a:hover, .sidhuvud__ring:hover .sidhuvud__ringtext, .sidhuvud__namn:hover > span:last-child { text-decoration: underline; text-underline-offset: 0.3em; }
   }
   .sidhuvud__kontakt { display: flex; align-items: center; gap: var(--k-a1); flex: none; }
   .sidhuvud__ring {
@@ -136,11 +139,14 @@ const aktuell = (l: Lank) => (l.href === sida ? 'page' : l.delar?.includes(sida)
     padding: var(--k-a4) var(--k-a5) calc(var(--k-a5) + env(safe-area-inset-bottom));
     border: 0; border-left: 1px solid var(--k-linje); background: var(--k-yta); color: var(--k-text);
     overflow-y: auto; overscroll-behavior: contain;
-    transform: translateX(100%); transition: transform 210ms var(--k-kurva), display 210ms allow-discrete, overlay 210ms allow-discrete;
+    transform: translateX(100%);
+    /* Först utan allow-discrete, så att övergången finns kvar där värdet inte förstås (modern-html-css.md, Regler). */
+    transition: transform 210ms var(--k-kurva);
+    transition: transform 210ms var(--k-kurva), display 210ms var(--k-kurva) allow-discrete, overlay 210ms var(--k-kurva) allow-discrete;
   }
   .meny:popover-open { display: flex; flex-direction: column; gap: var(--k-a5); transform: none; transition-duration: 300ms; }
   @starting-style { .meny:popover-open { transform: translateX(100%); } }
-  .meny::backdrop { background: rgb(0 0 0 / 0.35); opacity: 0; transition: opacity 210ms linear, display 210ms allow-discrete, overlay 210ms allow-discrete; }
+  .meny::backdrop { background: rgb(0 0 0 / 0.35); opacity: 0; transition: opacity 210ms linear; transition: opacity 210ms linear, display 210ms linear allow-discrete, overlay 210ms linear allow-discrete; }
   .meny:popover-open::backdrop { opacity: 1; transition-duration: 300ms; }
   @starting-style { .meny:popover-open::backdrop { opacity: 0; } }
   .meny__topp { display: flex; align-items: center; justify-content: space-between; gap: var(--k-a3); border-bottom: 1px solid var(--k-linje); padding-bottom: var(--k-a3); }
@@ -171,7 +177,7 @@ const aktuell = (l: Lank) => (l.href === sida ? 'page' : l.delar?.includes(sida)
   @media (prefers-reduced-motion: reduce) {
     .sidhuvud { transition: none; }
     .meny, .meny:popover-open { transform: none; }
-    .meny { opacity: 0; transition: opacity 150ms linear, display 150ms allow-discrete, overlay 150ms allow-discrete; }
+    .meny { opacity: 0; transition: opacity 150ms linear; transition: opacity 150ms linear, display 150ms linear allow-discrete, overlay 150ms linear allow-discrete; }
     .meny:popover-open { opacity: 1; transition-duration: 150ms; }
     @starting-style { .meny:popover-open { opacity: 0; } }
   }
