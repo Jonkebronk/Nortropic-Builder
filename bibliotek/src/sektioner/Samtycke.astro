@@ -1,0 +1,136 @@
+---
+// Samtyckesverktyget, bara på sajter som har statistik eller annonser med kakor (BESLUT.md 2026-10-16, Kakor och samtycke vid behov;
+// guide/2-8-teknik-och-kvalitet.md). PTS: samtycket är frivilligt, specifikt per ändamål, informerat och aktivt; det är lika lätt att neka
+// som att godkänna och lika lätt att återkalla; inget sätts före svaret. Båda huvudknapparna har därför samma utseende, rutorna är tomma
+// från början och skript som kräver samtycke ligger som <script type="text/plain" data-samtycke="…"> tills besökaren har sagt ja.
+// Valet sparas i webbläsaren så att frågan inte ställs på varje sida; att spara själva valet räknas som nödvändigt (⚖️ tolkning).
+// Rutan är inte modal: sajten går att använda innan besökaren svarar, och inget laddas under tiden.
+import type { StartInnehall } from '../innehall/typ';
+interface Props { innehall: StartInnehall; }
+const s = Astro.props.innehall.samtycke;
+---
+{s && (
+  <section class="samtycke" data-samtycke-ruta data-version={s.version} hidden aria-labelledby="samtycke-rubrik">
+    <div class="samtycke__inre">
+      <h2 id="samtycke-rubrik" class="samtycke__rubrik">{s.rubrik}</h2>
+      <p class="samtycke__text">{s.text}{s.lank && <> <a href={s.lank.href}>{s.lank.text}</a></>}</p>
+      <fieldset class="samtycke__val" id="samtycke-val" hidden>
+        <legend class="sr-only">{s.valj}</legend>
+        {s.kategorier.map((k) => (
+          <label class="samtycke__kategori">
+            <input type="checkbox" name={k.id} />
+            <span><strong>{k.namn}.</strong> {k.text}</span>
+          </label>
+        ))}
+      </fieldset>
+      <div class="samtycke__knappar">
+        <button type="button" class="knapp knapp--sekundar" data-samtycke-svar="ja">{s.godkann}</button>
+        <button type="button" class="knapp knapp--sekundar" data-samtycke-svar="nej">{s.neka}</button>
+        <button type="button" class="knapp knapp--sekundar" data-samtycke-svar="spara" hidden>{s.spara}</button>
+        <button type="button" class="samtycke__valj" data-samtycke-visa-val data-valj={s.valj} data-dolj={s.dolj} aria-expanded="false" aria-controls="samtycke-val">{s.valj}</button>
+      </div>
+    </div>
+  </section>
+)}
+
+<script>
+  const ruta = document.querySelector<HTMLElement>('[data-samtycke-ruta]');
+  if (ruta) {
+    const NYCKEL = 'samtycke';
+    const version = Number(ruta.dataset.version || 1);
+    const rutor = [...ruta.querySelectorAll<HTMLInputElement>('#samtycke-val input')];
+    const kategorier = rutor.map((r) => r.name);
+    const valFalt = ruta.querySelector<HTMLElement>('#samtycke-val')!;
+    const sparaKnapp = ruta.querySelector<HTMLElement>('[data-samtycke-svar="spara"]')!;
+    const valjKnapp = ruta.querySelector<HTMLElement>('[data-samtycke-visa-val]')!;
+    let oppnadFran: HTMLElement | null = null;
+
+    type Val = Record<string, boolean>;
+    const las = (): Val | null => {
+      try { const v = JSON.parse(localStorage.getItem(NYCKEL) || 'null'); return v && v.version === version ? v : null; } catch { return null; }
+    };
+    const spara = (val: Val) => {
+      try { localStorage.setItem(NYCKEL, JSON.stringify({ ...val, version, tid: new Date().toISOString() })); } catch { /* utan lagring frågar rutan igen nästa gång */ }
+    };
+    // Skripten för en godkänd kategori byts mot riktiga skript. Det som inte är godkänt laddas aldrig.
+    const aktivera = (val: Val) => {
+      for (const k of kategorier) {
+        if (!val[k]) continue;
+        document.documentElement.dataset[`samtycke${k[0].toUpperCase()}${k.slice(1)}`] = 'ja';
+        document.querySelectorAll<HTMLScriptElement>(`script[type="text/plain"][data-samtycke="${k}"]`).forEach((vilande) => {
+          const skript = document.createElement('script');
+          if (vilande.dataset.src) { skript.src = vilande.dataset.src; skript.async = true; }
+          skript.text = vilande.text;
+          vilande.replaceWith(skript);
+        });
+      }
+      document.dispatchEvent(new CustomEvent('samtycke', { detail: val }));
+    };
+    // Vid återkallelse tas sajtens egna kakor bort och sidan laddas om, så att inget som redan körts fortsätter.
+    const rensaKakor = () => {
+      const doman = location.hostname.replace(/^www\./, '');
+      for (const del of document.cookie.split(';')) {
+        const namn = del.split('=')[0].trim();
+        if (!namn) continue;
+        for (const d of ['', `; domain=${doman}`, `; domain=.${doman}`]) document.cookie = `${namn}=; Max-Age=0; path=/${d}`;
+      }
+    };
+    const visaVal = (visa: boolean) => {
+      valFalt.hidden = !visa; sparaKnapp.hidden = !visa;
+      valjKnapp.setAttribute('aria-expanded', String(visa));
+      valjKnapp.textContent = (visa ? valjKnapp.dataset.dolj : valjKnapp.dataset.valj) ?? '';
+    };
+    const visa = (oppen: boolean) => {
+      ruta.hidden = !oppen;
+      document.dispatchEvent(new CustomEvent('samtyckeruta', { detail: oppen }));
+    };
+
+    const tidigare = las();
+    if (tidigare) aktivera(tidigare); else visa(true);
+
+    ruta.addEventListener('click', (e) => {
+      const knapp = (e.target as HTMLElement).closest('button');
+      if (!knapp) return;
+      if (knapp === valjKnapp) { visaVal(valFalt.hidden); if (!valFalt.hidden) rutor[0]?.focus(); return; }
+      const svar = knapp.dataset.samtyckeSvar;
+      if (!svar) return;
+      const val: Val = Object.fromEntries(rutor.map((r) => [r.name, svar === 'ja' ? true : svar === 'nej' ? false : r.checked]));
+      const fore = las();
+      spara(val); visa(false); visaVal(false);
+      oppnadFran?.focus(); oppnadFran = null;
+      if (fore && kategorier.some((k) => fore[k] && !val[k])) { rensaKakor(); location.reload(); return; }
+      aktivera(val);
+    });
+
+    // Kakinställningar i sidfoten öppnar rutan igen med de val som gäller, så att det är lika lätt att ändra sig.
+    document.querySelectorAll<HTMLElement>('[data-samtycke-installningar]').forEach((b) => b.addEventListener('click', () => {
+      const v = las();
+      for (const r of rutor) r.checked = !!v?.[r.name];
+      oppnadFran = b; visaVal(true); visa(true);
+      ruta.querySelector<HTMLElement>('button')?.focus();
+    }));
+  }
+</script>
+
+<style>
+  .samtycke {
+    position: fixed; z-index: 60; left: var(--k-a3); right: var(--k-a3); bottom: calc(var(--k-a3) + env(safe-area-inset-bottom));
+    max-width: 34rem; margin-inline: auto;
+    background: var(--k-bg); color: var(--k-text); border: 1px solid var(--k-linje); border-radius: var(--k-radie-kort);
+    box-shadow: 0 8px 32px rgb(0 0 0 / 0.16); padding: var(--k-a3) var(--k-a4) var(--k-a2);
+    max-height: calc(100dvh - 2 * var(--k-a3)); overflow-y: auto;
+  }
+  .samtycke[hidden] { display: none; }
+  .samtycke__inre { display: grid; gap: var(--k-a2); }
+  .samtycke__rubrik { font-family: var(--k-font-brod); font-size: 1rem; font-weight: 600; }
+  .samtycke__text { font-size: 0.9rem; line-height: 1.5; }
+  .samtycke__val { border: 0; margin: 0; padding: 0; display: grid; gap: var(--k-a3); }
+  .samtycke__val[hidden] { display: none; }
+  .samtycke__kategori { display: grid; grid-template-columns: auto 1fr; gap: var(--k-a2); align-items: start; font-size: 0.9rem; line-height: 1.45; }
+  .samtycke__kategori input { width: 1.4rem; height: 1.4rem; margin: 0.1rem 0 0; accent-color: var(--k-accent); }
+  .samtycke__knappar { display: grid; grid-template-columns: 1fr 1fr; gap: var(--k-a2); }
+  .samtycke__knappar :global(.knapp) { padding-inline: 0.75rem; min-height: 44px; padding-block: 0.5rem; }
+  .samtycke__knappar [data-samtycke-svar="spara"] { grid-column: 1 / -1; }
+  .samtycke__knappar [hidden] { display: none; }
+  .samtycke__valj { grid-column: 1 / -1; justify-self: center; background: none; border: 0; padding: 0.25rem 0.5rem; min-height: 44px; font-size: 0.9rem; font: inherit; font-weight: 600; color: var(--k-text); text-decoration: underline; cursor: pointer; }
+</style>

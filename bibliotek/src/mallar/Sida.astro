@@ -6,6 +6,7 @@ import '../styles/rorelse.css';
 import Sidhuvud from '../sektioner/Sidhuvud.astro';
 import Sidfot from '../sektioner/Sidfot.astro';
 import Kontaktlist, { type Knappval } from '../sektioner/Kontaktlist.astro';
+import Samtycke from '../sektioner/Samtycke.astro';
 import type { StartInnehall } from '../innehall/typ';
 
 // strukturerad: JSON-LD för sökmotorer, t.ex. en klinik per mottagning (Google Search Central, LocalBusiness).
@@ -41,12 +42,14 @@ const delning = Astro.site && innehall.foretag.delningsbild ? new URL(innehall.f
   </head>
   <body data-ny-flik-text={innehall.nyFlikText}>
     <a class="hoppa" href="#innehall">Hoppa till innehållet</a>
+    <Samtycke innehall={innehall} />
     <Sidhuvud innehall={innehall} />
     <main id="innehall">
       <slot />
     </main>
     <Sidfot innehall={innehall} />
     {(innehall.mobilLista ?? 'nere') === 'nere' && <Kontaktlist innehall={innehall} {...lista} />}
+    {innehall.samtycke && innehall.taggar?.map((t) => <script is:inline type="text/plain" data-samtycke={t.kategori} data-src={t.src} set:html={t.kod ?? ''} />)}
     <script>
       // På iPhone och iPad går kartlänkar med data-apple till Apple Kartor; annars till Google Maps.
       // En iPad med skrivbordsläge säger Macintosh men har pekskärm.

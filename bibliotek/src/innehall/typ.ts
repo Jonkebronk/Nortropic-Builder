@@ -8,6 +8,11 @@ export interface Bild { src: ImageMetadata | string; alt: string; width?: number
 
 export interface StartInnehall {
   forst?: 'praktiskt' | 'tjanster'; // sektionen efter första vyn; branschen avgör (guide/2-4-skelett.md), standard 'praktiskt'
+  // Samtyckesverktyget, bara när sajten har statistik eller annonser med kakor (BESLUT.md 2026-10-16, Kakor och samtycke vid behov).
+  samtycke?: { version: number; rubrik: string; text: string; lank?: Lank; godkann: string; neka: string; valj: string; dolj: string; spara: string; installningar: string;
+    kategorier: { id: 'statistik' | 'marknadsforing'; namn: string; text: string }[] };
+  // Skript som kräver samtycke, till exempel Google Analytics eller Meta-pixeln. De laddas först när besökaren har sagt ja till kategorin.
+  taggar?: { kategori: 'statistik' | 'marknadsforing'; src?: string; kod?: string }[];
   nyFlikText?: string; // för skärmläsare när en länk öppnas i ny flik på datorn, t.ex. "(öppnas i ny flik)"
   titel: string;
   beskrivning: string;

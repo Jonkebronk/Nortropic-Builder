@@ -114,3 +114,30 @@ Jag läste startsidorna på sex sajter ur måttstocken, varav fyra kliniker, en 
   - värdens serverbaserade statistik
 
   Det räcker för en liten firma som inte annonserar.
+
+## Tillägg 2026-10-16: samtyckesverktyg, vårt eget mot andras
+
+Johnny frågade om vårt eget verktyg är bäst enligt bästa praxis: *"måste ju finnas minimalistiska snygga smidiga"*.
+
+| Verktyg | Storlek, gzip | Licens och underhåll | Consent Mode v2 | Kommentar |
+|---|---|---|---|---|
+| **Vårt** (`bibliotek/src/sektioner/Samtycke.astro`) | cirka 1,7 kB (skript 1,2 kB, stil 0,5 kB), mätt i bygget | eget | inte inbyggt. Taggarna laddas först efter ett ja | Stilen kommer ur kitet och texterna ur innehållet. Kontroll 6c prövar det |
+| [CookieConsent v3](https://github.com/orestbida/cookieconsent) (orestbida) | cirka 15,5 kB (skript 10,2 kB, stil 5,4 kB), mätt ur npm-paketet 3.1.0 | MIT, 5,7 tusen stjärnor. Senast publicerad 2025-02-04 | med egen kod | kategorier, rensning av kakor, revisioner, översättningar och tangentbord. Förlaget säger *"Follows a11y best practices"* 📄 [dokumentationen](https://cookieconsent.orestbida.com/) |
+| [Silktide Consent Manager](https://silktide.com/consent-manager/) | 53 kB skript och 11 kB stil, okomprimerat, enligt leverantören | öppen källkod. Licensen anges inte på sidan ⚠️ | inbyggt enligt leverantören | gratis, med en guide för färger och text |
+| Kommersiella, som Cookiebot, CookieYes och Usercentrics | skript från tredje part | betalda | ja, och de är certifierade av Google | Skannar kakor, för logg över samtycken och har stöd för TCF. En certifierad CMP med TCF krävs för *utgivare* som visar Googles annonser (📄 [Google, AdSense](https://support.google.com/adsense/answer/13554020)). Våra kunder är *annonsörer*, och för dem är kravet enligt andrahandskällor Consent Mode, inte en certifierad CMP ⚠️ |
+
+**Vad regler och praxis kräver av rutan:**
+- **PTS:** lika lätt att neka som att godkänna, samtycke per ändamål, inga förifyllda rutor, återkallelse lika lätt som samtycke och inget före svaret.
+- **CNIL**, i andrahand ([Lewis Silkin](https://www.lewissilkin.com/insights/2025/02/04/cnil-cracks-down-on-dark-patterns-in-cookie-banners-102jv0a)): neka-knappen får inte vara svagare, gömd i text eller placerad långt ifrån godkänn-knappen, och att stänga rutan är inget samtycke.
+- **Branschkällor:** rutan ska inte dölja innehållet, och valpanelen ska fungera på små skärmar.
+
+**Bedömning:**
+- Vårt verktyg uppfyller kraven ovan och är cirka 9 gånger mindre än CookieConsent v3.
+- Det följer sajtens kit.
+- Det prövas automatiskt, och 6c fäller avsiktliga fel.
+- Efter en iteration tar rutan cirka en fjärdedel av mobilens första skärm.
+
+**Det som saknas jämfört med de mogna verktygen.** Det behövs först när den första kunden annonserar:
+1. Consent Mode v2-signaler, alltså `gtag('consent', 'default'|'update', …)`, i taggarnas kod.
+2. En logg över samtycken på servern, en Worker med D1, eftersom Google kräver *"Keep records of consent"*.
+3. En lista över varje verktygs kakor på sidan *Integritet och kakor*, enligt PTS: namn, ändamål, tredjepart och lagringstid.

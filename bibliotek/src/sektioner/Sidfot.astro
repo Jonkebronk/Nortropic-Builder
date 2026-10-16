@@ -5,7 +5,7 @@ import Ikon from '../komponenter/Ikon.astro';
 import { hartPostnummer } from '../komponenter/text';
 import type { StartInnehall } from '../innehall/typ';
 interface Props { innehall: StartInnehall; }
-const { foretag, sidfot, ring } = Astro.props.innehall;
+const { foretag, sidfot, ring, samtycke } = Astro.props.innehall;
 const r = sidfot.rubriker;
 ---
 <footer class="sidfot" data-foretagsform={foretag.form ?? 'okand'}>
@@ -40,7 +40,12 @@ const r = sidfot.rubriker;
   </div>
   <div class="behallare sidfot__rad">
     {foretag.form === 'bolag' && foretag.orgnr && <p class="sidfot__uppgifter">{foretag.namn} · Organisationsnummer {foretag.orgnr}</p>}
-    {sidfot.policy && <ul class="sidfot__policy">{sidfot.policy.map((l) => <li><a href={l.href}>{l.text}</a></li>)}</ul>}
+    {(sidfot.policy || samtycke) && (
+      <ul class="sidfot__policy">
+        {sidfot.policy?.map((l) => <li><a href={l.href}>{l.text}</a></li>)}
+        {samtycke && <li><button type="button" class="sidfot__knapplank" data-samtycke-installningar>{samtycke.installningar}</button></li>}
+      </ul>
+    )}
     {sidfot.rad && <p>{sidfot.rad}</p>}
   </div>
 </footer>
@@ -57,6 +62,7 @@ const r = sidfot.rubriker;
   .sidfot__rad { margin-top: var(--k-a6); color: var(--k-dampad); font-size: 0.85rem; display: grid; gap: var(--k-a3); }
   .sidfot__policy { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--k-a2) var(--k-a5); }
   .sidfot__policy a { color: var(--k-text); display: inline-flex; min-height: 24px; align-items: center; }
+  .sidfot__knapplank { background: none; border: 0; padding: 0; min-height: 24px; font: inherit; color: var(--k-text); text-decoration: underline; cursor: pointer; }
   @media (min-width: 48rem) { .sidfot__rutnat { grid-template-columns: repeat(2, 1fr); } }
   @media (min-width: 64rem) { .sidfot__rutnat { grid-template-columns: 1.2fr 1.4fr 1fr 1fr; } }
 </style>

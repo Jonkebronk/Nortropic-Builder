@@ -24,9 +24,9 @@ const sekundar = Astro.props.sekundar ?? { href: ring.href, text: ring.kort ?? r
   const egna = document.querySelectorAll('.forstavy__knappar, .sidtopp__knappar');
   const meny = document.getElementById('meny');
   if (list) {
-    let egnaSyns = false, menyOppen = false;
+    let egnaSyns = false, menyOppen = false, samtyckeOppen = !!document.querySelector('[data-samtycke-ruta]:not([hidden])');
     const uppdatera = () => {
-      const dold = egnaSyns || menyOppen;
+      const dold = egnaSyns || menyOppen || samtyckeOppen;
       list.dataset.dold = String(dold);
       list.inert = dold;
     };
@@ -38,6 +38,8 @@ const sekundar = Astro.props.sekundar ?? { href: ring.href, text: ring.kort ?? r
       }).observe(egna[0]);
     }
     meny?.addEventListener('toggle', (e) => { menyOppen = (e as ToggleEvent).newState === 'open'; uppdatera(); });
+    // Samtyckesrutan ligger också nere, så listen göms medan den är öppen.
+    document.addEventListener('samtyckeruta', (e) => { samtyckeOppen = (e as CustomEvent<boolean>).detail; uppdatera(); });
   }
 </script>
 

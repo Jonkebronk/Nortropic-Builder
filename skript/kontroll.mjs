@@ -50,7 +50,7 @@ const lamnar = /google\.[a-z.]+\/maps|maps\.google\.|maps\.apple\.com|g\.page\/|
 const browser = await chromium.launch();
 const per = {};
 for (const sida of sidor) {
-  const url = bas + sida; const r = (per[sida] = { konsol: [], bilder: [], axe: [], reflow: false, titel: '', beskrivning: '', h1: 0, forstaTel: false, forstaBoka: false, text: '', citat: [], nyFlik: [], integritet: false, tillganglighet: false, orgnr: false, form: 'okand' });
+  const url = bas + sida; const r = (per[sida] = { konsol: [], bilder: [], axe: [], reflow: false, titel: '', beskrivning: '', h1: 0, forstaTel: false, forstaBoka: false, text: '', citat: [], nyFlik: [], integritet: false, tillganglighet: false, orgnr: false, form: 'okand', kakor: [] });
   for (const [b, h, mobil] of [[320, 700, true], [375, 812, true], [1280, 800, false]]) {
     const ctx = await browser.newContext({ viewport: { width: b, height: h }, isMobile: mobil, hasTouch: mobil, locale: 'sv-SE' });
     const page = await ctx.newPage();
@@ -76,6 +76,7 @@ for (const sida of sidor) {
         };
       });
       Object.assign(r, d); r.bilder.push(...d.trasiga);
+      r.kakor = (await ctx.cookies()).map((c) => c.name);
     }
     if (b !== 320) {
       const nyFlik = !mobil;
@@ -140,6 +141,49 @@ if (form === 'okand') k6b.push('företagsformen är okänd, så det går inte at
 else if (form === 'bolag' && sidor.some((s) => !per[s].orgnr)) k6b.push('organisationsnumret saknas, och företaget är ett bolag');
 lagg('6b', 'Integritetspolicy och organisationsnummer i sidfoten', 'Rapport', k6b.length === 0, k6b.length ? k6b.join('; ') : `${sidor.length} sidor`);
 
+// 6c. Kakor och samtycke (9 kap. 28 § LEK; PTS; BESLUT.md 2026-10-16). Inga kakor sätts vid ett besök utan svar, på någon sida.
+// Har sajten en samtyckesruta prövas den på startsidan: inget körs före svaret, Godkänn och Neka ser likadana ut, ett nej håller
+// efter omladdning, Kakinställningar öppnar valen igen och ett ja aktiverar skripten.
+const k6c = [];
+const medKakor = sidor.filter((s) => per[s].kakor.length);
+if (medKakor.length) k6c.push(`kakor utan svar på ${medKakor.map((s) => `${s} (${per[s].kakor.join(', ')})`).join(', ')}`);
+let harRuta = false;
+{
+  const b6 = await chromium.launch();
+  const ctx = await b6.newContext({ viewport: { width: 375, height: 812 }, isMobile: true, hasTouch: true, locale: 'sv-SE' });
+  const p = await ctx.newPage();
+  await p.goto(bas + '/', { waitUntil: 'networkidle' });
+  const korda = () => p.evaluate(() => Object.keys(document.documentElement.dataset).filter((k) => /^(samtycke|provtagg)[A-Z]/.test(k)));
+  const kakor = async () => (await ctx.cookies()).map((c) => c.name);
+  harRuta = (await p.locator('[data-samtycke-ruta]').count()) > 0;
+  const vilande = await p.locator('script[type="text/plain"][data-samtycke]').count();
+  if (!harRuta && vilande) k6c.push('skript som kräver samtycke finns, men ingen samtyckesruta');
+  if (harRuta) {
+    if (!(await p.locator('[data-samtycke-ruta]').isVisible())) k6c.push('rutan visas inte vid första besöket');
+    if ((await korda()).length) k6c.push('skript körda före svaret');
+    const utseende = (v) => p.locator(`[data-samtycke-svar="${v}"]`).evaluate((e) => {
+      const s = getComputedStyle(e), r = e.getBoundingClientRect();
+      return [Math.round(r.width), Math.round(r.height), s.backgroundColor, s.color, s.borderColor, s.fontSize, s.fontWeight].join(' ');
+    });
+    const [ja, nej] = [await utseende('ja'), await utseende('nej')];
+    if (ja !== nej) k6c.push(`Godkänn och Neka ser olika ut (${ja} mot ${nej})`);
+    await p.locator('[data-samtycke-svar="nej"]').click();
+    await p.reload({ waitUntil: 'networkidle' });
+    if (await p.locator('[data-samtycke-ruta]').isVisible()) k6c.push('rutan visas igen efter nej');
+    if ((await korda()).length) k6c.push('skript körda efter nej');
+    if ((await kakor()).length) k6c.push(`kakor efter nej: ${(await kakor()).join(', ')}`);
+    const installningar = p.locator('[data-samtycke-installningar]');
+    if (!(await installningar.count())) k6c.push('knappen Kakinställningar saknas');
+    else {
+      await installningar.first().click();
+      if (!(await p.locator('[data-samtycke-ruta]').isVisible())) k6c.push('Kakinställningar öppnar inte rutan');
+      else { await p.locator('[data-samtycke-svar="ja"]').click(); await p.waitForTimeout(300); if (!(await korda()).length) k6c.push('skripten körs inte efter ja'); }
+    }
+  }
+  await b6.close();
+}
+lagg('6c', 'Inga kakor utan samtycke' + (harRuta ? '; samtyckesrutan följer PTS' : ''), 'Stopp', k6c.length === 0, k6c.length ? k6c.join('; ') : harRuta ? `inga kakor på ${sidor.length} sidor; inget före svaret, lika knappar, nej håller, ja aktiverar` : `inga kakor på ${sidor.length} sidor`);
+
 // 7. Titel, beskrivning, sitemap och h1
 const titlar = sidor.map((s) => per[s].titel), besk = sidor.map((s) => per[s].beskrivning);
 const unika = (a) => a.every((x) => x) && new Set(a).size === a.length;
@@ -161,6 +205,9 @@ lagg('7c', 'robots.txt släpper in sökrobotarna', 'Rapport', k7c.length === 0, 
 const k8 = sidor.flatMap((s) => per[s].axe.map((v) => `${s} ${v}`));
 lagg(8, 'axe WCAG 2.2 A/AA: 0 fel', 'Stopp', k8.length === 0, k8.length ? k8.slice(0, 8).join(' | ') : `0 fel på ${sidor.length} sidor i 375 och 1280 px`);
 
+// SNABB=1 hoppar över Lighthouse vid snabba prov under arbetet; den riktiga körningen görs utan.
+if (process.env.SNABB) lagg(9, 'Lighthouse', 'Rapport', null, 'hoppades över (SNABB=1)');
+else {
 // 9. Lighthouse: 100 i alla fyra kategorier, i mobil och dator (Johnny 2026-10-16). En första körning värmer upp Chrome och
 // räknas inte, eftersom den första sidan efter start kan få lägre prestanda. Varje sida mäts sedan tre gånger, och medianen
 // räknas, eftersom en enskild körning varierar (Lighthouse, docs/variability.md: medianen av fem är dubbelt så stabil som en).
@@ -178,6 +225,7 @@ for (const s of sidor) for (const [namn, conf] of [['mobil', undefined], ['dator
 await chrome.kill();
 const k9 = lh.filter((x) => x.prestanda < 100 || x.tillganglighet < 100 || x.praxis < 100 || x.seo < 100);
 lagg(9, 'Lighthouse 100 i prestanda, tillgänglighet, praxis och SEO (median av tre)', 'Rapport', k9.length === 0, k9.length ? 'under 100: ' + k9.map((x) => `${x.sida} ${x.namn} (${x.prestanda}/${x.tillganglighet}/${x.praxis}/${x.seo})`).join(', ') : `${lh.length} mätningar, alla 100`);
+}
 
 // 10. Hemligheter i repot och i bygget
 const monster = [/AKIA[0-9A-Z]{16}/, /sk-(?:ant-|live_|proj-)?[A-Za-z0-9_-]{20,}/, /gh[pousr]_[A-Za-z0-9]{30,}/, /AIza[0-9A-Za-z_-]{35}/, /AQ\.[A-Za-z0-9_-]{30,}/, /xox[baprs]-[A-Za-z0-9-]{10,}/, /-----BEGIN [A-Z ]*PRIVATE KEY-----/, /(?:api[_-]?key|secret|token)["'\s]*[:=]\s*["'][A-Za-z0-9_\-]{16,}["']/i];
