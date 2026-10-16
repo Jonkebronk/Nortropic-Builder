@@ -1263,3 +1263,13 @@ Spärren var `"disableClaudeAiConnectors": true` i `~/.claude-bygg/settings.json
 - Alla MCP-servrar i inventeringen läggs till i byggsessionen (lokal scope, aldrig `.mcp.json` i det publika repot). Servrar utan konto fungerar direkt; Johnny loggar in på dem med OAuth via `/mcp` och lägger själv in nycklar i ett eget terminalfönster. Nycklar klistras aldrig in i chatten.
 - Verktygslåset (`skript/mcp-verktygslas.py`) låser varje servers verktygslista när den första gången går att läsa och rapporterar ändringar vid varje startsäkring.
 - Andra varvets varningar gäller fortfarande som råd, och Johnny avgör vid inloggningen: Cloudflare med läs-token hellre än OAuth, aldrig Anthropics connector *Cloudflare Developer Platform* (den kan radera KV, R2 och D1), mcp-gsc kräver skrivomfång i Search Console, Grounding Lites villkor om lagring är en fråga till juristen, och nanobananas standardmodeller är avvecklade.
+
+## 2026-10-16: Avgränsningen med ~/.claude-bygg står kvar
+
+**Status:** gäller. Bekräftar `BESLUT.md` 2026-10-15 (byggsessionen avgränsas med en egen konfigurationskatalog) efter att claude.ai-connectorerna släppts på.
+
+Johnny såg inte MCP-servrarna han installerat i sin vanliga terminal och frågade: *"varför är vi avgränsade? jag trodde vi tog bort det? varför är det kvar"*. Claude förklarade att "Inga spärrar" (2026-10-15) tog bort förbudsreglerna och att spärren mot claude.ai-connectorer togs bort i dag, men att den egna katalogen `~/.claude-bygg` finns kvar så att webb-pros minne, gamla skills, superpowers-hooken och hemkatalogens `CLAUDE.md` inte laddas. Johnny valde omkring 17.20 alternativet:
+
+> Behåll den (Rekommenderas)
+
+**Innebär:** byggsessionen fortsätter med `~/.claude-bygg`. Det som ska in läggs till där, som MCP-servrarna i dag; vill Johnny ha något från sin vanliga `~/.claude` flyttar Claude det hit på begäran.
