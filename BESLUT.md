@@ -1273,3 +1273,18 @@ Johnny såg inte MCP-servrarna han installerat i sin vanliga terminal och fråga
 > Behåll den (Rekommenderas)
 
 **Innebär:** byggsessionen fortsätter med `~/.claude-bygg`. Det som ska in läggs till där, som MCP-servrarna i dag; vill Johnny ha något från sin vanliga `~/.claude` flyttar Claude det hit på begäran.
+
+## 2026-10-16: Kompetensinventeringen görs klar
+
+**Status:** gäller.
+
+Claude listade det som inte var gjort efter andra varvet (`LAGE.md`, *Nästa session – börja här*). Johnny, omkring 17.35:
+
+> jag önskar göra klart hela kompetensinventeringen klart, alltså allt under inte gjort under tiden fixar jag mcps
+
+**Innebär:**
+- Gruppernas förslag till guiden och bilagorna förs in där de är faktarättelser eller förtydliganden; förslag som ändrar en regel eller ett beslut läggs fram för Johnny.
+- De föreslagna kontrollerna byggs, som rapportkontroller om inte en norm eller två oberoende primärkällor bär regeln, och var och en prövas mot en felbank där den måste fallera.
+- Varje egen skill mäts mot en baslinje utan skillen (metoden i `.claude/skills/larande/baslinje.md`).
+- De nya posterna i inventeringen får källkort, de ändrade källorna läses om, och luckornas status uppdateras.
+- Placeringarna och prov på riktiga telefoner och med skärmläsare kräver Johnnys besked.
