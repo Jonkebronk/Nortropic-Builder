@@ -34,7 +34,23 @@ Ordagrant i `BESLUT.md`, *Stående uppdrag fram till nästa övningssajt*. Punkt
 - **VoiceOver:** manuset `sites/torsokliniken/voiceover-manus.md` på en iPhone. Sajten måste då nås från telefonen.
 - **Förslagen G14–G16.**
 - **Kunden:** samtycket till behandlingsfotot och företagsformen.
-- **Granskningsråd, jämförelse och processen** (Johnny 2026-10-17, efter att hans fru föredrog originalet): rapporten `kunskap/research/2026-10-17_granskningsrad-och-processen.md` med förslagen F1–F8. Väntar på Johnnys ja eller nej. Pilot på Torsokliniken när Fable är klar och sajten står still.
+- **Granskningsråd, jämförelse och processen** (rapporten `kunskap/research/2026-10-17_granskningsrad-och-processen.md`; `BESLUT.md` 2026-10-17, *Riktiga människor dömer sajten …*).
+  - **Johnnys beslut:**
+    - Riktiga människor svarar på en enkät via sms eller WhatsApp, i Google Formulär.
+    - Övningsfirmans bilder får visas i en sluten krets.
+    - AI-rådet körs som pilot.
+    - Gemini blir andra modell i rådet.
+  - **Byggt (`8b08623`):** Apps Script-webbappen `skript/enkat/` och bildskriptet `skript/enkat-bilder.mjs` (provkört mot sajten och originalet).
+  - **Väntar på Johnny:**
+    - Engångsinställningen i `skript/enkat/README.md`, cirka fem minuter.
+    - Gemini-nyckeln i `~/.claude-bygg/nycklar/gemini`, som han lägger in i ett eget terminalfönster.
+    - Att Fable blir klar, så att sajten står still.
+  - **Därefter (Claude):**
+    1. Ta bilder: vår sajt, originalet och gärna Citykiropraktikern.
+    2. Skapa mappen *Nortropic enkäter* och ladda upp med Drive-kopplingen, med Johnnys ja.
+    3. Johnny trycker *Skapa* och skickar länken till 10–20 personer.
+    4. Bygg AI-rådet (F2) med Claude och Gemini.
+    5. Läs svaren och jämför rådets dom med människornas.
 
 ## Nästa session – börja här (skrivet 2026-10-16 kl. 19.39)
 
