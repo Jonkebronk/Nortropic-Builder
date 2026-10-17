@@ -1735,3 +1735,16 @@ Det betyder, enligt skillen `/nortropic-premium-pass`:
 - Passet körs utan paus mellan dimensionerna, med skärmbild i 1440 och 390 efter varje.
 - Innehåll, struktur och affärslogik rörs inte (skillen). Det enda copyförslaget, bokningsbandets upprepning, är struket i riktningen som *bort*.
 - Öppet för Johnny i efterhand: kitregeln i `guide/2-5-yta.md` (Lugn och Varm delar två axlar när Lugn får serifrubrik), och om ändringarna lyfts in i biblioteket (`larande`).
+
+## 2026-10-17: Riktiga människor dömer sajten, med en enkel enkät
+
+**Status:** gäller. Hur enkäten byggs och om övningsfirmans bilder får visas väntar på Johnnys svar.
+
+Claude lade fram rapporten `kunskap/research/2026-10-17_granskningsrad-och-processen.md` med tre frågor: AI-rådets jämförelse som pilot på Torsokliniken, hur riktiga människor ska rekryteras, och en andra AI-modell i rådet. Johnny:
+
+> ja, riktiga människor och det här skulle jag vilja att förenklar, tex att vi skickar ut på sms eller whatsupp eller att jag kan kopiera och skicka ut på något vis för att få en snabb återkoppling, det blir liksom en enkät. Det ska sägas att det inte alltid kunder har en hemsida utan vi kan ha gjort ett nybygge också.
+
+**Innebär:**
+- Riktiga människor dömer sajterna. Enkäten är så enkel att Johnny kan klistra in en länk i ett sms eller i WhatsApp och få svar snabbt.
+- Finns en gammal sajt jämförs den nya med den. Är sajten ett nybygge jämförs den med lokala konkurrenter eller med byråns egna riktningar.
+- Frågan om en andra AI-modell i rådet är inte besvarad.
