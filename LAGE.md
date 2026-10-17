@@ -42,7 +42,7 @@ Ordagrant i `BESLUT.md`, *Stående uppdrag fram till nästa övningssajt*. Punkt
     - Gemini blir andra modell i rådet.
   - **Byggt (`8b08623`):** Apps Script-webbappen `skript/enkat/` och bildskriptet `skript/enkat-bilder.mjs` (provkört mot sajten och originalet).
   - **Väntar på Johnny:**
-    - Engångsinställningen i `skript/enkat/README.md`, cirka fem minuter.
+    - (Gjort 09.38: projektet *Nortropic enkät*, mappen *Nortropic enkäter* och webbappen, distribuerad som version 1. Claude lade in koden via Chrome och Johnny godkände behörigheterna. Adresserna står i `~/.claude-bygg/enkat.txt`, utanför repot.)
     - Gemini-nyckeln i `~/.claude-bygg/nycklar/gemini`, som han lägger in i ett eget terminalfönster.
     - Att Fable blir klar, så att sajten står still.
   - **Därefter (Claude):**
@@ -297,7 +297,7 @@ Johnny beslutade omkring 12.11 att kompetensen ur inventeringen ska in i alla la
 - **Push från Macen:** git har `osxkeychain` som inloggning och kan hänga på en behörighetsruta i nyckelringen. `gh` är inloggat som Jonkebronk och fungerar. Pusha med `git -c credential.helper= -c 'credential.helper=!gh auth git-credential' push origin main`, eller låt Johnny köra `gh auth setup-git` en gång, vilket ändrar hans globala git-konfiguration.
 - `mattstock/verktyg/matning.py` mäter granskaren mot Johnnys domar (TPR och TNR, också för de säkra domarna) och visar Claudes förväntan som jämförelse. Bildnamnen från `fanga.js`: `-m.jpg` är hela mobilsidan, `-d.jpg` datorns första skärm och `-hel.jpg` hela datorsidan. Chromium klipper skärmbilder över 16 384 px, så fånga höga mobilsidor i dubbel upplösning.
 - **Prov och ändringar av byggsessionens egen konfiguration:** i auto mode stoppade klassaren proven som *Auto-Mode Bypass*, läsningen av `.claude.json` som *Credential Exploration* och en ändring av `~/.claude-bygg/settings.json` som *Self-Modification*. Ändringen gick igenom när Johnny hade sagt till uttryckligen. Prov kan köras från en session i den vanliga konfigurationen.
-- **`claude-in-chrome` styr webbläsaren på Johnnys Windows-dator, inte på Macen.** Lokala sidor visas på Macen med `open http://127.0.0.1:<port>/`. Chrome DevTools MCP och Playwright MCP kör däremot headless på Macen och når förhandsvisningen (`.claude/skills/kvalitet/webblasarverktyg.md`).
+- **`claude-in-chrome` styr Johnnys inloggade Chrome.** 2026-10-17 var det Chrome på Macen (`navigator.platform` MacIntel); tidigare sågs Windows-datorn. Lokala sidor visas på Macen med `open http://127.0.0.1:<port>/`. Chrome DevTools MCP och Playwright MCP kör däremot headless på Macen och når förhandsvisningen (`.claude/skills/kvalitet/webblasarverktyg.md`).
 - **Astro 7 kör `astro dev` och `astro preview` som bakgrundsprocesser.** Stoppa dem med `npx astro dev stop` eller `npx astro preview stop` i projektets katalog.
 - **Startsäkringen** `skript/startsakring.sh` körs först i varje session (`CLAUDE.md`). Den uppdaterar allt till senaste version och skriver vad som ändrades.
 - `konsolidering/bygg_n1.py` genererar N1-sammanfattningen. Skriptet kräver Python 3.10 eller senare. På Macen är `python3` version 3.9, så kör det med `/opt/homebrew/bin/python3.12`.
