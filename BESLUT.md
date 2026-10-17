@@ -1725,3 +1725,13 @@ Underlaget är två kartläggningar 2026-10-17 av premiumpassets grupp B och av 
   - Sidfotens rubriker, som står kvar enligt D10.
 - **Provsidorna G8 och G9:** `/prov/varm/` och `/prov/djarv/` i sajten, med sajtens innehåll och Peters foto, noindex och utanför `sitemap.xml`. Johnny dömer kiten där.
 - **`'strict-dynamic'` (frågelistan 10):** provat och inte infört. Astros moduler stoppades. Frågan står i bilaga E.
+
+## 2026-10-17: Premiumpasset på Torsokliniken – riktningen godkänd, alla åtta dimensionerna
+
+**Johnny 2026-10-17 kl. 08.13**, efter auditen och riktningen i designsystemet (https://claude.ai/artifact/4DUVgfXftUajCr41MHpwon, avsnittet *Riktning*), ordagrant: *"Riktningen är godkänd. Kör allt, alla åtta dimensionerna, och visa resultatet med skärmbilder efter varje."*
+
+Det betyder, enligt skillen `/nortropic-premium-pass`:
+- Riktningens sex rader gäller: Instrument Serif som display med Instrument Sans; accent bara på handlingar; kort blir linjer och luft; porträttet till kanten; sparsam rörelse kvar; fotona markeras blockerande och shotlisten går före kundvisning.
+- Passet körs utan paus mellan dimensionerna, med skärmbild i 1440 och 390 efter varje.
+- Innehåll, struktur och affärslogik rörs inte (skillen). Det enda copyförslaget, bokningsbandets upprepning, är struket i riktningen som *bort*.
+- Öppet för Johnny i efterhand: kitregeln i `guide/2-5-yta.md` (Lugn och Varm delar två axlar när Lugn får serifrubrik), och om ändringarna lyfts in i biblioteket (`larande`).
