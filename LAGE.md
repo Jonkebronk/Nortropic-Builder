@@ -1,6 +1,6 @@
 # Läget
 
-Uppdaterad 2026-10-17 kl. 01.00 på Johnnys Mac, i den första byggsessionen (`claude-bygg`).
+Uppdaterad 2026-10-17 kl. 10.59 på Johnnys Mac, i byggsessionen (`claude-bygg`).
 
 ## Stående uppdrag (Johnny 2026-10-16 kl. 23.45) – klart 2026-10-17 kl. 01.00
 
@@ -28,6 +28,11 @@ Ordagrant i `BESLUT.md`, *Stående uppdrag fram till nästa övningssajt*. Punkt
 
 **Väntar på Johnny:**
 - **Premiumpasset är genomfört** (2026-10-17, 08.13–08.40, Johnny: *"Riktningen är godkänd. Kör allt …"*, `BESLUT.md`): åtta dimensioner i sajtens kopior, biblioteket orört. Kontrollskriptet efteråt: bara 5b stoppar, axe 0, tillgänglighet 100 på 22 mätningar. Läs sajtens `genomgang.md`, avsnitt 6, och `design.md`. Designsystemet: https://claude.ai/artifact/4DUVgfXftUajCr41MHpwon. **Väntar på Johnny:** domen över passet (före och efter i sajtens `premiumpass-2026-10-17/`), kitregeln (Lugn med serif delar två axlar med Varm), om ändringarna lyfts in i biblioteket, shotlisten till kunden, och de fyra strukturfynden från kritiken i färsk session.
+- **Googles tjänster, Stitch och Lovable** (2026-10-17, rapporten `kunskap/research/2026-10-17_google-tjanster-stitch-och-lovable.md`; omstarten 09.53 avbröt tre av spåren, som kördes om med det som redan var läst):
+  - **Svaret:** ingen AI Pro eller Ultra nu. Gemini CLI kan inte längre logga in med Google-konto (sedan 2026-06-18). Gemini-nyckeln skaffas därför i AI Studio med betald nivå (5 USD i förbetalning).
+  - **Fynd som rör guiden:** Google-profilens API-data får sparas högst 30 dagar och får inte aggregeras. Det krockar med ögonblicksbilden per månad i 2-9 och med portalens cache på N4 (tolkning). Places API får inte användas till konkurrentanalys i EES. PSI slutar ge fältdata, så CrUX API används.
+  - **Stitch** står kvar som struken. **Lovable** avstås för portalen. Katalogen föreslås som checklista för N4.
+  - **Väntar på Johnny:** förslagen 1–10 i rapporten. Han svarade *"ja, det är ju analytics"* på 30-dagarsfrågan; Claude frågade om det är ja till förslaget (färsk hämtning, frågan till juristen och en rad i 2-9). Inget är infört i `BESLUT.md` eller guiden.
 - **Premiumkontrollen.** Börja med listan *Granska själv först* i sajtens `genomgang.md`, avsnitt 5.
 - **Domarna i efterhand** över de delegerade avgörandena.
 - **Varm och Djärv:** provsidorna `/prov/varm/` och `/prov/djarv/` på förhandsvisningen (`http://127.0.0.1:4322/`).
