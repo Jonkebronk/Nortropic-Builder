@@ -34,6 +34,7 @@ Ordagrant i `BESLUT.md`, *Stående uppdrag fram till nästa övningssajt*. Punkt
 - **VoiceOver:** manuset `sites/torsokliniken/voiceover-manus.md` på en iPhone. Sajten måste då nås från telefonen.
 - **Förslagen G14–G16.**
 - **Kunden:** samtycket till behandlingsfotot och företagsformen.
+- **Granskningsråd, jämförelse och processen** (Johnny 2026-10-17, efter att hans fru föredrog originalet): rapporten `kunskap/research/2026-10-17_granskningsrad-och-processen.md` med förslagen F1–F8. Väntar på Johnnys ja eller nej. Pilot på Torsokliniken när Fable är klar och sajten står still.
 
 ## Nästa session – börja här (skrivet 2026-10-16 kl. 19.39)
 
