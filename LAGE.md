@@ -27,7 +27,7 @@ Ordagrant i `BESLUT.md`, *Stående uppdrag fram till nästa övningssajt*. Punkt
    - Tillägget står i sajtens `genomgang.md` (avsnitt 5, med förslagen G14–G16), och `progress.md` är uppdaterad.
 
 **Väntar på Johnny:**
-- **Premiumpassets riktning** (2026-10-17 kl. 08.15, `/nortropic-premium-pass` på förhandsvisningen): audit och riktning står i designsystemet https://claude.ai/artifact/4DUVgfXftUajCr41MHpwon (avsnittet *Riktning*). Före-bilderna i sajtens `premiumpass-2026-10-17/`. Passet fortsätter först när Johnny sagt ja till riktningen, eller "kör allt".
+- **Premiumpasset är genomfört** (2026-10-17, 08.13–08.40, Johnny: *"Riktningen är godkänd. Kör allt …"*, `BESLUT.md`): åtta dimensioner i sajtens kopior, biblioteket orört. Läs sajtens `genomgang.md`, avsnitt 6, och `design.md`. Designsystemet: https://claude.ai/artifact/4DUVgfXftUajCr41MHpwon. **Väntar på Johnny:** domen över passet (före och efter i sajtens `premiumpass-2026-10-17/`), kitregeln (Lugn med serif delar två axlar med Varm), om ändringarna lyfts in i biblioteket, shotlisten till kunden, och de fyra strukturfynden från kritiken i färsk session.
 - **Premiumkontrollen.** Börja med listan *Granska själv först* i sajtens `genomgang.md`, avsnitt 5.
 - **Domarna i efterhand** över de delegerade avgörandena.
 - **Varm och Djärv:** provsidorna `/prov/varm/` och `/prov/djarv/` på förhandsvisningen (`http://127.0.0.1:4322/`).
