@@ -1738,7 +1738,7 @@ Det betyder, enligt skillen `/nortropic-premium-pass`:
 
 ## 2026-10-17: Riktiga människor dömer sajten, med en enkel enkät
 
-**Status:** gäller. Hur enkäten byggs och om övningsfirmans bilder får visas väntar på Johnnys svar.
+**Status:** gäller.
 
 Claude lade fram rapporten `kunskap/research/2026-10-17_granskningsrad-och-processen.md` med tre frågor: AI-rådets jämförelse som pilot på Torsokliniken, hur riktiga människor ska rekryteras, och en andra AI-modell i rådet. Johnny, omkring kl. 09.15:
 
@@ -1747,4 +1747,8 @@ Claude lade fram rapporten `kunskap/research/2026-10-17_granskningsrad-och-proce
 **Innebär:**
 - Riktiga människor dömer sajterna. Enkäten är så enkel att Johnny kan klistra in en länk i ett sms eller i WhatsApp och få svar snabbt.
 - Finns en gammal sajt jämförs den nya med den. Är sajten ett nybygge jämförs den med lokala konkurrenter eller med byråns egna riktningar.
-- Frågan om en andra AI-modell i rådet är inte besvarad.
+- Claude föreslog att börja med bilder i WhatsApp och ta Google Formulär om enkäten blir en vana. Johnny, omkring kl. 09.25: *"kan man inte göra nåt enklare än jotform med typ google integrationer?"* och sedan: *"steg 2, du kan bygga med integrationer, du kan websearcha och läsa dokumentation."* Enkäten byggs alltså i Google Formulär, och Claude bygger den med Googles integrationer.
+- Johnny, omkring kl. 09.35, på frågan om övningsfirmans bilder får visas för andra: *"ja i en sluten krets."* På frågorna i rapporten: *"ja till ai-råde, 2 är bevarad, 3 ja gemini låter bra"*.
+  - Skärmbilderna av Torsoklinikens gamla sajt och vår version får visas i enkäten, men bara i en sluten krets: personer som inte känner firman, med en uppmaning att inte sprida bilderna.
+  - AI-rådet körs som pilot på Torsokliniken (förslag F2 i rapporten).
+  - Rådet får Gemini som andra modellfamilj. Nyckeln lägger Johnny själv in i ett eget terminalfönster, aldrig i chatten.
