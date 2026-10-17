@@ -27,6 +27,7 @@ Ordagrant i `BESLUT.md`, *Stående uppdrag fram till nästa övningssajt*. Punkt
    - Tillägget står i sajtens `genomgang.md` (avsnitt 5, med förslagen G14–G16), och `progress.md` är uppdaterad.
 
 **Väntar på Johnny:**
+- **Premiumpassets riktning** (2026-10-17 kl. 08.15, `/nortropic-premium-pass` på förhandsvisningen): audit och riktning står i designsystemet https://claude.ai/artifact/4DUVgfXftUajCr41MHpwon (avsnittet *Riktning*). Före-bilderna i sajtens `premiumpass-2026-10-17/`. Passet fortsätter först när Johnny sagt ja till riktningen, eller "kör allt".
 - **Premiumkontrollen.** Börja med listan *Granska själv först* i sajtens `genomgang.md`, avsnitt 5.
 - **Domarna i efterhand** över de delegerade avgörandena.
 - **Varm och Djärv:** provsidorna `/prov/varm/` och `/prov/djarv/` på förhandsvisningen (`http://127.0.0.1:4322/`).
