@@ -1740,7 +1740,7 @@ Det betyder, enligt skillen `/nortropic-premium-pass`:
 
 **Status:** gäller. Hur enkäten byggs och om övningsfirmans bilder får visas väntar på Johnnys svar.
 
-Claude lade fram rapporten `kunskap/research/2026-10-17_granskningsrad-och-processen.md` med tre frågor: AI-rådets jämförelse som pilot på Torsokliniken, hur riktiga människor ska rekryteras, och en andra AI-modell i rådet. Johnny:
+Claude lade fram rapporten `kunskap/research/2026-10-17_granskningsrad-och-processen.md` med tre frågor: AI-rådets jämförelse som pilot på Torsokliniken, hur riktiga människor ska rekryteras, och en andra AI-modell i rådet. Johnny, omkring kl. 09.15:
 
 > ja, riktiga människor och det här skulle jag vilja att förenklar, tex att vi skickar ut på sms eller whatsupp eller att jag kan kopiera och skicka ut på något vis för att få en snabb återkoppling, det blir liksom en enkät. Det ska sägas att det inte alltid kunder har en hemsida utan vi kan ha gjort ett nybygge också.
 
